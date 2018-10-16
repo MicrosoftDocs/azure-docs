@@ -1,24 +1,18 @@
 ---
-title: Monitor B2B transactions and set up logging - Azure Logic Apps | Microsoft Docs
-description: Monitor AS2, X12, and EDIFACT messages, start diagnostics logging for your integration account
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Monitor B2B messages and set up logging - Azure Logic Apps | Microsoft Docs
+description: Monitor AS2, X12, and EDIFACT messages. Set up diagnostics logging for your integration account in Azure Logic Apps.
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017 
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.author: LADocs; padmavc
 ---
 
-# Monitor and set up diagnostics logging for B2B communication in integration accounts
+# Monitor B2B messages and set up logging for integration accounts in Azure Logic Apps
 
 After you set up B2B communication between two running business 
 processes or applications through your integration account, 
@@ -53,7 +47,7 @@ Learn [how to set up logging for that logic app](../logic-apps/logic-apps-monito
 You can turn on logging either directly from your integration account 
 or [through the Azure Monitor service](#azure-monitor-service). 
 Azure Monitor provides basic monitoring with infrastructure-level data. 
-Learn more about [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
+Learn more about [Azure Monitor](../azure-monitor/overview.md).
 
 ### Turn on diagnostics logging directly from your integration account
 

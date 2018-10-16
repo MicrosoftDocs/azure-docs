@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -23,6 +23,8 @@ To deploy your solution, you can use either a single template or a main template
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components, and reuse templates.
 
 When using linked template, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
+
+For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 
 ## Link or nest a template
 
@@ -42,7 +44,9 @@ To link to another template, add a **deployments** resource to your main templat
 ]
 ```
 
-The properties you provide for the deployment resource vary based on whether you are linking to an external template or nesting an inline template in the main template.
+The properties you provide for the deployment resource vary based on whether you're linking to an external template or nesting an inline template in the main template.
+
+For both linked and nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
 
 ### Nested template
 
@@ -79,7 +83,7 @@ To nest the template within the main template, use the **template** property and
 > [!NOTE]
 > For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
 >
-> You cannot use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+> You can't use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 The nested template requires the [same properties](resource-group-authoring-templates.md) as a standard template.
 
@@ -94,7 +98,7 @@ To link to an external template and parameter file, use **templateLink** and **p
      "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
      "properties": {
-       "mode": "incremental",
+       "mode": "Incremental",
        "templateLink": {
           "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
           "contentVersion":"1.0.0.0"
@@ -112,7 +116,9 @@ You don't have to provide the `contentVersion` property for the template or para
 
 ### External template and inline parameters
 
-Or, you can provide the parameter inline. To pass a value from the main template to the linked template, use **parameters**.
+Or, you can provide the parameter inline. You can't use both inline parameters and a link to a parameter file. The deployment fails with an error when both `parametersLink` and `parameters` are specified.
+
+To pass a value from the main template to the linked template, use **parameters**.
 
 ```json
 "resources": [
@@ -121,7 +127,7 @@ Or, you can provide the parameter inline. To pass a value from the main template
      "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
      "properties": {
-       "mode": "incremental",
+       "mode": "Incremental",
        "templateLink": {
           "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
           "contentVersion":"1.0.0.0"
@@ -192,7 +198,7 @@ The main template deploys the linked template and gets the returned value. Notic
             "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
-                "mode": "incremental",
+                "mode": "Incremental",
                 "templateLink": {
                     "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
                     "contentVersion": "1.0.0.0"
@@ -433,7 +439,7 @@ The following example shows how to pass a SAS token when linking to a template:
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
-        "mode": "incremental",
+        "mode": "Incremental",
         "templateLink": {
           "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
           "contentVersion": "1.0.0.0"
@@ -490,6 +496,7 @@ The following examples show common uses of linked templates.
 
 ## Next steps
 
+* To go through a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 * To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
 * To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md).

@@ -1,5 +1,5 @@
 - name: VM Extensions Documentation
-  href: ../index.md
+  href: ../index.yml
 - name: Overview
   items:
   - name: About Azure Extensions
@@ -32,13 +32,13 @@
     items:
     - name: Linux - version 2
       href: custom-script-linux.md
-    - name: Linux - version 1 (OSTC)
-      href: custom-script-linuxOstc.md
     - name: Windows
       href: custom-script-windows.md
     - name: Azure Service Management (Classic)
       href: custom-script-classic.md
-  - name: Diagnostics 
+  - name: IaaS antimalware for Windows
+    href: iaas-antimalware-windows.md
+  - name: VM snapshot
     items:
     - name: Linux
       href: vmsnapshot-linux.md
@@ -56,7 +56,7 @@
       href: hpccompute-gpu-linux.md
     - name: Windows
       href: hpccompute-gpu-windows.md
-  - name: Operations Management suite
+  - name: Log Analytics
     items:
     - name: Linux
       href: oms-linux.md
@@ -75,7 +75,7 @@
       href: dsc-template.md
   - name: Virtual machine access
     href: vmaccess.md
-  - name: Virtual machine Diagnostics 
+  - name: Virtual machine diagnostics 
     items:
     - name: Linux
       href: diagnostics-linux.md
@@ -85,6 +85,8 @@
       href: diagnostics-template.md
   - name: Third-party extensions
     items:
+    - name: Chef
+      href: chef.md
     - name: Stackify Retrace
       href: stackify-retrace-linux.md
     - name: Symantec
@@ -95,6 +97,8 @@
       href: log-collector.md
     - name: Trend Micro Deep Security
       href: trend.md
+    - name: Linux - version 1 (OSTC)
+      href: custom-script-linuxOstc.md
   - name: Restrict extension installation
     items:
     - name: Linux

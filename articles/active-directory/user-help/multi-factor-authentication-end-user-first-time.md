@@ -1,23 +1,19 @@
 ---
-title: Set up two-step verification - Azure AD | Microsoft Docs
+title: Set up two-step verification - Azure Active Directory | Microsoft Docs
 description: When your company configures Azure Multi-Factor Authentication, you will be prompted to sign up for two-step verification. Learn how to set it up.
-services: multi-factor-authentication
+services: active-directory
 keywords: how to use azure directory, active directory in the cloud, active directory tutorial
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
-ms.service: multi-factor-authentication
+
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.custom: end-user
-experimental: true
-experiment_id: 833be599-1785-4f
 ---
 
 # Set up my account for two-step verification
@@ -47,6 +43,9 @@ The first question in the enrollment process is how you want us to contact you. 
 
 ## Use a mobile app as the contact method
 Using this method requires that you install an authenticator app on your phone or tablet. The steps in this article are based on the Microsoft Authenticator app, which is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>You don’t have to use the Microsoft Authenticator app. If you’re already using another authenticator app, you can continue to use it.
 
 1. Select **Mobile app** from the drop-down list.
 2. Select either **Receive notifications for verification** or **Use verification code**, then select **Set up**.

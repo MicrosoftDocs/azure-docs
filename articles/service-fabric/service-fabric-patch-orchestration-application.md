@@ -136,7 +136,7 @@ Automatic Windows updates might lead to availability loss because multiple clust
 
 Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=869567). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v1.2.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -391,6 +391,12 @@ An administrator must intervene and determine why the application or cluster bec
 - Bug fix in creation of RM tasks due to which health check during preparing repair tasks wasn't happening as expected.
 - Changed the startup mode for windows service POANodeSvc from auto to delayed-auto.
 
-### Version 1.2.1 (Latest)
+### Version 1.2.1
 
 - Bug fix in cluster scale-down workflow. Introduced garbage collection logic for POA repair tasks belonging to non-existent nodes.
+
+### Version 1.2.2 (Latest)
+
+- Miscellaneous bug fixes.
+- Binaries are now signed.
+- sfpkg download link now points to a specific version.

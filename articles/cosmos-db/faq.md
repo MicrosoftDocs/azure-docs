@@ -9,18 +9,12 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
 
 ---
 # Azure Cosmos DB FAQ
 ## Azure Cosmos DB fundamentals
-### What is Azure Cosmos DB?
-Azure Cosmos DB is a globally replicated, multi-model database service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development. It's all achieved through a managed platform that's backed by the power and reach of Microsoft Azure. 
-
-Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. It delivers schema flexibility and rich indexing, and it includes multi-document transactional support with integrated JavaScript. 
-
-For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### What happened to the DocumentDB API?
 
@@ -30,7 +24,7 @@ If you had a DocumentDB API account before, you now have a SQL API account, with
 
 ### What happened to Azure DocumentDB as a service?
 
-The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Graph API, Table API, MongoDB API, and Cassandra API (Preview).
+The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Gremlin API, Table API, MongoDB API, and Cassandra API (Preview).
 
 ### What are the typical use cases for Azure Cosmos DB?
 Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applications where automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. Azure Cosmos DB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user-generated content and data are [common use cases for Azure Cosmos DB](use-cases.md). 
@@ -38,11 +32,11 @@ Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applicatio
 ### How does Azure Cosmos DB offer predictable performance?
 A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
 
-You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to refers to a SQL API collection, Graph API graph, MongoDB API collection, and Table API table. 
+You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to refers to a SQL API collection, Gremlin API graph, MongoDB API collection, and Table API table. 
 
 ### How does Azure Cosmos DB support various data models such as key/value, columnar, document and graph?
 
-Key/value (table), columnar, document and graph data models are all natively supported because of the ARS (atoms, records and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (SQL, MongoDB, Table, and Graph APIs) and others specific to additional data models will be available in the future.
+Key/value (table), columnar, document and graph data models are all natively supported because of the ARS (atoms, records and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (SQL, MongoDB, Table, and Gremlin APIs) and others specific to additional data models will be available in the future.
 
 Azure Cosmos DB has a schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, tree) which decouple the storage layout from the index and query processing subsystems. Cosmos DB also has the ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2) making it uniquely capable of supporting multiple data models natively.
 
@@ -59,7 +53,7 @@ There is no limit to the total amount of throughput that a container can support
 Yes both modes are always fully encrypted. 
 
 ### How much does Azure Cosmos DB cost?
-For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the SQL API collection, Graph API graph, MongoDB API collection, and Table API tables. 
+For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the SQL API collection, Gremlin API (Graph), MongoDB API collection, and Table API tables. 
 
 ### Is a free account available?
 Yes, you can sign up for a time-limited account at no charge, with no commitment. To sign up, visit [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) or read more in the [Try Azure Cosmos DB FAQ](#try-cosmos-db).
@@ -80,8 +74,8 @@ To fix an issue with your account, file a [support request](https://ms.portal.az
 
 Other questions can be submitted to the team at [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com); however this is not a technical support alias. 
 
-<a id="try-cosmos-db"></a>
-## Try Azure Cosmos DB subscriptions
+
+## <a id="try-cosmos-db"></a>Try Azure Cosmos DB subscriptions
 
 You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used in addition to an Azure Free Trial or an Azure paid subscription. 
 
@@ -89,7 +83,7 @@ Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscrip
 
 The following conditions apply to Try Azure Cosmos DB subscriptions:
 
-* One container per subscription for SQL, Gremlin (Graph API), and Table accounts.
+* One container per subscription for SQL, Gremlin API, and Table accounts.
 * Up to 3 collections per subscription for MongoDB accounts.
 * 10 GB storage capacity.
 * Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe and Southeast Asia
@@ -99,7 +93,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
-Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a SQL API, Graph API, Table API, MongoDB API, or Cassandra API account to your Azure subscription.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a SQL API, Gremlin API, Table API, MongoDB API, or Cassandra API account to your Azure subscription.
 
 ### What is a master key?
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-account.md#keys).
@@ -120,7 +114,11 @@ Container and database level throughput provisioning are separate offerings and 
 
 Currently you can create collection with a partition key throughput by using the [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) method of .Net SDK or by using the [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Creating a fixed collection by using Azure portal is not currenlty supported.  
 
-## Develop against the SQL API
+### Does Azure CosmosDB support time series analysis? 
+Yes Azure CosmosDB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
+
+
+## SQL API
 
 ### How do I start developing against the SQL API?
 First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add a SQL API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](create-sql-api-dotnet.md#create-account). 
@@ -191,7 +189,7 @@ This is limitation of JavaScript. JavaScript uses double-precision floating-poin
 Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level is not currently allowed.
 
 
-## Develop against the API for MongoDB
+## MongoDB API
 ### What is the Azure Cosmos DB API for MongoDB?
 The Azure Cosmos DB API for MongoDB is a compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), and so on.
 
@@ -211,7 +209,11 @@ In addition to the common MongoDB error codes, the MongoDB API has its own speci
 | TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput  assigned to a container or a set of containers from the Azure portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-## Develop with the Table API
+### Is the Simba driver for MongoDB supported for use with Azure CosmosDB MongoDB API?
+Yes, you can use Simba’s Mongo ODBC driver with Azure CosmosDB MongoDB API
+
+
+## <a id="table"></a>Table API
 
 ### How can I use the Table API offering? 
 The Azure Cosmos DB Table API is available in the [Azure portal][azure-portal]. First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. 
@@ -442,18 +444,135 @@ Azure Table storage and Azure Cosmos DB Table API use the same SDKs so most of t
 ### Why do I get throttled when I try to create lot of tables one after another in the Table API?
 Azure Cosmos DB is an SLA-based system that provides latency, throughput, availability, and consistency guarantees. Because it is a provisioned system, it reserves resources to guarantee these requirements. The rapid rate of creation of tables is detected and throttled. We recommend that you look at the rate of creation of tables and lower it to less than 5 per minute. Remember that the Table API is a provisioned system. The moment you provision it, you will begin to pay for it. 
 
-## Develop against the Graph API
-### How can I apply the functionality of Graph API to Azure Cosmos DB?
-You can use an extension library to apply the functionality of Graph API. This library is called Microsoft Azure Graphs, and it is available on NuGet. 
+## Gremlin API
 
-### It looks like you support the Gremlin graph traversal language. Do you plan to add more forms of query?
-Yes, we plan to add other mechanisms for query in the future. 
+### For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET? 
 
-### How can I use the new Graph API offering? 
-To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
+Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](http://tinkerpop.apache.org/).
 
-<a id="cassandra"></a> 
-## Develop with the Apache Cassandra API (preview)
+### How are RU/s charged when running queries on a graph database? 
+
+All graph objects, vertices and edges, are represented as JSON documents in the backend. Since one Gremlin query can modify one or many graph objects at a time, the cost associated with it isbe directly related to the objects, edges that are processed by the query. This is the same process that Azure Cosmos DB uses for all other APIs. For more information, see [Request Units in Azure Cosmos DB](request-units.md).
+
+The RU charge is based on the working data set of the traversal, and not the result set. For example, if a query aims to obtain a single vertex as a result but needs to traverse multiple other objects on the way, then the cost will be based on all the graph objects that it will take to compute the one result vertex.
+
+### What’s the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API? 
+
+Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the amount of partitions that are associated with a given collection. However, a Gremlin API collection has a specific set of guidelines to ensure a proper performance experience at scale. For more information and best practices, see [partitioning best practices](partition-data.md#best-practices-when-choosing-a-partition-key) document. 
+
+### How can I protect against injection attacks using Gremlin drivers? 
+
+Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+
+### Why am I getting the “Gremlin Query Compilation Error: Unable to find any method” error?
+
+Azure Cosmos DB Gremlin API implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information please see [Gremlin support](gremlin-support.md) article.
+
+The best workaround is to re-write the required Gremlin steps with the supported functionality, since all essential Gremlin steps are supported by Azure Cosmos DB.
+
+### Why am I getting the “WebSocketException: The server returned status code '200' when status code '101' was expected” error?
+
+This error is likely thrown when the wrong endpoint is being used. The endpoint that generates this error has the following pattern:
+
+`https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/` 
+
+This is the documents endpoint for your graph database.  The correct endpoint to use is the Gremlin Endpoint, which has the following format: 
+
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+
+### Why am I getting the “RequestRateIsTooLarge” error?
+
+This error means that the allocated Request Units per second are not enough to serve the query. This error is usually seen when you run a query that obtains all vertices:
+
+```
+// Query example:
+g.V()
+```
+
+This query will attempt to retrieve all vertices from the graph. So, the cost of this query will be equal to at least the number of vertices in terms of RUs. The RU/s setting should be adjusted to address this query.
+
+### Why do my Gremlin driver connections get dropped eventually?
+
+A Gremlin connection is made through a WebSocket connection. Although WebSocket connections do not have a specific time to live, Azure Cosmos DB Gremlin API will terminate idle connections after 30 minutes of inactivity. 
+
+### Why can’t I use fluent API calls in the native Gremlin drivers?
+
+Fluent API calls are not yet supported by the Azure Cosmos DB Gremlin API. Fluent API calls require an internal formatting feature known as bytecode support which is currently not supported by Azure Cosmos DB Gremlin API. Due to the same reason, the latest Gremlin-JavaScript driver is also currently not supported. 
+
+### How can I evaluate the efficiency of my Gremlin queries?
+
+The **executionProfile()** preview step can be used to provide an analysis of the query execution plan. This step needs to be added to the end of any Gremlin query as illustrated by the following example:
+
+**Query example**
+
+```
+g.V('mary').out('knows').executionProfile()
+```
+
+**Example output**
+
+```json
+[
+  {
+    "gremlin": "g.V('mary').out('knows').executionProfile()",
+    "totalTime": 8,
+    "metrics": [
+      {
+        "name": "GetVertices",
+        "time": 3,
+        "annotations": {
+          "percentTime": 37.5
+        },
+        "counts": {
+          "resultCount": 1
+        }
+      },
+      {
+        "name": "GetEdges",
+        "time": 5,
+        "annotations": {
+          "percentTime": 62.5
+        },
+        "counts": {
+          "resultCount": 0
+        },
+        "storeOps": [
+          {
+            "partitionsAccessed": 1,
+            "count": 0,
+            "size": 0,
+            "time": 0.6
+          }
+        ]
+      },
+      {
+        "name": "GetNeighborVertices",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      },
+      {
+        "name": "ProjectOperator",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      }
+    ]
+  }
+]
+```
+
+The output of the above profile shows how much time is spent obtaining the Vertex and Edge objects, as well as the size of the working data set. This is related to the standard cost measurements for Azure Cosmos DB queries.
+
+## <a id="cassandra"></a> Cassandra API
 
 ### What is the protocol version supported in the private preview? Is there a plan to support other protocols?
 Apache Cassandra API for Azure Cosmos DB supports today CQL version 4. If you have feedback about supporting other protocols, let us know via [uservoice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 

@@ -208,6 +208,13 @@
     href: /azure/templates/Microsoft.Batch/batchAccounts
     maintainContext: true
     items:
+    - name: Applications
+      href: /azure/templates/Microsoft.Batch/batchAccounts/applications
+      maintainContext: true
+      items:
+      - name: Versions
+        href: /azure/templates/Microsoft.Batch/batchAccounts/applications/versions
+        maintainContext: true
     - name: Certificates
       href: /azure/templates/Microsoft.Batch/batchAccounts/certificates
       maintainContext: true
@@ -225,6 +232,23 @@
   - name: Jobs
     href: /azure/templates/Microsoft.BatchAI/jobs
     maintainContext: true
+  - name: Workspaces
+    href: /azure/templates/Microsoft.BatchAI/workspaces
+    maintainContext: true
+    items:
+    - name: Clusters
+      href: /azure/templates/Microsoft.BatchAI/workspaces/clusters
+      maintainContext: true
+    - name: Experiments
+      href: /azure/templates/Microsoft.BatchAI/workspaces/experiments
+      maintainContext: true
+      items:
+      - name: Jobs
+        href: /azure/templates/Microsoft.BatchAI/workspaces/experiments/jobs
+        maintainContext: true
+    - name: File Servers
+      href: /azure/templates/Microsoft.BatchAI/workspaces/fileServers
+      maintainContext: true
 - name: Cache
   items:
   - name: Redis
@@ -236,6 +260,9 @@
       maintainContext: true
     - name: Linked Servers
       href: /azure/templates/Microsoft.Cache/redis/linkedServers
+      maintainContext: true
+    - name: Patch Schedules
+      href: /azure/templates/Microsoft.Cache/redis/patchschedules
       maintainContext: true
 - name: CDN
   items:
@@ -272,11 +299,11 @@
   - name: Disks
     href: /azure/templates/Microsoft.Compute/disks
     maintainContext: true
-  - name: Galleries
+  - name: Shared Image Gallery
     href: /azure/templates/Microsoft.Compute/galleries
     maintainContext: true
     items:
-    - name: Images
+    - name: Image Definition
       href: /azure/templates/Microsoft.Compute/galleries/images
       maintainContext: true
       items:
@@ -319,6 +346,9 @@
     items:
     - name: Replications
       href: /azure/templates/Microsoft.ContainerRegistry/registries/replications
+      maintainContext: true
+    - name: Tasks
+      href: /azure/templates/Microsoft.ContainerRegistry/registries/tasks
       maintainContext: true
     - name: WebHooks
       href: /azure/templates/Microsoft.ContainerRegistry/registries/webhooks
@@ -402,6 +432,10 @@
     - name: Triggers
       href: /azure/templates/Microsoft.DataFactory/factories/triggers
       maintainContext: true
+      items:
+      - name: Rerun Triggers
+        href: /azure/templates/Microsoft.DataFactory/factories/triggers/rerunTriggers
+        maintainContext: true
 - name: Data Lake Analytics
   items:
   - name: Accounts
@@ -432,6 +466,31 @@
     - name: TrustedID Providers
       href: /azure/templates/Microsoft.DataLakeStore/accounts/trustedIdProviders
       maintainContext: true
+    - name: Virtual Network Rules
+      href: /azure/templates/Microsoft.DataLakeStore/accounts/virtualNetworkRules
+      maintainContext: true
+- name: Deployment Manager
+  items:
+  - name: Artifact Sources
+    href: /azure/templates/Microsoft.DeploymentManager/artifactSources
+    maintainContext: true
+  - name: Rollouts
+    href: /azure/templates/Microsoft.DeploymentManager/rollouts
+    maintainContext: true
+  - name: Service Topologies
+    href: /azure/templates/Microsoft.DeploymentManager/serviceTopologies
+    maintainContext: true
+    items:
+    - name: Services
+      href: /azure/templates/Microsoft.DeploymentManager/serviceTopologies/services
+      maintainContext: true
+      items:
+      - name: Service Units
+        href: /azure/templates/Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits
+        maintainContext: true
+  - name: Steps
+    href: /azure/templates/Microsoft.DeploymentManager/steps
+    maintainContext: true
 - name: Devices
   items:
   - name: Iot Hubs
@@ -580,14 +639,35 @@
   - name: Components
     href: /azure/templates/Microsoft.insights/components
     maintainContext: true
+  - name: Metric Alerts
+    href: /azure/templates/microsoft.insights/metricalerts
+    maintainContext: true
+  - name: Guest Diagnostic Settings
+    href: /azure/templates/microsoft.insights/guestdiagnosticsettings
+    maintainContext: true
+  - name: Scheduled Query Rules
+    href: /azure/templates/microsoft.insights/scheduledqueryrules
+    maintainContext: true
   - name: Web Tests
     href: /azure/templates/Microsoft.insights/webtests
+    maintainContext: true
+- name: IoT Central
+  items:
+  - name: IoT Apps
+    href: /azure/templates/Microsoft.IotCentral/IotApps
     maintainContext: true
 - name: Key Vault
   items:
   - name: Vaults
     href: /azure/templates/Microsoft.KeyVault/vaults
     maintainContext: true
+    items:
+    - name: Access Policies
+      href: /azure/templates/Microsoft.KeyVault/vaults/accessPolicies
+      maintainContext: true
+    - name: Secrets
+      href: /azure/templates/Microsoft.KeyVault/vaults/secrets
+      maintainContext: true
 - name: Location Based Services
   items:
   - name: Accounts
@@ -625,11 +705,59 @@
   - name: Web Services
     href: /azure/templates/Microsoft.MachineLearning/webServices
     maintainContext: true
+- name: MariaDB
+  items:
+  - name: Servers
+    href: /azure/templates/microsoft.dbformariadb/servers
+    maintainContext: true
+    items:
+    - name: Configurations
+      href: /azure/templates/microsoft.dbformariadb/servers/configurations
+      maintainContext: true
+    - name: Databases
+      href: /azure/templates/microsoft.dbformariadb/servers/databases
+      maintainContext: true
+    - name: Firewall Rules
+      href: /azure/templates/microsoft.dbformariadb/servers/firewallrules
+      maintainContext: true
+    - name: Security Alert Policies
+      href: /azure/templates/microsoft.dbformariadb/servers/securityalertpolicies
+      maintainContext: true
 - name: Media
   items:
   - name: Media Services
     href: /azure/templates/Microsoft.Media/mediaservices
     maintainContext: true
+    items:
+    - name: Assets
+      href: /azure/templates/microsoft.media/mediaservices/assets
+      maintainContext: true
+    - name: Content Key Policies
+      href: /azure/templates/microsoft.media/mediaservices/contentkeypolicies
+      maintainContext: true
+    - name: Live Events
+      href: /azure/templates/microsoft.media/mediaservices/liveevents
+      maintainContext: true
+      items:
+      - name: Live Outputs
+        href: /azure/templates/microsoft.media/mediaservices/liveevents/liveoutputs
+        maintainContext: true
+    - name: Streaming Endpoints
+      href: /azure/templates/microsoft.media/mediaservices/streamingendpoints
+      maintainContext: true
+    - name: Streaming Locators
+      href: /azure/templates/microsoft.media/mediaservices/streaminglocators
+      maintainContext: true
+    - name: Streaming Policies
+      href: /azure/templates/microsoft.media/mediaservices/streamingpolicies
+      maintainContext: true
+    - name: Transforms
+      href: /azure/templates/microsoft.media/mediaservices/transforms
+      maintainContext: true
+      items:
+      - name: Jobs
+        href: /azure/templates/microsoft.media/mediaservices/transforms/jobs
+        maintainContext: true
 - name: MySQL
   items:
   - name: Servers
@@ -645,6 +773,12 @@
     - name: Firewall Rules
       href: /azure/templates/Microsoft.DBforMySQL/servers/firewallRules
       maintainContext: true
+    - name: Security Alert Policies
+      href: /azure/templates/Microsoft.DBforMySQL/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Virtual Network Rules
+      href: /azure/templates/Microsoft.DBforMySQL/servers/virtualNetworkRules
+      maintainContext: true
 - name: Network
   items:
   - name: Application Gateways
@@ -653,8 +787,14 @@
   - name: Application Security Groups
     href: /azure/templates/Microsoft.Network/applicationSecurityGroups
     maintainContext: true
+  - name: Azure Firewalls
+    href: /azure/templates/Microsoft.Network/azureFirewalls
+    maintainContext: true
   - name: Connections
     href: /azure/templates/Microsoft.Network/connections
+    maintainContext: true
+  - name: Ddos Protection Plans
+    href: /azure/templates/Microsoft.Network/ddosProtectionPlans
     maintainContext: true
   - name: DNS Zones
     href: /azure/templates/Microsoft.Network/dnsZones
@@ -700,6 +840,27 @@
     - name: Peerings
       href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
       maintainContext: true
+      items:
+      - name: Connections
+        href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings/connections
+        maintainContext: true
+  - name: Express Route Cross Connections
+    href: /azure/templates/Microsoft.Network/expressRouteCircuits
+    maintainContext: true
+    items:
+    - name: Peerings
+      href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
+      maintainContext: true
+  - name: Express Route Gateways
+    href: /azure/templates/microsoft.Network/expressroutegateways
+    maintainContext: true
+    items:
+    - name: Express Route Connections
+      href: /azure/templates/microsoft.network/expressroutegateways/expressRouteConnections
+      maintainContext: true
+  - name: Interface Endpoints
+    href: /azure/templates/microsoft.network/expressroutegateways
+    maintainContext: true
   - name: Load Balancers
     href: /azure/templates/Microsoft.Network/loadBalancers
     maintainContext: true
@@ -713,6 +874,13 @@
   - name: Network Interfaces
     href: /azure/templates/Microsoft.Network/networkInterfaces
     maintainContext: true
+    items:
+    - name: TAP Configurations
+      href: /azure/templates/microsoft.network/networkinterfaces/tapconfigurations
+      maintainContext: true
+  - name: Network Profiles
+    href: /azure/templates/microsoft.network/networkprofiles
+    maintainContext: true
   - name: Network Security Groups
     href: /azure/templates/Microsoft.Network/networkSecurityGroups
     maintainContext: true
@@ -724,11 +892,20 @@
     href: /azure/templates/Microsoft.Network/networkWatchers
     maintainContext: true
     items:
+    - name: Connection Monitors
+      href: /azure/templates/Microsoft.Network/networkWatchers/connectionMonitors
+      maintainContext: true
     - name: Packet Captures
       href: /azure/templates/Microsoft.Network/networkWatchers/packetCaptures
       maintainContext: true
+  - name: P2s VPN Gateways
+    href: /azure/templates/microsoft.network/p2svpngateways
+    maintainContext: true
   - name: Public IP Addresses
     href: /azure/templates/Microsoft.Network/publicIPAddresses
+    maintainContext: true
+  - name: Public IP Prefixes
+    href: /azure/templates/Microsoft.Network/publicIPPrefixes
     maintainContext: true
   - name: Route Filters
     href: /azure/templates/Microsoft.Network/routeFilters
@@ -744,8 +921,18 @@
     - name: Routes
       href: /azure/templates/Microsoft.Network/routeTables/routes
       maintainContext: true
+  - name: Service Endpoint Policies
+    href: /azure/templates/Microsoft.Network/serviceEndpointPolicies
+    maintainContext: true
+    items:
+    - name: Service Endpoint Policy Definitions
+      href: /azure/templates/microsoft.Network/serviceendpointpolicies/serviceendpointpolicydefinitions
+      maintainContext: true
   - name: Traffic Manager Profiles
     href: /azure/templates/Microsoft.Network/trafficmanagerprofiles
+    maintainContext: true
+  - name: Virtual Hubs
+    href: /azure/templates/Microsoft.Network/virtualHubs
     maintainContext: true
   - name: Virtual Network Gateways
     href: /azure/templates/Microsoft.Network/virtualNetworkGateways
@@ -760,6 +947,26 @@
     - name: Virtual Network Peerings
       href: /azure/templates/Microsoft.Network/virtualNetworks/virtualNetworkPeerings
       maintainContext: true
+  - name: Virtual Network Taps
+    href: /azure/templates/microsoft.network/virtualnetworktaps
+    maintainContext: true
+  - name: Virtual WANs
+    href: /azure/templates/Microsoft.Network/virtualWans
+    maintainContext: true
+    items:
+    - name: P2s VPN Server Configurations
+      href: /azure/templates/microsoft.network/virtualwans/p2svpnserverconfigurations
+      maintainContext: true
+  - name: VPN Gateways
+    href: /azure/templates/Microsoft.Network/vpnGateways
+    maintainContext: true
+    items:
+    - name: VPN Connections
+      href: /azure/templates/Microsoft.Network/vpnGateways/vpnconnections
+      maintainContext: true
+  - name: VPN Sites
+    href: /azure/templates/Microsoft.Network/vpnSites
+    maintainContext: true
 - name: Notification Hubs
   items:
   - name: Namespaces
@@ -811,6 +1018,12 @@
       maintainContext: true
     - name: Firewall Rules
       href: /azure/templates/Microsoft.DBforPostgreSQL/servers/firewallRules
+      maintainContext: true
+    - name: Security Alert Policies
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Virtual Network Rules
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/virtualNetworkRules
       maintainContext: true
 - name: Power BI
   items:
@@ -908,22 +1121,6 @@
   - name: Search Services
     href: /azure/templates/Microsoft.Search/searchServices
     maintainContext: true
-- name: Server Management
-  items:
-  - name: Gateways
-    href: /azure/templates/Microsoft.ServerManagement/gateways
-    maintainContext: true
-  - name: Nodes
-    href: /azure/templates/Microsoft.ServerManagement/nodes
-    maintainContext: true
-    items:
-    - name: Sessions
-      href: /azure/templates/Microsoft.ServerManagement/nodes/sessions
-      maintainContext: true
-      items:
-      - name: PS Sessions
-        href: /azure/templates/Microsoft.ServerManagement/nodes/sessions/features/pssessions
-        maintainContext: true
 - name: Service Bus
   items:
   - name: Namespaces
@@ -935,6 +1132,9 @@
       maintainContext: true
     - name: Disaster Recovery Configs
       href: /azure/templates/Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs
+      maintainContext: true
+    - name: Migration Configurations
+      href: /azure/templates/Microsoft.ServiceBus/namespaces/migrationconfigurations
       maintainContext: true
     - name: Queues
       href: /azure/templates/Microsoft.ServiceBus/namespaces/queues
@@ -962,6 +1162,17 @@
   - name: Clusters
     href: /azure/templates/Microsoft.ServiceFabric/clusters
     maintainContext: true
+- name: Service Fabric Mesh
+  items:
+  - name: Applications
+    href: /azure/templates/microsoft.servicefabricmesh/applications
+    maintainContext: true
+  - name: Networks
+    href: /azure/templates/microsoft.servicefabricmesh/networks
+    maintainContext: true
+  - name: Volumes
+    href: /azure/templates/microsoft.servicefabricmesh/volumes
+    maintainContext: true
 - name: SQL
   items:
   - name: Managed Instances
@@ -975,24 +1186,86 @@
     href: /azure/templates/Microsoft.Sql/servers
     maintainContext: true
     items:
+    - name: Administrators
+      href: /azure/templates/Microsoft.Sql/servers/administrators
+      maintainContext: true
+    - name: Advisors
+      href: /azure/templates/Microsoft.Sql/servers/advisors
+      maintainContext: true
+    - name: Auditing Policies
+      href: /azure/templates/Microsoft.Sql/servers/auditingPolicies
+      maintainContext: true
+    - name: Backup Long Term Retention Vaults
+      href: /azure/templates/Microsoft.Sql/servers/backupLongTermRetentionVaults
+      maintainContext: true
+    - name: Communication Links
+      href: /azure/templates/Microsoft.Sql/servers/communicationLinks
+      maintainContext: true
+    - name: Connection Policies
+      href: /azure/templates/Microsoft.Sql/servers/connectionPolicies
+      maintainContext: true
     - name: Databases
       href: /azure/templates/Microsoft.Sql/servers/databases
       maintainContext: true
       items:
-      - name: Audting Settings
+      - name: Advisors
+        href: /azure/templates/Microsoft.Sql/servers/databases/advisors
+        maintainContext: true
+      - name: Auditing Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/auditingPolicies
+        maintainContext: true
+      - name: Auditing Settings
         href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
         maintainContext: true
       - name: Backup Long Term Retention Policies
         href: /azure/templates/Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies
         maintainContext: true
+      - name: Connection Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/connectionPolicies
+        maintainContext: true
+      - name: Data Masking Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies
+        maintainContext: true
+        items:
+        - name: Rules
+          href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies/rules
+          maintainContext: true
+      - name: Extended Auditing Settings
+        href: /azure/templates/Microsoft.Sql/servers/databases/extendedAuditingSettings
+        maintainContext: true
+      - name: Extensions
+        href: /azure/templates/Microsoft.Sql/servers/databases/extensions
+        maintainContext: true
+      - name: Geo Backup Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/geoBackupPolicies
+        maintainContext: true
+      - name: Security Alert Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/securityAlertPolicies
+        maintainContext: true
+      - name: Sync Groups
+        href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups
+        maintainContext: true
+        items:
+        - name: Sync Members
+          href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups/syncMembers
+          maintainContext: true
       - name: Transparent Data Encryption
         href: /azure/templates/Microsoft.Sql/servers/databases/transparentDataEncryption
         maintainContext: true
+    - name: Disaster Recovery Configuration
+      href: /azure/templates/Microsoft.Sql/servers/disasterRecoveryConfiguration
+      maintainContext: true
+    - name: DNS Aliases
+      href: /azure/templates/Microsoft.Sql/servers/dnsAliases
+      maintainContext: true
     - name: Elastic Pools
       href: /azure/templates/Microsoft.Sql/servers/elasticPools
       maintainContext: true
     - name: Encryption Protector
       href: /azure/templates/Microsoft.Sql/servers/encryptionProtector
+      maintainContext: true
+    - name: Extended Auditing Settings
+      href: /azure/templates/Microsoft.Sql/servers/extendedAuditingSettings
       maintainContext: true
     - name: Failover Groups
       href: /azure/templates/Microsoft.Sql/servers/failoverGroups
@@ -1000,8 +1273,34 @@
     - name: Firewall Rules
       href: /azure/templates/Microsoft.Sql/servers/firewallRules
       maintainContext: true
+    - name: Job Agents
+      href: /azure/templates/Microsoft.Sql/servers/jobAgents
+      maintainContext: true
+      items:
+      - name: Credentials
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/credentials
+        maintainContext: true
+      - name: Jobs
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs
+        maintainContext: true
+        items:
+        - name: Executions
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/executions
+          maintainContext: true
+        - name: Steps
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/steps
+          maintainContext: true
+      - name: Target Groups
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/targetgroups
+        maintainContext: true
     - name: Keys
       href: /azure/templates/Microsoft.Sql/servers/keys
+      maintainContext: true
+    - name: Security Alert Policies
+      href: /azure/templates/Microsoft.Sql/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Sync Agents
+      href: /azure/templates/Microsoft.Sql/servers/syncAgents
       maintainContext: true
     - name: Virtual Network Rules
       href: /azure/templates/Microsoft.Sql/servers/virtualNetworkRules

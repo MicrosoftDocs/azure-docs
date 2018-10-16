@@ -11,8 +11,13 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
+
+ROBOTS: NOINDEX
 ---
 # Persisting changes and working with large files
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 With the Azure Machine Learning Experimentation service, you can configure a variety of execution targets. Some targets are local, such as a local computer or a Docker container on a local computer. Others are remote, such as a Docker container on a remote machine or an HDInsight cluster. For more information, see [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md). 
 
 Before you can execute on a target, you must copy the project folder to the compute target. You must do so even with a local execution that uses a local temp folder for this purpose. 
@@ -42,6 +47,9 @@ The common use cases are:
 * Training a model
 * Creating a dataset
 * Plotting a graph as an image file as part of your model-training execution 
+
+>[!Note]
+> Max size of tracked file in outputs folder after a run is 512 MB. This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. 
 
 Additionally, you want to compare the outputs across runs, select an output file (such as a model) that was produced by a previous run, and then use it for a subsequent task (such as scoring).
 

@@ -2,10 +2,8 @@
 title: Desired State Configuration extension with Azure Resource Manager templates
 description: Learn about the Resource Manager template definition for the Desired State Configuration (DSC) extension in Azure.
 services: virtual-machines-windows
-documentationcenter: ''
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
-editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -14,13 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: dacoulte
+ms.date: 10/05/2018
+ms.author: robreed
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
 
-This article describes the Azure Resource Manager template for the
-[Desired State Configuration (DSC) extension handler](dsc-overview.md).
+This article describes the Azure Resource Manager template for the [Desired State Configuration
+(DSC) extension handler](dsc-overview.md). Many of the examples use **RegistrationURL** (provided
+as a String) and **RegistrationKey** (provided as a
+[PSCredential](/dotnet/api/system.management.automation.pscredential)) to onboard with Azure
+Automation. For details about obtaining those values, see [Onboarding machines for management by
+Azure Automation State Configuration - Secure
+registration](/azure/automation/automation-dsc-onboarding#secure-registration).
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from a previous format](#update-from-a-previous-format).
@@ -30,13 +33,13 @@ This article describes the Azure Resource Manager template for the
 The following snippet goes in the **Resource** section of the template.
 The DSC extension inherits default extension properties.
 For more information, see
-[VirtualMachineExtension class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+[VirtualMachineExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
 
 ```json
 {
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2017-12-01",
+    "apiVersion": "2018-04-01",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -47,26 +50,17 @@ For more information, see
         "typeHandlerVersion": "2.76",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "protectedSettings": {
-                "Items": {
-                    "registrationKeyPrivate": "registrationKey"
+            "configurationArguments": {
+                "RegistrationUrl" : "registrationUrl",
+                "NodeConfigurationName" : "nodeConfigurationName"
+            }
+        },
+        "protectedSettings": {
+            "configurationArguments": {
+                "RegistrationKey": {
+                    "userName": "NOT_USED",
+                    "Password": "registrationKey"
                 }
-            },
-            "publicSettings": {
-                "configurationArguments": [{
-                        "Name": "RegistrationKey",
-                        "Value": {
-                            "UserName": "PLACEHOLDER_DONOTUSE",
-                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                        }
-                    },
-                    {
-                        "RegistrationUrl": "registrationUrl"
-                    },
-                    {
-                        "NodeConfigurationName": "nodeConfigurationName"
-                    }
-                ]
             }
         }
     }
@@ -85,44 +79,37 @@ see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.manageme
 
 ```json
 "extensionProfile": {
-    "extensions": [{
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-        "apiVersion": "2017-12-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.Powershell",
-            "type": "DSC",
-            "typeHandlerVersion": "2.76",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "protectedSettings": {
-                    "Items": {
-                        "registrationKeyPrivate": "registrationKey"
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.76",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "configurationArguments": {
+                        "RegistrationUrl" : "registrationUrl",
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
                 },
-                "publicSettings": {
-                    "configurationArguments": [{
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
-                        },
-                        {
-                            "RegistrationUrl": "registrationUrl"
-                        },
-                        {
-                            "NodeConfigurationName": "nodeConfigurationName"
+                "protectedSettings": {
+                    "configurationArguments": {
+                        "RegistrationKey": {
+                            "userName": "NOT_USED",
+                            "Password": "registrationKey"
                         }
-                    ]
+                    }
                 }
-            },
+            }
         }
-    }]
+    ]
 }
 ```
 
@@ -179,17 +166,17 @@ for the default configuration script, see
 
 | Property name | Type | Description |
 | --- | --- | --- |
-| settings.wmfVersion |string |Specifies the version of Windows Management Framework (WMF) that should be installed on your VM. Setting this property to **latest** installs the most recent version of WMF. Currently, the only possible values for this property are **4.0**, **5.0**, **5.0PP**, and **latest**. These possible values are subject to updates. The default value is **latest**. |
+| settings.wmfVersion |string |Specifies the version of Windows Management Framework (WMF) that should be installed on your VM. Setting this property to **latest** installs the most recent version of WMF. Currently, the only possible values for this property are **4.0**, **5.0**, **5.1**, and **latest**. These possible values are subject to updates. The default value is **latest**. |
 | settings.configuration.url |string |Specifies the URL location from which to download your DSC configuration .zip file. If the URL provided requires an SAS token for access, set the **protectedSettings.configurationUrlSasToken** property to the value of your SAS token. This property is required if **settings.configuration.script** or **settings.configuration.function** are defined. If no value is given for these properties, the extension calls the default configuration script to set Location Configuration Manager (LCM) metadata, and arguments should be supplied. |
-| settings.configuration.script |string |Specifies the file name of the script that contains the definition of your DSC configuration. This script must be in the root folder of the .zip file that's downloaded from the URL specified by the **configuration.url** property. This property is required if **settings.configuration.url** or **settings.configuration.script** are defined. If no value is given for these properties, the extension calls the default configuration script to set LCM metadata, and arguments should be supplied. |
-| settings.configuration.function |string |Specifies the name of your DSC configuration. The configuration that is named must be included in the script that **configuration.script** defines. This property is required if **settings.configuration.url** or **settings.configuration.function** are defined. If no value is given for these properties, the extension calls the default configuration script to set LCM metadata, and arguments should be supplied. |
+| settings.configuration.script |string |Specifies the file name of the script that contains the definition of your DSC configuration. This script must be in the root folder of the .zip file that's downloaded from the URL specified by the **settings.configuration.url** property. This property is required if **settings.configuration.url** or **settings.configuration.script** are defined. If no value is given for these properties, the extension calls the default configuration script to set LCM metadata, and arguments should be supplied. |
+| settings.configuration.function |string |Specifies the name of your DSC configuration. The configuration that is named must be included in the script that **settings.configuration.script** defines. This property is required if **settings.configuration.url** or **settings.configuration.function** are defined. If no value is given for these properties, the extension calls the default configuration script to set LCM metadata, and arguments should be supplied. |
 | settings.configurationArguments |Collection |Defines any parameters that you want to pass to your DSC configuration. This property is not encrypted. |
 | settings.configurationData.url |string |Specifies the URL from which to download your configuration data (.psd1) file to use as input for your DSC configuration. If the URL provided requires an SAS token for access, set the **protectedSettings.configurationDataUrlSasToken** property to the value of your SAS token. |
-| settings.privacy.dataEnabled |string |Enables or disables telemetry collection. The only possible values for this property are **Enable**, **Disable**, **''**, or **$null**. Leaving this property blank or null enables telemetry. The default value is **''**. For more information, see [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.privacy.dataCollection |string |Enables or disables telemetry collection. The only possible values for this property are **Enable**, **Disable**, **''**, or **$null**. Leaving this property blank or null enables telemetry. The default value is **''**. For more information, see [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
 | settings.advancedOptions.downloadMappings |Collection |Defines alternate locations from which to download WMF. For more information, see [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Collection |Defines any parameters that you want to pass to your DSC configuration. This property is encrypted. |
-| protectedSettings.configurationUrlSasToken |string |Specifies the SAS token to use to access the URL that **configuration.url** defines. This property is encrypted. |
-| protectedSettings.configurationDataUrlSasToken |string |Specifies the SAS token to use to access the URL that  **configurationData.url** defines. This property is encrypted. |
+| protectedSettings.configurationUrlSasToken |string |Specifies the SAS token to use to access the URL that **settings.configuration.url** defines. This property is encrypted. |
+| protectedSettings.configurationDataUrlSasToken |string |Specifies the SAS token to use to access the URL that  **settings.configurationData.url** defines. This property is encrypted. |
 
 ## Default configuration script
 
@@ -200,7 +187,7 @@ to configure only the LCM properties that are listed in the following table.
 
 | Property name | Type | Description |
 | --- | --- | --- |
-| settings.configurationArguments.RegistrationKey |securestring |Required property. Specifies the key that's used for a node to register with the Azure Automation service as the password of a PowerShell credential object. This value can be automatically discovered by using the **listkeys** method against the Automation account. The value should be secured as a protected setting. |
+| protectedSettings.configurationArguments.RegistrationKey |PSCredential |Required property. Specifies the key that's used for a node to register with the Azure Automation service as the password of a PowerShell credential object. This value can be automatically discovered by using the **listkeys** method against the Automation account.  See the [example](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |string |Required property. Specifies the URL of the Automation endpoint where the node attempts to register. This value can be automatically discovered by using the **reference** method against the Automation account. |
 | settings.configurationArguments.NodeConfigurationName |string |Required property. Specifies the node configuration in the Automation account to assign to the node. |
 | settings.configurationArguments.ConfigurationMode |string |Specifies the mode for LCM. Valid options include **ApplyOnly**, **ApplyandMonitor**, and **ApplyandAutoCorrect**.  The default value is **ApplyandMonitor**. |
@@ -210,7 +197,7 @@ to configure only the LCM properties that are listed in the following table.
 | settings.configurationArguments.ActionAfterReboot | string | Specifies what happens after a reboot when applying a configuration. Valid options are **ContinueConfiguration** and **StopConfiguration**. Default value is **ContinueConfiguration**. |
 | settings.configurationArguments.AllowModuleOverwrite | boolean | Specifies whether LCM overwrites existing modules on the node. Default value is **false**. |
 
-## Settings vs. ProtectedSettings
+## settings vs. protectedSettings
 
 All settings are saved in a settings text file on the VM.
 Properties listed under **settings** are public properties.
@@ -225,8 +212,8 @@ you can include the credentials in **protectedSettings**:
 "protectedSettings": {
     "configurationArguments": {
         "parameterOfTypePSCredential1": {
-            "userName": "UsernameValue1",
-            "password": "PasswordValue1"
+               "userName": "UsernameValue1",
+               "password": "PasswordValue1"
         }
     }
 }
@@ -243,21 +230,15 @@ to set LCM metadata.
 
 ```json
 "settings": {
-    "configurationArguments": {
-        {
-            "Name": "RegistrationKey",
-            "Value": {
-                "UserName": "PLACEHOLDER_DONOTUSE",
-                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-            },
-        },
-        "RegistrationUrl": "[parameters('registrationUrl1')]",
-        "NodeConfigurationName": "nodeConfigurationNameValue1"
-    }
+    "RegistrationUrl" : "[parameters('registrationUrl1')]",
+    "NodeConfigurationName" : "nodeConfigurationNameValue1"
 },
 "protectedSettings": {
-    "Items": {
-        "registrationKeyPrivate": "[parameters('registrationKey1')]"
+    "configurationArguments": {
+        "RegistrationKey": {
+            "userName": "NOT_USED",
+            "Password": "registrationKey"
+        }
     }
 }
 ```
@@ -291,11 +272,33 @@ and then run the appropriate PowerShell function:
 }
 ```
 
+## Example using referenced Azure Automation registration values
+
+The following example gets the **RegistrationUrl** and **RegistrationKey**
+by referencing the Azure Automation account properties and using the  **listkeys**
+method to retrieve the Primary Key (0).  In this example, the parameters
+**automationAccountName** and **NodeConfigName** were provided to the template.
+
+```json
+"settings": {
+    "RegistrationUrl" : "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+    "NodeConfigurationName" : "[parameters('NodeConfigName')]"
+},
+"protectedSettings": {
+    "configurationArguments": {
+        "RegistrationKey": {
+            "userName": "NOT_USED",
+            "Password": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-01-15').Keys[0].value]"
+        }
+    }
+}
+```
+
 ## Update from a previous format
 
 Any settings in a previous format of the extension
-(and which have the public properties **ModulesUrl**, **ConfigurationFunction**,
-**SasToken**, or **Properties**)
+(and which have the public properties **ModulesUrl**, **ModuleSource**,
+**ModuleVersion**, **ConfigurationFunction**, **SasToken**, or **Properties**)
 automatically adapt to the current format of the extension.
 They run just as they did before.
 
@@ -331,25 +334,25 @@ The following schema shows what the previous settings schema looked like:
 
 Here's how the previous format adapts to the current format:
 
-| Property name | Previous schema equivalent |
+| Current Property name | Previous schema equivalent |
 | --- | --- |
 | settings.wmfVersion |settings.WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
 | settings.configuration.script |First part of settings.ConfigurationFunction (before \\\\) |
 | settings.configuration.function |Second part of settings.ConfigurationFunction (after \\\\) |
+| settings.configuration.module.name | settings.ModuleSource |
+| settings.configuration.module.version | settings.ModuleVersion |
 | settings.configurationArguments |settings.Properties |
 | settings.configurationData.url |protectedSettings.DataBlobUri (without SAS token) |
-| settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
+| settings.privacy.dataCollection |settings.Privacy.dataCollection |
 | settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |SAS token from protectedSettings.DataBlobUri |
 
-## Troubleshooting - Error code 1100
+## Troubleshooting
 
-Error Code 1100 indicates a problem with the user input to the DSC extension.
-The text of these errors varies, and might change.
-Here are some of the errors you might run into, and how you can fix them.
+Here are some of the errors you might run into and how you can fix them.
 
 ### Invalid values
 
@@ -375,15 +378,34 @@ For more information, see the table in [Details](#details).
 Ensure that all URLs resolve to valid locations
 that the extension can access on the remote machine.
 
+### Invalid RegistrationKey type
+
+"Invalid type for parameter RegistrationKey of type PSCredential."
+
+**Problem**: The *RegistrationKey* value in protectedSettings.configurationArguments
+cannot be provided as any type other than a PSCredential.
+
+**Solution**: Change your protectedSettings.configurationArguments entry for
+RegistrationKey to a PSCredential type using the following format:
+
+```json
+"configurationArguments": {
+    "RegistrationKey": {
+        "userName": "NOT_USED",
+        "Password": "RegistrationKey"
+    }
+}
+```
+
 ### Invalid ConfigurationArgument type
 
 "Invalid configurationArguments type {0}"
 
 **Problem**: The *ConfigurationArguments* property
-can't resolve to a **Hashtable** object.
+can't resolve to a **Hash table** object.
 
-**Solution**: Make your *ConfigurationArguments* property a **Hashtable**.
-Follow the format provided in the preceding example. Watch for quotes,
+**Solution**: Make your *ConfigurationArguments* property a **Hash table**.
+Follow the format provided in the preceding examples. Watch for quotes,
 commas, and braces.
 
 ### Duplicate ConfigurationArguments
@@ -399,18 +421,18 @@ have properties with the same name.
 
 ### Missing properties
 
-"Configuration.function requires that configuration.url
-or configuration.module is specified"
+"settings.Configuration.function requires that settings.configuration.url
+or settings.configuration.module is specified"
 
-"Configuration.url requires that configuration.script is specified"
+"settings.Configuration.url requires that settings.configuration.script is specified"
 
-"Configuration.script requires that configuration.url is specified"
+"settings.Configuration.script requires that settings.configuration.url is specified"
 
-"Configuration.url requires that configuration.function is specified"
+"settings.Configuration.url requires that settings.configuration.function is specified"
 
-"ConfigurationUrlSasToken requires that configuration.url is specified"
+"protectedSettings.ConfigurationUrlSasToken requires that settings.configuration.url is specified"
 
-"ConfigurationDataUrlSasToken requires that configurationData.url is specified"
+"protectedSettings.ConfigurationDataUrlSasToken requires that settings.configurationData.url is specified"
 
 **Problem**: A defined property needs another property, which is missing.
 

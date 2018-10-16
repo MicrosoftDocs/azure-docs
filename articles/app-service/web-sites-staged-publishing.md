@@ -80,7 +80,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Scale settings
 * WebJobs schedulers
 
-To configure an app setting or connection string to stick to a slot (not swapped), access the **Application Settings** blade for a specific slot, then select the **Slot Setting** box for the configuration elements that should stick the slot. Marking a configuration element as slot specific has the effect of establishing that element as not swappable across all the deployment slots associated with the app.
+To configure an app setting or connection string to stick to a slot (not swapped), access the **Application Settings** blade for a specific slot, then select the **Slot Setting** box for the configuration elements that should stick to the slot. Marking a configuration element as slot specific has the effect of establishing that element as not swappable across all the deployment slots associated with the app.
 
 ![Slot settings][SlotSettings]
 
@@ -172,10 +172,12 @@ If any errors are identified in production after a slot swap, roll the slots bac
 ## Custom warm-up before swap
 Some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
 
-    <applicationInitialization>
-        <add initializationPage="/" hostName="[app hostname]" />
-        <add initializationPage="/Home/About" hostname="[app hostname]" />
-    </applicationInitialization>
+    <system.webServer>
+        <applicationInitialization>
+            <add initializationPage="/" hostName="[app hostname]" />
+            <add initializationPage="/Home/About" hostname="[app hostname]" />
+        </applicationInitialization>
+    </system.webServer>
 
 ## Monitor swap progress
 

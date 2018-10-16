@@ -19,6 +19,9 @@ ms.author: cwatson
 
 Learn how to understand your Azure billing, monitor usage and costs, and manage your account and subscriptions.
 
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+
 <ul class="panelContent cardsF">
     <li>
         <div class="cardSize">
@@ -45,9 +48,10 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Manage costs</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">Prevent unexpected costs</a><br/>
-                        <a href="/azure/billing/billing-set-up-alerts">Set up billing alerts</a><br/>
-                        <a href="https://azure.microsoft.com/pricing/calculator/">Calculate pricing</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a><br/>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Start analyzing costs - EA only</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Create and manage budgets - EA only</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Optimize recommendations - EA only</a>
                         </p>
                     </div>
                 </div>
@@ -97,8 +101,8 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <p>
                         <a href="/azure/billing/billing-manage-access">Grant access to billing</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Pay by invoice</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Manage reserved instances</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Usage for reserved instances</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Manage Azure Reservations</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Usage for Azure Reservations</a>
                         </p>
                     </div>
                 </div>
@@ -127,11 +131,12 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Save with Reserved VM Instances</h3>
+                        <h3>Save with Azure Reservations</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">What are reserved instances?</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a reserved instance</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">How discount is applied</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">What are Azure Reservations?</a> <br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a Reserved VM Instance</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">Buy SQL Database reserved capacity</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">How VM discount is applied</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Software costs not included</a>
                         </p>
                     </div>

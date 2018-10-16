@@ -12,14 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
+ms.reviewer: quying
 
 ---
 # Add hosting servers for the SQL resource provider
 
 You can host a SQL instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the SQL resource provider can connect to the instance.
+
+> [!NOTE]
+> SQL databases should be created on the SQL resource provider server. The SQL resource provider should be created in the default provider subscription while SQL hosting servers should be created in a billable, user subscription. The resource provider server should not be used to host user databases.
 
 ## Overview
 
@@ -34,13 +37,16 @@ Before you add a SQL hosting server, review the following mandatory and general 
 
 * Dedicate the SQL instance for use by the resource provider and user workloads. You can't use a SQL instance that's being used by any other consumer. This restriction also applies to App Services.
 * Configure an account with the appropriate privilege levels for the resource provider (described below).
-* You're are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
+* You are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
 
 ### SQL Server virtual machine images
 
 SQL IaaS virtual machine images are available through the Marketplace Management feature. These images are the same as the SQL VMs that are available in Azure.
 
 Make sure you always download the latest version of the **SQL IaaS Extension** before you deploy a SQL VM using a Marketplace item. The IaaS extension and corresponding portal enhancements provide additional features such as automatic patching and backup. For more information about this extension, see [Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> The SQL IaaS Extension is _required_ for all SQL on Windows images in the marketplace; the VM will fail to deploy if you did not download the extension. It is not used with Linux-based SQL virtual machine images.
 
 There are other options for deploying SQL VMs, including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -74,15 +80,15 @@ To add a standalone hosting server that's already set up, follow these steps:
 
 1. Sign in to the Azure Stack operator portal as a service administrator.
 
-2. Select **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers**.
+2. Select **All services** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers**.
 
    ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Under **SQL Hosting Servers**,  you can connect the SQL resource provider to instances of SQL Server that serve as the resource provider’s backend.
+   Under **SQL Hosting Servers**,  you can connect the SQL resource provider to instances of SQL Server that will serve as the resource provider’s backend.
 
-   ![SQL Adapter dashboard](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL Adapter dashboard](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. On **Add a SQL Hosting Server**, provide the connection details for your SQL Server instance.
+3. Click **Add** and then provide the connection details for your SQL Server instance on the **Add a SQL Hosting Server** blade.
 
    ![Add a SQL Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
@@ -121,7 +127,7 @@ To enable automatic seeding on all instances, edit and then run the following SQ
   GO
   ```
 
-Note that the availability group must be enclosed in square brackets.
+The availability group must be enclosed in square brackets.
 
 On the secondary nodes, run the following SQL command:
 

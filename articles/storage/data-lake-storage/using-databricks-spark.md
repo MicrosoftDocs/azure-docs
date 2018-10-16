@@ -2,13 +2,10 @@
 title: Access Azure Data Lake Storage Gen2 Preview data with Azure Databricks using Spark | Microsoft Docs
 description: Learn to run Spark queries on a Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
-tags: azure-portal
-author: dineshm
-manager: twooley
 
+author: dineshm
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
@@ -16,17 +13,16 @@ ms.author: dineshm
 
 # Tutorial: Access Azure Data Lake Storage Gen2 Preview data with Azure Databricks using Spark
 
-In this tutorial, you learn how to run Spark queries on a Azure Databricks cluster to query data in Azure Data Lake Storage Gen2 Preview capable account.
+In this tutorial, you learn how to run Spark queries on an Azure Databricks cluster to query data in Azure Data Lake Storage Gen2 Preview capable account.
 
 > [!div class="checklist"]
 > * Create a Databricks cluster
 > * Ingest unstructured data into a storage account
-> * Trigger an Azure Function to process data
 > * Running analytics on your data in Blob storage
 
 ## Prerequisites
 
-This tutorial demonstrates how to consume and query airline flight data, which is available from the [United States Department of Transportation](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Download at least two year's worth of airline data (selecting all fields) and save the result to your machine. Make sure to take note of the file name and path of your download; you need this information in a later step.
+This tutorial demonstrates how to consume and query airline flight data, which is available from the [United States Department of Transportation](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Download at least two years worth of airline data (selecting all fields) and save the result to your machine. Make sure to take note of the file name and path of your download; you need this information in a later step.
 
 > [!NOTE]
 > Click on the **Prezipped file** checkbox to select all data fields. The download will be many gigabytes in size, but this amount of data is necessary for analysis.
@@ -35,11 +31,8 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 
 To begin, create a new [Azure Data Lake Storage Gen2 account](quickstart-create-account.md) and give it a unique name. Then navigate to the storage account to retrieve configuration settings.
 
-> [!IMPORTANT]
-> During Preview, Azure Functions only work with Azure Data Lake Storage Gen2 accounts created with a flat namespace.
-
 1. Under **Settings**, click  **Access keys**.
-3. Click the **Copy** button next to **key1** to copy the key value.
+2. Click the **Copy** button next to **key1** to copy the key value.
 
 Both the account name and key are required for later steps in this tutorial. Open a text editor and set aside the account name and key for future reference.
 
@@ -65,7 +58,7 @@ The next step is to create a [Databricks cluster](https://docs.azuredatabricks.n
     ```bash
     spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<file_system>@<account_name>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<file_system>@<account_name>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
     ```
 
@@ -73,7 +66,7 @@ The next step is to create a [Databricks cluster](https://docs.azuredatabricks.n
 
 ### Copy source data into the storage account
 
-The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Open a command prompt window and enter the following commands. Make sure you replace the placeholders `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` and `<ACCOUNT_KEY>` with the corresponding values you set aside in a previous step.
+The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Open a command prompt window and enter the following commands. Make sure you replace the placeholders `<DOWNLOAD_FILE_PATH>`,  , and `<ACCOUNT_KEY>` with the corresponding values you set aside in a previous step.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -83,7 +76,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-Re-open Databricks in your browser and execute the following steps:
+Reopen Databricks in your browser and execute the following steps:
 
 1. Select **Azure Databricks** on the top left of the nav bar.
 2. Select **Notebook** under the **New** section on the bottom half of the page.
@@ -96,10 +89,10 @@ Re-open Databricks in your browser and execute the following steps:
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  
-    accountname = "<insert account name>' 
-    accountkey = " <insert account key>'
-    fullname = "fs.azure.account.key." +accountname+ ".blob.core.windows.net"
-    accountsource = "abfs://dbricks@" +accountname+ ".blob.core.windows.net/folder1"
+    accountname = "<insert account name>"
+    accountkey = " <insert account key>"
+    fullname = "fs.azure.account.key." +accountname+ ".dfs.core.windows.net"
+    accountsource = "abfs://dbricks@" +accountname+ ".dfs.core.windows.net/folder1"
     #create a dataframe to read data
     flightDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/On_Time_On_Time*.csv")
     #read the all the airline csv files and write the output to parquet format for easy query
@@ -140,7 +133,7 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-With these code samples you have explored the hierarchical nature of HDFS using data stored in an Azure Data Lake Storage Gen2 capable account.
+With these code samples, you have explored the hierarchical nature of HDFS using data stored in an Azure Data Lake Storage Gen2 capable account.
 
 ## Query the data
 
@@ -158,7 +151,7 @@ To create dataframes for your data sources, run the following script:
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes

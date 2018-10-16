@@ -1,16 +1,18 @@
----
+﻿---
 title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Get Started on Azure Dev Spaces with .NET Core and Visual Studio
 
@@ -21,9 +23,39 @@ In this guide, you will learn how to:
 - Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
 - Productively develop and test your code in a team environment.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+
+## Create a Kubernetes cluster enabled for Azure Dev Spaces
+
+1. Sign in to the Azure portal at http://portal.azure.com.
+1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
+
+   Complete the following steps under each heading of the create AKS cluster form.
+
+    - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
+    - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, Central US, WestEurope, WestUS2, CanadaCentral, or CanadaEast), version, and DNS name prefix for the AKS cluster.
+    - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
+
+   Make sure to choose Kubernetes version 1.9.6 or later.
+
+   ![Kubernetes configuration settings](media/common/Kubernetes-Create-Cluster-2.PNG)
+
+   Select **Next: Authentication** when complete.
+
+1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
+
+    ![RBAC setting](media/common/k8s-RBAC.PNG)
+
+1. Make sure that Http Application Routing is enabled.
+
+   ![Enable Http Application Routing](media/common/Kubernetes-Create-Cluster-3.PNG)
+
+    > [!Note]
+    > To enable [Http Application Routing](/azure/aks/http-application-routing) on an existing cluster, use the command: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
+
+1. Select **Review + create** and then **Create** when complete.
 
 ## Get the Visual Studio tools
 1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
@@ -44,7 +76,6 @@ From within Visual Studio 2017, create a new project. Currently, the project mus
 Select the **Web Application (Model-View-Controller)** template and be sure you're targeting **.NET Core** and **ASP.NET Core 2.0** in the two dropdowns at the top of the dialog. Click **OK** to create the project.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
-
 
 ### Enable Dev Spaces for an AKS cluster
 

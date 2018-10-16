@@ -5,17 +5,17 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
 ---
 # Run PowerShell scripts in your Windows VM with Run Command
 
-Run Command uses the VM agent to run shell PowerShell scripts within an Azure Windows VM. These scripts can be used for general machine or application management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+Run Command uses the VM agent to run PowerShell scripts within an Azure Windows VM. These scripts can be used for general machine or application management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
 ## Benefits
 
-There are multiple options that can be used to access your virtual machines. Run Command can run scripts on your virtual machines remotely using the VM agent. Run Command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+There are multiple options that can be used to access your virtual machines. Run Command can run scripts on your virtual machines remotely using the VM agent. Run Command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) for Windows VMs.
 
 This capability is useful in all scenarios where you want to run a script within a virtual machines, and is one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open due to improper network or administrative user configuration.
 
@@ -27,6 +27,7 @@ The following restrictions apply when using Run Command:
 * The minimum time to run a script is about 20 seconds
 * Scripts run as System on Windows
 * One script at a time may run
+* Scripts that prompt for information (interactive mode) are not supported.
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
 * Outbound connectivity from the VM is required to return the results of the script.
@@ -57,7 +58,6 @@ This table shows the list of commands available for Windows VMs. The **RunPowerS
 |**EnableAdminAccount**|Checks if the local Administrator account is disabled, and if so enables it.|
 |**IPConfig**| Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP.|
 |**RDPSettings**|Checks registry settings and domain policy settings. Suggests policy actions if machine is part of a domain or modifies the settings to default values.|
-|**ResetAccountPassword**| Resets built-in Administrator account password.|
 |**ResetRDPCert**|Removes the SSL certificate tied to the RDP listener and restores the RDP listerner security to default. Use this script if you see any issues with the certificate.|
 |**SetRDPPort**|Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port.|
 

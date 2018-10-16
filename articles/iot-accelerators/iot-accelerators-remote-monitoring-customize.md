@@ -1,5 +1,5 @@
 ---
-title: Customize the Remote Monitoring solution UI - Azure | Microsoft Docs 
+title: Customize the Remote Monitoring solution UI - Azure | Microsoft Docs
 description: This article provides information about how you can access the source code for the Remote Monitoring solution accelerator UI and make some customizations.
 author: dominicbetts
 manager: timlt
@@ -29,6 +29,8 @@ The following steps outline the process to set up a local environment for UI dev
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
+
+    You should only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to find the name and public IP address of your virtual machine. For example:
 
@@ -359,6 +361,7 @@ The **Dashboard** page displays KPIs in the **System KPIs** panel. These KPIs ar
 
       ...
     });
+    ```
 
 1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
 
@@ -446,15 +449,21 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 To further modify the presentation and visualizations layer in the Remote Monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
-* [The configuration microservice for Azure IoT Solutions (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [The configuration microservice for Azure IoT Solutions  (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [The configuration microservice for Azure IoT Solutions (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
+* [The configuration microservice for Azure IoT Solutions  (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
 * [Azure IoT PCS Remote Monitoring Web UI](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## Next steps
 
-In this article, you learned about the resources available to help you customize the web UI in the Remote Monitoring solution accelerator.
+In this article, you learned about the resources available to help you customize the web UI in the Remote Monitoring solution accelerator. To learn more about customizing the UI, see the following articles:
+
+* [Add a custom page to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-page.md)
+* [Add a custom service to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-service.md)
+* [Add a custom grid to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Add a custom flyout to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Add a custom panel to the dashboard in the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-panel.md)
 
 For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-For more information about customizing the Remote Monitoring solution, see [Customize and redeploy a microservice](iot-accelerators-microservices-example.md)
+For more information about customizing the Remote Monitoring solution microservices, see [Customize and redeploy a microservice](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

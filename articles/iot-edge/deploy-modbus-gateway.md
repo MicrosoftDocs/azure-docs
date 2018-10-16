@@ -30,7 +30,7 @@ This article assumes that you're using Modbus TCP protocol. For more information
 If you want to test the Modbus gateway functionality, Microsoft has a sample module that you can use. To use the sample module, go to the [Run the solution](#run-the-solution) section and enter the following as the Image URI: 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
+mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
 If you want to create your own module and customize it for your environment, there is an open source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on Github. Follow the guidance in that project to create your own container image. If you create your own container image, refer to [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) for instructions on publishing container images to a registry, and deploying a custom module to your device. 
@@ -43,7 +43,7 @@ If you want to create your own module and customize it for your environment, the
 4. Add the Modbus module:
    1. Click **Add** and select **IoT Edge module**.
    2. In the **Name** field, enter "modbus".
-   3. In the **Image** field, enter the image URI of the sample container: `microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`.
+   3. In the **Image** field, enter the image URI of the sample container: `mcr.microsoft.com/azureiotedge/modbus:1.0`.
    4. Check the **Enable** box to update the module twin's desired properties.
    5. Copy the following JSON into the text box. Change the value of **SlaveConnection** to the IPv4 address of your Modbus device.
 
@@ -91,7 +91,7 @@ View the data coming through the modbus module:
 docker logs -f modbus
 ```
 
-You can also view the telemetry the device is sending by using the [IoT Hub explorer tool](https://github.com/azure/iothub-explorer) or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+You can also view the telemetry the device is sending by using the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## Next steps
 

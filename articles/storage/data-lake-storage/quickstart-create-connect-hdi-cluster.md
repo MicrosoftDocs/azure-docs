@@ -3,19 +3,14 @@ title: Cluster setup for Hadoop, Spark, Kafka, HBase, or R Server - Azure HDInsi
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 tags: azure-portal
-
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-
 ---
 # Quickstart: Set up clusters in HDInsight
 
@@ -241,7 +236,7 @@ Sometimes, you want to configure the following configuration files during the cr
 For more information, see [Customize HDInsight clusters using Bootstrap](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## Advanced settings: Extend clusters with a virtual network
-If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](../../hdinsight/https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
+If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
 
 For more information on using an Azure virtual network with HDInsight, see [Extend HDInsight with Azure virtual networks](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md).
 

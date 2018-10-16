@@ -3,18 +3,18 @@ title: Onboarding to Azure Security Center Standard for enhanced security | Micr
 description: " Learn how to onboard to Azure Security Center Standard for enhanced security. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
+ms.date: 09/02/2018
+ms.author: rkarlin
 
 ---
 # Onboarding to Azure Security Center Standard for enhanced security
@@ -36,60 +36,40 @@ You can upgrade an entire Azure subscription to the Standard tier, which is inhe
 >
 >
 
-## Upgrade an Azure subscription
-To upgrade all subscriptions to Standard:
-1. Under the Security Center main menu, select **Onboarding to advanced security**.
-2. Under **Onboarding to advanced security**, Security Center lists subscriptions eligible for onboarding. You can upgrade all of the listed subscriptions by selecting **Apply Standard plan**.
+## Upgrade an Azure subscription or workspace
+To upgrade a subscription or workspace to Standard:
+1. Under the Security Center main menu, select **Getting started**.
+  ![Getting started](./media/security-center-onboarding/get-started.png)
+2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
+   - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
+   -	You can upgrade subscriptions and workspaces that are not eligible for trial.
+   -	You can select eligible workspaces and subscriptions to start your trial.
+3.	Click **Start trial** to start your trial on the selected subscriptions.
+  ![Select subscription](./media/security-center-onboarding/select-subscription.png)
 
-  ![Upgrade all subscriptions][1]
-
-To upgrade an individual subscription to Standard:
-You can upgrade a subscription from **Onboarding** by selecting **Apply Standard Tier**. To upgrade a resource group under the subscription to Standard, select the subscription:
-1. Select a subscription.  **Security policy** provides information on the resource group contained in the subscription.
-2. Select the subscription or a resource group.
-
-  ![Upgrade all subscriptions][2]
-
-3. Select **Standard** to upgrade from Free to Standard.
-4. Select **Save**.
-
-> [!NOTE]
-> Upgrading a subscription to Standard will turn on [automatic provisioning](security-center-enable-data-collection.md) if it was previously disabled. We recommend automatic provisioning of monitoring agents.
->
->
-
-## Upgrade a workspace
-Applying Standard to the workspace applies to all resources reporting to the workspace.
-
-1. Return to the **Onboarding** blade.
-2. Select a workspace.
-
-  ![Upgrade a workspace][8]
-
-3. Select **Standard** to upgrade.  
-4. Select **Save**.
 
    > [!NOTE]
-   > There is a scenario where you may not have Free or Standard applied to your workspace. If you select Free, then Security Center’s Free capabilities are applied to your Azure VMs only. The Free capabilities are not applied to your non-Azure computers. If you select Standard, the Standard capabilities are applied to all Azure VMs and non-Azure computers reporting to the workspace. We recommend that you apply Standard to provide advanced security for your Azure and non-Azure resources.
+   > Security Center’s Free capabilities are applied to your Azure VMs only. The Free capabilities are not applied to your non-Azure computers. If you select Standard, the Standard capabilities are applied to all Azure VMs and non-Azure computers reporting to the workspace. We recommend that you apply Standard to provide advanced security for your Azure and non-Azure resources.
    >
    >
 
 ## Onboard non-Azure computers
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. You can add non-Azure computers from the **Onboarding** blade or from the **Compute** blade. We’ll walk through both methods.
+Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. You can add non-Azure computers from the **Getting started** blade or from the **Compute** blade. We’ll walk through both methods.
 
-### Add new non-Azure computers from Onboarding
+### Add new non-Azure computers from **Getting started**
 
-1. Return to **Onboarding**.   
-2. Select **Do you want to add new non-Azure computers**.
+1. Return to **Getting started**.   
+2. Select the **Get started** tab.
 
-  ![Add non-Azure computer][3]
+  ![Non-Azure](./media/security-center-onboarding/non-azure.png)
+
+3. Click **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
+
+  ![Add non-Azure computer][7]
 
 If you have existing workspaces, they are listed under **Add new Non-Azure computers**. You can add computers to an existing workspace or create a new workspace. To create a new workspace, select the link **add a new workspace**.
 
-We’ll walk through both methods:
-
-- Create a new workspace and add computer
-- Select an existing workspace and add computer
+### Add new non-Azure computers from **Compute**
 
 **Create a new workspace and add computer**
 
@@ -119,7 +99,7 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
 
    ![Add computers][7]
 
- The **Direct Agent** blade provides a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.   
+ The **Direct Agent** blade provides a link for downloading a Windows or Linux agent as well as the workspace ID and keys to use in configuring the agent.   
 
 ## Next steps
 In this article you learned how to onboard Azure and non-Azure resources in order to benefit from Security Center’s advanced security.  To do more with your onboarded resources, see
@@ -131,9 +111,9 @@ In this article you learned how to onboard Azure and non-Azure resources in orde
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

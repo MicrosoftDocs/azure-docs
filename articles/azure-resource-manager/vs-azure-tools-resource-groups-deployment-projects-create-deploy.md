@@ -299,8 +299,11 @@ You aren't limited to only the resources that are available through the Visual S
 
    ![Custom Dashboard](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-You can managed access to the dashboard by using RBAC groups. You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md).
+You can manage access to the dashboard by using RBAC groups. You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## Next steps
-* To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
+In this quickstart, you learned how to create and deploy templates using Visual Studio. The next tutorial shows you how to find the information from template reference so you can create an encrypted Azure Storage account.
+
+> [!div class="nextstepaction"]
+> [Create an encrypted storage account](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

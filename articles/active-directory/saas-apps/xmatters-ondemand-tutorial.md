@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding xMatters OnDemand from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding xMatters OnDemand from the gallery
 To configure the integration of xMatters OnDemand into Azure AD, you need to add xMatters OnDemand from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of xMatters OnDemand into Azure AD, you need to add
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
 
-4. In the search box, type **xMatters OnDemand**.
+1. In the search box, type **xMatters OnDemand**.
 
 	![Creating an Azure AD test user](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_search.png)
 
-5. In the results panel, select **xMatters OnDemand**, and then click **Add** button to add the application.
+1. In the results panel, select **xMatters OnDemand**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_addfromgallery.png)
 
@@ -86,10 +86,10 @@ In xMatters OnDemand, assign the value of the **user name** in Azure AD as the v
 To configure and test Azure AD single sign-on with xMatters OnDemand, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a xMatters OnDemand test user](#creating-a-xmatters-ondemand-test-user)** - to have a counterpart of Britta Simon in xMatters OnDemand that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a xMatters OnDemand test user](#creating-a-xmatters-ondemand-test-user)** - to have a counterpart of Britta Simon in xMatters OnDemand that is linked to the Azure AD representation of user.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
 
 	![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
-3. On the **xMatters OnDemand Domain and URLs** section, perform the following steps:
+1. On the **xMatters OnDemand Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
 	
@@ -129,28 +129,28 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [xMatters OnDemand support team](https://www.xmatters.com/company/contact-us/) to get these values.
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file locally as **c:\\XMatters OnDemand.cer**.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file locally as **c:\\XMatters OnDemand.cer**.
 
 	![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
 
 	> [!IMPORTANT]
     > You need to forward the certificate to the [xMatters OnDemand support team](https://www.xmatters.com/company/contact-us/). The certificate needs to be uploaded by the xMatters support team before you can finalize the single sign-on configuration. 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_general_400.png)
 
-6. On the **xMatters OnDemand Configuration** section, click **Configure xMatters OnDemand** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **xMatters OnDemand Configuration** section, click **Configure xMatters OnDemand** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_configure.png) 
 
-7. In a different web browser window, log in to your XMatters OnDemand company site as an administrator.
+1. In a different web browser window, log in to your XMatters OnDemand company site as an administrator.
 
-8. In the toolbar on the top, click **Admin**, and then click **Company Details** in the navigation bar on the left side.
+1. In the toolbar on the top, click **Admin**, and then click **Company Details** in the navigation bar on the left side.
 
     ![Admin](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
-9. On the **SAML Configuration** page, perform the following steps:
+1. On the **SAML Configuration** page, perform the following steps:
 
     ![SAML configuration](./media/xmatters-ondemand-tutorial/IC776796.png "SAML configuration")
 
@@ -177,15 +177,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 
 	![Creating an Azure AD test user](./media/xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
 
 	![Creating an Azure AD test user](./media/xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
 
 	![Creating an Azure AD test user](./media/xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
@@ -199,17 +199,17 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating a xMatters OnDemand test user
 
-The objective of this section is to create a user called Britta Simon in xMatters OnDemand. xMatters OnDemand supports automatic user provisioning, which is by default enabled. You can find more details [here](xmatters-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
+The objective of this section is to create a user called Britta Simon in xMatters OnDemand.
 
 **If you need to create user manually, perform following steps:**
 
 1. Log in to your **XMatters OnDemand** tenant.
 
-2.  Click **Users** tab. and then click **Add User**.
+1.  Click **Users** tab. and then click **Add User**.
 
     ![Users](./media/xmatters-ondemand-tutorial/IC781048.png "Users")
 
-3. In the **Add a User** section, perform the following steps:
+1. In the **Add a User** section, perform the following steps:
 
     ![Add a User](./media/xmatters-ondemand-tutorial/IC781049.png "Add a User")
 
@@ -237,23 +237,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **xMatters OnDemand**.
+1. In the applications list, select **xMatters OnDemand**.
 
 	![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 
@@ -266,7 +266,6 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure User Provisioning](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

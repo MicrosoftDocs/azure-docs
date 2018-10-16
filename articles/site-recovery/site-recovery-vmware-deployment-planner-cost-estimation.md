@@ -2,18 +2,11 @@
 title: Azure Site Recovery deployment planner for VMware-to-Azure| Microsoft Docs
 description: This is the Azure Site Recovery deployment planner user guide.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor:
-
-ms.assetid:
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
 
 ---

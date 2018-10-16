@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 07/27/2018
 ms.author: shlo
 ---
 
@@ -20,6 +20,12 @@ ms.author: shlo
 This article provides steps to create, start, and monitor a tumbling window trigger. For general information about triggers and the supported types, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. A tumbling window trigger has a one-to-one relationship with a pipeline and can only reference a singular pipeline.
+
+## Data Factory UI
+
+To create a tumbling window trigger in the Azure portal, select **Trigger > Tumbling window > Next**, and then configure the properties that define the tumbling window.
+
+![Create a tumbling window trigger in the Azure portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
 ## Tumbling window trigger type properties
 A tumbling window has the following trigger type properties:
@@ -70,7 +76,7 @@ The following table provides a high-level overview of the major JSON elements th
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | The type of the trigger. The type is the fixed value "TumblingWindowTrigger." | String | "TumblingWindowTrigger" | Yes |
 | **runtimeState** | The current state of the trigger run time.<br/>**Note**: This element is \<readOnly>. | String | "Started," "Stopped," "Disabled" | Yes |
-| **frequency** | A string that represents the frequency unit (minutes or hours) at which the trigger recurs. If the **startTime** date values are more granular than the **frequency** value, the **startTime** dates are considered when the window boundaries are computed. For example, if the **frequency** value is hourly and the **startTime** value is 2016-04-01T10:10:10Z, the first window is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute," "hour"  | Yes |
+| **frequency** | A string that represents the frequency unit (minutes or hours) at which the trigger recurs. If the **startTime** date values are more granular than the **frequency** value, the **startTime** dates are considered when the window boundaries are computed. For example, if the **frequency** value is hourly and the **startTime** value is 2017-09-01T10:10:10Z, the first window is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute," "hour"  | Yes |
 | **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "hour," the trigger recurs every 3 hours. | Integer | A positive integer. | Yes |
 | **startTime**| The first occurrence, which can be in the past. The first trigger interval is (**startTime**, **startTime** + **interval**). | DateTime | A DateTime value. | Yes |
 | **endTime**| The last occurrence, which can be in the past. | DateTime | A DateTime value. | Yes |

@@ -1,6 +1,6 @@
 ---
-title: The Azure AD Privileged Identity Management security wizard
-description: The first time you use the Azure Active Directory Privileged Identity Management extension, you will be presented with a security wizard. This article describes the steps for using the wizard.
+title: Security wizard in PIM - Azure | Microsoft Docs
+description: Describes the security wizard that appears the first time you use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,12 +10,12 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 02/27/2017
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ---
-# Using the security wizard in Azure AD Privileged Identity Management 
+# Security wizard in PIM
 If you're the first person to run Azure Privileged Identity Management (PIM) for your organization, you will be presented with a wizard. The wizard helps you understand the security risks of privileged identities and how to use PIM to reduce those risks. You don't need to make any changes to existing role assignments in the wizard, if you prefer to do it later.
 
 ## What to expect
@@ -35,5 +35,7 @@ After you have made changes, the wizard will no longer show up. The next time yo
 * If you would like to give more users access to manage PIM, read more at [how to give access to manage in PIM](pim-how-to-give-access-to-pim.md).
 
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Start using PIM](pim-getting-started.md)
+- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
+- [Grant access to other administrators to manage PIM](pim-how-to-give-access-to-pim.md)

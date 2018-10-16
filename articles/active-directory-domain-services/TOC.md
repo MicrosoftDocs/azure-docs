@@ -22,6 +22,8 @@
 ## [Check a managed domain's health](active-directory-ds-check-health.md)
 ## [Use Azure AD Domain Services in Azure CSP subscriptions](active-directory-ds-csp.md)
 ## [Enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Configure scoped synchronization from Azure AD to a managed domain](active-directory-ds-scoped-synchronization.md)
+## [Secure your managed domain](active-directory-ds-secure-your-domain.md)
 ## Join a managed domain
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Windows Server VM from template](active-directory-ds-join-windows-vm-template.md)
@@ -36,10 +38,14 @@
 #### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [Task 3: enable secure LDAP for the managed domain using Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Task 4: configure DNS to access the managed domain from the internet](active-directory-ds-ldaps-configure-dns.md)
+#### [Task 5: bind to the managed domain and lock down secure LDAP access](active-directory-ds-ldaps-bind-lockdown.md)
+#### [Troubleshoot secure LDAP](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
 ### [Create a group managed service account on a managed domain](active-directory-ds-create-gmsa.md)
 ### [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
+### [Configure password polices on a managed domain](active-directory-ds-password-policy.md)
 ## [Select a virtual network](active-directory-ds-networking.md)
 ## Deploy applications
 ### [Configure support for profile synchronization for SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)

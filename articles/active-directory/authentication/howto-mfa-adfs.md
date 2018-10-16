@@ -14,13 +14,13 @@ manager: mtillman
 ms.reviewer: michmcla
 
 ---
-
 # Securing cloud resources with Azure Multi-Factor Authentication and AD FS
+
 If your organization is federated with Azure Active Directory, use Azure Multi-Factor Authentication or Active Directory Federation Services (AD FS) to secure resources that are accessed by Azure AD. Use the following procedures to secure Azure Active Directory resources with either Azure Multi-Factor Authentication or Active Directory Federation Services.
 
 ## Secure Azure AD resources using AD FS
-To secure your cloud resource, set up a claims rule so that Active Directory Federation Services emits the multipleauthn claim when a user performs two-step verification successfully. This claim is passed on to Azure AD. Follow this procedure to walk through the steps:
 
+To secure your cloud resource, set up a claims rule so that Active Directory Federation Services emits the multipleauthn claim when a user performs two-step verification successfully. This claim is passed on to Azure AD. Follow this procedure to walk through the steps:
 
 1. Open AD FS Management.
 2. On the left, select **Relying Party Trusts**.
@@ -43,11 +43,13 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 9. Click **Finish**. Close the AD FS Management console.
 
 ## Trusted IPs for federated users
+
 Trusted IPs allow administrators to by-pass two-step verification for specific IP addresses, or for federated users that have requests originating from within their own intranet. The following sections describe how to configure Azure Multi-Factor Authentication Trusted IPs with federated users and by-pass two-step verification when a request originates from within a federated users intranet. This is achieved by configuring AD FS to use a pass-through or filter an incoming claim template with the Inside Corporate Network claim type.
 
 This example uses Office 365 for our Relying Party Trusts.
 
 ### Configure the AD FS claims rules
+
 The first thing we need to do is to configure the AD FS claims. Create two claims rules, one for the Inside Corporate Network claim type and an additional one for keeping our users signed in.
 
 1. Open AD FS Management.
@@ -76,6 +78,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 16. Close AD FS Management.
 
 ### Configure Azure Multi-Factor Authentication Trusted IPs with Federated Users
+
 Now that the claims are in place, we can configure trusted IPs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

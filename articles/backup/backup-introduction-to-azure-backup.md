@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backup and restore; recovery services; backup solutions
 ms.service: backup
 ms.topic: overview
-ms.date: 3/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
 ms.custom: mvc
 ---
@@ -151,8 +151,8 @@ With **Full Backup**, each backup copy contains the entire data source. Full bac
 ### Security
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Network security<br/> (to Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Partially][yellow] |
-| Data security<br/> (in Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Partially][yellow] |
+| Network security<br/> (to Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
+| Data security<br/> (in Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
 
 ![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -165,7 +165,7 @@ All backup traffic from your servers to the Recovery Services vault is encrypted
 >
 
 #### Data security
-Backing up Azure VMs requires setting up encryption *within* the virtual machine. Use BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. Azure Backup does not automatically encrypt backup data that comes through this path.
+Backing up Azure VMs requires setting up encryption *within* the virtual machine. Azure Backup supports Azure Disk Encryption, which uses BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. On the back end, Azure Backup uses [Azure Storage Service encryption](../storage/common/storage-service-encryption.md), which protects data at rest.
 
 ### Network
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |

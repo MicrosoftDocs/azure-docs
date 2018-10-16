@@ -2,8 +2,8 @@
 title: Azure Security Documentation | Microsoft Docs
 description: Security is integrated into every aspect of the Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
 services: security
-author: czeumault
-manager: carolz
+author: arob98
+manager: angrobe
 layout: LandingPage
 ms.assetid: 
 ms.service: security
@@ -11,11 +11,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
-ms.author: carolz
+ms.author: angrobe
 ---
 # Azure Security Documentation
 
-Security is integrated into every aspect of the Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
+Security is integrated into every aspect of Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
 
 <ul class="cardsFTitle panelContent">
     <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
@@ -172,7 +172,10 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                             	<a class="barLink" href="/azure/security/azure-threat-detection">Azure advanced threat detection</a>
                             </li>
 			                <li style="list-style: none;">
-                            	<a class="barLink" href="/azure/security/azure-network-security">Azure network security</a>
+                            	<a class="barLink" href="/azure/security/abstract-azure-network-security">Azure network security</a>
+                            </li>
+                            <li style="list-style: none;">
+                            	<a class="barLink" href="/azure/security/abstract-container-security-microsoft-azure">Container security in Microsoft Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -188,6 +191,9 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                         <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_guidelines.svg" alt="" /></div>
 					    <h3>Best practices</h3>
                         <ul class="noBullet">
+                            <li style="list-style: none;">
+                                <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Security best practices for Azure</a>
+                            </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">Network security</a>
                             </li>
@@ -439,7 +445,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/information-protection/understand-explore/what-is-information-protection">
+        <a href="/azure/information-protection/what-is-information-protection">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

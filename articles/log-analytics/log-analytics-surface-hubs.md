@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Monitor Surface Hubs with Log Analytics to track their health

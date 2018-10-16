@@ -2,13 +2,12 @@
 title: Azure Container Instances tutorial - Deploy app
 description: Azure Container Instances tutorial part 3 of 3 - Deploy application
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -134,8 +133,8 @@ Now that you have the basics down, move on to learning more about Azure Containe
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-show]: /cli/azure/container#az_container_show
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [prepare-app]: ./container-instances-tutorial-prepare-app.md

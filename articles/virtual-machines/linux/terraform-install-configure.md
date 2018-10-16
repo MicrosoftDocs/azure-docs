@@ -61,17 +61,17 @@ Now you can create a service principal for use with Terraform. Use [az ad sp cre
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Your *appId*, *password*, *sp_name*, and *tenant* are returned. Make a note of the *appId* and *password*.
+Your `appId`, `password`, `sp_name`, and `tenant` are returned. Make a note of the `appId` and `password`.
 
 ## Configure Terraform environment variables
 
 To configure Terraform to use your Azure AD service principal, set the following environment variables, which are then used by the [Azure Terraform modules](https://registry.terraform.io/modules/Azure). You can also set the environment if working with an Azure cloud other than Azure public.
 
-- ARM_SUBSCRIPTION_ID
-- ARM_CLIENT_ID
-- ARM_CLIENT_SECRET
-- ARM_TENANT_ID
-- ARM_ENVIRONMENT
+- `ARM_SUBSCRIPTION_ID`
+- `ARM_CLIENT_ID`
+- `ARM_CLIENT_SECRET`
+- `ARM_TENANT_ID`
+- `ARM_ENVIRONMENT`
 
 You can use the following sample shell script to set those variables:
 

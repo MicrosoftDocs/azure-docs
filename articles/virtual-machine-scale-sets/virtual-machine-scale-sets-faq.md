@@ -46,7 +46,7 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 **Q.** How do I create a scale set by using a custom image?
 
-**A.** Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI 2.0](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**A.** Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **Q.** If I reduce my scale set capacity from 20 to 15, which VMs are removed?
 
@@ -62,7 +62,7 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 **Q.** Do scale sets work with Azure availability sets?
 
-**A.** A regional (non-zonal) scale set uses *placement groups*, each of which can be configured to act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
+**A.** A regional (non-zonal) scale set uses *placement groups*, which act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
 
 **Q.** Do scale sets work with Azure availability zones?
 
@@ -126,7 +126,7 @@ You can choose any VM performance counter as the metric to set an alert for. For
 
 ### How do I set up autoscale on a virtual machine scale set by using PowerShell?
 
-To set up autoscale on a virtual machine scale set by using PowerShell, see [automatically scale a virtual machine scale set](tutorial-autoscale-powershell.md). You can also configure autoscale with the [Azure CLI 2.0](tutorial-autoscale-cli.md) and [Azure templates](tutorial-autoscale-template.md)
+To set up autoscale on a virtual machine scale set by using PowerShell, see [automatically scale a virtual machine scale set](tutorial-autoscale-powershell.md). You can also configure autoscale with the [Azure CLI](tutorial-autoscale-cli.md) and [Azure templates](tutorial-autoscale-template.md)
 
 
 ### If I have stopped (deallocated) a VM, is that VM started as part of an autoscale operation?
@@ -385,7 +385,7 @@ From a compliance perspective, virtual machine scale sets are a fundamental part
 
 For more information, see [the Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### Does [Azure Managed Service Identity](https://docs.microsoft.com/azure/active-directory/msi-overview) work with virtual machine scale sets?
+### Does [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview) work with virtual machine scale sets?
 
 Yes. You can see some example MSI templates in Azure Quickstart templates. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 

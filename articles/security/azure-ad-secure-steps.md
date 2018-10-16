@@ -27,7 +27,7 @@ This checklist will help you quickly deploy critical recommended actions to prot
 * Enable more predictable and complete end-user security with self-help.
 
 > [!NOTE]
-> Many of the recommendations in this document apply only to applications, which are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
+> Many of the recommendations in this document apply only to applications that are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
 
 ## Before you begin: Protect privileged accounts with MFA
 
@@ -39,7 +39,7 @@ All set? Let's get started on the checklist.
 
 ## Step 1 - Strengthen your credentials 
 
-Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video:
+Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (1h 15m):
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 If users in your identity system are using weak passwords and not strengthening them with multi-factor authentication, it isn't a matter of if or when you get compromised – just "how often."
@@ -73,7 +73,7 @@ Learn more about how [password hash synchronization](https://docs.microsoft.com/
 
 ### Implement AD FS extranet lockout
 
-Organizations, which configure applications to authenticate directly to Azure AD benefit from [Azure AD smart lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). If you use AD FS, implement AD FS [extranet lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection). Extranet lockout protects against brute force attacks, which target AD FS while preventing users from being locked out in Active Directory.
+Organizations, which configure applications to authenticate directly to Azure AD benefit from [Azure AD smart lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). If you use AD FS in Windows Server 2012R2, implement AD FS [extranet lockout protection](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). If you use AD FS on Windows Server 2016, implement [extranet smart lockout](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart Extranet lockout protects against brute force attacks, which target AD FS while preventing users from being locked out in Active Directory.
 
 ### Take advantage of intrinsically secure, easier to use credentials
 

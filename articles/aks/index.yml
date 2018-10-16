@@ -46,6 +46,29 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Upgrade AKS cluster</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to containers on Azure
+      href: /learn/modules/intro-to-containers/
+      image: 
+        src: /learn/achievements/intro-to-containers.svg
+        href: /learn/modules/intro-to-containers/
+    - title: Run Docker containers with Azure Container Instances
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image: 
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+        href: /learn/modules/run-docker-with-azure-container-instances/
+    - title: Build and store container images with Azure Container Registry
+      href: /learn/modules/build-and-store-container-images/
+      image: 
+        src: /learn/achievements/build-and-store-container-images.svg
+        href: /learn/modules/build-and-store-container-images/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">More interactive learning...</a>
 - title: Reference
   items:
   - type: list

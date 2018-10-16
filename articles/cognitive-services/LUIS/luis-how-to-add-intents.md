@@ -1,12 +1,13 @@
 ---
-title: Add intents in LUIS applications | Microsoft Docs
-description: Use Language Understanding (LUIS) to add intents to help apps understand user requests and react to them properly.
+title: Add intents in LUIS applications
+titleSuffix: Azure Cognitive Services
+description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
 ---
@@ -14,7 +15,7 @@ ms.service: cognitive-services
 # Manage intents 
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intentions. 
 
-You add and manage your intents from the **Intents** page, available from **Intents** in LUIS's left panel. 
+Intents are managed from the **Build** Section in the top toolbar. You add and manage your intents from the **Intents** page, available in the left panel. 
 
 The following procedure demonstrates how to add the "Bookflight" intent in the TravelAgent app.
 
@@ -23,7 +24,6 @@ The following procedure demonstrates how to add the "Bookflight" intent in the T
 1. Open your app (for example, TravelAgent) by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
 2. On the **Intents** page, click **Create new intent**.
 
-    ![Intents List](./media/luis-how-to-add-intents/IntentsList.png)
 3. In the **Create new intent** dialog box, type the intent name "BookFlight" and click **Done**.
 
     ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -100,7 +100,7 @@ To delete several utterances:
 2. Select **Done** in the **Delete utterances?** pop-up dialog.
 
 ## Search in utterances on intent page
-In an intent, you can search for utterances that contain text (words or phrases). For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
+You can search for utterances that contain text (words or phrases) within the intent's utterance list. For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
 
 1. Select the magnifying glass icon in the toolbar.
 

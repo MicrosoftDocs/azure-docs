@@ -1,19 +1,20 @@
 ﻿---
-title: Integrate LUIS with a bot using the Bot Builder SDK for Node.js in Azure | Microsoft Docs
+title: LUIS Bot with Node.js - Web app Bot - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 09/24/2018
 ms.author: diberry
 ---
 
-# Integrate LUIS with a bot using the Bot Builder SDK for Node.js
+# LUIS bot in Node.js
 
-This tutorial walks you through building a bot with the [Bot Framework][BotFramework] that's integrated with a LUIS app.
+Using Node.js, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. The bot is built with the Bot Framework 3.x and the Azure Web app bot.
 
 ## Prerequisite
 
@@ -40,7 +41,10 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
 3. In the **Bot Service** blade, provide the required information, and select **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
-    * Select the **Language understanding (Node.js)** template for the **Bot template** field.
+    * For **Bot template**, select:
+        * **SDK v3**
+        * **Node.js**
+        * **Language understanding**
     * Select the **LUIS App Location**. This is the authoring [region][LUIS] the app is created in.
     * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 

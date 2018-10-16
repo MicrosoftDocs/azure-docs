@@ -1,16 +1,16 @@
 ---
 title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
-author: "ghogen"
+author: ghogen
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: "ghogen"
-ms.date: "07/09/2018"
+ms.author: ghogen
+ms.date: "09/26/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (Node.js)
 
@@ -26,17 +26,23 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.10.3, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
+- [Visual Studio Code](https://code.visualstudio.com/download).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.43 or higher.
+- A Kubernetes cluster running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
 
-  ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-- Visual Studio Code, which you can download [here](https://code.visualstudio.com/download).
+    ```cmd
+    az group create --name MyResourceGroup --location <region>
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+    ```
 
 ## Set up Azure Dev Spaces
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 or higher).
+The Azure CLI and the Azure Dev Spaces extension can be installed and run on Windows, Mac, or Linux machines. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
+
+Follow these steps to set up Azure Dev Spaces:
+
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
+1. Download the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
 
 ## Build and run code in Kubernetes
 
@@ -46,7 +52,10 @@ In this guide, you will learn how to:
 1. Build and run your code in AKS. In the terminal window from the **webfrontend folder**, run this command: `azds up`
 1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form: 
 
-   `Service 'webfrontend' port 'http' is available at <url>` 
+   ```output
+   (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+   Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+   ```
 
    Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
    
@@ -114,7 +123,7 @@ You first need to configure your code project so VS Code will communicate with o
 
 Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
+This adds debug configuration for Azure Dev Spaces under the `.vscode` folder. This command is not to be confused with the `azds prep` command, which configures the project for deployment.
 
 ![](./media/common/command-palette.png)
 

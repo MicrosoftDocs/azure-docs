@@ -27,7 +27,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
 
 ## Clean up deployment 
 

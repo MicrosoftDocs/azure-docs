@@ -2,7 +2,7 @@
 title: Using the Mongoose framework with Azure Cosmos DB | Microsoft Docs
 description: Learn how to connect a Node.js Mongoose app to Azure Cosmos DB
 services: cosmos-db
-author: romitgirdhar
+author: slyons
 manager: kfile
 
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: rogirdh
+ms.author: sclyon
 
 ---
 # Azure Cosmos DB: Using the Mongoose framework with Azure Cosmos DB
@@ -46,7 +46,11 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 1. Add a new file to the folder and name it ```index.js```.
 1. Install the necessary packages using one of the ```npm install``` options:
-    * Mongoose: ```npm install mongoose --save```
+    * Mongoose: ```npm install mongoose@5 --save```
+
+    > [!Note]
+    > The Mongoose example connection below is based on Mongoose 5+, which has changed since earlier versions.
+    
     * Dotenv (if you'd like to load your secrets from an .env file): ```npm install dotenv --save```
 
     >[!Note]
@@ -61,19 +65,21 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file.
 
     ```JavaScript
-    COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
-    COSMOSDB_DBNAME={Your DB Name Here}
+    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.com:10255/{dbname}
+    COSMODDB_USER=cosmos-user
+    COSMOSDB_PASSWORD=cosmos-secret
     ```
 
 1. Connect to Azure Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
     ```JavaScript
-    mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
-
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function() {
-    console.log("Connected to DB");
-    });
+    mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+      auth: {
+        user: process.env.COSMODDB_USER,
+        password: process.env.COSMOSDB_PASSWORD
+      }
+    })
+    .then(() => console.log('Connection to CosmosDB successful'))
+    .catch((err) => console.error(err));
     ```
     >[!Note]
     > Here, the environment variables are loaded using process.env.{variableName} using the 'dotenv' npm package.

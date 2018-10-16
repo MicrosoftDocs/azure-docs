@@ -3,7 +3,7 @@ title: What are Azure Availability Zones? | Microsoft Docs
 description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
 services: 
 documentationcenter:
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor:
 tags:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
-ms.author: iainfou
+ms.date: 08/31/2018
+ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
 
@@ -35,10 +35,13 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ## Regions that support Availability Zones
 
 - Central US
-- France Central
 - East US 2 (Preview)
-- West Europe
+- France Central
+- North Europe
 - Southeast Asia (Preview)
+- West Europe
+- West US 2
+
 
 
 ## Services that support Availability Zones
@@ -56,6 +59,7 @@ The Azure services that support Availability Zones are:
 - Service Bus
 - VPN Gateway
 - ExpressRoute
+- Application Gateway (preview)
 
 
 ## Pricing

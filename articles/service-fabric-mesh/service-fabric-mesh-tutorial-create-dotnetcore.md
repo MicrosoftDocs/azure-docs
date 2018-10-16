@@ -1,5 +1,5 @@
 ---
-title: Tutorial-Create, debug, and deploy a multi-service web application to Service Fabric Mesh | Microsoft Docs
+title: Tutorial-Create, debug, deploy, and monitor a multi-service application to Service Fabric Mesh | Microsoft Docs
 description: In this tutorial, you create a multi-service Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, debug it locally, and publish it to Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,22 +12,24 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-#Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
+#Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, debug it on my local development cluster, publish it to Azure, monitor it, upgrade it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
-# Tutorial: Create, debug, and deploy a multi-service web application to Service Fabric Mesh
+# Tutorial: Create, debug, deploy and upgrade a multi-service Service Fabric Mesh app
 
-This tutorial is part one of a series. You'll learn how to create an Azure Service Fabric Mesh application that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric Mesh application running in Azure Service Fabric Mesh.
+This tutorial is part one of a series. You'll learn how to use Visual Studio to create an Azure Service Fabric Mesh app that has an ASP.NET web front-end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster. You'll publish the app to Azure and then make config and code changes and upgrade the app. Finally, you'll clean up unused Azure resources so that you are not charged for what you aren't using.
+
+When you're finished, you'll have walked through most of the phases of app lifecycle management and have built an app that demonstrates a service-to-service call in a Service Fabric Mesh app.
 
 If you don't want to manually create the to-do application, you can [download the source code](https://github.com/azure-samples/service-fabric-mesh) for the completed application  and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Service Fabric Mesh application consisting of an ASP.NET web front end.
+> * Use Visual Studio to create a Service Fabric Mesh app consisting of an ASP.NET web front end.
 > * Create a model to represent to-do items.
 > * Create a back-end service & retrieve data from it.
 > * Add a controller and DataContext as part of that Model View Controller pattern for the back-end service.
@@ -36,9 +38,11 @@ In part one of the series, you learn how to:
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Build a Service Fabric Mesh application
-> * [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Publish the app to Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Create a Service Fabric Mesh app in Visual Studio
+> * [Debug a Service Fabric Mesh app running in your local development cluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Deploy a Service Fabric Mesh app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
+> * [Clean up Service Fabric Mesh resources](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -50,9 +54,7 @@ Before you begin this tutorial:
 
 * Make sure that you've [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
-* The app for this tutorial must, for now, be built using the English locale.
-
-## Create a Service Fabric Mesh project
+## Create a Service Fabric Mesh project in Visual Studio
 
 Run Visual Studio and select **File** > **New** > **Project...**
 
@@ -208,10 +210,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -223,7 +222,7 @@ This minimal data context populates some sample to-do items and provides access 
 
 ### Add a controller
 
-A default controller, which handles the HTPP requests and creates the HTTP response, was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, under **ToDoService**, open the **Controllers** folder to see the **ValuesController.cs** file. 
+A default controller, which handles the HTTP requests and creates the HTTP response, was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, under **ToDoService**, open the **Controllers** folder to see the **ValuesController.cs** file. 
 
 Right-click **ValuesController.cs** and then **Rename**. Rename the file to `ToDoController.cs`. If a prompt appears to rename all references, click **Yes**.
 
@@ -310,7 +309,7 @@ Replace the contents of the entire file with the following HTML that defines a s
 </div>
 ```
 
-Open the code for the Index page in the **Solution Explorer** by opening **Index.cshtml** and then opening **Index.cshtml.cs**. 
+Open the code for the Index page in the **Solution Explorer** by opening **Index.cshtml** and then opening **Index.cshtml.cs**.
 At the top of **Index.cshtml.cs**, add `using System.Net.Http;`
 
 Replace the contents of `public class IndexModel` with:
@@ -333,7 +332,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -343,7 +342,7 @@ public class IndexModel : PageModel
 The URL for the back-end service is required  to communicate with that service. For the purpose of this tutorial, the following code excerpt (which is defined above as part of the IndexModel) reads environment variables to compose the URL:
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 
@@ -364,6 +363,7 @@ In the service.yaml file, add the following variables under `environmentVariable
 
 > [!IMPORTANT]
 > Spaces, not tabs, must be used to indent the variables in the service.yaml file or it won't compile. Visual Studio may insert tabs as you create the environment variables. Replace all tabs with spaces. Although you'll see errors in the **build** debug output, the app will still launch. It won't work, however, until you convert the tabs to spaces. To ensure that no tabs are in the service.yaml file, you can make whitespace visible in the Visual Studio editor with  **Edit**  > **Advanced**  > **View White Space**.
+> Note that service.yaml files are processed using the English locale.  For example, if you need to use a decimal separator, use a period rather than a comma.
 
 Your **WebFrontEnd** project's **service.yaml** file should look something like this although your `ApiHostPort` value will probably be different:
 
@@ -376,7 +376,7 @@ Now you are ready to build and deploy the image the Service Fabric Mesh applicat
 In this part of the tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a Service Fabric Mesh application consisting of an ASP.NET web front end.
+> * Create a Service Fabric Mesh app consisting of an ASP.NET web front-end.
 > * Create a model to represent to-do items.
 > * Create a back-end service & retrieve data from it.
 > * Add a controller and DataContext as part of that Model View Controller pattern for the back-end service.
@@ -385,4 +385,4 @@ In this part of the tutorial, you learned how to:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Debug a Service Fabric Mesh application running locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Debug a Service Fabric Mesh application running in your local development cluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

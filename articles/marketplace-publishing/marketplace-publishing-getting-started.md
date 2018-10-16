@@ -5,8 +5,8 @@ title: Overview of how to create and deploy an offer to the Marketplace | Micros
 description: Understand the steps required to become an approved Microsoft developer and create and deploy a virtual machine image, template, data service, or developer service in the Azure Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: mbaldwin
+ms.author: hascipio
 
 ---
 > [!NOTE]

@@ -1,12 +1,14 @@
 ---
-title: Transform text with the Microsoft Translator Text API | Microsoft Docs
-description: Transform text using the Microsoft Translator Text API.
+title: Transform text - Translator Text API
+titlesuffix: Azure Cognitive Services
+description: Transform text using the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ---

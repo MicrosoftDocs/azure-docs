@@ -102,7 +102,7 @@ For more information, see [FAQs for App Service certificates and custom domains]
 
 ## Why do I see the message "Partially Succeeded" when I try to back up my web app?
 
-A common cause of backup failure is that some files are in use by the application. Files that are in use are locked while you perform the backup. This prevents these files from being backed up and might result in a "Partially Succeeded" status. You can potentially prevent this from occurring by excluding files from the backup process. You can choose to back up only what is needed. For more information, see [Backup just the important parts of your site with Azure web apps](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
+A common cause of backup failure is that some files are in use by the application. Files that are in use are locked while you perform the backup. This prevents these files from being backed up and might result in a "Partially Succeeded" status. You can potentially prevent this from occurring by excluding files from the backup process. You can choose to back up only what is needed. For more information, see [Backup just the important parts of your site with Azure web apps](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## How do I remove a header from the HTTP response?
 
@@ -284,7 +284,7 @@ For detailed documentation for authentication and authorization in App Service, 
 
 ## How do I redirect the default *.azurewebsites.net domain to my Azure web app's custom domain?
 
-When you create a new website by using Web Apps in Azure, a default *sitename*.azurewebsites.net domain is assigned to your site. If you add a custom host name to your site and don’t want users to be able to access your default *.azurewebsites.net domain, you can redirect the default URL. To learn how to redirect all traffic from your website's default domain to your custom domain, see [Redirect the default domain to your custom domain in Azure web apps](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/).
+When you create a new website by using Web Apps in Azure, a default *sitename*.azurewebsites.net domain is assigned to your site. If you add a custom host name to your site and don’t want users to be able to access your default *.azurewebsites.net domain, you can redirect the default URL. To learn how to redirect all traffic from your website's default domain to your custom domain, see [Redirect the default domain to your custom domain in Azure web apps](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## How do I determine which version of .NET version is installed in App Service?
 

@@ -61,8 +61,6 @@
         href: troubleshooting-creating-ml-workspace.md
       - name: Deploy using ARM
         href: deploy-with-resource-manager-template.md
-      - name: Create in another region
-        href: multi-geo.md
       - name: View and delete Studio account data
         href: export-delete-personal-data-dsr.md
   - name: Acquire and understand data
@@ -184,7 +182,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell module (New)
-    href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
+    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
   - name: Azure PowerShell module (Classic)
     href: powershell-module.md
   - name: Algorithm & Module reference
@@ -221,6 +219,8 @@
       href: ai-gallery-control-personal-data-dsr.md
 - name: Resources
   items:
+  - name: R developer's guide 
+    href: ../r-developers-guide.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Net# Neural Networks Language

@@ -1,20 +1,21 @@
 ---
-title: Understand the prediction score returned by LUIS - Azure | Microsoft Docs
-description: Learn what the prediction score means in LUIS
+title: Prediction score - Intents, entities - LUIS
+titleSuffix: Azure Cognitive Services
+description: A prediction score indicates the degree of confidence LUIS has for prediction results. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 10/15/2018
 ms.author: diberry
 ---
 
 # Prediction score
 A prediction score indicates the degree of confidence LUIS has for prediction results. 
 
-A prediction score is usually between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01. 
+A prediction score is between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01. 
 
 |Score value|Confidence|
 |--|--|
@@ -31,6 +32,8 @@ When an utterance results in a low-confidence score, LUIS highlights that in the
 Every utterance prediction returns a top-scoring intent. This is a numerical comparison of prediction scores. The top two scores can have a very small difference between them. LUIS doesn't indicate this proximity other than returning scores.  
 
 If you are concerned about proximity of top scores, you should return the score for all intents. You can either add utterances to the two intents that indicate their differences with word choice and arrangement or you can have the LUIS-calling application, such as a chatbot, make programmatic choices about how to handle the two top intents. 
+
+Two intents, that are too closely scored, may invert due to nondeterministic training. The top score could become the second top and the second top score could become the first top score. In order to prevent this, add example utterances to each of the top two intents for that utterance with word choice and context that differentiates the two intents. The two intents should have about the same number of example utterances. A rule of thumb for separation to prevent inversion due to training, is a 15% difference in scores.
 
 ## Return prediction score for all intents
 A test or endpoint result can include all intents. This configuration is set on the [endpoint](https://aka.ms/v1-endpoint-api-docs) with the `verbose=true` query string name/value pair. 

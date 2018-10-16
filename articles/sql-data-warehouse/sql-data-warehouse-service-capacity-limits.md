@@ -3,11 +3,11 @@ title: Capacity limits - Azure SQL Data Warehouse | Microsoft Docs
 description: Maximum values allowed for various components of Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: sachinpMSFT
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 06/28/2018
+ms.date: 07/26/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ---
@@ -22,7 +22,7 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Default DTU per server |54,000<br></br>By default, each SQL server (for example, myserver.database.windows.net) has a DTU Quota of 54,000, which allows up to DW6000c. This quota is simply a safety limit. You can increase your quota by [creating a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed, or multiply 9.0 by the total cDWU needed. For example:<br></br>DW6000 x 7.5 = 45,000 DTUs<br></br>DW6000c x 9.0 = 54,000 DTUs.<br></br>You can view your current DTU consumption from the SQL server option in the portal. Both paused and unpaused databases count toward the DTU quota. |
 | Database connection |Concurrent open sessions |1024<br/><br/>Each of the 1024 active sessions can submit requests to a SQL Data Warehouse database at the same time. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
-| [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when SQL Data Warehouse has a lower [data warehouse unit](memory-and-concurrency-limits.md) setting. Some queries, like DMV queries, are always allowed to run. |
+| [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/> SQL Data Warehouse can execute a maximum of 128 concurrent queries and queues remaining queries.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when SQL Data Warehouse has a lower [data warehouse unit](memory-and-concurrency-limits.md) setting. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more details on concurrent query execution, see the [concurrency maximums](memory-and-concurrency-limits.md#concurrency-maximums) article. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB. |
 
 ## Database objects

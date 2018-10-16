@@ -1,26 +1,47 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bing Web Search Documentation
+title: Bing Web Search API Documentation
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
-  title: Bing Web Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Web Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use Bing Web Search API to obtain results from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
-  author: v-jerkin
+  author: nitinme
   manager: cgronlun
   ms.service: bing-web-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jerkin
+  ms.date: 9/24/2018
+  ms.author: nitinme
 abstract:
   description: Bing Web Search API provides an experience similar to Bing by returning search results that Bing determines are relevant to a user's query. The results include Web pages and may also include images, videos, and more.
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/bing-web-search/overview
+          html: <p>Learn about the Bing Web Search API</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Bing Web Search?
+        - href: /azure/cognitive-services/bing-web-search/search-responses
+          html: <p>Understand the response body of a Bing Web Search API</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Web Search responses
+        - href: /azure/cognitive-services/bing-web-search/autosuggest-bing-search-terms
+          html: <p>Learn how auto suggest works for your search query</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Autosuggest for Bing queries
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Bing Web Search API by making a query and viewing the JSON response:'
+    text: 'Get started with the Bing Web Search API by making a query and viewing the JSON response:'
   - type: list
     style: icon48
     items:
@@ -59,15 +80,28 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-web-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-web-search-single-page-app-source">Source code</a>
-    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a> &#124; <a href="https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/">Download Visual Studio solution</a>
+    - html: <a href="tutorial-bing-web-search-single-page-app">Single-page web app</a>
+#    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples for Bing Web Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples">REST Samples</a>
+    - html: <a href="sdk-samples.md">SDK Samples</a>
 - title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: APIs
+    - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference">Bing Web Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference/">Bing Web Search API v5</a></p>
     - title: SDKs
-      html: <p><a href="sdk.md">Bing Search SDK</a></p>
+      html: <p><a href="sdk-samples.md">SDK Reference and samples</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

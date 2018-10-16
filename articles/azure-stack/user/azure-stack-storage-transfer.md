@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -154,7 +154,7 @@ This sample assume you have successfully [Installed PowerShell for Azure Stack](
 ```PowerShell  
 # begin
 
-$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
 $GraphAudiance = "https://graph.windows.net/" 
 $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
@@ -218,9 +218,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 ### PowerShell known issues
 
-The current compatible Azure PowerShell module version for Azure Stack is 1.3.0. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+The current compatible Azure PowerShell module version for Azure Stack is 1.2.11 for the user operations. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.3.0 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.11 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
 
    ```
    # This command gets a specific key for a storage account, 
@@ -243,7 +243,7 @@ The Azure CLI is Azure’s command-line experience for managing Azure resources.
 
 Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
 
-Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack storage account, see [Using the Azure CLI2.0 with Azure storage](../../storage/storage-azure-cli.md)
+Azure Stack requires Azure CLI version 2.0 or later. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). For more information about how to use the Azure CLI to perform several tasks working with resources in your Azure Stack storage account, see [Using the Azure CLI with Azure storage](../../storage/storage-azure-cli.md)
 
 ### Azure CLI sample script for Azure Stack
 

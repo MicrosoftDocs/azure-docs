@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
@@ -34,8 +34,8 @@ To update the resource provider, use the *UpdateSQLProvider.ps1* script. This sc
 
 The *UpdateSQLProvider.ps1* script creates a new virtual machine (VM) with the latest resource provider code.
 
->[!NOTE]
->We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a **single** MSU package in the local dependency path. The script will fail if there's more than one MSU file in this location.
+> [!NOTE]
+> We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a **single** MSU package in the local dependency path. The script will fail if there's more than one MSU file in this location.
 
 After the *UpdateSQLProvider.ps1* script creates a new VM, the script migrates the following settings from the old provider VM:
 
@@ -45,7 +45,9 @@ After the *UpdateSQLProvider.ps1* script creates a new VM, the script migrates t
 
 ### Update script PowerShell example
 
-You can edit and run the following script from an elevated PowerShell ISE. Remember to change the account information and passwords as needed for your environment.
+You can edit and run the following script from an elevated PowerShell ISE. 
+
+Remember to change the account information and passwords as needed for your environment.
 
 > [!NOTE]
 > This update process only applies to Azure Stack integrated systems.
@@ -60,6 +62,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -86,6 +91,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
+  -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert `
 
@@ -101,6 +107,7 @@ You can specify the following parameters from the command line when you run the 
 | **AzCredential** | The credentials for the Azure Stack service administrator account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
+| **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure AD, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | You must also put your certificate .pfx file in this directory. | _Optional for single node, but mandatory for multi-node_ |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
 | **MaxRetryCount** | The number of times you want to retry each operation if there's a failure.| 2 |

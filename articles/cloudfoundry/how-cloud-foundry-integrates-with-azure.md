@@ -80,8 +80,8 @@ While F and D VM series were commonly recommended for Pivotal Cloud Foundry prod
 #### Managed Standard Disk: 
 Premium disks were recommended for reliable performance in production.  With [Managed Disk](https://azure.microsoft.com/services/managed-disks/), standard storage can also deliver similar reliability, with different performance. For workload that is not performance-sensitive, like dev/Test or non-critical environment, managed standard disks offer an alternative option with lower cost.  
 ### Cost saving in General 
-#### Significant VM Cost Saving with reserved instances: 
-Today all CF VMs are billed using “on-demand” pricing, even though the environments typically stay up indefinitely. Now you can reserve VM capacity on a 1 or 3-year term, and gain discounts of 45-65%. Discounts are applied in the billing system, with no changes to your environment. For details, see [how reserved instances works](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
+#### Significant VM Cost Saving with Azure reservations: 
+Today all CF VMs are billed using “on-demand” pricing, even though the environments typically stay up indefinitely. Now you can reserve VM capacity on a 1 or 3-year term, and gain discounts of 45-65%. Discounts are applied in the billing system, with no changes to your environment. For details, see [How Azure reservations works](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### Managed Premium Disk with Smaller Sizes: 
 Managed disks support smaller disk sizes, for example P4(32 GB) and P6(64 GB) for both premium and standard disks. If you have small workloads, you can save cost when migrating from standard premium disks to managed premium disks.
 #### Utilizing Azure First Party Services: 

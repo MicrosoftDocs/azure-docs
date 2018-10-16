@@ -23,9 +23,6 @@ Azure Cosmos DB is a globally distributed, multi-model database service. You can
 
 Once an Azure Cosmos DB account is configured with a virtual network service endpoint, it can be accessed only from the specified subnet, all public/internet access is removed. To learn in detailed about service endpoints, refer to the Azure [Virtual network service endpoints overview](../virtual-network/virtual-network-service-endpoints-overview.md) article.
 
-> [!NOTE]
-> Currently Virtual Network service endpoints can be configured for Azure Cosmos DB SQL API or Mongo API accounts. Ability to configure service endpoints for other  APIs and sovereign clouds such as Azure Germany or Azure Government will be available soon. If you have an existing IP firewall configured for your Azure Cosmos DB account, please note the firewall configuration, remove the IP firewall and then configure the service endpoint ACL. After you configure service endpoint, you can re-enable the IP firewall if needed.
-
 ## Configure service endpoint by using Azure portal
 ### Configure service endpoint for an existing Azure virtual network and subnet
 

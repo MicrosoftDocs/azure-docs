@@ -1,0 +1,124 @@
+- name: Troubleshooting Azure VMs
+  href: index.md
+- name: Allocation failures
+  items:
+  - name: Allocation failures 
+    href: allocation-failure.md
+  - name: Allocation failures for classic deployments
+    href: allocation-failure-classic.md
+- name: RDP
+  items:
+  - name: Reset RDP
+    href: reset-rdp.md
+  - name: RDP troubleshooting
+    href: troubleshoot-rdp-connection.md
+  - name: Detailed RDP troubleshooting
+    href: detailed-troubleshoot-rdp.md
+  - name: Troubleshoot specific errors
+    href: troubleshoot-specific-rdp-errors.md
+- name: SSH 
+  items: 
+  - name: SSH troubleshooting
+    href: troubleshoot-ssh-connection.md
+  - name: Detailed SSH troubleshooting
+    href: detailed-troubleshoot-ssh-connection.md
+- name: Common error messages
+  href: error-messages.md
+- name: Performance issues with Windows VMs
+  href: performance-diagnostics.md  
+  items: 
+  - name: How to use PerfInsights
+    href: how-to-use-perfInsights.md
+  - name: Performance diagnostics extension
+    href: performance-diagnostics-vm-extension.md
+- name: Install Windows VM agent offline
+  href: install-vm-agent-offline.md
+- name: Redeploy a VM
+  items:
+  - name: Linux
+    href: redeploy-to-new-node-linux.md
+  - name: Windows
+    href: redeploy-to-new-node-windows.md
+- name: Reset VM password
+  items:    
+  - name: Windows
+    href: reset-local-password-without-agent.md
+  - name: Linux
+    href: reset-password.md
+- name: Reset NIC
+  href: reset-network-interface.md
+- name: Restarting or resizing a VM
+  href: restart-resize-error-troubleshooting.md
+- name: Use the serial console
+  items:
+  - name: Linux VM
+    href: serial-console-linux.md
+    items:
+    - name: Serial Console GRUB/Single user mode
+      href: serial-console-grub-single-user-mode.md
+    - name: Serial Console NMI/SysRq
+      href: serial-console-nmi-sysrq.md
+  - name: Windows VM   
+    href: serial-console-windows.md
+    items:
+    - name: CMD and PowerShell commands
+      href: serial-console-cmd-ps-commands.md
+- name: Errors when deleting storage resources
+  href: storage-resource-deletion-errors.md      
+- name: Unexpected reboots of VMs with attached VHDs  
+  href: unexpected-reboots-attached-vhds.md
+- name: Windows activation problems
+  href: troubleshoot-activation-problems.md
+- name: Application access issues
+  href: troubleshoot-app-connection.md
+- name: New VM deployments
+  items: 
+    - name: Linux
+      href: troubleshoot-deployment-new-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deployment-new-vm-windows.md
+- name: Troubleshoot deployments
+  items:
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md
+- name: Device names are changed
+  href: troubleshoot-device-names-problems.md
+- name: VM recovery access
+  items:
+  - name: Windows
+    items:
+    - name: PowerShell
+      href: troubleshoot-recovery-disks-windows.md
+    - name: Azure portal
+      href: troubleshoot-recovery-disks-portal-windows.md
+  - name: Linux
+    items:
+    - name: CLI
+      href: troubleshoot-recovery-disks-linux.md
+    - name: Azure portal
+      href: troubleshoot-recovery-disks-portal-linux.md
+- name: Boot errors
+  href: boot-error-troubleshoot.md
+  items:
+  - name: Boot diagnostics
+    href: boot-diagnostics.md
+  - name: BitLocker errors 
+    href: troubleshoot-bitlocker-boot-error.md  
+  - name: Checking file system errors
+    href: troubleshoot-check-disk-boot-error.md
+  - name: Blue screen errors
+    href: troubleshoot-common-blue-screen-error.md
+  - name: VM startup is stuck
+    href: troubleshoot-vm-boot-configure-update.md
+  - name: Critical service failed
+    href: troubleshoot-critical-service-failed-boot-error.md
+  - name: Stuck at Windows update
+    href: troubleshoot-stuck-updating-boot-error.md
+- name: Throttling errors
+  href: troubleshooting-throttling-errors.md
+- name: Use nested virtualization 
+  href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: Understand a system reboot
+  href: understand-vm-reboot.md

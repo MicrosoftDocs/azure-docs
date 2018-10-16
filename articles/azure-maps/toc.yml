@@ -22,24 +22,28 @@
   items:
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Service coverage
+  - name: Coverage
     items:
-    - name: Geocoding
+    - name: Geocoding coverage
       href: geocoding-coverage.md
-    - name: Traffic
+    - name: Traffic coverage
       href: traffic-coverage.md
-    - name: Render
+    - name: Render coverage
       href: render-coverage.md
-    - name: Routing
+    - name: Routing coverage
       href: routing-coverage.md
   - name: Supported languages
     href: supported-languages.md
+  - name: Supported Map styles
+    href: supported-map-styles.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
     items:
     - name: Manage accounts and keys
       href: how-to-manage-account-keys.md
+    - name: View usage metrics
+      href: how-to-view-api-usage.md
   - name: Get map data from REST APIs
     items:
     - name: Search for an address
@@ -50,6 +54,10 @@
       href: how-to-use-map-control.md
     - name: Create a map
       href: map-create.md
+    - name: Choose a map style
+      href: choose-map-style.md
+    - name: Add map controls
+      href: map-add-controls.md
     - name: Add a pin
       href: map-add-pin.md
     - name: Add a popup
@@ -58,12 +66,14 @@
       href: map-add-shape.md
     - name: Add custom HTML
       href: map-add-custom-html.md
-    - name: Show search results 
-      href: map-search-location.md  
-    - name: Get information from a coordinate
-      href: map-get-information-from-coordinate.md
-    - name: Show directions from A to B
-      href: map-route.md   
+    - name: Services
+      items:  
+      - name: Show search results 
+        href: map-search-location.md  
+      - name: Get information from a coordinate
+        href: map-get-information-from-coordinate.md
+      - name: Show directions from A to B
+        href: map-route.md   
     - name: Show traffic 
       href: map-show-traffic.md
     - name: Interacting with mouse events
@@ -100,6 +110,8 @@
     items:
     - name: Map control
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Service module
+      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
 - name: Related
   items:
   - name: Solutions
@@ -132,6 +144,8 @@
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Glossary
+    href: glossary.md
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
   - name: Pricing

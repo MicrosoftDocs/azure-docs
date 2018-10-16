@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/26/2018
+ms.date: 08/17/2018
 ms.author: rnagpal
 
 ---
@@ -34,9 +34,13 @@ ms.author: rnagpal
 
 ## Release notes
 
+### <a name="2.0.0"/>2.0.0
+* Added Multi-region write support
+* Fixed NuGet package dependencies on Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
+
 ### <a name="1.1.3"/>1.1.3
-* Fixed Nuget package dependencies on Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB.
-* Bug fixes on table serialization when JsonConvert.DefaultSettings is configured.
+* Fixed NuGet package dependencies on Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB.
+* Bug fixes on table serialization when JsonConvert.DefaultSettings are configured.
 
 ### <a name="1.1.1"/>1.1.1
 * Added validation for malformed ETAGs in Direct Mode.
@@ -44,7 +48,7 @@ ms.author: rnagpal
 * Synchronous APIs now run on the thread pool with SynchronizationContext.
 
 ### <a name="1.1.0"/>1.1.0
-* Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism and TableQueryContinuationTokenLimitInKb to TableRequestOptions
+* Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism, and TableQueryContinuationTokenLimitInKb to TableRequestOptions
 * Bug Fixes
 
 ### <a name="1.0.0"/>1.0.0
@@ -56,7 +60,7 @@ ms.author: rnagpal
 ## Release and Retirement dates
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-The [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview package has been deprecated and replaced by the [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) package. The WindowsAzure.Storage-PremiumTable SDK will be retired on November 15th, 2018, at which time requests to the retired SDK will not be permitted.
+The [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview package has been deprecated and replaced by the [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) package. The WindowsAzure.Storage-PremiumTable SDK will be retired on November 15, 2018, at which time requests to the retired SDK will not be permitted. The `Microsoft.Azure.CosmosDB.Table` library is currently available for .NET Standard only, it's not yet available for .NET Core.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
@@ -87,7 +91,7 @@ when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you hav
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
     
-* Using your preferred Nuget package management tool, install the Microsoft.Azure.Storage.Common Nuget package before installing Microsoft.Azure.CosmosDB.Table.
+* Using your preferred NuGet package management tool, install the Microsoft.Azure.Storage.Common NuGet package before installing Microsoft.Azure.CosmosDB.Table.
 
 ## FAQ
 

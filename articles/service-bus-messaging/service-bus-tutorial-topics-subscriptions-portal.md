@@ -2,11 +2,11 @@
 title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with Azure portal | Microsoft Docs
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using .NET
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
-ms.author: sethm
-ms.date: 05/22/2018
+ms.author: spelluru
+ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
@@ -43,9 +43,9 @@ To complete this tutorial, make sure you have installed:
 
 Each [subscription to a topic](service-bus-messaging-overview.md#topics) can receive a copy of each message. Topics are fully protocol and semantically compatible with Service Bus queues. Service Bus topics support a wide array of selection rules with filter conditions, with optional actions that set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](topic-filters.md).
 
-## Log on to the Azure portal
+## Sign in to the Azure portal
 
-First, go to the [Azure portal][Azure portal] and log on using your Azure subscription. The first step is to create a Service Bus namespace of type **Messaging**.
+First, go to the [Azure portal][Azure portal] and sign in using your Azure subscription. The first step is to create a Service Bus namespace of type **Messaging**.
 
 ## Create a Service Bus namespace
 

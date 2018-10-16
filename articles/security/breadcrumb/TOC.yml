@@ -6,9 +6,9 @@
     tocHref: /azure/
     topicHref: /azure/security/index
 - name: Azure
-  tocHref: /architecture/
+  tocHref: /azure/
   topicHref: /azure/index
   items:
   - name: Security
-    tocHref: /architecture/azure/
+    tocHref: /azure/architecture/
     topicHref: /azure/security/index

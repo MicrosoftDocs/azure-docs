@@ -1,19 +1,17 @@
---- 
+---
 title: Migrate on-premises data to Azure Storage by using AzCopy| Microsoft Docs
-description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.  
-services: storage 
+description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.
+services: storage
 author: roygara
-manager: jeconnoc 
 
-ms.service: storage 
-ms.tgt_pltfrm: na
-ms.devlang: azcopy
+ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
+ms.component: common
 --- 
 
-#  Migrate on-premises data to cloud storage by using AzCopy
+#  Tutorial: Migrate on-premises data to cloud storage by using AzCopy
 
 AzCopy is a command-line tool for copying data to or from Azure Blob storage, Azure Files, and Azure Table storage, by using simple commands. The commands are designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
@@ -34,7 +32,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy). 
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 >[!NOTE]
 >If you want to be able to download blobs from a secondary region to your local storage and vice versa, set **Replication** to **Read-access-geo-redundant storage**. Selecting this option creates a [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) account. 

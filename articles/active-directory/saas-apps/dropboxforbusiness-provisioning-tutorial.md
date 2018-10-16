@@ -88,7 +88,7 @@ This section guides you through connecting your Azure AD to Dropbox for Business
 
 It starts the initial synchronization of any users and/or groups assigned to Dropbox for Business in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Dropbox for Business app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## Additional resources

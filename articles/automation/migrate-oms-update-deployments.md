@@ -55,10 +55,12 @@ For Machines to update, select the saved search used by the existing OMS deploym
 | --- | --- |
 |Name |Unique name to identify the update deployment. |
 |Operating System| Select **Linux** or **Windows**.|
-|Machines to update |For Machines to update, select the saved search used by the existing OMS deployment. |
+|Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Update classifications|Select all the update classifications that you need. CentOS does not support this out of the box.|
 |Updates to exclude|Enter the updates to exclude. For Windows, enter the KB article without the **KB** prefix. For Linux, enter the package name or use a wildcard character.  |
 |Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence.|| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes or more than 6 hours. |
+| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+| Reboot control| Detemines how reboots should be handled.</br>Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
 
 Click **Scheduled update deployments** to view the status of the newly created update deployment.
 

@@ -1,19 +1,14 @@
 ---
-title: Monitor Hadoop clusters in HDInsight using the Ambari API - Azure | Microsoft Docs
+title: Monitor Hadoop clusters in HDInsight using the Ambari API - Azure 
 description: Use the Apache Ambari APIs for creating, managing, and monitoring Hadoop clusters. Intuitive operator tools and APIs hide the complexity of Hadoop.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-editor: cgronlun
-manager: jhubbard
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 052135b3-d497-4acc-92ff-71cee49356ff
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/07/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---

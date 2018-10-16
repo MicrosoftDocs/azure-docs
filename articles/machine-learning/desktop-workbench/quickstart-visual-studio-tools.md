@@ -2,20 +2,23 @@
 title: Quickstart article for Visual Studio Tools for Machine Learning on Azure | Microsoft Docs
 description: This article describe how to get started using Visual Studio Tools for Machine Learning, from creating an experiment, training a model, and operationalizing a web-service.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: chris-lauren
+ms.author: clauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Visual Studio Tools for AI
-Visual Studio Tools for AI is a development extension to build, test, and deploy Deep Learning / AI solutions. It features a seamless integration with Azure Machine Learning, notably a run history view, detailing the performance of previous trainings and custom metrics. It offers a samples explorer view, allowing to browse and bootstrap new project with  [Microsoft Cognitive Toolkit (previously known as CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org), and other deep-learning framework. Finally, it provides an explorer for compute targets, which enables you to submit jobs to train models on remote environments like Azure Virtual Machines or Linux servers with GPU. It also provides a facilitated access to [Azure Batch AI (Preview)](https://docs.microsoft.com/azure/batch-ai/).
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+Visual Studio Tools for AI is a development extension to build, test, and deploy Deep Learning / AI solutions. It features a seamless integration with Azure Machine Learning, notably a run history view, detailing the performance of previous trainings and custom metrics. It offers a samples explorer view, allowing to browse and bootstrap new project with  [Microsoft Cognitive Toolkit (previously known as CNTK)](http://www.microsoft.com/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org), and other deep-learning framework. Finally, it provides an explorer for compute targets, which enables you to submit jobs to train models on remote environments like Azure Virtual Machines or Linux servers with GPU. It also provides a facilitated access to [Azure Batch AI (Preview)](https://docs.microsoft.com/azure/batch-ai/).
  
 ## Getting started 
 To get started, you first need to download and install [Visual Studio](https://www.visualstudio.com/downloads/). Once you have Visual Studio open, do the following steps:

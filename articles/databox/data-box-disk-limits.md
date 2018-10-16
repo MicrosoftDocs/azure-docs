@@ -2,21 +2,13 @@
 title: Azure Data Box Disk limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Disk.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 09/04/2018
 ms.author: alkohli
-ms.custom: 
-
 ---
 # Azure Data Box Disk limits (Preview)
 
@@ -29,7 +21,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Di
 
 ## Data Box service limits
 
- - Data Box service is available only in US and EU in all the Azure regions for Azure public cloud.
+ - Data Box service is available only in US, EU, Canada, and Australia in all the Azure regions for Azure public cloud.
  - A single storage account is supported with Data Box Disk.
 
 ## Data Box Disk performance
@@ -60,9 +52,9 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Azure storage account size limits
 
-Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/en-us/azure/storage/cstorage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
-| Size of data copied into Azure storage account                      | Default Limit          |
+| Size of data copied into Azure storage account                      | Default limit          |
 |---------------------------------------------------------------------|------------------------|
 | Block Blob and page blob                                            | 500 TB per storage account. <br> This includes data from all the sources including Data Box Disk.|
 
@@ -71,7 +63,7 @@ Here are the limits on the size of the data that is copied into storage account.
 
 Here are the sizes of the Azure objects that can be written. Make sure that all the files that are uploaded conform to these limits.
 
-| Azure object type | Default Limit                                             |
+| Azure object type | Default limit                                             |
 |-------------------|-----------------------------------------------------------|
 | Block Blob        | ~ 8 TB                                                 |
 | Page Blob         | 1 TB <br> (Every file uploaded in Page Blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> The VHD and VHDX are 512 bytes aligned.) |
@@ -83,3 +75,7 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Container names for block blob and page blob | Must be a valid DNS name that is 3 to 63 characters long. <br>  Must start with a letter or number. <br> Can contain only lowercase letters, numbers, and the hyphen (-). <br> Every hyphen (-) must be immediately preceded and followed by a letter or number. <br> Consecutive hyphens are not permitted in names. |
 | Blob names for block blob and page blob      | Blob names are case-sensitive and can contain any combination of characters. <br> A blob name must be between 1 to 1,024 characters long. <br> Reserved URL characters must be properly escaped. <br>The number of path segments comprising the blob name cannot exceed 254. A path segment is the string between consecutive delimiter characters (for example, the forward slash '/') that correspond to the name of a virtual directory. |
+
+
+## Next steps
+* Review [Data Box system requirements](data-box-system-requirements.md)

@@ -1,12 +1,14 @@
 ---
-title: Bing Visual Search SDK ImageInsightsToken tutorial | Microsoft Docs
+title: "Tutorial: ImageInsightsToken - Bing Visual Search"
+titlesuffix: Azure Cognitive Services
 description: How to use the Bing Visual Search SDK to get URLs of images specified by ImageInsightsToken.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
 ---
@@ -18,7 +20,7 @@ Visual Studio 2017. If necessary, you can download free community version from h
 A cognitive services API key is required to authenticate SDK calls. Sign up for a free trial key. The trial key is good for seven days with one call per second. For production scenarios, buy an access key. See also pricing information.
 The ability to run .NET core SDK, .net core 1.1 apps. You can get CORE, Framework, and Runtime from here: https://www.microsoft.com/net/download/.
 
-##Application dependencies
+## Application dependencies
 To set up a console application using the Bing Web Search SDK, browse to the Manage NuGet Packages option from the Solution Explorer in Visual Studio. Add:
 * Microsoft.Azure.CognitiveServices.Search.VisualSearch
 * Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage packages.
@@ -30,6 +32,7 @@ Installing the NuGet Web Search SDK package also installs dependencies, includin
 * Newtonsoft.Json
 
 ## Get the ImageInsightsToken from Image Search
+
 This example uses an `ImageInsightsToken` obtained by the following method.  For more information about this call, see [Image Search SDK C# quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
 The code searches for results on a query for 'Canadian Rockies' and gets an ImageInsightsToken. It prints the first image's insights token, thumbnail url, and image content url.  The method returns the `ImageInsightsToken`for use in a subsequent Visual Search request.
@@ -79,12 +82,15 @@ The code searches for results on a query for 'Canadian Rockies' and gets an Imag
 ```
 
 ## Specify the ImageInsightsToken for Visual Search request
+
 This example uses the insights token returned by the previous method. The following code creates an `ImageInfo` object from the `ImageInsightsToken` and loads the ImageInfo object into a `VisualSearchRequest`. Specify `ImageInsightsToken` in an `ImageInfo` for the `VisualSearchRequest`
 
 ```
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
+
 ## Use Visual Search to find images from an ImageInsightsToken
+
 The `VisualSearchRequest` contains information about the image to search for in the `ImageInfo` object.  The `VisualSearchMethodAsync` method gets the results.
 ```
 // An image binary is not necessary here, as the image is specified by insights token.
@@ -129,6 +135,7 @@ Getting the actual image URLs requires a cast that reads an `ActionType` as `Ima
     }
 ```
 For more information about these data types, see [Images - Visual Search](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+
 ## Complete code
 
 The following code runs previous examples. It sends the `ImageInsightsToken` in a post request. Then it prints the Bing search URLs for each ActionType. If the ActionType is `PagesIncluding`, the code gets the `ImageObject` items in `Data`.  The `Data` contains a list of values, which are the URLs of images on Web pages.  Copy and paste resulting Visual Search URLs to browser to show results. Copy and paste ContentUrl items to browser to show images.
@@ -276,5 +283,6 @@ namespace VisualSearchFeatures
 }
 
 ```
+
 ## Next steps
-[Visual Search response](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview?branch=pr-en-us-44614#the-response)
+[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

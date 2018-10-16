@@ -3,7 +3,7 @@ title: Service Bus dead-letter queues | Microsoft Docs
 description: Overview of Azure Service Bus dead-letter queues
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
-ms.author: sethm
+ms.date: 09/26/2018
+ms.author: spelluru
 
 ---
 # Overview of Service Bus dead-letter queues

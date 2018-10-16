@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with E Sales Manager Remix | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and E Sales Manager Remix.
 services: active-directory
@@ -60,15 +60,15 @@ To configure the integration of Azure AD with E Sales Manager Remix, add E Sales
 
 	![The Azure Active Directory button][1]
 
-2. Select **Enterprise applications** > **All applications**.
+1. Select **Enterprise applications** > **All applications**.
 
 	![The "Enterprise applications" window][2]
 	
-3. To add a new application, select **New application** at the top of the window.
+1. To add a new application, select **New application** at the top of the window.
 
 	![The New application button][3]
 
-4. In the search box, type **E Sales Manager Remix**, select **E Sales Manager Remix** in the results list, and then select **Add**.
+1. In the search box, type **E Sales Manager Remix**, select **E Sales Manager Remix** in the results list, and then select **Add**.
 
 	![E Sales Manager Remix in the results list](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -88,11 +88,11 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
 	![The "Single sign-on" link][4]
 
-2. In the **Single sign-on** window, in the **Single Sign-on Mode** box, select **SAML-based Sign-on**.
+1. In the **Single sign-on** window, in the **Single Sign-on Mode** box, select **SAML-based Sign-on**.
  
 	![The "Single sign-on" window](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-3. Under **E Sales Manager Remix Domain and URLs**, do the following:
+1. Under **E Sales Manager Remix Domain and URLs**, do the following:
 
 	![E Sales Manager Remix Domain and URLs single sign-on information](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
@@ -105,47 +105,47 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 	> [!NOTE] 
 	> The preceding values are not real. Update them with the actual sign-in URL and identifier. To obtain the values, contact [E Sales Manager Remix Client support team](mailto:esupport@softbrain.co.jp).
 
-4. Under **SAML Signing Certificate**, select **Certificate (Base64)**, and then save the certificate file on your computer.
+1. Under **SAML Signing Certificate**, select **Certificate (Base64)**, and then save the certificate file on your computer.
 
 	![The Certificate (Base64) download link](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-5. Select the **View and edit all other user attributes** check box, and then select the **emailaddress** attribute.
+1. Select the **View and edit all other user attributes** check box, and then select the **emailaddress** attribute.
 	
 	![The User Attributes window](./media/esalesmanagerremix-tutorial/configure1.png)
 
     The **Edit Attribute** window opens.
 
-6. Copy the **Namespace** and **Name** values. Generate the value in the pattern *\<Namespace>/\<Name>*, and save it for later use in this tutorial.
+1. Copy the **Namespace** and **Name** values. Generate the value in the pattern *\<Namespace>/\<Name>*, and save it for later use in this tutorial.
 
 	![The Edit Attribute window](./media/esalesmanagerremix-tutorial/configure2.png)
 
-7. Under **E Sales Manager Remix Configuration**, select **Configure E Sales Manager Remix**.
+1. Under **E Sales Manager Remix Configuration**, select **Configure E Sales Manager Remix**.
 
 	![E Sales Manager Remix Configuration](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     The **Configure sign-on** window opens.
 
-8. In the **Quick Reference** section, copy the sign-out URL and the SAML single sign-on service URL.
+1. In the **Quick Reference** section, copy the sign-out URL and the SAML single sign-on service URL.
 
-9. Select **Save**.
+1. Select **Save**.
 
 	![The Save button](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-10. Sign in to your E Sales Manager Remix application as an administrator.
+1. Sign in to your E Sales Manager Remix application as an administrator.
 
-11. At the top right, select **To Administrator Menu**.
+1. At the top right, select **To Administrator Menu**.
 
 	![The "To Administrator Menu" command](./media/esalesmanagerremix-tutorial/configure4.png)
 
-12. In the left pane, select **System settings** > **Cooperation with external system**.
+1. In the left pane, select **System settings** > **Cooperation with external system**.
 
 	![The "System settings" and "Cooperation with external system" links](./media/esalesmanagerremix-tutorial/configure5.png)
 	
-13. In the **Cooperation with external system** window, select **SAML**.
+1. In the **Cooperation with external system** window, select **SAML**.
 
 	![The "Cooperation with external system" window](./media/esalesmanagerremix-tutorial/configure6.png)
 
-14. Under **SAML authentication setting**, do the following:
+1. Under **SAML authentication setting**, do the following:
 
 	![The "SAML authentication setting" section](./media/esalesmanagerremix-tutorial/configure3.png)
 	
@@ -179,17 +179,17 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
     ![The Azure Active Directory link](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-2. To display a list of current users, select **Users and groups** > **All users**.
+1. To display a list of current users, select **Users and groups** > **All users**.
 
     ![The "Users and groups" and "All users" links](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. At the top of the **All Users** window, select **Add**.
+1. At the top of the **All Users** window, select **Add**.
 
     ![The Add button](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
     The **User** window opens.
 
-4. In the **User** window, do the following:
+1. In the **User** window, do the following:
 
     ![The User window](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
@@ -205,15 +205,15 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
 1. Sign on to your E Sales Manager Remix application as an administrator.
 
-2. Select **To Administrator Menu** from the menu at the top right.
+1. Select **To Administrator Menu** from the menu at the top right.
 
 	![E Sales Manager Remix Configuration](./media/esalesmanagerremix-tutorial/configure4.png)
 
-3. Select **Your company's settings** > **Maintenance of departments and employees**, and then select **Employees registered**.
+1. Select **Your company's settings** > **Maintenance of departments and employees**, and then select **Employees registered**.
 
 	![The "Employees registered" tab](./media/esalesmanagerremix-tutorial/user1.png)
 
-4. In the **New employee registration** section, do the following:
+1. In the **New employee registration** section, do the following:
 	
 	![The "New employee registration" section](./media/esalesmanagerremix-tutorial/user2.png)
 
@@ -225,7 +225,7 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
 	d. Select **Registration**.
 
-5. In the future, to sign in as an administrator, sign in as the user who has administrator permissions and then, at the top right, select **To Administrator Menu**.
+1. In the future, to sign in as an administrator, sign in as the user who has administrator permissions and then, at the top right, select **To Administrator Menu**.
 
 	![The "To Administrator Menu" command](./media/esalesmanagerremix-tutorial/configure4.png)
 
@@ -239,23 +239,23 @@ In this section, you enable user Britta Simon to use Azure single sign-on by gra
 
 	![The "Enterprise applications" and "All applications" links][201] 
 
-2. In the **Applications** list, select **E Sales Manager Remix**.
+1. In the **Applications** list, select **E Sales Manager Remix**.
 
 	![The E Sales Manager Remix link](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-3. In the left pane, select **Users and groups**.
+1. In the left pane, select **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Select **Add** and then, in the **Add Assignment** pane, select **Users and groups**.
+1. Select **Add** and then, in the **Add Assignment** pane, select **Users and groups**.
 
 	![The Add Assignment pane][203]
 
-5. In the **Users and groups** window, in the **Users** list, select **Britta Simon**.
+1. In the **Users and groups** window, in the **Users** list, select **Britta Simon**.
 
-6. Select the **Select** button.
+1. Select the **Select** button.
 
-7. In the **Add Assignment** window, select **Assign**.
+1. In the **Add Assignment** window, select **Assign**.
 	
 ### Test single sign-on
 

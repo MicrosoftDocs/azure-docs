@@ -1,23 +1,19 @@
 ---
-# required metadata
 title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
-description: How to download and install the on-premises data gateway before you access data on premises from logic apps
+description: Before you can access data on premises from Azure Logic Apps, download and install the on-premises data gateway
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-
-# optional metadata
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
 ---
 
-# Install the on-premises data gateway for Azure Logic Apps
+# Install on-premises data gateway for Azure Logic Apps
 
-Before you can connect your logic apps to on-premises data sources, 
+Before you can connect to on-premises data sources from Azure Logic Apps, 
 download and install the on-premises data gateway on a local computer. 
 The gateway works as a bridge that provides quick data transfer and encryption 
 between data sources on premises (not in the cloud) and your logic apps. 
@@ -57,14 +53,15 @@ For information about how to use the gateway with other services, see these arti
 
 ## Prerequisites
 
-* A [work or school account](../active-directory/fundamentals/sign-up-organization.md) 
-that has an [Azure subscription](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). 
-During gateway installation, you sign in to this account so you can 
-associate the gateway installation with your Azure subscription. 
-Later, you also use same account when you create an Azure resource 
-for your gateway installation in the Azure portal. 
-If you don't have an Azure subscription yet, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+* A [work or school account](../active-directory/fundamentals/sign-up-organization.md) that has an 
+[Azure subscription](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  During gateway installation, you sign in to this account so you can 
+  associate the gateway installation with your Azure subscription. 
+  Later, you also use same account when you create an Azure resource 
+  for your gateway installation in the Azure portal. 
+  If you don't have an Azure subscription yet, 
+  <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
 * Here are requirements for your local computer:
 
@@ -89,9 +86,9 @@ If you don't have an Azure subscription yet,
     > as possible to your data source, or on the same computer, 
     > assuming that you have permissions.
 
-  * Install the gateway on a computer that *doesn't* turn off, go to sleep, 
-  or connect to the Internet. The gateway can't run under these conditions. 
-  Gateway performance might also suffer over a wireless network.
+  * Install the gateway on a computer that's connected to the internet, 
+  always turned on, and *doesn't* go to sleep. Otherwise, 
+  the gateway can't run. Also, performance might suffer over a wireless network.
 
   * During installation, you can only sign in with a 
   [work or school account](../active-directory/sign-up-organization.md) 
@@ -111,7 +108,7 @@ If you don't have an Azure subscription yet,
   >
   > To use a Microsoft account that has a 
   > [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/), first 
-  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md), 
+  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md), 
   > or use the default directory, with your Microsoft account. 
   > Add a user with a password to the directory, 
   > then give that user access to your subscription. 
@@ -137,7 +134,7 @@ If you don't have an Azure subscription yet,
 
 ## Install data gateway
 
-1. [Download, save, and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Download, save, and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Accept the default installation path, 
 or specify the location on your computer 
@@ -256,7 +253,7 @@ This action disconnects the old gateway.
 1. From your computer's **Control Panel**, go to **Programs and Features**. 
 In the programs list, select **On-premises data gateway**, and then choose **Uninstall**.
 
-2. [Reinstall the on-premises data gateway](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Reinstall the on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer).
 
 3. After the installer opens, sign in with the same work 
 or school account that was previously used to install the gateway.
@@ -305,7 +302,7 @@ From a PowerShell prompt, run this command:
 > Also, this command is only available on Windows Server 2012 R2 or later, 
 > and Windows 8.1 or later. On earlier OS versions, you can use Telnet to 
 > test connectivity. Learn more about 
-> [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Your results should look similar to this example 
 with **TcpTestSucceeded** set to **True**:
@@ -335,7 +332,7 @@ The gateway creates an outbound connection to
 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) 
 and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354. 
 The gateway doesn't require inbound ports. Learn more about 
-[Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+[Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
 
 The gateway uses these fully qualified domain names:
 

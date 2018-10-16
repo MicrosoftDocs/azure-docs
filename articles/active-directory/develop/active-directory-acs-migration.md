@@ -1,6 +1,6 @@
 ---
 title: Migrate from the Azure Access Control service | Microsoft Docs
-description: Options for moving apps and services from the Azure Access Control service
+description: Learn about the options for moving apps and services from the Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 10/03/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
+ms.reviewer: jlu, annaba, hirsin
 ---
 
+# How to: Migrate from the Azure Access Control service
 
-# Migrate from the Azure Access Control service
-
-Azure Access Control, a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
-
+Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 
 ## Overview
 
@@ -35,7 +33,7 @@ Use cases for Access Control can be broken down into three main categories:
 - Adding authentication to web applications, both custom and prepackaged (like SharePoint). By using Access Control "passive" authentication, web applications can support sign-in with a Microsoft account (formerly Live ID), and with accounts from Google, Facebook, Yahoo, Azure AD, and Active Directory Federation Services (AD FS).
 - Securing custom web services with tokens issued by Access Control. By using "active" authentication, web services can ensure that they allow access only to known clients that have authenticated with Access Control.
 
-Each of these use cases and their recommended migration strategies are discussed in the following sections. 
+Each of these use cases and their recommended migration strategies are discussed in the following sections.
 
 > [!WARNING]
 > In most cases, significant code changes are required to migrate existing apps and services to newer technologies. We recommend that you immediately begin planning and executing your migration to avoid any potential outages or downtime.
@@ -60,6 +58,51 @@ The exception to this is any traffic to `https://accounts.accesscontrol.windows.
 
 For more information about Access Control, see [Access Control Service 2.0 (archived)](https://msdn.microsoft.com/library/hh147631.aspx).
 
+## Find out which of your apps will be impacted
+
+Follow the steps in this section to find out which of your apps will be impacted by ACS retirement.
+
+### Download and install ACS PowerShell
+
+1. Go to the PowerShell Gallery and download [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+1. Install the module by running
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. Get a list of all possible commands by running
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    To get help on a specific command, run:
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    where `[Command-Name]` is the name of the ACS command.
+
+### List your ACS namespaces
+
+1. Connect to ACS using the **Connect-AcsAccount** cmdlet.
+  
+    You may need to run `Set-ExecutionPolicy -ExecutionPolicy Bypass` before you can execute commands and be the admin of those subscriptions in order to execute the commands.
+
+1. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
+1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
+
+### Check which applications will be impacted
+
+1. Use the namespace from the previous step and go to `https://<namespace>.accesscontrol.windows.net`
+
+    For example, if one of the namespaces is contoso-test, go to `https://contoso-test.accesscontrol.windows.net`
+
+1. Under **Trust relationships**, select **Relying party applications** to see the list of apps that will be impacted by ACS retirement.
+1. Repeat steps 1-2 for any other ACS namespace(s) that you have.
+
 ## Retirement schedule
 
 As of November 2017, all Access Control components are fully supported and operational. The only restriction is that you [can't create new Access Control namespaces via the Azure classic portal](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
@@ -70,6 +113,8 @@ Here's the schedule for deprecating Access Control components:
 - **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://\<namespace\>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
 - **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
 
+> [!NOTE]
+> A policy disables namespaces that have not requested a token for a period of time. As of early September 2018, this period of time is currently at 14 days of inactivity, but this will be shortened to 7 days of inactivity in the coming weeks. If you have Access Control namespaces that are currently disabled, you can [download and install ACS PowerShell](#download-and-install-acs-powershell) to re-enable the namespace(s).
 
 ## Migration strategies
 
@@ -96,14 +141,13 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
-
 ### SharePoint customers
 
 SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for authentication purposes in cloud, on-prem, and hybrid scenarios. Some SharePoint features and use cases will be affected by ACS retirement, while others will not. The below table summarizes migration guidance for some of the most popular SharePoint feature that leverage ACS:
 
 | Feature | Guidance |
 | ------- | -------- |
-| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatibile with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using token issuance policies](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatibile with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using Azure AD App Gallery SharePoint on premise app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [App authentication & server-to-server authentication in SharePoint on-prem](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Not affected by ACS retirement; no changes necessary. | 
 | [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Not affected by ACS retirement; no changes necessary. |
@@ -172,26 +216,14 @@ To use WS-Federation or WIF to integrate with Azure AD, we recommend following t
 - You get the full flexibility of Azure AD token customization. You can customize the claims that are issued by Azure AD to match the claims that are issued by Access Control. This especially includes the user ID or Name Identifier claim. To continue to receive consistent user IDentifiers for your users after you change technologies, ensure that the user IDs issued by Azure AD match those issued by Access Control.
 - You can configure a token-signing certificate that is specific to your application, and with a lifetime that you control.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > This approach requires an Azure AD Premium license. If you are an Access Control customer and you require a premium license for setting up single-sign on for an application, contact us. We'll be happy to provide developer licenses for you to use.
 
 An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions for setting up WS-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and don't require an Azure AD Premium license. 
 
-If you choose this approach, you need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes.
+If you choose this approach, you need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
 
 If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](https://aka.ms/aaddev).
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### Migrate to Azure Active Directory B2C
 
@@ -234,7 +266,6 @@ If you decide that Azure AD B2C is the best migration path for your applications
 - [Azure AD B2C custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Azure AD B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### Migrate to Ping Identity or Auth0
 
 In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
@@ -246,8 +277,6 @@ In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient t
 - Multi-tenant web applications that use ACS to centrally manage federation to many different identity providers
 
 In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
-
-
 
 |     |     | 
 | --- | --- |
@@ -317,6 +346,10 @@ In these cases, you might consider migrating your web application to another clo
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on-prem identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products. |
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
+
+#### Passthrough authentication
+
+For passthrough authentication with arbitrary token transformation, there is no equivalent Microsoft technology to ACS. If that is what your customers need, Auth0 might be the one who provides the closest approximation solution.
 
 ## Questions, concerns, and feedback
 

@@ -52,7 +52,7 @@ After creating a zone and delegating it to Azure DNS, you can then create record
 
 ## Create an A record and TXT record
 
-An A record is used to map a name to its IP address. In the following example, assign "@" as an A record using your web app IPv4 address. @ typically represents the root domain.
+An A record is used to map a name to its IP address. In the following example, assign "\@" as an A record using your web app IPv4 address. \@ typically represents the root domain.
 
 ### Get the IPv4 address
 
@@ -84,7 +84,7 @@ New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResource
 
 ## Create the CNAME record
 
-If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md), you can use the following the example to create a CNAME record for contoso.azurewebsites.net.
+If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md), you can use the following example to create a CNAME record for contoso.azurewebsites.net.
 
 Open Azure PowerShell and create a new CNAME record. This example creates a record set type CNAME with a "time to live" of 600 seconds in DNS zone named "contoso.com" with the alias for the web app contoso.azurewebsites.net.
 

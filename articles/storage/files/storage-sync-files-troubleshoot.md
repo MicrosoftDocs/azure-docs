@@ -2,18 +2,12 @@
 title: Troubleshoot Azure File Sync | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
 services: storage
-documentationcenter: ''
 author: jeffpatt24
-manager: aungoo
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 09/06/2018
 ms.author: jeffpatt
+ms.component: files
 ---
 
 # Troubleshoot Azure File Sync
@@ -126,6 +120,31 @@ Set-AzureRmStorageSyncServerEndpoint `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
 ```
+<a id="server-endpoint-noactivity"></a>**Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”**  
+
+This issue can occur if the Storage Sync Monitor process is not running or the server is unable to communicate with the Azure File Sync service due to a proxy or firewall.
+
+To resolve this issue, perform the following steps:
+
+1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade the Azure File Sync agent to version [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) if not currently installed.
+2. Verify Firewall and Proxy settings are configured correctly:
+	- If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
+	- If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+
+<a id="endpoint-noactivity-sync"></a>**Server endpoint has a health status of “No Activity” and the server state on the registered servers blade is “Online”**  
+
+A server endpoint health status of "No Activity" means the server endpoint has not logged sync activity in the past two hours.
+
+A server endpoint may not log sync activity for the following reasons:
+
+- The server has reached the maximum number of concurrent sync sessions. Azure File Sync currently supports 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
+
+- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the server cannot start a start sync session until the VSS sync session completes.
+
+To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> If the server state on the registered servers blade is “Appears Offline,” perform the steps documented in the [Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”](#server-endpoint-noactivity) section.
 
 ## Sync
 <a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  
@@ -227,14 +246,13 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
 #### Handling unsupported characters
-If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective files. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 
 | Character set | Character count |
 |---------------|-----------------|
 | <ul><li>0x0000009D (osc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
-| <ul><li>0x0000200F (right-to-left mark)</li><li>0x0000200E (‎left-to-right mark)</li><li>0x0000202E (right-to-left override)</li><li>0x0000202D (left-to-right override)</li><li>0x0000202C (pop directional formatting)</li><li>0x0000202B (right-to-left embedding)</li><li>0x0000202A (left-to-right embedding)</li></ul> | 7 |
 | 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (specials) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
@@ -311,6 +329,16 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 | **Remediation required** | Yes |
 
 This error occurs when there is a problem with the internal database used by Azure File Sync. When this issue occurs, create a support request and we will contact you to help you resolve this issue.
+
+<a id="-2134364053"></a>**The Azure File Sync agent version installed on the server is not supported.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimal)** | -2134364053 |
+| **Error string** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Remediation required** | Yes |
+
+This error occurs if the Azure File Sync agent version installed on the server is not supported. To resolve this issue, [upgrade]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) to a [supported agent version]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**You reached the Azure file share storage limit.**  
 | | |
@@ -439,14 +467,15 @@ This error commonly occurs because the server time is incorrect or the certifica
 1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
 2. Delete the client authentication certificate if expired and close the Certificates MMC snap-in.
 3. Open Regedit and delete the ServerSetting key in the registry: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Run the following PowerShell commands on the server:
+4. In the Azure portal, navigate to the Registered Servers section of the Storage Sync Service. Right-click on the server with the expired certificate and click "Unregister Server."
+5. Run the following PowerShell commands on the server:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Reset-StorageSyncServer
     ```
 
-5. Re-register the server by running ServerRegistration.exe (the default location is C:\Program Files\Azure\StorageSyncAgent).
+6. Re-register the server by running ServerRegistration.exe (the default location is C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
 | | |
@@ -676,6 +705,12 @@ if ($fileShare -eq $null) {
 
     ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
+	If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
+
+	- Click **Add**.
+	- In the **Role** field, select **Reader and Data Access**.
+	- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
+
 # [PowerShell](#tab/powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
@@ -755,11 +790,11 @@ To monitor tiering activity on a server, use Event ID 9002, 9003, 9016 and 9029 
 <a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
 To monitor recall activity on a server, use Event ID 9005, 9006, 9007 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Note, these events are logged hourly.
 
-- Event ID 9005 provides recall reliability for a sever endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
+- Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
 
 - Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
 
-- Event ID 9007 provides recall performance for a sever endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- Event ID 9007 provides recall performance for a server endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
 
 <a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
 If files fail to tier to Azure Files:

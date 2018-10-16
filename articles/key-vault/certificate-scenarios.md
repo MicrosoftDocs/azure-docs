@@ -3,7 +3,7 @@ title: Get started with Key Vault certificates
 description: The following scenarios outline several of the primary usages of Key Vault’s certificate management service including the additional steps required for creating your first certificate in your key vault.
 services: key-vault
 documentationcenter:
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -12,9 +12,9 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: alleonar
+ms.author: bryanla
 
 ---
 
@@ -48,14 +48,14 @@ Certificates are composed of three interrelated resources linked together as a K
 
 **Step 3** - A Contoso admin, along with a Contoso employee (Key Vault user) who owns certificates, depending on the CA, can get a certificate from the admin or directly from the account with the CA.  
 
--   Begin an add credential operation to a key vault by creating a [certificate issuer](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers) resource. 
+-   Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/setcertificateissuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
     -   Ex. MyDigiCertIssuer  
         -   Provider  
         -   Credentials – CA account credentials. Each CA has its own specific data.  
 
      For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](http://aka.ms/kvcertsblog).  
 
-**Step 3.1** - set up [certificate contacts](https://docs.microsoft.com/rest/api/keyvault/certificate-contacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
+**Step 3.1** - set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
 
 Note - This process, through step 3.1, is a onetime operation.  
 
@@ -118,5 +118,5 @@ Note - This process, through step 3.1, is a onetime operation.
   (5) - Your application completes the new certificate creation with a merger of the X509 Certificate from your CA.
 
 ## See Also
-- [Certificate operations](/rest/api/keyvault/certificate-operations)
+
 - [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)

@@ -64,11 +64,10 @@ Azure Cosmos DB exposes resources through the REST APIs that can be called by an
 | Download | Documentation |
 | --- | --- |
 | [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](http://azure.github.io/azure-documentdb-node/) |
 | [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](/java/api/com.microsoft.azure.documentdb) |
-| [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript library](http://azure.github.io/azure-documentdb-js/) |
-| n/a |[Server-side JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python library](http://azure.github.io/azure-documentdb-python/) |
+| [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) |[JavaScript library](https://github.com/Azure/azure-cosmos-js) |
+| n/a |[Server-side library](https://azure.github.io/azure-cosmosdb-js-server/) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python library](https://github.com/Azure/azure-cosmos-python) |
 | n/a | [API for MongoDB](mongodb-introduction.md)
 
 

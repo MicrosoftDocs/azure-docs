@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -22,22 +22,15 @@ To use an Amazon account as an identity provider in Azure Active Directory (Azur
 1. Sign in to the [Amazon Developer Center](https://login.amazon.com/) with your Amazon account credentials.
 2. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
 3. Select **Register new application**.
-4. Enter a **Name**, **Description**, and **Privacy Notice URL**, and then click **Save**.
+4. Enter a **Name**, **Description**, and **Privacy Notice URL**, and then click **Save**. The privacy notice is a page that you manage that provides privacy information to users.
 5. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret and then copy it. You need both of them to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
-6. In the **Web Settings** section, select **Edit**, and then enter `https://login.microsoftonline.com` in **Allowed JavaScript Origins** and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Allowed Return URLs**. Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). 
+6. In the **Web Settings** section, select **Edit**, and then enter `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs**. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
 7. Click **Save**.
 
 ## Configure an Amazon account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**. 
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
-    Choose the directory that contains your tenant.
-
-    ![Select directory](./media/active-directory-b2c-setup-fb-app/select-directory.png)
-
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
 5. Enter a **Name**. For example, enter *Amazon*.

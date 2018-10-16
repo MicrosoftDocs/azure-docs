@@ -10,7 +10,7 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: "Active"
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ---
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
@@ -41,7 +41,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 Before you start with this tutorial, make sure to meet the following requirements:
 - Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions at [Quickstart: Create an Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. Follow the instructions at [Quickstart: Create an Azure Blog storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. Follow the instructions at [Quickstart: Create an Azure Blob storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## Log in to the Azure portal
 
@@ -338,7 +338,7 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 2.  You can further transform this data to rename the column **level** to **subscription_type**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDF.show()
+        renamedColumnsDf.show()
 
     You get an output as shown in the following snippet.
 
@@ -381,7 +381,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
 2. Specify a temporary folder that will be used while moving data between Azure Databricks and Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
 
 3. Run the following snippet to store Azure Blob storage access keys in the configuration. This ensures that you do not have to keep the access key in the notebook in plain text.
 

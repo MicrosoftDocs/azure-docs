@@ -1,46 +1,40 @@
 ---
-title: Computer Vision API JavaScript quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with JavaScript in Cognitive Services.
+title: "Quickstart: Analyze a remote image - REST, JavaScript - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you analyze an image using the Computer Vision API with JavaScript.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/16/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: pafarley
 ---
-# Quickstart: Analyze an image with JavaScript
+# Quickstart: Analyze a remote image using the REST API and JavaScript in Computer Vision
 
-In this quickstart, you analyze an image using Computer Vision.
+In this quickstart, you analyze a remotely stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze Image request
+## Create and run the sample
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+To create and run the sample, do the following steps:
 
-* A detailed list of tags related to the image content.
-* A description of image content in a complete sentence.
-* The coordinates, gender, and age of any faces contained in the image.
-* The ImageType (clip art or a line drawing).
-* The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](../Category-Taxonomy.md).
-* Does the image contain adult or sexually suggestive content?
-
-To run the sample, do the following steps:
-
-1. Copy the following and save it to a file such as `analyze.html`.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
-1. Drag-and-drop the file into your browser.
-1. Click the `Analyze image` button.
-
-This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery, see [Intelligently generate a thumbnail](javascript-thumb.md).
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace the value of `subscriptionKey` with your subscription key.
+    1. Replace the value of `uriBase` with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image that you want to analyze.
+1. Save the code as a file with an `.html` extension. For example, `analyze-image.html`.
+1. Open a browser window.
+1. In the browser, drag and drop the file into the browser window.
+1. When the webpage is displayed in the browser, choose the **Analyze Image** button.
 
 ```html
 <!DOCTYPE html>
@@ -60,11 +54,12 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
@@ -139,9 +134,9 @@ Image to analyze:
 </html>
 ```
 
-## Analyze Image response
+## Examine the response
 
-A successful response is returned in JSON, for example:
+A successful response is returned in JSON. The sample webpage parses and displays a successful response in the browser window, similar to the following example:
 
 ```json
 {
@@ -209,9 +204,13 @@ A successful response is returned in JSON, for example:
 }
 ```
 
+## Clean up resources
+
+When no longer needed, delete the file.
+
 ## Next steps
 
-Explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API JavaScript Tutorial](../Tutorials/javascript-tutorial.md)

@@ -1,23 +1,23 @@
 ---
-title: Use RBAC to manage access rights to Azure Storage containers and queues (Preview) | Microsoft Docs
-description: Use role-based access control (RBA) to assign roles for access to Azure Storage data to users, groups, application service principals, or managed service identities. Azure Storage supports built-in and custom roles for access rights to containers and queues.
+title: Use RBAC to manage access rights to containers and queues (preview) - Azure Storage | Microsoft Docs
+description: Use role-based access control (RBAC) to assign roles for access to blob and queue data to users, groups, application service principals, or managed service identities. Azure Storage supports built-in and custom roles for access rights to containers and queues.
 services: storage
 author: tamram
-manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 09/07/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Manage access rights to Azure Storage data with RBAC (Preview)
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access containers or queues. When an RBAC role is assigned to an Azure AD identity, that identity is granted access to those resources, according to the specified scope. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. You can assign access rights for Azure Storage resources using the Azure portal, Azure command-line tools, and Azure Management APIs. 
 
-An Azure AD identity may be a user, group, or application service principal, or it may be a *managed service identity*. A security principal can be a user, group, or application service principal. A [managed service identity](../../active-directory/managed-service-identity/overview.md) is an automatically managed identity used to authenticate from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others. For an overview of identity in Azure AD, see [Understand Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+An Azure AD identity may be a user, group, or application service principal, or it may be a managed identity for Azure resources. A security principal can be a user, group, or application service principal. A [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) is an automatically managed identity used to authenticate from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others. For an overview of identity in Azure AD, see [Understand Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
-## RBAC roles for Azure Storage
+## RBAC roles for blobs and queues
 
 Azure Storage supports both built-in and custom RBAC roles. Azure Storage offers these built-in RBAC roles for use with Azure AD:
 
@@ -28,12 +28,9 @@ Azure Storage supports both built-in and custom RBAC roles. Azure Storage offers
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
-You can also define custom roles for use with containers and queues. For more information, see [Create custom roles for Azure Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md). 
+You can also define custom roles for use with containers and queues. For more information, see [Create custom roles for Azure Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
-> [!IMPORTANT]
-> This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. For additional information about the preview, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
->
-> During the preview, RBAC role assignments may take up to five minutes to propagate.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## Assign a role to a security principal
 

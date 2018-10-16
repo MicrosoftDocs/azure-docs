@@ -1,9 +1,9 @@
-﻿---
+---
 title: Azure Service Bus to Event Grid integration overview | Microsoft Docs
 description: Description of Service Bus messaging and Event Grid integration
 services: service-bus-messaging
 documentationcenter: .net
-author: ChristianWolf42
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
-ms.author: chwolf
+ms.date: 09/15/2018
+ms.author: spelluru
 
 ---
 # Azure Service Bus to Event Grid integration overview
@@ -125,9 +125,9 @@ To create a new Event Grid subscription, do the following:
 2. In the left pane, select the **Event Grid**. 
 3. Select **Event Subscription**.  
 
-   The following image displays a namespace that has a few Event Grid subscriptions:
+   The following image displays a namespace that has an Event Grid subscription:
 
-   ![20][]
+   ![Event grid subscriptions](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    The following image shows how to subscribe to a function or a webhook without any specific filtering:
 
@@ -172,10 +172,10 @@ From here, you can explore the other setup options or [test that events are flow
 ## Next steps
 
 * Get Service Bus and Event Grid [examples](service-bus-to-event-grid-integration-example.md).
-* Learn more about [Event Grid](https://docs.microsoft.com/azure/azure-functions/).
+* Learn more about [Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Learn more about [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 * Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
-* Learn more about [Service Bus](https://docs.microsoft.com/azure/azure-functions/).
+* Learn more about [Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

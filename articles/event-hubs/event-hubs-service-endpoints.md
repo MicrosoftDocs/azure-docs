@@ -3,20 +3,23 @@ title: Virtual Network service endpoints and rules for Azure Event Hubs | Micros
 description: Add a Microsoft.EventHub service endpoint to a virtual network. 
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: clemensv
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
 # Use Virtual Network service endpoints with Azure Event Hubs
 
 The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends. 
+
+> [!IMPORTANT]
+> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier. 
 
 Once configured to be bound to at least one virtual network subnet service endpoint, the respective Event Hubs namespace no longer accepts traffic from anywhere but authorized virtual network(s). From the virtual network perspective, binding an Event Hubs namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
 

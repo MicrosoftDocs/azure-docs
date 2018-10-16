@@ -1,6 +1,6 @@
 ---
 title: This quickstart shows you how to enroll X.509 devices to the Azure Device Provisioning Service using Python | Microsoft Docs
-description: In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using using Python
+description: In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using Python
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/25/2018
@@ -112,7 +112,7 @@ This section shows how to add the provisioning details of your X.509 device to t
 
 ## Run the sample group enrollment
 
-1. Open a command prompt, and run the following command to install the [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client.)
+1. Open a command prompt, and run the following command to install the [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client).
 
     ```cmd/sh
     pip install azure-iothub-provisioningserviceclient    

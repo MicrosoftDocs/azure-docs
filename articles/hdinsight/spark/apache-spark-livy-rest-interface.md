@@ -2,12 +2,9 @@
 title: Use Livy Spark to submit jobs to Spark cluster on Azure HDInsight
 description: Learn how to use Apache Spark REST API to submit Spark jobs remotely to an Azure HDInsight cluster.
 services: hdinsight
-author: nitinme
-ms.author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2817b779-1594-486b-8759-489379ca907d
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual

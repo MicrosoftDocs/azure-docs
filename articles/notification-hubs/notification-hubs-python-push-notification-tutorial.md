@@ -20,7 +20,7 @@ ms.author: dimazaid
 # How to use Notification Hubs from Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
+You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN article [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
 > This is a sample reference implementation for implementing the notification sends in Python and is not the officially supported Notifications Hub Python SDK.
@@ -29,7 +29,7 @@ You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-e
 > 
 > 
 
-This articles shows you how to:
+This article shows you how to:
 
 * Build a REST client for Notification Hubs features in Python.
 * Send notifications using the Python interface to the Notification Hub REST APIs. 
@@ -258,7 +258,7 @@ These methods send an HTTP POST request to the /messages endpoint of your notifi
 
 ### Using debug property to enable detailed logging
 Enabling debug property while initializing the Notification Hub writes out detailed logging information about the HTTP request and response dump as well as detailed Notification message send outcome. 
-The [Notification Hubs TestSend property](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) returns detailed information about the notification send outcome. 
+The [Notification Hubs TestSend property](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) returns detailed information about the notification send outcome. 
 To use it - initialize using the following code:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)

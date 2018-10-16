@@ -1,22 +1,15 @@
 ---
-title: Upload data for Hadoop jobs in HDInsight | Microsoft Docs
-description: Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
+title: Upload data for Hadoop jobs in HDInsight
+description: Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure classic CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
 keywords: etl hadoop, getting data into hadoop, hadoop load data
-services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
+services: hdinsight
+author: jasonwhowell
+ms.reviewer: jasonh
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-
 ---
 # Upload data for Hadoop jobs in HDInsight
 
@@ -39,22 +32,22 @@ Microsoft provides the following utilities to work with Azure Storage:
 
 | Tool | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Command-Line Interface][azurecli] |✔ |✔ |✔ |
+| [Azure Classic CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop command](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster. And the command only allows loading data from the local file system into Azure Storage.
+> While the Azure Classic CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster. And the command only allows loading data from the local file system into Azure Storage.
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Storage:
+#### <a id="xplatcli"></a>Azure Classic CLI
+The Azure Classic CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Storage:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Install and configure the Azure CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
+1. [Install and configure the Azure Classic CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
     ```cli

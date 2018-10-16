@@ -38,12 +38,12 @@ Following are some pre-requisites needed for any POC with Azure AD Premium.
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
+| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](develop/quickstart-create-new-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
 | Domains defined and verified | [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Note:** Some workloads such as Power BI could have provisioned an azure AD tenant under the covers. To check if a given domain is associated to a tenant, navigate to https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. If you get a successful response, then the domain is already assigned to a tenant and take over might be needed. If so, contact Microsoft for further guidance. Learn more about the takeover options at: [What is Self-Service Signup for Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium or EMS trial Enabled | [Azure Active Directory Premium free for one month](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | You have assigned Azure AD Premium or EMS licenses to PoC users | [License yourself and your users in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD Global Admin credentials | [Assigning administrator roles in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
-| Optional but strongly recommended: Parallel lab environment as a fallback | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
+| Optional but strongly recommended: Parallel lab environment as a fallback | [Prerequisites for Azure AD Connect](hybrid/how-to-connect-install-prerequisites.md) |
 
 ## Directory Synchronization - Password Hash Sync (PHS) - New Installation
 
@@ -53,23 +53,23 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Server to Run Azure AD Connect | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
-| Target POC users, in the same domain and part of a security group, and OU | [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
-| Azure AD Connect Features needed for the POC are identified | [Connect Active Directory with Azure Active Directory - Configure sync features](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| You have needed credentials for on-premises and cloud environments  | [Azure AD Connect: Accounts and permissions](./connect/active-directory-aadconnect-accounts-permissions.md) |
+| Server to Run Azure AD Connect | [Prerequisites for Azure AD Connect](hybrid/how-to-connect-install-prerequisites.md) |
+| Target POC users, in the same domain and part of a security group, and OU | [Custom installation of Azure AD Connect](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) |
+| Azure AD Connect Features needed for the POC are identified | [Connect Active Directory with Azure Active Directory - Configure sync features](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| You have needed credentials for on-premises and cloud environments  | [Azure AD Connect: Accounts and permissions](hybrid/reference-connect-accounts-permissions.md) |
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
 | Download the latest version of Azure AD Connect | [Download Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Install Azure AD Connect with the simplest path: Express <br/>1. Filter to the target OU to minimize the Sync Cycle time<br/>2. Choose target set of users in the on-premises group.<br/>3. Deploy the features needed by the other POC Themes | [Azure AD Connect: Custom installation: Domain and OU filtering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Custom installation: Group based filtering](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrating your on-premises identities with Azure Active Directory: Configure Sync Features](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Open the Azure AD Connect UI and see the running profiles completed (Import, sync, and export) | [Azure AD Connect sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| Install Azure AD Connect with the simplest path: Express <br/>1. Filter to the target OU to minimize the Sync Cycle time<br/>2. Choose target set of users in the on-premises group.<br/>3. Deploy the features needed by the other POC Themes | [Azure AD Connect: Custom installation: Domain and OU filtering](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Custom installation: Group based filtering](hybrid/how-to-connect-install-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrating your on-premises identities with Azure Active Directory: Configure Sync Features](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| Open the Azure AD Connect UI and see the running profiles completed (Import, sync, and export) | [Azure AD Connect sync: Scheduler](hybrid/how-to-connect-sync-feature-scheduler.md) |
 | Open the [Azure AD management portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), go to the "All Users" blade, add "Source of authority" column and see that the users appear, marked properly as coming from "Windows Server AD" | [Azure AD management portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### Considerations
 
-1. Look at  the security considerations of password hash sync [here](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  If password hash sync for pilot production users is definitively not an option, then consider the following alternatives:
+1. Look at  the security considerations of password hash sync [here](hybrid/how-to-connect-password-hash-synchronization.md).  If password hash sync for pilot production users is definitively not an option, then consider the following alternatives:
    * Create test users in the production domain. Make sure you don't synchronize any other account
    * Move to an UAT environment
 2.	If you want to pursue federation, it is worthwhile to understand the costs associated a federated solution with on-premises Identity Provider beyond the POC and measure that against the benefits you are looking for:
@@ -156,7 +156,7 @@ Approximate time to Complete: 60 minutes
 | Wait for a few minutes while provisioning completes.  In the meantime, you can check on the provisioning reports |  |
 | Log in to https://myapps.microsoft.com/ as a test user that has access | [What is the Access Panel?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Click on the tile for the application that was just created. Confirm access |  |
-| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
+| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) |
 
 ### Considerations
 
@@ -182,13 +182,13 @@ Approximate time to Complete: 15 minutes
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Assign the app to the group identified in the Prerequisites | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Log in to https://myapps.microsoft.com/ as a test user that has access |  |
 | Click on the tile for the application that was just created. | [What is the Access Panel?: Password-based SSO without identity provisioning](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Supply the application credential | [What is the Access Panel?: Password-based SSO without identity provisioning](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Close the browser and repeat the login. This time around the user should see seamless access to the application. |  |
-| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
+| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) |
 
 ### Considerations
 
@@ -217,10 +217,10 @@ Approximate time to Complete: 30 minutes
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Assign the app to the group identified in the Prerequisites while assigning them credentials | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Log in as different users that access app as the **same shared account.**  |  |
-| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
+| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### Considerations
@@ -274,7 +274,7 @@ Approximate time to Complete: 60 minutes
 | --- | --- |
 | Azure AD Connect installed and configured | Building block: [Directory Synchronization - Password Hash Sync](#directory-synchronization--password-hash-sync-phs--new-installation) |
 | ADLDS instance meeting requirements | [Generic LDAP Connector technical reference: Overview of the Generic LDAP Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
-| List of workloads, that users are using and attributes associated with these workloads | [Azure AD Connect sync: Attributes synchronized to Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
+| List of workloads, that users are using and attributes associated with these workloads | [Azure AD Connect sync: Attributes synchronized to Azure Active Directory](hybrid/reference-connect-sync-attributes-synchronized.md) |
 
 
 ### Steps
@@ -282,11 +282,11 @@ Approximate time to Complete: 60 minutes
 | Step | Resources |
 | --- | --- |
 | Add Generic LDAP Connector | [Generic LDAP Connector technical reference: Create a new Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
-| Create run profiles for created connector (full import, delta import, full synchronization, delta synchronization, export) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Using connectors with the Azure AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
-| Run full import profile and verify, that there are objects in connector space | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Using connectors with the Azure AD Connect Sync Service Manager: Search Connector Space](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Create synchronization rules, so that objects in Metaverse have necessary attributes for workloads | [Azure AD Connect sync: Best practices for changing the default configuration: Changes to Synchronization Rules](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning Expressions](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Start full synchronization cycle | [Azure AD Connect sync: Scheduler: Start the scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
-| In case of issues do troubleshooting | [Troubleshoot an object that is not synchronizing to Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
+| Create run profiles for created connector (full import, delta import, full synchronization, delta synchronization, export) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Using connectors with the Azure AD Connect Sync Service Manager](hybrid/how-to-connect-sync-service-manager-ui-connectors.md)|
+| Run full import profile and verify, that there are objects in connector space | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Using connectors with the Azure AD Connect Sync Service Manager: Search Connector Space](hybrid/how-to-connect-sync-service-manager-ui-connectors.md#search-connector-space) |
+| Create synchronization rules, so that objects in Metaverse have necessary attributes for workloads | [Azure AD Connect sync: Best practices for changing the default configuration: Changes to Synchronization Rules](hybrid/how-to-connect-sync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning](hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning Expressions](hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |
+| Start full synchronization cycle | [Azure AD Connect sync: Scheduler: Start the scheduler](hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) |
+| In case of issues do troubleshooting | [Troubleshoot an object that is not synchronizing to Azure AD](hybrid/tshoot-connect-object-not-syncing.md) |
 | Verify, that LDAP user can sign-in and access the application | https://myapps.microsoft.com |
 
 ### Considerations
@@ -337,7 +337,7 @@ If the application has provisioning enabled, you might need to wait a few minute
 | Step | Resources |
 | --- | --- |
 | Remove the user from the group the app is assigned to | [Manage group membership for users in your Azure Active Directory tenant](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | On a separate browser session, log in as the information worker to my apps portal and confirm that tile is missing | http://myapps.microsoft.com |
 
 
@@ -449,9 +449,9 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Go to Azure AD Management Portal: Conditional Access blade | [Azure AD Management Portal: Conditional Access](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Create Conditional Access policy:<br/>- Target PoC Users under "Users and groups"<br/>- Target PoC Application under "Cloud apps"<br/>- Target all locations except trusted ones under "Conditions" -> "Locations" **Note:** trusted IPs are configured in [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Require multi-factor authentication under "Grant" | [Get started with conditional access in Azure Active Directory: Policy configuration steps](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Access application from inside corporate network | [Get started with conditional access in Azure Active Directory: Testing the policy](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Access application from public network | [Get started with conditional access in Azure Active Directory: Testing the policy](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Create Conditional Access policy:<br/>- Target PoC Users under "Users and groups"<br/>- Target PoC Application under "Cloud apps"<br/>- Target all locations except trusted ones under "Conditions" -> "Locations" **Note:** trusted IPs are configured in [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Require multi-factor authentication under "Grant" | [Create your conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| Access application from inside corporate network | [Test your conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| Access application from public network | [Test your conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### Considerations
 
@@ -477,7 +477,7 @@ Approximate time to Complete: 15 minutes
 | Login to https://portal.azure.com as a global admin (GA) and bootstrap the PIM blade. The Global Admin that performs this step is seeded as the security administrator.  Let's call this actor GA1 | [Using the security wizard in Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
 | Identify the global admin and move them from permanent to eligible. This should be a separate admin from the one used in step 1 for clarity. Let's call this actor GA2 | [Azure AD Privileged Identity Management: How to add or remove a user role](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[What is Azure AD Privileged Identity Management?: Configure the role activation settings](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Now, log in as GA2 to https://portal.azure.com and try changing "User Settings". Notice, some options are grayed out. | |
-| In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Add the Privileged Identity Management application](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [Start using PIM](privileged-identity-management/pim-getting-started.md) |
 | Request activation to the Global Administrator role | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Activate a role](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Note, that if GA2 never signed up for MFA, registration for Azure MFA will be necessary |  |
 | Go back to the original tab in step 3, and click the refresh button in the browser. Note that you now have access to change "User settings" | |
@@ -497,17 +497,17 @@ Approximate time to Complete: 20 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Device with Tor browser downloaded and installed | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Access to POC user to do the login | [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md) |
+| Access to POC user to do the login | [Azure Active Directory Identity Protection playbook](identity-protection/playbook.md) |
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
 | Open tor browser | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Log in to https://myapps.microsoft.com with the POC user account | [Azure Active Directory Identity Protection playbook: Simulating Risk Events](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Log in to https://myapps.microsoft.com with the POC user account | [Azure Active Directory Identity Protection playbook: Simulating Risk Events](identity-protection/playbook.md#simulating-risk-events) |
 | Wait 5-7 minutes |  |
 | Log in as a global admin to https://portal.azure.com and open up the Identity Protection blade | https://aka.ms/aadipgetstarted |
-| Open the risk events blade. You should see an entry under "Sign-ins from anonymous IP addresses"  | [Azure Active Directory Identity Protection playbook: Simulating Risk Events](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Open the risk events blade. You should see an entry under "Sign-ins from anonymous IP addresses"  | [Azure Active Directory Identity Protection playbook: Simulating Risk Events](identity-protection/playbook.md#simulating-risk-events) |
 
 ### Considerations
 
@@ -531,14 +531,14 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Log in as a global admin to https://portal.azure.com and open the Identity Protection blade | https://aka.ms/aadipgetstarted |
-| Enable a sign-in risk policy as follows:<br/>- Assigned to: POC user<br/>- Conditions: Sign-in risk medium or higher (sign-in from anonymous location is deemed as a medium risk level)<br/>- Controls: Require MFA | [Azure Active Directory Identity Protection playbook: Sign-in risk](active-directory-identityprotection-playbook.md) |
+| Enable a sign-in risk policy as follows:<br/>- Assigned to: POC user<br/>- Conditions: Sign-in risk medium or higher (sign-in from anonymous location is deemed as a medium risk level)<br/>- Controls: Require MFA | [Azure Active Directory Identity Protection playbook: Sign-in risk](identity-protection/playbook.md) |
 | Open tor browser | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Log in to https://myapps.microsoft.com with the PoC user account |  |
-| Notice the MFA challenge | [Sign-in experiences with Azure AD Identity Protection: Risky sign-in recovery](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| Notice the MFA challenge | [Sign-in experiences with Azure AD Identity Protection: Risky sign-in recovery](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### Considerations
 
-This capability is part of Azure AD Premium P2 and/or EMS E5. To learn more about risk events visit: [Azure Active Directory risk events](active-directory-reporting-risk-events.md)
+This capability is part of Azure AD Premium P2 and/or EMS E5. To learn more about risk events visit: [Azure Active Directory risk events](reports-monitoring/concept-risk-events.md)
 
 ## Configuring certificate based authentication
 
@@ -549,7 +549,7 @@ Approximate time to complete: 20 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Device with user certificate provisioned (Windows, iOS or Android) from Enterprise PKI | [Deploy User Certificates](https://msdn.microsoft.com/library/cc770857.aspx) |
-| Azure AD domain federated with ADFS | [Azure AD Connect and federation](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory Certificate Services Overview](https://technet.microsoft.com/library/hh831740.aspx)|
+| Azure AD domain federated with ADFS | [Azure AD Connect and federation](hybrid/how-to-connect-fed-whatis.md)<br/>[Active Directory Certificate Services Overview](https://technet.microsoft.com/library/hh831740.aspx)|
 | For iOS devices have Microsoft Authenticator app installed | [Get started with the Microsoft Authenticator app](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### Steps
@@ -557,7 +557,7 @@ Approximate time to complete: 20 minutes
 | Step | Resources |
 | --- | --- |
 | Enable "Certificate Authentication" on ADFS | [Configure Authentication Policies: To configure primary authentication globally in Windows Server 2012 R2](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](active-directory-certificate-based-authentication-get-started.md) |
+| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](./authentication/active-directory-certificate-based-authentication-get-started.md) |
 | Navigate to Access Panel and authenticate using User Certificate | https://myapps.microsoft.com |
 
 ### Considerations

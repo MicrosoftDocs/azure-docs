@@ -1,25 +1,29 @@
 ---
-title: C# Quickstart for Azure Cognitive Services, Microsoft Translator Speech API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Speech API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Translator Speech API C#"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
 ---
-# Quickstart for Microsoft Translator Speech API with C# 
+# Quickstart: Translator Speech API with C# 
 <a name="HOLTop"></a>
 
-This article shows you how to use the Microsoft Translator Speech API to translate words spoken in a .wav file.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+This article shows you how to use the Translator Speech API to translate words spoken in a .wav file.
 
 ## Prerequisites
 
 You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
-You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -59,11 +63,12 @@ namespace TranslateSpeechQuickStart
 
             /* Make sure the audio file is followed by silence.
              * This lets the service know that the audio input is finished. */
-            var silence = new byte[3200000];
+            var silence = new byte[32000];
             var silence_buffer = new ArraySegment<byte>(silence);
             await client.SendAsync(silence_buffer, WebSocketMessageType.Binary, true, CancellationToken.None);
 
             Console.WriteLine("Done sending.");
+            System.Threading.Thread.Sleep(3000);
             await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
         }
 
@@ -150,4 +155,4 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 ## See also 
 
 [Translator Speech overview](../overview.md)
-[API Reference](http://docs.microsofttranslator.com/speech-translate.html)
+[API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

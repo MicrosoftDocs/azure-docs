@@ -3,7 +3,7 @@ title: Customer Billing And Chargeback In Azure Stack | Microsoft Docs
 description: Learn how to retrieve resource usage information from Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredop
 
 ---

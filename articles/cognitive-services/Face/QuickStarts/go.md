@@ -1,15 +1,16 @@
 ---
-title: Face API Go quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you detect faces from an image using the Face API with Go in Cognitive Services.
+title: "Quickstart: Detect faces in an image - Face API, Go"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you detect faces from an image using the Face API with Go.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using Go
 

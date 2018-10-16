@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 
 ---
 # Optimize your Active Directory environment with the Active Directory Health Check solution in Log Analytics

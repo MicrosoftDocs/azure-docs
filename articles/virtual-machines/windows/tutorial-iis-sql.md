@@ -114,7 +114,7 @@ New-AzureRmVm `
     -OpenPorts 3389,1401 
 ```
 
-Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](/sql/virtual-machines-windows-sql-server-agent-extension.md) to the SQL VM.
+Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) to the SQL VM.
 
 ```azurepowershell-interactive
 Set-AzureRmVMSqlServerExtension `

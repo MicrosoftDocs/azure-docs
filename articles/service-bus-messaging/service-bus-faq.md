@@ -2,13 +2,13 @@
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Service Bus.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
-ms.author: sethm
+ms.date: 09/05/2018
+ms.author: spelluru
 
 ---
 # Service Bus FAQ
@@ -111,7 +111,6 @@ To learn more about Service Bus, see the following articles:
 * [Introducing Azure Service Bus Premium (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus overview](service-bus-messaging-overview.md)
-* [Azure Service Bus architecture overview](service-bus-fundamentals-hybrid-solutions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

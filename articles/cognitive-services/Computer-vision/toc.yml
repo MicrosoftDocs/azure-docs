@@ -1,118 +1,134 @@
-- name: Computer Vision Documentation
+- name: Computer Vision API Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Computer Vision?
     href: Home.md
-- name: API Quickstarts
+- name: Quickstarts
   items:
-  - name: Summary
-    href: QuickStarts/quickstart-summary.md
-  - name: C#
-    items:
-    - name: Analyze an image
-      href: QuickStarts/CSharp-analyze.md
-    - name: Generate a thumbnail
-      href: QuickStarts/CSharp-thumb.md
-    - name: Extract printed text
-      href: QuickStarts/CSharp-print-text.md
-    - name: Extract handwritten text
-      href: QuickStarts/CSharp-hand-text.md
-  - name: cURL
+  - name: Using REST API
     items:
     - name: Analyze a remote image
-      href: QuickStarts/curl-analyze.md
+      items:
+      - name: cURL
+        href: QuickStarts/curl-analyze.md
+      - name: Go
+        href: QuickStarts/go-analyze.md
+      - name: Java
+        href: QuickStarts/java-analyze.md
+      - name: JavaScript
+        href: QuickStarts/javascript-analyze.md
+      - name: Node.js
+        href: QuickStarts/node-analyze.md
+      - name: PHP
+        href: QuickStarts/php-analyze.md
+      - name: Python
+        href: QuickStarts/python-analyze.md
+      - name: Ruby
+        href: QuickStarts/ruby-analyze.md
     - name: Analyze a local image
-      href: QuickStarts/curl-disk.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-analyze.md
+      - name: Python
+        href: QuickStarts/python-disk.md
     - name: Generate a thumbnail
-      href: QuickStarts/curl-thumb.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-thumb.md
+      - name: cURL
+        href: QuickStarts/curl-thumb.md
+      - name: Go
+        href: QuickStarts/go-thumb.md
+      - name: Java
+        href: QuickStarts/java-thumb.md
+      - name: JavaScript
+        href: QuickStarts/javascript-thumb.md
+      - name: Node.js
+        href: QuickStarts/node-thumb.md
+      - name: PHP
+        href: QuickStarts/php-thumb.md
+      - name: Python
+        href: QuickStarts/python-thumb.md
+      - name: Ruby
+        href: QuickStarts/ruby-thumb.md
     - name: Extract printed text
-      href: QuickStarts/curl-print-text.md
-  - name: Go
-    items:
-    - name: Analyze an image
-      href: QuickStarts/go-analyze.md
-    - name: Generate a thumbnail
-      href: QuickStarts/go-thumb.md
-    - name: Extract printed text
-      href: QuickStarts/go-print-text.md
-  - name: Java
-    items:
-    - name: Analyze an image
-      href: QuickStarts/java-analyze.md
-    - name: Generate a thumbnail
-      href: QuickStarts/java-thumb.md
-    - name: Extract printed text
-      href: QuickStarts/java-print-text.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-print-text.md
+      - name: cURL
+        href: QuickStarts/curl-print-text.md
+      - name: Go
+        href: QuickStarts/go-print-text.md
+      - name: Java
+        href: QuickStarts/java-print-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-print-text.md
+      - name: Node.js
+        href: QuickStarts/node-print-text.md
+      - name: PHP
+        href: QuickStarts/php-print-text.md
+      - name: Python
+        href: QuickStarts/python-print-text.md
+      - name: Ruby
+        href: QuickStarts/ruby-print-text.md
     - name: Extract handwritten text
-      href: QuickStarts/java-hand-text.md
-  - name: JavaScript
-    items:
-    - name: Analyze an image
-      href: QuickStarts/javascript-analyze.md
-    - name: Generate a thumbnail
-      href: QuickStarts/javascript-thumb.md
-    - name: Extract printed text
-      href: QuickStarts/javascript-print-text.md
-    - name: Extract handwritten text
-      href: QuickStarts/javascript-hand-text.md
-  - name: Node.js
-    items:
-    - name: Analyze an image
-      href: QuickStarts/node-analyze.md
-    - name: Generate a thumbnail
-      href: QuickStarts/node-thumb.md
-    - name: Extract printed text
-      href: QuickStarts/node-print-text.md
-  - name: PHP
-    items:
-    - name: Analyze an image
-      href: QuickStarts/php-analyze.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-hand-text.md
+      - name: Java
+        href: QuickStarts/java-hand-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-hand-text.md
+      - name: Python
+        href: QuickStarts/python-hand-text.md
     - name: Use a domain model
-      href: QuickStarts/php-domain.md
-    - name: Generate a thumbnail
-      href: QuickStarts/php-thumb.md
-    - name: Extract printed text
-      href: QuickStarts/php-print-text.md
-  - name: Python
-    items:
-    - name: Analyze a remote image
-      href: QuickStarts/python-analyze.md
-    - name: Analyze a local image
-      href: QuickStarts/python-disk.md
-    - name: Use a domain model
-      href: QuickStarts/python-domain.md
-    - name: Generate a thumbnail
-      href: QuickStarts/python-thumb.md
-    - name: Extract printed text
-      href: QuickStarts/python-print-text.md
-    - name: Extract handwritten text
-      href: QuickStarts/python-hand-text.md
-  - name: Ruby
-    items:
-    - name: Analyze an image
-      href: QuickStarts/ruby-analyze.md
-    - name: Generate a thumbnail
-      href: QuickStarts/ruby-thumb.md
-    - name: Extract printed text
-      href: QuickStarts/ruby-print-text.md
-- name: SDK Quickstarts
-  items:
-  - name: C#
+      items:
+      - name: PHP
+        href: QuickStarts/php-domain.md
+      - name: Python
+        href: QuickStarts/python-domain.md
+  - name: Using .NET SDK
     items:
     - name: Analyze an image
       href: quickstarts-sdk/csharp-analyze-sdk.md
     - name: Generate a thumbnail
       href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: Extract handwritten text
+    - name: Extract text
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Tutorials
+  items:
+  - name: Build an image processing app
+    href: Tutorials/CSharpTutorial.md
+- name: Concepts
+  items:
+  - name: Tagging images
+    href: concept-tagging-images.md
+  - name: Categorizing images
+    href: concept-categorizing-images.md
+  - name: Describing images
+    href: concept-describing-images.md
+  - name: Detecting faces
+    href: concept-detecting-faces.md
+  - name: Detecting image types
+    href: concept-detecting-image-types.md
+  - name: Detecting domain-specific content
+    href: concept-detecting-domain-content.md
+  - name: Detecting color schemes
+    href: concept-detecting-color-schemes.md
+  - name: Generating thumbnails
+    href: concept-generating-thumbnails.md
+  - name: Extracting text with OCR
+    href: concept-extracting-text-ocr.md
+  - name: Recognizing printed and handwritten text
+    href: concept-recognizing-text.md
+  - name: Detecting adult and racy content
+    href: concept-detecting-adult-content.md
 - name: How-to guides
   items:
-  - name: First Computer Vision apps
+  - name: Use Computer Vision
     items:
-    - name: C#
-      href: Tutorials/CSharpTutorial.md
     - name: Java
       href: Tutorials/java-tutorial.md
     - name: JavaScript
@@ -123,14 +139,16 @@
     href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Use the Computer Vision Connected Service
+    href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Computer Vision Connected Service
-      href: vs-computer-vision-connected-service.md
 - name: Reference
   items: 
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Computer Vision API v2.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
   - name: Computer Vision API v1.0

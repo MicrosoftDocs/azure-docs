@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/21/2018
 ms.author: snehaa
 ---
 
@@ -43,7 +43,7 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 ### Which Azure regions are supported by Azure Migrate?
 
-Azure Migrate currently supports East US and West Central US as migration project locations. Note that even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
+Azure Migrate currently supports East US and West Central US as migration project locations. Even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
 
 ### How does the on-premises site connect to Azure Migrate?
 
@@ -53,7 +53,7 @@ The connection can be over the internet or use ExpressRoute with public peering.
 
 Additional components (for example anti-virus) can be added into the .OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
 
-## Discovery and assessment
+## Discovery
 
 ### What data is collected by Azure Migrate?
 
@@ -82,6 +82,12 @@ The appliance-based discovery collects metadata about the on-premises VMs, the c
   - Network out
 
 The agent-based discovery is an option available on top of the appliance-based discovery and helps customers [visualize dependencies](how-to-create-group-machine-dependencies.md) of the on-prem VMs. The dependency agents collect details like, FQDN, OS, IP address, MAC address, processes running inside the VM and the incoming/outgoing TCP connections from the VM. The agent-based discovery is optional and you can choose to not install the agents if you do not want to visualize the dependencies of the VMs.
+
+### Would there be any performance impact on the analyzed ESXi host environment?
+
+In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
+
+We have introduced continuous profiling of performance data(which is in preview). With continuous profiling, there is no longer a need to change the vCenter Server statistics level to run a performance-based assessment. The collector appliance will now profile the on-premises machines to measure the performance data of the virtual machines. This would have almost zero performance impact on the ESXi hosts as well as on the vCenter Server.
 
 ### Where is the collected data stored and for how long?
 
@@ -119,6 +125,15 @@ If you have an environment that is shared across tenants and you do not want to 
 
 You can discover 1500 virtual machines in a single migration project. If you have more machines in your on-premises environment, [learn more](how-to-scale-assessment.md) about how you can discover a large environment in Azure Migrate.
 
+## Assessment
+
+### Does Azure Migrate support Enterprise Agreement (EA) based cost estimation?
+
+Azure Migrate currently does not support cost estimation for [Enterprise Agreement offer](https://azure.microsoft.com/offers/enterprise-agreement-support/). The workaround is to specify Pay-As-You-Go as the offer and manually specifying the discount percentage (applicable to the subscription) in the 'Discount' field of the assessment properties.
+
+  ![Discount](./media/resources-faq/discount.png)
+  
+
 ## Dependency visualization
 
 ### Do I need to pay to use the dependency visualization feature?
@@ -127,7 +142,35 @@ Azure Migrate is available at no additional charge. Learn more about Azure Migra
 
 ### Can I use an existing workspace for dependency visualization?
 
-Azure Migrate does not support using an existing workspace for dependency visualization, however, the Microsoft Monitoring Agent (MMA) supports multi-homing and enables you to send data to multiple workspaces. So if you already have the agents deployed and configured to a workspace, you can leverage multi-homing in the MMA agent and configure it to the Azure Migrate workspace (in addition to the existing workspace) and make it work. [Here](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) is a blog on how you can enable multi-homing in an MMA agent.
+Yes, Azure Migrate now allows you to attach an existing workspace to the migration project and leverage it for dependency visualization. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
+
+### Can I export the dependency visualization report?
+
+No, the dependency visualization cannot be exported. However, since Azure Migrate uses Service Map for dependency visualization, you can use the [Service Map REST APIs](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) to get the dependencies in a json format.
+
+### How can I automate the installation of Microsoft Monitoring Agent (MMA) and dependency agent?
+
+[Here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) is a script that you can use for installation of dependency agent. For
+MMA, [here](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) is a script available on TechNet that you can leverage.
+
+In addition to scripts, you can also leverage deployment tools like System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) etc. to deploy the agents.
+
+### What are the operating systems supported by MMA?
+
+The list of Windows operating systems supported by MMA is [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+The list of Linux operating systems supported by MMA is [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### What are the operating systems supported by dependency agent?
+
+The list of Windows operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+The list of Linux operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### Can I visualize dependencies in Azure Migrate for more than one hour duration?
+No, Azure Migrate lets you visualize dependencies for up to one hour duration. Azure Migrate allows you to go back to a particular date in the history for up to last one month, but the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window.
+
+### Is dependency visualization supported for groups with more than 10 VMs?
+You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.
+
 
 ## Next steps
 

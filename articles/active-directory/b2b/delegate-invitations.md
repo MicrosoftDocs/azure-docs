@@ -5,7 +5,7 @@ description: Azure Active Directory B2B collaboration user properties are config
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
 
 ms.author: mimart
@@ -30,7 +30,7 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 ## Control who can invite
 
-![Control how to invite](media/delegate-invitations/control-who-to-invite.png)
+![externalusers](https://user-images.githubusercontent.com/13383753/45905128-2c47f680-bda4-11e8-955d-6219c67935e0.PNG)
 
 With Azure AD B2B collaboration, a tenant admin can set the following invitation policies:
 

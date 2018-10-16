@@ -259,6 +259,8 @@ The following snippet shows the different kinds of resources that can be managed
 
 If your cluster is already up and some applications that you would like to manage as Resource Manager resources are already deployed on it, instead of removing the applications and redeploying them, you can use a PUT call using the same APIs to have the applications get acknowledged as Resource Manager resources. 
 
+> [!NOTE]
+> To allow a cluster upgrade to ignore unhealthy apps the customer can specify “maxPercentUnhealthyApplications: 100” in the “upgradeDescription/healthPolicy” section; detailed descriptions for all settings are in [Service Fabrics REST API Cluster Upgrade Policy documentation](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## Next steps
 
