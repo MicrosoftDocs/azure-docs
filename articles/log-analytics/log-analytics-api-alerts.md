@@ -134,6 +134,7 @@ A Schedule should have one and only one Alert action.  Alert actions have one or
 |:--- |:--- |:--- |
 | Threshold |Criteria for when the action is run.| Required for every alert, before or after they are extended to Azure. |
 | Severity |Label used to classify alert when triggered.| Required for every alert, before or after they are extended to Azure. |
+| Suppress |Option to stop notifications from alert. | Optional for every alert, before or after they are extended to Azure. |
 | Action Groups |IDs of Azure ActionGroup where actions required are specified, like - E-Mails, SMSs, Voice Calls, Webhooks, Automation Runbooks, ITSM Connectors, etc.| Required once alerts are extended to Azure|
 | Customize Actions|Modify the standard output for select actions from ActionGroup| Optional for every alert, can be used after alerts are extended to Azure. |
 | EmailNotification |Send mail to multiple recipients. | Not required, if alerts are extended to Azure|
@@ -209,6 +210,37 @@ Use the Put method with an existing action ID to modify a severity action for a 
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### Suppress
+Log Analytics based query alerts will fire every time threshold is met or exceeded. Based on the logic implied in the query, this may result in alert getting fired for a series of intervals and hence notifications also being sent constantly. To prevent such scenario, a user can set Suppress option instructing Log Analytics to wait for a stipulated amount of time before notification is fired the second time for the alert rule. So if suppress is set for 30 minutes; then alert will fire the first time and send notifications configured. But then wait for 30 minutes, before notification for the alert rule is again used. In the interim period, alert rule will continue to run - only notification is suppressed by Log Analytics for specified time, regardless of how many times the alert rule fired in this period.
+
+Suppress property of Log Analytics alert rule is specified using the *Throttling* value and the suppression period using *DurationInMinutes* value.
+
+Following is a sample response for an action with only a threshold, severity and suppress property
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Use the Put method with a unique action ID to create a new action for a schedule with severity.  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+Use the Put method with an existing action ID to modify a severity action for a schedule.  The body of the request must include the etag of the action.
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### Action Groups
 All alerts in Azure, use Action Group as the default mechanism for handling actions. With Action Group, you can specify your actions once and then associate the action group to multiple alerts - across Azure. Without the need, to repeatedly declare the same actions over and over again. Action Groups support multiple actions - including email, SMS, Voice Call, ITSM Connection, Automation Runbook, Webhook URI and more. 

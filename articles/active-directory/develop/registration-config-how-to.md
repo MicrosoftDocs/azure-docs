@@ -18,7 +18,7 @@ ms.author: celested
 
 ---
 
-# How to select permissions for a given API
+# How to configure endpoints
 
 You can find the authentication endpoints for your application in the [Azure portal](https://portal.azure.com).
 

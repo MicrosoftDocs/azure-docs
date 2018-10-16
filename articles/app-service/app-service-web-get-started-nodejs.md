@@ -68,7 +68,7 @@ You see the **Hello World** message from the sample app displayed in the page.
 In your terminal window, press **Ctrl+C** to exit the web server.
 
 > [!NOTE]
-> In Azure App Service, the app is run in IIS using [iisnode](https://github.com/tjanczuk/iisnode). To enable the app to run with iisnode, the root app directory contains a web.config file. The file is readable by IIS, and the iisnode-related settings are documented in [the iisnode GitHub repository](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config).
+> In Azure App Service, the app is run in IIS using [iisnode](https://github.com/Azure/iisnode). To enable the app to run with iisnode, the root app directory contains a web.config file. The file is readable by IIS, and the iisnode-related settings are documented in [the iisnode GitHub repository](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 

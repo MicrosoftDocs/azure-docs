@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/10/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -65,6 +65,8 @@ The following sections provide more details.
 -   Make sure the Resource Group of the virtual network can create and delete certain Azure Network resources. See [Requirements for Resource Group](#resource-group). 
 
 ### <a name="perms"></a> Required permissions
+
+The user who creates the Azure-SSIS Integration Runtime must have the following permissions:
 
 - If you're joining the SSIS IR to an Azure virtual network of the current version, you have two options:
 

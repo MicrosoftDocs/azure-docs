@@ -33,7 +33,7 @@ This article is one in a series of articles that document how the fictitious com
 [Article 11: Refactor Team Foundation Server on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app in Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrates its SmartHotel app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the app database with Azure SQL Database. | Available	
 [Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | Available	
-Article 14: Scale a migration to Azure | After trying out migration combinations, Contoso is now preparing to scale to a full migration to Azure. | This article
+Article 14: Scale a migration to Azure | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | This article
 
 ## Business drivers
 
@@ -61,7 +61,7 @@ The Contoso cloud team has pinned down goals for this migration. These goals wer
 
 After pinning down goals and requirements, Contoso reviews the IT footprint, and identifies the migration process.
 
-## Current app
+## Current deployment
 
 After planning and setting up an [Azure infrastructure](contoso-migration-infrastructure.md) and trying out different proof-of-concept (POC) migration combinations as detailed in the table above, Contoso is ready to embark on a full migration to Azure at scale. Here's what Contoso wants to migrate.
 

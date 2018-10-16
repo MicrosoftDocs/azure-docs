@@ -37,7 +37,7 @@ The following are details that need to be understood when creating a partitioned
 
 - **Graph queries need to specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, the partition key should be specified when a single vertex is selected, whenever it's possible. The following are queries for selecting one or multiple vertices in a partitioned graph:
 
-    - Currenlty you can’t use `/id` as partition key for a container in Gremlin API.
+    - `/id` and `/label` are not supported as partition keys for a container in Gremlin API..
 
 
     - Selecting a vertex by ID, then **using the `.has()` step to specify the partition key property**: 

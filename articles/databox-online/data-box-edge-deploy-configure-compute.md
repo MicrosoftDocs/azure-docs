@@ -1,21 +1,14 @@
 ---
 title: Transform data with Azure Data Box Edge | Microsoft Docs
 description: Learn how to configure compute role on Data Box Edge and use it to transform data before sending to Azure.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom: 
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ---
 
