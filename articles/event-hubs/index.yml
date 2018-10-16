@@ -112,7 +112,12 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/store-captured-data-data-warehouse">Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions</a>    
+    - html: <a href="https://docs.microsoft.com/azure/azure-databricks/databricks-stream-from-eventhubs">Stream data into Azure Databricks using Event Hubs</a>        
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-mirror-maker-tutorial">Mirror a Kafka broker in a Kafka enabled event hub</a>            
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-flink-tutorial">Connect Apache Flink to Kafka-enabled event hubs </a>                
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-akka-streams-tutorial">Connect Akka Streams to Kafka-enabled event hubs</a>                    
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
