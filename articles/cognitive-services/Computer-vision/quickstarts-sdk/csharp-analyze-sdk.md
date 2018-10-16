@@ -3,14 +3,14 @@ title: "Quickstart: Analyze an image - SDK, C# - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
 # Quickstart: Analyze an image using the Computer Vision SDK and C#
 

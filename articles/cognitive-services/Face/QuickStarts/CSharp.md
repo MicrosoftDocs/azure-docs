@@ -3,14 +3,14 @@ title: "Quickstart: Detect faces in an image - Face API C#"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face API with C#.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using C#
 
