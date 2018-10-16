@@ -6,9 +6,14 @@
 *.c text
 *.h text
 
+# Denote all files that are truly binary and should not be modified.
+*.gif   binary
+*.ico   binary
+*.jpg   binary
+*.png   binary
+
 # Declare files that will always have CRLF line endings on checkout.
 *.sln text eol=crlf
 
-# Denote all files that are truly binary and should not be modified.
-*.png binary
-*.jpg binary
+# DOCS Specific Settings
+# .openpublishing.redirection.json merge=union

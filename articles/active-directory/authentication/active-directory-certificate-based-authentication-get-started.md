@@ -200,6 +200,6 @@ An EAS profile can be configured and placed on the device through the utilizatio
 
 ## Next steps
 
-[Additional information about certificate-based authenticaion on Android devices.](active-directory-certificate-based-authentication-android.md)
+[Additional information about certificate-based authentication on Android devices.](active-directory-certificate-based-authentication-android.md)
 
-[Additional information about certificate-based authenticaion on iOS devices.](active-directory-certificate-based-authentication-ios.md)
+[Additional information about certificate-based authentication on iOS devices.](active-directory-certificate-based-authentication-ios.md)

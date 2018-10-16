@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Publish Knowledge Base - REST, C# -  Qna Maker"
+title: "Quickstart: Publish Knowledge Base - REST, C# -  QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: This quickstart walks you through publishing your KB which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
@@ -7,31 +7,31 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically publish a knowledge base using C#. 
 ---
 
-# Quickstart: Publish a Qna Maker knowledge base in C#
+# Quickstart: Publish a QnA Maker knowledge base in C#
 
 This quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
 
-This quickstart calls Qna Maker APIs:
+This quickstart calls QnA Maker APIs:
 * [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - this API doesn't require any information in the body of the request.
-
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
-* You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
-* Qna Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## Create knowledge base project
 
@@ -62,7 +62,7 @@ static string PrettyPrint(string s)
 
 ## Add POST request to publish KB
 
-The following code makes an HTTPS request to the Qna Maker API to publish a KB and receives the response:
+The following code makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
 
 ```csharp
 async static void PublishKB()
@@ -117,7 +117,7 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-Build and run the program. It will automatically send the request to the Qna Maker API to publish the KB, then the response is printed to the console window.
+Build and run the program. It will automatically send the request to the QnA Maker API to publish the KB, then the response is printed to the console window.
 
 Once your knowledge base is published, you can query it from the endpoint with a client application or chat bot. 
 

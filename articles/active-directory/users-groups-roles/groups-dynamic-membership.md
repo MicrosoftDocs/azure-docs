@@ -127,15 +127,29 @@ The following table lists all the supported operators and their syntax for a sin
 | In | -in |
 | Not In | -notIn |
 
-### Using the -In and -notIn operators
+### Using the -in and -notIn operators
 
-If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
+If you want to compare the value of a user attribute against a number of different values you can use the -in or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
 
  In the following example, the expression evaluates to true if the value of user.department equals any of the values in the list:
 
 ```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### Using the -match operator 
+The **-match** operator is used for matching any regular expression. Examples:
+
+```
+user.displayName -match "Da.*"   
+```
+Da, Dav, David evaluate to true, aDa evaluates to false.
+
+```
+user.displayName -match ".*vid"
+```
+David evaluates to true, Da evaluates to false.
 
 ## Supported values
 

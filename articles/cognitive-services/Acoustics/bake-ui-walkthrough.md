@@ -1,12 +1,14 @@
 ---
-title: Bake acoustics with Project Acoustics - Cognitive Services
+title: Bake acoustics with Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: This document describes the process of submitting an acoustics bake using the Unity editor extension.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
 ---
@@ -224,25 +226,25 @@ To estimate what a given bake will cost, take the value shown for **Estimated Co
 After the bake completes, check that the voxels and probe points are in their expected locations by running the runtime plugin. More information is in [Design Process Overview for Acoustics](design-process.md).
 
 ## <a name="Local-bake"></a>Local bake
-Local bake runs acoustics simulation on your own local PC instead of offloading it to the Azure Batch compute cluster. This can be a good option for experimenting with acoustics without requiring an Azure subscription but note that Acoustics simulation is computationally demanding and can take a long time depending on the size of the scene, simulation configuration, and raw computing power of the processing machine.
+Local bake runs acoustics simulation on your own PC instead of offloading it to the Azure Batch compute cluster. This can be a good option for experimenting with acoustics without requiring an Azure subscription. Note that the Acoustics simulation is computationally demanding and can take a long time depending on the size of the scene, simulation configuration, and raw computing power of the processing machine.
 
 ### Minimum hardware requirements
 64-bit Intel processor with at least 8 cores and 32 GB of RAM or higher.
 
-As an example, on an 8 core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB memory -
+As an example, on an 8 core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB RAM -
 * Small scene with 100 probes takes ~2 hours for a coarse bake and ~32 hours for a fine resolution bake.
-* Larger scene with 1000 probes can take upto ~20 hours for a coarse resolution and ~21 days for a fine resolution bake.
+* Larger scene with 1000 probes can take up to ~20 hours for a coarse resolution and ~21 days for a fine resolution bake.
 
 ### Setup Docker
 Install and configure Docker on the PC that will process the simulation -
 1. Install the [Docker toolset](https://www.docker.com/products/docker-desktop).
-2. Launch Docker settings, navigate to the "Advanced" options and configure resources as shown below. ![Docker resources](media/DockerSettings.png)
-3. Navigate to "Shared Drives" options and turn on sharing for the drive used for processing.![DockerDriveSharing](media/DockerSharedDrives.png)
+2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at leat 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Example Docker settings](media/DockerSettings.png)
+3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### Run local bake
-1. Click on "Prepare Local Bake" button on the Bake tab and select a folder where input files and execution scripts will be saved. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
-2. Launch the simulation using "runlocalbake.bat" script that will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation. 
-3. Once the simulation has finished, copy the resulting .ace file back to your Unity project to same location that was specified in the Probes tab. Ensure destination filename conforms to Unity's requirements by appending ".bytes" to the file extension. The detailed logs for the simulation are stored in "AcousticsLog.txt" file. If you run into any issues, share this file to assist with diagnosis.
+1. Click on "Prepare Local Bake" button on the Bake tab and select a folder where the input files and execution scripts will be saved. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
+2. Launch the simulation using the "runlocalbake.bat" script. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation. 
+3. Once the simulation has finished, copy the resulting .ace file back to your Unity project. To make sure Unity recognizes this as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in "AcousticsLog.txt." If you run into any issues, share this file to assist with diagnosis.
 
 ## <a name="Data-Files"></a>Data files
 

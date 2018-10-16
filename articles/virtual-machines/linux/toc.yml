@@ -102,7 +102,7 @@
     items:
     - name: Managed Disks
       href: managed-disks-overview.md
-    - name: Premium storage
+    - name: Premium SSDs
       href: premium-storage.md
     - name: Standard SSDs
       href: disks-standard-ssd.md

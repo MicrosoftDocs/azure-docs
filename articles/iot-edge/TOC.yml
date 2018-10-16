@@ -91,6 +91,8 @@
       href: how-to-install-iot-edge-windows-with-linux.md
     - name: IoT Core
       href: how-to-install-iot-core.md
+    - name: Update the runtime version
+      href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
     items: 
     - name: Linux

@@ -1,33 +1,33 @@
 ---
 title: "Quickstart: Create knowledge base - REST, C# - QnA Maker"
 titlesuffix: Azure Cognitive Services 
-description: This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+description: This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically create a knowledge base using C#. 
 ---
 
-# Quickstart: Create a Qna Maker knowledge base in C#
+# Quickstart: Create a QnA Maker knowledge base in C#
 
-This quickstart walks you through programmatically creating a sample QnA maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 
-This quickstart calls Qna Maker APIs:
+This quickstart calls QnA Maker APIs:
 * [Create KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
-
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
-* You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## Create a knowledge base project
 
@@ -35,7 +35,7 @@ This quickstart calls Qna Maker APIs:
 
 ## Add the required dependencies
 
-[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)]  
+[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)]  
 
 ## Add the required constants
 
@@ -80,7 +80,7 @@ static string kb = @"
 
 ## Add a POST request to create KB
 
-The following code makes an HTTPS request to the Qna Maker API to create a KB and receives the response:
+The following code makes an HTTPS request to the QnA Maker API to create a KB and receives the response:
 
 ```csharp
 async static Task<Response> PostCreateKB(string kb)
@@ -122,7 +122,7 @@ This API call returns a JSON response that includes the operation ID. Use the op
 
 ## Add GET request to determine creation status
 
-The API that creates the KB gets all the documents, URLs, and custom editorials and creates a KB. 
+Check the status of the operation.
 
 ```csharp
 async static Task<Response> GetStatus(string operationID)
@@ -262,7 +262,7 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-Build and run the program. It will automatically send the request to the Qna Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
+Build and run the program. It will automatically send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
 

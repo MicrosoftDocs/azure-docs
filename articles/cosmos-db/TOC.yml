@@ -185,12 +185,18 @@
           href: sql-api-sql-query-metrics.md
         - name : Stored procedures, triggers, and UDFs
           href: programming.md
+        - name: SQL data partitioning
+          href: sql-api-partition-data.md
         - name: Data types
           items:
           - name: DateTime
             href: working-with-dates.md
           - name: Geospatial
             href: geospatial.md
+          - name: Bulk executor - .NET library
+            href: bulk-executor-dot-net.md
+          - name: Bulk executor - Java library
+            href: bulk-executor-java.md
       - name: Reference
         items:
         - name: .NET
@@ -281,6 +287,8 @@
         items:
         - name: Import graph data 
           href: bulk-executor-graph-dotnet.md
+        - name: Graph data partitioning
+          href: graph-partitioning.md
     - name: Cassandra API Docs
       items: 
       - name: Introduction
@@ -417,8 +425,6 @@
           href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
-      - name: SQL data partitioning
-        href: sql-api-partition-data.md
     - name: Integrate with other Azure services
       items: 
       - name: Change feed Ecommerce solution
@@ -457,10 +463,6 @@
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
-      - name: Bulk executor - .NET library
-        href: bulk-executor-dot-net.md
-      - name: Bulk executor - Java library
-        href: bulk-executor-java.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn
@@ -473,6 +475,8 @@
       href: faq.md
     - name: Whitepapers
       href: whitepapers.md
+    - name: Partners
+      href: partners-migration-cosmosdb.md
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap

@@ -69,7 +69,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
 8. Press **Select**.
-9. Click **Grant Permisssions**.
+9. Click **Grant Permissions**.
 
 ### Configuring your app
 
@@ -199,7 +199,7 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
 > [!NOTE]
-> Backup and restore operations can also be performed with Powershell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
+> Backup and restore operations can also be performed with PowerShell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
 
 ## Next steps
 

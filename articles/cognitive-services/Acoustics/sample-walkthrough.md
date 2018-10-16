@@ -1,12 +1,14 @@
 ---
-title: Project Acoustics sample walkthrough - Cognitive Services
+title: "Example: Project Acoustics"
+titlesuffix: Azure Cognitive Services
 description: This walkthrough describes the Unity sample scene for Project Acoustics, including deployment to desktop and VR.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
 ---

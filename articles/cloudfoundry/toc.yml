@@ -8,7 +8,7 @@
 - name: Tutorials
   items:
   - name: Create CF on Azure
-    href: /azure/virtual-machines/linux/create-cloud-foundry-on-azure
+    href: /azure/cloudfoundry/create-cloud-foundry-on-azure
   - name: Deploy CF App to Azure
     href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
   - name: CloudFoundry on Azure
