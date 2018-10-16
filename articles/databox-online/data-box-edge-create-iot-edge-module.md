@@ -131,7 +131,7 @@ Create a C# solution template that you can customize with your own code.
     using Microsoft.Azure.Devices.Client.Transport.Mqtt;
     using Newtonsoft.Json;
     ```
-3. Add the InputFolderPath and OutputFolderPath variable to the Program class.
+3. Add the **InputFolderPath** and **OutputFolderPath** variable to the Program class.
 
     ```
     class Program
@@ -141,7 +141,7 @@ Create a C# solution template that you can customize with your own code.
             private const string OutputFolderPath = "/home/CloudShare";
     ````
 
-4. Add the MessageBody class to the Program class. These classes define the expected schema for the body of incoming messages.
+4. Add the **MessageBody** class to the Program class. These classes define the expected schema for the body of incoming messages.
 
     ```
     /// <summary>
@@ -157,7 +157,7 @@ Create a C# solution template that you can customize with your own code.
     }
     ```
 
-5. In the Init method, the code creates and configures a **ModuleClient** object. This object allows the module to connect to the local Azure IoT Edge runtime using MQTT protocol to send and receive messages. The connection string that's used in the Init method is supplied to the module by the IoT Edge runtime. The code registers a FileCopy callback to receive messages from an IoT Edge hub via the **input1** endpoint.
+5. In the **Init** method, the code creates and configures a **ModuleClient** object. This object allows the module to connect to the local Azure IoT Edge runtime using MQTT protocol to send and receive messages. The connection string that's used in the Init method is supplied to the module by the IoT Edge runtime. The code registers a FileCopy callback to receive messages from an IoT Edge hub via the **input1** endpoint.
 
     ```
     /// <summary>
