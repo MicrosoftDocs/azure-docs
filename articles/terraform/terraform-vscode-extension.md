@@ -98,7 +98,7 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
 1. In Visual Studio Code, select **File > New File** from the menu bar.
 
-1. In your browser, navigate to the [Terraform azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) page and copy the code in the **Example Usage** code block:
+1. In your browser, navigate to the [Terraform azurerm_resource_group page](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) and copy the code in the **Example Usage** code block:
 
     ![Example Usage](media/terraform-vscode-extension/tf-azurerm-resource-group-example-usage.png)
 
