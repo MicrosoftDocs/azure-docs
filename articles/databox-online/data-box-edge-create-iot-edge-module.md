@@ -11,7 +11,7 @@ ms.date: 10/16/2018
 ms.author: alkohli
 ---
 
-# Develop a C# IoT Edge module to move files on Data Box Edge  (Preview)
+# Develop a C# IoT Edge module to move files on Data Box Edge (Preview)
 
 This tutorial steps you through how to create an IoT Edge module for deployment with your Data Box Edge device. Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure.
 
@@ -24,7 +24,6 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a container registry to store and manage your modules (Docker images).
 > * Create an IoT Edge module to deploy on your Data Box Edge device.
-
 
 > [!IMPORTANT]
 > Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
@@ -51,17 +50,16 @@ Before you begin, make sure you have:
 
 - A Data Box Edge device that is running.
 
-    - The device also has an associated IoT Hub resource. For more information, go to [Create an IoT Hub resource]() for your Data Box Edge.
-    - The device has Edge compute role configured. For more information, go to [Set up compute role]() on your Data Box Edge.
+    - The device also has an associated IoT Hub resource. For more information, go to [Create an IoT Hub resource](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource) for your Data Box Edge.
+    - The device has Edge compute role configured. For more information, go to [Set up compute role](data-box-edge-deploy-configure-compute.md#set-up-compute-role) on your Data Box Edge.
 
 - The following development resources:
 
-    - [Visual Studio Code](). 
-    - [C# for Visual Studio Code (powered by OmniSharp) extension]().
-    - [Azure IoT Edge extension for Visual Studio Code](). 
-
-    - [.NET Core 2.1 SDK]().
-    - [Docker CE](). You may have to create an account to download and install the software.
+    - [Visual Studio Code](https://code.visualstudio.com/).
+    - [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+    - [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+    - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+    - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). You may have to create an account to download and install the software.
 
 ## Create a container registry
 
@@ -77,7 +75,6 @@ An Azure container registry is a private Docker registry in Azure where you can 
     4. Select a **Location**. We recommend that this be the same region or close to where we deploy the Data Box Edge device.
     5. Toggle **Admin user** to **Enable**.
     6. Set the SKU to **Basic**.
-
 
     ![Create container registry](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
@@ -155,22 +152,8 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 4. You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information that's in the module.json file with the format `<repository>:<version>-<platform>`. For this tutorial, it should look like `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 
-
-## Deploy and run the module
-
 ## Clean up resources
 
 ## Next steps
 
-In this tutorial, you learned about  Data Box Edge topics such as:
-
-> [!div class="checklist"]
-> * Create a container registry to store and manage your modules (Docker images).
-> * Create an IoT Edge module to deploy on your Data Box Edge device.
-
-Advance to the next tutorial to learn how to administer your Data Box Edge.
-
-> [!div class="nextstepaction"]
-> [Use local web UI to administer a Data Box Edge](http://aka.ms/dbg-docs)
-
-
+To deploy and run this module on Data Box Edge, see the steps in [Add a custom module](data-box-edge-deploy-configure-compute.md#add-a-custom-module).
