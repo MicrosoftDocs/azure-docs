@@ -191,7 +191,7 @@
       href: api-management-configuration-repository-git.md
     - name: Use role-based access control
       href: api-management-role-based-access-control.md
-    - name: Use Managed Service Identity
+    - name: Use managed identities for Azure resources
       href: api-management-howto-use-managed-service-identity.md
     - name: Integrate with Service Fabric
       items:

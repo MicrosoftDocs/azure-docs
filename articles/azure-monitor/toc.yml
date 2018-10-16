@@ -31,9 +31,9 @@
       href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
 - name: Tutorials
   items:
-  - name: Analyze data in Log Analaytics
+  - name: Analyze data in Log Analytics
     href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
-  - name: Visualize data in Log Analaytics
+  - name: Visualize data in Log Analytics
     href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
   - name: Archive platform metric and log data 
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
@@ -186,16 +186,16 @@
       items:
       - name: Agent comparison
         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: Log store agents  
+      - name: Log Analytics agents  
         items:
+        - name: Monitor hybrid environments
+          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
         - name: Windows agents
           href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Windows
           href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Linux
           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-        - name: Monitor hybrid environments
-          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
         - name: Operations Manager
           href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
         - name: OMS Gateway
@@ -228,9 +228,9 @@
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json 
       - name: Troubleshoot
         items:
-        - name: Troubleshoot Logs VM Extension
+        - name: Log Analytics VM Extension
           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-        - name: Troubleshoot Logs Linux agent
+        - name: Log Analytics Linux agent
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
     - name: Agent data sources
       items:
@@ -404,9 +404,9 @@
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: Collect custom data 
       items:
-      - name: Log store Data collector API 
+      - name: Log Analytics Data collector API 
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
-      - name: Log store Data Collector API Pipeline example
+      - name: Log Analytics Data Collector API Pipeline example
         href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
@@ -698,16 +698,6 @@
     items:
     - name: Alerts
       items:
-      - name: Create alert rules
-        items:
-        - name: Configure new metric or log alerts in Azure portal
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure classic alerts in Azure portal
-          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json   
-        - name: Configure classic alerts with CLI
-          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure classic alerts with Azure PowerShell
-          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use metric alerts
         items:
         - name: Create, view and manage metric alerts in Azure Monitor

@@ -29,9 +29,9 @@ When you enable Enterprise State Roaming, your organization is automatically gra
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 
-2. Select **Azure Active Directory** &gt; **Devices** &gt; **Enterprise State Roaming**.
+1. Select **Azure Active Directory** &gt; **Devices** &gt; **Enterprise State Roaming**.
 
-3. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
+1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
   ![image of device setting labeled Users may sync settings and app data across devices](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
@@ -54,15 +54,15 @@ Follow these steps to view a per-user device sync status report.
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 
-2. Select **Azure Active Directory** &gt; **Users** &gt; **All users**.
+1. Select **Azure Active Directory** &gt; **Users** &gt; **All users**.
 
-3. Select the user, and then select **Devices**.
+1. Select the user, and then select **Devices**.
 
-4. Under **Show**, select **Devices syncing settings and app data** to show sync status.
+1. Under **Show**, select **Devices syncing settings and app data** to show sync status.
   
   ![image of device sync data setting](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
   
-5. If there are devices syncing for this user, you see the devices as shown here.
+1. If there are devices syncing for this user, you see the devices as shown here.
   
   ![image of device sync columnar data](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 
