@@ -189,12 +189,12 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 
 - Purge a secret in deleted state: 
 
-> [!IMPORTANT]
-> Purging a secret will permanently delete it, and it will not be recoverable!
+  > [!IMPORTANT]
+  > Purging a secret will permanently delete it, and it will not be recoverable!
 
-```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
-```
+  ```powershell
+  Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  ```
 
 ## Purging and key vaults
 

@@ -179,12 +179,12 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 
 - Purge a secret in deleted state: 
 
-> [!IMPORTANT]
-> Purging a secret will permanently delete it, and it will not be recoverable! 
+  > [!IMPORTANT]
+  > Purging a secret will permanently delete it, and it will not be recoverable! 
 
-```azurecli
-az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
+  ```
 
 ## Purging and key vaults
 
