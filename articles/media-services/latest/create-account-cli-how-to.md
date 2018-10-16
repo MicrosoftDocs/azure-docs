@@ -4,14 +4,14 @@ description: Follow the steps of this quickstart to create an Azure Media Servic
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
 ---
 

@@ -20,7 +20,7 @@ ms.author: juliako
 
 # Create and monitor Media Services events with Event Grid using the Azure portal
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to subscribe to events for your Azure Media Services account and trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to subscribe to events for your Azure Media Services account. Then, you trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
 When you're finished, you see that the event data has been sent to the web app.
 
@@ -49,14 +49,11 @@ If you switch to the "Azure Event Grid Viewer" site, you see it has no events ye
 You subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
 
 1. In the portal, select your Media Services account and select **Events**.
-1. To send events to your viewer app, use a web hook for the endpoint. Select **More Options**, and **Web Hook**.
+1. To send events to your viewer app, use a web hook for the endpoint. 
 
    ![Select web hook](./media/monitor-events-portal/select-web-hook.png)
 
 1. The event subscription is prefilled with values for your Media Services account. 
-
-   ![Select logs](./media/monitor-events-portal/create-subscription.png)
-
 1. Select 'Web Hook' for the **Endpoint Type**.
 1. Click on the **Select an endpoint** link.
 
@@ -65,9 +62,12 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
 1. Press **Confirm Selection**.
 1. Press **Create**.
 1. Give your subscription a name.
+
+   ![Select logs](./media/monitor-events-portal/create-subscription.png)
+
 1. View your web app again, and notice that a subscription validation event has been sent to it. 
 
-    Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The endpoint has to set `validationResponse` to `validationCode`. For more information, see [Event Grid security and authentication](../../event-grid/security-authentication.md). The web app includes code to validate the subscription.
+    Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The endpoint has to set `validationResponse` to `validationCode`. For more information, see [Event Grid security and authentication](../../event-grid/security-authentication.md). You can view the web app code to see how it validates the subscription.
 
 Now, let's trigger events to see how Event Grid distributes the message to your endpoint.
 

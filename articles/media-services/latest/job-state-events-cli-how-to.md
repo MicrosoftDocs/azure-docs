@@ -16,7 +16,7 @@ ms.author: juliako
 
 # Create and monitor Media Services events with Event Grid using the Azure CLI
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to events for your Azure Media Services account and trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to events for your Azure Media Services account. Then, you trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
 ## Prerequisites
 
@@ -42,6 +42,24 @@ If you switch to the "Azure Event Grid Viewer" site, you see it has no events ye
    
 [!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
 
+## Log in to Azure
+
+Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands, as shown in the next steps.
+
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+
+## Set the Azure subscription
+
+In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+
+```azurecli-interactive
+az account set --subscription mySubscriptionId
+```
+ 
+[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
+
 ## Subscribe to Media Services events
 
 You subscribe to an article to tell Event Grid which events you want to track. The following example subscribes to the Media Services account you created, and passes the URL from the website you created as the endpoint for event notification. 
@@ -50,34 +68,41 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
 
 1. Get the resource id
 
-    ```cli
+    ```azurecli-interactive
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    The Media Services account resource id value looks similar to this:
+    For example:
 
     ```
-    /subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+    amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
     ```
 
 2. Subscribe to the events
 
-    ```cli
+    ```azurecli-interactive
     az eventgrid event-subscription create \
     --resource-id $amsResourceId \
     --name <event_subscription_name> \
     --endpoint <endpoint_URL>
     ```
 
+    For example:
+
+    ```
+    az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
+    ```    
+
+    > [!TIP]
+    > You might get validation handshake warning. Give it a few minutes and the handshake should validate.
+    
 Now, let's trigger events to see how Event Grid distributes the message to your endpoint.
 
 ## Send an event to your endpoint
 
 You can trigger events for the Media Services account by running an encoding job. You can follow [this quickstart](stream-files-dotnet-quickstart.md) to encode a file and start sending events. 
 
-View your web app again, and notice that a subscription validation event has been sent to it. 
-
-Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The endpoint has to set `validationResponse` to `validationCode`. For more information, see [Event Grid security and authentication](../../event-grid/security-authentication.md). The web app includes code to validate the subscription.
+View your web app again, and notice that a subscription validation event has been sent to it. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The endpoint has to set `validationResponse` to `validationCode`. For more information, see [Event Grid security and authentication](../../event-grid/security-authentication.md). You can view the web app code to see how it validates the subscription.
 
 > [!TIP]
 > Select the eye icon to expand the event data. Do not refresh the page, if you want to view all the events.
