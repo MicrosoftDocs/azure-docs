@@ -414,6 +414,7 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+The environment variables are set under `Application settings`.
 
 ## Configure function entry point
 
