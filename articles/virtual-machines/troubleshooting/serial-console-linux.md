@@ -35,7 +35,7 @@ For serial console documentation for Windows VMs, see [Virtual machine serial co
 
     ![Boot diagnostics settings](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-An account using a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+An account that uses a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account: 
 
 * The VM in which you are accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
 
@@ -51,7 +51,7 @@ The serial console for virtual machines is accessible only through the Azure por
   1. Select a VM in the list. The overview page for the VM opens.
   1. Scroll down to the **Support + troubleshooting** section and select **Serial console**. A new pane with the serial console opens and starts the connection.
 
-![](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
+   ![](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 
@@ -64,13 +64,13 @@ For the serial console to function properly, the guest operating system must be 
 
 Distribution      | Serial console access
 :-----------|:---------------------
-Red Hat Enterprise Linux    | Red Hat Enterprise Linux images available on Azure have console access enabled by default. 
-CentOS      | CentOS images available on Azure have console access enabled by default. 
-Ubuntu      | Ubuntu images available on Azure have console access enabled by default.
-CoreOS      | CoreOS images available on Azure have console access enabled by default.
-SUSE        | Newer SLES images available on Azure have console access enabled by default. If you are using older versions (10 or earlier) of SLES on Azure, see the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
-Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
-Custom Linux images     | To enable the serial console for your custom Linux VM image, enable console access in `/etc/inittab` to run a terminal on `ttyS0`. Inittab file example: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images, see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd). If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the /boot/ path.
+Red Hat Enterprise Linux    | Serial console access enabled by default. 
+CentOS      | Serial console access enabled by default. 
+Ubuntu      | Serial console access enabled by default.
+CoreOS      | Serial console access enabled by default.
+SUSE        | Newer SLES images available on Azure have serial console access enabled by default. If you are using older versions (10 or earlier) of SLES on Azure, see the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
+Oracle Linux        | Serial console access enabled by default.
+Custom Linux images     | To enable the serial console for your custom Linux VM image, enable console access in the file /etc/inittab to run a terminal on `ttyS0`. For example: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images, see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd). If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the /boot/ path.
 
 ## Common scenarios for accessing the serial console 
 Scenario          | Actions in the serial console                
@@ -86,7 +86,7 @@ Interacting with bootloader | Access GRUB from the serial console. For more info
 By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or VM level.
 
 > [!NOTE] 
-> To enable or disable the serial console for a subscription, you must have write permissions to the subscription. This includes, but is not limited to, administrator or owner roles. Custom roles can also have write permissions.
+> To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions includes administrator or owner roles. Custom roles can also have write permissions.
 
 ### Subscription-level disable
 The serial console can be disabled for an entire subscription through the [Disable Console REST API call](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter "default" for **default**, and then select **Run**. Azure CLI commands aren't yet available.
@@ -158,11 +158,11 @@ Because most errors are transient, retrying your connection can often fix them. 
 Error                            |   Mitigation 
 :---------------------------------|:--------------------------------------------|
 Unable to retrieve boot diagnostics settings for *&lt;VMNAME&gt;*. To use the serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled. 
-The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access the serial console
-You do not have the required permissions to use this VM with the serial console. Ensure you have at least Virtual Machine Contributor role permissions.| The serial console requires certain [access permissions](#prerequisites).
-Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | The serial console access requires certain permissions to access. For more information, see [Prerequisites](#prerequisites).
+The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | The VM must be in a started state to access the serial console.
+You do not have the required permissions to use this VM with the serial console. Ensure you have at least Virtual Machine Contributor role permissions.| The serial console access requires certain permissions. For more information, see [Prerequisites](#prerequisites).
+Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | The serial console access requires certain permissions. For more information, see [Prerequisites](#prerequisites).
 Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653), which change fairly regularly.
-A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics doesn't have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
+A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics doesn't have an account firewall. An accessible boot diagnostic storage account is necessary for the serial console to function.
 
 ## Known issues 
 We're aware of some issues with the serial console. Here's a list of these issues and steps for mitigation.
@@ -170,8 +170,8 @@ We're aware of some issues with the serial console. Here's a list of these issue
 Issue                           |   Mitigation 
 :---------------------------------|:--------------------------------------------|
 Pressing **Enter** after the connection banner does not cause a sign-in prompt to be displayed. | For more information, see [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This issue can occur if you're running a custom VM, hardened appliance, or GRUB config that causes Linux to fail to properly connect to the serial port.
-Serial console text only takes up a portion of the screen size (often after using a text editor) | Serial consoles do not support negotiating about window size ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), which means that there will be no SIGWINCH signal sent to update screen size and the VM will have no knowledge of your terminal's size. Install xterm or a similar utility to provide you with the `resize` command, and then run `resize`.
-Pasting long strings doesn't work | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
+Serial console text only takes up a portion of the screen size (often after using a text editor). | Serial consoles do not support negotiating about window size ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), which means that there will be no SIGWINCH signal sent to update screen size and the VM will have no knowledge of your terminal's size. Install xterm or a similar utility to provide you with the `resize` command, and then run `resize`.
+Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
 
 
 ## Frequently asked questions 
@@ -208,10 +208,11 @@ A. Your image is likely misconfigured for serial console access. For information
 A. At this time, access to the serial console for virtual machine scale set instances isn't supported.
 
 **Q. If I set up my VM by using only SSH key authentication, can I still use the serial console to connect to my VM?**
-A. Yes. The serial console doesn't require SSH keys, so all you have to do is set up a username/password combination. You can do so by selecting **Reset password** in the Azure portal and using those credentials to sign in to the serial console.
+
+A. Yes. Because the serial console doesn't require SSH keys, you only need to set up a username/password combination. You can do so by selecting **Reset password** in the Azure portal and using those credentials to sign in to the serial console.
 
 ## Next steps
 * [Use the serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 * [Use the serial console for NMI and SysRq calls](serial-console-nmi-sysrq.md).
-* The serial console is also available for [Windows](../windows/serial-console.md) VMs.
+* The serial console is also available for [Windows VMs](../windows/serial-console.md).
 * Learn more about [boot diagnostics](boot-diagnostics.md).
