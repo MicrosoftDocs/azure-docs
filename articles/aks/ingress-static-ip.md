@@ -268,6 +268,56 @@ Now add the */hello-world-two* path to the FQDN, such as *https://demo-aks-ingre
 
 ![Application example two](media/ingress/app-two.png)
 
+## Clean up resources
+
+This article used Helm to install the ingress components, certificates, and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up, first remove the certificate resources:
+
+```console
+kubectl delete -f certificates.yaml
+kubectl delete -f cluster-issuer.yaml
+```
+
+Now list the Helm releases with the `helm list` command. Look for charts named *nginx-ingress*, *cert-manager*, and *aks-helloworld*, as shown in the following example output:
+
+```
+$ helm list
+
+NAME                	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
+waxen-hamster       	1       	Tue Oct 16 17:44:28 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
+alliterating-peacock	1       	Tue Oct 16 18:03:11 2018	DEPLOYED	cert-manager-v0.3.4 	v0.3.2     	kube-system
+mollified-armadillo 	1       	Tue Oct 16 18:04:53 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+wondering-clam      	1       	Tue Oct 16 18:04:56 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+```
+
+Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
+
+```
+$ helm delete waxen-hamster alliterating-peacock mollified-armadillo wondering-clam
+
+release "billowing-kitten" deleted
+release "loitering-waterbuffalo" deleted
+release "flabby-deer" deleted
+release "linting-echidna" deleted
+```
+
+Next, remove the Helm repo for the AKS hello world app:
+
+```console
+helm repo remove azure-samples
+```
+
+Remove the ingress route that directed traffic to the sample apps:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
+
+Finally, remove the static public IP address created for the ingress controller. Provide your *MC_* cluster resource group name obtained in the first step of this article, such as *MC_myResourceGroup_myAKSCluster_eastus*:
+
+```azurecli
+az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
+```
+
 ## Next steps
 
 This article included some external components to AKS. To learn more about these components, see the following project pages:

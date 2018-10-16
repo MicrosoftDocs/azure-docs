@@ -48,7 +48,7 @@ Plans are groupings of one or more services. As an Azure Stack operator, you [cr
 
 To help you manage your cloud capacity, you can use pre-configured *quotas*, or create a new quota for each service in a plan. Quotas define the upper resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines (VMs).
 
-You can configure quotas by region. For example, a plan that provides compute services for Region A could have a quota of two VMs with 4 GB RAM, and 8 CPU cores.
+You can configure quotas by region. For example, a plan that provides compute services for Region A could have a quota of two VMs.
 
 >[!NOTE]
 >In the Azure Stack Development Kit, only one region (named *local*) is available.
