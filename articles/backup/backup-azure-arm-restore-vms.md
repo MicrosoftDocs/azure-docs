@@ -178,8 +178,6 @@ To get the template that was generated as part of the restore disks option:
 
 2. On the **Restore Job Details** screen, select **Deploy Template** to initiate template deployment.
 
-  ![Restore job drill-down](./media/backup-azure-arm-restore-vms/upload-template1.png)    
-
 3. On the **Deploy template** blade for custom deployment, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy.
 
   ![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
