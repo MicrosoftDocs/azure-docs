@@ -25,7 +25,7 @@ Yes. You can create as many as 500 Recovery Services vaults, per supported regio
 You can register upto 1000 Azure Virtual machines per vault. If you are using MAB Agent, you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
 ### Can I use a REST API to query the size of protected items in a vault? <br/>
-Yes, the article, [Usages - List by Vaults](https://t.co/2lgIrIaF0J), lists the information that can be obtained from the Recovery Services vault.
+Yes, the article, [Usages - List by Vaults](https://docs.microsoft.com/rest/api/recoveryservices/usages/usages_listbyvaults), lists the information that can be obtained from the Recovery Services vault.
 
 ### If my organization has one vault, how can I isolate one server's data from another server when restoring data?<br/>
 All servers that are registered to the same vault can recover the data backed up by other servers *that use the same passphrase*. If you have servers whose backup data you want to isolate from other servers in your organization, use a designated passphrase for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
