@@ -59,7 +59,7 @@ Add a storage account ID to the **variables** section of the template after the 
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Add this Managed Service Identity (MSI) extension to the template at the top of the "resources" section.  The extension ensures that Azure Monitor accepts the metrics being emitted.  
+Add this managed identities for Azure resources extension to the template at the top of the "resources" section.  The extension ensures that Azure Monitor accepts the metrics being emitted.  
 
 ```json
 //Find this code 
