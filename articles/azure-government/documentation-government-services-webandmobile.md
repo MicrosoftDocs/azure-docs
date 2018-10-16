@@ -38,7 +38,7 @@ in Azure Government:
 
 - App Service Certificates
 - Settings
-    - Managed service identity > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/33804523-enable-managed-service-identity-for-app-services)
+    - Managed identities for Azure resources > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/33804523-enable-managed-service-identity-for-app-services)
     - Push notifications
     - Security scanning
 - Development Tools
