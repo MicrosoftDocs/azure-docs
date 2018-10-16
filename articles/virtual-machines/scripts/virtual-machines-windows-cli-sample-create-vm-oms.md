@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a Windows Server 2016 VM with Log Analytics | Microsoft Docs
+title: Azure CLI Script Sample - Create a Windows Server 2016 VM with Log Analytics monitoring | Microsoft Docs
 description: Azure CLI Script Sample - Create a Windows Server 2016 VM with Log Analytics
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
