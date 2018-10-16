@@ -23,7 +23,7 @@ Active geo-replication is designed as a business continuity solution that allows
 
 > [!NOTE]
 > Active geo-replication is available for all databases in all service tiers in all regions.
-> Active Geo-replication is not available in Managed Instance.
+> Active geo-replication is available for Managed Instance between supported regions.
 
 Auto-failover groups is an extension of active geo-replication. It is designed to manage the failover of multiple geo-replicated databases simultaneously using an application initiated failover or by delegating failover to be done by the SQL Database service based on a user defined criteria. The latter allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
