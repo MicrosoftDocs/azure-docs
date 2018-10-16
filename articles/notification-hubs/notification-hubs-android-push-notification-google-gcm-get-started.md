@@ -228,7 +228,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
                     regID = hub.register(token).getRegistrationId();
 
                     // If you want to use tags...
-                    // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                    // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                     // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
 
                     resultString = "Registered Successfully - RegId : " + regID;
@@ -649,7 +649,7 @@ Normally, you would send notifications using a backend server. For some cases, y
 
                         // Include any tags
                         // Example below targets 3 specific tags
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                         // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
                         //        "tag1 || tag2 || tag3");
 
