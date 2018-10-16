@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Media Services events using Event Grid with the Azure portal | Microsoft Docs
-description: This topic shows how to subscribe to Event Grid in order to monitor Azure Media Services events. 
+title: Monitor Azure Media Services events with Event Grid using portal | Microsoft Docs
+description: This article shows how to subscribe to Event Grid in order to monitor Azure Media Services events. 
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -26,7 +26,8 @@ When you're finished, you see that the event data has been sent to the web app.
 
 ## Prerequisites 
 
-Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
+* Have an active Azure subscription.
+* Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
 
 ## Create a message endpoint
 
@@ -41,7 +42,7 @@ Before subscribing to the events for the Media Services account, let's create th
 
 If you switch to the "Azure Event Grid Viewer" site, you see it has no events yet.
    
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
 
 ## Subscribe to Media Services events
 
@@ -58,17 +59,20 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
 
 1. Press **Confirm Selection**.
 1. Press **Create**.
-1. View your web app again, and notice that a subscription validation event has been sent to it. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription. 
+1. View your web app again, and notice that a subscription validation event has been sent to it. 
 
-    Select the eye icon to expand the event data. Do not refresh the page, if you want to view all the events.
+    Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The endpoint has to set `validationResponse` to `validationCode`. For more information, see [Event Grid security and authentication](../../event-grid/security-authentication.md). The web app includes code to validate the subscription.
 
-   ![View subscription event](./media/monitor-events-portal/view-subscription-event.png)
-
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint.
+Now, let's trigger events to see how Event Grid distributes the message to your endpoint.
 
 ## Send an event to your endpoint
 
-You can trigger events for the Media Services account running an encoding job. You can follow [this quickstart](stream-files-dotnet-quickstart.md) to encode a file and start sending events. If you subscribed to all events, you will see a screen similar to this:
+You can trigger events for the Media Services account running an encoding job. You can follow [this quickstart](stream-files-dotnet-quickstart.md) to encode a file and start sending events. If you subscribed to all events, you will see a screen similar to the following:
+
+> [!TIP]
+> Select the eye icon to expand the event data. Do not refresh the page, if you want to view all the events.
+
+![View subscription event](./media/monitor-events-portal/view-subscription-event.png)
 
 ## Next steps
 
