@@ -47,4 +47,4 @@ If you choose to install and use the CLI locally, this topic requires the Azure 
 
 ## See also
 
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

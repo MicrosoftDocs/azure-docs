@@ -112,7 +112,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
