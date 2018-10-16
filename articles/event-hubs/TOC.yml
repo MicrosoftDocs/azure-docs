@@ -21,10 +21,10 @@
       href: event-hubs-quickstart-powershell.md
   - name: Send events to event hub 
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
       href: event-hubs-java-get-started-send.md
     - name: C
@@ -37,10 +37,10 @@
       href: event-hubs-node-get-started-send.md
   - name: Receive events from event hub
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: Java
       href: event-hubs-java-get-started-receive-eph.md
     - name: Go 
@@ -78,15 +78,8 @@
     href: event-hubs-features.md
   - name: Event Processor Host overview
     href: event-hubs-event-processor-host.md
-  - name: IP connection filters
-    href: event-hubs-ip-filtering.md
-  - name: Virtual Network service endpoints
-    href: event-hubs-service-endpoints.md
   - name: Programming guide
     href: event-hubs-programming-guide.md
-  - name: Integrate with Event Grid
-    href: ../event-grid/event-grid-event-hubs-integration.md
-    maintainContext: true
   - name: Managed identity for Azure resources
     href: event-hubs-managed-service-identity.md
   - name: Role-Based Access Control (preview)
@@ -99,8 +92,6 @@
     href: event-hubs-authentication-and-security-model-overview.md
   - name: Availability and consistency
     href: event-hubs-availability-and-consistency.md
-  - name: Automatically scale throughput units
-    href: event-hubs-auto-inflate.md
   - name: Diagnostic logs
     href: event-hubs-diagnostic-logs.md
   - name: AMQP 1.0 protocol guide
@@ -110,6 +101,12 @@
   items:
   - name: Create an event hub
     href: event-hubs-create.md
+  - name: Use IP connection filters
+    href: event-hubs-ip-filtering.md
+  - name: Use virtual network service endpoints
+    href: event-hubs-service-endpoints.md
+  - name: Automatically scale throughput units
+    href: event-hubs-auto-inflate.md
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Create Apache Kafka-enabled event hubs
