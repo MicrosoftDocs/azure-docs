@@ -422,9 +422,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_roles.png)
 
 	>[!NOTE]
-	>After enabling the user provisioning with the application, you should have to wait for 30 min to get all the roles from Amazon Web Services (AWS) then you need to refresh the page and then while assigning the application to users and groups you see the roles for the user.
+	>After enabling the user provisioning with the application, you should have to wait for 30 minutes to get all the roles from Amazon Web Services (AWS) then you need to refresh the page and then while assigning the application to users and groups you see the roles for the user.
 
-6. In the **Add Assignment** dialog select the **Assign** button.
+7. In the **Add Assignment** dialog select the **Assign** button.
 
 	![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_assign.png)
 	
