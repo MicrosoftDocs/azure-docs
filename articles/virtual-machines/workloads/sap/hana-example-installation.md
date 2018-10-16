@@ -1,6 +1,6 @@
 ---
-title: How to install HANA on SAP HANA on Azure (Large Instances) | Microsoft Docs
-description: How to install HANA on SAP HANA on Azure (Large Instance).
+title: How to install HANA on SAP HANA on Azure (large instances) | Microsoft Docs
+description: How to install HANA on SAP HANA on Azure (large instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
@@ -17,66 +17,68 @@ ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
 ---
-# Example of an SAP HANA installation on HANA Large Instances
+# Install HANA on SAP HANA on Azure (large instances)
 
-This section illustrates how to install SAP HANA on a HANA Large Instance unit. The start state we have look  like:
+To install HANA on SAP HANA on Azure (large instances), you must first do the following:
+- You provide Microsoft with all the data to deploy for you on an SAP HANA large instance.
+- You receive the SAP HANA large instance from Microsoft.
+- You create an Azure virtual network that is connected to your on-premises network.
+- You connect the ExpressRoute circuit for HANA large instances to the same Azure virtual network.
+- You install an Azure virtual machine that you use as a jump box for HANA large instances.
+- You ensure that you can connect from the jump box to your HANA large instance unit, and vice versa.
+- You check whether all the necessary packages and patches are installed.
+- You read the SAP notes and documentation regarding HANA installation on the operating system you are using. Make sure that the HANA release of choice is supported on the operating system release.
 
-- You provided Microsoft all the data to deploy you an SAP HANA Large Instance.
-- You received the SAP HANA Large Instance from Microsoft.
-- You created an Azure VNet that is connected to your on-premises network.
-- You connected the ExpressRotue circuit for HANA Large Instances to the same Azure VNet.
-- You installed an Azure VM you use as a jump box for HANA Large Instances.
-- You made sure that you can connect from the jump box to your HANA Large Instance unit and vice versa.
-- You checked whether all the necessary packages and patches are installed.
-- You read the SAP notes and documentations regarding HANA installation on the OS you are using and made sure that the HANA release of choice is supported on the OS release.
+The next section shows an example of downloading the HANA installation packages to the jump box virtual machine. In this case, the operating system is Windows.
 
-What is shown in the next sequences is the download of the HANA installation packages to the jump box VM, in this case running on a Windows OS, the copy of the packages to the HANA Large Instance unit and the sequence of the setup.
+## Download the SAP HANA installation bits
+The HANA large instance units aren't directly connected to the internet. You can't directly download the installation packages from SAP to the HANA large instance virtual machine. Instead, you download the packages to the jump box virtual machine.
 
-## Download of the SAP HANA installation bits
-Since the HANA Large Instance units don't have direct connectivity to the internet, you can't directly download the installation packages from SAP to the HANA Large Instance VM. To overcome the missing direct internet connectivity, you need the jump box. You download the packages to the jump box VM.
+You need an SAP S-user or other user, which allows you to access the SAP Marketplace.
 
-In order to download the HANA installation packages, you need an SAP S-user or other user, which allows you to access the SAP Marketplace. Go through this sequence of screens after logging in:
+1. Sign in, and go to [SAP Service Marketplace](https://support.sap.com/en/index.html). Select **Download Software** > **Installations and Upgrade** > **By Alphabetical Index**. Then select **Under H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Installation**. Download the files shown in the following screenshot.
 
-Go to [SAP Service Marketplace](https://support.sap.com/en/index.html) > Click Download Software > Installations and Upgrade >By Alphabetical Index >Under H – SAP HANA Platform Edition > SAP HANA Platform Edition 2.0 > Installation > Download the following files
+   ![Screenshot of the files to download](./media/hana-installation/image16_download_hana.PNG)
 
-![Download HANA installation](./media/hana-installation/image16_download_hana.PNG)
+2. In this example, we downloaded SAP HANA 2.0 installation packages. On the Azure jump box virtual machine, expand the self-extracting archives into the directory as shown below.
 
-In the demonstration case, we downloaded SAP HANA 2.0 installation packages. On the Azure jump box VM, you expand the self-extracting archives into the directory as shown below.
+   ![Screenshot of self-extracting archive](./media/hana-installation/image17_extract_hana.PNG)
 
-![Extract HANA installation](./media/hana-installation/image17_extract_hana.PNG)
+3. As the archives are extracted, copy the directory created by the extraction (in this case, 51052030). Copy the directory from the HANA large instance unit /hana/shared volume into a directory you created.
 
-As the archives are extracted, copy the directory created by the extraction, in the case above 51052030, to the HANA Large instance unit into the /hana/shared volume into a directory you created.
-
-> [!Important]
-> Do Not copy the installation packages into the root or boot LUN since space is limited and needs to be used by other processes as well.
+   > [!Important]
+   > Don't copy the installation packages into the root or boot LUN, because space is limited and needs to be used by other processes as well.
 
 
-## Install SAP HANA on the HANA Large Instance unit
-In order to install SAP HANA, you need to log in as user root. Only root has enough permissions to install SAP HANA.
-The first thing you need to do is to set permissions on the directory you copied over into /hana/shared. The permissions need to set like
+## Install SAP HANA on the HANA large instance unit
+In order to install SAP HANA, sign in as user root. Only root has enough permissions to install SAP HANA. Set permissions on the directory you copied over into /hana/shared.
 
 ```
 chmod –R 744 <Installation bits folder>
 ```
 
-If you want to install SAP HANA using the graphical setup, the gtk2 package needs to be installed on the HANA Large Instances. Check whether it is installed with the command
+If you want to install SAP HANA by using the graphical user interface setup, the gtk2 package needs to be installed on HANA large instances. To check whether it is installed, run the following command:
 
 ```
 rpm –qa | grep gtk2
 ```
 
-In further steps, we are demonstrating the SAP HANA setup with the graphical user interface. As next step, go into the installation directory and navigate into the sub directory HDB_LCM_LINUX_X86_64. Start
+(In later steps, we show the SAP HANA setup with the graphical user interface.)
+
+Go into the installation directory, and navigate into the sub directory HDB_LCM_LINUX_X86_64. 
+
+Out of that directory, start:
 
 ```
 ./hdblcmgui 
 ```
-out of that directory. Now you are getting guided through a sequence of screens where you need to provide the data for the installation. In the case demonstrated, we are installing the SAP HANA database server and the SAP HANA client components. Therefore our selection is 'SAP HANA Database' as shown below
+At this point, you progress through a sequence of screens in which you provide the data for the installation. In this example, we are installing the SAP HANA database server and the SAP HANA client components. Therefore, our selection is **SAP HANA Database**.
 
-![Select HANA in installation](./media/hana-installation/image18_hana_selection.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, with SAP HANA Database selected](./media/hana-installation/image18_hana_selection.PNG)
 
-In the next screen, you choose the option 'Install New System'
+On the next screen, select **Install New System**.
 
-![Select HANA new installation](./media/hana-installation/image19_select_new.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, with Install New System selected](./media/hana-installation/image19_select_new.PNG)
 
 After this step, you need to select between several additional components that can be installed additionally to the SAP HANA database server.
 
