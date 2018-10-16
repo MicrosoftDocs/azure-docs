@@ -98,7 +98,6 @@ After you select the restore point, choose a VM restore configuration. To config
  ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new.png)
 
    * **Create virtual machine**
-
    * **Restore disks**
 
    ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
