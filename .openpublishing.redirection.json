@@ -29118,7 +29118,7 @@
         },
         {
             "source_path": "articles/aks/networking-overview.md",
-            "redirect_url": "/azure/aks/configure-advanced-networking.md",
+            "redirect_url": "/azure/aks/configure-advanced-networking",
             "redirect_document_id": true
         },
         {
