@@ -33,7 +33,7 @@ This article provides step-by-step instruction to build a translation system wit
 
 On the Custom Translator portal landing page, click New Project. On the dialog you can enter your desired project
 name, language pair, and category, as well as other relevant fields. Then, save
-your project. For more details, visit [Create Project](ct-how-to-create-project.md).
+your project. For more details, visit [Create Project](how-to-create-project.md).
 
 ![Create project](media/quickstart/ct-langing-page.png)
 
@@ -41,7 +41,7 @@ your project. For more details, visit [Create Project](ct-how-to-create-project.
 ## Upload documents
 
 Next, upload training, tuning and testing document sets [Link to concepts:
-Training/ other data set]. You can upload both [parallel](concept-parallel-documents.md) and combo documents. You can also upload [dictionary](concept-dictionary.md).
+Training/ other data set]. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
 
 You can upload documents from either the documents tab or from a specific
 project's page.
@@ -50,7 +50,7 @@ project's page.
 
 When uploading documents, choose the document type (training, tuning, or
 testing), and the language pair. When uploading parallel documents, you'll need
-to additionally specify a document name. For more details, visit [Upload document](ct-how-to-upload-document.md).
+to additionally specify a document name. For more details, visit [Upload document](how-to-upload-document.md).
 
 ## Train a model
 
@@ -59,8 +59,8 @@ model.
 
 Select the project you've created. You'll see all the documents you've uploaded
 that share a language pair with this project. Select the documents that you want
-included in your model. You can select [training](ct-concepts-training-dataset.md),
-[tuning](ct-concepts-tuning-dataset.md), and [test](ct-concepts-testing-dataset.md) data or select just
+included in your model. You can select [training](training-and-model.md#training-dataset-for-custom-translator),
+[tuning](training-and-model.md#tuning-dataset-for-custom-translator), and [test](training-and-model.md#testing-dataset-for-custom-translator) data or select just
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 
@@ -70,7 +70,7 @@ When you have finished selecting your desired documents, click the "Train" butto
 create your model and start training. You can see the status of your training,
 and details for all the models you have trained, in the "Models" tab.
 
-For more details, visit [Train Model](ct-how-to-train-model.md).
+For more details, visit [Train Model](how-to-train-model.md).
 
 ## Analyze your model
 
@@ -80,20 +80,20 @@ manually compare the translations made with your custom model to the
 translations provided in your test set by navigating to the "Test" tab and
 clicking "System Results." Manually inspecting a few of these translations will
 give you a good idea of the quality of translation produced by your system. For
-more details, visit [System Test Results](ct-how-to-system-test-results.md).
+more details, visit [System Test Results](how-to-view-system-test-results.md).
 
 ## Deploy a trained model
 
 When you are ready to deploy your trained model, click the "Deploy" button. You
 can have one deployed model per project, and you can view the status of your
 deployment in the "Status" column. For more details, visit [Model
-Deployment](ct-how-to-deploy-undeploy-model.md)
+Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
 ![Deploy a trained model](media/quickstart/ct-deploy-page.png)
 
 ## Use a deployed model
 
-Deployed models can be accessed via the Microsoft Translator Text API V3 by
-specifying the CategoryID. More information about the Translator Text API can
+Deployed models can be accessed via the Microsoft Translator [Text API V3 by
+specifying the CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). More information about the Translator Text API can
 be found on the [API
-Reference](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-reference) webpage.
+Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) webpage.
