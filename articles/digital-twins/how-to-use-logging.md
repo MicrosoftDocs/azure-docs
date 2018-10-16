@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/16/2018
 ms.author: adgera
 ---
 
@@ -59,9 +59,11 @@ Log histories can quickly become immense. Full log querying capabilities are pro
 
     ![Create OMS][5]
 
+Once your **Log Analytics** instance is provisioned, you may use powerful queries to find entries in multiples logs or search for specific data. For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+
 ## Other options
 
-Fore a thorough overview of all Azure logging options, see the [Azure log audit](https://docs.microsoft.com/azure/security/azure-log-audit) article.
+Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](https://docs.microsoft.com/azure/security/azure-log-audit) article.
 
 <!-- Images -->
 [1]: media/how-to-use-logging/activity-log.png
