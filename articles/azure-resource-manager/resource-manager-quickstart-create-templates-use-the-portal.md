@@ -38,7 +38,6 @@ In this section, you create a storage account using the Azure portal. Before you
     - **Resource group**: create a new Azure resource group with the name of your choice. On the screenshot, the resource group name is *mystorage1016rg*.
     - **Name**: give your storage account a unique name. On the screenshot, the name is *mystorage1016*.
 
-
     You can use the default values for the rest of the properties.
 
     ![Create an Azure storage account configuration using the Azure portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account.png)
