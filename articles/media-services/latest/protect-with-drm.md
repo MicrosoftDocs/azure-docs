@@ -4,7 +4,7 @@ description: You can use Azure Media Services to deliver your streams encrypted 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/15/2018 
+ms.date: 10/16/2018
 ms.author: juliako
 
 ---
