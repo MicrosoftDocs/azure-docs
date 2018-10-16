@@ -208,7 +208,7 @@ Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0
 
    ![Marketplace download directory structure](media/azure-stack-download-azure-marketplace-item/mp1.png)
 
-2. Follow the instructions in [this article](azure-stack-powershell-configure-quickstart.md) to configure the Azure Stack Operator PowerShell session. 
+2. Follow the instructions in [this article](azure-stack-powershell-install.md) to configure the Azure Stack Operator PowerShell session. 
 
 3. Import the syndication module and then launch the marketplace syndication tool by running the following script:
 
