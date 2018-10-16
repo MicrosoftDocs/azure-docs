@@ -229,7 +229,7 @@
       "url": "https://github.com/Azure/MachineLearningNotebooks",
       "branch": "sdg-codetest",
       "branch_mapping": {}
-    },
+    }
   ],
   "branch_target_mapping": {
     "live": [
