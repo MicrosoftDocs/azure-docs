@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -108,6 +108,12 @@ The following is a summary of the custom installlation wizard pages, the credent
 | AD FS Service Account page, "Use a domain user account option" |AD user account credentials |Domain user |The AD user account whose credentials are provided is used as the logon account of the AD FS service. |
 
 ### Create the AD DS Connector account
+
+>[!IMPORTANT]
+>A new PowerShell Module named ADSyncConfig.psm1 was introduced with build **1.1.880.0** (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for the Azure AD DS Connector account.
+>
+>For more information see [Azure AD Connect: Configure AD DS Connector Account Permission](how-to-connect-configure-ad-ds-connector-account.md)
+
 The account you specify on the **Connect your directories** page must be present in Active Directory prior to installation.  Azure AD Connect version 1.1.524.0 and later has the option to let the Azure AD Connect wizard create the **AD DS Connector account** used to connect to Active Directory.  
 
 It must also have the required permissions granted. The installation wizard does not verify the permissions and any issues are only found during synchronization.

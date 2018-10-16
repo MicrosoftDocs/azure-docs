@@ -18,13 +18,23 @@ This article describes different types of storage space in Azure SQL Database, a
 
 ## Overview
 
-In Azure SQL Database, most storage space metrics displayed in the Azure portal and the following APIs measure the number of used data pages for databases and elastic pools:
+In Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This can occur when space used increases and data is subsequently deleted. This is because file space allocated is not automatically reclaimed when data is deleted.
+
+Monitoring file space usage and shrinking data files may be necessary in the following scenarios:
+- Allow data growth in an elastic pool when the file space allocated for its databases reaches the pool max size.
+- Allow decreasing the max size of a single database or elastic pool.
+- Allow changing a single database or elastic pool to a different service tier or performance tier with a lower max size.
+
+### Monitoring file space usage
+Most storage space metrics displayed in the Azure portal and the following APIs only measure the amount of used data pages:
 - Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+However, the following APIs also measure the amount of space allocated for databases and elastic pools:
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-There are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages.  This can occur when space used increases and data is subsequently deleted.  This is because file space allocated is not automatically reclaimed when data is deleted.  In such scenarios, the allocated space for a database or pool may exceed supported limits and prevent data growth or prevent service tier and compute size changes, and require shrinking data files to mitigate.
+### Shrinking data files
 
 The SQL DB service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [Reclaim unused allocated space](#reclaim-unused-allocated-space). 
 

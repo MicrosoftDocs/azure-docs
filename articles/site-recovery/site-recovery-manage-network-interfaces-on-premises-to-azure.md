@@ -2,12 +2,12 @@
 title: Manage network interfaces in Azure Site Recovery for on-premises to Azure replication | Microsoft Docs
 description: Describes how to manage network interfaces for on-premises to Azure replication with Azure Site Recovery
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
 # Manage virtual machine network interfaces for on-premises to Azure replication
