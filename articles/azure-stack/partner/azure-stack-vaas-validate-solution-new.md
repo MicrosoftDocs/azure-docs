@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 

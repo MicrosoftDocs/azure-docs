@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -129,7 +129,7 @@ If you don't see any errors reported, then the local agent has succeeded. The fo
 
 ![Started agent](media/startedagent.png)
 
-An agent is uniquely identified by its name. By default, it uses the fully qualified domain name (FQDN) name of the machine from where it was started. You must minimize the window to avoid any accidental clicks on the window as changing the focus pauses all other actions.
+An agent is uniquely identified by its name. By default, it uses the fully qualified domain name (FQDN) name of the machine from where it was started. You must minimize the window to avoid any accidental selects on the window as changing the focus pauses all other actions.
 
 ## Next steps
 

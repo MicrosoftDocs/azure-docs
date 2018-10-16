@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -37,13 +37,13 @@ When using the **Package Validation** workflow to validate a package, you will n
 Create a container in your storage account for package blobs. This container can be used for all your Package Validation runs.
 
 1. In the [Azure Portal](https://portal.azure.com), navigate to the storage account created in [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md).
-2. On the left blade under **Blob Service**, click on **Containers**.
+2. On the left blade under **Blob Service**, select on **Containers**.
 3. Click on **+ Container** in the menu bar and provide a name for the container, e.g., `vaaspackages`.
 
 ### Upload package to storage account
 
 1. Prepare the package you want to validate. If your package contains multiple files, compress it into a `.zip` file.
-2. In the [Azure Portal](https://portal.azure.com), select the package container and upload the package by clicking on **Upload** in the menu bar.
+2. In the [Azure Portal](https://portal.azure.com), select the package container and upload the package by selecting on **Upload** in the menu bar.
 3. Select the package `.zip` file to upload. Keep defaults for **Blob type** (i.e., **Block Blob**) and **Block size**.
 
 > [!NOTE]
@@ -81,7 +81,7 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 1. Grant **public read access for blobs only** to the package container by following the instructions in section [Grant anonymous users permissions to containers and blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-2. In the package container, click on the package blob in the container to open the properties pane.
+2. In the package container, select on the package blob in the container to open the properties pane.
 
 3. Copy the **URL**. Use this value when starting a new **Package Validation** workflow in the VaaS portal.
 

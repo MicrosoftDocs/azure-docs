@@ -11,11 +11,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
-# Article intent: As a partner OEM, verify that the lab environment is able to execute tests through Validation as Service.
+# Customer intent: As a partner OEM, I want to enable the service to test my hardware bill of materials to verify that it can run Azure Stack.
 ---
 
 # Quickstart: Schedule your first test
@@ -57,7 +57,7 @@ Before you follow this quickstart, you should complete the following items:
 ## Select tests to run
 
 1. Select the test(s) you want to run against your solution.
-    - If you want to override the common parameters (that is, the parameters provided in the previous section) for any test, click on the **Edit** link next to specify new values.
+    - If you want to override the common parameters (that is, the parameters provided in the previous section) for any test, select on the **Edit** link next to specify new values.
 2. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 3. Select **Next** to review the workflow.
 
