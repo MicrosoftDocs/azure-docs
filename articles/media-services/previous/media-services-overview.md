@@ -4,17 +4,16 @@ description: This topic gives an overview of Azure Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
-ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/24/2018
-ms.author: juliako;anilmur
+ms.date: 10/15/2018
+ms.author: juliako
 
 ---
 # Azure Media Services overview 
