@@ -21,8 +21,8 @@ ms.custom: include file
 <sup>1</sup> When you deploy an AKS cluster with the Azure CLI or a Resource Manager template, this value is configurable up to **110 pods per node**. You can't configure max pods per node after you've already deployed an AKS cluster, or if you deploy a cluster using the Azure portal.<br />
 
 <!-- LINKS - Internal -->
-[basic-networking]: ../articles/aks/networking-overview.md#basic-networking
-[advanced-networking]: ../articles/aks/networking-overview.md#advanced-networking
+[basic-networking]: ../articles/aks/concepts-network.md#basic-networking
+[advanced-networking]: ../articles/aks/concepts-network.md#advanced-networking
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
