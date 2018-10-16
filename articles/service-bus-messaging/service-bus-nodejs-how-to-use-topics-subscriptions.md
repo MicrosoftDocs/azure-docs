@@ -327,7 +327,7 @@ deleting it from the subscription.
 
 The default behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
-which an application can tolerate not processing a message whent there is a failure. To understand this behavior, consider a scenario in which the
+which an application can tolerate not processing a message when there is a failure. To understand this behavior, consider a scenario in which the
 consumer issues the receive request and then crashes before processing
 it. Because Service Bus has marked the message as being consumed,
 then when the application restarts and begins consuming messages again,
