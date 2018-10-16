@@ -7,40 +7,48 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
+#Customer intent: As a newcomer to IoT, I want to understand what IoT is, and services are available, so I can figure out where to start.
 ---
 
-# Introduction to Azure Internet of Things (IoT)
+# What is IoT?
 
-The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. More specifically, it is comprised of one or more IoT devices and one or more back-end solutions that communicate with each other. Devices are generally made up of a circuit board with censors attached that connect to the internet to communicate via a Wi-Fi chip. The basic MX Chip IoT Devkit has sensors for temperature, pressure, humidity, [fill in the rest], among others. The Raspberry PI is a basic IoT device to which you can attach many different kinds of sensors.
+The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices and one or more back-end solutions that communicate with each other. 
 
-## IoT device task examples
+This article discusses the basics of IoT, talks about use cases, and briefly explains the eight separate services available. By understanding what's available, you can figure out what you want to look at more closely to help in your scenario.
 
-* Query for information. An example of this would be asking an Azure Maps back-end for directions.
+## Introduction
 
-* Send analytic information that will later be reviewed with a Big Data application such as HD Insight. 
+IoT is made up of devices and back-end solutions that communicate with those devices. Devices are generally made up of a circuit board with censors attached that connect to the internet and communicate via a Wi-Fi chip. Two such devices are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, and gyroscope. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what helps you in your scenario. 
 
-* Retrieve data from a piece of equipment with the intention of providing alerts or triggering behaviors when specific conditions are met.
+Your device can communicate with back-end services -- in both directions. For example, your device may send telemetry data such as temperature every 5 minutes to an IoT Hub that in turn routes it to Blob storage for analysis at a later time with HD Insight. Or there might be changes to your device's configuration that need to be applied, and a back-end service would push those changes to your device. You can also have a device that sends alerts based on the values read from its sensors. Another common use is to send data to a dashboard for viewing by human operators. 
 
-* Provide data to other line-of-business applications.
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
-* Provide information to human operators through a dashboard.
+Connecting devices securely and reliably is often the biggest challenge in IoT solutions. This is because IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. Specifically, IoT devices:
 
-## Examples of IoT solutions
+* Are often embedded systems with no human operator (unlike a phone).
+* Can be deployed in remote locations, where physical access is expensive.
+* May only be reachable through the solution back end. There is no other way to interact with the device.
+* May have limited power and processing resources.
+* May have intermittent, slow, or expensive network connectivity.
+* May need to use proprietary, custom, or industry-specific application protocols.
+* Can be created using a large set of popular hardware and software platforms.
 
->[!NOTE]
-> I made these up. I'm not married to them, so if you have a better idea, please let me know. 
-> --Robin
->
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Register the temperature in a room and turn the heat or air conditioning on or off based on that temperature. You might have one of these in your house -- a thermostat that you can set from a website using your mobile device. In this case, a back-end solution regularly queries the device for the current temperature and acts accordingly. The back-end solution also takes commands given through the website to change the temperature.
+## An IoT example
 
-* In a manufacturing plant, watch the temperature of a mix batch tank and provide alerts via text or e-mail when the temperature is outside of an allowable range. In this case, the device could be queried from the back-end to get the current temperature and pressure. If the parameters are out of range, the back-end sends an e-mail notification, or sends message to an alert system.
+Here is an example of how one company used IoT to save millions of dollars. 
 
-* Host a website featuring a map of your facility, and provide directions from the customer's location to your main office. In this case, a mobile app could be used to let the customer navigate the map of your facility.
+There is a huge cattle ranch with hundreds of thousands of cows. It's a big deal to keep track of that many cows, and know how they're doing, and requires a lot of driving around. They attached sensors to every single cow, sending information such as the GPS coordinates and temperature to a back-end service to be written to a database.
 
-* Keep track of when a door is opened or closed, locked or unlocked. For example, an electronic door lock could be triggered from your mobile phone. Another example is in managing an office building, the back-end keeps track of the current state of the doors for the purpose of security. In these cases, the devices query the door state and, if applicable, send a message to unlock or lock the door.
+Then they have an analytical service that scans the incoming data and analyzes the data for each cow to check questions like these:
 
-* Send biometric information on a regular basis from the device to the back-end and act on the data as needed. For example, a rancher who has a million cows finds it difficult and time consuming to check on the cows on a regular basis and make sure they aren't ill or stuck in one place for longer than a half day, etc. He attaches to each cow an IoT biometric device that provides GPS, temperature, and other data. This data is sent to the back-end every 5 minutes and stored in a data repository. Another back-end solution performs analysis services regularly on the data and sends notifications to a dashboard that shows possible problems. For example, if a cow is running a temperature, the rancher uses the GPS coordinates to locate the cow and check on it, maybe treating the cow with antibiotics.
+* Is the cow running a temperature? How long has the cow been running a temperature? If it has been longer than a day, get the GPS coordinates and go find the cow, and if appropriate, treat it with antibiotics. 
+
+* Is the cow in the same place for more than a day? If so, get the GPS coordinates and go find the cow. Has it fallen off of a cliff? Is it injured? Does it need help? 
+
+Implementing this IoT solution made it possible for the company to check and treat the cows quickly, and cut down on the amount of time they had to spend driving around checking on their animals, saving them a lot of money. For more real-life examples of how companies use IoT, see [Microsoft Technical Case Studies for IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
 ## IoT Services
 
@@ -50,15 +58,17 @@ There are several IoT-related services in Azure and it can be confusing to figur
 
 2. [**IoT solution accelerators**](/azure/iot-suite): This service is a collection of PaaS solutions you can use to accelerate your development of an IoT solution. You start with a provided IoT solution and then fully customize that solution to your requirements. You need Java or .NET skills to customize the back-end, and JavaScript skills to customize the visualization. 
 
-3. [**IoT Hub**](/azure/iot-hub/): This service allows you to connect from your devices to an IoT hub, and monitor and control billions of IoT devices. This is especially useful if you have bi-directional communication between your IoT devices and your back-end. This is the underlying service for IoT Central and IoT solution accelerators. 
+3. [**IoT Hub**](/azure/iot-hub/): This service allows you to connect from your devices to an IoT hub, and monitor and control billions of IoT devices. This is especially useful if you need bi-directional communication between your IoT devices and your back-end. This is the underlying service for IoT Central and IoT solution accelerators. 
 
 4. [**IoT Hub Device Provisioning Service**](/azure/iot-dps/): This is a helper service for IoT Hub that you can use to provision devices to your IoT hub securely. With this service, you can easily provision millions of devices rapidly, rather than provisioning them one by one. 
 
 5. [**IoT Edge**](/azure/iot-edge/): This service builds on top of IoT Hub. It can be used to analyze data on the IoT devices rather than in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
 
-6. [**Time Series Insights**](/azure/time-series-insights): This service enables you to store, visualize, and query large amounts of time series data generated by IoT devices. You can use this service with IoT Hub or Azure Event Hub. 
+6. [**Azure Digital Twins**](/azure/azure-digital-twins/): This service enables you to create comprehensive models of the physical environment. You can create spatial ingelligence graphs to model the relationships and interactions bewteen people, spaces, and devices. For example, you can predict maintenance needs for a factory, analyze real-time energy requirements for an electrical grid, or optimize the use of available space for an office.
 
-7. [**Azure Maps**](/azure/azure-maps): This service provides geographic information to web and mobile applications. There is a full set of REST APIs as well as a web-based JavaScript control that can be used to create flexible applications that work on desktop or mobile applications for both Apple and Windows devices.
+7. [**Time Series Insights**](/azure/time-series-insights): This service enables you to store, visualize, and query large amounts of time series data generated by IoT devices. You can use this service with IoT Hub or Azure Event Hub. 
+
+8. [**Azure Maps**](/azure/azure-maps): This service provides geographic information to web and mobile applications. There is a full set of REST APIs as well as a web-based JavaScript control that can be used to create flexible applications that work on desktop or mobile applications for both Apple and Windows devices.
 
 ## Next steps
 
@@ -69,4 +79,3 @@ For some sample projects that you can try out with an IoT DevKit, see the [IoT D
 For a more comprehensive explanation of the different services and how they are used, see [Azure IoT services and technologies](iot-services-and-technologies.md).
 
 For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).
-
