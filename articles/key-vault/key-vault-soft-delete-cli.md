@@ -46,9 +46,6 @@ You enable "soft-delete" to allow recovery of a deleted key vault, or objects st
 
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
->[!NOTE]
->Currently you need to use Azure Resource Manager resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
-
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
 ```
@@ -73,12 +70,12 @@ az keyvault show --name ContosoVault
 
 The command to delete a key vault changes in behavior, depending on whether soft-delete is enabled.
 
+> [!IMPORTANT]
+>If you run the following command for a key vault that does not have soft-delete enabled, you will permanently delete this key vault and all its content with no options for recovery!
+
 ```azurecli
 az keyvault delete --name ContosoVault
 ```
-
-> [!IMPORTANT]
->If you run the previous command for a key vault that does not have soft-delete enabled, you will permanently delete this key vault and all its content without any options for recovery.
 
 ### How soft-delete protects your key vaults
 
@@ -139,14 +136,14 @@ To recover a soft-deleted key:
 az keyvault key recover --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-To permanently delete a soft-deleted key:
+To permanently delete (also known as purging) a soft-deleted key:
+
+> [!IMPORTANT]
+> Purging a key will permanently delete it, and it will not be recoverable! 
 
 ```azurecli
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
-
-> [!IMPORTANT]
-> Purging a key will permanently delete it, and it will not be recoverable. 
 
 The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action, they must have the respective permission for that key or secret. By default, **purge** isn't added to a key vault's access policy, when the 'all' shortcut is used to grant all permissions. You must specifically grant **purge** permission. 
 
@@ -181,11 +178,13 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 ```
 
 - Purge a secret in deleted state: 
+
+> [!IMPORTANT]
+> Purging a secret will permanently delete it, and it will not be recoverable! 
+
 ```azurecli
 az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 ```
-> [!IMPORTANT]
-> Purging a secret will permanently delete it, and it will not be recoverable. 
 
 ## Purging and key vaults
 
@@ -196,12 +195,12 @@ Purging a key, secret, or certificate, causes permanent deletion and it will not
 ### Key vaults as containers
 When a key vault is purged, its entire contents are permanently deleted, including keys, secrets, and certificates. To purge a key vault, use the `az keyvault purge` command. You can find the location your subscription's deleted key vaults using the command `az keyvault list-deleted`.
 
+>[!IMPORTANT]
+>Purging a key vault will permanently delete it, meaning it will not be recoverable!
+
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
 ```
-
->[!NOTE]
->Purging a key vault will permanently delete it, meaning it will not be recoverable.
 
 ### Purge permissions required
 - To purge a deleted key vault, the user needs RBAC permission to the *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
@@ -212,8 +211,8 @@ az keyvault purge --location westus --name ContosoVault
 
 Listing deleted key vault objects also shows when they're scheduled to be purged by Key Vault. *Scheduled Purge Date* indicates when a key vault object will be permanently deleted, if no action is taken. By default, the retention period for a deleted key vault object is 90 days.
 
->[!NOTE]
->A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable.
+>[!IMPORTANT]
+>A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable!
 
 ## Other resources
 
