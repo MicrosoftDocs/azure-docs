@@ -55,6 +55,10 @@ Before you can configure the app, follow these steps:
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations**.
 1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
+1. Follow the steps to configure your application to access web APIs: 
+    * [Add redirect URIs to your application](#add-redirect-uris-to-your-application)
+    * [Add credentails to your web application](#add-credentials-to-your-web-application)
+    * [Add permissions to access web APIs](#add-permissions-to-access-web-apis)
 
 ## Add redirect URI(s) to your application
 
