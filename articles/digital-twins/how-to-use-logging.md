@@ -48,9 +48,16 @@ To set up diagnostic logging for an instance:
 
 Azure Monitor contains the powerful Log Analytics service which allows logging sources to be viewed and analyzed in one location. For example, multiple diagnostic log histories can be combined, queried, and viewed in Azure Monitor.
 
-Because log histories can quickly become immense, full log querying capabilities are provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries):
+Log histories can quickly become immense. Full log querying capabilities are provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). To set up these powerful features:
 
-![Log analytics][4]
+1. Search for **Log Analytics** in the Azure portal.
+1. You will see your available **Log Analytics** instances:
+
+    ![Log analytics][4]
+
+1. You can create a workspace by clicking the **Add** button:
+
+    ![Create OMS][5]
 
 ## Other options
 
@@ -61,3 +68,4 @@ Fore a thorough overview of all Azure logging options, see the [Azure log audit]
 [2]: media/how-to-use-logging/diagnostic-settings-one.png
 [3]: media/how-to-use-logging/diagnostic-settings-two.png
 [4]: media/how-to-use-logging/log-analytics.png
+[5]: media/how-to-use-logging/log-analytics-oms.png
