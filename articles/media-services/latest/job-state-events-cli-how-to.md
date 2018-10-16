@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 15/10/2018
+ms.date: 10/15/2018
 ms.author: juliako
 ---
 
@@ -95,7 +95,7 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
 
     > [!TIP]
     > You might get validation handshake warning. Give it a few minutes and the handshake should validate.
-    
+
 Now, let's trigger events to see how Event Grid distributes the message to your endpoint.
 
 ## Send an event to your endpoint
