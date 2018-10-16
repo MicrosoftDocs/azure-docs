@@ -223,7 +223,13 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
       "branch": "master",
       "branch_mapping": {}
-    }
+    },
+    {
+      "path_to_root": "service-code",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
+      "branch": "sdg-codetest",
+      "branch_mapping": {}
+    },
   ],
   "branch_target_mapping": {
     "live": [
