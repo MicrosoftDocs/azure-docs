@@ -91,6 +91,8 @@ If your organization uses managed (non-federated) setup with on-premises AD and 
 
 For Windows 10 devices on version 1703 or earlier, if your organization requires access to the Internet via an outbound proxy, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD. 
 
+Beginning with Windows 10 1803, even if hybrid Azure AD join attempt by a device in a federated domain using AD FS fails, and if Azure AD Connect is configured to sync the computer/device objects to Azure AD, then the device will attempt to complete the hybrid Azure AD join using the synced computer/device.
+
 ## Configuration steps
 
 You can configure hybrid Azure AD joined devices for various types of Windows device platforms. This topic includes the required steps for all typical configuration scenarios.  
