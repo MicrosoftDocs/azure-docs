@@ -57,16 +57,16 @@ To use your own model, use the following steps:
 
 1. [Export your model](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/export-your-model) by going to the Performance tab. Select an iteration trained with a compact domain, an "Export" button will appear. Select *Export*, *ONNX*, *ONNX1.2*, and then *Export*. Once the file is ready, select the *Download* button.
 
-1. Drop the .onnx file into your project's __Assets__ folder. 
+1. Drop the ONNX file into your project's __Assets__ folder. 
 
-1. In Solutions Explorer, right-click the Assets Folder and select __Add Existing Item__. Select the .onnx file.
+1. In Solutions Explorer, right-click the Assets Folder and select __Add Existing Item__. Select the ONNX file.
 
-1. In Solutions Explorer, select the .onnx file from the Assets folder. Change the following properties for the file: 
+1. In Solutions Explorer, select the ONNX file from the Assets folder. Change the following properties for the file: 
     
     * __Build Action__ -> __Content__
     * __Copy to Output Directory__ -> __Copy if newer__
 
-1. Change the `_onnxFileNames` variable to the name of the .onnx file. Also modify `ClassLabel` to the number of labels the model contains.
+1. Change the `_onnxFileNames` variable to the name of the ONNX file. Also modify `ClassLabel` to the number of labels the model contains.
 
 1. Build and run.
 
