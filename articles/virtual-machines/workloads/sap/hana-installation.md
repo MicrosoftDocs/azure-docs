@@ -21,18 +21,18 @@ ms.custom: H1Hack27Feb2017
 
 Before reading this article, get familiar with [HANA Large Instances common terms](hana-know-terms.md) and the [HANA Large Instances SKUs](hana-available-skus.md).
 
-The installation of SAP HANA is your responsibility. You can start the activity after handoff of a new SAP HANA on Azure (Large Instances) server, and after you establish the connectivity between your Azure virtual networks and the HANA Large Instance unit(s). 
+The installation of SAP HANA is your responsibility. You can start installing a new SAP HANA on Azure (Large Instances) server after you establish the connectivity between your Azure virtual networks and the HANA Large Instance unit(s). 
 
 > [!Note]
 > Per SAP policy, the installation of SAP HANA must be performed by a person who's passed the Certified SAP Technology Associate exam, SAP HANA Installation certification exam, or who is a SAP-certified system integrator (SI)).
 
-When you're planning to install HANA 2.0, see [SAP support note #2235581 - SAP HANA: Supported operating systems](https://launchpad.support.sap.com/#/notes/2235581/E) to make sure that the OS is supported with the SAP HANA release you that you're installing. The supported OS for HANA 2.0 is more restricted than the supported OS for HANA 1.0. 
+When you're planning to install HANA 2.0, see [SAP support note #2235581 - SAP HANA: Supported operating systems](https://launchpad.support.sap.com/#/notes/2235581/E) to make sure that the OS is supported with the SAP HANA release you that you're installing. The supported OS for HANA 2.0 is more restrictive than the supported OS for HANA 1.0. 
 
 > [!IMPORTANT] 
 > For Type II units, currently only the SLES 12 SP2 OS version is supported. 
 
 You must validate the following before you begin the HANA installation:
-- [Validate the HLI unit(s)](#validate-the-hana-large-instance-units)
+- [HLI unit(s)](#validate-the-hana-large-instance-units)
 - [Operating system configuration](#operating-system)
 - [Network configuration](#networking)
 - [Storage configuration](#storage)
@@ -44,13 +44,13 @@ After you receive the HANA Large Instance unit from Microsoft, validate the foll
 
 The **first step** after you receive the HANA Large Instance and establish access and connectivity to the instances, is to register the OS of the instance with your OS provider. This step includes registering your SUSE Linux OS in an instance of SUSE SMT that's deployed in a VM in Azure. 
 
-The HANA Large Instance unit can connect to this SMT instance. (For more information, see [How to setup SMT server for SUSE Linux](hana-setup-smt.md)). Alternatively, your Red Hat OS needs to be registered with the Red Hat Subscription Manager that you need to connect to. For more information, see the remarks in this [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+The HANA Large Instance unit can connect to this SMT instance. (For more information, see [How to setup SMT server for SUSE Linux](hana-setup-smt.md)). Alternatively, your Red Hat OS needs to be registered with the Red Hat Subscription Manager that you need to connect to. For more information, see the remarks in [What is SAP HANA on Azure (Large Instances)?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-This step also is necessary for patching the OS, which is the responsibility of the customer. For SUSE, find documentation to install and configure SMT [here](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+This step is also is necessary for patching the OS, which is the responsibility of the customer. For SUSE, find the documentation for installing and configuring SMT on this page about [SMT installation](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 The **second step** is to check for new patches and fixes of the specific OS release/version. Verify that the patch level of the HANA Large Instance is in the latest state. There might be cases where the latest patches aren't included. After taking over a HANA Large Instance unit, it's mandatory to check whether patches need to be applied.
 
-The **third step** is to check out the relevant SAP Notes for installing and configuring SAP HANA on the specific OS release/version. Due to changing recommendations or changes to SAP notes or configurations that are dependent on individual installation scenarios, Microsoft won't always be able to configure a HANA Large Instance unit perfectly. 
+The **third step** is to check out the relevant SAP notes for installing and configuring SAP HANA on the specific OS release/version. Due to changing recommendations or changes to SAP notes or configurations that are dependent on individual installation scenarios, Microsoft won't always be able to configure a HANA Large Instance unit perfectly. 
 
 Therefore, it's mandatory for you as a customer to read the SAP notes related to SAP HANA for your exact Linux release. Also check the configurations of the OS release/version and apply the configuration settings if you haven't already.
 
@@ -83,28 +83,28 @@ The **fifth step** is to check etc/hosts. As the blades get handed over, they ha
 
 The swap space of the delivered OS image is set to 2 GB according to the [SAP support note #1999997 - FAQ: SAP HANA memory](https://launchpad.support.sap.com/#/notes/1999997/E). As a customer, if you want a different setting, you must set it yourself.
 
-[SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/hana) is the distribution of Linux that's installed for SAP HANA on Azure (Large Instances). This particular distribution provides SAP-specific capabilities "out of the box" (including pre-set parameters for running SAP on SLES effectively).
+[SUSE Linux Enterprise Server 12 SP1 for SAP applications](https://www.suse.com/products/sles-for-sap/hana) is the distribution of Linux that's installed for SAP HANA on Azure (Large Instances). This particular distribution provides SAP-specific capabilities "out of the box" (including pre-set parameters for running SAP on SLES effectively).
 
-See [Resource Library/White Papers](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) on the SUSE website and [SAP on SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) on the SAP Community Network (SCN) for several useful resources related to deploying SAP HANA on SLES (including the set-up of high availability, security hardening that's specific to SAP operations, and more).
+See [Resource library/white papers](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) on the SUSE website and [SAP on SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) on the SAP Community Network (SCN) for several useful resources related to deploying SAP HANA on SLES (including the set-up of high availability, security hardening that's specific to SAP operations, and more).
 
 Following is additional and useful SAP on SUSE-related links:
 
 - [SAP HANA on SUSE Linux site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
 - [Best practices for SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP – SLES virus protection for SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (including SLES 12 for SAP Applications)
+- [ClamSAP – SLES virus protection for SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (including SLES 12 for SAP applications)
 
 The following are SAP support notes that are applicable to implementing SAP HANA on SLES 12:
 
 - [SAP support note #1944799 – SAP HANA guidelines for SLES operating system installation](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
-- [SAP support note #2205917 – SAP HANA DB recommended OS settings for SLES 12 for SAP applications](https://launchpad.support.sap.com/#/notes/2205917/E).
-- [SAP support note #1984787 – SUSE Linux Enterprise Server 12:  Installation notes](https://launchpad.support.sap.com/#/notes/1984787).
+- [SAP support note #2205917 – SAP HANA DB recommended OS settings for SLES 12 for SAP applications](https://launchpad.support.sap.com/#/notes/2205917/E)
+- [SAP support note #1984787 – SUSE Linux Enterprise Server 12:  installation notes](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP support note #171356 – SAP software on Linux:  General information](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP support note #1391070 – Linux UUID solutions](https://launchpad.support.sap.com/#/notes/1391070)
 
 [Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is another offer for running SAP HANA on HANA Large Instances. Releases of RHEL 6.7 and 7.2 are available. Note that as opposed to native Azure VMs where only RHEL 7.2 and more recent releases are supported, HANA Large Instances do support RHEL 6.7 as well. However, we recommend using an RHEL 7.x release.
 
 Following are additional useful SAP on Red Hat related links:
-- [SAP HANA on Red Hat Linux Site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
+- [SAP HANA on Red Hat Linux site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
 
 Following are SAP support notes that are applicable to implementing SAP HANA on Red Hat:
 
@@ -129,8 +129,8 @@ As a result, you must set up a separate time server that can be used by SAP appl
 ## Networking
 We assume that you followed the recommendations in designing your Azure virtual networks and in connecting those virtual networks to the HANA Large Instances, as described in the following documents:
 
-- [SAP HANA (large Instance) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (Large Instance) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 There are some details worth mentioning about the networking of the single units. Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports. Three IP addresses are used in HANA scale-out configurations and the HANA system replication scenario. One of the IP addresses that's assigned to the NIC of the unit is out of the server IP pool that's described in [SAP HANA (Large Instance) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
@@ -140,7 +140,7 @@ For more information about Ethernet details for your architecture, see the [HLI 
 
 The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure service management through SAP recommended guidelines. These guidelines are documented in the [SAP HANA storage requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper. 
 
-The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instance) overview and architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The naming conventions of the storage volumes are listed in the following table:
 
@@ -156,15 +156,15 @@ The naming conventions of the storage volumes are listed in the following table:
 
 *Tenant* is an internal enumeration of operations when deploying a tenant.
 
-HANA usr/sap share the same volume. The nomenclature of the mountpoints includes the system ID of the HANA instances as well as the mount number. In scale-up deployments, there is only one mount, such mnt00001. In scale-out deployments, on the other hand, you  see as many mounts as you have worker and master nodes. 
+HANA usr/sap share the same volume. The nomenclature of the mountpoints includes the system ID of the HANA instances as well as the mount number. In scale-up deployments, there is only one mount, such as mnt00001. In scale-out deployments, on the other hand, you  see as many mounts as you have worker and master nodes. 
 
 For scale-out environments, data, log, and log backup volumes are shared and attached to each node in the scale-out configuration. For configurations that are multiple SAP instances, a different set of volumes is created and attached to the HANA Large Instance unit. For storage layout details for your scenario, see [HLI supported scenarios](hana-supported-scenario.md).
 
-When you look at a HANA Large Instance unit, you realize that the units come with generous disk volume for HANA/data, and that we have a volume HANA/log/backup. The reason that we made the HANA/data so large is that the storage snapshots we offer you as a customer are using the same disk volume. The more storage snapshots you perform, the more space is consumed by snapshots in your assigned storage volumes. 
+When you look at a HANA Large Instance unit, you realize that the units come with generous disk volume for HANA/data, and that there is a volume HANA/log/backup. The reason that we made the HANA/data so large is that the storage snapshots we offer you as a customer are using the same disk volume. The     more storage snapshots you perform, the more space is consumed by snapshots in your assigned storage volumes. 
 
-The HANA/log/backup volume is not supposed to be the volume for database backups. It is sized to be used as the backup volume for the HANA transaction log backups. For more information, see [SAP HANA (Large Instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+The HANA/log/backup volume is not supposed to be the volume for database backups. It is sized to be used as the backup volume for the HANA transaction log backups. For more information, see [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-In addition to the storage that's provided, you can purchase additional storage capacity in 1-TB increments. This additional storage can be added as new volumes to a HANA Large Instances.
+In addition to the storage that's provided, you can purchase additional storage capacity in 1-TB increments. This additional storage can be added as new volumes to a HANA Large Instance.
 
 During onboarding with SAP HANA on Azure service management, the customer specifies a user ID (UID) and group ID (GID) for the sidadm user and sapsys group (for example: 1000,500) During installation of the SAP HANA system, you must use these same values. Because you want to deploy multiple HANA instances on a unit, you get multiple sets of volumes (one set for each instance). As a result, at deployment time you need to define the following:
 
@@ -199,7 +199,7 @@ You can also configure the parameters after the SAP HANA database installation b
 
 With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result, the parameters must be set by using SQL commands. For more information, see [SAP note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
-Refer to [HLI supported scenarios](hana-supported-scenario.md) to learn storage layout for your architecture.
+Refer to [HLI supported scenarios](hana-supported-scenario.md) to learn more about the storage layout for your architecture.
 
 
 **Next steps**
