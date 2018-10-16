@@ -41,7 +41,7 @@ The steps that follow constitute the On-Behalf-Of flow and are explained with th
 5. Data from the secured resource is returned by API B.
 
 >[!NOTE]
->The audience claim in an access token used to request a token for a downstream service must be the id of the service making the OBO request, and the token must be signed with the Azure Active Directory global signing key (which is the default for applications registered via **App registraions** in the portal)
+>The audience claim in an access token used to request a token for a downstream service must be the id of the service making the OBO request, and the token must be signed with the Azure Active Directory global signing key (which is the default for applications registered via **App registrations** in the portal)
 
 ## Register the application and service in Azure AD
 Register both the client application and the middle-tier service in Azure AD.
@@ -231,7 +231,7 @@ SubjectConfirmationData for a SAML assertion sourced from an OBO call:  If the t
 
 The SubjectConfirmationData node can't contain an InResponseTo attribute since it's not part of a SAML response.  The application receiving the SAML token needs to be able to accept the SAML assertion without an InResponseTo attribute.
 
-Consent:  In order to receive a SAML token containing user data on an OAuth flow, consent must have been granted.  Please see https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-permissions-and-consent for information on permissions and obtaining administrator consent.
+Consent:  In order to receive a SAML token containing user data on an OAuth flow, consent must have been granted.  Please see https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent for information on permissions and obtaining administrator consent.
 
 ### Response with SAML assertion
 
