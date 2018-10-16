@@ -132,18 +132,18 @@ $ helm list
 
 NAME            	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
 gilded-duck     	1       	Tue Oct 16 16:52:25 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
-looming-moth    	1       	Tue Oct 16 16:53:59 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
 righteous-numbat	1       	Tue Oct 16 16:53:53 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+looming-moth    	1       	Tue Oct 16 16:53:59 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
 ```
 
-Delete the release names with the `helm delete` command. The following example deletes the NGINX ingress deployment, and the two sample AKS hello world apps.
+Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, and the two sample AKS hello world apps.
 
 ```
-$ helm delete gilded-duck looming-moth righteous-numbat
+$ helm delete gilded-duck righteous-numbat looming-moth
 
 release "gilded-duck" deleted
-release "looming-moth" deleted
 release "righteous-numbat" deleted
+release "looming-moth" deleted
 ```
 
 Next, remove the Helm repo for the AKS hello world app:

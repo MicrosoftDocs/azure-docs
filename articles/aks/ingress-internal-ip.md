@@ -184,7 +184,7 @@ intended-lemur   	1       	Tue Oct 16 17:20:59 2018	DEPLOYED	aks-helloworld-0.1.
 pioneering-wombat	1       	Tue Oct 16 17:21:05 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
 ```
 
-Delete the release names with the `helm delete` command. The following example deletes the NGINX ingress deployment, and the two sample AKS hello world apps.
+Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, and the two sample AKS hello world apps.
 
 ```
 $ helm delete kissing-ferret intended-lemur pioneering-wombat

@@ -269,12 +269,12 @@ $ helm list
 
 NAME                  	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
 billowing-kitten      	1       	Tue Oct 16 17:24:05 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
-loitering-waterbuffalo	1       	Tue Oct 16 17:26:16 2018	DEPLOYED	cert-manager-v0.3.4 	v0.3.2     	default
+loitering-waterbuffalo	1       	Tue Oct 16 17:26:16 2018	DEPLOYED	cert-manager-v0.3.4 	v0.3.2     	kube-system
 flabby-deer           	1       	Tue Oct 16 17:27:06 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
 linting-echidna       	1       	Tue Oct 16 17:27:02 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
 ```
 
-Delete the release names with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
+Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
 
 ```
 $ helm delete billowing-kitten loitering-waterbuffalo flabby-deer linting-echidna

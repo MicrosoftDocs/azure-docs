@@ -286,7 +286,7 @@ mollified-armadillo 	1       	Tue Oct 16 18:04:53 2018	DEPLOYED	aks-helloworld-0
 wondering-clam      	1       	Tue Oct 16 18:04:56 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
 ```
 
-Delete the release names with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
+Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
 
 ```
 $ helm delete waxen-hamster alliterating-peacock mollified-armadillo wondering-clam
