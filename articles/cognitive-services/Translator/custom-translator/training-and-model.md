@@ -1,7 +1,7 @@
 ---
 title: Training and model - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: A model is the system, which provides translation for a specific language pair. The outcome of a successful training is a model. When training a model, three mutually exclusive data sets are required: training dataset, tuning dataset, and testing dataset.
+description: A model is the system, which provides translation for a specific language pair. The outcome of a successful training is a model. When training a model, three mutually exclusive data sets are required training dataset, tuning dataset, and testing dataset.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
