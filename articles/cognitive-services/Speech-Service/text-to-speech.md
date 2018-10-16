@@ -35,7 +35,7 @@ If you want a unique voice for your application, you can create [custom voice fo
 
 ## API capabilities
 
-A lot of the capabilities of the **Text to Speech** API, especially around customization, are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details, see  [Swagger](https://westus.cris.ai/swagger/ui/index).
+A lot of the capabilities of the **Text to Speech** API, especially around customization, are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details, see  [Swagger reference](https://westus.cris.ai/swagger/ui/index).
 
 | Use case | REST | SDKs |
 |-----|-----|-----|----|
