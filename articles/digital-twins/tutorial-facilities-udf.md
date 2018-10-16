@@ -52,7 +52,7 @@ User-defined functions or UDFs allow you to customize the processing of your sen
 
 In the sample *provisionSample.yaml* file, look for a section beginning with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**, that acts on the list of matchers under the **matcherNames**. Notice how you can provide your own JavaScript file for the UDF as the **script**. Also note the section named **roleassignments**. It assigns the *Space Administrator* role to the user-defined function; this allows it to access the events coming from any of the provisioned spaces. 
 
-1. Configure the UDF to include the temperature matcher by adding or uncommenting the following line in the `matcherNames` node in the *provisionSample.yaml* file:
+1. Configure the UDF to include the temperature matcher by adding or uncommenting the following line in the `matcherNames` node of the *provisionSample.yaml* file:
 
     ```yaml
             - Matcher Temperature
