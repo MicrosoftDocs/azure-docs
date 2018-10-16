@@ -55,6 +55,7 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
 
 1. The event subscription is prefilled with values for your Media Services account. 
 1. Select 'Web Hook' for the **Endpoint Type**.
+1. In this topic, we leave the **Subscribe to all event types** checked. However, you can uncheck it and filter for specific event types. 
 1. Click on the **Select an endpoint** link.
 
     For the web hook endpoint, provide the URL of your web app and add `api/updates` to the home page URL. 
