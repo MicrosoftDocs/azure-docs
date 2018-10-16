@@ -1,6 +1,6 @@
 ---
 title: What is Custom Translator?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Custom Translator offers similar capabilities to what Microsoft Translator Hub does for Statistical Machine Translation (SMT), but exclusively for Neural Machine Translation (NMT) systems.  
 author: rajdeep-in
 manager: christw

@@ -35,7 +35,7 @@ On the Custom Translator portal landing page, click New Project. On the dialog y
 name, language pair, and category, as well as other relevant fields. Then, save
 your project. For more details, visit [Create Project](how-to-create-project.md).
 
-![Create project](media/quickstart/ct-langing-page.png)
+![Create project](media/quickstart/landing-page.png)
 
 
 ## Upload documents
@@ -46,7 +46,7 @@ Training/ other data set]. You can upload both [parallel](what-are-parallel-docu
 You can upload documents from either the documents tab or from a specific
 project's page.
 
-![Upload documents](media/quickstart/ct-documents-page.png)
+![Upload documents](media/quickstart/documents-page.png)
 
 When uploading documents, choose the document type (training, tuning, or
 testing), and the language pair. When uploading parallel documents, you'll need
@@ -64,7 +64,7 @@ included in your model. You can select [training](training-and-model.md#training
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 
-![Train a model](media/quickstart/ct-train-page.png)
+![Train a model](media/quickstart/train-page.png)
 
 When you have finished selecting your desired documents, click the "Train" button to
 create your model and start training. You can see the status of your training,
@@ -89,7 +89,7 @@ can have one deployed model per project, and you can view the status of your
 deployment in the "Status" column. For more details, visit [Model
 Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
-![Deploy a trained model](media/quickstart/ct-deploy-page.png)
+![Deploy a trained model](media/quickstart/deploy-page.png)
 
 ## Use a deployed model
 
