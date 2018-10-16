@@ -21,23 +21,25 @@ ms.author: barclayn
 
 Find answers to common questions about Microsoft Azure Dedicated HSM.
 
-## Q: What is a hardware security module (HSM)?
+## Basics
+
+### Q: What is a hardware security module (HSM)?
 
 A Hardware Security Module (HSM) is a physical computing device. It is used to safeguard and manage cryptographic keys that can be used for cryptographic operations. The key material stays safely in a tamper-resistant, tamper-evident hardware module, while allowing authenticated/authorized applications to use the keys to perform cryptographic operations. The key material never leaves the HSM protection boundary.
 
-## Q: What is an HSM used for?
+### Q: What is an HSM used for?
 
 HSMs are used for storing cryptographic keys that are used for cryptographic functionality such as SSL (secure socket layer), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
 
-## Q: What is Dedicated HSM offering?
+### Q: What is Dedicated HSM offering?
 
 Azure Dedicated HSM (hardware security module) provides HSMs hosted in Azure datacenters. These HSMs are directly connected to a customer's VNET. They are dedicated network HSMs (Gemalto's SafeNet Network HSM 7 Model A790) available in a customer's private IP address space. Microsoft does not have access to the cryptographic functionality of the HSMs. Only a customer has full administrative control and cryptographic control over them. Customers are the only ones who can get full activity logs directly from the HSM. Dedicated HSMs help customers meet requirements such as those outlined in FIPS 140-2 Level 3, GDPR, HIPAA, PCI-DSS, eIDAS, and others.
 
-## Q: How does Dedicated HSM work?
+### Q: How does Dedicated HSM work?
 
 HSMs are provisioned using PowerShell or the Azure command-line interface. You can specify the region and the VNET the HSMs should use. The HSMs will be available in the designated subnet at the assigned IP addresses in your private IP address space. The appliance is managed using SSH. While connected to it you may initialize the HSM, create partitions, and assign roles. You can then use the Gemalto provided HSM client tools/SDK/software to perform cryptographic operations from your applications.
 
-## Q: When will Dedicated HSM be available in my region?
+### Q: When will Dedicated HSM be available in my region?
 
 Dedicated HSMs will roll out to limited Azure regions starting November 2018. See the roll-out schedule below:
 
@@ -205,7 +207,7 @@ Full Suite B support
 
 Yes. Dedicated HSM service provisions SafeNet Network HSM 7 appliances that use FIPS 140-2 Level 3 validated HSMs.
 
-## Q: What do I need to do to make sure I operate Dedicated HSM in FIPS 140-2 Level 3 mode?
+### Q: What do I need to do to make sure I operate Dedicated HSM in FIPS 140-2 Level 3 mode?
 
 Dedicated HSM service provisions SafeNet Network HSM 7 appliances, that use FIPS 140-2 Level 3 validated HSMs. The default deployed configuration, operating system and firmware, are also FIPS validated. You do not need to take any action for FIPS 140-2 Level 3 compliance.
 
