@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ---
 
