@@ -40,17 +40,19 @@ Many partner solutions are deployed on a customer’s subscription by using Reso
 
 To add a globally unique identifier (GUID), you make a single modification to the main template file:
 
-1. [Create a GUID](#create-guids) (e.g., eb7927c8-dd66-43e1-b0cf-c346a422063) and [register it](#register-guids-and-offers).
+1. [Create a GUID](#create-guids) (e.g., eb7927c8-dd66-43e1-b0cf-c346a422063) and [register the GUID](#register-guids-and-offers).
 
 1. Open the Resource Manager template.
 
 1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
-1. Enter the GUID value after the **pid-** prefix (for example, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Enter the GUID value after the **pid-** prefix (e.g., pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Check the template for any errors.
 
 1. Republish the template in the appropriate repositories.
+
+1. [Verify GUID success in the template deployment](#verify-the-guid-deployment).
 
 ### Sample template code
 
