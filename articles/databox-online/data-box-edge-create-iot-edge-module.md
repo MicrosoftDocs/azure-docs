@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Develop a C# IoT Edge module to move files on Data Box Edge (Preview)
 
-This how-to steps you through how to create an IoT Edge module for deployment with your Data Box Edge device. Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure.
+This article steps you through how to create an IoT Edge module for deployment with your Data Box Edge device. Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure.
 
 You can use Azure IoT Edge modules with your Data Box Edge to transform the data as it moved to Azure. The module used in this article implements the logic to copy a file from a local share to a cloud share on your Data Box Edge device.
 
