@@ -58,12 +58,15 @@ To create a file share for this tutorial, follow these steps:
     ![Storage Account blade](./media/storage-sync-files-extend-servers/storage-acct-complete-go-to-resource.png)
 
 1. Click **Files** from the storage account pane.
+
     ![Click Files](./media/storage-sync-files-extend-servers/click-files.png)
 
 1. Click **+ File Share**.
+
     ![Click the add file share button](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
 1. Name the new file share *afsfileshare* and enter "1" for the **Quota**, then click **Create**. The quota can be a maximum of 5 TiB, but you only need 1 GB for this tutorial.
+
     ![Provide a name and quota for the new file share](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
 1. Select the new file share and then click **Upload**.
@@ -122,7 +125,7 @@ At this point, you've created an Azure Storage account and a file share with one
 
    At this point, you've created a new virtual machine and attached a data disk. Now you need to connect to the VM.
 
-### Connect to your VM from a Windows computer
+### Connect to your VM
 
 1. In the Azure portal, click **Connect** on the virtual machine properties page.
 
@@ -133,9 +136,9 @@ At this point, you've created an Azure Storage account and a file share with one
    ![Download the RDP file](./media/storage-sync-files-extend-servers/download-rdp.png)
 
 1. Open the downloaded RDP file and click **Connect** when prompted.
-1. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *localhost\username*, enter password you created for the virtual machine, and then click **OK**.
+1. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *localhost\username*, enter the password you created for the virtual machine, and then click **OK**.
 
-   ![More choices](./media/storage-sync-files-extend-servers/local-host.png)
+   ![More choices](./media/storage-sync-files-extend-servers/local-host2.png)
 
 1. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to create the connection.
 
