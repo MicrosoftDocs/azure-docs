@@ -10,10 +10,11 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
 ---
 
 # Quickstart: Use the Bing Speech recognition REST API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 With the cloud-based Bing Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
 

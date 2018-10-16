@@ -32,9 +32,10 @@ To complete this quickstart, make sure you have:
 
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Do the following to create a resource group:
 
-1. In the left navigation, click **Resource groups**. Then click **Add**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. In the left navigation, click **Resource groups**. Then click **Add**.
 
-   ![][1]
+   ![Resource groups - Add button](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
 2. Type a unique name for the resource group. The system immediately checks to see if the name is available in the currently selected Azure subscription.
 
@@ -44,48 +45,47 @@ A resource group is a logical collection of Azure resources. All resources are d
 
 5. Click **Create**.
 
-   ![][2]
+   ![Resource group - create](./media/event-hubs-quickstart-portal/resource-groups2.png)
 
 ## Create an Event Hubs namespace
 
-An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following:
+An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following actions:
 
-1. Log on to the [Azure portal][], and click **Create a resource** at the top left of the screen.
+1. In the Azure portal, and click **Create a resource** at the top left of the screen.
 
 2. Click **Internet of Things**, and then click **Event Hubs**.
 
 3. In **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.
 
-   ![](./media/event-hubs-create/create-event-hub1.png)
+   ![Create an event hub namespace](./media/event-hubs-create/create-event-hub1.png)
 
 4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource.
  
 5. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
+6. Select **Alerts**, and then select the **deployment** with the same name as the name of event hub namespace. 
 
-6. In the portal list of namespaces, click the newly created namespace.
+   ![Resource group - alert from create](./media/event-hubs-quickstart-portal/create-alert.png)
+6. Select your event hub namespace from the list of resources created in the deployment. 
 
-7. Click **Shared access policies**, and then click **RootManageSharedAccessKey**.
+   ![Select namespace from the deployment](./media/event-hubs-quickstart-portal/deployment-namespace.png)
+7. On the **Event Hubs Namespace** page, select **Shared access policies**, and then click **RootManageSharedAccessKey**.
     
 8. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string in a temporary location, such as Notepad, to use later.
     
 ## Create an event hub
 
-To create an event hub within the namespace, do the following:
+To create an event hub within the namespace, do the following actions:
 
-1. In the Event Hubs namespace list, click the newly created namespace.      
+1. On the Event Hubs Namespaces page, select click **Event Hubs**.
    
-    ![](./media/event-hubs-quickstart-portal/create-event-hub2.png) 
+    ![Select Event Hubs from left menu](./media/event-hubs-quickstart-portal/create-event-hub3.png)
 
-2. In the namespace window, click **Event Hubs**.
+1. At the top of the window, click **+ Event Hub**.
    
-    ![](./media/event-hubs-quickstart-portal/create-event-hub3.png)
-
-1. At the top of the window, click **+ Add Event Hub**.
-   
-    ![](./media/event-hubs-quickstart-portal/create-event-hub4.png)
+    ![Add Event Hub - button](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. Type a name for your event hub, then click **Create**.
    
-    ![](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+    ![Create event hub](./media/event-hubs-quickstart-portal/create-event-hub5.png)
 
 Congratulations! You have used the portal to create an Event Hubs namespace, and an event hub within that namespace.
 
@@ -93,21 +93,29 @@ Congratulations! You have used the portal to create an Event Hubs namespace, and
 
 The Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, the Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access:
 
-1. Log on to the [Azure portal][Azure portal], and click **New** at the top left of the screen.
+1. In the Azure portal, and select **Create a resource** at the top left of the screen.
 
-2. Click **Storage**, then click **Storage account**.
+2. Select **Storage**, then select **Storage account - blob, file, table, queue**.
    
-    ![](./media/event-hubs-quickstart-portal/create-storage1.png)
+    ![Select Storage Account](./media/event-hubs-quickstart-portal/create-storage1.png)
 
-3. In **Create storage account**, type a name for the storage account. Choose an Azure subscription, resource group, and location in which to create the resource. Then click **Create**.
+3. On the **Create storage account** page, take the following steps: 
+
+    1. Enter a name for the storage account. 
+    2. Choose an Azure subscription that contains the event hub.
+    3. Select the resource group that has the event hub.
+    4. Select a location in which to create the resource. 
+    5. Then click **Review + create**.
    
-    ![](./media/event-hubs-quickstart-portal/create-storage2.png)
+    ![Create storage account - page](./media/event-hubs-quickstart-portal/create-storage2.png)
 
-4. In the list of storage accounts, click the newly created storage account.
+4. On the **Review + create** page, review the values, and select **Create**. 
 
-5. In the storage account window, click **Access keys**. Copy the value of **key1** to use later.
-   
-    ![](./media/event-hubs-quickstart-portal/create-storage3.png)
+    ![Review storage account settings and create](./media/event-hubs-quickstart-portal/review-create-storage-account.png)
+1. On the **Deployment** page, select the **storage account**. 
+
+    ![Select the storage account from deployment](./media/event-hubs-quickstart-portal/select-storage-deployment.png)
+1. On the storage account page, select **Access keys**. Copy the value of **key1** to use later.
 
 ## Download and run the samples
 
@@ -173,7 +181,5 @@ In this article, you created the Event Hubs namespace and other resources requir
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure portal]: https://portal.azure.com/
-[1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
-[2]: ./media/event-hubs-quickstart-portal/resource-groups2.png
 [3]: ./media/event-hubs-quickstart-portal/sender1.png
 [4]: ./media/event-hubs-quickstart-portal/receiver1.png

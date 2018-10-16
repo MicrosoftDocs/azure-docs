@@ -76,7 +76,7 @@ Some Linux distributions do not yet support encryption features in SMB 3.0 and u
 
 ### Solution
 
-Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure file share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
+Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure file share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share and verify the [Secure transfer required]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
@@ -143,7 +143,8 @@ Common causes for this issue are:
 - The minimum SMB/CIFS version 2.1 is not installed on the client.
 - SMB 3.0 Encryption is not supported on the client. SMB 3.0 Encryption is available in Ubuntu 16.4 and later version, SUSE 12.3 and later version. Other distributions require kernel 4.11 and later version.
 - You are trying to connect to a storage account over TCP port 445 that is not supported.
-- You are trying try to connect to Azure file share from an Azure VM, and the VM is not located in the same region as Storage account.
+- You are trying to connect to Azure file share from an Azure VM, and the VM is not located in the same region as Storage account.
+- If [Secure transfer required]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account, Azure Files will only allow connections using SMB 3.0 with encryption.
 
 ### Solution
 

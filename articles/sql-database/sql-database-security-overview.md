@@ -7,11 +7,11 @@ ms.subservice: security
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
-ms.reviewer: vanto, carlrab
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto, carlrab, ronitr
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 10/11/2018
 ---
 # An overview of Azure SQL Database security capabilities
 
@@ -30,8 +30,9 @@ SQL Database secures your data by providing encryption for data in motion with [
 
 For other ways to encrypt your data, consider:
 
-* [Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
-* If you need a Hardware Security Module or Bring Your Own Key (BYOK) technology for Transparent Data Encryption, consider using [Azure SQL Transparent Data Encryption: Bring Your Own Key support](https://docs.microsoft.com/en-us/azure/sql-database/transparent-data-encryption-byok-azure-sql).
+
+- [Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
+- If you need a Hardware Security Module or Bring Your Own Key (BYOK) technology for Transparent Data Encryption, consider using [Azure SQL Transparent Data Encryption: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).
 
 
 ### Data Discovery & Classification

@@ -1,19 +1,12 @@
 ---
 title: Azure Data Box Gateway troubleshoot | Micruse the Azure portal to tosoft Docs 
 description: Describes how to troubleshoot Azure Data Box Gateway issues.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: gateway
 ms.topic: overview
-ms.custom: 
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/09/2018
 ms.author: alkohli
 ---

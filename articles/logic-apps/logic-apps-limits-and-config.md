@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/11/2018
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -122,9 +122,22 @@ or run load testing that might go above these limits,
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
+<a name="sftp"></a>
+
+## FTP, SFTP, and SFTP-SSH limits
+
+### File size
+
+| Name | Limit | Notes |
+|------|-------|-------|
+| FTP | 50 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP | 50 MB | To work around this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP-SSH | 1 GB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## HTTP Request limits
+## HTTP limits
 
 Here are the limits for a single HTTP 
 request or synchronous connector call:

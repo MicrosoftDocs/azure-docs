@@ -96,7 +96,7 @@ Kubernetes manifest files define a desired state for a cluster, including what c
 Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, create the file using `vi` or `Nano`, as if working on a virtual or physical system.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-back
@@ -131,7 +131,7 @@ spec:
   selector:
     app: azure-vote-back
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-front
