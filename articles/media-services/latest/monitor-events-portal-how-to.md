@@ -20,7 +20,7 @@ ms.author: juliako
 
 # Create and monitor Media Services events with Event Grid using the Azure portal
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to subscribe to events for your Azure Media Services account. Then, you trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to subscribe to events for your Azure Media Services account. Then, you trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we send events to a web app that collects and displays the messages.
 
 When you're finished, you see that the event data has been sent to the web app.
 
@@ -31,7 +31,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 ## Create a message endpoint
 
-Before subscribing to the events for the Media Services account, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this article, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before subscribing to the events for the Media Services account, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. In this article, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
@@ -55,6 +55,7 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
 
 1. The event subscription is prefilled with values for your Media Services account. 
 1. Select 'Web Hook' for the **Endpoint Type**.
+1. In this topic, we leave the **Subscribe to all event types** checked. However, you can uncheck it and filter for specific event types. 
 1. Click on the **Select an endpoint** link.
 
     For the web hook endpoint, provide the URL of your web app and add `api/updates` to the home page URL. 
