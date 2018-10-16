@@ -6,6 +6,8 @@ cloud: gov
 documentationcenter: ''
 author: jglixon
 
+
+ms.assetid: c00ccd0c-0345-49ee-84f0-15262ff05923
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
@@ -18,34 +20,20 @@ ms.author: jglixon
 # Azure Government AI and Cognitive Services
 
 ## Cognitive Services 
-The following Cognitive Services APIs are currently in Public Preview in Azure Government. 	The following Cognitive Services APIs are currently in Azure Government:
-- Computer Vision API	- Translator Text API (General Availabilty)
-- Face API	- Computer Vision API (Public Preview)
-- Translator Speech API	- Face API (Public Preview)
+The following Cognitive Services APIs are currently in Public Preview in Azure Government. 
+- Computer Vision API
+- Face API
+- Translator Speech API
+- Translator Text API
+
+> [!IMPORTANT]
+> Billing for the Computer Vision API, Face API, and Translator Text API will begin on 11/1/2018.
+
+### Variations
+- Provisioning and management for the following APIs are available through PowerShell and CLI only (**no Portal Support**).
 
 ### Quickstarts
 The [Azure Government Cognitive Services Quickstart](documentation-government-cognitiveservices.md) will guide you through getting started with provisioning an account and accessing the APIs.
-
-### Variations in General Availability
-
-#### Language
-
-##### Translator Text API (Text Translation): 
-The following variations exist for Translator Text API from Commercial Azure:
-- Endpoint: https://api.cognitive.microsofttranslator.us
-- Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
-- Available SKUs: S1
-- Custom Translator and the Translator Hub are not supported.
- 
-For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.
-
-### Variations in Public Preview
-The following Cognitive Services APIs are currently in Public Preview in Azure Government. Provisioning and management for the following APIs are available through PowerShell and CLI only (**no Portal Support**).
-- Computer Vision API
-- Face API
-
-> [!IMPORTANT]
-> Billing for the Computer Vision API and the Face API will begin on 11/1/2018.
 
 #### Vision
 
@@ -62,6 +50,31 @@ The following variations exist for Face API from Commercial Azure:
 - Available SKUs: S0
  
 For more information, please see [public documentation](../cognitive-services/Face/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+
+##### Emotion API
+Emotion API is being deprecated and all of its technology has been incorporated to Face API.
+ 
+#### Speech
+ 
+##### Translator Speech API (Speech Translation): 
+The following variations exist for Translator Speech API from Commercial Azure:
+- Endpoint: https://docs.microsoft.com/azure/cognitive-services/translator-speech/
+- Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+- Available SKUs: S1, S2, S3, S4
+ 
+For more information, please see [public documentation](../cognitive-services/Speech/Home.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference) for Bing Speech API.
+ 
+#### Language
+ 
+##### Translator Text API (Text Translation): 
+The following variations exist for Translator Text API from Commercial Azure:
+- Endpoint: https://api.microsofttranslator.us
+- Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+- Available SKUs: S1
+- Translator Hub, Web Widget, and Collaboration Translation Framework (CTF) are not supported.
+ 
+For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.
+
 
 ### Data Considerations
 Data considerations for Cognitive Services are not yet available. 
