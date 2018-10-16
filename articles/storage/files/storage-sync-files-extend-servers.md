@@ -16,6 +16,8 @@ ms.component: files
 # Tutorial: Extend Windows file servers with Azure File Sync
 You use Azure File Sync to centralize your organization's file shares and to extend the storage capacity of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share.
 
+![Deploy Azure File Sync process](./media/storage-sync-files-extend-servers/storage-tutorial-process-diagram.png)
+
 In this tutorial, we'll show the basic steps to take a Windows Server Azure VM and extend its storage capacity using Azure File Sync. We're using a Windows Server Azure VM for this tutorial, but you would typically do the process for your on-premises servers. If you're ready to deploy Azure File Sync in your own environment, use the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) article instead.
 
 > [!div class="checklist"]
