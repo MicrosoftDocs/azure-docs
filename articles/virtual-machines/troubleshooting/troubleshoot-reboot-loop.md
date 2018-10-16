@@ -25,8 +25,6 @@ When you use [Boot diagnostics](./boot-diagnostics.md) to get the screenshots of
 
 ![Start screen 1](./media/troubleshoot-reboot-loop/start-screen-1.png)
 
-![Start screen 2](./media/troubleshoot-reboot-loop/start-screen-2.png)
-
 ## Cause
 
 The reboot loop occurs because of the following causes:
@@ -55,19 +53,13 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
 1. Once the OS disk is attached to a working VM, make sure that the disk is flagged as **Online** in the Disk Management console and note the drive letter of the partition that holds the **\Windows** folder.
 
-  ![Check the disk status in disk management](./media/troubleshoot-reboot-loop/check-the-disk-status-in-disk-management.png)
-
 2. If the disk is set to **Offline**, then set it to **Online**.
-
-  ![Set the disk to online in disk management](./media/troubleshoot-reboot-loop/set-the-disk-to-online-in-disk-management.png)
 
 3. Create a copy of the **\Windows\System32\config** folder in case a rollback on the changes is needed.
 
 4. On the rescue VM, open the Windows Registry Editor (regedit).
 
 5. Select the **HKEY_LOCAL_MACHINE** key and then select **File** > **Load Hive** from the menu.
-
-  ![Load hive for the HKEY_LOCAL_MACHINE key](./media/troubleshoot-reboot-loop/load-hive-for-the-HKEY_LOCAL_MACHINE-key.png)
 
 6. Browse to the SYSTEM file in the **\Windows\System32\config** folder.
 
@@ -92,8 +84,6 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
   - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
 13.	Select the **BROKENSYSTEM** key and then select **File** > **Load Hive** from the menu.
-
-  ![Load hive for the BROKENSYSTEM key](./media/troubleshoot-reboot-loop/load-hive-for-the-BROKENSYSTEM-key.png)
 
 14.	Detach the OS disk from the troubleshooting VM.
 
