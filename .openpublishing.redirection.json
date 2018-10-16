@@ -1063,12 +1063,12 @@
         },
         {
             "source_path": "articles/fundamentals-introduction-to-azure.md",
-            "redirect_url": "https://azure.microsoft.com/en-us/overview/what-is-azure/",
+            "redirect_url": "https://azure.microsoft.com/overview/what-is-azure/",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-portal-overview.md",
-            "redirect_url": "https://azure.microsoft.com/en-us/features/azure-portal/",
+            "redirect_url": "https://azure.microsoft.com/features/azure-portal/",
             "redirect_document_id": false
         },
         {
@@ -7290,6 +7290,11 @@
         },
         {
             "source_path": "articles/azure-stack/user/azure-stack-powershell-install.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-powershell-configure-quickstart.md",
             "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
             "redirect_document_id": false
         },
@@ -29854,6 +29859,16 @@
             "source_path": "articles/app-service/web-sites-java-add-app.md",
             "redirect_url": "/azure/app-service/app-service-web-get-started-java",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-tutorial-mysql.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-mysql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-tutorial-sql.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
+            "redirect_document_id": false
         }
     ]
 }
