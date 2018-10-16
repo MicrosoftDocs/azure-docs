@@ -131,6 +131,31 @@ Create a C# solution template that you can customize with your own code.
 
 ## Build your IoT Edge solution
 
+In the previous section, you created an IoT Edge solution and added code to the FileCopyModule to copy files from local share to the cloud share. Now you need to build the solution as a container image and push it to your container registry.
+
+1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal.
+
+    `docker login <ACR login server> -u <ACR username>` 
+
+    Use the login server and username that you copied from your container registry. 
+
+    ![Build and push IoT Edge solution](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
+
+2. When prompted for password, supply the password. You can also retrieve the values for login server, username, and password from the **Access Keys** in your container registry in the Azure portal.
+ 
+3. Once the credentials are supplied, you can push your module image to your Azure container registry. In the VS Code Explorer, right-click the **module.json** file and select **Build and Push IoT Edge solution**.
+
+    ![Build and push IoT Edge solution](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+ 
+    When you tell Visual Studio Code to build your solution, it runs two commands in the integrated terminal: docker build and docker push. These two commands build your code, containerize the CSharpModule.dll, and then push the code to the container registry that you specified when you initialized the solution.
+
+    You may see the following warning that you can ignore:
+
+    *Program.cs(77,44): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.*
+
+4. You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information that's in the module.json file with the format `<repository>:<version>-<platform>`. For this tutorial, it should look like `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
+
+
 ## Deploy and run the module
 
 ## Clean up resources
