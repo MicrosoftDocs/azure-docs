@@ -1,6 +1,6 @@
 ---
 title: Document details - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: The document details page displays the list of extracted sentences from the document.  
 author: rajdeep-in
 manager: christw
@@ -23,7 +23,7 @@ Click on an individual document to view the document details page. The document 
 - By default the “source” language is selected in the dropdown field, but you can toggle to view sentences in the target language. 
 - 20 sentences are displayed per page by default. You can use the pagination control to browse between pages.
 
-![document details](media/how-to/ct-how-to-view-document-details.png)
+![document details](media/how-to/how-to-view-document-details.png)
 
 
 ## Delete a document
@@ -31,11 +31,11 @@ Click on an individual document to view the document details page. The document 
 1. Go to document page
 2.  Hover on any document record and click on the trash icon.
 
-    ![Delete document](media/how-to/ct-how-to-delete-document-1.png)
+    ![Delete document](media/how-to/how-to-delete-document-1.png)
 
 3.  Confirm Delete.
 
-    ![Delete confirm](media/how-to/ct-how-to-delete-document-confirm.png)
+    ![Delete confirm](media/how-to/how-to-delete-document-confirm.png)
 
 
 [!Note] 

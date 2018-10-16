@@ -1,6 +1,6 @@
 ---
 title: How to create project? - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to create project in Custom Translator?  
 author: rajdeep-in
 manager: christw
@@ -17,7 +17,7 @@ ms.topic: article
 1.  In the [Custom Translator](https://portal.customtranslator.azure.ai) portal,
     tap “New project”.
 
-    ![Create project](media/how-to/ct-how-to-create-project.png)
+    ![Create project](media/how-to/how-to-create-project.png)
 
 2.  Enter the following details about your project in the dialog:
 
@@ -50,7 +50,7 @@ ms.topic: article
         and not helpful to distinguish between language pairs. You can use the
         same label for multiple projects.
 
-    ![Create project dialog](media/how-to/ct-how-to-create-project-dialog.png)
+    ![Create project dialog](media/how-to/how-to-create-project-dialog.png)
 
 3.  Click on Create
 
@@ -74,7 +74,7 @@ project.
 
 -   Model tab: This tab shows all model in this project.
 
-    ![View project details](media/how-to/ct-how-to-view-project.png)
+    ![View project details](media/how-to/how-to-view-project.png)
 
 
 ## Next steps

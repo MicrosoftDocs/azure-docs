@@ -1,6 +1,6 @@
 ---
 title: Glossary - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Custom Translator Glossary
 author: rajdeep-in
 manager: christw

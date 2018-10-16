@@ -1,6 +1,6 @@
 ---
 title: What is a dictionary? - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Dictionary is an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases.
 author: rajdeep-in
 manager: christw
@@ -70,7 +70,7 @@ To create a dictionary, follow the steps listed here.
 The image below shows an Excel file containing a dictionary of terms mapped from
 English to Spanish.
 
-![Dictionary file](media/how-to/ct-how-to-create-dictionary.png)
+![Dictionary file](media/how-to/how-to-create-dictionary.png)
 
 ## Next steps
 

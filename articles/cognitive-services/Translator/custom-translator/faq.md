@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Custom Translator Faq
 author: rajdeep-in
 manager: christw

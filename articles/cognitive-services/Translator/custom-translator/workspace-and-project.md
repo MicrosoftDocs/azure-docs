@@ -1,6 +1,6 @@
 ---
 title: What is a workspace and project? - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: A workspace is a work area for composing and building your custom translation system. A workspace can contain multiple projects, models, and documents. A project is a wrapper for a model, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
 services: cognitive-services
 author: rajdeep-in

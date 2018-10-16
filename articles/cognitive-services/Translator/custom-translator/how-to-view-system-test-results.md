@@ -1,6 +1,6 @@
 ---
 title: View system test results and deployment - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: When your training is successful review system test results and analyze your training results. If you're happy with the training results deploy the trained model.
 author: rajdeep-in
 manager: christw
@@ -26,7 +26,7 @@ The test detail tab shows you,
 
     -  Status: If the test process is complete or in progress
 
-        ![System test results](media/how-to/ct-how-to-system-test-results.png)
+        ![System test results](media/how-to/how-to-system-test-results.png)
 
 2.  Click on the “System test results”, and that will take you to test result details page. This page shows the machine translation of sentences that were part of the test dataset.
 
@@ -39,7 +39,7 @@ The test detail tab shows you,
 
     -  MT: This sentence is the automatic translation of the source sentence done by the model built after the training was conducted.
 
-        ![System test results compare](media/how-to/ct-how-to-system-test-results-2.png)
+        ![System test results compare](media/how-to/how-to-system-test-results-2.png)
 
 
 ## Download test
@@ -47,7 +47,7 @@ The test detail tab shows you,
 Click the Download Translations link to download a zip file. The zip contains the
 machine translations of source sentences in the test data set.
 
-![Download test](media/how-to/ct-how-to-system-test-download.png)
+![Download test](media/how-to/how-to-system-test-download.png)
 
 This downloaded zip archive contains three files.
 
@@ -59,7 +59,7 @@ This downloaded zip archive contains three files.
 
 3.  Src_Dataset_source.txt: This file contains sentences in the source language.
 
-    ![Downloaded system test results](media/how-to/ct-how-to-download-system-test.png)
+    ![Downloaded system test results](media/how-to/how-to-download-system-test.png)
 
 
 ## Deploy a model
@@ -72,7 +72,7 @@ To request a deployment ,
 
     -  For a successfully trained model, it shows “Deploy” button, if not deployed.
 
-        ![Deploy model](media/how-to/ct-how-to-deploy-model.png)
+        ![Deploy model](media/how-to/how-to-deploy-model.png)
 
 3.  Click on Deploy. You can view the status of your deployrequest in the “Status” column.
 

@@ -1,6 +1,6 @@
 ---
 title: Parallel documents in Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Parallel documents are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.
 author: rajdeep-in
 manager: christw

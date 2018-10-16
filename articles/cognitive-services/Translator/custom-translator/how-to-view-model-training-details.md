@@ -1,6 +1,6 @@
 ---
 title: View model training details - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: View model training details in Custom Translator
 author: rajdeep-in
 manager: christw
@@ -34,7 +34,7 @@ Training page has two tabs,
 
     -  Used Sentences: This field shows number of sentences has been used by Custom Translator during this training.
 
-    ![Model training details](media/how-to/ct-how-to-model-training-details.png)
+    ![Model training details](media/how-to/how-to-model-training-details.png)
 
 2.  **Test:** This tab shows the test details for a successful training.
 

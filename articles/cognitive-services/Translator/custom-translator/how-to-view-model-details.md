@@ -1,6 +1,6 @@
 ---
 title: View model details - Custom Translator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Models tab under any project shows details of each model for that project.
 author: rajdeep-in
 manager: christw
@@ -74,7 +74,7 @@ The Models tab under any project shows details of each model for that project.
 10. Delete: You can use this button if you want to delete the model. Deleting a
     model wont delete any of the documents used to create that model.
 
-    ![View model details](media/how-to/ct-how-to-view-model-details.png)
+    ![View model details](media/how-to/how-to-view-model-details.png)
 
 
 [!Note] To compare consecutive trainings for the same systems, it is important to keep the tuning set and testing set constant.
