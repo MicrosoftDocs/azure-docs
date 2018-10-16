@@ -69,4 +69,4 @@ would be a wise decision.
 
 ## Next steps
 
-- Read about [Training and model](training-model.md) to know, how to efficiently build a translation model.
+- Read about [Training and model](training-and-model.md) to know, how to efficiently build a translation model.
