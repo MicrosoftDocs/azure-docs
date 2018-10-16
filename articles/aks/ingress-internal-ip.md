@@ -171,6 +171,41 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 [...]
 ```
 
+## Clean up resources
+
+This article used Helm to install the ingress components and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, first list the Helm releases with the `helm list` command. Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
+
+```
+$ helm list
+
+NAME             	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
+kissing-ferret   	1       	Tue Oct 16 17:13:39 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
+intended-lemur   	1       	Tue Oct 16 17:20:59 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+pioneering-wombat	1       	Tue Oct 16 17:21:05 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+```
+
+Delete the release names with the `helm delete` command. The following example deletes the NGINX ingress deployment, and the two sample AKS hello world apps.
+
+```
+$ helm delete kissing-ferret intended-lemur pioneering-wombat
+
+release "kissing-ferret" deleted
+release "intended-lemur" deleted
+release "pioneering-wombat" deleted
+```
+
+Next, remove the Helm repo for the AKS hello world app:
+
+```console
+helm repo remove azure-samples
+```
+
+Finally, remove the ingress route that directed traffic to the sample apps:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
+
 ## Next steps
 
 This article included some external components to AKS. To learn more about these components, see the following project pages:

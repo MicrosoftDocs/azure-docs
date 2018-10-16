@@ -86,17 +86,21 @@ The NGINX ingress controller supports TLS termination. There are several ways to
 To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command:
 
 ```console
-helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
+helm install stable/cert-manager \
+    --namespace kube-system \
+    --set ingressShim.defaultIssuerName=letsencrypt-staging \
+    --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
 If your cluster is not RBAC enabled, instead use the following command:
 
 ```console
 helm install stable/cert-manager \
-  --set ingressShim.defaultIssuerName=letsencrypt-staging \
-  --set ingressShim.defaultIssuerKind=ClusterIssuer \
-  --set rbac.create=false \
-  --set serviceAccount.create=false
+    --namespace kube-system \
+    --set ingressShim.defaultIssuerName=letsencrypt-staging \
+    --set ingressShim.defaultIssuerKind=ClusterIssuer \
+    --set rbac.create=false \
+    --set serviceAccount.create=false
 ```
 
 For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
@@ -248,6 +252,50 @@ The demo application is shown in the web browser:
 Now add the */hello-world-two* path to the FQDN, such as *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. The second demo application with the custom title is shown:
 
 ![Application example two](media/ingress/app-two.png)
+
+## Clean up resources
+
+This article used Helm to install the ingress components, certificates, and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up, first remove the certificate resources:
+
+```console
+kubectl delete -f certificates.yaml
+kubectl delete -f cluster-issuer.yaml
+```
+
+Now list the Helm releases with the `helm list` command. Look for charts named *nginx-ingress*, *cert-manager*, and *aks-helloworld*, as shown in the following example output:
+
+```
+$ helm list
+
+NAME                  	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
+billowing-kitten      	1       	Tue Oct 16 17:24:05 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
+loitering-waterbuffalo	1       	Tue Oct 16 17:26:16 2018	DEPLOYED	cert-manager-v0.3.4 	v0.3.2     	default
+flabby-deer           	1       	Tue Oct 16 17:27:06 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+linting-echidna       	1       	Tue Oct 16 17:27:02 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+```
+
+Delete the release names with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
+
+```
+$ helm delete billowing-kitten loitering-waterbuffalo flabby-deer linting-echidna
+
+release "billowing-kitten" deleted
+release "loitering-waterbuffalo" deleted
+release "flabby-deer" deleted
+release "linting-echidna" deleted
+```
+
+Next, remove the Helm repo for the AKS hello world app:
+
+```console
+helm repo remove azure-samples
+```
+
+Finally, remove the ingress route that directed traffic to the sample apps:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
 
 ## Next steps
 

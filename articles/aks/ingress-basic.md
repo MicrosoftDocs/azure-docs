@@ -123,6 +123,41 @@ Now add the */hello-world-two* path to the IP address, such as *http://40.117.74
 
 ![Second app running behind the ingress controller](media/ingress-basic/app-two.png)
 
+## Clean up resources
+
+This article used Helm to install the ingress components and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, first list the Helm releases with the `helm list` command. Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
+
+```
+$ helm list
+
+NAME            	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
+gilded-duck     	1       	Tue Oct 16 16:52:25 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
+looming-moth    	1       	Tue Oct 16 16:53:59 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+righteous-numbat	1       	Tue Oct 16 16:53:53 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+```
+
+Delete the release names with the `helm delete` command. The following example deletes the NGINX ingress deployment, and the two sample AKS hello world apps.
+
+```
+$ helm delete gilded-duck looming-moth righteous-numbat
+
+release "gilded-duck" deleted
+release "looming-moth" deleted
+release "righteous-numbat" deleted
+```
+
+Next, remove the Helm repo for the AKS hello world app:
+
+```console
+helm repo remove azure-samples
+```
+
+Finally, remove the ingress route that directed traffic to the sample apps:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
+
 ## Next steps
 
 This article included some external components to AKS. To learn more about these components, see the following project pages:
