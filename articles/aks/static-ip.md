@@ -87,6 +87,46 @@ Create the service and deployment with the `kubectl apply` command.
 kubectl apply -f load-balancer-service.yaml
 ```
 
+## Using Static IP address outside node resource group
+
+It is possible to use a Static IP that is created outside the node resource group with Kubernetes version 1.10+.  To use an IP address outside the node resource group add an annotation to the Service definition.  Provide your own resource group name as the value to the annotation below.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: resource-group-name
+  name: azure-load-balancer
+spec:
+  loadBalancerIP: 40.121.183.52
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
+```
+
+## Using Static IP address outside node resource group
+
+It is possible to use a Static IP that is created outside the node resource group with Kubernetes version 1.10+.  To use an IP address outside the node resource group add an annotation to the Service definition.  Provide your own resource group name as the value to the annotation below.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: resource-group-name
+  name: azure-load-balancer
+spec:
+  loadBalancerIP: 40.121.183.52
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
+```
+
 ## Troubleshoot
 
 If the static IP address defined in the *loadBalancerIP* property of the Kubernetes service manifest does not exist, or has not been created in the node resource group, the load balancer service creation fails. To troubleshoot, review the service creation events with the [kubectl describe][kubectl-describe] command. Provide the name of the service as specified in the YAML manifest, as shown in the following example:
