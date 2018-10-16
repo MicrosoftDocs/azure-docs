@@ -77,15 +77,18 @@ Examples of use include:
 Full log querying capabilities are provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). To set up these powerful features:
 
 1. Search for **Log Analytics** in the Azure portal.
-1. You will see your available **Log Analytics** instances:
+1. You will see your available **Log Analytics** instances. Choose one and select **Logs** to query:
 
     ![Log analytics][4]
 
-1. You can create a workspace by clicking the **Add** button:
+1. If you don't already have a **Log Analytics** instance, you can create a workspace by clicking the **Add** button:
 
     ![Create OMS][5]
 
 Once your **Log Analytics** instance is provisioned, you may use powerful queries to find entries in multiples logs or search for specific data. For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+
+>[!TIP]
+>Use **Log Analytics** to see log histories for multiple app functionalities or services.
 
 ## Other options
 
