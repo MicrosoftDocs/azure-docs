@@ -45,16 +45,16 @@ for ‘OMS’ as shown below.
    >[!NOTE]
    >OMS is now referred to as Log Analytics.
 
-![](media/container-service-monitoring-oms/image2.png)
+ ![](media/container-service-monitoring-oms/image2.png)
 
 2. Click **Install**. You will see a pop-up with the version
 information and an **Install Package** or **Advanced Installation**
 button. When you click **Advanced Installation**, which leads you to the **OMS specific configuration
 properties** page.
 
-![](media/container-service-monitoring-oms/image3.png)
+ ![](media/container-service-monitoring-oms/image3.png)
 
-![](media/container-service-monitoring-oms/image4.png)
+ ![](media/container-service-monitoring-oms/image4.png)
 
 3. Here, you will be asked to enter the `wsid` (the Log Analytics workspace ID)
 and `wskey` (the primary key for the workspace ID). To get both `wsid` and
