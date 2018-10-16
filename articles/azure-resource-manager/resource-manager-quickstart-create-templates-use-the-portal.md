@@ -68,7 +68,7 @@ Azure requires that each Azure service has a unique name. The deployment fails i
 
 1. In the Azure portal, select **Create a resource**.
 2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-3. Select **Template deploymnet**.
+3. Select **Template deployment**.
 
     ![Azure Resource Manager templates library](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
 4. Select **Create**.
@@ -136,7 +136,7 @@ Azure requires that each Azure service has a unique name. The deployment fails i
         "outputs": {}
     }
     ```
-7. Select **Seve**.
+7. Select **Save**.
 8. Enter the following values:
 
     - **Resource group**: name your resource group with a unique name.
@@ -174,7 +174,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to generate a template from the Azure portal, and how to deploy the template using the portal. The template used in this Quickstart is a simple template with one Azure resource. When the template is complex, it is easier to use Visual Studio Code or Visual Studio to develop the template. The next quickstart also show you how to deploy templates using Azure PowerShell and Azure Command-line Interface (CLI).
+In this tutorial, you learned how to generate a template from the Azure portal, and how to deploy the template using the portal. The template used in this Quickstart is a simple template with one Azure resource. When the template is complex, it is easier to use Visual Studio Code or Visual Studio to develop the template. The next quickstart also shows you how to deploy templates using Azure PowerShell and Azure Command-line Interface (CLI).
 
 > [!div class="nextstepaction"]
 > [Create templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
