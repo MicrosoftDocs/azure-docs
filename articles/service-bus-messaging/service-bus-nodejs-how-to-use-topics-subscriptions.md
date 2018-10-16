@@ -62,7 +62,7 @@ communicate with the Service Bus REST services.
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
 3. You can manually run the **ls** command to verify that a
-   **node\_modules** folder was created. Inside that folder find the
+   **node\_modules** folder was created. Inside that folder, find the
    **azure** package, which contains the libraries you need to access
    Service Bus topics.
 
@@ -139,7 +139,7 @@ function (returnObject, finalCallback, next)
 
 In this callback, and after processing the `returnObject` (the response from the request to the server), the callback must either invoke next (if it exists) to continue processing other filters, or invoke `finalCallback` to end the service invocation.
 
-Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
+Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following code creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -289,7 +289,7 @@ the `sendTopicMessage` and any required standard properties are populated by def
 
 The following example demonstrates how to send five test messages to
 `MyTopic`. The `messagenumber` property value of each
-message varies on the iteration of the loop (this determines which
+message varies on the iteration of the loop (this property determines which
 subscriptions receive it):
 
 ```javascript
@@ -327,8 +327,7 @@ deleting it from the subscription.
 
 The default behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
-which an application can tolerate not processing a message in the event
-of a failure. To understand this behavior, consider a scenario in which the
+which an application can tolerate not processing a message whent there is a failure. To understand this behavior, consider a scenario in which the
 consumer issues the receive request and then crashes before processing
 it. Because Service Bus has marked the message as being consumed,
 then when the application restarts and begins consuming messages again,
