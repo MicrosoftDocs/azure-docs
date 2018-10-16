@@ -67,13 +67,17 @@ Before you can configure the app, follow these steps:
 To add a redirect URI to your application:
 
 1. From the app's **Overview** page, select the **Authentication** section.
+
 1. To add a custom redirect URI for web and public client applications, follow these steps:
+
     1. Locate the **Redirect URI** section.
     1. Select the type of application you're building, **Web** or **Public client (mobile & desktop)**.
     1. Enter the Redirect URI for your application.
         * For web applications, provide the base URL of your application. For example, http://localhost:31544 might be the URL for a web application running on your local machine. Users would use this URL to sign into a web client application.
         * For public applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example https://MyFirstApp.
+
 1. To choose from suggested Redirect URIs for public clients (mobile, desktop), follow these steps:
+
     1. Locate the Suggested **Redirect URIs for public clients (mobile, desktop)** section.
     1. Select the appropriate Redirect URI(s) for your application using the checkboxes.
 
@@ -84,18 +88,22 @@ To add a redirect URI to your application:
 To add a credential to your web application:
 
 1. From the app's **Overview** page, select the **Certificates & secrets** section.
+
 1. To add a certificate, follow these steps:
+
     1. Select **Upload certificate**.
     1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
     1. Select **Add**.
+
 1. To add a client secret, follow these steps:
+
     1. Select **New client secret**.
     1. Add a description for your client secret.
     1. Select a duration.
     1. Select **Add**.
 
-    > [!NOTE]
-    > After you save the configuration changes, the right-most column will contain the client secret value. **Be sure to copy the value** for use in your client application code as it's not accessible once you leave this page.
+> [!NOTE]
+> After you save the configuration changes, the right-most column will contain the client secret value. **Be sure to copy the value** for use in your client application code as it's not accessible once you leave this page.
 
 ## Add permissions to access web APIs
 
@@ -109,7 +117,6 @@ To add permission(s) to access resource APIs from your client:
     * **Microsoft APIs** - Lets you select permissions for Microsoft APIs such as Microsoft Graph.
     * **APIs my organization uses** - Lets you select permissions for APIs that have been exposed by your organization, or APIs that your organization has integrated with.
     * **My APIs** - Lets you select permissions for APIs that you have exposed.
-
 1. Once you've selected the APIs, you'll see the **Request API Permissions** page. If the API exposes both delegated and application permissions, select which type of permission your application needs.
 1. When finished, select **Add permissions**. You will return to the **API permissions** page, where the permissions have been saved and added to the table.
 
