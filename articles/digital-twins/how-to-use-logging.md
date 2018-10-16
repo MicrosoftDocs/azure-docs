@@ -89,7 +89,7 @@ Once your **Log Analytics** instance is provisioned, you may use powerful querie
 
 For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
-Azure Log Analytics also provides powerful error and alert notification services which can be viewed by clicking **Diagnose and solve problems**:
+Azure Log Analytics also provides powerful error and alert notification services, which can be viewed by clicking **Diagnose and solve problems**:
 
    ![Alert and error notifications][6]
 
