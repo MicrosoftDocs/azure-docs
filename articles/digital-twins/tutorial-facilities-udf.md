@@ -58,7 +58,11 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             - Matcher Temperature
     ```
 
-1. Open the file **_src\actions\userDefinedFunctions\availability.js_** in your editor. This is the file referred in the **script** element of the *provisionSample.yaml*. The user-defined function in this file looks for conditions when no motion is detected in the room, as well as carbon dioxide levels are below 1000 ppm. Modify the JavaScript file to monitor temperature in addition to other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1000 ppm, and temperature is below 78 degrees Fahrenheit:
+1. Open the file **_src\actions\userDefinedFunctions\availability.js_** in your editor. This is the file referred in the **script** element of the *provisionSample.yaml*. The user-defined function in this file looks for conditions when no motion is detected in the room, as well as carbon dioxide levels are below 1000 ppm. Modify the JavaScript file to monitor temperature in addition to other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1000 ppm, and temperature is below 78 degrees Fahrenheit.
+
+> [!NOTE]
+> This section modifies the file *src\actions\userDefinedFunctions\availability.js* so you can learn in details one way to write a user-defined function. However, you may choose to directly use the file [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) in your setup. This file has all the changes required for this tutorial. If you use this file instead, make sure to use the correct file name for the **_script_** key in the [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+
     1. At the top of the file, add the following lines for temperature below the comment `// Add your sensor type here`:
 
         ```JavaScript
@@ -157,9 +161,6 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
     
     1. Save the file. 
     
-    > [!NOTE]
-    > Instead of updating the current *src\actions\userDefinedFunctions\availability.js* file as mentioned above, you may choose to directly use the file [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js). This file has all the changes required for this tutorial. If you choose use this file instead, make sure to use the correct file name for the **_script_** key in the [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
-
 1. Open command window, and navigate to the folder **_occupancy-quickstart\src_**. Run the following command to provision your spatial intelligence graph and user-defined function. 
 
     ```cmd/sh
