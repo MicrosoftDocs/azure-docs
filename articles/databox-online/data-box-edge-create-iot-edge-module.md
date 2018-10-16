@@ -6,20 +6,18 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: tutorial
+ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
 ---
 
 # Develop a C# IoT Edge module to move files on Data Box Edge (Preview)
 
-This tutorial steps you through how to create an IoT Edge module for deployment with your Data Box Edge device. Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure.
+This how-to steps you through how to create an IoT Edge module for deployment with your Data Box Edge device. Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure.
 
 You can use Azure IoT Edge modules with your Data Box Edge to transform the data as it moved to Azure. The module used in this article implements the logic to copy a file from a local share to a cloud share on your Data Box Edge device.
 
-This procedure can take around XX-YY minutes to complete.
-
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a container registry to store and manage your modules (Docker images).
@@ -30,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## About the IoT Edge module
 
-Your Data Box Edge device can deploy and run IoT Edge modules. Edge modules are essentially Docker containers that perform a specific task, such as ingest a message from a device, transform a message, or send a message to an IoT Hub. In this tutorial, you will create a module that copies files from a local share to a cloud share on your Data Box Edge device.
+Your Data Box Edge device can deploy and run IoT Edge modules. Edge modules are essentially Docker containers that perform a specific task, such as ingest a message from a device, transform a message, or send a message to an IoT Hub. In this article, you will create a module that copies files from a local share to a cloud share on your Data Box Edge device.
 
 1. Files are written to the local share on your Data Box Edge device.
 2. The file event generator creates a file event for each file written to the local share. The file events are then sent to IoT Edge Hub (in IoT Edge runtime).
@@ -38,7 +36,7 @@ Your Data Box Edge device can deploy and run IoT Edge modules. Edge modules are 
    > [!IMPORTANT]
    > The file events are generated only for the newly created files. Modification of existing files does not generate any file events.
 
-3. The IoT Edge custom module processes the file event and converts to a file event object that also contains a relative path for the file. The module generates an absolute path using the relative file path and copies the file from the local share to the cloud share. The module then deletes the file from the local share.
+3. The IoT Edge custom module processes the file event to create a file event object that also contains a relative path for the file. The module generates an absolute path using the relative file path and copies the file from the local share to the cloud share. The module then deletes the file from the local share.
 
 ![How Azure IoT Edge module works on Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
 
@@ -72,7 +70,7 @@ An Azure container registry is a private Docker registry in Azure where you can 
     1. A unique **Registry name** within Azure that contains 5 to 50 alphanumeric characters.
     2. Choose a **Subscription**.
     3. Create new or choose an existing **Resource group**.
-    4. Select a **Location**. We recommend that this be the same region or close to where we deploy the Data Box Edge device.
+    4. Select a **Location**. We recommend that this location be the same as that is associated with the Data Box Edge resource.
     5. Toggle **Admin user** to **Enable**.
     6. Set the SKU to **Basic**.
 
@@ -118,7 +116,7 @@ Create a C# solution template that you can customize with your own code.
 
     ![Create new solution 4](./media/data-box-edge-create-iot-edge-module/create-new-solution-4.png)
 
-5. Browse and point to the EdgeSolution folder that you created earlier. The VS Code window loads your IoT Edge solution workspace with its five top-level components. You won't edit the **.vscode** folder, **.gitignore** file, **.env** file, and the **deployment.template.json** in this tutorial.
+5. Browse and point to the **EdgeSolution** folder that you created earlier. The VS Code window loads your IoT Edge solution workspace with its five top-level components. You won't edit the **.vscode** folder, **.gitignore** file, **.env** file, and the **deployment.template.json** in this article.
     
     The only component that you modify is the modules folder. This folder has the C# code for your module and Docker files to build your module as a container image.
 
@@ -159,7 +157,7 @@ Create a C# solution template that you can customize with your own code.
     }
     ```
 
-5. In the Init method, the code creates and configures a ModuleClient object. This object allows the module to connect to the local Azure IoT Edge runtime using MQTT protocol to send and receive messages. The connection string that's used in the Init method is supplied to the module by the IoT Edge runtime. The code registers a FileCopy callback to receive messages from an IoT Edge hub via the input1 endpoint.
+5. In the Init method, the code creates and configures a **ModuleClient** object. This object allows the module to connect to the local Azure IoT Edge runtime using MQTT protocol to send and receive messages. The connection string that's used in the Init method is supplied to the module by the IoT Edge runtime. The code registers a FileCopy callback to receive messages from an IoT Edge hub via the **input1** endpoint.
 
     ```
     /// <summary>
@@ -181,62 +179,62 @@ Create a C# solution template that you can customize with your own code.
     }
     ```
 
-6. Insert the code for FileCopy.
+6. Insert the code for **FileCopy**.
 
     ```
-    /// <summary>
-    /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
-    /// This method deserializes the file event, extracts the corresponding relative file path, and creates the aboslute input file path using the relative file path and the InputFolderPath.
-    /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
-    /// </summary>
-    static async Task<MessageResponse> FileCopy(Message message, object userContext)
-    {
-        int counterValue = Interlocked.Increment(ref counter);
-
-        try
+            /// <summary>
+        /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
+        /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
+        /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
+        /// </summary>
+        static async Task<MessageResponse> FileCopy(Message message, object userContext)
         {
-            byte[] messageBytes = message.GetBytes();
-            string messageString = Encoding.UTF8.GetString(messageBytes);
-            Console.WriteLine($"Received message: {counterValue}, Body: [{messageString}]");
+            int counterValue = Interlocked.Increment(ref counter);
 
-            if (!string.IsNullOrEmpty(messageString))
+            try
             {
-                var fileEvent = JsonConvert.DeserializeObject<FileEvent>(messageString);
+                byte[] messageBytes = message.GetBytes();
+                string messageString = Encoding.UTF8.GetString(messageBytes);
+                Console.WriteLine($"Received message: {counterValue}, Body: [{messageString}]");
 
-                string relativeFileName = fileEvent.ShareRelativeFilePath.Replace("\\", "/");
-                string inputFilePath = InputFolderPath + relativeFileName;
-                string outputFilePath = OutputFolderPath + relativeFileName;
-
-            
-
-                if (File.Exists(inputFilePath))                
+                if (!string.IsNullOrEmpty(messageString))
                 {
-                    Console.WriteLine($"Copying input file: {inputFilePath} to output file: {outputFilePath}");
-                    var outputDir = Path.GetDirectoryName(outputFilePath);
-                    if (!Directory.Exists(outputDir))
+                    var fileEvent = JsonConvert.DeserializeObject<FileEvent>(messageString);
+
+                    string relativeFileName = fileEvent.ShareRelativeFilePath.Replace("\\", "/");
+                    string inputFilePath = InputFolderPath + relativeFileName;
+                    string outputFilePath = OutputFolderPath + relativeFileName;
+
+                    if (File.Exists(inputFilePath))                
                     {
-                        Directory.CreateDirectory(outputDir);
-                    }
+                        Console.WriteLine($"Moving input file: {inputFilePath} to output file: {outputFilePath}");
+                        var outputDir = Path.GetDirectoryName(outputFilePath);
+                        if (!Directory.Exists(outputDir))
+                        {
+                            Directory.CreateDirectory(outputDir);
+                        }
 
-                    File.Copy(inputFilePath, outputFilePath, true);
-                    Console.WriteLine($"Copied input file: {inputFilePath} to output file: {outputFilePath}");
-                    File.Delete(inputFilePath);
-                    Console.WriteLine($"Deleted input file: {inputFilePath}");
-                } 
-                else
-                {
-                    Console.WriteLine($"Skipping this event as input file doesn't exist: {inputFilePath}");   
+                        File.Copy(inputFilePath, outputFilePath, true);
+                        Console.WriteLine($"Copied input file: {inputFilePath} to output file: {outputFilePath}");
+                        File.Delete(inputFilePath);
+                        Console.WriteLine($"Deleted input file: {inputFilePath}");
+                    } 
+                    else
+                    {
+                        Console.WriteLine($"Skipping this event as input file doesn't exist: {inputFilePath}");   
+                    }
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Caught exception: {0}", ex.Message);
-            Console.WriteLine(ex.StackTrace);
+            catch (Exception ex)
+            {
+                Console.WriteLine("Caught exception: {0}", ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+
+            Console.WriteLine($"Processed event.");
+            return MessageResponse.Completed;
         }
 
-        Console.WriteLine($"Processed event.");
-        return MessageResponse.Completed;
     }
     ```
 
@@ -248,7 +246,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal.
 
-    `docker login <ACR login server> -u <ACR username>` 
+    `docker login <ACR login server> -u <ACR username>`
 
     Use the login server and username that you copied from your container registry. 
 
@@ -266,8 +264,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
     *Program.cs(77,44): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.*
 
-4. You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information that's in the module.json file with the format `<repository>:<version>-<platform>`. For this tutorial, it should look like `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
-
+4. You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information that's in the module.json file with the format `<repository>:<version>-<platform>`. For this article, it should look like `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 
 ## Next steps
 
