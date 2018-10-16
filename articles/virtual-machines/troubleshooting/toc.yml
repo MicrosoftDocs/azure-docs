@@ -6,8 +6,6 @@
     href: allocation-failure.md
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
-- name: Boot diagnostics
-  href: boot-diagnostics.md
 - name: RDP
   items:
   - name: Reset RDP
@@ -104,6 +102,8 @@
 - name: Boot errors
   href: boot-error-troubleshoot.md
   items:
+  - name: Boot diagnostics
+    href: boot-diagnostics.md
   - name: BitLocker errors 
     href: troubleshoot-bitlocker-boot-error.md  
   - name: Checking file system errors
