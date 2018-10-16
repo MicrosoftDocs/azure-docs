@@ -126,6 +126,122 @@ Create a C# solution template that you can customize with your own code.
 
 ### Update the module with custom code
 
+1. In the VS Code explorer, open **modules > CSharpModule > Program.cs**.
+2. At the top of the **FileCopyModule namespace**, add the following using statements for types that are used later. **Microsoft.Azure.Devices.Client.Transport.Mqtt** is a protocol to send messages to IoT Edge Hub.
+
+    ```
+    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
+    using Newtonsoft.Json;
+    ```
+3. Add the InputFolderPath and OutputFolderPath variable to the Program class.
+
+    ```
+    class Program
+        {
+            static int counter;
+            private const string InputFolderPath = "/home/LocalShare";
+            private const string OutputFolderPath = "/home/CloudShare";
+    ````
+
+4. Add the MessageBody class to the Program class. These classes define the expected schema for the body of incoming messages.
+
+    ```
+    /// <summary>
+    /// The MessageBody class defines the expected schema for the body of incoming messages. 
+    /// </summary>
+    private class FileEvent
+    {
+        public string ChangeType { get; set; }
+
+        public string ShareRelativeFilePath { get; set; }
+
+        public string ShareName { get; set; }
+    }
+    ```
+
+5. In the Init method, the code creates and configures a ModuleClient object. This object allows the module to connect to the local Azure IoT Edge runtime using MQTT protocol to send and receive messages. The connection string that's used in the Init method is supplied to the module by the IoT Edge runtime. The code registers a FileCopy callback to receive messages from an IoT Edge hub via the input1 endpoint.
+
+    ```
+    /// <summary>
+    /// Initializes the ModuleClient and sets up the callback to receive
+    /// messages containing file event information
+    /// </summary>
+    static async Task Init()
+    {
+        MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
+        ITransportSettings[] settings = { mqttSetting };
+
+        // Open a connection to the IoT Edge runtime
+        ModuleClient ioTHubModuleClient = await ModuleClient.CreateFromEnvironmentAsync(settings);
+        await ioTHubModuleClient.OpenAsync();
+        Console.WriteLine("IoT Hub module client initialized.");
+
+        // Register callback to be called when a message is received by the module
+        await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FileCopy, ioTHubModuleClient);
+    }
+    ```
+
+6. Insert the code for FileCopy.
+
+    ```
+    /// <summary>
+    /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
+    /// This method deserializes the file event, extracts the corresponding relative file path, and creates the aboslute input file path using the relative file path and the InputFolderPath.
+    /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
+    /// </summary>
+    static async Task<MessageResponse> FileCopy(Message message, object userContext)
+    {
+        int counterValue = Interlocked.Increment(ref counter);
+
+        try
+        {
+            byte[] messageBytes = message.GetBytes();
+            string messageString = Encoding.UTF8.GetString(messageBytes);
+            Console.WriteLine($"Received message: {counterValue}, Body: [{messageString}]");
+
+            if (!string.IsNullOrEmpty(messageString))
+            {
+                var fileEvent = JsonConvert.DeserializeObject<FileEvent>(messageString);
+
+                string relativeFileName = fileEvent.ShareRelativeFilePath.Replace("\\", "/");
+                string inputFilePath = InputFolderPath + relativeFileName;
+                string outputFilePath = OutputFolderPath + relativeFileName;
+
+            
+
+                if (File.Exists(inputFilePath))                
+                {
+                    Console.WriteLine($"Copying input file: {inputFilePath} to output file: {outputFilePath}");
+                    var outputDir = Path.GetDirectoryName(outputFilePath);
+                    if (!Directory.Exists(outputDir))
+                    {
+                        Directory.CreateDirectory(outputDir);
+                    }
+
+                    File.Copy(inputFilePath, outputFilePath, true);
+                    Console.WriteLine($"Copied input file: {inputFilePath} to output file: {outputFilePath}");
+                    File.Delete(inputFilePath);
+                    Console.WriteLine($"Deleted input file: {inputFilePath}");
+                } 
+                else
+                {
+                    Console.WriteLine($"Skipping this event as input file doesn't exist: {inputFilePath}");   
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Caught exception: {0}", ex.Message);
+            Console.WriteLine(ex.StackTrace);
+        }
+
+        Console.WriteLine($"Processed event.");
+        return MessageResponse.Completed;
+    }
+    ```
+
+7. Save this file.
+
 ## Build your IoT Edge solution
 
 In the previous section, you created an IoT Edge solution and added code to the FileCopyModule to copy files from local share to the cloud share. Now you need to build the solution as a container image and push it to your container registry.
@@ -152,7 +268,6 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 4. You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information that's in the module.json file with the format `<repository>:<version>-<platform>`. For this tutorial, it should look like `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 
-## Clean up resources
 
 ## Next steps
 
