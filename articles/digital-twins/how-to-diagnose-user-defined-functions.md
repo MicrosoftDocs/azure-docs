@@ -12,23 +12,27 @@ ms.author: stefanmsft
 
 # How to diagnose issues with user-defined functions in Azure Digital Twins
 
-This article explains how to diagnose user-defined functions and some of the most common scenarios one might encounter in diagnosing them.
+This article explains how to diagnose user-defined functions and some of the most common scenarios encountered in diagnosing them.
 
-## Enabling log analytics for your Azure Digital Twins instance
+## Diagnosing issues
+
+Knowing how to diagnose any issues that arise within your Azure Digital Twins instance will aid you to effectively identify the issue, the cause of the problem, and a solution.
+
+### Enable log analytics for your Azure Digital Twins instance
 
 Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../log-analytics/log-analytics-queries.md) workspace through the [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md), through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), or through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
 
 Read the article [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
 
-## Trace sensor telemetry
+### Trace sensor telemetry
 
 Ensure that diagnostic settings are enabled on your Azure Digital Twins instance, all log categories are selected, and the logs are being sent into Azure Log Analytics.
 
 To match a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent by setting the `x-ms-client-request-id` property to a GUID.
 
-After sending telemetry, open up Azure Log Analytics to query for logs with the specified Correlation ID.
+After sending telemetry, open up Azure Log Analytics to query for logs with the specified Correlation ID:
 
-```text
+```plaintext
 AzureDiagnostics
 | where CorrelationId = 'yourCorrelationIdentifier'
 ```
@@ -39,14 +43,14 @@ AzureDiagnostics
 
 If you add log statements in your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following condition in your Azure Log Analytics instance:
 
-```text
+```plaintext
 AzureDiagnostics
 | where Category = 'UserDefinedFunction'
 ```
 
-## Common issues
+## Identifying common issues
 
-Several common user-defined functions issues are detailed.
+Both diagnosing and identifying common issues are important when troubleshooting your solution. Several Common issues encountered when developing user-defined functions are summarized below.
 
 ### Ensure a role assignment was created
 
@@ -54,7 +58,7 @@ Without a role assignment created within Management API, the user-defined functi
 
 Check if a role assignment exists for your user-defined function through your Management API:
 
-```text
+```plaintext
 GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
 ```
 
@@ -69,7 +73,7 @@ If no role assignment is retrieved, follow this article on [How to create a role
 
 With the following call against your Azure Digital Twins instances' Management API, you will be able to determine if a given matcher applies for the given sensor.
 
-```text
+```plaintext
 GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
 ```
 
@@ -94,7 +98,7 @@ Response:
 
 With the following call against your Azure Digital Twins instances' Management API, you will be able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry:
 
-```text
+```plaintext
 GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
 ```
 
@@ -175,7 +179,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-### Diagnostic exceptions
+## Common diagnostic exceptions
 
 If you enable diagnostic settings, you might encounter these common exceptions:
 
