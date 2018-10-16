@@ -1,6 +1,6 @@
 ---
 title: How to enable logging in Azure Digital Twins | Microsoft Docs
-description: How to enable customer diagnostic logs in Azure Digital Twins
+description: How to enable logging in Azure Digital Twins
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
@@ -18,16 +18,34 @@ This article summarizes logging options and how to combine them in ways specific
 
 ## Review activity logs
 
-Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide quick insights into subscription-level event and operation histories for each Azure service instance. Resource creation and resource removal are examples of these kinds of subscription-level events:
+Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide quick insights into subscription-level event and operation histories for each Azure service instance.
 
-![Activity log][1]
+Subscription-level events include:
+
+* Resource creation
+* Resource removal
+* Creating app secrets
+* Integrating other services
+
+Activity logging for Azure Digital Twins is enabled by default and can be found through the Azure portal by:
+
+1. Selecting your Azure Digital Twins instance.
+1. Choosing **Activity log** to bring up the display panel:
+
+    ![Activity log][1]
 
 >[!TIP]
->Use activity logs for quick insights into subscription-level events.
+>Use **activity logs** for quick insights into subscription-level events.
 
 ## Enable customer diagnostic logs
 
-Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)  can be set for each Azure instance to supplement activity logging. Whereas activity logs pertain to subscription-levels events, diagnostic logging provides insights into the operational history of the resources themselves. The execution time for a user-driven function, a successful API call, or retrieving an app key from a vault are examples of diagnostic events.
+Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)  can be set for each Azure instance to supplement activity logging. Whereas activity logs pertain to subscription-levels events, diagnostic logging provides insights into the operational history of the resources themselves. 
+
+Examples of diagnostic logging include:
+
+1. The execution time for a user-driven function
+1. A successful API call
+1. Retrieving an app key from a vault
 
 To set up diagnostic logging for an instance:
 
@@ -42,7 +60,7 @@ To set up diagnostic logging for an instance:
     ![Diagnostic settings two][3]
 
 >[!TIP]
->Use diagnostic logs for insights into resource operations.
+>Use **diagnostic logs** for insights into resource operations.
 
 ## Azure monitor and log analytics
 
