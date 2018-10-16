@@ -96,7 +96,7 @@ namespace QnAMaker
     }
   ],
   'urls': [
-    'https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs',
+    'https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs',
     'https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq'
   ],
   'files': []
@@ -756,7 +756,7 @@ A successful response is returned in JSON, as shown in the following example:
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -961,7 +961,7 @@ A successful response is returned in JSON, as shown in the following example:
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
     "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
@@ -1070,7 +1070,7 @@ A successful response is returned in JSON, as shown in the following example:
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
         "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
