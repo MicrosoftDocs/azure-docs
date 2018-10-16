@@ -220,7 +220,7 @@ Logs from additional channels are also available for collection, here are some o
 >This channel has a very high volume of events, enabling event collection from this detailed channel results in a lot of traces being generated quickly, and can consume storage capacity. Only turn this on if absolutely necessary.
 
 
-To enable the **Base Data and Messaging Channel** our recommendation for comprehensive logging, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
+To enable the **Base Operational Channel** our recommendation for comprehensive logging with the least amount of noise, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
 
 ```json
   "WadCfg": {
@@ -248,7 +248,7 @@ To enable the **Base Data and Messaging Channel** our recommendation for compreh
               {
                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
                 "scheduledTransferLogLevelFilter": "Information",
-                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"

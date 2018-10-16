@@ -33,6 +33,11 @@ The article also discusses some of the parameters that you can set on the API to
 - The byte array option is limited to 2GB and times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
 
+> [!Tip]
+> It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
+>
+> If you must use older .NET frameworks, add one line into your code before making the REST API call:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
 ## Configurations and params
 
 This section describes some of the optional parameters and when you would want to set them.
@@ -239,8 +244,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## Common errors
 
+The status codes listed in the following table may be returned by the Upload operation.
 
+|Status code|ErrorType (in response body)|Description|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
+|400|VIDEO_ALREADY_FAILED|Same video failed to process in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 10/04/2018
 ms.author: magoedte
 ---
 
@@ -36,7 +36,7 @@ Your ability to monitor performance relies on a containerized Log Analytics agen
 
 >[!NOTE] 
 >If you have already deployed an AKS cluster, you enable monitoring by using either Azure CLI or a provided Azure Resource Manager template, as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent. 
->
+>The template needs to be deployed in the same resource group as the cluster.”
 
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
@@ -67,6 +67,18 @@ The following step enables monitoring of your AKS cluster using Azure CLI. In th
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+The output will resemble the following:
+
+```azurecli
+provisioningState       : Succeeded
+```
+
+If you would rather integrate with an existing workspace, use the following command to specify that workspace.
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG --workspace-resource-id <ExistingWorkspaceResourceID> 
 ```
 
 The output will resemble the following:
@@ -120,6 +132,10 @@ This method includes two JSON templates. One template specifies the configuratio
 * The AKS container resource ID. 
 * The resource group that the cluster is deployed in.
 * The Log Analytics workspace and region to create the workspace in. 
+
+>[!NOTE]
+>The template needs to be deployed in the same resource group as the cluster.
+>
 
 The Log Analytics workspace has to be created manually. To create the workspace, you can set it up through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 
@@ -200,7 +216,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
                         "apiVersion": "2015-11-01-preview",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "location": "[parameters('workspaceRegion')]",
-                        "name": "[Concat('ContainerInsights', '-',  uniqueString(parameters('workspaceResourceId')))]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
                         "properties": {
                             "workspaceResourceId": "[parameters('workspaceResourceId')]"
                         },

@@ -7,7 +7,7 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/08/2018
 ---
 # Extend Azure HDInsight using an Azure Virtual Network
 
@@ -247,7 +247,7 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 >
 > If you do not use network security groups or user-defined routes to control traffic, you can ignore this section.
 
-If you use network security groups or user-defined routes, you must allow traffic from the Azure health and management services to reach HDInsight. Use the following steps to find the IP addresses that must be allowed:
+If you use network security groups or user-defined routes, you must allow traffic from the Azure health and management services to reach HDInsight. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
 
 1. You must always allow traffic from the following IP addresses:
 
@@ -274,6 +274,7 @@ If you use network security groups or user-defined routes, you must allow traffi
     | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 | Inbound |
     | China | China North | 42.159.96.170</br>139.217.2.219 | 443 | Inbound |
     | &nbsp; | China East | 42.159.198.178</br>42.159.234.157 | 443 | Inbound |
+    | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | 443 | Inbound |
     | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 | Inbound |
     | &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | 443 | Inbound |
     | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 | Inbound |
@@ -295,7 +296,7 @@ If you use network security groups or user-defined routes, you must allow traffi
 
     For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 
-3. If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
+3. You must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
 

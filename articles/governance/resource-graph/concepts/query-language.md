@@ -33,7 +33,7 @@ Here is the list of supported tabular operators in Resource Graph:
 - [sample](/azure/kusto/query/sampleoperator)
 - [sample-distinct](/azure/kusto/query/sampledistinctoperator)
 - [sort by](/azure/kusto/query/sortoperator)
-- [summarize](/azure/kusto/query/summerizeoperator)
+- [summarize](/azure/kusto/query/summarizeoperator)
 - [take](/azure/kusto/query/takeoperator)
 - [top](/azure/kusto/query/topoperator)
 - [top-nested](/azure/kusto/query/topnestedoperator)

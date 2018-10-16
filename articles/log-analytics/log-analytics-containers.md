@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Container Monitoring solution in Log Analytics
@@ -31,7 +31,7 @@ The solution shows which containers are running, what container image they’re 
 - Service Fabric
 - Red Hat OpenShift
 
-If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on AKS (Azure Container Service), see [Monitor Azure Container Service](../monitoring/monitoring-container-health.md).  The Container Monitoring solution does not include support to monitor that platform.  
+If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS), see [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-health.md). The Container Monitoring solution does not include support to monitor that platform.  
 
 The following diagram shows the relationships between various container hosts and agents with Log Analytics.
 

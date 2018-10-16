@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: true
+hide_bc: false
 title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
 description: Azure Active Directory (Azure AD) is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
 services: active-directory
@@ -70,7 +70,7 @@ ms.author: mtillman
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
+                                                                    <h3><a href="/learn/">Build your skills with Microsoft Learn</a></h3> 
 																	<p>
 																	    <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Secure your Azure resources with conditional access</a><br>
                                                                         <a href="/learn/browse/?products=azure-active-directory">More interactive learning...</a><br>

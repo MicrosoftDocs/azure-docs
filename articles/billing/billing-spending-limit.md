@@ -21,8 +21,6 @@ ms.author: cwatson
 
 Spending limit in Azure exists to prevent spending over your credit amount. All new customers who sign up for the trial or offers that includes credits over multiple months have the spending limit turned on by default. The spending limit is $0. It can’t be changed. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
-**Looking for billing alerts?** See [Set up billing or credit alerts for Azure subscriptions](billing-set-up-alerts.md).
-
 ## What happens when I reach the spending limit?
 
 When your usage results in charges that exhaust the monthly amounts included with your subscription, the services that you deployed are disabled for the rest of that billing period. 
@@ -74,7 +72,7 @@ This feature is available only when the spending limit has been removed indefini
 
 ### How do I set a custom spending limit?
 
-We don't have custom spend limits today. However, you can opt in to [use billing alerts to control your spend](billing-set-up-alerts.md).
+Custom spending limits aren't available.
 
 ### Does the spending limit prevent all charges from Azure?
 

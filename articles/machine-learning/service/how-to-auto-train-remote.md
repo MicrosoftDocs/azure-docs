@@ -199,7 +199,7 @@ Find logs on the DSVM under /tmp/azureml_run/{iterationid}/azureml-logs.
 
 ## Example
 
-The `automl/03.auto-ml-remote-execution.ipynb` notebook demonstrates concepts in this article.  Get this notebook:
+The [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) notebook demonstrates concepts in this article.  Get this notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -51,10 +51,6 @@ To learn how to update your billing information, see [Change the credit card use
 
 Because of technical constraints, we cannot change the country on an existing account. However, you can create an account in the desired country and then contact Azure support to migrate your services to that account.
 
-### What email address does the Azure Billing Alerts preview feature use?
-
-You receive alert notifications at the email address you add when you sign up for the alerts. The email address used for the alerts is separate from the Account Administrator email address. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md).
-
 ## Need help? Contact support.
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 

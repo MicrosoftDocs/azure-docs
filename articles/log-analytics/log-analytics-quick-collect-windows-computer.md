@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
+ms.component: 
 ---
 
 # Configure Log Analytics agent for Windows computers in a hybrid environment

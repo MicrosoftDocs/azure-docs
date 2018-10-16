@@ -193,13 +193,7 @@
       - name: DNS service
         href: service-fabric-dnsservice.md
       - name: Reverse proxy
-        href: service-fabric-reverseproxy.md
-      - name: Set up and configure reverse proxy 
-        href: service-fabric-reverseproxy-setup.md
-      - name: Configure reverse proxy for secure communication
-        href: service-fabric-reverseproxy-configure-secure-communication.md
-      - name: Reverse proxy diagnostics
-        href: service-fabric-reverse-proxy-diagnostics.md
+        href: service-fabric-reverseproxy.md            
       - name: ASP.NET Core
         href: service-fabric-reliable-services-communication-aspnetcore.md
     - name: Application lifecycle
@@ -553,6 +547,12 @@
         href: service-fabric-set-up-continuous-integration.md
       - name: Deploy your Linux applications using Jenkins
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+  - name: Setup and configure reverse proxy
+    items:
+    - name: Set up and configure reverse proxy 
+      href: service-fabric-reverseproxy-setup.md
+    - name: Configure reverse proxy for secure communication
+      href: service-fabric-reverseproxy-configure-secure-communication.md
   - name: Create and manage clusters
     items:
     - name: Clusters on Azure
@@ -657,6 +657,8 @@
         href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
       - name: View health reports
         href: service-fabric-view-entities-aggregated-health.md
+    - name: Diagnose reverse proxy events
+      href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: Diagnose common scenarios
@@ -747,6 +749,8 @@
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Troubleshooting guides
+    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
   - name: Sample code
     href: http://aka.ms/servicefabricsamples
   - name: Support options

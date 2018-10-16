@@ -77,7 +77,7 @@ Create a resource group to hold your workspace.
 
 ## Create a workspace and a project folder
 
-In the command-line window, create an Azure Machine Learning Workspace under the resource group.
+In the command-line window, create an Azure Machine Learning service workspace under the resource group.
 
 
    In this quickstart:

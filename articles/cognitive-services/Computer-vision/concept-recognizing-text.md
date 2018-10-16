@@ -3,14 +3,14 @@ title: Recognizing printed and handwritten text - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to recognizing printed and handwritten text in images using the Computer Vision API.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
+ms.author: pafarley
 ---
 
 # Recognizing printed and handwritten text
@@ -25,7 +25,7 @@ Computer Vision can recognize printed and handwritten text in images that meet t
 
 - The image must be presented in JPEG, PNG, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
-- The dimensions of the image must be between 40 x 40 and 3200 x 3200 pixels
+- The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
 
 > [!NOTE]
 > This technology is currently in preview and is only available for English text.

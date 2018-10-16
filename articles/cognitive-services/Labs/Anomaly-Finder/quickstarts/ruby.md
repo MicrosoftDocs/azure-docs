@@ -14,6 +14,8 @@ ms.author: chliang
 
 # Use the Anomaly Finder API with Ruby
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 This article provides information and code samples to help you quickly get started using the Anomaly Finder API with Ruby to accomplish task of getting anomaly detection result of time series data.
 
 ## Prerequisites

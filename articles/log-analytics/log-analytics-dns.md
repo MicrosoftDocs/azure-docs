@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Gather insights about your DNS infrastructure with the DNS Analytics Preview solution

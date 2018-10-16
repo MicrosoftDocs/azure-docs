@@ -80,7 +80,7 @@ You can control who can see your LUIS endpoint key by calling it in a server-to-
 
 ## Security Compliance
  
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
 
 ## Next steps
 

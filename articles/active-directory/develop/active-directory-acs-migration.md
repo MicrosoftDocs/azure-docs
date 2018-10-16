@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ---
@@ -112,6 +112,9 @@ Here's the schedule for deprecating Access Control components:
 - **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `http://manage.windowsazure.com?restoreClassic=true`. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
 - **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://\<namespace\>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
 - **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
+
+> [!NOTE]
+> A policy disables namespaces that have not requested a token for a period of time. As of early September 2018, this period of time is currently at 14 days of inactivity, but this will be shortened to 7 days of inactivity in the coming weeks. If you have Access Control namespaces that are currently disabled, you can [download and install ACS PowerShell](#download-and-install-acs-powershell) to re-enable the namespace(s).
 
 ## Migration strategies
 
@@ -343,6 +346,10 @@ In these cases, you might consider migrating your web application to another clo
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on-prem identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products. |
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
+
+#### Passthrough authentication
+
+For passthrough authentication with arbitrary token transformation, there is no equivalent Microsoft technology to ACS. If that is what your customers need, Auth0 might be the one who provides the closest approximation solution.
 
 ## Questions, concerns, and feedback
 

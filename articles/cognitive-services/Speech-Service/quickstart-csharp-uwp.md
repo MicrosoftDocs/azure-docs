@@ -54,9 +54,9 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![Screenshot of Solution Explorer, with Manage NuGet Packages for Solution option highlighted](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
 
-1. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package, and install it into the **helloworld** project.
+1. In the upper-right corner, in the **Package Source** field, select **nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package, and install it into the **helloworld** project.
 
-    ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "Install Nuget package")
+    ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "Install NuGet package")
 
 1. Accept the displayed license to begin installation of the NuGet package.
 
@@ -65,7 +65,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 1. The following output line appears in the Package Manager console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
    ```
 
 1. Because the application uses the microphone for speech input, add the **Microphone** capability to the project. In Solution Explorer, double-click **Package.appxmanifest** to edit your application manifest. Then switch to the **Capabilities** tab, select the box for the **Microphone** capability, and save your changes.

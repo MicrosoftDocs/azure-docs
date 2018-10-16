@@ -10,9 +10,10 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
 ---
 # Supported languages
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## Interactive and dictation mode
 
@@ -34,8 +35,7 @@ The Microsoft speech recognition API supports the following languages in `intera
 | es-MX | Spanish (Mexico) |zh-CN | Chinese (Mandarin, simplified)  |
 | fi-FI | Finnish (Finland) |zh-HK | Chinese (Hong Kong SAR) |
 | fr-CA | French (Canada) | zh-TW | Chinese (Mandarin, Taiwanese)|
-| fr-FR | French (France) | gu-IN | Gujarati (India) |
-| ta-IN |Tamil (India) | te-IN | Telugu (India) |
+| fr-FR | French (France) | ||
 
 ## Conversation mode
 

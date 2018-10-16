@@ -46,6 +46,14 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="2.1.2"/>2.1.2
+
+* Diagnostic tracing improvements
+
+### <a name="2.1.1"/>2.1.1
+
+* Added more resilience to Multi-region request transient failures.
+
 ### <a name="2.1.0"/>2.1.0
 
 * Added Multi-region write support.
@@ -319,6 +327,8 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.2](#2.1.2) |October 04, 2018 |--- |
+| [2.1.1](#2.1.1) |September 27, 2018 |--- |
 | [2.1.0](#2.1.0) |September 21, 2018 |--- |
 | [2.0.0](#2.0.0) |September 07, 2018 |--- |
 | [1.22.0](#1.22.0) |April 19, 2018 |--- |

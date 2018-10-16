@@ -41,10 +41,6 @@
           href: terraform-vscode-extension.md
         - name: Create a Terraform base template using Yeoman
           href: terraform-vscode-module-generator.md
-- name: Concepts
-  items:
-    - name: Azure Cloud Shell integration
-      href: terraform-cloud-shell.md 
 - name: Samples
   items:
     - name: Configuration templates
