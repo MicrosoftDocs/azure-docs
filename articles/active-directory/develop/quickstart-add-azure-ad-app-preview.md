@@ -1,5 +1,5 @@
 ---
-title: Register an app registered with the Microsoft identity platform (Preview) | Azure
+title: Register an app with the Microsoft identity platform (Preview) | Azure
 description: Learn how to add and register an application with the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
@@ -20,11 +20,11 @@ ms.reviewer: lenalepa, sureshja
 #Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Microsoft identity platform.
 ---
 
-# Quickstart: Register an app with the Microsoft identity platform (Preview)
+# Quickstart: Register an application with the Microsoft identity platform (Preview)
 
 Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform to provide secure sign-in and authorization for their services.
 
-This quickstart shows you how to add and register an application in the Azure portal so that it can be integrated with Microsoft identity platform.
+This quickstart shows you how to add and register an application in the Azure portal so that it can be integrated with the Microsoft identity platform.
 
 ## Prerequisite
 

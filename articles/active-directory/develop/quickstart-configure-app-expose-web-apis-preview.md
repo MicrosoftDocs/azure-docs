@@ -1,6 +1,6 @@
 ---
-title: Configure an application to expose web APIs | Azure
-description: Learn how to configure an application registered with the Microsoft identity platform to expose a new scope on your resource/API.
+title: Configure an application to expose web APIs (Preview) | Azure
+description: Learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -24,7 +24,7 @@ ms.reviewer: lenalepa, sureshja
 
 You can develop a web API and make it available to client applications by exposing [permissions/scopes](developer-glossary.md#scopes) and [roles](developer-glossary.md#roles). A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs.
 
-In this quickstart, you'll learn how to expose a new scope on your resource/API to make it available to client applications.
+In this quickstart, you'll learn how to configure an application to expose a new scope to make it available to client applications.
 
 ## Prerequisites
 

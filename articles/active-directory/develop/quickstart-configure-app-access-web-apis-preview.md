@@ -1,5 +1,5 @@
 ---
-title: Configure an application to access web APIs | Azure
+title: Configure an application to access web APIs (Preview) | Azure
 description: Learn how to configure an application registered with the Microsoft identity platform to include redirect URI(s), credentials, or permissions to access web APIs.
 services: active-directory
 documentationcenter: ''
