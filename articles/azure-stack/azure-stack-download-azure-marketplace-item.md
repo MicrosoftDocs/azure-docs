@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: ''
 ---
@@ -21,7 +21,7 @@ ms.reviewer: ''
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-As a cloud operator, download items from the Azure Marketplace and make them available in Azure Stack. The items you can choose are from a curated list of Azure Marketplace items that are pre-tested and supported to work with Azure Stack. Additional items are frequently added to this list, so continue to check back for new content. 
+As a cloud operator, you can download items from the Azure Marketplace and make them available in Azure Stack. The items you can choose are from a curated list of Azure Marketplace items that are pre-tested and supported to work with Azure Stack. Additional items are frequently added to this list, so continue to check back for new content. 
 
 There are two scenarios for connecting to the Azure Marketplace: 
 
@@ -65,7 +65,7 @@ Your Azure Stack deployment must have internet connectivity, and be [registered 
 
 ## Disconnected or a partially connected scenario
 
-If Azure Stack is in a disconnected mode and without internet connectivity, you use PowerShell and the *marketplace syndication tool* to download the marketplace items to a machine with internet connectivity. You then transfer the items to your Azure Stack environment. In a disconnected environment, you can’t download marketplace items by using the Azure Stack portal. 
+If Azure Stack is in a disconnected mode and without internet connectivity, you use PowerShell and the *marketplace syndication tool* to download the marketplace items to a machine with internet connectivity. You then transfer the items to your Azure Stack environment. In a disconnected environment, you cannot download marketplace items by using the Azure Stack portal. 
 
 The marketplace syndication tool can also be used in a connected scenario. 
 
@@ -121,26 +121,23 @@ There are two parts to this scenario:
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem 
-      -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId `
-      -AzureSubscriptionId $AzureContext.Subscription.Id 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
-6. When the tool runs, you are prompted to enter your Azure account credentials. Sign in to the Azure account that you have used to register Azure Stack. After the login succeeds, you should see a screen like the following image, with the list of available marketplace items.  
+6. When the tool runs, you are prompted to enter your Azure account credentials. Sign in to the Azure account that you have used to register Azure Stack. After the login succeeds, you should see a screen similar to the following image, with the list of available marketplace items.  
 
    ![Azure Marketplace items popup](media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Select the item that you want to download and make a note of the *version*. (You can hold the *Ctrl* key to select multiple images.) You'll reference the *version* when you import the item in the next procedure. 
+7. Select the item that you want to download and make a note of the *version*. You can hold the *Ctrl* key to select multiple images. You reference the *version* when you import the item in the next procedure. 
    
    You can also filter the list of images by using the **Add criteria** option.
 
 8. Select **OK**, and then review and accept the legal terms. 
 
-9. The time that the download takes depends on the size of the item. After the download completes, the item is available in the folder that you specified in the script. The download includes a VHD file (for virtual machines) or a .ZIP file (for virtual machine extensions). It also includes a gallery package in the *.azpkg* format. (A *.azpkg* package is a *.zip* file.)
- 
+9. The time that the download takes depends on the size of the item. After the download completes, the item is available in the folder that you specified in the script. The download includes a VHD file (for virtual machines) or a .zip file (for virtual machine extensions). It also includes a gallery package in the *.azpkg* format, which is simply a .zip file.
 
 ### Import the download and publish to Azure Stack Marketplace
+
 1. The files for virtual machine images or solution templates that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.  
 
 2. Use the admin portal to upload the marketplace item package (the .azpkg file) and the virtual hard disk image (the .vhd file) to Azure Stack Blob storage. Upload of the package and disk files makes them available to Azure Stack so you can later publish the item to the Azure Stack Marketplace.
@@ -197,14 +194,32 @@ There are two parts to this scenario:
 5. After you publish a gallery item, it is now available to use. To confirm the gallery item is published, go to **All services**, and then under the **GENERAL** category, select **Marketplace**.  If your download is a solution template, make sure you add any dependent VHD image for that solution template.  
   ![View marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
-> [!NOTE]
-> With the release of Azure Stack PowerShell 1.3.0 you can now add Virtual Machine Extensions.
-
-For example:
+With the release of Azure Stack PowerShell 1.3.0 you can now add Virtual Machine Extensions. For example:
 
 ````PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ````
 
+### Import the download and publish to Azure Stack Marketplace (1811 and higher)
+
+1. The files that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.
+
+   The following image shows a folder structure example. `D:\downloadfolder` contains all the downloaded marketplace items. Each sub-folder is a marketplace item (for example, `microsoft.custom-script-linux-arm-2.0.3`), named by the product ID. Inside each sub-folder is the marketplace item's downloaded content.
+
+   ![Marketplace download directory structure](media/azure-stack-download-azure-marketplace-item/mp1.png)
+
+2. Follow the instructions in [this article](azure-stack-powershell-configure-quickstart.md) to configure the Azure Stack Operator PowerShell session. 
+
+3. Import the syndication module and then launch the marketplace syndication tool by running the following script:
+
+   ```PowerShell
+   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   ```
+   The `-AzsCredential` parameter is optional. It is used to renew the access token, if it has expired. If the token expires, you receive a prompt to enter the operator credentials.
+
+4. After the script successfully completes, the item should be available in the Azure Stack Marketplace.
+
 ## Next steps
+
 [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
