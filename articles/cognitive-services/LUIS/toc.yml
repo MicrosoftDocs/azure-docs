@@ -83,9 +83,9 @@
       href: luis-tutorial-pattern-any.md
   - name: Use bot
     items:
-    - name: With REST API & C# 
+    - name: With C# 
       href: luis-csharp-tutorial-bf-v4.md
-    - name: With REST API & Node.js
+    - name: With Node.js
       href: luis-nodejs-tutorial-bf-v4.md
 - name: Samples
   items:
