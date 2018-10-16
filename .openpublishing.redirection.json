@@ -1063,12 +1063,12 @@
         },
         {
             "source_path": "articles/fundamentals-introduction-to-azure.md",
-            "redirect_url": "https://azure.microsoft.com/en-us/overview/what-is-azure/",
+            "redirect_url": "https://azure.microsoft.com/overview/what-is-azure/",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-portal-overview.md",
-            "redirect_url": "https://azure.microsoft.com/en-us/features/azure-portal/",
+            "redirect_url": "https://azure.microsoft.com/features/azure-portal/",
             "redirect_document_id": false
         },
         {
