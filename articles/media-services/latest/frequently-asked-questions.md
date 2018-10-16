@@ -5,13 +5,13 @@ description: This article gives answers to Azure Media Services v3 frequently as
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 10/15/2018
 ms.author: juliako
 ---
 
