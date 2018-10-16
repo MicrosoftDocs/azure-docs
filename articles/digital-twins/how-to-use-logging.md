@@ -29,11 +29,17 @@ Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostic
 
 Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)  can be set for each Azure instance to supplement activity logging. Whereas activity logs pertain to subscription-levels events, diagnostic logging provides insights into the operational history of the resources themselves. The execution time for a user-driven function, a successful API call, or retrieving an app key from a vault are examples of diagnostic events.
 
-[CDN diagatonistic](https://docs.microsoft.com/azure/cdn/cdn-azure-diagnostic-logs)
+To set up diagnostic logging for an instance:
 
-![Diagnostic settings one][2]
+1. Bring up the resource in Azure portal.
+1. Click **Diagnostic settings**:
 
-![Diagnostic settings two][3]
+    ![Diagnostic settings one][2]
+
+1. Click **Turn on diagnostics** to collect data.
+1. Fill in the requested fields and select how and where data will be saved:
+
+    ![Diagnostic settings two][3]
 
 >[!TIP]
 >Use diagnostic logs for insights into resource operations.
