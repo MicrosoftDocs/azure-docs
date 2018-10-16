@@ -58,12 +58,12 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
+   **MyDotnetDevice** : This is the name given for the registered device. Use MyDotnetDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
-
-    If you choose a different name for your device, update the device name in the sample applications before you run them.
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
@@ -87,11 +87,11 @@ You also need your IoT hub _service connection string_ to enable the back-end ap
 az iot hub show-connection-string --hub-name YourIoTHubName --output table
 ```
 
-    Make a note of the service connection string, which looks like:
+Make a note of the service connection string, which looks like:
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart. The service connection string is different from the device connection string.  
+You use this value later in the quickstart. The service connection string is different from the device connection string.  
 
 ## Listen for direct method calls
 

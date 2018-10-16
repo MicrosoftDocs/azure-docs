@@ -42,12 +42,12 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
+   **myiOSdevice** : This is the name given for the registered device. Use myiOSdevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    az iot hub device-identity create --hub-name YourIoTHubName --device-id myiOSdevice
    ```
-
-    If you choose a different name for your device, update the device name in the sample applications before you run them.
 
 1. Run the following command to get the _device connection string_ for the device you just registered:
 

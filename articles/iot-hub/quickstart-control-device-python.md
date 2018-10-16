@@ -60,18 +60,18 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+
+    **MyPythonDevice** : This is the name given for the registered device. Use MyPythonDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
-    If you choose a different name for your device, update the device name in the sample applications before you run them.
-
 1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
@@ -85,7 +85,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub show-connection-string --hub-name YourIoTHubName --output table
