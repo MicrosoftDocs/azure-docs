@@ -70,12 +70,12 @@ Ubuntu      | Serial console access enabled by default.
 CoreOS      | Serial console access enabled by default.
 SUSE        | Newer SLES images available on Azure have serial console access enabled by default. If you are using older versions (10 or earlier) of SLES on Azure, see the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
 Oracle Linux        | Serial console access enabled by default.
-Custom Linux images     | To enable the serial console for your custom Linux VM image, enable console access in the file /etc/inittab to run a terminal on `ttyS0`. For example: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images, see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd). If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the /boot/ path.
+Custom Linux images     | To enable the serial console for your custom Linux VM image, enable console access in the file */etc/inittab* to run a terminal on `ttyS0`. For example: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images, see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd). If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the */boot/* path.
 
 ## Common scenarios for accessing the serial console 
 Scenario          | Actions in the serial console                
 :------------------|:-----------------------------------------
-Broken FSTAB file | Press the **Enter** key to continue and use a text editor to fix the fstab file. You may need to be in single user mode to do so. For more information, see [How to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
+Broken *FSTAB* file | Press the **Enter** key to continue and use a text editor to fix the *FSTAB* file. You might need to be in single user mode to do so. For more information, see [How to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 Incorrect firewall rules | Access the serial console and fix iptables. 
 Filesystem corruption/check | Access the serial console and recover the filesystem. 
 SSH/RDP configuration issues | Access the serial console and change the settings. 
@@ -141,13 +141,13 @@ No access passwords for the console are logged. However, if commands run within 
 If a user is connected to the serial console and another user successfully requests access to that same virtual machine, the first user will be disconnected and the second user connected.
 
 >[!CAUTION] 
-This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (by using SIGHUP or similar mechanism) is still in the roadmap. For Windows there is an automatic timeout enabled in Special Administrative Console (SAC); however, for Linux you can configure the terminal timeout setting. To do so, add `export TMOUT=600` in your .bash_profile or .profile file for the user you use to sign in to the console. This setting will time out the session after 10 minutes.
+This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (by using SIGHUP or similar mechanism) is still in the roadmap. For Windows there is an automatic timeout enabled in Special Administrative Console (SAC); however, for Linux you can configure the terminal timeout setting. To do so, add `export TMOUT=600` in your *.bash_profile* or *.profile* file for the user you use to sign in to the console. This setting will time out the session after 10 minutes.
 
 ## Accessibility
 Accessibility is a key focus for the Azure serial console. To that end, we have ensured that the serial console is fully accessible.
 
 ### Keyboard navigation
-Use the **Tab** key on your keyboard to navigate in the serial console interface from the Azure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl + F6** on your keyboard.
+Use the **Tab** key on your keyboard to navigate in the serial console interface from the Azure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl**+**F6** on your keyboard.
 
 ### Use the serial console with a screen reader
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
@@ -182,7 +182,7 @@ A. Provide feedback by creating a GitHub issue at  https://aka.ms/serialconsolef
 
 **Q. Does the serial console support copy/paste?**
 
-A. Yes. Use **Ctrl + Shift + C** and **Ctrl + Shift + V** to copy and paste into the terminal.
+A. Yes. Use **Ctrl**+**Shift**+**C** and **Ctrl**+**Shift**+**V** to copy and paste into the terminal.
 
 **Q. Can I use serial console instead of an SSH connection?**
 
