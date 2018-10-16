@@ -26,16 +26,16 @@ A developer creates and tests a deployment manifest in a development environment
 
 Use the Azure portal to export the deployment manifest from your development environment:
 
-1. In the Azure portal, navigate to the IoT hub you're using to develop and test your IoT Edge devices. Click **IoT Edge**.
+1. In the Azure portal, navigate to the IoT hub you're using to develop and test your IoT Edge devices. Click **IoT Edge** and then **IoT Edge deployments**:
     ![IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png)
 
-1. Click the device that has the deployment configuration you want to use. The device details page displays:
-    ![IoT Edge Device details](media/iot-accelerators-remote-monitoring-import-edge-package/devicedetails.png)
+1. Click the deployment that has the deployment configuration you want to use. The **Deployment Details** page displays:
+    ![IoT Edge deployment details](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
 
-1. Click **Set modules** to view the list of modules. Then click **Next** twice to get to the **Review Deployment** page:
-    ![Review deployment](media/iot-accelerators-remote-monitoring-import-edge-package/reviewdeployment.png)
+1. Click **Download IoT Edge manifest**:
+    ![Download deployment manifest](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
-1. Select all the JSON displayed on the page. Save the JSON to a local file called **deploymentmanifest.json**.
+1. Save the JSON file as a local file called **deploymentmanifest.json**.
 
 Now you have a file that contains the deployment manifest. In the next section, you import this manifest as a package into the Remote Monitoring solution.
 
