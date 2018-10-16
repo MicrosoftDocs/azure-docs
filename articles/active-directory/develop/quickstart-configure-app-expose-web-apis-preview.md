@@ -54,8 +54,11 @@ Before you can configure the app, follow these steps:
 To expose a new scope through the UI:
 
 1. From the app's **Overview** page, select the **Expose an API** section.
+
 1. Select **Add a scope**.
+
 1. If you have not set an **Application ID URI**, you will see a prompt to enter one. Enter your application ID URI or use the one provided and then select **Save and continue**.
+
 1. When the **Add a scope** page appears, enter your scope's information:
 
     | Field | Description |
@@ -73,6 +76,7 @@ To expose a new scope through the UI:
     | **User consent description** | Enter a meaningful description for your scope, which users will see.<br><br>For example, `Allow the application to have read-only access to your Employee data.` |
 
 1. Set the **State** and select **Add scope** when you're done.
+
 1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## Expose a new scope or role through the application manifest
