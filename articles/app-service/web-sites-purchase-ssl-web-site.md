@@ -89,7 +89,7 @@ Select **App Service Verification**. Since you already mapped the domain to your
 > - **Mail** - Verify the domain by sending an email to the domain administrator. Instructions are provided when you select the option.
 > - **Manual** - Verify the domain using either an HTML page (**Standard** certificate only) or a DNS TXT record. Instructions are provided when you select the option.
 
-## Assign certificate to app
+## Bind certificate to app
 
 In the **[Azure portal](https://portal.azure.com/)**, from the left menu, select **App Services** > **\<your_ app>**.
 
@@ -129,11 +129,11 @@ Rekeying your certificate rolls the certificate with a new certificate issued fr
 
 To turn on automatic renewal of your certificate at anytime, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. 
 
-Select **On** and click **Save**. Certificates can start automatically renewing 90 days before expiration if you have automatic renewal turned on.
+Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-To manually renew the certificate instead, click **Manual Renew** instead. You can request to manually renew your certificate 60 days before expiration.
+To manually renew the certificate instead, click **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
 
 > [!NOTE]
 > The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
