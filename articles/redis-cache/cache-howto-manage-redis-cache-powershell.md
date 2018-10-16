@@ -779,7 +779,7 @@ To learn more about using Windows PowerShell with Azure, see the following resou
 * [Azure Redis Cache cmdlet documentation on MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Learn to use the cmdlets in the Azure Resource Manager module.
 * [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
-* [Azure blog](https://azure.microsoft.com/en-us/blog/): Learn about new features in Azure.
+* [Azure blog](https://azure.microsoft.com/blog/): Learn about new features in Azure.
 * [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 * ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
 

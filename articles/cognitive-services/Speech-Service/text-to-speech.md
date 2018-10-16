@@ -46,7 +46,7 @@ A lot of the capabilities of the **Text to Speech** API, especially around custo
 | Manage Subscriptions | Yes | No |
 
 > [!NOTE]
-> The API implements throttling that limits the API requests to 25 per 5 seconds. Message hearders will inform of the limits.
+> The API implements throttling that limits the API requests to 25 per 5 seconds. Message headers will inform of the limits.
 
 ## Next steps
 

@@ -25,11 +25,10 @@ The primary functions of the Speech service are Speech to Text (also called spee
 
 |Function|Features|
 |-|-|
-|[Speech to Text](speech-to-text.md)| <ul><li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
-|[Text to Speech](text-to-speech.md)| <ul><li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
-|[Speech Translation](speech-translation.md)| <ul><li>Translates streaming audio in near-real-time.<li> Can also process recorded speech.<li>Provides results as text or synthesized speech. |
+|[Speech to Text](speech-to-text.md)| <li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
+|[Text to Speech](text-to-speech.md)| <li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
+|[Speech Translation](speech-translation.md)| <li>Translates streaming audio in near-real-time.<li> Can also process recorded speech.<li>Provides results as text or synthesized speech. |
 
-\* *Intent recognition requires a LUIS subscription.*
 
 ## Customize speech features
 
@@ -84,8 +83,6 @@ If your app is intended for use by the general public, you can use the default s
 If your app is used in a specific domain, for example, medicine or IT, you can create a [language model](how-to-customize-language-model.md). You can use this model to teach the Speech service about the special terminology used by your app.
 
 If your app is used in a noisy environment, such as a factory, you can create a custom [acoustic model](how-to-customize-acoustic-models.md). This model helps the Speech service to distinguish speech from noise.
-
-Getting started is easy. Just download the [Speech SDK](speech-sdk.md) and follow the relevant [Quickstart](quickstart-csharp-dotnet-windows.md) article.
 
 ### Call center transcription
 

@@ -9,7 +9,7 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
-  - name: Use APIs
+  - name: Use REST APIs
     items:
     - name: Get intent
       items:
@@ -83,7 +83,7 @@
       href: luis-tutorial-pattern-any.md
   - name: Use bot
     items:
-    - name: With C#
+    - name: With C# 
       href: luis-csharp-tutorial-bf-v4.md
     - name: With Node.js
       href: luis-nodejs-tutorial-bf-v4.md
@@ -163,7 +163,7 @@
       href: luis-how-to-add-example-utterances.md
     - name: Add entities
       href: luis-how-to-add-entities.md
-    - name: With APIs
+    - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
         href: luis-tutorial-node-import-utterances-csv.md
@@ -171,7 +171,7 @@
         href: luis-tutorial-list-entity.md
   - name: Integrate
     items:
-    - name: With Bing Spell Check API v7
+    - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: luis-tutorial-speech-to-intent.md
@@ -233,13 +233,13 @@
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Spread endpoint quota across keys with Traffic Manager
         href: luis-traffic-manager.md
-  - name: Migrate to V2 API
+  - name: Migrate to V2 REST API
     href: luis-migration-api-v1-to-v2.md
   - name: Find region programmatically
     items:
-    - name: Using C#
+    - name: Using REST API & C#
       href: luis-find-region-csharp.md
-    - name: Using Node.js
+    - name: Using REST API & Node.js
       href: luis-find-region-nodejs.md
 - name: Reference
   items:
@@ -285,16 +285,18 @@
       href: luis-reference-prebuilt-url.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
-  - name: Authoring V2 APIs
-    href: https://aka.ms/luis-authoring-apis
-  - name: Endpoint V2 API
-    href: https://aka.ms/luis-endpoint-apis
-  - name: HTTP codes
-    href: luis-reference-response-codes.md
   - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: REST APIs
+    items:
+    - name: Authoring V2 REST APIs
+      href: https://aka.ms/luis-authoring-apis
+    - name: Endpoint V2 REST API
+      href: https://aka.ms/luis-endpoint-apis
+    - name: HTTP codes
+      href: luis-reference-response-codes.md
   - name: SDKs
     items:
     - name: C#
