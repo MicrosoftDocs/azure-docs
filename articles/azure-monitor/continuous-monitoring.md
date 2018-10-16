@@ -19,14 +19,12 @@ ms.author: bwren
 
 # Continuous monitoring with Azure Monitor
 
-[Azure Monitor](overview.md) is the unified monitoring solution in Azure that provides full-stack observability across applications and infrastructure in the cloud and on-premises. Depending on the what you are wearing at the moment, you can start with end-to-end visibility across the health of your resources, drill down to most probable root cause of a problem (even to actual lines of code), fix the issue in your app or infrastructure and re-deploy in a matter of minutes. If you have a robust monitoring pipeline setup, you should be able to find and fix issues way before it starts impacting your customers.
+Continuous Monitoring is the process and technology to incorporate monitoring across each phase of your DevOps and IT operations lifecycles. It helps to ensure the health, performance, and reliability of your application and infrastructure continuously as it moves from development to production. Continuous Monitoring builds on the concepts of Continuous Integration and Continuous Deployment (CI/CD) which help you develop and deliver software faster and more reliably to provide continuous value to your users.
 
-Many of you already know how CI/CD (Continuous Integration & Continuous Deployment) as a DevOps concept can help you deliver software faster and more reliably to provide continuous value to your users. 
+[Azure Monitor](overview.md) is the unified monitoring solution in Azure that provides full-stack observability across applications and infrastructure in the cloud and on-premises. It works seamlessly with [Visual Studio and Visual Studio Code](https://visualstudio.microsoft.com/) during development and test and integrates with [Azure DevOps](/devops/user-guide/index) for release management and work item management during deployment and operations. It even integrates across the ITSM and SIEM tools of your choice to help track issues and incidents within your existing IT processes.
 
-Continuous Monitoring (CM) is a new follow-up concept where you can incorporate monitoring across each phase of your DevOps & IT Ops cycle and ensure the health, performance & reliability of your apps and infrastructure continuously as it flows through from Dev to Prod to Customers.
+This article describes specific steps for using Azure Monitor to enable Continuous Monitoring throughout your workflows. It includes links to other documentation that describe how to implement different features.
 
-
-Azure Monitor can enable Continuous Monitoring throughout your workflows. It works seamlessly with Visual Studio & Visual Studio Code during development & test and integrates with Azure DevOps for release management and work item management during deployment & operations. It even integrates across the ITSM and SIEM tools of your choice to help track issues and incidents within your existing IT processes.
 
 ## Enable monitoring for all your applications
 In order to gain observability across your entire environment, you need to enable monitoring on all your web applications and services. 
@@ -42,13 +40,17 @@ In order to gain observability across your entire environment, you need to enabl
 
 
 ## Enable monitoring for your entire infrastructure
-Your application 
+Having monitoring enabled across your entire infrastructure will help you achieve full observability and make it easier to discover a potential root cause when something fails. Azure Monitor helps you track the health and performance of your entire hybrid infrastructure including VMs, Containers, Storage, Network, and other Azure services.
 
-Azure Monitor can help you track the health and performance of your entire hybrid infrastructure, be it VMs, Containers, Storage, Network or any other Azure services. You automatically get platform metrics, activity logs and diagnostics logs from most of your Azure resources and can enable deeper monitoring for Virtual Machines or AKS clusters with a simple button click on the Azure portal or installing an agent on your servers.
-For scalability and ‘Infrastructure as Code’, it is recommended to take advantage of DevOps Projects, Azure Policy, PowerShell or ARM templates for enabling monitoring and configuring alerts over a large set of resources. Having monitoring enabled across your entire infrastructure will help you achieve full observability and make it easier to discover a potential root lcause when something fails.
+- You automatically get [platform metrics, activity logs and diagnostics logs](../monitoring/monitoring-data-sources.md) from most of your Azure resources.
+- Enable deeper monitoring for VMs with [Azure Monitor for VMs](../monitoring/monitoring-vminsights-overview.md).
+-  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](../monitoring/monitoring-container-insights-overview.md).
 
 
-[Infrastructure as code](/devops/learn/what-is-infrastructure-as-code)
+[Infrastructure as code](/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps team uses for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that you use for managing your applications.
+
+-  Use [Resource Manager templates](../log-analytics/log-analytics-template-workspace-configuration.md) to enable monitoring and configure alerts over a large set of resources.
+- Use [Azure Policy](../governance/policy/overview.md) to enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. 
 
 
 ##	Group related resources in Azure Resource Groups for better management
@@ -63,9 +65,6 @@ A typical application on Azure today includes multiple resources including VMs, 
 - It's good practice to [maintain separate monitoring instances](../application-insights/app-insights-separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments you can use [multi-resource charts in Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) or create [cross-resource queries in Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md).
 
 
-
-
-
 ## Setup actionable alerts with notifications and/or remediations
 A critical aspect of monitoring is proactively notifying administrators of any current and predicted issues. 
 
@@ -75,8 +74,17 @@ A critical aspect of monitoring is proactively notifying administrators of any c
 - Remediate situations identified in alerts as well with [Azure Automation runbooks](../automation/automation-webhooks.md) or [Logic Apps](../connectors/custom-connectors/create-webhook-trigger.md) that can be launched from an alert using webhooks. 
 - Use [autoscaling](../monitor-tutorial-autoscale-performance-schedule.md) to dynamically increase and decrease your compute resources based on collected metrics.
 
+## Prepare role-based dashboards and workbooks for reporting
+In order to support continuous monitoring, it is imperative that your development and operations have access to the same telemetry and tools. This allows you to view patterns across your entire environment and minimize your Mean Time To Detect (MTTD) and Mean Time To Restore (MTTR).
 
+- Prepare [custom dashboards](../application-insights/app-insights-tutorial-dashboards.md) based on common metrics and logs for the different roles in your organization. Dashboards can combine data from all Azure resources.
+- [Workbooks](../application-insights/app-insights-usage-workbooks.md) can help with knowledge sharing between development and operations. These could be prepared as dynamic reports with metric charts and log queries, or even as troubleshooting guides prepared by developers helping customer support or operations to handle basic problems.
 
+## Continuously optimize with Build-Measure-Learn
+ Monitoring is one of the fundamental aspects of the popular Build-Measure-Learn philosophy which recommends continuously tracking your KPIs and user behavior metrics and striving to optimize them through planning iterations. Azure Monitor helps you collect all the relevant custom events, metrics, or logs relevant to your business and it is extremely simple to add a new data point in the next deployment if something seems missing. 
+
+- Use tools in Application Insights to [track end-user behavior and engagement](../application-insights/app-insights-tutorial-users.md).
+- Use [Impact Analysis](../application-insights/app-insights-usage-impact.md) to help you prioritize which areas to focus on to drive to important KPIs.
 
 
 ## Next steps
