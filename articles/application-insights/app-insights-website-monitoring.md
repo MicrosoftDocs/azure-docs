@@ -14,7 +14,7 @@ manager: carmonm
 
 # Start monitoring Your website
 
-With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. Application Insights provides both server-side monitoring as well as client/browser-side monitoring capababilities.
+With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. Application Insights provides both server-side monitoring as well as client/browser-side monitoring capabilities.
 
 This quickstart guides you through adding the [open source Application Insight JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) to understand the client/brower-side experience for visitors to any website.
 
@@ -112,7 +112,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Analytics graph of user requests over a period of time](./media/app-insights-website-monitoring/analytics-query.png)
 
-3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header. Here you find metrics related to the performance of your website. There is also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here you can access [end-to-end transaction details](app-insights-transaction-diagnostics.md) experience.
+3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header. Here you find metrics related to the performance of your website. There is also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here, you can access [end-to-end transaction details](app-insights-transaction-diagnostics.md) experience.
 
    ![Server metrics graph](./media/app-insights-website-monitoring/browser-performance.png)
 
