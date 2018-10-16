@@ -31,7 +31,7 @@ For a workload with performance issues, the performance issue may be due to CPU 
 
   - Too many running queries
   - Too many compiling queries
-  - One or more executing queries is using a sub-optimal query plan
+  - One or more executing queries are using a sub-optimal query plan
 
   If this is the case for your workload, your goal is to either identify and tune the associated queries or upgrade the compute size or service tier to increase the capacity of your Azure SQL database to absorb the CPU requirements. For more information in scaling resources for single databases, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and for scaling resources for elastic pools, see [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md).
 
