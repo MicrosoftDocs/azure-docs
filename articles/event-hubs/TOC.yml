@@ -80,9 +80,6 @@
     href: event-hubs-event-processor-host.md
   - name: Programming guide
     href: event-hubs-programming-guide.md
-  - name: Integrate with Event Grid
-    href: ../event-grid/event-grid-event-hubs-integration.md
-    maintainContext: true
   - name: Managed identity for Azure resources
     href: event-hubs-managed-service-identity.md
   - name: Role-Based Access Control (preview)
