@@ -40,34 +40,40 @@ Before subscribing to the events for the Media Services account, let's create th
 
 If you switch to the "Azure Event Grid Viewer" site, you see it has no events yet.
    
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
 
 ## Subscribe to Media Services events
 
 You subscribe to an article to tell Event Grid which events you want to track. The following example subscribes to the Media Services account you created, and passes the URL from the website you created as the endpoint for event notification. 
 
-Replace `<event_subscription_name>` with a unique name for your event subscription. For `<resource_group_name>` and `<ams_account_name>`, use the values you used when creating the Media Services account. For the `<endpoint_URL>`, provide the URL of your web app and add `api/updates` to the home page URL. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. 
+Replace `<event_subscription_name>` with a unique name for your event subscription. For `<resource_group_name>` and `<ams_account_name>`, use the values you used when creating the Media Services account. For the `<endpoint_URL>`, provide the URL of your web app and add `api/updates` to the home page URL. By specifying the endpoint when subscribing, Event Grid handles the routing of events to that endpoint. 
 
-```cli
-amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
+1. Get the resource id
 
-az eventgrid event-subscription create \
-  --resource-id $amsResourceId \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
-```
+    ```cli
+    amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
+    ```
 
-The Media Services account resource id value looks similar to this:
+    The Media Services account resource id value looks similar to this:
 
-```
-/subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
-```
+    ```
+    /subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+    ```
+
+2. Subscribe to the events
+
+    ```cli
+    az eventgrid event-subscription create \
+    --resource-id $amsResourceId \
+    --name <event_subscription_name> \
+    --endpoint <endpoint_URL>
+    ```
 
 Now, let's trigger events to see how Event Grid distributes the message to your endpoint.
 
 ## Send an event to your endpoint
 
-You can trigger events for the Media Services account running an encoding job. You can follow [this quickstart](stream-files-dotnet-quickstart.md) to encode a file and start sending events. If you subscribed to all events, you will see a screen similar to the following:
+You can trigger events for the Media Services account by running an encoding job. You can follow [this quickstart](stream-files-dotnet-quickstart.md) to encode a file and start sending events. 
 
 View your web app again, and notice that a subscription validation event has been sent to it. 
 

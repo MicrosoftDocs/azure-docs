@@ -53,12 +53,18 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
 
    ![Select web hook](./media/monitor-events-portal/select-web-hook.png)
 
-1. The event subscription is prefilled with values for your Media Services account. For the web hook endpoint, provide the URL of your web app and add `api/updates` to the home page URL. Give your subscription a name. When done, select **Create**.
+1. The event subscription is prefilled with values for your Media Services account. 
 
    ![Select logs](./media/monitor-events-portal/create-subscription.png)
 
+1. Select 'Web Hook' for the **Endpoint Type**.
+1. Click on the **Select an endpoint** link.
+
+    For the web hook endpoint, provide the URL of your web app and add `api/updates` to the home page URL. 
+
 1. Press **Confirm Selection**.
 1. Press **Create**.
+1. Give your subscription a name.
 1. View your web app again, and notice that a subscription validation event has been sent to it. 
 
     Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The endpoint has to set `validationResponse` to `validationCode`. For more information, see [Event Grid security and authentication](../../event-grid/security-authentication.md). The web app includes code to validate the subscription.
@@ -67,7 +73,7 @@ Now, let's trigger events to see how Event Grid distributes the message to your 
 
 ## Send an event to your endpoint
 
-You can trigger events for the Media Services account running an encoding job. You can follow [this quickstart](stream-files-dotnet-quickstart.md) to encode a file and start sending events. If you subscribed to all events, you will see a screen similar to the following:
+You can trigger events for the Media Services account by running an encoding job. You can follow [this quickstart](stream-files-dotnet-quickstart.md) to encode a file and start sending events. If you subscribed to all events, you will see a screen similar to the following:
 
 > [!TIP]
 > Select the eye icon to expand the event data. Do not refresh the page, if you want to view all the events.
