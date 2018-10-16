@@ -152,7 +152,7 @@ For mission-critical apps that require high availability, you should provision a
 
 ### What is the size of the transaction log with Hyperscale
 
-The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, the log generation rate might be throttled for continuous aggressive workloads. The peak and average log generation rate is not yet known (preview).
+The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, the log generation rate might be throttled for continuous aggressive workloads. The peak and average log generation rate is not yet known (still in preview).
 
 ### Does my temp db scale as my database grows
 
@@ -223,7 +223,7 @@ Downtime is the same as the downtime when you migrate your databases to a single
 
 ### How much time would it take to bring in X amount of data to SQL Database Hyperscale
 
-Not yet known
+Not yet known (still in preview)
 
 ### Can I read data from blob storage and do fast load (like Polybase and SQL Data Warehouse)
 
@@ -307,11 +307,11 @@ No. Your database resides on a compute VM and not a container.
 
 ### How much throughput can I push on the largest SQL Database Hyperscale compute
 
-Not yet known
+Not yet known (still in preview)
 
 ### How many IOPS do I get on the largest SQL Database Hyperscale compute
 
-Not yet known
+Not yet known (still in preview)
 
 ### Does my throughput get affected by backups
 
