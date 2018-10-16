@@ -29793,6 +29793,16 @@
             "source_path": "articles/cognitive-services/LUIS/luis-get-started-ruby-add-utteranced.md",
             "redirect_url": "/azure/cognitive-services/LUIS/",
             "redirect_document_id": false
-        }        
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-javascript-add-utteranced.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-js-get-intent.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
+            "redirect_document_id": false
+        }                
     ]
 }
