@@ -39,10 +39,12 @@ The Service Fabric integration with AppDynamics is at the Application level. By 
 
 New Relic is another Application Performance Management tool that integrates well with Service Fabric applications. You can install the New Relic nuget package and add specific environment variables in your manifest files to send your application telemetry to New Relic. Check out these [instructions](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/install-net-agent-azure-service-fabric) to enable New Relic telemetry for your .NET Service Fabric applications.
 
-<!-- Need sections for Prometheus and ELK -->
+## ELK 
 
+The ELK stack is a collection of open source technologies: Elastisearch, Logstash, and Kibana. Using these you can collect, store, and analyze Service Fabric diagnostics. We have a tutorial for how to do this with Service Fabric native Java applications [here](service-fabric-tutorial-java-elk.md). 
 
 
 ## Next steps
 
-
+* Get an [overview of monitoring and diagnostics](service-fabric-diagnostics-overview.md) in Service Fabric
+* Learn how to [diagnose common scenarios](service-fabric-diagnostics-common-scenarios.md) with our first party tools
