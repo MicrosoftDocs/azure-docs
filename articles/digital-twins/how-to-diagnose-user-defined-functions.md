@@ -10,15 +10,15 @@ ms.date: 10/15/2018
 ms.author: stefanmsft
 ---
 
-# How to diagnose issues with user-defined functions in Azure Digital Twins
+# How to debug issues with user-defined functions in Azure Digital Twins
 
 This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios encountered when working with them.
 
-## Diagnosing issues
+## Debug issues
 
 Knowing how to diagnose any issues that arise within your Azure Digital Twins instance will aid you to effectively identify the issue, the cause of the problem, and a solution.
 
-### Enable log analytics for your Azure Digital Twins instance
+### Enable log analytics for your instance
 
 Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../log-analytics/log-analytics-queries.md) workspace through the [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md), through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), or through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
 
@@ -48,7 +48,7 @@ AzureDiagnostics
 | where Category = 'UserDefinedFunction'
 ```
 
-## Identifying common issues
+## Identify common issues
 
 Both diagnosing and identifying common issues are important when troubleshooting your solution. Several Common issues encountered when developing user-defined functions are summarized below.
 
