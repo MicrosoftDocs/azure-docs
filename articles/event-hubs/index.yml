@@ -144,19 +144,38 @@ sections:
         href: https://www.pluralsight.com/courses/azure-event-hubs-dotnet-developers-fundamentals
 - title: Samples
   items:
-  - type: paragraph
-    text: Find scripts to manage common tasks.
   - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet">.NET</a>    
-    - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Java">Java</a>    
-    - html: <a href="https://github.com/Azure/azure-event-hubs-python/tree/master/examples">Python</a>        
-    - html: <a href="https://github.com/Azure/azure-event-hubs-node/">Node.js</a>            
-    - html: <a href="https://github.com/Azure/azure-event-hubs-go/tree/master/_examples">Go</a>                
-    - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Management">Azure PowerShell</a>
-    - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Management">Azure CLI</a>
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/event-hubs/media/index/logo_net.svg
+      text: .NET Framework
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet
+    - image: 
+        src: /azure/event-hubs/media/index/logo_java.svg
+      text: Java
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Java
+    - image: 
+        src: /azure/event-hubs/media/index/logo_python.svg
+      text: Python
+      href: https://github.com/Azure/azure-event-hubs-python/tree/master/examples
+    - image: 
+        src: /azure/event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://github.com/Azure/azure-event-hubs-node
+    - image: 
+        src: /azure/event-hubs/media/index/logo_go.svg
+      text: Go
+      href: https://github.com/Azure/azure-event-hubs-go/tree/master/_examples    
+    - image: 
+        src: /azure/event-hubs/media/index/cli.svg
+      text: Azure CLI
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI
+    - image: 
+        src: /azure/event-hubs/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell
+      
 - title: Reference
   items:
   - type: list
