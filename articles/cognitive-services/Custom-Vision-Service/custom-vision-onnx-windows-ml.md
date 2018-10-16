@@ -51,7 +51,26 @@ The example application is available at [https://github.com/Azure-Samples/cognit
 
 ## Use your own model
 
-To use your own model, follow the steps at [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/).
+To use your own model, use the following steps:
+
+1. [Create and train](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) a classifier with the Custom Vision Service. To export the model, select a __compact__ domain such as **General (compact)**. To export an existing classifier, convert the domain to compact by selecting the gear icon at the top right. In __Settings__, choose a compact model, save, and train your project.  
+
+1. [Export your model](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/export-your-model) by going to the Performance tab. Select an iteration trained with a compact domain, an "Export" button will appear. Select *Export*, *ONNX*, *ONNX1.2*, and then *Export*. Once the file is ready, select the *Download* button.
+
+1. Drop the .onnx file into your project's __Assets__ folder. 
+
+1. In Solutions Explorer, right-click the Assets Folder and select __Add Existing Item__. Select the .onnx file.
+
+1. In Solutions Explorer, select the .onnx file from the Assets folder. Change the following properties for the file: 
+    
+    * __Build Action__ -> __Content__
+    * __Copy to Output Directory__ -> __Copy if newer__
+
+1. Change the `_onnxFileNames` variable to the name of the .onnx file. Also modify `ClassLabel` to the number of labels the model contains.
+
+1. Build and run.
+
+1. Click button to select image to evaluate.
 
 ## Next steps
 
