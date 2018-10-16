@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ---
 
@@ -71,8 +71,14 @@ Setting this property registers the storage account with the associated Azure AD
 
 Keep in mind that you can enable Azure AD authentication over SMB only after you have successfully deployed Azure AD Domain Services to your Azure AD tenant. For more information, refer to the [prerequisites](#prerequisites).
 
-**Powershell**  
-To enable Azure AD authentication over SMB, install the `AzureRM.Storage 6.0.0-preview` PowerShell module. For information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+#### Azure portal
+
+To enable Azure AD authentication over SMB using the [Azure portal](https://portal.azure.com), 
+
+
+#### Powershell  
+
+To enable Azure AD authentication over SMB using PowerShell, install the `AzureRM.Storage 6.0.0-preview` PowerShell module. For information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 Next, call [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) and set the **EnableAzureFilesAadIntegrationForSMB** parameter to **true**. In the example below, remember to replace the placeholder values with your own values.
 
@@ -92,7 +98,8 @@ Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true```
 ```
 
-**CLI**  
+#### Azure CLI
+  
 To enable Azure AD authentication over SMB from Azure CLI 2.0, first install the *storage-preview* extension:
 
 ```azurecli-interactive
