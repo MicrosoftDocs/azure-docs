@@ -39,13 +39,13 @@ Activity logging for Azure Digital Twins is enabled by default and can be found 
 
 ## Enable customer diagnostic logs
 
-Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)  can be set for each Azure instance to supplement activity logging. Whereas activity logs pertain to subscription-levels events, diagnostic logging provides insights into the operational history of the resources themselves. 
+Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)  can be set for each Azure instance to supplement activity logging. Whereas activity logs pertain to subscription-levels events, diagnostic logging provides insights into the operational history of the resources themselves.
 
 Examples of diagnostic logging include:
 
-1. The execution time for a user-driven function
-1. A successful API call
-1. Retrieving an app key from a vault
+* The execution time for a user-driven function
+* A successful API call
+* Retrieving an app key from a vault
 
 To set up diagnostic logging for an instance:
 
@@ -64,9 +64,17 @@ To set up diagnostic logging for an instance:
 
 ## Azure monitor and log analytics
 
-Azure Monitor contains the powerful Log Analytics service, which allows logging sources to be viewed and analyzed in one location. For example, multiple diagnostic log histories can be combined, queried, and viewed in Azure Monitor.
+IoT applications unite disparate resources, devices, locations, and data into one. Fine-grained logging provides detailed information about each specific piece, service, or component of the overall application architecture but a holistic overview is often required for maintenance and debugging.
 
-Log histories can quickly become immense. Full log querying capabilities are provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). To set up these powerful features:
+Azure Monitor contains the powerful Log Analytics service, which allows logging sources to be viewed and analyzed in one location. Azure Monitor is therefore highly useful for analyzing logs within sophisticated IoT apps.
+
+Examples of use include:
+
+* Querying multiple diagnostic log histories
+* Seeing logs for several user-defined functions
+* Displaying logs for two or more services within a specific time-frame
+
+Full log querying capabilities are provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). To set up these powerful features:
 
 1. Search for **Log Analytics** in the Azure portal.
 1. You will see your available **Log Analytics** instances:
