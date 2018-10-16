@@ -12,7 +12,7 @@ ms.author: stefanmsft
 
 # How to diagnose issues with user-defined functions in Azure Digital Twins
 
-This article explains how to diagnose user-defined functions and some of the most common scenarios encountered in diagnosing them.
+This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios encountered when working with them.
 
 ## Diagnosing issues
 
@@ -22,15 +22,15 @@ Knowing how to diagnose any issues that arise within your Azure Digital Twins in
 
 Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../log-analytics/log-analytics-queries.md) workspace through the [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md), through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), or through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
 
-Read the article [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
+Read the article [collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
 
 ### Trace sensor telemetry
 
-Ensure that diagnostic settings are enabled on your Azure Digital Twins instance, all log categories are selected, and the logs are being sent into Azure Log Analytics.
+Ensure that diagnostic settings are enabled on your Azure Digital Twins instance, all log categories are selected, and that the logs are being sent to Azure Log Analytics.
 
-To match a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent by setting the `x-ms-client-request-id` property to a GUID.
+To match a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent. To do so, set the `x-ms-client-request-id` property to a GUID.
 
-After sending telemetry, open up Azure Log Analytics to query for logs with the specified Correlation ID:
+After sending telemetry, open up Azure Log Analytics to query for logs using the set Correlation ID:
 
 ```plaintext
 AzureDiagnostics
@@ -41,7 +41,7 @@ AzureDiagnostics
 | --- | --- |
 | *yourCorrelationIdentifier* | The Correlation ID that was specified on the event data |
 
-If you add log statements in your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following condition in your Azure Log Analytics instance:
+If you log your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
 
 ```plaintext
 AzureDiagnostics
