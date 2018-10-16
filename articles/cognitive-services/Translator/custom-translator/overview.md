@@ -26,7 +26,7 @@ You can use previously translated documents to build a translation system. These
 
 Custom Translator also accepts data that is parallel at the document level to make data collection and preparation more effective. If users have access to versions of the same content in multiple languages but in separate documents, Custom Translator will be able to automatically match sentences across documents.
 
-If the appropriate type and amount of training data is supplied, it is not uncommon to see [BLEU score](concept-bleu-score.md) gains between 5 and 10 points by using Custom Translator.
+If the appropriate type and amount of training data is supplied, it is not uncommon to see [BLEU score](what-is-bleu-score.md) gains between 5 and 10 points by using Custom Translator.
 
 ## Be productive and cost effective
 
@@ -58,4 +58,4 @@ Translation systems built with [Custom Translator](https://portal.customtranslat
 
 - Read about [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 
-- With [Quickstart](quickstart-build-deploy-custom-model) learn to build a translation model in Custom Translator.
+- With [Quickstart](quickstart-build-deploy-custom-model.md) learn to build a translation model in Custom Translator.
