@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/16/2018
 ms.author: jeedes
 
 ---
@@ -415,7 +415,18 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
+	![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_users.png)
+
+6. In the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
+
+	![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_roles.png)
+
+	>[!NOTE]
+	>After enabling the user provisioning with the application, you should have to wait for 30 min to get all the roles from Amazon Web Services (AWS) then you need to refresh the page and then while assigning the application to users and groups you see the roles for the user.
+
 6. In the **Add Assignment** dialog select the **Assign** button.
+
+	![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_assign.png)
 	
 ### Test single sign-on
 
