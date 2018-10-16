@@ -22,6 +22,9 @@ Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostic
 
 ![Activity log][1]
 
+>[!TIP]
+>Use activity logs for quick insights into subscription-level events.
+
 ## Enable customer diagnostic logs
 
 Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)  can be set for each Azure instance to supplement activity logging. Whereas activity logs pertain to subscription-levels events, diagnostic logging provides insights into the operational history of the resources themselves. The execution time for a user-driven function, a successful API call, or retrieving an app key from a vault are examples of diagnostic events.
@@ -32,19 +35,20 @@ Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diag
 
 ![Diagnostic settings two][3]
 
-## Azure log analytics
+>[!TIP]
+>Use diagnostic logs for insights into resource operations.
 
-[Link](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries)
+## Azure monitor and log analytics
+
+Azure Monitor contains the powerful Log Analytics service which allows logging sources to be viewed and analyzed in one location. For example, multiple diagnostic log histories can be combined, queried, and viewed in Azure Monitor.
+
+Because log histories can quickly become immense, full log querying capabilities are provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries):
 
 ![Log analytics][4]
 
-## Log analysis
+## Other options
 
-In addition to Azure Log Analytics, there are some basic tips and methods you can employ to assist in using logs to troubleshoot problems, audit data, or validating interactions.
-
-[Link](https://docs.microsoft.com/azure/security/azure-log-audit)
-
-[Link](https://docs.microsoft.com/azure/cdn/cdn-log-analysis)
+Fore a thorough overview of all Azure logging options, see the [Azure log audit](https://docs.microsoft.com/azure/security/azure-log-audit) article.
 
 <!-- Images -->
 [1]: media/how-to-use-logging/activity-log.png
