@@ -18,11 +18,11 @@ ms.author: billmath
 A new PowerShell Module named ADSyncConfig.psm1 was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Azure AD Connect deployment. 
 
 ## Overview 
-The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you pretend to enable in Azure AD Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Azure AD Connect using a custom domain account to connect to your Forest. This ADSyncConfig module can also be used to configure permissions after Azure AD Connect is deployed.
+The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you pretend to enable in Azure AD Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Azure AD Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Azure AD Connect is deployed.
 
 ![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
-For Azure AD Connect Express installation, an automatically generated account (MSOL_nnnnnnnnnn) is created in Active Directory with all the necessary permissions, so there’s no need to use this ADSyncConfig module unless you have blocked permissions inheritance on OUs or on specific Active Directory objects that you want to Synchronize to Azure AD. 
+For Azure AD Connect Express installation, an automatically generated account (MSOL_nnnnnnnnnn) is created in Active Directory with all the necessary permissions, so there’s no need to use this ADSyncConfig module unless you have blocked permissions inheritance on organizational units or on specific Active Directory objects that you want to synchronize to Azure AD. 
  
 ### Permissions summary 
 The following table provides a summary of the permissions required on AD objects: 
@@ -34,7 +34,7 @@ The following table provides a summary of the permissions required on AD objects
 | Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
 | Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |
-| Device writeback |Permissions granted with a PowerShell script as described in [device writeback](how-to-connect-device-writeback.md). |
+| Device writeback |Write permissions to device objects and containers documented in [device writeback](how-to-connect-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.  For more information see [Group Writeback](how-to-connect-preview.md#group-writeback).|
 
 ## Using the ADSyncConfig PowerShell Module 
@@ -46,7 +46,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ![Configure](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >![NOTE]
->You can also copy the **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** file to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.
+>You can also copy the file **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.
 
 To start using the ADSyncConfig you need to load the module in a Windows PowerShell window: 
 
@@ -74,7 +74,7 @@ Or;
 
 In case you don’t want to modify permissions on the AdminSDHolder container, use the switch `-SkipAdminSdHolders`. 
 
-By default, all the set permissions cmdlets will try to set AD DS permissions on the root of each Domain in the Forest, meaning that the user running the PowerShell session requires Domain Administrator rights on each domain in the Forest.  Because of this requirement, it is recommended to use an Enterprise Administrator from the Forest root. If your Azure AD Connect deployment has multiple AD DS Connectors, it will be required to run the same cmdlet on each Forest that you have an AD DS Connector. 
+By default, all the set permissions cmdlets will try to set AD DS permissions on the root of each Domain in the Forest, meaning that the user running the PowerShell session requires Domain Administrator rights on each domain in the Forest.  Because of this requirement, it is recommended to use an Enterprise Administrator from the Forest root. If your Azure AD Connect deployment has multiple AD DS Connectors, it will be required to run the same cmdlet on each forest that has an AD DS Connector. 
 
 You can also set permissions on a specific OU or AD DS object by using the parameter `-ADobjectDN` followed by the DN of the target object where you want to set permissions. When using a target ADobjectDN, the cmdlet will set permissions on this object only and not on the domain root or AdminSDHolder container. This parameter can be useful when you have certain OUs or AD DS objects that have permission inheritance disabled (see Locate AD DS objects with permission inheritance disabled) 
 
@@ -87,19 +87,19 @@ In case Azure AD Connect is already installed and you want to check what is the 
 Get-ADSyncADConnectorAccount 
 ```
 ### Locate AD DS objects with permission inheritance disabled 
-In case you want to check if there is any AD DS object with permission inheritance disabled run: 
+In case you want to check if there is any AD DS object with permission inheritance disabled, you can run: 
 
 ``` powershell
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' 
 ```
-By default, this cmdlet will only look for Organizational Units (ObjectClass=organizationalUnit) with disabled inheritance, but you can specify other AD DS object class in `-ObjectClass` parameter or use ‘*’ for all object classes, as follows: 
+By default, this cmdlet will only look for OUs with disabled inheritance, but you can specify other AD DS object classes in `-ObjectClass` parameter or use ‘*’ for all object classes, as follows: 
 
 ``` powershell
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -ObjectClass * 
 ```
  
 ### View AD DS permissions of an object 
-You can use the cmdlet below to view the list of permissions (ACL) currently set on a Active Directory object by providing its DistinguishedName: 
+You can use the cmdlet below to view the list of permissions currently set on a Active Directory object by providing its DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -137,7 +137,7 @@ This cmdlet will set the following permissions:
 
  
 ### Configure MS-DS-Consistency-Guid Permissions 
-To set permissions for the AD DS Connector account when using the ms-Ds-Consistency-Guid attribute as the Source Anchor (aka “Let Azure manage the source anchor for me” option) , run: 
+To set permissions for the AD DS Connector account when using the ms-Ds-Consistency-Guid attribute as the source anchor (aka “Let Azure manage the source anchor for me” option) , run: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
