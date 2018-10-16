@@ -248,7 +248,7 @@
         maintainContext: true
     - name: File Servers
       href: /azure/templates/Microsoft.BatchAI/workspaces/fileServers
-       maintainContext: true
+      maintainContext: true
 - name: Cache
   items:
   - name: Redis
