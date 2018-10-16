@@ -43,7 +43,7 @@ Add the following matcher below the existing matchers, making sure the keys are 
         dataTypeValue: Temperature
 ```
 
-This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that you added in [the first tutorial](tutorial-facilities-setup.md). Note that these lines are also present in the *provisionSample.yaml* as commented out lines, you can simply uncomment them by removing the '#' character in the front of each line. 
+This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that you added in [the first tutorial](tutorial-facilities-setup.md). Note that these lines are also present in the *provisionSample.yaml* as commented out lines; you can simply uncomment them by removing the '#' character in the front of each line. 
 
 <a id="udf" />
 
