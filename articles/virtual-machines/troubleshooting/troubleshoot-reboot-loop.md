@@ -49,20 +49,9 @@ File system corruption could cause this. However, it is difficult to diagnose an
 
 ## Solution
 
-To resolve this problem, back up the OS disk, attach the OS disk to a rescue VM, and then follow the mitigation options accordingly.
+To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md), and [attach the OS disk to a rescue VM](../windows/troubleshoot-recovery-disks-portal.md), and then follow the solution options accordingly, or try the solutions one by one.
 
-### Back up the OS disk
-
-To take a snapshot of the OS disk of the affected VM as a backup, follow the steps in [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
-
-### Attach OS disk to a rescue VM
-
-To attach the OS disk to a rescue VM, follow the steps in [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
-### Mitigation options
-
-Follow the mitigation options accordingly:
-
-#### Mitigation option 1
+### Solution for cause 1
 
 1. Once the OS disk is attached to a working VM, make sure that the disk is flagged as **Online** in the Disk Management console and note the drive letter of the partition that holds the **\Windows** folder.
 
@@ -114,11 +103,11 @@ Follow the mitigation options accordingly:
 
 17.	If the issue is fixed, then you may have to reinstall the [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
 
-#### Mitigation option 2
+### Solution for cause 2
 
 Restore the VM to the last known good configuration, follow the steps in [How to start Azure Windows VM with Last Known Good Configuration](https://support.microsoft.com/help/4016731/).
 
-#### Mitigation option 3
+### Solution for cause 3
 
 1. Once the disk is attached to a troubleshooting VM, make sure that the disk is flagged as **Online** in the Disk Management console.
 
@@ -129,3 +118,6 @@ Restore the VM to the last known good configuration, follow the steps in [How to
 4. Remove the disk from the troubleshooting VM and wait about 2 minutes for Azure to release this disk.
 
 5. [Create a new VM from the OS disk](../windows/create-vm-specialized.md).
+
+>[!NOTE]
+>The following procedure should only be used as last resource. While restoring from regback may restore access to the machine, the OS is not considered stable since there is data lost in the registry between the timestamp of the hive and the current day. You need to build a new VM and make plans to migrate data.
