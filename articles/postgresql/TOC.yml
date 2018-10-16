@@ -139,7 +139,7 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
-  - name: Advanced Threat Threat Protection
+  - name: Advanced Threat Protection
     items:
     - name: Azure portal
       href: howto-database-threat-protection-portal.md

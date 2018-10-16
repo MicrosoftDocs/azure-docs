@@ -31,18 +31,22 @@ This feature is used by application developers to specify which claims they want
 
 For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](v1-id-and-access-tokens.md). 
 
-One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients.  As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.  
+One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients.  As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
+
+  
 
 **Table 1: Applicability**
 
 | Account Type | V1.0 Endpoint | V2.0 Endpoint  |
 |--------------|---------------|----------------|
 | Personal Microsoft account  | N/A - RPS Tickets are used instead | Support coming |
-| Azure AD account            | Supported                          | Supported      |
+| Azure AD account          | Supported                          | Supported with caveats      |
+
+> [!Important]
+> At this time, apps that support both personal accounts and Azure AD (registered through the [app registration portal](https://apps.dev.microsoft.com)) cannot use optional claims.  However, apps registered for just Azure AD using the v2.0 endpoint can get the optional claims they requested in the manifest.
 
 ## Standard optional claims set
-
-The set of optional claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
+The set of optional claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below.  Note that when adding claims to the **access token**, this will apply to access tokens requested *for* the application (a web API), not those *by* the application.  This ensures that no matter the client accessing your API, the right data is present in the access token they use to authenticate against your API.
 
 > [!Note]
 >The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column.  Additionally, while optional claims are only supported for AAD users currently, MSA support is being added.  When MSA has optional claims support on the v2.0 endpoint, the User Type column will denote if a claim is available for an AAD or MSA user.  
@@ -238,7 +242,7 @@ In the example below, you will modify an application’s manifest to add claims 
             ]
       }
       ```
-      In this case, different optional claims were added to each type of token that the application can receive. The ID tokens will now contain the UPN for federated users in the full form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). The access tokens will now receive the auth_time claim. The SAML tokens will now contain the skypeId directory schema extension (in this example, the app ID for this app is ab603c56068041afb2f6832e2a17e237).  The SAML tokens will expose the Skype ID as `extension_skypeId`.
+      In this case, different optional claims were added to each type of token that the application can receive. The ID tokens will now contain the UPN for federated users in the full form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). The access tokens that other clients request for this application will now include the auth_time claim. The SAML tokens will now contain the skypeId directory schema extension (in this example, the app ID for this app is ab603c56068041afb2f6832e2a17e237).  The SAML tokens will expose the Skype ID as `extension_skypeId`.
 
 1. When you're finished updating the manifest, click **Save** to save the manifest
 

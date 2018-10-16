@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
+            "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/frontdoor/front-door-rest-api.md",
             "redirect_url": "/rest/api/frontdoor",
             "redirect_document_id": true
@@ -12630,6 +12635,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/stream-analytics/stream-analytics-event-hub-consumer-groups.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-troubleshooting-guide.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-select-into.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
             "redirect_url": "/azure/backup/backup-azure-backup-faq",
             "redirect_document_id": false
@@ -16530,11 +16550,21 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-token-and-claims.md",
             "redirect_url": "/azure/active-directory/develop/v1-id-and-access-tokens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/v1-id-and-access-tokens.md",
+            "redirect_url": "/azure/active-directory/develop/id-tokens",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-tokens.md",
             "redirect_url": "/azure/active-directory/develop/v2-id-and-access-tokens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/v2-id-and-access-tokens.md",
+            "redirect_url": "/azure/active-directory/develop/access-tokens",
             "redirect_document_id": true
         },
         {
@@ -29829,6 +29859,16 @@
             "source_path": "articles/app-service/web-sites-java-add-app.md",
             "redirect_url": "/azure/app-service/app-service-web-get-started-java",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-tutorial-mysql.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-mysql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-tutorial-sql.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
+            "redirect_document_id": false
         }
     ]
 }

@@ -76,7 +76,7 @@ Find the Virtual Machine Scale Set definition in the resources section and add t
 In the virtual machine scale set resource, find the **virtualMachineProfile** section. Add a new profile called **extensionsProfile** to manage extensions.  
 
 
-In the **extensionProfile**, add a new extension to the template as shown by the **VMSS-WAD-extension section**.  This section is the Managed Service Identity (MSI) extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
+In the **extensionProfile**, add a new extension to the template as shown by the **VMSS-WAD-extension section**.  This section is the managed identities for Azure resources extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
 
 The code below from the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource . Feel free to add/remove performance counters as needed. 
 
@@ -84,7 +84,7 @@ The code below from the MSI extension also adds the diagnostics extension and co
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed service identity   
+            // Managed identites for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 
