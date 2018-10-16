@@ -405,7 +405,7 @@ You can also remove an extension in the Azure portal as follows:
 | Custom Script extension for Linux |Run scripts against an Azure virtual machine |[Custom Script extension for Linux](custom-script-linux.md) |
 | VM Access extension |Regain access to an Azure virtual machine |[VM Access extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics extension |Manage Azure Diagnostics |[Azure Diagnostics extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## Next steps
 

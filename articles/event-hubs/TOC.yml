@@ -11,14 +11,14 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an event hub - Portal
-    href: event-hubs-quickstart-portal.md
-  - name: Create an event hub - Azure CLI
-    href: event-hubs-quickstart-cli.md
-  - name: Create an event hub - Azure PowerShell
-    href: event-hubs-quickstart-powershell.md
-  - name: Stream into Event Hubs for Apache Kafka
-    href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+  - name: Create an event hub
+    items:
+    - name: Azure portal
+      href: event-hubs-quickstart-portal.md
+    - name: Azure CLI
+      href: event-hubs-quickstart-cli.md
+    - name: Azure PowerShell
+      href: event-hubs-quickstart-powershell.md
   - name: Send events to event hub 
     items:
     - name: .NET Framework
@@ -51,6 +51,8 @@
       href: event-hubs-node-get-started-receive.md    
     - name: Apache Storm
       href: event-hubs-storm-getstarted-receive.md
+  - name: Stream into Event Hubs for Apache Kafka
+    href: event-hubs-quickstart-kafka-enabled-event-hubs.md
 - name: Tutorials
   items:
   - name: Visualize data anomalies on Event Hubs data streams

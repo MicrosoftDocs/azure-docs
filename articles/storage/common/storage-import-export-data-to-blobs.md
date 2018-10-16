@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
 ---
@@ -91,7 +91,7 @@ Perform the following steps to create an import job in the Azure portal.
 
     - Select **Import into Azure**.
     - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-        - The name may contain only lowercase letters, numbers, hyphens, and underscores.
+        - The name may contain only lowercase letters, numbers, and hyphens.
         - The name must start with a letter, and may not contain spaces.
     - Select a subscription.
     - Enter or select a resource group.  

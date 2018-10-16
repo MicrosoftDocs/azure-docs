@@ -25,7 +25,7 @@ ACS and AKS differ in some key areas that impact migration. You should review an
     * Custom `StorageClass` objects for Azure disks will need to be changed from `unmanaged` to `managed`
     * Any `PersistentVolumes` will need to use `kind: Managed`
 * AKS currently supports only one agent pool
-* Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
+* Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/blog/kubernetes-on-azure/)
 * Check the list of AKS [supported regions](https://docs.microsoft.com/azure/aks/container-service-quotas)
 * AKS is a managed service with a hosted Kubernetes control plane. You may need to modify your applications if you've previously modified the configuration of your ACS masters
 

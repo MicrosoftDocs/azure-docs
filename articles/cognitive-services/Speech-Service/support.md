@@ -23,7 +23,7 @@ Are you just starting to explore the functionality of the Speech service? Are yo
 
 ## Stay informed
 
-News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). For the latest information about Speech service, track the [Speech service blog](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
+News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech service, track the [Speech service blog](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## Search
 
