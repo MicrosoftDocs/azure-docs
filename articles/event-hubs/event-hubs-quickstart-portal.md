@@ -32,7 +32,7 @@ To complete this quickstart, make sure you have:
 
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Do the following to create a resource group:
 
-1. Log on to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left navigation, click **Resource groups**. Then click **Add**.
 
    ![Resource groups - Add button](./media/event-hubs-quickstart-portal/resource-groups1.png)
@@ -49,7 +49,7 @@ A resource group is a logical collection of Azure resources. All resources are d
 
 ## Create an Event Hubs namespace
 
-An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following:
+An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following actions:
 
 1. In the Azure portal, and click **Create a resource** at the top left of the screen.
 
@@ -74,7 +74,7 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
     
 ## Create an event hub
 
-To create an event hub within the namespace, do the following:
+To create an event hub within the namespace, do the following actions:
 
 1. On the Event Hubs Namespaces page, select click **Event Hubs**.
    
