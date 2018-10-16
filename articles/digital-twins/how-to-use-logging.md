@@ -85,7 +85,13 @@ Full log querying capabilities are provided through [Azure Log Analytics](https:
 
     ![Create OMS][5]
 
-Once your **Log Analytics** instance is provisioned, you may use powerful queries to find entries in multiples logs or search for specific data. For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Once your **Log Analytics** instance is provisioned, you may use powerful queries to find entries in multiples logs or search for specific data.
+
+For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+
+Azure Log Analytics also provides powerful error and alert notification services which can be viewed by clicking **Diagnose and solve problems**:
+
+   ![Alert and error notifications][6]
 
 >[!TIP]
 >Use **Log Analytics** to see log histories for multiple app functionalities or services.
@@ -100,3 +106,4 @@ Azure Digital Twins also supports application-specific logging and security audi
 [3]: media/how-to-use-logging/diagnostic-settings-two.png
 [4]: media/how-to-use-logging/log-analytics.png
 [5]: media/how-to-use-logging/log-analytics-oms.png
+[6]: media/how-to-use-logging/log-analytics-notifications.png
