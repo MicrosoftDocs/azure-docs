@@ -43,7 +43,7 @@ Add the following matcher below the existing matchers, making sure the keys are 
         dataTypeValue: Temperature
 ```
 
-This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that you added in [the first tutorial](tutorial-facilities-setup.md).
+This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that you added in [the first tutorial](tutorial-facilities-setup.md). Note that these lines are also present in the *provisionSample.yaml* as commented out lines, you can simply uncomment them by removing the '#' character in the front of each line. 
 
 <a id="udf" />
 
@@ -136,7 +136,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
 
         ```JavaScript
             // If sensor values are within range and room is available
-            if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && presence) {
+            if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && !presence) {
                 log(`${alert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
 
                 // log, notify and set parent space computed value
@@ -156,6 +156,9 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
         The modified UDF will look for a condition where a room becomes available and has the carbon dioxide and temperature within tolerable limits. It will generate a notification with the statement `parentSpace.Notify(JSON.stringigy(alert));` when this condition is met. It will set the value of the monitored space regardless of whether the condition is met, with the corresponding message.
     
     1. Save the file. 
+    
+    > [!NOTE]
+    > Instead of updating the current *src\actions\userDefinedFunctions\availability.js* file as mentioned above, you may choose to directly use the file [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js). This file has all the changes required for this tutorial. If you choose use this file instead, make sure to use the correct file name for the **_script_** key in the [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
 1. Open command window, and navigate to the folder **_occupancy-quickstart\src_**. Run the following command to provision your spatial intelligence graph and user-defined function. 
 
@@ -164,7 +167,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
     ```
 
    > [!IMPORTANT]
-   > To prevent unauthorized access to your Digital Twins management API, the **_occupancy-quickstart_** application requires you to sign in with your Azure account credentials every time you run it. It will direct you to a Sign-in page, and give a session-specific code to enter on that page. Follow the prompts to sign in with your Azure account.
+   > To prevent unauthorized access to your Digital Twins management API, the **_occupancy-quickstart_** application requires you to sign in with your Azure account credentials. It saves your credentials for a brief period, so you may not need to sign in every time you run it. For the first time this program executes, as well as when your saved credentials expire after that, it will direct you to a Sign-in page, and give a session-specific code to enter on that page. Follow the prompts to sign in with your Azure account.
 
 
 1. Once your account is authenticated, the application will start creating a sample spatial graph as configured in the *provisionSample.yaml*. Wait until the provisioning completes; it will take a few minutes. Once completed, observe the messages in the command window and notice how your spatial graph is created. Notice how it creates an IoT hub at the root node or the `Venue`. 
