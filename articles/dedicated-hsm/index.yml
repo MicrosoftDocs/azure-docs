@@ -30,6 +30,11 @@ sections:
         image:
           src: media/index/i_article.svg
         title: Concepts
+      - href: /azure/dedicated-hsm/faq
+        html: <p>Learn what Azure dedicated HSM is all about.</p>
+        image:
+          src: media/index/guide.svg
+        title: Concepts
 
 - title: 5-Minute Quickstarts
   items:
