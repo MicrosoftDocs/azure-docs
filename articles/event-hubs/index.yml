@@ -132,11 +132,11 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Developing with .NET on Azure
-      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+    - title: Azure Event Hubs for .NET Developers: Fundamentals
+      href: https://www.pluralsight.com/courses/azure-event-hubs-dotnet-developers-fundamentals
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+        href: https://www.pluralsight.com/courses/azure-event-hubs-dotnet-developers-fundamentals
 - title: Samples
   items:
   - type: paragraph
@@ -145,6 +145,11 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet">.NET</a>    
+    - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Java">Java</a>    
+    - html: <a href="https://github.com/Azure/azure-event-hubs-python/tree/master/examples">Python</a>        
+    - html: <a href="https://github.com/Azure/azure-event-hubs-node/">Node.js</a>            
+    - html: <a href="https://github.com/Azure/azure-event-hubs-go/tree/master/_examples">Go</a>                
     - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Management">Azure PowerShell</a>
     - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Management">Azure CLI</a>
 - title: Reference
