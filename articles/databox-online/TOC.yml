@@ -1,4 +1,4 @@
-- name: Azure Data Box for online transfer documentation
+- name: Azure Data Box Documentation - Online Transfer 
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway

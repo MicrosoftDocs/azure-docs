@@ -119,7 +119,7 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
-[aks-networking]: ./networking-overview.md
+[aks-networking]: ./concepts-network.md
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
