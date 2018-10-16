@@ -4,14 +4,14 @@ description: Follow the steps of this tutorial to analyze videos using Azure Med
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/28/2018
+ms.date: 10/15/2018
 ms.author: juliako
 ---
 
