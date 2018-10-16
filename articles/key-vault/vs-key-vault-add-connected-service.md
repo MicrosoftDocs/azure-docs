@@ -138,7 +138,7 @@ Next, publish your app to Azure.
 
 ## Publish to Azure App Service
 
-1. Right-click on the project node and choose **Publish**. A screen appears that says **Pick a Publish Target**. On the left, choose **Azure App Service**, and then **Create New**.
+1. Right-click on the project node and choose **Publish**. A screen appears that says **Pick a Publish Target**. On the left, choose **App Service**, and then **Create New**.
 
    ![Publish to App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
 
@@ -146,7 +146,7 @@ Next, publish your app to Azure.
 
    ![Create App Service](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
 
-1. After your web application is created, the Publish screen appears. Note the URL for your published web application, hosted in Azure. If you see **None** next to **Key Vault**, you still have to tell App Service what Key Vault to connect to. Choose the **Add Key Vault** link, and choose the Key Vault you created.
+1. After your web application is created, the **Publish** screen appears. Note the URL for your published web application, hosted in Azure. If you see **None** next to **Key Vault**, you still have to tell App Service what Key Vault to connect to. Choose the **Add Key Vault** link, and choose the Key Vault you created.
 
    ![Add Key Vault](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
 
