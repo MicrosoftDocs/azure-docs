@@ -105,7 +105,7 @@ Click **OK**
 ### Create a network security group rule
 By default, no public access is configured for MySQL into the host VM. For the Azure Stack MySQL resource provider to connect and manage the MySQL cluster, an inbound network security group (NSG) rule needs to be created.
 
-1. In the administrato portal, navigate to the resource group created when deploying the MySQL cluster and select the network security group (**default-subnet-sg**):
+1. In the administrator portal, navigate to the resource group created when deploying the MySQL cluster and select the network security group (**default-subnet-sg**):
 
    ![open](media/azure-stack-tutorial-mysqlrp/nsg1.png)
 
