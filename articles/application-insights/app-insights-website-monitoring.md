@@ -14,9 +14,9 @@ manager: carmonm
 
 # Start monitoring Your website
 
-With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. There are SDKs for server-side monitoring as well as a JavaScript SDK, which provides client/browser-side monitoring. 
+With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. Application Insights provides both server-side monitoring as well as client/browser-side monitoring capababilities.
 
-This quickstart guides you through adding the [open source Application Insight JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) to any website.
+This quickstart guides you through adding the [open source Application Insight JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) to understand the client/brower-side experience for visitors to any website.
 
 ## Prerequisites
 
@@ -112,15 +112,15 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Analytics graph of user requests over a period of time](./media/app-insights-website-monitoring/analytics-query.png)
 
-3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header. Here you find metrics related to the performance of your website. You can click **Samples** to drill into individual transaction details. There is also a corresponding view for analyzing failures and exceptions in your website.
+3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header. Here you find metrics related to the performance of your website. There is also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here you can access [end-to-end transaction details](app-insights-transaction-diagnostics.md) experience.
 
    ![Server metrics graph](./media/app-insights-website-monitoring/browser-performance.png)
 
-4. To begin exploring the usage and behavior analytics tools, from the main Application Insights menu select **Users** under the **Usage** header. Since we are testing from a single machine, we will only see data for one user. For a live website, the distribution of users might look something like this:
+4. To begin exploring the [user behavior analytics tools](app-insights-usage-overview.md), from the main Application Insights menu select [**Users**](app-insights-usage-segmentation.md) under the **Usage** header. Since we are testing from a single machine, we will only see data for one user. For a live website, the distribution of users might look something like this:
 
      ![User graph](./media/app-insights-website-monitoring/usage-users.png)
 
-5. If we had instrumented a more complex website with multiple pages another useful tool is **User Flows**. With **User Flows** you can track the pathway visitors takes through the various parts of your website.
+5. If we had instrumented a more complex website with multiple pages another useful tool is [**User Flows**](app-insights-usage-flows.md). With **User Flows** you can track the pathway visitors takes through the various parts of your website.
 
   ![User Flows visualization](./media/app-insights-website-monitoring/user-flows.png)
 
