@@ -18,9 +18,9 @@ This article teaches you how to configure a development environment to work with
 
 - How to create a configuration file that associates your environment with an Azure Machine Learning service workspace.
 - How to configure the following development environments:
-  - Jupyter Notebooks on your own computer
+  - Jupyter Notebooks on your computer
   - Visual Studio Code
-  - Code editor of your choice
+  - Custom code editor
 - How to set up a [conda virtual environment](https://conda.io/docs/user-guide/tasks/manage-environments.html) and use it for Azure Machine Learning. We recommend using Continuum Anaconda to isolate your working environment to avoid dependency conflicts between packages.
 
 ## Prerequisites
@@ -72,8 +72,8 @@ The Azure Machine Learning SDK uses the workspace configuration file to communic
         ```
         You can copy the `aml_config` directory or just the `config.json` file into any other directory that references the workspace.
 
-         [!NOTE]
-         Other scripts or notebooks in the same directory or below load the workspace with `ws=Workspace.from_config()`.
+        [!NOTE]
+        Other scripts or notebooks in the same directory or below load the workspace with `ws=Workspace.from_config()`.
 
 ## Azure Notebooks and Data Science Virtual Machines
 
@@ -187,8 +187,8 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
 
 1. Launch Visual Studio Code, and then use **CTRL-SHIFT-P** (in Windows) or **COMMAND-SHIFT-P** (in Mac OS) to get the **Command Palette**. Enter _Python: Select Interpreter_ and select the conda environment you created.
 
-    > [!NOTE]
-    > Visual Studio Code is automatically aware of conda environments on your computer. For more information, see [Visual Studio code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).
+    [!NOTE]
+    Visual Studio Code is automatically aware of conda environments on your computer. For more information, see [Visual Studio code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).
 
 1. Validate the configuration by using Visual Studio Code to create a new Python script file with the following code, and then run it:
 
