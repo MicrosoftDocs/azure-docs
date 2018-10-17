@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
@@ -87,11 +87,11 @@ Select **Manage machines**. This opens up the **Manage Machines** page. This pag
 
 ### All available machines
 
-To enable the solution for all available machines, select **Enable on all available machines**. This disables the control to add machines individually. This task adds all the names of the machines reporting to the workspace to the computer group saved search query.
+To enable the solution for all available machines, select **Enable on all available machines**. This disables the control to add machines individually. This task adds all the names of the machines reporting to the workspace to the computer group saved search query. When selected, this disables the **Manage Machines** button.
 
 ### All available and future machines
 
-To enable the solution for all available machines and all future machines, select **Enable on all available and future machines**. This option deletes the saved searches and Scope Configurations from the workspace. This opens the solution to all Azure and non-Azure machines that are reporting to the workspace.
+To enable the solution for all available machines and all future machines, select **Enable on all available and future machines**. This option deletes the saved searches and Scope Configurations from the workspace. This opens the solution to all Azure and non-Azure machines that are reporting to the workspace. When selected, this disables the **Manage Machines** button.
 
 ### Selected machines
 
@@ -114,13 +114,13 @@ After you remove these solutions, you can perform the following steps to unlink 
 
 1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
 
-1. On the Unlink workspace page, click **Unlink workspace**.
+2. On the Unlink workspace page, click **Unlink workspace**.
 
    ![Unlink workspace page](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    You will receive a prompt verifying you wish to proceed.
 
-1. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
 If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 

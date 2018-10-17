@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
+            "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/frontdoor/front-door-rest-api.md",
             "redirect_url": "/rest/api/frontdoor",
             "redirect_document_id": true
@@ -1058,12 +1063,12 @@
         },
         {
             "source_path": "articles/fundamentals-introduction-to-azure.md",
-            "redirect_url": "https://azure.microsoft.com/en-us/overview/what-is-azure/",
+            "redirect_url": "https://azure.microsoft.com/overview/what-is-azure/",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-portal-overview.md",
-            "redirect_url": "https://azure.microsoft.com/en-us/features/azure-portal/",
+            "redirect_url": "https://azure.microsoft.com/features/azure-portal/",
             "redirect_document_id": false
         },
         {
@@ -3054,6 +3059,11 @@
         {
             "source_path": "articles/application-gateway/application-gateway-webapplicationfirewall-overview.md",
             "redirect_url": "/azure/application-gateway/application-gateway-web-application-firewall-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-introduction.md",
+            "redirect_url": "/azure/application-gateway/overview",
             "redirect_document_id": false
         },
         {
@@ -7285,6 +7295,11 @@
         },
         {
             "source_path": "articles/azure-stack/user/azure-stack-powershell-install.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-powershell-configure-quickstart.md",
             "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
             "redirect_document_id": false
         },
@@ -12627,6 +12642,21 @@
         {
             "source_path": "articles/stream-analytics/stream-analytics-functions-redis.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-event-hub-consumer-groups.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-troubleshooting-guide.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-select-into.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
             "redirect_document_id": false
         },
         {
@@ -29097,6 +29127,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/aks/networking-overview.md",
+            "redirect_url": "/azure/aks/configure-advanced-networking",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/security-center/security-center-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": false
@@ -29831,9 +29866,24 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/media-services/latest/intelligence-concept.md",
+            "redirect_url": "/azure/media-services/latest/analyzing-video-audio-files-concept",
+            "redirect_document_id": true
+        },
+        {     
             "source_path": "articles/app-service/web-sites-java-add-app.md",
             "redirect_url": "/azure/app-service/app-service-web-get-started-java",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-tutorial-mysql.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-mysql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-tutorial-sql.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
+            "redirect_document_id": false
         }
     ]
 }

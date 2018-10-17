@@ -121,11 +121,11 @@ You can configure environment variables and the create options for the Edge hub 
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"C:\\\\HostStoragePath:C:\\\\ModuleStoragePath\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "storageFolder": {
-            "value": "C:\\\\ModuleStoragePath"
+            "value": "<ModuleStoragePath>"
         }
     },
     "status": "running",
@@ -133,6 +133,8 @@ You can configure environment variables and the create options for the Edge hub 
 }
 ```
 
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both host and module storage path must be an absolute path.  For example, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` means host path `/etc/iotedge/storage` is mapped to container path `/iotedge/storage/`.  You can also find more details about createOptions from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
 ## Next steps
 
-Enable extended offline operations in your transparent gateway scenarios for [Linux](how-to-create-transparent-gateway-linux.md) or [Windows](how-to-create-transparent-gateway-windows.md) devices. 
+Enable extended offline operations in your transparent gateway scenarios for [Linux](how-to-create-transparent-gateway-linux.md) or [Windows](how-to-create-transparent-gateway-windows.md) devices.
