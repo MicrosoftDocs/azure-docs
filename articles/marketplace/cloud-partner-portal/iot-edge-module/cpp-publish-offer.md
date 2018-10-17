@@ -3,7 +3,7 @@ title: Publish IoT Edge module offer | Microsoft Docs
 description: How to publishing an IoT Edge module offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 

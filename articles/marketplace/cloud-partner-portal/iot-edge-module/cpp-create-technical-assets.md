@@ -3,7 +3,7 @@ title: Create IoT Edge module technical assets | Microsoft Docs
 description: Create the technical assets for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -81,7 +81,7 @@ In a scenario where a parameter required for a default value doesn't make sense 
 #### Configuration documentation
 
 All configuration settings of an IoT Edge module must be clearly documented (how to use its routes, twin desired properties, environment variables, createOptions, and so on.) Provide a link to your documentation, or the documentation must be part of your offer/sku description.
-
+[tags and versioning](#tags-and-versioning)
 ### Tags and Versioning
 
 Customers must be able to easily deploy a module and automatically get updates from the marketplace (in a developer scenario.) They also must be able to use and freeze an exact version they've tested (in a production scenario.)
