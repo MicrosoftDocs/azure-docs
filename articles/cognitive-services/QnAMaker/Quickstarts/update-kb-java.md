@@ -309,7 +309,7 @@ public class UpdateKB {
         req.add = new Add ();
         req.add.qnaList = new Question[]{q};
         req.add.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services"
-        + "/qnamaker/faqs", "https://docs.microsoft.com/en-us/bot-framework/resources-bot-"
+        + "/qnamaker/faqs", "https://docs.microsoft.com/bot-framework/resources-bot-"
         + "framework-faq"};
 
         return req;
