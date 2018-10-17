@@ -12,7 +12,7 @@ ms.author: adgera
 
 # How to configure monitoring in Azure Digital Twins
 
-Azure Digital Twins supports robust logging, monitoring, and analytics provided through Azure Log Analytics, diagnostic logs, activity logging, and other services. Logging methods can be combined to summarize records across several services or to provide granular logging coverage for multiple services.
+Azure Digital Twins supports robust logging, monitoring, and analytics. Solutions developers can use Azure Log Analytics, diagnostic logs, activity logging, and other services to support the complex monitoring needs of an IoT app. Logging options can be combined to query or display records across several services and to provide granular logging coverage for many services.
 
 This article summarizes logging and monitoring options and how to combine them in ways specific to Azure Digital Twins.
 
@@ -72,9 +72,9 @@ To set up diagnostic logging for an instance:
 
 ## Azure monitor and log analytics
 
-IoT applications unite disparate resources, devices, locations, and data into one. Fine-grained logging provides detailed information about each specific piece, service, or component of the overall application architecture but a holistic overview is often required for maintenance and debugging.
+IoT applications unite disparate resources, devices, locations, and data into one. Fine-grained logging provides detailed information about each specific piece, service, or component of the overall application architecture but a unified overview is often required for maintenance and debugging.
 
-Azure Monitor contains the powerful Log Analytics service, which allows logging sources to be viewed and analyzed in one location. Azure Monitor is therefore highly useful for analyzing logs within sophisticated IoT apps.
+Azure Monitor includes the powerful Log Analytics service, which allows logging sources to be viewed and analyzed in one location. Azure Monitor is therefore highly useful for analyzing logs within sophisticated IoT apps.
 
 Examples of use include:
 
@@ -82,7 +82,7 @@ Examples of use include:
 * Seeing logs for several user-defined functions
 * Displaying logs for two or more services within a specific time-frame
 
-Full log querying capabilities are provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). To set up these powerful features:
+Full log querying is provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). To set up these powerful features:
 
 1. Search for **Log Analytics** in the Azure portal.
 1. You will see your available **Log Analytics** instances. Choose one and select **Logs** to query:
@@ -104,19 +104,19 @@ Azure Log Analytics also provides powerful error and alert notification services
    ![Alert and error notifications][9]
 
 >[!TIP]
->Use **Log Analytics** to see log histories for multiple app functionalities or services.
+>Use **Log Analytics** to query log histories for multiple app functionalities or services.
 
 ## Other options
 
 Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](https://docs.microsoft.com/azure/security/azure-log-audit) article.
 
 <!-- Images -->
-[1]: media/how-to-use-logging/activity-log.png
-[2]: media/how-to-use-logging/activity-log-select.png
-[3]: media/how-to-use-logging/log-analytics-overview.png
-[4]: media/how-to-use-logging/diagnostic-settings-one.png
-[5]: media/how-to-use-logging/diagnostic-settings-two.png
-[6]: media/how-to-use-logging/log-analytics.png
-[7]: media/how-to-use-logging/log-analytics-oms.png
-[8]: media/how-to-use-logging/log-analytics-management.png
-[9]: media/how-to-use-logging/log-analytics-notifications.png
+[1]: media/how-to-configure-monitoring/activity-log.png
+[2]: media/how-to-configure-monitoring/activity-log-select.png
+[3]: media/how-to-configure-monitoring/log-analytics-overview.png
+[4]: media/how-to-configure-monitoring/diagnostic-settings-one.png
+[5]: media/how-to-configure-monitoring/diagnostic-settings-two.png
+[6]: media/how-to-configure-monitoring/log-analytics.png
+[7]: media/how-to-configure-monitoring/log-analytics-oms.png
+[8]: media/how-to-configure-monitoring/log-analytics-management.png
+[9]: media/how-to-configure-monitoring/log-analytics-notifications.png
