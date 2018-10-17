@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
@@ -39,7 +39,7 @@ A data encipherment certificate is used strictly for encryption and decryption o
 This certificate must be installed on each node in the cluster. It will be used at runtime to decrypt values stored in a service's Settings.xml. See [how to create a cluster using Azure Resource Manager][service-fabric-cluster-creation-via-arm] for setup instructions. 
 
 ## Encrypt application secrets
-When deploying an application, encrypt secret values with the certificate and inject them into a service's Settings.xml configuration file. The Service Fabric SDK has built-in secret encryption and decryption functions. Secret values can be encrypted at built-time and then decrypted and read programmatically in service code. 
+When deploying an application, encrypt secret values with the certificate and inject them into a service's Settings.xml configuration file. The Service Fabric SDK has built-in secret encryption and decryption functions. Secret values can be encrypted at build-time and then decrypted and read programmatically in service code. 
 
 The following PowerShell command is used to encrypt a secret. This command only encrypts the value; it does **not** sign the cipher text. You must use the same encipherment certificate that is installed in your cluster to produce ciphertext for secret values:
 

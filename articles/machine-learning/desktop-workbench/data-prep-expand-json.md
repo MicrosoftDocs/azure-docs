@@ -7,13 +7,20 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Expand JSON transformation
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 The **Expand JSON** transform enables users to expand an existing column that contains valid JSON text into multiple columns.
 
 ## How to perform this transformation
@@ -27,7 +34,7 @@ New columns are added next to the source column. These columns contain propertie
 
 ## Examples
 
-The source columnn *Customer* is expanded into two columns *Customer.Name* and *Customer.Phone*.
+The source column *Customer* is expanded into two columns *Customer.Name* and *Customer.Phone*.
 
 | Customer                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|

@@ -10,7 +10,7 @@ editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
@@ -89,7 +89,7 @@ On a hardened workstation, the administrator runs a standard user account (which
 * Execution restriction. Allow only a set of predefined executable files that are needed for management to run (referred to as “default-deny”). By default, users should be denied permission to run any program unless it is explicitly defined in the allow list.
 * Least privilege. Management workstation users should not have any administrative privileges on the local machine itself. This way, they cannot change the system configuration or the system files, either intentionally or unintentionally.
 
-You can enforce all this by using [Group Policy Objects](https://www.microsoft.com/download/details.aspx?id=2612) (GPOs) in Active Directory Domain Services (AD DS) and applying them through your (local) management domain to all management accounts.
+You can enforce all this by using [Group Policy Objects](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy) (GPOs) in Active Directory Domain Services (AD DS) and applying them through your (local) management domain to all management accounts.
 
 ### Managing services, applications, and data
 Azure cloud services configuration is performed through either the Azure portal or SMAPI, via the Windows PowerShell command-line interface or a custom-built application that takes advantage of these RESTful interfaces. Services using these mechanisms include Azure Active Directory (Azure AD), Azure Storage, Azure Websites, and Azure Virtual Network, and others.
@@ -108,7 +108,7 @@ A Remote Desktop Gateway is a policy-based RDP proxy service that enforces secur
 * Configure a [client connection authorization policy](http://technet.microsoft.com/library/cc753324.aspx) to let the RD Gateway verify that the client machine name is valid (domain joined) and allowed to access the Azure portal.
 * Use IPsec for [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) to further protect management traffic from eavesdropping and token theft, or consider an isolated Internet link via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Enable multi-factor authentication (via [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) or smart-card authentication for administrators who log on through RD Gateway.
-* Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](../virtual-network/virtual-networks-nsg.md) in Azure to minimize the number of permitted management endpoints.
+* Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](../virtual-network/security-overview.md) in Azure to minimize the number of permitted management endpoints.
 
 ## Security guidelines
 In general, helping to secure administrator workstations for use with the cloud is similar to the practices used for any workstation on-premises—for example, minimized build and restrictive permissions. Some unique aspects of cloud management are more akin to remote or out-of-band enterprise management. These include the use and auditing of credentials, security-enhanced remote access, and threat detection and response.
@@ -220,8 +220,8 @@ Using a hardened workstation configuration for administering your Azure cloud se
 The following resources are available to provide more general information about Azure and related Microsoft services, in addition to specific items referenced in this paper:
 
 * [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) – get the technical details for designing and building a secure administrative workstation for Azure management
-* [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Security/AzureSecurity) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
-* [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx) -- where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/security/dn440717.aspx) -- where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – keep up to date on the latest in Azure Security
 
 <!--Image references-->

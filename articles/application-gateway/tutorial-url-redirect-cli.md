@@ -1,23 +1,24 @@
 ---
-title: Create an application gateway with URL path-based redirection - Azure CLI | Microsoft Docs
+title: Create an application gateway with URL path-based redirection - Azure CLI
 description: Learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 
 ms.service: application-gateway
-ms.topic: article
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/24/2018
-ms.author: davidmu
+ms.date: 7/14/2018
+ms.author: victorh
+ms.custom: mvc
+#Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 
 ---
-# Create an application gateway with URL path-based redirection using the Azure CLI
+# Tutorial: Create an application gateway with URL path-based redirection using the Azure CLI
 
 You can use the Azure CLI to configure [URL path-based routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
 
-In this article, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
@@ -29,11 +30,13 @@ The following example shows site traffic coming from both ports 8080 and 8081 an
 
 ![URL routing example](./media/tutorial-url-redirect-cli/scenario.png)
 
+If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-redirect-powershell.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -47,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources 
 
-Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az-net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -57,11 +60,13 @@ az network vnet create \
   --address-prefix 10.0.0.0/16 \
   --subnet-name myAGSubnet \
   --subnet-prefix 10.0.1.0/24
+
 az network vnet subnet create \
   --name myBackendSubnet \
   --resource-group myResourceGroupAG \
   --vnet-name myVNet \
   --address-prefix 10.0.2.0/24
+
 az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress
@@ -69,7 +74,7 @@ az network public-ip create \
 
 ## Create an application gateway
 
-You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway named myAppGateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created.  
+Use [az network application-gateway create](/cli/azure/network/application-gateway#create) to create the application gateway named myAppGateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -87,7 +92,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features of it:
+ It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features:
 
 - *appGatewayBackendPool* - An application gateway must have at least one backend address pool.
 - *appGatewayBackendHttpSettings* - Specifies that port 80 and an HTTP protocol is used for communication.
@@ -98,22 +103,25 @@ az network application-gateway create \
 
 ### Add backend pools and ports
 
-You can add backend address pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). You add the frontend ports for the pools using [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
+You can add backend address pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create). You add the frontend ports for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name imagesBackendPool
+
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name videoBackendPool
+
 az network application-gateway frontend-port create \
   --port 8080 \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name bport
+
 az network application-gateway frontend-port create \
   --port 8081 \
   --gateway-name myAppGateway \
@@ -125,7 +133,7 @@ az network application-gateway frontend-port create \
 
 ### Add listeners
 
-Add the backend listeners named *backendListener* and *redirectedListener* that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Add the backend listeners named *backendListener* and *redirectedListener* that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
 
 
 ```azurecli-interactive
@@ -135,6 +143,7 @@ az network application-gateway http-listener create \
   --frontend-port bport \
   --resource-group myResourceGroupAG \
   --gateway-name myAppGateway
+
 az network application-gateway http-listener create \
   --name redirectedListener \
   --frontend-ip appGatewayFrontendIP \
@@ -145,7 +154,7 @@ az network application-gateway http-listener create \
 
 ### Add the default URL path map
 
-URL path maps make sure that specific URLs are routed to specific backend pools. You can create URL path maps named *imagePathRule* and *videoPathRule* using [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) and [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
+URL path maps make sure that specific URLs are routed to specific backend pools. You can create URL path maps named *imagePathRule* and *videoPathRule* using [az network application-gateway url-path-map create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_create) and [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -158,6 +167,7 @@ az network application-gateway url-path-map create \
   --default-http-settings appGatewayBackendHttpSettings \
   --http-settings appGatewayBackendHttpSettings \
   --rule-name imagePathRule
+
 az network application-gateway url-path-map rule create \
   --gateway-name myAppGateway \
   --name videoPathRule \
@@ -169,7 +179,7 @@ az network application-gateway url-path-map rule create \
 
 ### Add redirection configuration
 
-You can configure redirection for the listener using [az network application-gateway redirect-config create](/cli/azure/application-gateway#az_network_application_gateway_redirect_config_create).
+You can configure redirection for the listener using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway#az-network_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -196,7 +206,7 @@ az network application-gateway url-path-map create \
 
 ### Add routing rules
 
-The routing rules associate the URL path maps with the listeners that you created. You can add the rules named *defaultRule* and *redirectedRule* using [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+The routing rules associate the URL path maps with the listeners that you created. You can add the rules named *defaultRule* and *redirectedRule* using [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -207,6 +217,7 @@ az network application-gateway rule create \
   --rule-type PathBasedRouting \
   --url-path-map urlpathmap \
   --address-pool appGatewayBackendPool
+
 az network application-gateway rule create \
   --gateway-name myAppGateway \
   --name redirectedRule \
@@ -235,6 +246,7 @@ for i in `seq 1 3`; do
   then
     poolName="videoBackendPool"
   fi
+
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
@@ -261,13 +273,14 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+
 done
 ```
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm*, or *http://40.121.222.19:8081/images/test.htm*.
+To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm*, or *http://40.121.222.19:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -279,16 +292,23 @@ az network public-ip show \
 
 ![Test base URL in application gateway](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Change the URL to http://&lt;ip-address&gt;:8080/video/test.html, substituting your IP address for &lt;ip-address&gt;, and you should see something like the following example:
+Change the URL to http://&lt;ip-address&gt;:8080/images/test.html, substituting your IP address for &lt;ip-address&gt;, and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Change the URL to http://&lt;ip-address&gt;:8080/video/test.html, substituting your IP address for &lt;ip-address&gt;, and you should see something like the following example.
+Change the URL to http://&lt;ip-address&gt;:8080/video/test.html, substituting your IP address for &lt;ip-address&gt;, and you should see something like the following example:
 
 ![Test video URL in application gateway](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
 Now, change the URL to http://&lt;ip-address&gt;:8081/images/test.htm, substituting your IP address for &lt;ip-address&gt;, and you should see traffic redirected back to the images backend pool at http://&lt;ip-address&gt;:8080/images.
 
+## Clean up resources
+
+When no longer needed, remove the resource group, application gateway, and all related resources.
+
+```azurecli-interactive
+az group delete --name myResourceGroupAG --location eastus
+```
 ## Next steps
 
 In this tutorial, you learned how to:

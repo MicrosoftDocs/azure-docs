@@ -8,11 +8,12 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
 

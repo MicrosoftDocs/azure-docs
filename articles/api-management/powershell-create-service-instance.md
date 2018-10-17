@@ -3,7 +3,7 @@ title: Create an Azure API Management instance using PowerShell | Microsoft Docs
 description: Follow the steps of this tutorial to create a new Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cflower
 editor: ''
 
@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location WestUS
 
 ## Create an API Management service
 
-This is long running operation and could take up to 15 minutes.
+This is a long running operation and could take up to 15 minutes.
 
 ```azurepowershell-interactive
 New-AzureRmApiManagement -ResourceGroupName "myResourceGroup" -Location "West US" -Name "apim-name" -Organization "myOrganization" -AdminEmail "myEmail" -Sku "Developer"

@@ -3,7 +3,7 @@ title: Load Contoso Retail data to Azure SQL Data Warehouse | Microsoft Docs
 description: Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
@@ -354,8 +354,8 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/en-us/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/en-us/library/dn935026.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx

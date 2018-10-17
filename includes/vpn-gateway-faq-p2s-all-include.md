@@ -5,28 +5,30 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 07/30/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
+### How many VPN client endpoints can I have in my Point-to-Site configuration?
+
+We support up to 128 VPN clients to be able to connect to a virtual network at the same time.
+
 ### <a name="supportedclientos"></a>What client operating systems can I use with Point-to-Site?
 
 The following client operating systems are supported:
 
 * Windows 7 (32-bit and 64-bit)
 * Windows Server 2008 R2 (64-bit only)
-* Windows 8 (32-bit and 64-bit)
 * Windows 8.1 (32-bit and 64-bit)
 * Windows Server 2012 (64-bit only)
 * Windows Server 2012 R2 (64-bit only)
 * Windows Server 2016 (64-bit only)
 * Windows 10
-* Mac OS X version 10.11 (El Capitan)
-* Mac OS X version 10.12 (Sierra)
+* Mac OS X version 10.11 or above
+* Linux (StrongSwan)
+* iOS
 
-### How many VPN client endpoints can I have in my Point-to-Site configuration?
-
-We support up to 128 VPN clients to be able to connect to a virtual network at the same time.
+[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
 ### Can I traverse proxies and firewalls using Point-to-Site capability?
 
@@ -82,7 +84,7 @@ When you configure both SSTP and IKEv2 in a mixed environment (consisting of Win
 
 ### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
 
-Azure supports only Windows and Mac for P2S VPN.
+Azure supports Windows, Mac and Linux for P2S VPN.
 
 ### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 

@@ -1,23 +1,21 @@
 ---
 title: Admins manage users and devices - Azure MFA | Microsoft Docs
 description: This describes how to change user settings such as forcing the users to do the proof-up process again.
-documentationcenter: ''
+
 services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
+ms.reviewer: michmcla
 
-ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
-ms.author: joflore
-ms.reviewer: richagi
-ms.custom: it-pro
 ---
 # Manage user settings with Azure Multi-Factor Authentication in the cloud
+
 As an administrator, you can manage the following user and device settings:
 
 * Require users to provide contact methods again
@@ -74,4 +72,4 @@ The **Restore multi-factor authentication on all remembered devices** setting me
 
 - Get more information about how to [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
 
-- If your users need help, point them towards the [User guide for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+- If your users need help, point them towards the [User guide for two-step verification](../user-help/multi-factor-authentication-end-user.md)

@@ -3,19 +3,15 @@ title: 'Manage Azure Cosmos DB in Azure Storage Explorer'
 description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang 
-manager: omafnan
+manager: kfile
 editor: 
 tags: Azure Cosmos DB
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang 
 
@@ -74,7 +70,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 Use the following steps to connect to an Azure Cosmos DB by Emulator, only support SQL account currently.
 
 1. Install Emulator and launch. For how to install Emulator, see
- [Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+ [Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator)
 
 2. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB Emulator...**
 
@@ -208,7 +204,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 ## Troubleshooting
 
-[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Azure Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS, or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
+[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Azure Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS, or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
 
 These are solutions for common issues seen for Azure Cosmos DB in Storage Explorer.
 
@@ -220,7 +216,7 @@ Before proceeding further, try restarting your application and see if the proble
 
 There are a few reasons you may be seeing this error, the two most common ones are:
 
-+ You're behind a “transparent proxy”, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
++ You're behind a *transparent proxy*, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 
 + You're running software, such as anti-virus software, which is injecting a self-signed SSL certificates into the HTTPS messages you receive.
 

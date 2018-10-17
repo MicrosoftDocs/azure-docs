@@ -8,6 +8,7 @@ ms.author: jehunte
 ms.date: 04/11/2018
 ms.topic: tutorial
 ms.service: automation
+ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
 ---
@@ -106,7 +107,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](https://docs.loganalytics.io/index).
+To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ### Single machine inventory
 

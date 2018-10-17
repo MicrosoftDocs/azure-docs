@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
 
@@ -251,15 +251,38 @@ Allow your web server to send telemetry to our endpoints https://dc.services.vis
 
 ### Proxy
 
-Route traffic from your server to a gateway on your intranet, by setting this in ApplicationInsights.config:
+Route traffic from your server to a gateway on your intranet, by overwritting these settings in the example ApplicationInsights.config.
+If these "Endpoint" properties are not present in your config, these classes will be using the default values shown in the example below.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### Example ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-Your gateway should route the traffic to https://dc.services.visualstudio.com:443/v2/track
+_Note ApplicationIdProvider is available starting in v2.6.0_
+
+Your gateway should route the traffic to https://dc.services.visualstudio.com:443
+
+Replace the values above with: `http://<your.gateway.address>/<relative path>`
+ 
+Example: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## Can I run Availability web tests on an intranet server?
 

@@ -4,7 +4,7 @@ description: Learn how to set up diagnostic logs for event hubs in Azure.
 keywords:
 documentationcenter: ''
 services: event-hubs
-author: banisadr
+author: ShubhaVijayasarathy
 manager:
 editor:
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/30/2018
-ms.author: sethm
+ms.date: 07/02/2018
+ms.author: shvija
 
 ---
 # Event Hubs diagnostic logs
@@ -27,7 +27,7 @@ You can view two types of logs for Azure Event Hubs:
 
 ## Enable diagnostic logs
 
-Diagnostics logs are disabled by default. To enable diagnostic logs:
+Diagnostic logs are disabled by default. To enable diagnostic logs, follow these steps:
 
 1.	In the [Azure portal](https://portal.azure.com), under **Monitoring + Management**, click **Diagnostics logs**.
 

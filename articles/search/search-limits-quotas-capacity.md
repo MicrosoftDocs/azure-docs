@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/24/2018
 ms.author: heidist
 
 ---
@@ -40,22 +40,25 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |
 | Maximum fields per index |1000 |100 |1000 |1000 |1000 |1000 |
-| Maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
+| Maximum [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |
+| Maximum [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5. Basic tier is the only SKU with a lower limit of 100 fields per index.
 
+<a name="document-limits"></a>
+
 ## Document limits 
 
-In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3 HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
+As of October 2018, there are no longer any document limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
 
 To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
 
   ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-### Regions and services having document limits
+### Regions previously having document limits
 
-Services having limits were either created before late 2017, or are running on data centers using lower-capacity clusters for hosting Azure Search services. Affected data centers are in the following regions:
+If the portal indicates a document limit, your service was either created before late 2017, or it was created on a data center using lower-capacity clusters for hosting Azure Search services:
 
 + Australia East
 + East Asia
@@ -68,6 +71,8 @@ For services subject to document limits, the following maximum limits apply:
 |  Free | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
+
+If your service has limits that are blocking you, create a new service and then republish all content to that service. There is no mechanism for seamlessly reprovisioning your service onto new hardware behind the scenes.
 
 > [!Note] 
 > For S3 High Density services created after late 2017, the 200 million document per partition has been removed but the 1 million document per index limit remains.
@@ -83,14 +88,18 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 ## Indexer limits
 
-Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers.
+Basic services created after late 2017 have an increased limit of 15 indexes, data sources, skillsets, and indexers.
+
+Resource-intensive operations, such as image analysis in Azure blob indexing or natural language processing in cognitive search, have shorter maximum running times so that other indexing jobs can be accommodated. If an indexing job cannot complete within the maximum time allowed, try running it on a schedule. The scheduler keeps track of indexing status. If a scheduled indexing job is interrupted for any reason, the indexer can pick up where it last left off at the next scheduled run.
 
 | Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |
 | Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |
+| Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |
 | Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |
-| Maximum running time | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
+| Maximum running time <sup>5</sup> | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
+| Maximum running time for cognitive search skillsets or blob indexing with image analysis <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A |
 
@@ -99,6 +108,10 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 <sup>2</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5.
 
 <sup>3</sup> S3 HD services do not include indexer support.
+
+<sup>4</sup> Maximum of 30 skills per skillset.
+
+<sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
 
 ## Queries per second (QPS)
 
@@ -113,7 +126,7 @@ Estimates are more predictable when calculated on services running on dedicated 
 * Maximum 32 fields in $orderby clause
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 
 ## API Response limits
 * Maximum 1000 documents returned per page of search results

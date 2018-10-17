@@ -1,20 +1,15 @@
 ---
-title: Create Hadoop clusters using a web browser - Azure HDInsight | Microsoft Docs
+title: Create Hadoop clusters using a web browser - Azure HDInsight 
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure preview portal.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 697278cf-0032-4f7c-b9b2-a84c4347659e
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Create Linux-based clusters in HDInsight using the Azure portal
@@ -70,14 +65,14 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
     * Click **Next**.
 
-4. For **Storage**, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage. Look at the table below for more information.
+4. For **Storage**, specify whether you want Azure Storage (WASB) or Data Lake Storage as your default storage. Look at the table below for more information.
 
 	![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creating a new cluster in the Azure portal")
 
 	| Storage                                      | Description |
 	|----------------------------------------------|-------------|
-	| **Azure Storage Blobs as default storage**   | <ul><li>For **Primary Storage type**, select **Azure Storage**. After that, for **Selection method**, you can choose **My subscriptions** if you want to specify a storage account that is part of your Azure subscription and then select the storage account. Otherwise, click **Access key** and provide the information for the storage account that you want to choose from outside your Azure subscription.</li><li>For **Default container**, you can choose to go with the default container name suggested by the portal or specify your own.</li><li>If you are using WASB as default storage, you can (optionally) click **Additional Storage Accounts** to specify additional storage accounts to associate with the cluster. For **Azure Storage Keys**, click **Add a storage key**, and then you can provide a storage account from your Azure subscriptions or from other subscriptions (by providing the storage account access key).</li><li>If you are using WASB as default storage, you can (optionally) click **Data Lake Store access** to specify Azure Data Lake Store as additional storage. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
-	| **Azure Data Lake Store as default storage** | For **Primary storage type**, select **Data Lake Store** and then refer to the article [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) for instructions. |
+	| **Azure Storage Blobs as default storage**   | <ul><li>For **Primary Storage type**, select **Azure Storage**. After that, for **Selection method**, you can choose **My subscriptions** if you want to specify a storage account that is part of your Azure subscription and then select the storage account. Otherwise, click **Access key** and provide the information for the storage account that you want to choose from outside your Azure subscription.</li><li>For **Default container**, you can choose to go with the default container name suggested by the portal or specify your own.</li><li>If you are using WASB as default storage, you can (optionally) click **Additional Storage Accounts** to specify additional storage accounts to associate with the cluster. For **Azure Storage Keys**, click **Add a storage key**, and then you can provide a storage account from your Azure subscriptions or from other subscriptions (by providing the storage account access key).</li><li>If you are using WASB as default storage, you can (optionally) click **Data Lake Store access** to specify Azure Data Lake Storage as additional storage. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+	| **Azure Data Lake Storage as default storage** | For **Primary storage type**, select **Azure Data Lake Storage Gen1** or **Azure Data Lake Storage Gen2 (Preview)** and then refer to the article [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) for instructions. |
 	| **External metastores**                      | Optionally, you can specify a SQL database to save Hive and Oozie metadata associated with the cluster. For **Select a SQL database for Hive** select a SQL database, and then provide the username/password for the database. Repeat these steps for Oozie metadata.<br><br>Some considerations while using Azure SQL database for metastores. <ul><li>The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.</li><li>When creating a metastore, do not use a database name that contains dashes or hyphens, as this can cause the cluster creation process to fail.</li></ul> |
 
 	Click **Next**. 

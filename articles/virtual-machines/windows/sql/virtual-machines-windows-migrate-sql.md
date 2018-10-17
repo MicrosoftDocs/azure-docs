@@ -13,7 +13,7 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 08/18/2018
 ms.author: jroth
 
 ---
@@ -80,7 +80,7 @@ Detach your database and log files and transfer them to [Azure Blob storage](htt
 ## Convert to VM and upload to URL and deploy as new VM
 Use this method to migrate all system and user databases in an on-premises SQL Server instance to Azure virtual machine. Use the following general steps to migrate an entire SQL Server instance using this manual method:
 
-1. Convert physical or virtual machines to Hyper-V VHDs by using [Microsoft Virtual Machine Converter](https://technet.microsoft.com/library/dn874008(v=ws.11).aspx).
+1. Convert physical or virtual machines to Hyper-V VHDs.
 2. Upload VHD files to Azure Storage by using the [Add-AzureVHD cmdlet](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3. Deploy a new virtual machine by using the uploaded VHD.
 

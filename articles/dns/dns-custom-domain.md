@@ -3,7 +3,7 @@ title: Integrate Azure DNS with your Azure resources | Microsoft Docs
 description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/19/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service

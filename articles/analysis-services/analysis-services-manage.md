@@ -3,9 +3,9 @@ title: Manage Azure Analysis Services | Microsoft Docs
 description: Learn how to manage an Analysis Services server in Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -41,7 +41,7 @@ To get all the latest features, and the smoothest experience when connecting to 
     > Authentication type, **Active Directory - Universal with MFA support**, is recommended.
 
     > [!NOTE]
-    > If you sign in with a Microsoft Account, Live ID, Yanoo, Gmail, etc., leave the password field blank. You are prompted for a password after clicking Connect.
+    > If you sign in with a Microsoft Account, Live ID, Yahoo, Gmail, etc., leave the password field blank. You are prompted for a password after clicking Connect.
 
     **Windows Authentication** to use your Windows domain\username and password credentials.
 

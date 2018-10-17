@@ -1,27 +1,21 @@
 ---
-title: 'Azure PowerShell script sample - Configure a site-to-site VPN | Microsoft Docs'
-description: Configure site-to-site VPN.
+title: 'Azure PowerShell script sample - Configure a Site-to-Site VPN | Microsoft Docs'
+description: Configure Site-to-Site VPN.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: 
+author: anzaman
 
-ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm:
-ms.workload: infrastructure
-ms.date: 04/17/2018
-ms.author: anzaman
+ms.date: 04/30/2018
+ms.author: alzam
 
 ---
 
-# Create a VPN Gateway and add a site-to-site connection using PowerShell
+# Create a VPN Gateway and add a Site-to-Site connection using PowerShell
 
-This script creates a route-based VPN Gateway and adds point-to-site configuration using RADIUS username/password authentication
+This script creates a route-based VPN Gateway and adds Site-to-Site configuration. In order to create the connection, you also need to configure your VPN device. For more information, see [About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections](../vpn-gateway-about-vpn-devices.md).
 
 
 ```azurepowershell-interactive
@@ -107,9 +101,9 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Creates a virtual network. |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Creates a public IP address. |
 | [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | Creates a new gateway ip configuration. |
-| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgateway) | Creates a VPN gateway. |
-| [New-AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/new-azurermlocalnetworkgateway) | Creates a local network gateway. |
-| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/ new-azurermvirtualnetworkgatewayconnection) | Creates a site-to-site connection. |
+| [New-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway?view=azurermps-6.8.1) | Creates a VPN gateway. |
+| [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-6.8.1) | Creates a local network gateway. |
+| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgatewayconnection) | Creates a site-to-site connection. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | Sets the subnet configuration for the virtual network. |
 | [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | Sets the configuration for the VPN gateway. |

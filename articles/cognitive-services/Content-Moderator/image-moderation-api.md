@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator - Image Moderation | Microsoft Docs
+title: Image Moderation - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Use image moderation to moderate inappropriate images
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
 ---
@@ -19,11 +21,6 @@ Use Content Moderator’s machine-assisted image moderation and [human review to
 
 The **Evaluate** operation returns a confidence score between 0 and 1. It also returns boolean data equal to true or false. These values predict whether the image contains potential adult or racy content. When you call the API with your image (file or URL), the returned response includes the following information:
 
-- The adult or racy confidence score (between 0 and 1).
-- A Boolean value (true or false) based on default thresholds.
-
-Example extract:
-
 	"ImageModeration": {
       .............
       "adultClassificationScore": 0.019196987152099609,
@@ -33,8 +30,13 @@ Example extract:
 	  ............
       ],
 
-- `isImageAdultClassified` represents the potential presence of images that may be considered sexually explicit or adult in certain situations.
-- `isImageRacyClassified` represents the potential presence of images that may be considered sexually suggestive or mature in certain situations.
+> [!NOTE]
+
+> - `isImageAdultClassified` represents the potential presence of images that may be considered sexually explicit or adult in certain situations.
+> - `isImageRacyClassified` represents the potential presence of images that may be considered sexually suggestive or mature in certain situations.
+> - The scores are between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This preview relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
+> - The boolean values are either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
+>
 
 ## Detecting text with Optical Character Recognition (OCR)
 

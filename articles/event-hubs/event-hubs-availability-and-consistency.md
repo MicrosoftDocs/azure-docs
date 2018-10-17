@@ -3,7 +3,7 @@ title: Availability and consistency in Azure Event Hubs | Microsoft Docs
 description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
@@ -23,7 +23,7 @@ ms.author: sethm
 ## Overview
 Azure Event Hubs uses a [partitioning model](event-hubs-features.md#partitions) to improve availability and parallelization within a single event hub. For example, if an event hub has four partitions, and one of those partitions is moved from one server to another in a load balancing operation, you can still send and receive from three other partitions. Additionally, having more partitions enables you to have more concurrent readers processing your data, improving your aggregate throughput. Understanding the implications of partitioning and ordering in a distributed system is a critical aspect of solution design.
 
-To help explain the trade-off between ordering and availability, see the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer's theorem. This theorem discusses the choice between consistency, availability, and partition tolerance.
+To help explain the trade-off between ordering and availability, see the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer's theorem. This theorem discusses the choice between consistency, availability, and partition tolerance. It states that for the systems partitioned by network there is always tradeoff between consistency and availability.
 
 Brewer's theorem defines consistency and availability as follows:
 * Partition tolerance: the ability of a data processing system to continue processing data even if a partition failure occurs.

@@ -1,21 +1,16 @@
 ---
-title: Use Beeline with Apache Hive - Azure HDInsight | Microsoft Docs
+title: Use Beeline with Apache Hive - Azure HDInsight 
 description: Learn how to use the Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: beeline hive,hive beeline
 
-ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Use the Beeline client with Apache Hive

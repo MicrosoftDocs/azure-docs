@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 
@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Azure Data Factory - Functions and System Variables
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [System variables in Data Factory version 2](../control-flow-system-variables.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [System variables in Data Factory](../control-flow-system-variables.md).
 
 This article provides information about functions and variables supported by Azure Data Factory.
 

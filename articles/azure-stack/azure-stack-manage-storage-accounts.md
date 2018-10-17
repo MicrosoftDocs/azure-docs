@@ -7,15 +7,14 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 02/22/2018 
+ms.date: 09/28/2018 
 ms.author: mabrigg
-ms.reviewer: anirudha
+ms.reviewer: xiaofmao
 
 ---
 # Manage storage accounts in Azure Stack
@@ -25,22 +24,19 @@ Learn how to manage storage accounts in Azure Stack to find, recover, and reclai
 The list of storage accounts in the region can be viewed in Azure Stack
 by:
 
-1. In an Internet browser, navigate to
-   https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the
-   credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore, for example **(local**).
+1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
+
+2. Select **All services** > **Region management** under **Administration**.
+
+3. Select **Storage** from the **Resource Providers** list.
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Select **Storage** from the **Resource Providers** list.
+   ![Storage Resource Provider](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. Select **Storage accounts** in **Storage**.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Now, on the storage Resource Provider administrator pane – scroll down to
-   the **Storage accounts** tab and click it.
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   The resulting page is the list of storage accounts in that region.
+   The blade displays the list of storage accounts in that region.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -55,14 +51,14 @@ and fetch the relevant accounts** only.
 
 **To filter for accounts:**
 
-1. Click **Filter** at the top of the pane.
+1. Select **Filter** at the top of the pane.
 2. On the Filter pane, it allows you to specify **account name**,
     **subscription ID, or **status** to fine-tune the list of storage
     accounts to be displayed. Use them as appropriate.
-3. Click **Update**. The list should refresh accordingly.
+3. Select **Update**. The list should refresh accordingly.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
-4. To reset the filter: click **Filter**, clear out the
+4. To reset the filter: select **Filter**, clear out the
     selections and update.
 
 The search text box (on the top of the storage accounts list pane) lets
@@ -76,7 +72,7 @@ in.
 
 ## Look at account details
 Once you have located the accounts you are interested in viewing, you
-can click the particular account to view certain details. A new pane
+can select the particular account to view certain details. A new pane
 opens with the account details such as: the type of the account,
 creation time, location, etc.
 
@@ -88,17 +84,17 @@ account.
 
 In Azure Stack there is a simple way to do that:
 
-1. Browse to the storage accounts list. See [Find a storage account](#find) in this topic for more information.
+1. Browse to the storage accounts list. See [Find a storage account](#find) in this article for more information.
 2. Locate that particular account in the list. You may need to filter.
 3. Check the *state* of the account. It should say **Deleted**.
-4. Click the account, which opens the account details pane.
-5. On top of this pane, locate the **Recover** button and click it.
-6. Click **Yes** to confirm.
+4. Select the account, which opens the account details pane.
+5. On top of this pane, locate the **Recover** button and select it.
+6. Select **Yes** to confirm.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. The recovery is now in *process…wait* for an indication that it was
    successful.
-   You can also click the “bell” icon at the top of the portal to
+   You can also select the “bell” icon at the top of the portal to
    view progress indications.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
@@ -113,7 +109,7 @@ In Azure Stack there is a simple way to do that:
 * Your deleted account does not show in the accounts list.
   
   You account may not show in the account list when the deleted account has already been garbage
-  collected. In this case, it cannot be recovered. See [Reclaim capacity](#reclaim) in this topic.
+  collected. In this case, it cannot be recovered. See [Reclaim capacity](#reclaim) in this article.
 
 ## Set the retention period
 The retention period setting allows a cloud operator to specify a time period in
@@ -125,14 +121,11 @@ collection.
 
 **To change the retention period:**
 
-1. In an internet browser, navigate to
-   https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the
-   credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore – for example **(local**).
-4. Select **Storage** from the **Resource Providers** list.
-5. Click **Settings** at the top to open the setting pane.
-6. Click **Configuration** then edit the retention period value.
+1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
+2. Select **All services** > **Region management** under **Administration**.
+3. Select **Storage** from the **Resource Providers** list.
+4. Select **Settings** at the top to open the setting pane.
+5. Select **Configuration** then edit the retention period value.
 
    Set the number of days and then save it.
    
@@ -148,8 +141,8 @@ You can reclaim capacity using either the portal or PowerShell.
 
 **To reclaim capacity using the portal:**
 1. Navigate to the storage accounts pane. See [Find a storage account](#find).
-2. Click **Reclaim space** at the top of the pane.
-3. Read the message and then click **OK**.
+2. Select **Reclaim space** at the top of the pane.
+3. Read the message and then select **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
 4. Wait for success notification See the bell icon on the portal.
@@ -168,85 +161,20 @@ You can also use PowerShell to explicitly override the retention period and imme
    For more information about Azure Resource Manager cmdlets, see
    [Using Azure PowerShell with Azure Resource
    Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Run the following cmdlet:
+2. Run the following cmdlets:
 
-> [!NOTE]
-> If you run this cmdlet, you permanently delete the account and its contents. It is not recoverable. Use this with care.
+> [!NOTE]  
+> If you run these cmdlets, you permanently delete the account and its contents. It is not recoverable. Use this with care.
 
+```PowerShell  
+    $farm_name = (Get-AzsStorageFarm)[0].name
+    Start-AzsReclaimStorageCapacity -FarmName $farm_name
+````
 
-        Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
-
-
-For more information, see [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
+For more information, see [Azure Stack PowerShell documentation.](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)
  
 
-## Migrate a container
-Due to uneven storage use by tenants, a cloud operator may find one or more underlying tenant shares using more space than others. If this occurs, the cloud operator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 
+## Next steps
 
-You must use PowerShell to migrate containers.
-> [!NOTE]
->Blob container migration does not support live migration and currently is an offline operation. During migration and until it is complete the underlying blobs in that container cannot be used and are “offline”. 
-
-**To migrate containers using PowerShell:**
-
-1. Confirm that you have Azure PowerShell installed and configured. If not,
-   use the following instructions:
-    * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Get the farm name: 
-      
-      `$farm = Get-ACSFarm -ResourceGroupName system.local`
-3. Get the shares: 
-
-   `$shares = Get-ACSShare -ResourceGroupName system.local -FarmName $farm.FarmName`
-
-4. Get the containers for a given share. Note that count and intent are optional parameters:
-            
-   `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
-
-   Then examine $containers:
-
-   `$containers`
-
-    ![](media/azure-stack-manage-storage-accounts/image13.png)
-5. Get the best destination shares for the container migration:
-
-    `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
-
-    Then examine $destinationshares:
-
-    `$destinationshares`
-
-    ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Kick off migration for a container, notice this is an async implementation, so one can loop all containers in a share and track the status using the returned job ID.
-
-    `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
-
-    Then examine $jobId:
-
-   ```
-   $jobId
-   d1d5277f-6b8d-4923-9db3-8bb00fa61b65
-   ```
-7. Check status of the migration job by its job ID. When the container migration finishes, MigrationStatus is set to “Completed.”
-
-    `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image15.png)
-
-8. You can cancel an in-progress migration job. This again is an async operation and can be tracked using $jobid:
-
-    `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
-
-    ![](media/azure-stack-manage-storage-accounts/image16.png)
-
-    You can check the statuses of the migration cancel again:
-
-    `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image17.png)
-
-
-
-
-  
-  
+ - For information on managing permissions see [Manage Role-Based Access Control](azure-stack-manage-permissions.md).
+ - For information on Manage storage capacity for Azure Stack, see [Manage storage capacity for Azure Stack](azure-stack-manage-storage-shares.md).

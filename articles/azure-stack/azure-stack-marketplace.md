@@ -3,7 +3,7 @@ title: Publish a custom marketplace item in Azure Stack (cloud operator) | Micro
 description: As an Azure Stack operator, learn how to publish a custom marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: jeffgo
 
 ---
@@ -26,7 +26,10 @@ The Marketplace is a collection of services, applications, and resources customi
 
 As an Azure Stack operator, you decide which items to add (publish) to the Marketplace. You can publish things like databases, App Services, and so on. Publishing makes them visible to all your users. You can publish custom items that you create. You can also publish items from a growing [list of Azure Marketplace items](azure-stack-marketplace-azure-items.md). When you publish an item to the Marketplace, users can see it within five minutes.
 
-To open the Marketplace, click **New**.
+> [!Caution]  
+> All gallery item artifacts known as images and json files are accessible without authentication after making them available in the Azure Stack marketplace. For more considerations when publishing custom marketplace items, see [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
+
+To open the Marketplace, in the admin console select **+ Create a resource**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -44,5 +47,6 @@ Every item published to the Marketplace uses the Azure Gallery Package (.azpkg) 
 With version 1803 and later, Azure Stack converts images to sparse files when they download from Azure or when you upload custom images. This process adds time when adding an image, but saves space and speeds up the deployment of those images. Conversion only applies to new images.  Existing images are not changed. 
 
 ## Next steps
+[Download Marketplace items](azure-stack-download-azure-marketplace-item.md)  
 [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 

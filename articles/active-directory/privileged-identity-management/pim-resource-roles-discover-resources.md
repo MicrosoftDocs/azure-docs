@@ -1,65 +1,60 @@
 ---
-title: Privileged Identity Management for Azure Resources - Discover and manage Azure resources| Microsoft Docs
-description: Describes how to protect Azure resources.
+title: Discover Azure resources to manage in PIM | Microsoft Docs
+description: Learn how to discover Azure resources to manage in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/30/2018
-ms.author: billmath
+ms.component: pim
+ms.date: 08/30/2018
+ms.author: rolyon
 ---
 
+# Discover Azure resources to manage in PIM
 
-# Discover and manage Azure resources
+Using Azure AD Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This is helpful to organizations that already use PIM to protect Azure AD directory roles, and to management group and subscription owners who are looking to secure production resources.
 
-If your organization is already using Azure AD PIM to protect administrators in your directory or you're a subscription owner looking to secure production resources you're in the right place.
-
-When you first enable PIM for Azure resources, you need to discover and select resources to protect with PIM. There is no limit to the number of resources you can manage with PIM, but we recommend starting with your most critical (production) resources first.
-
-> [!Note]
-> Only subscription resources can be searched and selected for management. Choosing to manage a Subscription in PIM will enable management for all child resources as well.
+When you first set up PIM for Azure resources, you need to discover and select the resources to protect with PIM. There's no limit to the number of resources that you can manage with PIM. However, we recommend starting with your most critical (production) resources.
 
 ## Discover resources
 
-Navigate to Azure AD PIM and select Azure resources in the Manage section of the left navigation menu.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+1. Open **Azure AD Privileged Identity Management**.
 
-If this is your first time using PIM for Azure resources you'll need to run discovery to find resources to manage.
-Click the "Discover resources" button in the center of the screen to launch the discovery experience.
+1. Click **Azure resources**.
 
-![](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
+    If this is your first time using PIM for Azure resources, you'll see a Discover resources pane.
 
-If another resource or directory administrator in your organization is already managing an Azure resource with PIM, or you have an eligible role assignment for a resource, the list view will contain the message: "Discover resources or activate an eligible role assignment to continue". 
+    ![Discover resources - first time](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
-![](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
+    If another resource or directory administrator in your organization is already managing Azure resources in PIM, you'll see a list of the resources that are currently being managed.
 
-When you select the button, in the action bar, or the middle of the screen to Discover resources, you'll see a list of subscriptions available for management. At this point, if you see highlighted subscriptions it indicates they are protected by PIM.
+    ![Discover resources pane](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-> [!Note]
-> To prevent another resource administrator from removing PIM settings, once a subscription is managed it cannot be unmanaged.
+1. Click **Discover resources** to launch the discovery experience.
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
+    ![Discovery pane](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-Hover over a subscription you would like to protect with PIM and select the box on the far left of the row. You may select multiple subscriptions at a time.
+1. On the Discovery pane, use **Resource state filter** and **Select resource type** to filter the management groups or subscriptions you have write permission to. It's probably easiest to start with **All** initially.
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
+    You can only search for and select management group or subscription resources to manage using PIM. When you manage a management group or a subscription in PIM, you can also manage its child resources.
 
-To initiate the onboarding process select the "Manage resource" button in the bar at the top of the screen.
+1. Add a checkmark next to any unmanaged resources you want to manage.
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
+    > [!NOTE]
+    > Once a management group or subscription is set to managed, it can't be unmanaged. This prevents another resource administrator from removing PIM settings.
 
-The selected resources are now managed by PIM. Close the discovery screen using the "X" in the upper right corner of the page, and click refresh in the bar at the top of the Manage Azure resources screen to begin managing PIM settings and assigning members.
+    ![Discovery - Manage resource](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
+1. Click **Manage resource** to start managing the selected resources.
 
 ## Next steps
 
-[Configure role settings](pim-resource-roles-configure-role-settings.md)
-
-[Assign roles in PIM](pim-resource-roles-assign-roles.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)
+- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)

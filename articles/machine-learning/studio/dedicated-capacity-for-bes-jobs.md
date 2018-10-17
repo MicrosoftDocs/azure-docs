@@ -9,6 +9,7 @@ manager: hjerez
 editor: cgronlun
 
 ms.service: machine-learning
+ms.component: studio
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na

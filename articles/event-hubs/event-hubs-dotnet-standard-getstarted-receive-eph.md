@@ -3,7 +3,7 @@ title: Receive events from Azure Event Hubs using .NET Standard library | Micros
 description: Get started receiving messages with the EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
@@ -30,8 +30,8 @@ This tutorial shows how to write a .NET Core console application that receives m
 * [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017, but Visual Studio 2015 is also supported.
 * [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
 * An Azure subscription.
-* An Azure Event Hubs namespace.
-* An Azure Storage account.
+* An Azure Event Hubs namespace and an event hub.
+* An Azure storage account.
 
 ## Create an Event Hubs namespace and an event hub  
 
@@ -40,13 +40,18 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 ## Create an Azure Storage account  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
-2. In the left navigation pane of the portal, click **Create a resource**, click **Storage**, and then click **Storage Account**.  
-3. Complete the fields in the storage account window, and then click **Create**.
+2. In the left navigation pane of the portal, select **Create a resource**, select **Storage** from categories, and then select **Storage account - blob, file, table, queue**.  
+3. Complete the fields in the **Create storage account** window, and then select **Review + create**. 
 
 	![Create storage account][1]
 
-4. After you see the **Deployments Succeeded** message, click the name of the new storage account. In the **Essentials** window, click **Blobs**. When the **Blob service** dialog box opens, click **+ Container** at the top. Give the container a name, and then close **Blob service**.  
-5. Click **Access keys** in the left-hand window and copy the name of the storage container, the storage account, and the value of **key1**. Save these values to Notepad or some other temporary location.  
+4. On the **Review + create** page, select **Create** after reviewing the values for the fields. 
+5. After you see the **Deployments Succeeded** message, select the name of the new storage account. 
+6. In the **Essentials** window, select **Blobs**. 
+7. Select **+ Container** at the top. Give the container a name.  
+8. Select **Access keys** in the left-hand window and copy the name of the storage container, the storage account, and the value of **key1**. 
+
+    Save these values to Notepad or some other temporary location.
 
 ## Create a console application
 
@@ -120,11 +125,11 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
 	using System.Threading.Tasks;
     ```
 
-2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
+2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values:
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -140,9 +145,9 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -171,8 +176,8 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -189,9 +194,9 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
                 Console.WriteLine("Registering EventProcessor...");
 
                 var eventProcessorHost = new EventProcessorHost(
-                    EhEntityPath,
+                    EventHubName,
                     PartitionReceiver.DefaultConsumerGroupName,
-                    EhConnectionString,
+                    EventHubConnectionString,
                     StorageConnectionString,
                     StorageContainerName);
 
@@ -220,4 +225,4 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

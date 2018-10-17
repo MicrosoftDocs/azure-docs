@@ -3,7 +3,7 @@ title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 services: application-insights
 documentationcenter: windows
-author: vgorbenko
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
@@ -11,8 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2017
+ms.topic: conceptual
+ms.date: 10/02/2018
+ms.reviewer: vitalyg
 ms.author: mbullwin
 
 ---
@@ -30,12 +31,13 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 * You can also set sampling manually, either in the portal on the Usage and estimated costs page; or in the ASP.NET SDK in the .config file; or in the Java SDK in the ApplicationInsights.xml file, to also reduce the network traffic.
 * If you log custom events and you want to make sure that a set of events is either retained or discarded together, make sure that they have the same OperationId value.
 * The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". When sampling is not in operation, `itemCount==1`.
-* If you write Analytics queries, you should [take account of sampling](app-insights-analytics-tour.md#counting-sampled-data). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
+* If you write Analytics queries, you should [take account of sampling](../log-analytics/query-language/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
 
 ## Types of sampling
 There are three alternative sampling methods:
 
-* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Beginning with SDK v 2.0.0-beta3 this is the default sampling method. Adaptive sampling is currently only available for ASP.NET server-side telemetry. 
+* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Beginning with SDK v 2.0.0-beta3 this is the default sampling method. Adaptive sampling is currently only available for ASP.NET server-side telemetry. For Asp.NET Core applications targeting full Framework, adaptive sampling is available from version 1.0.0 of Microsoft.ApplicationInsights.AspNetCore SDK. For Asp.NET Core applications targeting NetCore, adaptive sampling is available from 2.2.0-beta1 of Microsoft.ApplicationInsights.AspNetCore SDK.
+
 * **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET or Java server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 * **Ingestion sampling** 
 works in the Azure portal. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app, and it works uniformly for all servers and clients. 
@@ -245,7 +247,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
                 <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
                 <Add name = "SamplingPercentage" value = "50" />
             </Processor>
-        </BuilrInProcessors>
+        </BuiltInProcessors>
     <TelemetryProcessors/>
 ```
 
@@ -277,7 +279,7 @@ Instead of setting the sampling parameter in the .config file, you can programma
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.UseSampling(10.0); // percentage
 
     // If you have other telemetry processors:
@@ -322,9 +324,12 @@ If the conditions to use the other forms of sampling do not apply, we recommend 
 ## How do I know whether sampling is in operation?
 To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
-    | render areachart 
+```
+union * 
+| where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h), itemType
+| render timechart 
+```
 
 In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of previous discarded records. 
 
@@ -333,7 +338,8 @@ Fixed-rate sampling feature of the SDK in ASP.NET versions from 2.0.0 and Java S
 
 The sampling algorithm decides which telemetry items to drop, and which ones to keep (whether it's in the SDK or in the Application Insights service). The sampling decision is based on several rules that aim to preserve all interrelated data points intact, maintaining a diagnostic experience in Application Insights that is actionable and reliable even with a reduced data set. For example, if for a failed request your app sends additional telemetry items (such as exception and traces logged from this request), sampling will not split this request and other telemetry. It either keeps or drops them all together. As a result, when you look at the request details in Application Insights, you can always see the request along with its associated telemetry items. 
 
-For applications that define "user" (that is, most typical web applications), the sampling decision is based on the hash of the user id, which means that all telemetry for any particular user is either preserved or dropped. For the types of applications that don't define users (such as web services) the sampling decision is based on the operation id of the request. Finally, for the telemetry items that neither have user nor operation id set (for example telemetry items reported from asynchronous threads with no http context) sampling simply captures a percentage of telemetry items of each type. 
+The sampling decision is based on the operation id of the request, which means that all telemetry items belonging to a particular operation is either preserved or dropped. For the telemetry items that do not have operation id set (for example telemetry items reported from asynchronous threads with no http context) sampling simply captures a percentage of telemetry items of each type. 
+Prior to 2.5.0-beta2 of .NET SDK, and 2.2.0-beta3 of ASP.NET Core SDK, the sampling decision was based on the hash of the user id for applications that define "user" (that is, most typical web applications). For the types of applications that didn't define users (such as web services) the sampling decision was based on the operation id of the request.
 
 When presenting telemetry back to you, the Application Insights service adjusts the metrics by the same sampling percentage that was used at the time of collection, to compensate for the missing data points. Hence, when looking at the telemetry in Application Insights, the users are seeing statistically correct approximations that are very close to the real numbers.
 

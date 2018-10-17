@@ -2,15 +2,15 @@
 title: Create an application gateway with multiple site hosting  - Azure portal | Microsoft Docs
 description: Learn how to create an application gateway that hosts multiple sites using the Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # Create an application gateway with multiple site hosting using the Azure portal
@@ -99,7 +99,7 @@ In this example, you create two virtual machines to be used as backend servers f
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `

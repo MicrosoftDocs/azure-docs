@@ -85,7 +85,7 @@ Use a wild card to modify the preceding policy to allow any Ubuntu LTS image:
 }
 ```
 
-For information about policy fields, see [Policy aliases](../../azure-policy/policy-definition.md#aliases).
+For information about policy fields, see [Policy aliases](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## Managed disks
 
@@ -208,4 +208,4 @@ You may want to forbid usage of certain types of extensions. For example, an ext
 ## Next steps
 * After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies, see [Use Azure portal to assign and manage resource policies](../../azure-policy/assign-policy-definition.md), [Use PowerShell to assign policies](../../azure-policy/assign-policy-definition-ps.md), or [Use Azure CLI to assign policies](../../azure-policy/assign-policy-definition-cli.md).
 * For an introduction to resource policies, see [What is Azure Policy?](../../azure-policy/azure-policy-introduction.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).

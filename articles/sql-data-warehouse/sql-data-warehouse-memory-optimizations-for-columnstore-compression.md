@@ -3,7 +3,7 @@ title: Improve columnstore index performance - Azure SQL Data Warehouse | Micros
 description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
@@ -30,7 +30,7 @@ During a bulk load or columnstore index rebuild, sometimes there isn't enough me
 
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, SQL Data Warehouse generates an error.
 
-For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
 ## How to monitor rowgroup quality
 

@@ -1,19 +1,21 @@
 ---
 title: Disaster Recovery for SaaS apps using Azure SQL Database Geo Replication | Microsoft Docs
 description: "Learn how to use Azure SQL Database geo-replicas to recover a multi-tenant SaaS app in the event of an outage"
-keywords: sql database tutorial
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
-ms.topic: article
-ms.date: 04/09/2018
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: AyoOlubeko
 ms.author: ayolubek
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
 ---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication
 
-In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. To protect the app from an outage, you use [_geo-replication_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) to create replicas for the catalog and tenant databases in an alternate recovery region. If an outage occurs, you quickly fail over to these replicas to  resume normal business operations. On failover, the databases in the original region become secondary replicas of the databases in the recovery region. Once these replicas come back online they automatically catch up to the state of the databases in the recovery region. After the outage is resolved, you fail back to the databases in the original production region.
+In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. To protect the app from an outage, you use [_geo-replication_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) to create replicas for the catalog and tenant databases in an alternate recovery region. If an outage occurs, you quickly fail over to these replicas to  resume normal business operations. On failover, the databases in the original region become secondary replicas of the databases in the recovery region. Once these replicas come back online they automatically catch up to the state of the databases in the recovery region. After the outage is resolved, you fail back to the databases in the original production region.
 
 This tutorial explores both the failover and failback workflows. You'll learn how to:
 > [!div classs="checklist"]
@@ -45,9 +47,9 @@ A DR plan based on geo-replication comprises three distinct parts:
 All parts have to be considered carefully, especially if operating at scale. Overall, the plan must accomplish several goals:
 
 * Setup
-	* Establish and maintain a mirror-image environment in the recovery region. Creating the elastic pools and replicating any standalone databases in this recovery environment reserves capacity in the recovery region. Maintaining this environment includes replicating new tenant databases as they are provisioned.  
+	* Establish and maintain a mirror-image environment in the recovery region. Creating the elastic pools and replicating any single databases in this recovery environment reserves capacity in the recovery region. Maintaining this environment includes replicating new tenant databases as they are provisioned.  
 * Recovery
-	* Where a scaled-down recovery environment is used to minimize day-to-day costs, pools and standalone databases must be scaled up to acquire full operational capacity in the recovery region
+	* Where a scaled-down recovery environment is used to minimize day-to-day costs, pools and single databases must be scaled up to acquire full operational capacity in the recovery region
  	* Enable new tenant provisioning in the recovery region as soon as possible  
  	* Be optimized for restoring tenants in priority order
  	* Be optimized for getting tenants online as fast as possible by doing steps in parallel where practical
@@ -77,7 +79,7 @@ In this tutorial, you first use geo-replication to create replicas of the Wingti
 Later, in a separate repatriation step, you fail over the catalog and tenant databases in the recovery region to the original region. The application and databases stay available throughout repatriation. When complete, the application is fully functional in the original region.
 
 > [!Note]
-> The application is recovered into the _paired region_ of the region in which the application is deployed. For more information, see [Azure paired regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+> The application is recovered into the _paired region_ of the region in which the application is deployed. For more information, see [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## Review the healthy state of the application
 
@@ -98,7 +100,7 @@ Before you start the recovery process, review the normal healthy state of the ap
 In this task, you start a process that syncs the configuration of the servers, elastic pools, and databases into the tenant catalog. The process keeps this information up-to-date in the catalog.  The process works with the active catalog, whether in the original region  or in the recovery region. The configuration information is used as part of the recovery process to ensure the recovery environment is consistent with the original environment, and then later during repatriation to ensure the original region is made consistent with any changes made in the recovery environment. The catalog is also used to keep track of the recovery state of tenant resources
 
 > [!IMPORTANT]
-> For simplicity, the sync process and other long running recovery and repatriation processes are implemented in these tutorials as local Powershell jobs or sessions that run under your client user login. The authentication tokens issued when you login will expire after several hours and the jobs will then fail. In a production scenario, long-running processes should be implemented as reliable Azure services of some kind, running under a service principal. See [Use Azure PowerShell to create a service principal with a certificate](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> For simplicity, the sync process and other long running recovery and repatriation processes are implemented in these tutorials as local Powershell jobs or sessions that run under your client user login. The authentication tokens issued when you login will expire after several hours and the jobs will then fail. In a production scenario, long-running processes should be implemented as reliable Azure services of some kind, running under a service principal. See [Use Azure PowerShell to create a service principal with a certificate](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. In the _PowerShell ISE_, open the ...\Learning Modules\UserConfig.psm1 file. Replace `<resourcegroup>` and `<user>` on lines 10 and 11  with the value used when you deployed the app.  Save the file!
 
@@ -152,7 +154,7 @@ The recovery script performs the following tasks:
 
 1. Marks all existing tenants in the recovery catalog as offline to prevent access to tenant databases before they are failed over.
 
-1. Updates the configuration of all elastic pools and replicated standalone databases in the recovery region to mirror their configuration in the original region. (This task is only needed if pools or replicated databases in the recovery environment are scaled down during normal operations to reduce costs).
+1. Updates the configuration of all elastic pools and replicated single databases in the recovery region to mirror their configuration in the original region. (This task is only needed if pools or replicated databases in the recovery environment are scaled down during normal operations to reduce costs).
 
 1. Enables the Traffic Manager endpoint for the web app in the recovery region. Enabling this endpoint allows the application to provision new tenants. At this stage, existing tenants are still offline.
 
@@ -176,7 +178,7 @@ Now imagine there is an outage in the region in which the application is deploye
 
 2. Press **F5** to run the script.  
 	* The script opens in a new PowerShell window and then starts a series of PowerShell jobs that run in parallel. These jobs fail over tenant databases to the recovery region.
-	* The recovery region is the _paired region_ associated with the Azure region in which you deployed the application. For more information, see [Azure paired regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
+	* The recovery region is the _paired region_ associated with the Azure region in which you deployed the application. For more information, see [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Monitor the status of the recovery process in the PowerShell window.
 	![failover process](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -306,4 +308,4 @@ You can learn more about the technologies Azure SQL database provides to enable 
 
 ## Additional resources
 
-* [Additional tutorials that build upon the Wingtip SaaS application](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Additional tutorials that build upon the Wingtip SaaS application](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

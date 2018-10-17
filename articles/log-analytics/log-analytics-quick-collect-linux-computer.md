@@ -1,9 +1,9 @@
 ---
-title: Collect data from on-premises Linux computers with Azure Log Analytics | Microsoft Docs
-description: Learn how to deploy the Log Analytics agent for Linux and enable collection of data from that OS with Log Analytics.
+title: Configure Azure Log Analytics Agent for Hybrid Linux Computer | Microsoft Docs
+description: Learn how to deploy the Log Analytics agent for Linux running on computers outside of Azure and enable data collection with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
+ms.component: 
 ---
 
-# Collect data from Linux computer hosted in your environment
-[Azure Log Analytics](log-analytics-overview.md) can collect data directly from your physical or virtual Linux computer and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
+# Configure Log Analytics agent for Linux computers in a hybrid environment
+[Azure Log Analytics](log-analytics-overview.md) can collect data directly from your physical or virtual Linux computer in your datacenter or other cloud environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
 
-To understand the network and system requirements to deploy the Linux agent, review [prerequisites for Linux operating system](log-analytics-concept-hybrid.md#prerequisites).
+To understand the supported configuration, review [supported Linux operating systems](log-analytics-concept-hybrid.md#supported-linux-operating-systems) and [network firewall configuration](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -98,7 +99,7 @@ Log Analytics can collect events from the Linux Syslog and performance counters 
 2. You add an event log by typing in the name of the log.  Type **Syslog** and then click the plus sign **+**.  
 3. In the table, uncheck the severities **Info**, **Notice** and **Debug**. 
 4. Click **Save** at the top of the page to save the configuration.
-5. Select **Linux Performance Data** to enable collection of performance counters on a Linux computer. 
+5. Select **Linux Performance Data** to enable collection of performance counters on a Windows computer. 
 6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.<br><br> ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 7. Click **Save** at the top of the page to save the configuration.
 

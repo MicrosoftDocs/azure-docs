@@ -5,16 +5,16 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
+editor: aljo
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
-ms.author: ryanwi;aljo
+ms.author: ryanwi
 
 ---
 # Scaling Service Fabric clusters
@@ -71,6 +71,10 @@ Based on these limitations, you may wish to [implement more customized automatic
 Standalone clusters allow you to deploy Service Fabric cluster on-premises or in the cloud provider of your choice.  Node types are comprised of physical machines or virtual machines, depending on your deployment. Compared to clusters running in Azure, the process of scaling a standalone cluster is a little more involved.  You must manually change the number of nodes in the cluster and then run a cluster configuration upgrade.
 
 Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of three primary node type nodes.
+
+> [!WARNING]
+> We recommend that you do not lower the node count below the [Cluster Size of the Reliability Tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) for the cluster. This will interfere with the ablility of the Service Fabric System Services to be replicated across the cluster, and will destabilize or possibly destroy the cluster.
+>
 
 When scaling a standalone cluster, keep the following guidelines in mind:
 - The replacement of primary nodes should be performed one node after another, instead of removing and then adding in batches.

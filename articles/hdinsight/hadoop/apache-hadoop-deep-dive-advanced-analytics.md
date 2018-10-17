@@ -1,17 +1,13 @@
 ---
-title: Deep dive - advanced analytics - Azure HDInsight | Microsoft Docs
+title: Deep dive - advanced analytics - Azure HDInsight 
 description: Learn how advanced analytics uses algorithms to process big data.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ---
@@ -56,7 +52,7 @@ Along with selecting the best-fitting algorithm(s), you need to consider whether
 HDInsight has several machine learning options for an advanced analytics workflow:
 
 * [Machine Learning and Spark](#machine-learning-and-spark)
-* [R and R Server](#r-and-r-server)
+* [R and ML Services](#r-and-r-server)
 * [Azure Machine Learning and Hive](#azure-machine-learning-and-hive)
 * [Spark and Deep learning](#spark-and-deep-learning)
 
@@ -70,9 +66,9 @@ There are three scalable machine learning libraries that bring algorithmic model
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) - SparkML is a newer package that provides a higher-level API built on top of Spark DataFrames for constructing ML pipelines.
 * [**MMLSpark**](https://github.com/Azure/mmlspark)  - The Microsoft Machine Learning library for Apache Spark (MMLSpark) is designed to make data scientists more productive on Spark, to increase the rate of experimentation, and to leverage cutting-edge machine learning techniques, including deep learning, on very large datasets. The MMLSpark library simplifies common modeling tasks for building models in PySpark. 
 
-### R and R Server
+### R and ML Services
 
-As part of HDInsight, you can create an HDInsight cluster with [R Server](../r-server/r-server-overview.md) ready to be used with massive datasets and models. This new capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
+As part of HDInsight, you can create an HDInsight cluster with [ML Services](../r-server/r-server-overview.md) ready to be used with massive datasets and models. This new capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
 
 ### Azure Machine Learning and Hive
 
@@ -80,7 +76,7 @@ As part of HDInsight, you can create an HDInsight cluster with [R Server](../r-s
 
 ### Spark and Deep learning
 
-[Deep learning](https://www.microsoft.com/research/group/dltc/) is a branch of machine learning that uses *deep neural networks* (DNNs), inspired by the biological processes of the human brain. Many researchers see deep learning as a promising approach for  artificial intelligence. Some examples of deep learning are spoken language translators, image recognition systems, and machine reasoning. To help advance its own work in deep learning, Microsoft has developed the free, easy-to-use, open-source [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/). The toolkit is being used extensively by a wide variety of Microsoft products, by companies worldwide with a need to deploy deep learning at scale, and by students interested in the latest algorithms and techniques. 
+[Deep learning](https://www.microsoft.com/research/group/dltc/) is a branch of machine learning that uses *deep neural networks* (DNNs), inspired by the biological processes of the human brain. Many researchers see deep learning as a promising approach for  artificial intelligence. Some examples of deep learning are spoken language translators, image recognition systems, and machine reasoning. To help advance its own work in deep learning, Microsoft has developed the free, easy-to-use, open-source [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). The toolkit is being used extensively by a wide variety of Microsoft products, by companies worldwide with a need to deploy deep learning at scale, and by students interested in the latest algorithms and techniques. 
 
 ## Scenario - Score Images to Identify Patterns in Urban Development
 
@@ -92,7 +88,7 @@ There are three key tasks in this advanced analytics scenario:
 
 1. Create an Azure HDInsight Hadoop cluster with an Apache Spark 2.1.0 distribution. 
 2. Run a custom script to install Microsoft Cognitive Toolkit on all nodes of an Azure HDInsight Spark cluster. 
-3. Upload a pre-built Jupyter notebook to your HDInsight Spark cluster to to apply a trained Microsoft Cognitive Toolkit deep learning model to files in an Azure Blob Storage Account using the Spark Python API (PySpark). 
+3. Upload a pre-built Jupyter notebook to your HDInsight Spark cluster to apply a trained Microsoft Cognitive Toolkit deep learning model to files in an Azure Blob Storage Account using the Spark Python API (PySpark). 
 
 This example uses the CIFAR-10 image set compiled and distributed by Alex Krizhevsky, Vinod Nair, and Geoffrey Hinton. The CIFAR-10 dataset contains 60,000 32×32 color images belonging to 10 mutually exclusive classes:
 

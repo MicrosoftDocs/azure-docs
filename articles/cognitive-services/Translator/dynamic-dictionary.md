@@ -1,17 +1,19 @@
 ---
-title: Microsoft Translator Text API Dynamic Dictionary | Microsoft Docs
-description: How to use the dynamic dictionary feature of the Microsoft Translator Text API.
+title: Translator Text API Dynamic Dictionary
+titlesuffix: Azure Cognitive Services
+description: How to use the dynamic dictionary feature of the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ---
 
-# How to use the dynamic dictionary feature of the Microsoft Translator Text API
+# How to use the dynamic dictionary feature of the Translator Text API
 
 If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for compound nouns like proper names and product names. 
 
@@ -21,12 +23,11 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 **Example: en-de:**
 
-Source input: Instant dictionary: word <mstrans:dictionary translation=”wordomatic”>word or phrase</mstrans:dictionary> is a dictionary entry.
+Source input: The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.
 
-Target output: Sofortige Wörterbuch: Wort "wordomatic" ist einen Wörterbucheintrag.
-
+Target output: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
 This feature works the same way with and without HTML mode. 
 
-The feature should be used sparingly. The appropriate and far better way of customizing translation is by using the Microsoft Translator Hub. The Hub makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. You can find more information about the hub at [http://hub.microsofttranslator.com](http://hub.microsofttranslator.com).
+The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can create training data that shows your work or phrase in context, you get much better results. You can find more information about Custom Translator at [http://aka.ms/CustomTranslator](http://aka.ms/CustomTranslator).
 

@@ -2,6 +2,8 @@
 title: Azure Quickstart - Configure a VM with DSC | Microsoft Docs 
 description: Configure a LAMP Stack on a Linux Virtual Machine with Desired State Configuration
 services: automation
+ms.service: automation
+ms.component: dsc
 keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash

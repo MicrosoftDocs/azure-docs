@@ -3,16 +3,17 @@ title: Collect Azure Activity Logs into Log Analytics across subscriptions | Mic
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to an Azure Log Analytics workspace in a different tenant.
 services: log-analytics, logic-apps, event-hubs 
 documentationcenter: ''
-author: richrundmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: richrund; bwren
+ms.author: magoedte
+ms.component: 
 
 ---
 # Collect Azure Activity Logs into Log Analytics across subscriptions
@@ -109,7 +110,7 @@ Before creating your Logic App, make sure you have the following information fro
 - Log Analytics workspace ID
 - Log Analytics shared key
 
-To get the event Hub name and connection string, follow the steps in [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
+To get the event Hub name and connection string, follow the steps in [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string).
 
 
 ### Create a new blank Logic App

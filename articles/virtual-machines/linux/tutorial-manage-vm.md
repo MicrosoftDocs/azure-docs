@@ -1,9 +1,9 @@
 ---
-title: Create and Manage Linux VMs with the Azure CLI | Microsoft Docs
-description: Tutorial - Create and Manage Linux VMs with the Azure CLI
+title: Tutorial - Create and manage Linux VMs with the Azure CLI | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Linux VMs in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,11 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Linux VMs in Azure
 ---
 
-# Create and Manage Linux VMs with the Azure CLI
+# Tutorial: Create and Manage Linux VMs with the Azure CLI
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
@@ -30,10 +32,9 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 > * Resize a VM
 > * View and understand VM state
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create resource group
 
@@ -82,7 +83,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 You can now connect to the VM with SSH in the Azure Cloud Shell or from your local computer. Replace the example IP address with the `publicIpAddress` noted in the previous step.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 Once logged in to the VM, you can install and configure applications. When you are finished, you close the SSH session as normal:

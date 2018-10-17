@@ -3,16 +3,17 @@ title: Track custom operations with Azure Application Insights .NET SDK | Micros
 description: Tracking custom operations with Azure Application Insights .NET SDK
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: sergkanz
+ms.reviewer: sergkanz 
+ms.author: mbullwin
 
 ---
 
@@ -449,14 +450,13 @@ public async Task RunMyTaskAsync()
 
 Disposing operation causes operation to be stopped, so you may do it instead of calling `StopOperation`.
 
-*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
+*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
 
 ### Parallel operations processing and tracking
 
 `StopOperation` only stops the operation that was started. If the current running operation doesn't match the one you want to stop, `StopOperation` does nothing. This situation might happen if you start multiple operations in parallel in the same execution context:
 
 ```csharp
-var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
 

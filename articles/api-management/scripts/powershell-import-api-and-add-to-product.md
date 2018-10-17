@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Import an API | Microsoft Docs
 description: Azure PowerShell Script Sample - Import an API
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -40,4 +40,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
-Additional Azure Powershell samples for Azure API Management can be found in the [PowerShell samples](../powershell-samples.md).
+Additional Azure PowerShell samples for Azure API Management can be found in the [PowerShell samples](../powershell-samples.md).

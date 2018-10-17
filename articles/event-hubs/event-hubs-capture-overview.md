@@ -3,7 +3,7 @@ title: Overview of Azure Event Hubs Capture | Microsoft Docs
 description: Capture telemetry data with Event Hubs Capture
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm;darosa
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
@@ -69,13 +69,13 @@ The files produced by Event Hubs Capture have the following Avro schema:
 
 An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
 
-```
+```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 ```
 
 This command returns
 
-```
+```json
 {
 
     "type":"record",

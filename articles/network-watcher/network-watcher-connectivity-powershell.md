@@ -21,7 +21,7 @@ ms.author: jdial
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
@@ -301,6 +301,6 @@ Hops             : [
 
 ## Next steps
 
-Determine whether certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md).
+Determine whether certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md).
 
 If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that are defined.

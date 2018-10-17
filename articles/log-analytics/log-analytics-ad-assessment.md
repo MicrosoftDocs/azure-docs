@@ -3,7 +3,7 @@ title: Optimize your Active Directory environment with Azure Log Analytics | Mic
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
+ms.component: 
 
 ---
 # Optimize your Active Directory environment with the Active Directory Health Check solution in Log Analytics
@@ -50,7 +50,7 @@ To perform the health check against your domain controllers that are members of 
 
 1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the domain controller can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-oms) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
 
 The agent on your domain controller which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to the Log Analytics service.  The data is not written to the Operations Manager databases.  
 

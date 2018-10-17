@@ -1,19 +1,18 @@
----
+﻿---
 title: Make application data highly available in Azure | Microsoft Docs 
 description: Use read-access geo-redundant storage to make your application data highly available
 services: storage
 author: tamram
-manager: jeconnoc
 
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
+ms.component: blobs
 ---
 
-# Make your application data highly available with Azure storage
+# Tutorial: Make your application data highly available with Azure storage
 
 This tutorial is part one of a series, which shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to. The application switches to secondary endpoint when a failure is simulated.
 
@@ -131,7 +130,7 @@ A console window launches and the application begins running. The application up
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
-In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
+In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
 
 # [Python] (#tab/python) 
 To run the application on a terminal or command prompt, go to the **circuitbreaker.py** directory, then enter `python circuitbreaker.py`. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
@@ -142,7 +141,7 @@ In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` 
 
 The Storage object retry function is set to a linear retry policy. The retry function determines whether to retry a request, and specifies the number of seconds to wait before retrying the request. Set the **retry\_to\_secondary** value to true, if request should be retried to secondary in case the initial request to primary fails. In the sample application, a custom retry policy is defined in the `retry_callback` function of the storage object.
  
-Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.  
+Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.  
 
 # [Java] (#tab/java)
 You can run the application by opening a terminal or command prompt scoped to the downloaded application folder. From there, enter `mvn compile exec:java` to run the application. The application then uploads the **HelloWorld.png** image from the directory to your storage account and checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Once the check is complete, the application will begin downloading the image repeatedly, while reporting back the endpoint it is downloading from.
@@ -208,7 +207,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### Retry event handler
 
-The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.  
+The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.  
 
 ```python
 def retry_callback(retry_context):
@@ -231,7 +230,7 @@ def retry_callback(retry_context):
 
 ### Request completed event handler
 
-The `response_callback` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) back to `PRIMARY` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
+The `response_callback` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) back to `PRIMARY` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
 
 ```python
 def response_callback(response):

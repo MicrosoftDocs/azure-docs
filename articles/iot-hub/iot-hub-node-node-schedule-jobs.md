@@ -1,22 +1,16 @@
 ---
 title: Schedule jobs with Azure IoT Hub (Node) | Microsoft Docs
 description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT SDKs for Node.js to implement the simulated device apps and a service app to run the job.
-services: iot-hub
-documentationcenter: .net
 author: juanjperez
-manager: timlt
-editor: ''
-
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-
 ---
+
 # Schedule and broadcast jobs (Node)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
@@ -116,7 +110,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 8. Save and close the **simDevice.js** file.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 > 
 > 
 
@@ -262,11 +256,10 @@ To continue getting started with IoT Hub and device management patterns such as 
 To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge][lnk-iot-edge].
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-twin-props]: tutorial-device-twins.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
+[lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

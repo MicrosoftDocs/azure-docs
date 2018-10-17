@@ -3,9 +3,10 @@ title: Set up disaster recovery for on-premises Hyper-V VMs (without VMM) to Azu
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -36,19 +37,31 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 2. In **Getting Started**, click **Site Recovery**. Then click **Prepare Infrastructure**
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
-5. In **Are your machines virtualized**, select **No**. Then click **OK**.
+5. In **Are you using System Center VMM to manage your Hyper-V hosts**, select **No**. Then click **OK**.
 
     ![Replication goal](./media/hyper-v-azure-tutorial/replication-goal.png)
 
+## Confirm deployment planning
+
+When you're planning a large deployment, you should make sure you complete [deployment planning for Hyper-V replication](hyper-v-deployment-planner-overview.md). For the purposes of this tutorial, In **Have you completed deployment planning?**, select **I will do it later** in the dropdown list.
+
+![Deployment planning](./media/hyper-v-azure-tutorial/deployment-planning.png)
+
 ## Set up the source environment
 
-To set up the source environment, you add Hyper-V hosts to a Hyper-V site, download, and install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register the Hyper-V site in the vault. 
+To set up the source environment, you create a Hyper-V site, and add Hyper-V hosts to the site. Then you download and install the Azure Site Recovery Provider and the Azure Recovery Services agent on each host, and register the Hyper-V site in the vault. 
 
 1. In **Prepare Infrastructure**, click **Source**.
 2. Click **+Hyper-V Site**, and specify the name of the site created in the previous tutorial, **ContosoHyperVSite**.
-3. Click **+Hyper-V Server**.
+
+    ![Hyper-V site](./media/hyper-v-azure-tutorial/hyperv-site.png)
+
+3. After the site is created, click **+Hyper-V Server**.
+
+    ![Hyper-V server](./media/hyper-v-azure-tutorial/hyperv-server.png)
+
 4. Download the Provider setup file.
-5. Download the vault registration key. You need this key to run Provider setup. The key is valid for five days after you generate it.
+6. Download the vault registration key. You need this key to run Provider setup. The key is valid for five days after you generate it.
 
     ![Download Provider](./media/hyper-v-azure-tutorial/download.png)
     

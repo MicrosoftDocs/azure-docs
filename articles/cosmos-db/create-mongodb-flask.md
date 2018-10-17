@@ -2,30 +2,36 @@
 title: 'Azure Cosmos DB: Build a Flask web app with Python and the Azure Cosmos DB MongoDB API | Microsoft Docs'
 description: Presents a Python Flask code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
-documentationcenter: ''
-author: heatherbshapiro
+author: slyons
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/2/2017
-ms.author: hshapiro
+ms.author: sclyon
 
 ---
 # Azure Cosmos DB: Build a Flask app with the MongoDB API
 
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This quick start guide, uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](/local-emulator.md) and the Azure Cosmos DB [MongoDB API](mongodb-introduction.md) instead of MongoDB.
+This quick start guide, uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](local-emulator.md) and the Azure Cosmos DB [MongoDB API](mongodb-introduction.md) instead of MongoDB.
 
 ## Prerequisites
 
-- Download the [Azure Cosmos DB Emulator](/local-emulator.md). The emulator is currently only supported on Windows. The sample shows how to use the sample with a production key from Azure, which can be done on any platform.
+- Download the [Azure Cosmos DB Emulator](local-emulator.md). The emulator is currently only supported on Windows. The sample shows how to use the sample with a production key from Azure, which can be done on any platform.
 
 - If you don’t already have Visual Studio Code installed, you can quickly install [VS Code](https://code.visualstudio.com/Download) for your platform (Windows, Mac, Linux).
 

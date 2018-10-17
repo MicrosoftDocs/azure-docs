@@ -1,25 +1,19 @@
 ---
-title: Language customization in Azure AD B2C| Microsoft Docs
-description: Learn about customizing the language experience. 
+title: Language customization in Azure Active Directory B2C | Microsoft Docs
+description: Learn about customizing the language experience.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
 
 # Language customization in Azure Active Directory B2C
-
->[!NOTE]
->This feature is in public preview.
->
 
 Language customization in Azure Active Directory B2C (Azure AD B2C) allows your policy to accommodate different languages to suit your customer needs.  Microsoft provides the translations for [36 languages](#supported-languages), but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages.  
 
@@ -47,7 +41,7 @@ When you enable language customization on a policy, you can control the language
 5. Read the information in the dialog box, and select **Yes**.
 
 ## Select which languages in your user journey are enabled 
-Enable a set of languages for your user journey to be translated to when the `ui_locales` parameter is not provided.
+Enable a set of languages for your user journey to be translated to when requested by the browser without the `ui_locales` parameter.
 1. Ensure that your policy has language customization enabled from previous instructions.
 2. From the **Edit policy** page, select **Language customization**.
 3. Select a language that you want to support.
@@ -100,7 +94,7 @@ Replace `<ExtensionAttribute>` with the name of your custom user attribute.
 Replace `<ExtensionAttributeValue>` with the new string to be displayed.
 
 ### Provide a list of values by using LocalizedCollections
-If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute.  `LocalizedCollections` is an array of `Name` and `Value` pairs. To add `LocalizedCollections`, use the following format:
+If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute.  `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed.  To add `LocalizedCollections`, use the following format:
 
 ```JSON
 {
@@ -151,9 +145,9 @@ You can load the page in `fr`. When the page pulls HTML and CSS content, it's pu
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## Add custom locales
+## Add custom languages
 
-You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the policy.
+You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the policy.  Language and locale codes are limited to those in the ISO 639-1 standard. 
 
 1. From the **Edit policy** page, select **Language customization**.
 2. Select **Add custom language** from the top of the page.
@@ -163,6 +157,10 @@ You can also add languages that Microsoft currently does not provide translation
 6. Select **Enable**, and your policy can now show this language for your users.
 7. Save the language.
 
+>[!IMPORTANT]
+>You need to either enable the custom languages or upload overrides for it before you can save.
+>
+
 ## Additional information
 
 ### Page UI customization labels as overrides
@@ -170,7 +168,7 @@ When you enable language customization, your previous edits for labels using pag
 ### Up-to-date translations
 Microsoft is committed to providing the most up-to-date translations for your use. Microsoft continuously improves translations and keeps them in compliance for you. Microsoft will identify bugs and changes in global terminology and make updates that will work seamlessly in your user journey.
 ### Support for right-to-left languages
-Microsoft currently doesn't provide support for right-to-left languages. If you need this feature, please vote for it on [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft currently doesn't provide support for right-to-left languages. You can accomplish this by using custom locales and using CSS to change the way the strings are displayed.  If you need this feature, please vote for it on [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### Social identity provider translations
 Microsoft provides the `ui_locales` OIDC parameter to social logins. But some social identity providers, including Facebook and Google, don't honor them. 
 ### Browser behavior

@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 09/12/2018
 ms.author: anwestg
 
 ---
@@ -22,7 +22,7 @@ ms.author: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+> Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.3.
 >
 >
 
@@ -77,7 +77,13 @@ To deploy App Service in a disconnected environment, you must first create an of
 7. On the next page:
     1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         - Provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
-    2. In the **Azure Stack Subscriptions** box, select your subscription.
+    2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
+    
+    > [!NOTE]
+    > App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
+    >
+    >
+    
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
     4. Click **Next**.
 
@@ -93,12 +99,12 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer][5]
 
-9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
+9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites
 
-> [!NOTE]
-> The installer attempts to test connectivity to the fileshare before proceeding.  However, if you chose to deploy in an existing Virtual Network, the installer might not be able to connect to the fileshare and displays a warning, asking whether you want to continue.  Verify the fileshare information and continue if they are correct.
->
->
+    > [!NOTE]
+    > The installer attempts to test connectivity to the fileshare before proceeding.  However, if you chose to deploy in an existing   Virtual Network, the installer might not be able to connect to the fileshare and displays a warning, asking whether you want to continue.  Verify the fileshare information and continue if they are correct.
+    >
+    >
 
    ![App Service Installer][8]
 
@@ -123,16 +129,26 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer][11]
 
-12. Enter the SQL Server details for the server instance used to host the App Service resource provider databases, and then click **Next**. The installer validates the SQL connection properties.
+12. Enter the SQL Server details for the server instance used to host the App Service resource provider databases, and then click **Next**. The installer validates the SQL connection properties. You **must** enter either the internal ip or fully qualified domain name for the SQL Server name.
 
-> [!NOTE]
-> The installer attempts to test connectivity to the SQl Server before proceeding.  However, if you chose to deploy in an existing Virtual Network, the installer might not be able to connect to the SQL Server and displays a warning asking whether you want to continue.  Verify the SQL Server information and continue if they are correct.
->
->
+    > [!NOTE]
+    > The installer attempts to test connectivity to the SQl Server before proceeding.  However, if you chose to deploy in an existing Virtual Network, the installer might not be able to connect to the SQL Server and displays a warning asking whether you want to continue.  Verify the SQL Server information and continue if they are correct.
+    >
+    > From Azure App Service on Azure Stack 1.3 onwards, the installer will check that the SQL Server has database containment enabled at the SQL Server level.  If it is not, you will be prompted with the following exception:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Refer to the [release notes for Azure App Service on Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) for more details.
    
    ![App Service Installer][12]
 
-13. Review the role instance and SKU options. The defaults are populated with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
+13. Review the role instance and SKU options. The defaults are populated with the minimum number of instances and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
      > [!NOTE]
      > For production deployments, follow the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
@@ -141,7 +157,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     | Role | Minimum instances | Minimum SKU | Notes |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Manages and maintains the health of the App Service cloud. |
+    | Controller | 1 | Standard_A2 - (2 vCPU, 3584 MB) | Manages and maintains the health of the App Service cloud. |
     | Management | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
     | Publisher | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publishes content via FTP and web deployment. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes requests to App Service applications. |
@@ -150,7 +166,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Installer][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.**
+    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.  Azure App Service on Azure Stack requires that Microsoft.Net 3.5.1 SP1 is activated on the image used for deployment.   Marketplace syndicated Windows Server 2016 images do not have this feature enabled.**
 
 14. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
@@ -183,7 +199,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
     
 > [!NOTE]
-> If you chose to deploy into an existing virtual network and a internal IP address to conenct to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+> If you chose to deploy into an existing virtual network and a internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 > * Source: Any
 > * Source port range: *
 > * Destination: IP Addresses
@@ -206,7 +222,7 @@ You *must* have a tenant subscription to create applications that use App Servic
 >
 As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
 
-1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
+1. In the Azure Stack tenant portal, click **+ Create a resource** > **Web + Mobile** > **Web App**.
 
 2. On the **Web App** blade, type a name in the **Web app** box.
 

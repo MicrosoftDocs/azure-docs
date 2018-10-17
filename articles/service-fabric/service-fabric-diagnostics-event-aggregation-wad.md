@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
-ms.author: dekapur;srrengar
+ms.author: srrengar
 
 ---
 
@@ -62,7 +62,7 @@ Now that you're aggregating events in Azure Storage, [set up Log Analytics](serv
 ## Deploy the Diagnostics extension through Azure Resource Manager
 
 ### Create a cluster with the diagnostics extension
-To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 To see the Diagnostics setting in the Resource Manager template, open the azuredeploy.json file and search for **IaaSDiagnostics**. To create a cluster by using this template, select the **Deploy to Azure** button available at the previous link.
 
@@ -193,7 +193,7 @@ Since the tables populated by the extension grows until the quota is hit, you ma
 ## Log collection configurations
 Logs from additional channels are also available for collection, here are some of the most common configurations you can make in the template for clusters running in Azure.
 
-* Operational Channel - Base: Enabled by default, high-level operations performed by Service Fabric and the cluster, including events for a node coming up, a new application being deployed, or an upgrade rollback, etc. For a list of events, refer to [Operational Channel Events](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Operational Channel - Base: Enabled by default, high-level operations performed by Service Fabric and the cluster, including events for a node coming up, a new application being deployed, or an upgrade rollback, etc. For a list of events, refer to [Operational Channel Events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
@@ -220,7 +220,7 @@ Logs from additional channels are also available for collection, here are some o
 >This channel has a very high volume of events, enabling event collection from this detailed channel results in a lot of traces being generated quickly, and can consume storage capacity. Only turn this on if absolutely necessary.
 
 
-To enable the **Base Data and Messaging Channel** our recommendation for comprehensive logging, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
+To enable the **Base Operational Channel** our recommendation for comprehensive logging with the least amount of noise, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
 
 ```json
   "WadCfg": {
@@ -248,7 +248,7 @@ To enable the **Base Data and Messaging Channel** our recommendation for compreh
               {
                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
                 "scheduledTransferLogLevelFilter": "Information",
-                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"

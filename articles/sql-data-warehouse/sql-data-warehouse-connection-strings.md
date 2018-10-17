@@ -3,7 +3,7 @@ title: Connection strings for Azure SQL Data Warehouse | Microsoft Docs
 description: Connection strings for SQL Data Warehouse
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume

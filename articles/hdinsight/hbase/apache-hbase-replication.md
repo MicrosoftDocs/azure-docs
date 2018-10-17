@@ -1,19 +1,14 @@
 ---
-title: Set up HBase cluster replication in Azure virtual networks | Microsoft Docs
+title: Set up HBase cluster replication in Azure virtual networks 
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.author: jgao
-
+ms.date: 09/15/2018
 ---
 # Set up HBase cluster replication in Azure virtual networks
 
@@ -49,51 +44,18 @@ You have three configuration options:
 - Two HBase clusters in two different virtual networks in the same region.
 - Two HBase clusters in two different virtual networks in two different regions (geo-replication).
 
+This article covers the geo-replication scenario.
+
 To help you set up the environments, we have created some [Azure Resource Manager templates](../../azure-resource-manager/resource-group-overview.md). If you prefer to set up the environments by using other methods, see:
 
 - [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Create HBase clusters in Azure Virtual Network](apache-hbase-provision-vnet.md)
 
-### Set up one virtual network
-
-To create two HBase clusters in the same virtual network, select the following image. The template is stored at [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-### Set up two virtual networks in the same region
-
-To create two virtual networks with virtual network peering and two HBase clusters in the same region, select the following image. The template is stored at [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-
-
-This scenario requires [virtual network peering](../../virtual-network/virtual-network-peering-overview.md). The template enables virtual network peering.   
-
-HBase replication uses IP addresses of the ZooKeeper VMs. You must set up static IP addresses for the destination HBase ZooKeeper nodes.
-
-**To configure static IP addresses**
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Resource Groups**.
-3. Select the resource group that has the destination HBase cluster. This is the resource group that you specified when you used the Resource Manager template to create the environment. You can use the filter to narrow the list. You can see a list of resources that contain the two virtual networks.
-4. Select the virtual network that contains the destination HBase cluster. For example, select **xxxx-vnet2**. Three devices with names that start with **nic-zookeepermode-** are listed. Those devices are the three ZooKeeper VMs.
-5. Select one of the ZooKeeper VMs.
-6. Select **IP configurations**.
-7. In the list, select **ipConfig1**.
-8. Select **Static**, and copy or write down the actual IP address. You need the IP address when you run the script action to enable replication.
-
-  ![HDInsight HBase replication ZooKeeper static IP address](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
-
-9. Repeat step 6 to set the static IP address for the other two ZooKeeper nodes.
-
-For the cross-virtual network scenario, you must use the **-ip** switch when you call the `hdi_enable_replication.sh` script action.
-
 ### Set up two virtual networks in two different regions
 
-To create two virtual networks in two different regions and the VPN connection between the VNets, click the following image. The template is stored in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+To use a template that creates two virtual networks in two different regions and the VPN connection between the VNets, select the following **Deploy to Azure** button. The template definition is stored in a [public blob storage](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Some of the hard-coded values in the template:
 
@@ -113,11 +75,6 @@ Some of the hard-coded values in the template:
 | Gateway VPN type | RouteBased |
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
-| Cluster Name | &lt;ClusterNamePrefix>1 |
-| Cluster version | 3.6 |
-| Cluster kind | hbase |
-| Cluster worker node count | 2 |
-
 
 **VNet 2**
 
@@ -135,14 +92,177 @@ Some of the hard-coded values in the template:
 | Gateway VPN type | RouteBased |
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
-| Cluster Name | &lt;ClusterNamePrefix>2 |
-| Cluster version | 3.6 |
-| Cluster kind | hbase |
-| Cluster worker node count | 2 |
 
-HBase replication uses the IP addresses of the ZooKeeper VMs. You must set up static IP addresses for the destination HBase ZooKeeper nodes. To set up static IP, see [Set up two virtual networks in the same region](#set-up-two-virtual-networks-in-the-same-region) in this article.
+## Setup DNS
 
-For the cross-virtual network scenario, you must use the **-ip** switch when you call the `hdi_enable_replication.sh` script action.
+In the last section, the template creates an Ubuntu virtual machine in each of the two virtual networks.  In this section, you install Bind on the two DNS virtual machines, and then configure the DNS forwarding on the two virtual machines.
+
+To install Bind, yon need to find the public IP address of the two DNS virtual machines.
+
+1. Open the [Azure portal](https://portal.azure.com).
+2. Open the DNS virtual machine by selecting **Resources groups > [resource group name] > [vnet1DNS]**.  The resource group name is the one you create in the last procedure. The default DNS virtual machine names are *vnet1DNS* and *vnet2NDS*.
+3. Select **Properties** to open the properties page of the virtual network.
+4. Write down the **Public IP address**, and also verify the **Private IP address**.  The private IP address shall be **10.1.0.4** for vnet1DNS and **10.2.0.4** for vnet2DNS.  
+5. Change the DNS Servers for both virtual networks to use Default (Azure-Provided) DNS servers to allow inbound and outbound access to download packages to install Bind in the following steps.
+
+To install Bind, use the following procedure:
+
+1. Use SSH to connect to the __public IP address__ of the DNS virtual machine. The following example connects to a virtual machine at 40.68.254.142:
+
+    ```bash
+    ssh sshuser@40.68.254.142
+    ```
+
+    Replace `sshuser` with the SSH user account you specified when creating the DNS virtual machine.
+
+    > [!NOTE]
+	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
+    >
+    > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
+    > * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Git (https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+
+2. To install Bind, use the following commands from the SSH session:
+
+    ```bash
+	sudo apt-get update -y
+	sudo apt-get install bind9 -y
+    ```
+
+3. Configure Bind to forward name resolution requests to your on-prem DNS server. To do so, use the following text as the contents of the `/etc/bind/named.conf.options` file:
+
+    ```
+    acl goodclients {
+        10.1.0.0/16; # Replace with the IP address range of the virtual network 1
+        10.2.0.0/16; # Replace with the IP address range of the virtual network 2
+        localhost;
+        localhost;
+    };
+    
+    options {
+        directory "/var/cache/bind";
+        recursion yes;
+        allow-query { goodclients; };
+
+        forwarders {
+            168.63.129.16; #This is the Azure DNS server
+        };
+
+        dnssec-validation auto;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+    };
+    ```
+    
+    > [!IMPORTANT]
+    > Replace the values in the `goodclients` section with the IP address range of the two virtual networks. This section defines the addresses that this DNS server accepts requests from.
+
+    To edit this file, use the following command:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.options
+    ```
+
+    To save the file, use __Ctrl+X__, __Y__, and then __Enter__.
+
+4. From the SSH session, use the following command:
+
+    ```bash
+    hostname -f
+    ```
+
+    This command returns a value similar to the following text:
+
+        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+
+    The `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` text is the __DNS suffix__ for this virtual network. Save this value, as it is used later.
+
+    You must also find out the DNS suffix from the other DNS server. You need it in the next step.
+
+5. To configure Bind to resolve DNS names for resources within the virtual network, use the following text as the contents of the `/etc/bind/named.conf.local` file:
+
+    ```
+    // Replace the following with the DNS suffix for your virtual network
+    zone "v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net" {
+            type forward;
+            forwarders {10.2.0.4;}; # The Azure recursive resolver
+    };
+    ```
+
+    > [!IMPORTANT]
+    > You must replace the `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` with the DNS suffix of the other virtual network. And the forwarder IP is the private IP address of the DNS server in the other virtual network.
+
+    To edit this file, use the following command:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.local
+    ```
+
+    To save the file, use __Ctrl+X__, __Y__, and then __Enter__.
+
+6. To start Bind, use the following command:
+
+    ```bash
+    sudo service bind9 restart
+    ```
+
+7. To verify that bind can resolve the names of resources in the other virtual network, use the following commands:
+
+    ```bash
+    sudo apt install dnsutils
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    ```
+
+    > [!IMPORTANT]
+    > Replace `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` with the fully qualified domain name (FQDN) of the DNS virtual machine in the other network.
+    >
+    > Replace `10.2.0.4` with the __internal IP address__ of your custom DNS server in the other virtual network.
+
+    The response appears similar to the following text:
+
+    ```
+    Server:         10.2.0.4
+    Address:        10.2.0.4#53
+    
+    Non-authoritative answer:
+    Name:   vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    Address: 10.2.0.4
+    ```
+
+    Until now, you cannot look up the IP address from the other network without specified DNS server IP address.
+
+### Configure the virtual network to use the custom DNS server
+
+To configure the virtual network to use the custom DNS server instead of the Azure recursive resolver, use the following steps:
+
+1. In the [Azure portal](https://portal.azure.com), select the virtual network, and then select __DNS Servers__.
+
+2. Select __Custom__, and enter the __internal IP address__ of the custom DNS server. Finally, select __Save__.
+
+6. Open the DNS server virtual machine in vnet1, and click **Restart**.  You must restart all the virtual machines in the virtual network to make the DNS configuration to take effect.
+7. Repeat steps configure the custom DNS server for vnet2.
+
+To test the DNS configuration, you can connect to the two DNS virtual machines using SSH, and ping the DNS server of the other virtual network by using its host name. If it doesn't work, use the following command to check DNS status:
+
+```bash
+sudo service bind9 status
+```
+
+## Create HBase clusters
+
+Create an HBase cluster in each of the two virtual networks with the following configuration:
+
+- **Resource group name**: use the same resource group name as you created the virtual networks.
+- **Cluster type**: HBase
+- **Version**: HBase 1.1.2 (HDI 3.6)
+- **Location**: Use the same location as the virtual network.  By default, vnet1 is *West US*, and vnet2 is *East US*.
+- **Storage**: Create a new storage account for the cluster.
+- **Virtual network** (from Advanced settings on the portal): Select vnet1 you created in the last procedure.
+- **Subnet**: The default name used in the template is **subnet1**.
+
+To ensure the environment is configured correctly, you must be able to ping the headnode's FQDN between the two clusters.
 
 ## Load test data
 
@@ -152,7 +272,7 @@ To create a **Contacts** table and insert some data in the table, follow the ins
 
 ## Enable replication
 
-The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure command-line tool (Azure CLI), see [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md).
+The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure Classic CLI, see [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **To enable HBase replication from the Azure portal**
 
@@ -192,7 +312,6 @@ Optional arguments:
 |-du, --dst-ambari-user | Specifies the admin user name for Ambari on the destination HBase cluster. The default value is **admin**. |
 |-t, --table-list | Specifies the tables to be replicated. For example: --table-list="table1;table2;table3". If you don't specify tables, all existing HBase tables are replicated.|
 |-m, --machine | Specifies the head node where the script action runs. The value is either **hn1** or **hn0**. Because the **hn0** head node typically is busier, we recommend using **hn1**. Use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
-|-ip | Required when you're enabling replication between two virtual networks. This argument acts as a switch to use the static IP addresses of ZooKeeper nodes from replica clusters instead of FQDN names. You must preconfigure the static IP addresses before you enable replication. |
 |-cp, -copydata | Enables the migration of existing data on the tables where replication is enabled. |
 |-rpm, -replicate-phoenix-meta | Enables replication on Phoenix system tables. <br><br>*Use this option with caution.* We recommend that you re-create Phoenix tables on replica clusters before you use this script. |
 |-h, --help | Displays usage information. |

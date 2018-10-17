@@ -4,7 +4,7 @@ description: Set up HTTP endpoints to call, trigger, or nest workflows for Azure
 services: logic-apps
 keywords: workflows, HTTP endpoints
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

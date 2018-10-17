@@ -1,55 +1,47 @@
-﻿---
+---
 title: 'Manage Azure SQL Database long-term backup retention | Microsoft Docs' 
 description: "Learn how to store automated backups in the SQL Azure storage and then restore them"
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
-ms.topic: article
-ms.date: 04/04/2018
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-
+manager: craigg
+ms.date: 10/04/2018
 ---
 # Manage Azure SQL Database long-term backup retention
 
-You can configure Azure SQL database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain backups in Azure blob storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
+In Azure SQL Database, you can configure a single or a pooled database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain backups in Azure blob storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
 
-> [!NOTE]
-> As part of the initial release of the preview of this feature in October 2016, backups were stored in the Azure Services Recovery Service vault. This update removes this dependency, but for backward compatibility the original API is supported until May 31, 2018. If you need to interact with backups in the Azure Services Recovery vault, see [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-configure-vault.md). 
+> [!IMPORTANT]
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
 
 ## Use the Azure portal to configure long-term retention policies and restore backups
-
 The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
 
 ### Configure long-term retention policies
 
 You can configure SQL Database to [retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
-1. In the Azure portal, select your SQL server and then click **Long-term backup retention**.
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Configure policies** tab, select the checkbox for the database on which you want to set or modify long-term backup retention policies.
 
-   ![long-term backup retention link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![manage backups link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. On the **Configure policies** tab, select the database on which you want to set or modify long-term backup retention policies.
-
-   ![select database](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. In the **Configure policies** pane, select if want to retain weekly, monthly or yearly backups and specify the retention period for each. 
+2. In the **Configure policies** pane, select if want to retain weekly, monthly or yearly backups and specify the retention period for each. 
 
    ![configure policies](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. When complete, click **Apply**.
+3. When complete, click **Apply**.
 
 ### View backups and restore from a backup using Azure portal
 
 View the backups that are retained for a specific database with a LTR policy, and restore from those backups. 
 
-1. In the Azure portal, select your SQL server and then click **Long-term backup retention**.
-
-   ![long-term backup retention link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. On the **Available backups** tab, select the database for which you want to see available backups.
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Available backups** tab, select the database for which you want to see available backups.
 
    ![select database](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 
@@ -65,7 +57,7 @@ View the backups that are retained for a specific database with a LTR policy, an
 
 6. On the toolbar, click the notification icon to view the status of the restore job.
 
-   ![restore job progress from vault](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![restore job progress](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. When the restore job is completed, open the **SQL databases** page to view the newly restored database.
 
@@ -76,6 +68,32 @@ View the backups that are retained for a specific database with a LTR policy, an
 ## Use PowerShell to configure long-term retention policies and restore backups
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
+
+> [!IMPORTANT]
+> LTR V2 API is supported in the following PowerShell versions:
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) or newer
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) or newer
+> 
+
+### RBAC roles to manage long-term retention
+
+In order to manage LTR backups, you will need to be 
+- Subscription Owner or
+- SQL Server Contributor role in **Subscription** scope or
+- SQL Database Contributor role in **Subscription** scope
+
+If more granular control is required, you can create custom RBAC roles and assign them in **Subscription** scope. 
+
+For **Get-AzureRmSqlDatabaseLongTermRetentionBackup** and **Restore-AzureRmSqlDatabase** the role needs to have following permissions:
+
+Microsoft.Sql/locations/longTermRetentionBackups/read
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+ 
+For **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** the role need to have following permissions:
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### Create an LTR policy
 
@@ -125,20 +143,20 @@ This example shows how to list the LTR backups within a server.
 # The backups are grouped by the logical database id.
 # Within each group they are ordered by the timestamp, the earliest
 # backup first.  
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location 
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
 # Get the list of LTR backups from the Azure region under 
 # the named server. 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
 
 # Get the LTR backups for a specific database from the Azure region under the named server 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -DatabaseState Live
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
 # Only list the latest LTR backup for each database 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -OnlyLatestPerDatabase
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
 ### Delete LTR backups

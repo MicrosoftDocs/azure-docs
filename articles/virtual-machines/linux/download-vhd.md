@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 06/01/2018
 ms.author: cynthn
 ---
 
@@ -22,9 +22,7 @@ ms.author: cynthn
 
 In this article, you learn how to download a [Linux virtual hard disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) file from Azure using the Azure CLI and Azure portal. 
 
-Virtual machines (VMs) in Azure use [disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) as a place to store an operating system, applications, and data. All Azure VMs have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is initially created from an image, and both the operating system disk and the image are VHDs stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
-
-If you haven't already done so, install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+If you haven't already done so, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## Stop the VM
 
@@ -32,7 +30,7 @@ A VHD can’t be downloaded from Azure if it's attached to a running VM. You nee
 
 To use the VHD as an image to create other VMs, complete these steps:
 
-1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. You can find the public IP address with [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
+1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. You can find the public IP address with [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
 
     ```bash
     ssh azureuser@<publicIpAddress>
@@ -84,6 +82,6 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
 ## Next steps
 
-- Learn how to [upload and create a Linux VM from custom disk with the Azure CLI 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+- Learn how to [upload and create a Linux VM from custom disk with the Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Manage Azure disks the Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

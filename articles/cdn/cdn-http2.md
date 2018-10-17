@@ -27,7 +27,7 @@ The benefits of HTTP/2 include:
 
 *   **Multiplexing and concurrency**
 
-    Using HTTP 1.1, multiple making multiple resource requests requires multiple TCP connections, and each connection has performance overhead associated with it. HTTP/2 allows multiple resources to be requested on a single TCP connection.
+    Using HTTP 1.1, making multiple resource requests requires multiple TCP connections, and each connection has performance overhead associated with it. HTTP/2 allows multiple resources to be requested on a single TCP connection.
 
 *   **Header compression**
 
@@ -35,12 +35,12 @@ The benefits of HTTP/2 include:
 
 *   **Stream dependencies**
 
-    Stream dependencies allow the client to indicate to the server which of resources have priority.
+    Stream dependencies allow the client to indicate to the server which resources have priority.
 
 
 ## HTTP/2 Browser Support
 
-All of the major browsers have implemented HTTP/2 support in their current versions. Non-supported browsers will automatically fallback to HTTP/1.1.
+All of the major browsers have implemented HTTP/2 support in their current versions. Non-supported browsers automatically fallback to HTTP/1.1.
 
 |Browser|Minimum Version|
 |-------------|------------|
@@ -52,7 +52,7 @@ All of the major browsers have implemented HTTP/2 support in their current versi
 
 ## Enabling HTTP/2 Support in Azure CDN
 
-Currently HTTP/2 support is active for **Azure CDN from Akamai** and **Azure CDN from Verizon** profiles. No further action is required from customers.
+Currently, HTTP/2 support is active for all Azure CDN profiles. No further action is required from customers.
 
 ## Next Steps
 

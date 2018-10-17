@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
@@ -70,7 +70,7 @@ The flowchart following this paragraph can help you understand the upgrade proce
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
 Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 

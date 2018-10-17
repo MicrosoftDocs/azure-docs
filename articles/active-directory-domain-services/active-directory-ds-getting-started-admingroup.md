@@ -8,12 +8,13 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 05/23/2018
 ms.author: maheshu
 
 ---
@@ -37,16 +38,19 @@ The wizard automatically creates the administrative group in your Azure AD direc
 
 3. When you are done, click **OK** to move on to the **Summary** page of the wizard.
 
-4. On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes, if necessary. When you are done, click **OK** to create the new managed domain.
+
+## Deploy your managed domain
+
+1. On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes, if necessary. When you are done, click **OK** to create the new managed domain.
 
     ![Summary](./media/getting-started/domain-services-blade-summary.png)
 
-5. You see a notification that shows the progress of your Azure AD Domain Services deployment. Click the notification to see detailed progress for the deployment.
+2. You see a notification that shows the progress of your Azure AD Domain Services deployment. Click the notification to see detailed progress for the deployment.
 
     ![Notification - deployment in progress](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## Provision your managed domain
+## Check the deployment status of your managed domain
 The process of provisioning your managed domain can take up to an hour.
 
 1. While your deployment is in progress, you can search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** blade lists the managed domain that is being provisioned.
@@ -64,6 +68,9 @@ The process of provisioning your managed domain can take up to an hour.
 4. When the managed domain is fully provisioned, the **Overview** tab shows the domain status as **Running**.
 
     ![Domain Services - Overview tab after fully provisioned](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >During the provisioning process, Azure AD Domain Services creates Enterprise Applications named "Domain Controller Services" and "AzureActiveDirectoryDomainControllerServices" within your directory. These Enterprise Applications are needed to service your managed domain. It is imperative that these are not deleted at any time.
+    >
 
 5. On the **Properties** tab, you see two IP addresses at which domain controllers are available for the virtual network.
 

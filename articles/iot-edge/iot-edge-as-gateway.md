@@ -1,32 +1,22 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Use Azure IoT Edge devices as gateways | Microsoft Docs 
 description: Use Azure IoT Edge to create a transparent, opaque or proxy gateway device that sends data from multiple downstream devices to the cloud or processes it locally.
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
-ms.date: 11/27/2017
-ms.topic: article
+ms.date: 09/21/2017
+ms.topic: conceptual
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
 ---
-# How an IoT Edge device can be used as a gateway - preview
+# How an IoT Edge device can be used as a gateway
 
 The purpose of gateways in IoT solutions is specific to the solution and combine device connectivity with edge analytics. Azure IoT Edge can be used to satisfy all needs for an IoT gateway regardless of whether they are related to connectivity, identity, or edge analytics. Gateway patterns in this article only refer to characteristics of downstream device connectivity and device identity, not how device data is processed on the gateway.
 
 ## Patterns
 There are three patterns for using an IoT Edge device as a gateway: transparent, protocol translation, and identity translation:
 * **Transparent** – Devices that theoretically could connect to IoT Hub can connect to a gateway device instead. This implies that the downstream devices have their own IoT Hub identities and are using any of the  MQTT, AMQP, or HTTP protocols. The gateway simply passes communications between the devices and IoT Hub. The devices are  unaware that they are communicating with the cloud via a gateway and a user interacting with the devices in IoT Hub is unaware of the intermediate gateway device. Thus, the gateway is transparent. Refer to the [Create a transparent gateway][lnk-iot-edge-as-transparent-gateway] how-to for specifics on using an IoT Edge device as a transparent gateway.
-* **Protocol translation** – Devices that do not support MQTT, AMQP, or HTTP use a gateway device to send data to IoT Hub. The gateway is smart enough to understand that protocol used by the downstream devices; however it is the only device that has identity in IoT Hub. All information looks like it is coming from one device, the gateway. This implies that downstream devices must embed additional identifying information in their messages if cloud applications want to reason about the data on a per device basis. Additionally, IoT Hub primitives like twin and methods are only available for the gateway device, not downstream devices.
+* **Protocol translation** – Also known as opaque gateway pattern, devices that do not support MQTT, AMQP, or HTTP use a gateway device to send data to IoT Hub. The gateway is smart enough to understand that protocol used by the downstream devices; however it is the only device that has identity in IoT Hub. All information looks like it is coming from one device, the gateway. This implies that downstream devices must embed additional identifying information in their messages if cloud applications want to reason about the data on a per device basis. Additionally, IoT Hub primitives like twin and methods are only available for the gateway device, not downstream devices.
 * **Identity translation** - Devices that cannot connect to IoT Hub connect to a gateway device which provides IoT Hub identity and protocol translation on behalf of the downstream devices. The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Downstream devices appear in IoT Hub as first-class devices with twins and methods. A user can interact with the devices in IoT Hub and is unaware of the intermediate gateway device.
 
 ![Diagrams of gateway patterns][1]
@@ -44,7 +34,7 @@ A gateway does protocol translation can also perform edge analytics, device isol
 A gateway that does identity translation provide the benefits of protocol translation and additionally allow for full manageability of downstream devices from the cloud. All devices in your IoT solution show up in IoT Hub regardless of the protocol with they speak.
 
 ## Cheat sheet
-Here is a quick cheat sheet that compares IoT Hub primitives when using transparent, opaque, and proxy gateways.
+Here is a quick cheat sheet that compares IoT Hub primitives when using transparent, opaque (protocol), and proxy gateways.
 
 | &nbsp; | Transparent gateway | Protocol translation | Identity translation |
 |--------|-------------|--------|--------|
@@ -58,7 +48,7 @@ When using an opaque gateway (protocol translation) pattern, all devices connect
 ## Next steps
 Use an IoT Edge device as a [transparent gateway][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

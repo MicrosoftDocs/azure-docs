@@ -2,15 +2,12 @@
 title: Connect a MongoDB app to Azure Cosmos DB by using Node.js | Microsoft Docs
 description: Learn how to connect an existing Node.js MongoDB app to Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
@@ -18,6 +15,15 @@ ms.author: sngun
 
 ---
 # Azure Cosmos DB: Migrate an existing Node.js MongoDB web app 
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -30,7 +36,7 @@ When you are done, you will have a MEAN application (MongoDB, Express, Angular, 
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Prerequisites 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
@@ -75,7 +81,7 @@ The application will try to connect to a MongoDB source and fail, go ahead and e
 
 ## Log in to Azure
 
-If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
+If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -85,11 +91,11 @@ az login
 
 If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
 
-If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#az_group_create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
@@ -101,7 +107,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command.
+Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.
 
 In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
@@ -114,7 +120,7 @@ The `--kind MongoDB` parameter enables MongoDB client connections.
 When the Azure Cosmos DB account is created, the Azure CLI shows information similar to the following example. 
 
 > [!NOTE]
-> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI 2.0 commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
 
 ```json
 {

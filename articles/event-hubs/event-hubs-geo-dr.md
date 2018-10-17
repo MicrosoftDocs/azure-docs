@@ -3,7 +3,7 @@ title: Azure Event Hubs geo-disaster recovery | Microsoft Docs
 description: How to use geographical regions to failover and perform disaster recovery in Azure Event Hubs
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: sethm
+ms.date: 08/14/2018
+ms.author: shvija
 
 ---
 
@@ -98,6 +98,17 @@ Note the following considerations to keep in mind with this release:
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
+## Availability Zones (preview)
+
+The Event Hubs Standard SKU also supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
+
+> [!NOTE]
+> The Availability Zones preview is supported only in the **Central US**, **East US 2**, and **France Central** regions.
+
+You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
+
+![3][]
+
 ## Next steps
 
 * The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
@@ -111,3 +122,4 @@ For more information about Event Hubs, visit the following links:
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

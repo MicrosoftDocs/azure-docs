@@ -11,6 +11,7 @@ editor: cjgronlund
 
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

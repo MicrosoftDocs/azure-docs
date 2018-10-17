@@ -3,7 +3,7 @@ title: Optimize your SQL Server environment with Azure Log Analytics | Microsoft
 description: With Azure Log Analytics, you can use the SQL Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -11,12 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-
+ms.component: 
 ---
+
 # Optimize your SQL environment with the SQL Server Health Check solution in Log Analytics
 
 ![SQL Health Check symbol](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
@@ -50,7 +50,7 @@ To perform the health check against your SQL Server servers, they require an age
 
 1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) if the server is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the server can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-oms) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
 
 The agent on your SQL Server which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to the Log Analytics service.  The data is not written to the Operations Manager databases.  
 
@@ -169,8 +169,6 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 ## Ignore recommendations
 If you have recommendations that you want to ignore, you can create a text file that Log Analytics will use to prevent recommendations from appearing in your assessment results.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### To identify recommendations that you will ignore
 1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.

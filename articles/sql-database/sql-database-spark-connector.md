@@ -2,16 +2,17 @@
 title: Spark Connector with Azure SQL Database and SQL Server| Microsoft Docs
 description: Learn how to use the Spark Connector for Azure SQL Database and SQL Server
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: 
-ms.topic: article
-ms.date: 04/17/2018
+ms.subservice: development
+ms.custom:
+ms.devlang: 
+ms.topic: conceptual
+author: allenwux
 ms.author: xiwu
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/23/2018
 ---
-
 # Accelerate real-time big data analytics with Spark connector for Azure SQL Database and SQL Server
 
 The Spark connector for Azure SQL Database and SQL Server enables SQL databases, including Azure SQL Database and SQL Server, to act as input data source or output data sink for Spark jobs. It allows you to utilize real-time transactional data in big data analytics and persist results for adhoc queries or reporting. Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into SQL databases. It can outperform row by row insertion with 10x to 20x faster performance. The Spark connector for Azure SQL Database and SQL Server also supports AAD authentication. It allows you securely connecting to your Azure SQL database from Azure Databricks using your AAD account. It provides similar interfaces with the built-in JDBC connector. It is easy to migrate your existing Spark jobs to use this new connector.
@@ -35,6 +36,10 @@ The dataflow is as follows:
 1. The Spark master node connects to SQL Server or Azure SQL Database and loads data from a specific table or using a specific SQL query
 2. The Spark master node distributes data to worker nodes for transformation. 
 3. The Worker node connects to SQL Server or Azure SQL Database and writes data to the database. User can choose to use row-by-row insertion or bulk insert.
+
+The following diagram illustrates the data flow.
+
+   ![architecture](./media/sql-database-spark-connector/architecture.png)
 
 ### Build the Spark to SQL DB connector
 Currently, the connector project uses maven. To build the connector without dependencies, you can run:
@@ -150,7 +155,7 @@ collection.show()
 #### Setup Requirement
 If you are using the access token-based authentication mode, you need to download [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) and its dependencies, and include them in the Java build path.
 
-See [Use Azure Active Directory Authentication for authentication with SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) to learn how to get access token to your Azure SQL database.
+See [Use Azure Active Directory Authentication for authentication with SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) to learn how to get access token to your Azure SQL database.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -208,5 +213,5 @@ If you haven't already, download the Spark connector for Azure SQL Database and 
 -	[Sample Azure Databricks notebooks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Sample scripts (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Azure Databricks documentation](https://docs.microsoft.com/en-us/azure/azure-databricks/).
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Azure Databricks documentation](https://docs.microsoft.com/azure/azure-databricks/).
 

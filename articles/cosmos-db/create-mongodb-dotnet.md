@@ -2,22 +2,28 @@
 title: 'Azure Cosmos DB: Build a web app with .NET and the MongoDB API | Microsoft Docs'
 description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: slyons
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/19/2018
-ms.author: sngun
+ms.date: 05/22/2018
+ms.author: sclyon
 
 ---
 # Azure Cosmos DB: Build a MongoDB API web app with .NET and the Azure portal
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -35,6 +41,8 @@ If you don't already have Visual Studio, download [Visual Studio 2017 Community 
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+
+The sample described in this article is compatible with MongoDB.Driver version 2.6.1.
 
 ## Clone the sample app
 
@@ -78,10 +86,7 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
         MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
         MongoIdentityEvidence evidence = new PasswordEvidence(password);
 
-        settings.Credentials = new List<MongoCredential>()
-        {
-            new MongoCredential("SCRAM-SHA-1", identity, evidence)
-        };
+        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
 
         MongoClient client = new MongoClient(settings);
     ```
@@ -101,6 +106,24 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
     ```cs
     collection.Find(new BsonDocument()).ToList();
     ```
+
+* Creates a task and insert it into the MongoDB collection
+
+   ```csharp
+    public void CreateTask(MyTask task)
+    {
+        var collection = GetTasksCollectionForEdit();
+        try
+        {
+            collection.InsertOne(task);
+        }
+        catch (MongoCommandException ex)
+        {
+            string msg = ex.Message;
+        }
+    }
+   ```
+   Similarly, you can update and delete documents by using the [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) and [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) methods. 
 
 ## Update your connection string
 

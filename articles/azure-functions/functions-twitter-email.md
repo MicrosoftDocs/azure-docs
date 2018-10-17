@@ -3,18 +3,13 @@ title: Create a function that integrates with Azure Logic Apps | Microsoft Docs
 description: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to categorize tweet sentiment and send notifications when sentiment is poor.
 services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 09/24/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
@@ -85,6 +80,8 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 
     ![Choose the HTTP trigger](./media/functions-twitter-email/select-http-trigger-portal.png)
 
+    All subsequent functions added to the function app use the C# language templates.
+
 3. Type a **Name** for your function, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**. 
 
     ![Create the HTTP triggered function](./media/functions-twitter-email/select-http-trigger-portal-2.png)
@@ -94,28 +91,35 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 4. Replace the contents of the `run.csx` file with the following code, then click **Save**:
 
     ```csharp
-    using System.Net;
+    #r "Newtonsoft.Json"
     
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    using System;
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        // The sentiment category defaults to 'GREEN'. 
         string category = "GREEN";
     
-        // Get the sentiment score from the request body.
-        double score = await req.Content.ReadAsAsync<double>();
-        log.Info(string.Format("The sentiment score received is '{0}'.",
-                    score.ToString()));
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        log.LogInformation(string.Format("The sentiment score received is '{0}'.", requestBody));
     
-        // Set the category based on the sentiment score.
-        if (score < .3)
+        double score = Convert.ToDouble(requestBody);
+    
+        if(score < .3)
         {
             category = "RED";
         }
-        else if (score < .6)
+        else if (score < .6) 
         {
             category = "YELLOW";
         }
-        return req.CreateResponse(HttpStatusCode.OK, category);
+    
+        return requestBody != null
+            ? (ActionResult)new OkObjectResult(category)
+            : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
     This function code returns a color category based on the sentiment score received in the request. 

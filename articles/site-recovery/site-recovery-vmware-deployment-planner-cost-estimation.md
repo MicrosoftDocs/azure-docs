@@ -2,18 +2,11 @@
 title: Azure Site Recovery deployment planner for VMware-to-Azure| Microsoft Docs
 description: This is the Azure Site Recovery deployment planner user guide.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor:
-
-ms.assetid:
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 03/09/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
 
 ---
@@ -134,7 +127,7 @@ To manually add VMs:
 
 **Number of DR-Drills in a year**: The number of times you perform DR-Drills in a year. By default, it is 4 times in a year. You can modify the period for specific VMs or apply the new value to all VMs by entering the new value on the top row and clicking the ‘Apply to all’ button. Based on number of DR-Drills in a year and each DR-Drill duration period, the total DR-Drill cost is calculated.  
 
-**Each DR-Drill duration (Days)**: The duration of each DR-Drill. By default, it is 7 days every 90 days as per the [Disaster Recovery Software Assurance benefit](https://azure.microsoft.com/en-in/pricing/details/site-recovery). You can modify the period for specific VMs or you can apply a new value to all VMs by entering new value on the top row and clicking the ‘Apply to all’ button. The total DR-Drill cost is calculated based on number of DR-Drills in a year and each DR-Drill duration period.
+**Each DR-Drill duration (Days)**: The duration of each DR-Drill. By default, it is 7 days every 90 days as per the [Disaster Recovery Software Assurance benefit](https://azure.microsoft.com/pricing/details/site-recovery). You can modify the period for specific VMs or you can apply a new value to all VMs by entering new value on the top row and clicking the ‘Apply to all’ button. The total DR-Drill cost is calculated based on number of DR-Drills in a year and each DR-Drill duration period.
   
 **OS Type**: The OS type of the VM. It is either Windows or Linux. If the OS type is Windows, then Azure Hybrid Use Benefit can be applied to that VM. 
 
