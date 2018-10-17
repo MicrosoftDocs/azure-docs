@@ -84,7 +84,7 @@ Next, select among several additional components that you can install.
 
 ![Screenshot of SAP HANA Lifecycle Management screen, with list of additional components](./media/hana-installation/image20_select_components.PNG)
 
-For this example, we choose the SAP HANA Client and the SAP HANA Studio. We also install a scale-up instance. On the next screen, choose **Single-Host System**. 
+Here, we choose the SAP HANA Client and the SAP HANA Studio. We also install a scale-up instance. Then choose **Single-Host System**. 
 
 ![Screenshot of SAP HANA Lifecycle Management screen, with Single Host System selected](./media/hana-installation/image21_single_host.PNG)
 
