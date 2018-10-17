@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Connect Configuration Manager to Log Analytics

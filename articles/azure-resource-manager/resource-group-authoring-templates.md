@@ -29,7 +29,7 @@ In its simplest structure, a template has the following elements:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
-    "functions": {  },
+    "functions": [  ],
     "resources": [  ],
     "outputs": {  }
 }

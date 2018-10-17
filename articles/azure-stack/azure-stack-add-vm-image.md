@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -51,7 +51,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
    ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as operator. In the menu, select **More services**. Then, select  **Compute** > **VM images** > **Add**.
+2. Sign in to Azure Stack as operator. In the menu, select **All services**. Then, under the **ADMINISTRATION** category select  **Compute** > **VM images** > **Add**.
 
 3. Under **Add a VM Image**, enter the publisher, offer, SKU, and version of the virtual machine image. These name segments refer to the VM   image in Resource Manager templates. Make sure to select the **osType** value correctly. For **OS Disk Blob URI**, enter the Blob URI where the    image was uploaded. Then, select **Create** to begin creating the VM Image.
 
@@ -72,7 +72,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 ## Add a VM image to the Marketplace by using PowerShell
 
 > [!Note]  
-> When you add an image it will only be available for Azure Resource Manger based templates and PowerShell deployments. To make an image available to a your users as a marketplace item, publish the marketplace item using the steps in the article, [Create and publish a Marketplace item](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> When you add an image it will only be available for Azure Resource Manger based templates and PowerShell deployments. To make an image available to a your users as a marketplace item, publish the marketplace item using the steps in the article, [Create and publish a Marketplace item](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
 
@@ -112,7 +112,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
     For more information, see the PowerShell reference for the [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet and the [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## Add a custom VM image to the Marketplace by using PowerShell
-
+ 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
   ```PowerShell  

@@ -1,6 +1,6 @@
 ---
-title: Create your first actor-based Azure microservice in C# | Microsoft Docs
-description: This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors.
+title: Create an actor-based service on Azure Service Fabric | Microsoft Docs
+description: Learn how to create, debug, and deploy your first actor-based service in C# using Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek

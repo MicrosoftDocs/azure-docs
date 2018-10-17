@@ -3,7 +3,7 @@ title: What is Azure Security Center?| Microsoft Docs
 description: Learn about Azure Security Center, its key capabilities, and how it works.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
-ms.author: terrylan
+ms.date: 10/10/2018
+ms.author: rkarlin
 
 ---
 # What is Azure Security Center?
@@ -53,13 +53,13 @@ Policy compliance is determined by the compliance factors of all policies assign
 
 For example, if your subscription has two VMs and an initiative with five policies assigned to it, then you have ten assessments in your subscription. If one of the VMs does not comply to two of the policies, then the overall compliance score of your subscription’s assignment is 80%.
 
-This section displays your overall compliance ratio and your least compliant subscriptions. Selecting **Policy compliance** opens the **Policy Management** window. **Policy Management** displays the hierarchical structure of management groups, subscriptions, and workspaces. Here you manage your security policies by choosing a subscription or management group.
+This section displays your overall compliance ratio and your least compliant subscriptions. Selecting **Show policy compliance of your environment** opens the **Policy Management** window. **Policy Management** displays the hierarchical structure of management groups, subscriptions, and workspaces. Here you manage your security policies by choosing a subscription or management group.
 
 ![Policy management][10]
 
 A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Security Center, you define policies and tailor them to your type of workload or the sensitivity of your data, determining which controls Security Center monitors and recommends. You can edit the security policy in Security Center by clicking on a management group or subscription. You can also use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 
-Selecting **Edit settings >** lets you edit the following Security Center settings at the subscription, management group, resource group, or work space level:
+Select **Edit settings >** to edit the following Security Center settings at the subscription, management group, resource group, or work space level:
 
 - **Data collection**: Determines agent provisioning and security [data collection](security-center-enable-data-collection.md) settings.
 - **Email notifications**: Determines security contacts and [e-mail notification](security-center-provide-security-contact-details.md) settings.
@@ -77,6 +77,9 @@ The right-hand side of the dashboard under **Policy & compliance** provides you 
 
 ## Continuous security assessment
 The Resource security hygiene section under **Security Center - Overview** provides a quick view of your resources’ security hygiene, displaying the number of issues identified and the security state for each resource type. Continuous assessment helps you to discover potential security issues, such as systems with missing security updates or exposed network ports.
+
+### Secure score
+The Azure Security Center secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first, helping you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a measurement tool that helps you harden your security to achieve a secure workload. For more information, see [Secure score in Azure Security Center](security-center-secure-score.md).
 
 ### Health monitoring
 Selecting a resource type under **Resource health monitoring** provides a list of resources and any vulnerabilities that have been identified. Resource types are compute & applications, networking, data & storage, and identity & access.

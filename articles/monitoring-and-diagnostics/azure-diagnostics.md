@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
 ---
 # What is Azure Diagnostics extension
-The Azure Diagnostics extension is an agent within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine Scale sets, and Service Fabric. Other Azure services have different diagnostics methods. See [Overview of monitoring in Azure](monitoring-overview.md). 
+The Azure Diagnostics extension is an agent within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine Scale sets, and Service Fabric. Other Azure services have different diagnostics methods. See [Overview of monitoring in Azure](monitoring-overview.md).
 
 ## Linux Agent
-A [Linux version of the extension](../virtual-machines/linux/diagnostic-extension.md) is available for Virtual Machines running Linux. The statistics collected and behavior vary from the Windows version. 
+A [Linux version of the extension](../virtual-machines/linux/diagnostic-extension.md) is available for Virtual Machines running Linux. The statistics collected and behavior vary from the Windows version.
 
 ## Data you can collect
 The Azure Diagnostics extension can collect the following types of data:
@@ -31,13 +31,20 @@ The Azure Diagnostics extension can collect the following types of data:
 | Custom error logs |Logs created by your application or service |
 | Azure Diagnostic infrastructure logs |Information about Diagnostics itself |
 
-(1) To get a list of ETW providers, run `c:\Windows\System32\logman.exe query providers` in a console window on the machine you'd like to gather information from. 
+(1) To get a list of ETW providers, run `c:\Windows\System32\logman.exe query providers` in a console window on the machine you'd like to gather information from.
 
 ## Data storage
-The extension stores its data in an [Azure Storage account](azure-diagnostics-storage.md) that you specify. 
+The extension stores its data in an [Azure Storage account](azure-diagnostics-storage.md) that you specify.
 
-You can also send it to [Application Insights](../application-insights/app-insights-cloudservices.md). Another option is to stream it to [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), which then allows you to send it to non-Azure montoring services. 
+You can also send it to [Application Insights](../application-insights/app-insights-cloudservices.md). Another option is to stream it to [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), which then allows you to send it to non-Azure montoring services.
 
+### Azure Monitor
+You also have the choice of sending your data to Azure Monitor. At this time, this sink is only applicable to Performance Counters. It enables you to send performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. The Azure Monitor sink supports:
+* Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/)
+* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](monitoring-overview-unified-alerts.md) in Azure Monitor
+* Treating wildcard operator in performance counters as the "Instance" dimension on your metric.  For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk on the VM (C:, D:, etc.)
+
+To learn more on how to configure this sink, please refer to the [Azure diagnostics schema documentation.](azure-diagnostics-schema-1dot3-and-later.md)
 
 ## Versioning and configuration schema
 See [Azure Diagnostics Version History and Schema](azure-diagnostics-versioning-history.md).

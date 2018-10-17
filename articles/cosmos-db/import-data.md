@@ -37,7 +37,9 @@ Before following the instructions in this article, ensure that you have the foll
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
-* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+* **Increase throughput:** The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+
+* **Create Azure Cosmos DB resources:** Before you start the migrating data, pre-create all your collections from the Azure portal. If you are migrating to an Azure Cosmos DB account that has database level throughput, make sure to provide a partition key when creating the Azure Cosmos DB collections.
 
 ## <a id="Overviewl"></a>Overview
 The Data Migration tool is an open-source solution that imports data to Azure Cosmos DB from a variety of sources, including:
@@ -166,7 +168,7 @@ Which returns the following (partial) results:
 
 ![Screenshot of SQL query results](./media/import-data/sqlqueryresults.png)
 
-Note the aliases such as Address.AddressType and Address.Location.StateProvinceName. By specifying a nesting separator of ‘.’, the import tool creates Address and Address.Location subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
+Note the aliases such as Address.AddressType and Address.Location.StateProvinceName. By specifying a nesting separator of '.', the import tool creates Address and Address.Location subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
 
 *{
   "id": "956",
@@ -200,7 +202,7 @@ Similar to the SQL source, the nesting separator property may be used to create 
 
 ![Screenshot of CSV sample records - CSV to JSON](./media/import-data/csvsample.png)
 
-Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of ‘.’, the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
+Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of '.', the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
 
 *{
   "DomainInfo": {
@@ -220,7 +222,7 @@ The import tool attempts to infer type information for unquoted values in CSV fi
 There are two other things to note about CSV import:
 
 1. By default, unquoted values are always trimmed for tabs and spaces, while quoted values are preserved as-is. This behavior can be overridden with the Trim quoted values checkbox or the /s.TrimQuoted command-line option.
-2. By default, an unquoted null is treated as a null value. This behavior can be overridden (that is, treat an unquoted null as a “null” string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command-line option.
+2. By default, an unquoted null is treated as a null value. This behavior can be overridden (that is, treat an unquoted null as a "null" string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command-line option.
 
 Here is a command-line sample for CSV import:
 
@@ -549,6 +551,14 @@ You may optionally choose to prettify the resulting JSON, which will increase th
       }
     ]
     }]
+
+Here is a command-line sample to export the JSON file to Azure Blob storage:
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.windows.net:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## Advanced configuration
 In the Advanced configuration screen, specify the location of the log file to which you would like any errors written. The following rules apply to this page:

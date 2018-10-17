@@ -1,16 +1,17 @@
 ---
-title: Find LUIS region with Node.js in Language Understanding (LUIS) boundaries | Microsoft Docs
+title: Find endpoint region with Node.js in LUIS
+titleSuffix: Azure Cognitive Services
 description: Programmatically find publish region with endpoint key and application ID for LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
 ---
-# Region can be determined from API call 
+# Find endpoint region with Node.js
 If you have the LUIS app ID and the LUIS subscription ID, you can find which region to use for endpoint queries.
 
 > [!NOTE] 

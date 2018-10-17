@@ -3,8 +3,8 @@ title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
 description: This article can help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
@@ -28,17 +28,19 @@ To configure endpoint monitoring, you must specify the following settings on you
 * **Protocol**. Choose HTTP, HTTPS, or TCP as the protocol that Traffic Manager uses when probing your endpoint to check its health. HTTPS monitoring does not verify whether your SSL certificate is valid--it only checks that the certificate is present.
 * **Port**. Choose the port used for the request.
 * **Path**. This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For  HTTP and HTTPS protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash (/) is a valid entry for the relative path. This value implies that the file is in the root directory (default).
-* **Probing Interval**. This value specifies how often an endpoint is checked for its health from a Traffic Manager probing agent. You can specify two values here: 30 seconds (normal probing) and 10 seconds (fast probing). If no values are provided, the profile sets to a default value of 30 seconds. Visit the [Traffic Manager Pricing](https://azure.microsoft.com/pricing/details/traffic-manager) page to learn more about fast probing pricing.
-* **Tolerated Number of Failures**. This value specifies how many failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Its value can range between 0 and 9. A value of 0 means a single monitoring failure can cause that endpoint to be marked as unhealthy. If no value is specified, it uses the default value of 3.
-* **Monitoring Timeout**. This property specifies the amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
+* **Custom header settings** This configuration setting helps you add specific HTTP headers to the health checks that Traffic Manager sends to endpoints under a profile. The custom headers can be specified at a profile level to be applicable for all endpoints in that profile and / or at an endpoint level applicable only to that endpoint. You can use custom headers for having health checks to endpoints in a multi-tenant environment be routed correctly to their destination by specifying a host header. You can also use this setting by adding unique headers that can be used to identify Traffic Manager originated HTTP(S) requests and processes them differently.
+* **Expected status code ranges** This setting allows you to specify multiple success code ranges in the format 200-299, 301-301. If these status codes are received as response from an endpoint when a health check is initiated, Traffic Manager marks those endpoints as healthy. You can specify a maximum of 8 status code ranges. This setting is applicable only to HTTP and HTTPS protocol and to all endpoints. This setting is at the Traffic Manager profile level and by default the value 200 is defined as the success status code.
+* **Probing interval**. This value specifies how often an endpoint is checked for its health from a Traffic Manager probing agent. You can specify two values here: 30 seconds (normal probing) and 10 seconds (fast probing). If no values are provided, the profile sets to a default value of 30 seconds. Visit the [Traffic Manager Pricing](https://azure.microsoft.com/pricing/details/traffic-manager) page to learn more about fast probing pricing.
+* **Tolerated number of failures**. This value specifies how many failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Its value can range between 0 and 9. A value of 0 means a single monitoring failure can cause that endpoint to be marked as unhealthy. If no value is specified, it uses the default value of 3.
+* **Probe timeout**. This property specifies the amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
 
-![Traffic Manager endpoint monitoring](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Traffic Manager endpoint monitoring](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Figure 1:  Traffic Manager endpoint monitoring**
+    **Figure:  Traffic Manager endpoint monitoring**
 
 ## How endpoint monitoring works
 
-If the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. If it gets back a 200-OK response, then that endpoint is considered healthy. If the response is a different value, or, if no response is received within the timeout period specified, then the Traffic Manager probing agent re-attempts according to the Tolerated Number of Failures setting (no re-attempts are done if this setting is 0). If the number of consecutive failures is higher than the Tolerated Number of Failures setting, then that endpoint is marked as unhealthy. 
+If the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. If it gets back a 200-OK response, or any of the responses configured in the **Expected status code *ranges**, then that endpoint is considered healthy. If the response is a different value, or, if no response is received within the timeout period specified, then the Traffic Manager probing agent re-attempts according to the Tolerated Number of Failures setting (no re-attempts are done if this setting is 0). If the number of consecutive failures is higher than the Tolerated Number of Failures setting, then that endpoint is marked as unhealthy. 
 
 If the monitoring protocol is TCP, the Traffic Manager probing agent initiates a TCP connection request using the port specified. If the endpoint responds to the request with a response to establish the connection, that health check is marked as a success and the Traffic Manager probing agent resets the TCP connection. If the response is a different value, or if no response is received within the timeout period specified, the Traffic Manager probing agent re-attempts according to the Tolerated Number of Failures setting (no re-attempts are made if this setting is 0). If the number of consecutive failures is higher than the Tolerated Number of Failures setting, then that endpoint is marked unhealthy.
 
@@ -97,7 +99,7 @@ Traffic Manager periodically checks the health of every endpoint, including unhe
 
 An endpoint is unhealthy when any of the following events occur:
 - If the monitoring protocol is HTTP or HTTPS:
-    - A non-200 response is received (including a different 2xx code, or a 301/302 redirect).
+    - A non-200 response, or a response that does not include the status range specified in the **Expected status code ranges** setting, is received (including a different 2xx code, or a 301/302 redirect).
 - If the monitoring protocol is TCP: 
     - A response other than ACK or SYN-ACK is received in response to the SYNC request sent by Traffic Manager to attempt a connection establishment.
 - Timeout. 
@@ -105,14 +107,14 @@ An endpoint is unhealthy when any of the following events occur:
 
 For more information about troubleshooting failed checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md). 
 
-The following timeline in Figure 2 is a detailed description of the monitoring process of Traffic Manager endpoint that has the following settings: monitoring protocol is HTTP, probing interval is 30 seconds, number of tolerated failures is 3, timeout value is 10 seconds, and DNS TTL is 30 seconds.
+The timeline in the following figure is a detailed description of the monitoring process of Traffic Manager endpoint that has the following settings: monitoring protocol is HTTP, probing interval is 30 seconds, number of tolerated failures is 3, timeout value is 10 seconds, and DNS TTL is 30 seconds.
 
 ![Traffic Manager endpoint failover and failback sequence](./media/traffic-manager-monitoring/timeline.png)
 
-**Figure 2:  Traffic manager endpoint failover and recovery sequence**
+**Figure:  Traffic manager endpoint failover and recovery sequence**
 
 1. **GET**. For each endpoint, the Traffic Manager monitoring system performs a GET request on the path specified in the monitoring settings.
-2. **200 OK**. The monitoring system expects an HTTP 200 OK message to be returned within 10 seconds. When it receives this response, it recognizes that the service is available.
+2. **200 OK or custom code range specified Traffic Manager profile monitoring settings** . The monitoring system expects an HTTP 200 OK or the or custom code range specified Traffic Manager profile monitoring settings message to be returned within 10 seconds. When it receives this response, it recognizes that the service is available.
 3. **30 seconds between checks**. The endpoint health check is repeated every 30 seconds.
 4. **Service unavailable**. The service becomes unavailable. Traffic Manager will not know until the next health check.
 5. **Attempts to access the monitoring path**. The monitoring system performs a GET request, but does not receive a response within the timeout period of 10 seconds (alternatively, a non-200 response may be received). It then tries three more times, at 30-second intervals. If one of the tries is successful, then the number of tries is reset.
@@ -133,6 +135,8 @@ When an endpoint has a Degraded status, it is no longer returned in response to 
 * **Weighted**. Any available endpoint is chosen at random based on their assigned weights and the weights of the other available endpoints.
 * **Performance**. The endpoint closest to the end user is returned. If that endpoint is unavailable, Traffic Manager moves traffic to the endpoints in the next closest Azure region. You can configure alternative failover plans for performance traffic-routing by using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geographic**. The endpoint mapped to serve the geographic location based on the query request IP’s is returned. If that endpoint is unavailable, another endpoint will not be selected to failover to, since a geographic location can be mapped only to one endpoint in a profile (more details are in the [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). As a best practice, when using geographic routing, we recommend customers to use nested Traffic Manager profiles with more than one endpoint as the endpoints of the profile.
+* **MultiValue** Mutliple endpoints mapped to IPv4/IPv6 addresses are returned. When a query is received for this profile, healthy endpoints are returned based on the **Maximum record count in response** value that you have specified. The default number of responses is two endpoints.
+* **Subnet** The endpoint mapped to a set of IP address ranges is returned. When a request is received from that IP address, the endpoint returned is the one mapped for that IP address. 
 
 For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
 

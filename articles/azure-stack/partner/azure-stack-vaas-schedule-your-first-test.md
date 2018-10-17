@@ -20,7 +20,7 @@ ms.reviewer: johnhas
 
 # Quickstart: Use the validation as a service portal to schedule your first test
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Learn how to schedule your first test with the validation as a service (VaaS) portal to check your hardware. The local agent must be deployed on the Azure Stack solution being validated prior to running validation tests.
 

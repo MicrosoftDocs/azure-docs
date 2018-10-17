@@ -1,13 +1,14 @@
 ---
-title: Understanding entity types in LUIS apps in Azure | Microsoft Docs
+title: Entity types in LUIS apps - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Add entities (key data in your application's domain) in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Entities in LUIS
@@ -39,10 +40,10 @@ If the word choice or word arrangement is the same, but doesn't mean the same th
 
 The following utterances, the word `fair` is a homograph. It is spelled the same but has a different meaning:
 
-```
-What kind of county fairs are happening in the Seattle area this summer?
-Is the current rating for the Seattle review fair?
-```
+|Utterance|
+|--|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
 
 If you wanted an event entity to find all event data, label the word `fair` in the first utterance, but not in the second.
 
@@ -86,7 +87,7 @@ LUIS offers many types of entities; prebuilt entities, custom machine learned en
 Review [limits](luis-boundaries.md#model-boundaries) to understand how many of each type of entity you can add to a model.
 
 ## Entity roles
-Entity [roles](luis-concept-roles.md) are used in patterns only. 
+Entity [roles](luis-concept-roles.md) apply to custom and prebuilt entities and are used in patterns only. 
 
 ## Composite vs hierarchical entities
 Composite entities and hierarchical entities both have parent-child relationships and are machine learned. The machine-learning allows LUIS to understand the entities based on different contexts (arrangement of words). Composite entities are more flexible because they allow different entity types as children. A hierarchical entity's children are only simple entities. 

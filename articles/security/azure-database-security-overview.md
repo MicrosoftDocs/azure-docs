@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 09/20/2018
 ms.author: TomSh
 
 ---
@@ -67,7 +67,7 @@ You can take several precautions to help secure the database. For example, desig
 
 One solution is to encrypt the sensitive data in the database and protect the keys that are used to encrypt the data with a certificate. This solution prevents anyone without the keys from using the data, but this kind of protection must be planned.
 
-To solve this problem, SQL Server and SQL Database support [transparent data encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Transparent data encryption encrypts SQL Server and SQL Database data files, known as encryption data at rest.
+To solve this problem, SQL Server and SQL Database support [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Transparent data encryption encrypts SQL Server and SQL Database data files, known as encryption data at rest.
 
 Transparent data encryption helps protect against the threat of malicious activity. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.  
 

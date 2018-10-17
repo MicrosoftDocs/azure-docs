@@ -1,15 +1,16 @@
 ---
-title: Face API cURL quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you detect faces from an image using the Face API with cURL in Cognitive Services.
+title: "Quickstart: Detect faces in an image - Face API cURL"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you detect faces from an image using the Face API with cURL.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using cURL
 

@@ -3,7 +3,7 @@ title: Azure Log Analytics virtual machine extension for Linux | Microsoft Docs
 description: Deploy the Log Analytics agent on Linux virtual machine using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: roiyz
 
 ---
@@ -49,7 +49,7 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
-| 1.7.7 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
+| 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
@@ -76,9 +76,9 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 
 ```json
 {
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -97,11 +97,15 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 }
 ```
 
+>[!NOTE]
+>The schema above assumes that it will be placed at the root level of the template. If you put it inside the virtual machine resource in the template, the `type` and `name` properties should be changed, as described [further down](#template-deployment).
+>
+
 ### Property values
 
 | Name | Value / Example |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
@@ -121,7 +125,7 @@ The following example assumes the VM extension is nested inside the virtual mach
 {
   "type": "extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -146,7 +150,7 @@ When placing the extension JSON at the root of the template, the resource name i
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "<parentVmResource>/OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Custom logs in Log Analytics
@@ -36,6 +36,10 @@ The log files to be collected must match the following criteria.
 >If there are duplicate entries in the log file, Log Analytics will collect them.  However, the search results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
 >
   
+>[!NOTE]
+> If your application creates a new log file each day or when it reaches a certain size, the Log Analytics agent for Linux does not discover them until after it is restarted. This is because the agent only enumerates and begins monitoring for patterns with the specified logs upon start up, and because of this you need to plan around it by automating the restart of the agent.  This limitation does not exist with the Log Analytics agent for Windows.  
+>
+
 ## Defining a custom log
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
 
@@ -62,9 +66,13 @@ If a timestamp delimiter is used, then the TimeGenerated property of each record
 5. Click **Next**.
 
 ### Step 3. Add log collection paths
-You must define one or more paths on the agent where it can locate the custom log.  You can either provide a specific path and name for the log file, or you can specify a path with a wildcard for the name.  This supports applications that create a new file each day or when one file reaches a certain size.  You can also provide multiple paths for a single log file.
+You must define one or more paths on the agent where it can locate the custom log.  You can either provide a specific path and name for the log file, or you can specify a path with a wildcard for the name. This supports applications that create a new file each day or when one file reaches a certain size. You can also provide multiple paths for a single log file.
 
 For example, an application might create a log file each day with the date included in the name as in log20100316.txt. A pattern for such a log might be *log\*.txt* which would apply to any log file following the application’s naming scheme.
+
+>[!NOTE]
+> If your application creates a new log file each day or when it reaches a certain size, the Log Analytics agent for Linux does not discover them until after it is restarted. This is because the agent only enumerates and begins monitoring for patterns with the specified logs upon start up, and because of this you need to plan around it by automating the restart of the agent.  This limitation does not exist with the Log Analytics agent for Windows.  
+>
 
 The following table provides examples of valid patterns to specify different log files.
 

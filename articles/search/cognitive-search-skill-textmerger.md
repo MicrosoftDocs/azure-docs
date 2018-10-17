@@ -17,6 +17,9 @@ ms.author: luisca
 
 The **Text Merge** skill consolidates text from a collection of fields into a single field. 
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+
 ## @odata.type  
 Microsoft.Skills.Text.MergeSkill
 
@@ -115,7 +118,7 @@ The following example skillset uses the OCR skill to extract text from images em
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

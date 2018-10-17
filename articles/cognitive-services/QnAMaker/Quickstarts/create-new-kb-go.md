@@ -1,15 +1,16 @@
 ---
-title: Create a new knowledge base - quickstart Go - for Microsoft QnA Maker API (v4) - Azure Cognitive Services | Microsoft Docs
-description: Create a knowledge base in Go to hold your FAQs or product manuals, so you can get started with QnA Maker.
+title: "Quickstart: API Go - Create knowledge base - QnA Maker"
+titlesuffix: Azure Cognitive Services 
+description: This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
+ms.date: 09/12/2018
+ms.author: diberry
 ---
 
 # Create a new knowledge base in Go

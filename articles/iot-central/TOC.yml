@@ -35,45 +35,7 @@
     href: concepts-connectivity.md
 - name: How-to guides
   items:
-  - name : Adminstrator
-    items:
-      - name: Create an application
-        href: howto-create-application.md
-        name: As a CSP create and manage an application
-        href: howto-create-and-manage-applications-as-CSP.md
-      - name: Administer your application
-        href: howto-administer.md
-      - name: Export your data
-        href: howto-export-data.md
-      - name: Visualize your data in Power BI
-        href: howto-connect-powerbi.md
-  - name : Builder
-    items:
-      - name: Set up the device template
-        href: howto-set-up-template.md
-      - name: Version device template
-        href: howto-version-devicetemplate.md
-      - name: Create telemetry rule
-        href: howto-create-telemetry-rules.md
-      - name: Create an event rule
-        href: howto-create-event-rules.md
-      - name: Create webhook actions on rules
-        href: howto-create-webhooks.md
-      - name: Build workflows in Microsoft Flow
-        href: howto-add-microsoft-flow.md
-      - name: Configure homepage
-        href: howto-configure-homepage.md
-      - name: Prepare and upload images
-        href: howto-prepare-images.md
-  - name : Operator
-    items:
-      - name: Manage your devices
-        href: howto-manage-devices.md
-      - name: Use device sets
-        href: howto-use-device-sets.md
-      - name: Create custom analytics
-        href: howto-create-analytics.md
-  - name : Device developer
+  - name : Connect devices
     items:
       - name: Prepare and connect a Node.js (generic) application 
         href: howto-connect-nodejs.md
@@ -85,6 +47,50 @@
         href: howto-connect-raspberry-pi-csharp.md
       - name: Prepare and connect a Windows IoT Core device
         href: howto-connect-windowsiotcore.md
+      - name: Monitor device connectivity using command line
+        href: howto-use-iotc-explorer.md
+  - name: Manage devices
+    items:
+      - name: Set up a device template
+        href: howto-set-up-template.md
+      - name: Manage your devices
+        href: howto-manage-devices.md
+      - name: Run a job
+        href: howto-run-a-job.md
+      - name: Use device sets
+        href: howto-use-device-sets.md
+      - name: Version device template
+        href: howto-version-devicetemplate.md
+  - name: Monitoring and analytics
+    items:
+      - name: Create telemetry rule
+        href: howto-create-telemetry-rules.md
+      - name: Create an event rule
+        href: howto-create-event-rules.md
+      - name: Analyze your device data
+        href: howto-create-analytics.md 
+  - name: Actions and extensibility
+    items:
+      - name: Create webhook actions on rules
+        href: howto-create-webhooks.md
+      - name: Build workflows in Microsoft Flow
+        href: howto-add-microsoft-flow.md
+      - name: Trigger Azure Functions
+        href: howto-trigger-azure-functions.md
+      - name: Export your data
+        href: howto-export-data.md
+      - name: Visualize your data in Power BI
+        href: howto-connect-powerbi.md
+  - name : Adminstration
+    items:
+      - name: Administer your application
+        href: howto-administer.md  
+      - name: Manage IoT Central from the Azure Management Portal
+        href: howto-manage-iot-central-from-portal.md
+      - name: As a CSP create and manage an application
+        href: howto-create-and-manage-applications-as-CSP.md
+      - name: Configure homepage
+        href: howto-configure-homepage.md         
 - name: Related
   items:
   - name: Solutions
@@ -115,5 +121,3 @@
   items:
   - name: Customer data requests
     href: iot-central-customer-data-requests.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-central

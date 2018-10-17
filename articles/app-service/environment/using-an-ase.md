@@ -131,7 +131,7 @@ With an External ASE, these publishing options all behave the same. For more inf
 
 The major difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you can't publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
 
-Internet-based CI systems, such as GitHub and Visual Studio Team Services, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
+Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal blade (in **Overview** > **Essentials** and also in **Properties**). 
 

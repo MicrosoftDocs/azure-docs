@@ -11,13 +11,13 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
 
 ---
 
-# Tutorial: create an Azure Resource Manager template for deploying an encrypted storage account
+# Tutorial: Create an Azure Resource Manager template for deploying an encrypted storage account
 
 Learn how to find information to complete an Azure Resource Manager template.
 
@@ -109,9 +109,14 @@ To use the variable defined in the template:
 The goal of this tutorial is to define a template to create an encrypted storage account.  The sample template only creates a basic unencrypted storage account. To find the encryption-related configuration, you can use the template reference of Azure Storage account.
 
 1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
-2. From the TOC on the left, select **Reference**->**Storage**->**Storage Accounts**. You can also enter **storage** in the **Filter by title** field.  The page contains the schema for defining a Storage Account information.
-3. Explore the encryption-related information.  
-4. Inside the properties element of the storage account resource definition, add the following json:
+2. In **Filter by title**, enter **storage accounts**.
+3. Select **Reference/Template reference/Storage/Storage Accounts** as shown in the following screenshot:
+
+    ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Explore the encryption-related information.  
+1. Inside the properties element of the storage account resource definition, add the following json:
 
     ```json
     "encryption": {
@@ -148,7 +153,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to use template reference to customize an existing template. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources. Some of the resources have dependent resources.
+In this tutorial, you learned how to use template reference to customize an existing template. To learn how to create multiple storage account instances, see:
 
 > [!div class="nextstepaction"]
-> [Create multiple resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create multiple instances](./resource-manager-tutorial-create-multiple-instances.md)

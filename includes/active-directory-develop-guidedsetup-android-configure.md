@@ -1,19 +1,36 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file 
+
+---
 
 ## Register your application
 You can register your application in either of two ways, as described in the next two sections.
 
-### Option 1: Express mode
-You can quickly register your application by doing the following:
+### Option 1: Express
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.	In the **Application Name** box, enter a name for your application.
+2.	In **Application Name**, enter a name for your application.
 
 3. Ensure that the **Guided Setup** check box is selected, and then select **Create**.
 
 4. Follow the instructions for obtaining the application ID, and paste it into your code.
 
-### Option 2: Advanced mode
-To register your application and add your application registration information to your solution, do the following:
-1. If you haven't already registered your application, go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
+### Option 2: Advanced 
+1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
 2. In the **Application Name** box, enter a name for your application. 
 
 3. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
@@ -22,7 +39,7 @@ To register your application and add your application registration information t
 
 5. Under **app** > **java** > **{host}.{namespace}**, open `MainActivity`. 
 
-6.	Replace *[Enter the application Id here]* in the following line with the application ID that you just registered:
+6.	Replace *[Enter the application Id here]* with your Application / Client ID:
 
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
@@ -30,7 +47,7 @@ To register your application and add your application registration information t
 <!-- Workaround for Docs conversion bug -->
 7. Under **app** > **manifests**, open the *AndroidManifest.xml* file.
 
-8. In the `manifest\application` node, add the following activity. Doing so registers a `BrowserTabActivity` activity that allows the OS to resume your application after it completes the authentication:
+8. In the `manifest\application`, add the following activity. The `BrowserTabActivity` activity that allows Microsoft to call back to your application after it completes the authentication:
 
     ```xml
     <!--Intent filter to capture System Browser calling back to our app after sign-in-->
@@ -49,4 +66,4 @@ To register your application and add your application registration information t
     </activity>
     ```
 <!-- Workaround for Docs conversion bug -->
-9. In the `BrowserTabActivity` node, replace `[Enter the application Id here]` with the application ID.
+9. In the `BrowserTabActivity`, replace `[Enter the application Id here]` with the Application / Client ID.

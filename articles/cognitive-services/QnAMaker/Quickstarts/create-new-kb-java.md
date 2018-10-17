@@ -1,26 +1,29 @@
 ---
-title: Create a new knowledge base - quickstart Java - for Microsoft QnA Maker API (v4) - Azure Cognitive Services | Microsoft Docs
-description: Create a knowledge base in Java to hold your FAQs or product manuals, so you can get started with QnA Maker.
+title: "Quickstart: API Java - Create knowledge base - QnA Maker"
+titlesuffix: Azure Cognitive Services 
+description: This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account..
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
+ms.date: 09/12/2018
+ms.author: diberry
 ---
 
 # Create a new knowledge base in Java
 
 This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
 Two sample FAQ URLs are given below (in 'kb.urls' of **getKB()**) that will provide content. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will work okay.
+You will need [JDK 7 or 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will work okay.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). Either key will work for this quickstart.
 

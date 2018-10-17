@@ -115,7 +115,7 @@ Complete the following steps in the Linux machine or VM that you prepared to fun
 
 The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
 
-The steps in this section are for devices running **Ubuntu 16.04**. To access the software repository on other versions of Linux, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+The steps in this section are for x64 devices running **Ubuntu 16.04**. To access the software repository on other versions of Linux or device architectures, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. On the machine that you're using as an IoT Edge device, install the repository configuration.
 

@@ -1,3 +1,23 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file 
+
+---
+
 ## Setting up your iOS application
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate an iOS application (Swift) with *Sign-In with Microsoft* so it can query Web APIs that require a token.

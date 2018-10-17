@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 10/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -19,10 +19,10 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Product version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.594      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.594      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.3.1.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.3.1.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.39      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.39      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.7.0.2    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.7.0.2     |
 
 ## AMO and ADOMD (NuGet packages)
 
@@ -30,8 +30,8 @@ Analysis Services Management Objects (AMO) and ADOMD client libraries are availa
 
 |Package  | Product version  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.3.1     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.3.1     |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.7.0.2    |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.7.02     |
 
 NuGet package assemblies AssemblyVersion follow semantic versioning: MAJOR.MINOR.PATCH. NuGet references load the expected version even if there is a different version in the GAC (resulting from MSI install). PATCH is incremented for each release. AMO and ADOMD versions are kept in-sync.
 

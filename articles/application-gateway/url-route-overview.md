@@ -14,7 +14,7 @@ ms.date: 4/23/2018
 ms.author: victorh
 
 ---
-# Azure Application Gatewaty URL path based routing overview
+# Azure Application Gateway URL path based routing overview
 
 URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. 
 

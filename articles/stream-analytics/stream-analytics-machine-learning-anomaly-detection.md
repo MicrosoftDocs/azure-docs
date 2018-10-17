@@ -14,7 +14,7 @@ ms.date: 04/09/2018
 # Anomaly Detection in Azure Stream Analytics
 
 > [!IMPORTANT]
-> This functionality is in preview, it’s not recommend using with production workloads.
+> This functionality is in the process of being deprecated, but will be replaced with new functions. For more information, visit the [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog post.
 
 The **AnomalyDetection** operator is used to detect different types of anomalies in event streams. For example, a slow decrease in free memory over a long time can be indicative of a memory leak, or the number of web service requests that are stable in a range might dramatically increase or decrease.  
 

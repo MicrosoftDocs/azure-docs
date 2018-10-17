@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 Samples - Zone-redundant scale set | Microsoft Docs
-description: Azure CLI 2.0 Samples
+title: Azure CLI Samples - Zone-redundant scale set | Microsoft Docs
+description: Azure CLI Samples
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -47,6 +47,6 @@ This script uses the following commands to create a resource group, virtual mach
 | [az group delete](/cli/azure/ad/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-For more information on the Azure CLI 2.0, see [Azure CLI 2.0 documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine scale set Azure CLI 2.0 script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).
+Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).

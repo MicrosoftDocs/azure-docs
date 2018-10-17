@@ -19,7 +19,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 If you are running the CLI locally, you need to log in to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command. Note the **id** property from the command output for the corresponding subscription name.
 ```azurecli-interactive
@@ -40,12 +40,24 @@ az group create --name myresourcegroup --location westus
 
 ## Create an Azure Database for PostgreSQL server
 
-Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server contains a group of databases managed as a group. 
+Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server can contain multiple databases.
 
-The following example creates a server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 4** **General Purpose** server with 2 **vCores**. The name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value.
-```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
-```
+
+**Setting** | **Sample value** | **Description**
+---|---|---
+name | mydemoserver | Choose a unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+resource-group | myresourcegroup | Provide the name of the Azure resource group.
+sku-name | GP_Gen4_2 | The name of the sku. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See below this table for more information about the sku-name parameter.
+backup-retention | 7 | How long a backup should be retained. Unit is days. Range is 7-35. 
+geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not. Allowed values: Enabled, Disabled.
+location | westus | The Azure location for the server.
+ssl-enforcement | Enabled | Whether ssl should be enabled or not for this server. Allowed values: Enabled, Disabled.
+storage-size | 51200 | The storage capacity of the server (unit is megabytes). Valid storage-size is minimum 5120MB and increases in 1024MB increments. See the [pricing tiers](./concepts-pricing-tiers.md) document for more information about storage size limits. 
+version | 9.6 | The PostgreSQL major version.
+admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+admin-password | *secure password* | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+
+
 The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
 + `--sku-name B_Gen4_4` maps to Basic, Gen 4, and 4 vCores.
 + `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
@@ -53,10 +65,14 @@ The sku-name parameter value follows the convention {pricing tier}\_{compute gen
 
 Please see the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
 
-> [!IMPORTANT]
-> The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
+The following example creates a PostgreSQL 9.6 server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 4** **General Purpose** server with **2 vCores**. Substitute the `<server_admin_password>` with your own value.
+```azurecli-interactive
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+```
 
-By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities, and third-party applications. 
+
+> [!IMPORTANT]
+> The server admin login and password that you specify here are required to log in to the server later in this quickstart. Remember or record this information for later use.
 
 
 ## Configure a server-level firewall rule

@@ -57,9 +57,7 @@ Add necessary nuget packages in the Package Manager Console.
 
 ```
 Install-Package WindowsAzure.Storage
-
-// This is the latest stable release for ADAL.
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions

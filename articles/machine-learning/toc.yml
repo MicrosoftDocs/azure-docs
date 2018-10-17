@@ -1,8 +1,6 @@
-- name: Azure Machine Learning services (preview)
+- name: Azure Machine Learning service (Preview)
   href: service/index.yml
 - name: Azure Machine Learning Studio
   href: studio/index.yml
-- name: Data Science Virtual Machine
-  href: data-science-virtual-machine/index.yml
-
-
+- name: Compare ML products at Microsoft
+  href: service/overview-more-machine-learning.md   

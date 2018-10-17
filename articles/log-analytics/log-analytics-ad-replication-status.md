@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Monitor Active Directory replication status with Log Analytics

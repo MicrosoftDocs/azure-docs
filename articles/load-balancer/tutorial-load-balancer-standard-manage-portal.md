@@ -133,7 +133,7 @@ In this section, you create a NSG rule to allow inbound connections using HTTP.
 
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool, a health probe, and specify a  balancer rule.
+In this section, you configure load balancer settings for a backend address pool, a health probe, and specify a balancer rule.
 
 ### Create a backend address pool
 
@@ -200,11 +200,11 @@ To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
+When they are no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also, removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

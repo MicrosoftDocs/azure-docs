@@ -33,8 +33,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There is one key configuration setting available for configuring the client [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) – the [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  The two available ConnectionModes are:
 
-   1. [Gateway (default)](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_mode)
-   2. [DirectHttps](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_mode)
+   1. [Gateway (default)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode)
+   2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode)
 
     Gateway mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, DirectHttps mode offers better performance due to fewer network hops. 
 

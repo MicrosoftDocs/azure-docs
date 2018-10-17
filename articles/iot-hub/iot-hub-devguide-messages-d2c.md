@@ -1,84 +1,107 @@
 ---
-title: Understand Azure IoT Hub device-to-cloud messaging | Microsoft Docs
-description: Developer guide - how to use device-to-cloud messaging with IoT Hub. Includes information about sending both telemetry and non-telemtry data, and using routing to deliver messages.
-author: dominicbetts
-manager: timlt
+title: Understand Azure IoT Hub message routing | Microsoft Docs
+description: Developer guide - how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and non-telemetry data.
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
+ms.date: 08/13/2018
+ms.author: asrastog
 ---
 
-# Send device-to-cloud messages to IoT Hub
+# Use message routing to send device-to-cloud messages to different endpoints
 
-To send time-series telemetry and alerts from your devices to your solution back end, send device-to-cloud messages from your device to your IoT hub. For a discussion of other device-to-cloud options supported by IoT Hub, see [Device-to-cloud communications guidance][lnk-d2c-guidance].
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-You send device-to-cloud messages through a device-facing endpoint (**/devices/{deviceId}/messages/events**). Routing rules then route your messages to one of the service-facing endpoints on your IoT hub. Routing rules use the headers and body of the device-to-cloud messages to determine where to route them. By default, messages are routed to the built-in service-facing endpoint (**messages/events**), that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard [Event Hubs integration and SDKs][lnk-compatible-endpoint] to receive device-to-cloud messages in your solution back end.
+Message routing enables you to send messages from your devices to cloud services in an automated, scalable, and reliable manner. Message routing can be used for: 
 
-IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs][lnk-event-hubs] *events* than [Service Bus][lnk-servicebus] *messages* in that there is a high volume of events passing through the service that can be read by multiple readers.
+* **Sending device telemetry messsages as well as events** namely, device lifecycle events, and device twin change events to the built-in-endpoint and custom endpoints. Learn about [routing endpoints](#routing-endpoints).
 
-Device-to-cloud messaging with IoT Hub has the following characteristics:
+* **Filtering data before routing it to various endpoints** by applying rich queries. Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. Learn more about using [queries in message routing](iot-hub-devguide-routing-query-syntax.md).
 
-* Device-to-cloud messages are durable and retained in an IoT hub's default **messages/events** endpoint for up to seven days.
-* Device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB.
-* As explained in the [Control access to IoT Hub][lnk-devguide-security] section, IoT Hub enables per-device authentication and access control.
-* IoT Hub allows you to create up to 10 custom endpoints. Messages are delivered to the endpoints based on routes configured on your IoT hub. For more information, see [Routing rules](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
-* IoT Hub enables millions of simultaneously connected devices (see [Quotas and throttling][lnk-quotas]).
-* IoT Hub does not allow arbitrary partitioning. Device-to-cloud messages are partitioned based on their originating **deviceId**.
+IoT Hub needs write access to these service endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. When you first configure your IoT solution, you may need to monitor your additional endpoints and make any necessary adjustments for the actual load.
 
-For more information about the differences between IoT Hub and Event Hubs, see [Comparison of Azure IoT Hub and Azure Event Hubs][lnk-comparison].
+The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperatbility across protocols. If a message matches multiple routes that point to the same endpoint, IoT Hub delivers message to that endpoint only once. Therefore, you don't need to configure deduplication on your Service Bus queue or topic. In partitioned queues, partition affinity guarantees message ordering. Use this tutorial to learn how to [configure message routing] (tutorial-routing.md).
 
-## Send non-telemetry traffic
+## Routing endpoints
 
-Often, in addition to telemetry, devices send messages and requests that require separate execution and handling in the solution back end. For example, critical alerts that must trigger a specific action in the back end. You can write a [routing rule][lnk-devguide-custom] to send these types of messages to an endpoint dedicated to their processing based on either a header on the message or a value in the message body.
+An IoT hub has a default built-in-endpoint (**messages/events**) that is compatible with Event Hubs. You can create [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) to route messages to by linking other services in your subscription to the IoT Hub. IoT Hub currently supports the following services as custom endpoints:
 
-For more information about the best way to process this kind of message, see the [Tutorial: How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial] tutorial.
+### Built-in endpoint
 
-## Route device-to-cloud messages
+You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Note that once a Route is created, data stops flowing to the built-in-endpoint unless a Route is created to that endpoint.
 
-You have two options for routing device-to-cloud messages to your back-end apps:
+### Azure Blob Storage
 
-* Use the built-in [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end apps to read the device-to-cloud messages received by the hub. To learn about the built-in Event Hub-compatible endpoint, see [Read device-to-cloud messages from the built-in endpoint][lnk-devguide-builtin].
-* Use routing rules to send messages to custom endpoints in your IoT hub. Custom endpoints enable your back-end apps to read device-to-cloud messages using Event Hubs, Service Bus queues, or Service Bus topics. To learn about routing and custom endpoints, see [Use custom endpoints and routing rules for device-to-cloud messages][lnk-devguide-custom].
+IoT Hub only supports writing data to Azure Blob Storage in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed.
 
-## Anti-spoofing properties
+IoT Hub defaults to the following file naming convention:
 
-To avoid device spoofing in device-to-cloud messages, IoT Hub stamps all messages with the following properties:
-
-* **ConnectionDeviceId**
-* **ConnectionDeviceGenerationId**
-* **ConnectionAuthMethod**
-
-The first two contain the **deviceId** and **generationId** of the originating device, as per [Device identity properties][lnk-device-properties].
-
-The **ConnectionAuthMethod** property contains a JSON serialized object, with the following properties:
-
-```json
-{
-  "scope": "{ hub | device }",
-  "type": "{ symkey | sas | x509 }",
-  "issuer": "iothub"
-}
 ```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
+```
+
+You may use any file naming convention, however you must use all listed tokens. IoT Hub will write to an empty blob if there is no data to write.
+
+### Service Bus Queues and Service Bus Topics
+
+Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+
+### Event Hubs
+
+Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs. 
+
+When you use routing and custom endpoints, messages are only delivered to the built-in endpoint if they don't match any rules. To deliver messages to the built-in endpoint and custom endpoints, add a route that sends messages to the events endpoint.
+
+## Reading data that has been routed
+
+You can configure a route by following this [tutorial](tutorial-routing.md).
+
+Use the following tutorials to learn how to read message from an endpoint.
+
+* Reading from [Built-in-endpoint](quickstart-send-telemetry-node.md)
+
+* Reading from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
+
+* Reading from [Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+
+* Reading from [Service Bus Queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+
+* Read from [Service Bus Topics](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
+## Fallback route
+
+The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in-Event Hubs (**messages/events**), that is compatible with [Event Hubs](/azure/event-hubs/). If message routing is turned on, you can enable the fallback route capability. Note that once a route is created, data stops flowing to the built-in-endpoint, unless a route is created to that endpoint. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint. 
+
+You can enable/disable the fallback route in the Azure Portal->Message Routing blade. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.
+
+## Non-telemetry events
+
+In addition to device telemetry, message routing also enables sending device twin change events and device lifecycle events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub will send a message indicating whether the device was deleted or created. 
+
+[IoT Hub also integrates wtih Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
+
+## Testing routes
+
+When you create a new route or edit an existing route, you should test the route query with a sample message. You can test individual routes or test all routes at once and no messages are routed to the endpoints during the test. Azure Portal, Azure Resource Manager, Azure PowerShell, and Azure CLI can be used for testing. Outcomes help identify whether the sample message matched the query, message did not match the query or test couldn't run because the sample message or query syntax are incorrect. To learn more, see [Test Route](/rest/api/iothub/iothubresource/testroute) and [Test all routes](/rest/api/iothub/iothubresource/testallroutes).
+
+## Latency
+
+When you route device-to-cloud telemetry messages using built-in endpoints, there is a slight increase in the end-to-end latency after the creation of the first route.
+
+In most cases, the average increase in latency is less than 500ms. You can monitor the latency using **Routing: message latency for messages/events** or **d2c.endpoints.latency.builtIn.events** IoT Hub metric. Creating or deleting any route after the first one does not impact the end-to-end latency.
+
+## Monitoring and troubleshooting
+
+IoT Hub provides several routing and endpoint related metrics to give you an overview of the health of your hub and messages sent. You can combine information from multiple metrics to identify root cause for issues. For example use metric **Routing: telemetry messages dropped** or **d2c.telemetry.egress.dropped** to identify the number of messages that were dropped when they didn't match queries on any of the routes and fallback route was disabled. [IoT Hub metrics](iot-hub-metrics.md) lists all metrics that are enabled by default for your IoT Hub.
+
+Using the **routes** diagnostic logs in Azure Monitor [diagnostic settings](../iot-hub/iot-hub-monitor-resource-health.md), you can tracks errors that occur during evaluation of a routing query and endpoint health as perceived by IoT Hub, for example when an endpoint is dead. These diagnostic logs can be sent to Log Analytics, Event Hubs, or Azure Storage for custom processing.
 
 ## Next steps
 
-For information about the SDKs you can use to send device-to-cloud messages, see [Azure IoT SDKs][lnk-sdks].
+* To learn how to create Message Routes, see [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md).
 
-The [Quickstarts][lnk-get-started] show you how to send device-to-cloud messages from simulated devices. For more detail, see the [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial.
+* [How to send device-to-cloud messages](quickstart-send-telemetry-node.md)
 
-[lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
-[lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-comparison]: iot-hub-compare-event-hubs.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: tutorial-routing.md
+* For information about the SDKs you can use to send device-to-cloud messages, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).

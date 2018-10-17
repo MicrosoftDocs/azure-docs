@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Optimize your SQL environment with the SQL Server Health Check solution in Log Analytics

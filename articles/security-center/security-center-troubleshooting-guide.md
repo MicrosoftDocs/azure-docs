@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018

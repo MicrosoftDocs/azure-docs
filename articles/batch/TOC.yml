@@ -83,6 +83,8 @@
       href: batch-linux-nodes.md
     - name: Use low-priority VMs
       href: batch-low-pri-vms.md
+    - name: Checking for pool and node errors
+      href: batch-pool-node-error-checking.md
   - name: Manage jobs and tasks
     items:
     - name: Job preparation and completion tasks

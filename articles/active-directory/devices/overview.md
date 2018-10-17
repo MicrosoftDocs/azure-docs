@@ -17,7 +17,7 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-#Customer intent: As a IT admin, I want to learn how to bring the devices that are accessing my resources under control, so that I can ensure that that my users are accessing my resources from devices that meet my standards for security and compliance.
+#Customer intent: As a IT admin, I want to learn how to bring the devices that are accessing my resources under control, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
 
 ---
 # What is device management in Azure Active Directory?
@@ -119,7 +119,7 @@ For more than a decade, many organizations have used the domain join to their on
 
 Typically, organizations with an on-premises footprint rely on imaging methods to provision devices, and they often use **System Center Configuration Manager (SCCM)** or **group policy (GP)** to manage them.
 
-If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are both, joined to your on-premises Active Directory and your Azure Active Directory.
+If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
 
 ![Azure AD registered devices](./media/overview/01.png)
 
