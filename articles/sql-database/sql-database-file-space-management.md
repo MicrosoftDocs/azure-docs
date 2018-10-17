@@ -18,7 +18,7 @@ This article describes different types of storage space in Azure SQL Database, a
 
 ## Overview
 
-In Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This can occur when space used increases and data is subsequently deleted. This is because file space allocated is not automatically reclaimed when data is deleted.
+In Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This condition can occur when space used increases and data is subsequently deleted. The reason is because file space allocated is not automatically reclaimed when data is deleted.
 
 Monitoring file space usage and shrinking data files may be necessary in the following scenarios:
 - Allow data growth in an elastic pool when the file space allocated for its databases reaches the pool max size.
@@ -204,13 +204,13 @@ Once databases have been identified for reclaiming unused allocated space, modif
 DBCC SHRINKDATABASE (N'db1')
 ```
 
-Note that this command can impact database performance while it is running, and if possible should be run during periods of low usage.  
+This command can impact database performance while it is running, and if possible should be run during periods of low usage.  
 
 For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
 ### Auto-shrink
 
-Alternatively, auto-shrink can be enabled for a database.  Auto-shrink reduces file management complexity and is less impactful to database performance than SHRINKDATABASE or SHRINKFILE.  Auto-shrink can be particularly helpful for managing elastic pools with many databases.  Note, however, that auto-shrink is less effective in reclaiming file space than SHRINKDATABASE and SHRINKFILE.
+Alternatively, auto-shrink can be enabled for a database.  Auto-shrink reduces file management complexity and is less impactful to database performance than SHRINKDATABASE or SHRINKFILE.  Auto-shrink can be particularly helpful for managing elastic pools with many databases.  However, auto-shrink is less effective in reclaiming file space than SHRINKDATABASE and SHRINKFILE.
 To enable auto-shrink, modify the name of the database in the following command.
 
 
@@ -223,7 +223,7 @@ For more information about this command, see [DATABASE SET](https://docs.microso
 
 ### Rebuild indexes
 
-After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If this occurs, then consider rebuilding database indexes. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If performance degradation occurs, then consider rebuilding database indexes. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## Next steps
 
