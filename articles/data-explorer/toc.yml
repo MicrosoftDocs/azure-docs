@@ -68,7 +68,7 @@
 - name: Resources
   items:
   - name: Blog
-    href: https://azure.microsoft.com/en-us/blog/tag/azure-data-explorer/
+    href: https://azure.microsoft.com/blog/tag/azure-data-explorer/
   - name: Forums
     items:
     - name: Stack Overflow
