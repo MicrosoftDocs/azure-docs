@@ -19,7 +19,7 @@ sections:
 - title: Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Bing Local Search API by making a query and viewing the JSON response:'
+    text: 'Get started using the Bing Local Business Search API by making a query and viewing the JSON response:'
   - type: list
     style: icon48
     items:
@@ -41,12 +41,14 @@ sections:
       text: "Python"
 - title: Concepts
   items:
-  - type: list
-    style: unordered
+  - type: paragraph
     items:
-    - title: What is Local Business Search?
+    - text: "Learn how to develop applications using the Local Business Search API:"
+    - type: paragraph
+      text: "What is Bing Local Business Search?"
       href: overview.md
-    - title: Geographic search
+    - type: paragraph
+    - text: "Geographic search"
       href: specify-geographic-search.md
 - title: Reference
   items:
