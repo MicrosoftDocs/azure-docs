@@ -61,7 +61,7 @@ Below is the current supported list of stable release NuGet Packages for Applica
 | Microsoft.ApplicationInsights.ServiceFabric | 2.2.0 | This package provides automatic decoration of telemetry with the service fabric context the application is running in. Do not use this NuGet for Native Service Fabric applications. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric/) |
 | Microsoft.ApplicationInsights.ServiceFabric.Native | 2.2.0 | Application Insights module for service fabric applications. Use this NuGet only for Native Service Fabric applications. For applications running in containers, use Microsoft.ApplicationInsights.ServiceFabric package. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric.Native/) |  
 
-## Status Monitor
+## Status monitor
 
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
@@ -70,7 +70,7 @@ Below is the current supported list of stable release NuGet Packages for Applica
 
 These packages make up part of the core functionality of the runtime monitoring in [Status Monitor](app-insights-monitor-performance-live-website-now.md). You don't need to download these packages directly, just use the Status Monitor installer. If you want to understand more about how these packages work under the hood this [blog post](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) from one of our developers is a good start.
 
-## Additional Packages
+## Additional packages
 
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
