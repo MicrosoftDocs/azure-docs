@@ -47,10 +47,9 @@ First, create a virtual network and a subnet to place your web servers in.
 4. For **Settings**, select the **VNet-Servers** virtual network and the **SN-Web** subnet.
 5. Select **Public IP address**. Under **Assignment**, select **Static**, and then select **OK**.
 6. For public inbound ports, select **HTTP** > **HTTPS** > **RDP (3389)**, and then select **OK**.
-7. On the **Summary** page, select **Create**.
+7. On the **Summary** page, select **Create**. This procedure takes a few minutes to finish.
 
-   This procedure takes a few minutes to finish.
-8. Repeat this procedure to create another virtual machine named **Web-02**.
+Repeat this procedure to create another virtual machine named **Web-02**.
 
 ### Add a DNS label
 The public IP addresses need a DNS label to work with Traffic Manager.
@@ -69,9 +68,7 @@ Install IIS on both **Web-01** and **Web-02**.
 2. On the **Server Manager** dashboard, select **Add roles and features**.
 3. Select **Next** three times. On the **Server Roles** page, select **Web Server (IIS)**.
 4. Select **Add Features**, and select **Next**.
-5. Select **Next** four times. Then select **Install**.
-
-   This procedure takes a few minutes to finish.
+5. Select **Next** four times. Then select **Install**. This procedure takes a few minutes to finish.
 6. When the installation finishes, select **Close**.
 7. Open a web browser. Browse to **localhost** to verify that the default IIS web page appears.
 
@@ -113,7 +110,7 @@ Create an alias record that points to the Traffic Manager profile.
 
 ## Clean up resources
 
-When the resources created for this tutorial are no longer needed, delete the **RG-DNS-Alias-TM** resource group.
+When you no longer need the resources created for this tutorial, delete the **RG-DNS-Alias-TM** resource group.
 
 ## Next steps
 

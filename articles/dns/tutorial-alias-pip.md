@@ -54,9 +54,7 @@ Install IIS on **Web-01**.
 2. On the **Server Manager** dashboard, select **Add roles and features**.
 3. Select **Next** three times. On the **Server Roles** page, select **Web Server (IIS)**.
 4. Select **Add Features**, and then select **Next**.
-5. Select **Next** four times, and then select **Install**.
-
-   This procedure takes a few minutes to finish.
+5. Select **Next** four times, and then select **Install**. This procedure takes a few minutes to finish.
 6. After the installation finishes, select **Close**.
 7. Open a web browser. Browse to **localhost** to verify that the default IIS web page appears.
 
@@ -79,11 +77,12 @@ Create an alias record that points to the public IP address.
 3. Stop the **Web-01** virtual machine, and then restart it.
 4. After the virtual machine restarts, note the new public IP address for the virtual machine.
 5. Open a new browser. Browse again to the fully qualified domain name for the Web01-01 virtual machine. An example is **web01.contoso.com**.
-6. This procedure succeeds because you used an alias record to point to the public IP address resource, not a standard A record.
+
+This procedure succeeds because you used an alias record to point to the public IP address resource, not a standard A record.
 
 ## Clean up resources
 
-When the resources you created for this tutorial are no longer needed, delete the **RG-DNS-Alias-pip** resource group.
+When you no longer need the resources created for this tutorial, delete the **RG-DNS-Alias-pip** resource group.
 
 
 ## Next steps

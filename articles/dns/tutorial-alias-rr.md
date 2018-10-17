@@ -59,7 +59,7 @@ Create an alias record that points to a resource record in the zone.
 
 ## Clean up resources
 
-When the resources you created for this tutorial are no longer needed, delete the **server** and **test** resource records in your zone.
+When you no longer need the resources created for this tutorial, delete the **server** and **test** resource records in your zone.
 
 
 ## Next steps
