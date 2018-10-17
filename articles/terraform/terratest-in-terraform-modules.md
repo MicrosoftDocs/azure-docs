@@ -9,19 +9,15 @@ author: JunyiYi
 manager: jeconnoc
 ms.author: junyi
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/17/2018
 
 ---
 
 # Test Terraform modules in Azure using Terratest
 
-## Question: How to test Terraform modules?
-
 Terraform modules are used to create reusable, composable, and testable components. They incorporate encapsulation in the world of "infrastructure as code".
 
 As with other software components, quality assurance plays an important role in Terraform modules. Unfortunately, there is little available documentation explaining how to author unit tests and integration tests in Terraform modules. This tutorial introduces a testing infrastructure and best practices we adopted while building our [Azure Terraform modules](https://registry.terraform.io/browse?provider=azurerm).
-
-## Answer: Terratest
 
 After considering all of the most popular testing infrastructures, we chose to use [Terratest](https://github.com/gruntwork-io/terratest). Terratest is implemented as a Go library. It provides a collection of helper functions and patterns for common infrastructure testing tasks, such as making HTTP requests and SSH to a particular virtual machine. Some of the major advantages of Terratest are:
 
@@ -387,14 +383,12 @@ GoPath/src/staticwebpage/test$ go test
 
 As you can tell, integration tests take much longer time than unit tests (two minutes for one integration case while one minute for five unit cases). But it is still your decision about when to use unit tests and when to leverage integration tests. Typically, we prefer to use unit tests for complex logic using Terraform HCL functions; while using integration test from the end-to-end perspective of a user.
 
-## Terratest in Depth
+## Use a Go build system magefile to simplify running the Terratest test case 
 
-### Setup Build System
-
-As you have seen, running test cases in shell is not an easy task because you need to navigate to different directories and execute different commands. It is for this reason we introduce the build system in our project. In this section, we will use a pure-go build system `magefile` to do the job.
+As you have seen, running test cases in shell is not an easy task because you need to navigate to different directories and execute different commands. It is for this reason we introduce the build system in our project. In this section, we will use a Go build system `magefile` to do the job.
 
 > [!NOTE]
-> As a prerequiste, you should install [`mage` executable](https://github.com/magefile/mage/releases) in your system.
+> As a prerequiste, [install `mage` executable](https://github.com/magefile/mage/releases) in your system.
 
 The only thing required by `mage` is a `magefile.go` in your project's root directory (marked with `(+)` in the following figure).
 
@@ -512,11 +506,11 @@ GoPath/src/staticwebpage$ mage
 
 Feel free to replace the last command line with any mage steps, for instance `mage unit` or `mage clean`. Now you might think that there are still many command lines here, and it is a good idea to embed `dep` commands as well as `az login` into the magefile. But we will not show the code here. One further step of using `mage` is that the steps could be shared using the Go package system. So that magefiles across all your modules could be simplified by just referencing a common implementation and declaring dependencies (`mg.Deps()`).
 
-### Option: Setting the service principal environment variables
+> [!NOTE]
+> **Option: Setting service principal environment variables to run acceptance tests**
+> 
+> Instead of executing `az login` before tests, you can accomplish Azure authentication by setting the service principal environment variables. Terraform publishes [a list of environment variable names](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Only the first four of these environment variables are required.) Terraform also publishes detailes instruction explaining how to [obtain the value of these environment variables.](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html)
 
-Instead of executing `az login` before tests, you can set the service principal environment variables. Find the [environment variable names here (only the first four are needed)](https://www.terraform.io/docs/providers/azurerm/index.html#testing). And follow [these steps](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html
-) to get the value of those environment variables.
-
-## What's Next?
+## Next steps
 
 For more information about Terratest, see [its GitHub page](https://github.com/gruntwork-io/terratest). You might find some useful information about `mage` in [its GitHub page](https://github.com/magefile/mage) and [its home page](https://magefile.org/).
