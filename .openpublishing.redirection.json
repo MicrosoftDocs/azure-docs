@@ -3062,6 +3062,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-introduction.md",
+            "redirect_url": "/azure/application-gateway/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/application-gateway/create-zone-redundant.md",
             "redirect_url": "/azure/application-gateway/tutorial-autoscale-ps",
             "redirect_document_id": false
