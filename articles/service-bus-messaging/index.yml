@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/service-bus-messaging/media/index/azure-messaging-and-event-based-architecture.png
+      src: https://docs.microsoft.com/azure/service-bus-messaging/media/index/azure-messaging-and-event-based-architecture.png
       width: 250  
     title: Azure Messaging and event-based architecture (1:24:32)
     href: https://azure.microsoft.com/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
