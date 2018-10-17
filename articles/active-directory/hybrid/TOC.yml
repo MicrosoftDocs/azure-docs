@@ -78,6 +78,8 @@
       href: plan-connect-design-concepts.md
     - name: Topologies for Azure AD Connect
       href: plan-connect-topologies.md
+    - name: Factors influencing the performance of Azure AD Connect
+      href: plan-connect-performance-factors.md
     - name: How will users sign-in
       href: plan-connect-user-signin.md
     - name: Special considerations for instances
@@ -126,11 +128,13 @@
       href: how-to-connect-sync-feature-prevent-accidental-deletes.md
     - name: Enable AD recycle bin
       href: how-to-connect-sync-recycle-bin.md
+    - name: Configure the AD DS Connector account
+      href: how-to-connect-configure-ad-ds-connector-account.md
     - name: Change the Azure ADSync service account password
       href: how-to-connect-sync-change-serviceacct-pass.md
     - name: Change the Azure AD Connector account
       href: how-to-connect-azureadaccount.md
-    - name: Change the AD DS account password
+    - name: Change the AD DS Connector account password
       href: how-to-connect-sync-change-addsacct-pass.md
   - name: Manage Federation Services
     items:

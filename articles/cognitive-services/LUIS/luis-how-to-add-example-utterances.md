@@ -87,12 +87,12 @@ Add a synonym to the list entity by selecting the word or phrase in the utteranc
 
 In the utterance, select the synonymous word, such as `aqua` for water, then select the list entity name in the drop-down list, such as **Drink**, then select **Set as synonym**, then select the list item it is synonymous with, such as **water**.
 
-![Screenshot of Intents details page, with Create a new synonym highlighted](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Screenshot of Intents details page, with Create a new normalized view highlighted](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## Create new item for list entity
-Create a new item for an existing list entity by selecting the word or phrase in the utterance. If you have a Drink list, and want to add `tea` as a new item, follow the steps:
+Create a new item for an existing list entity by selecting the word or phrase in the utterance. If you have an Employee list, and want to add `Bob Smith` as a new item, follow the steps:
 
-In the utterance, select the word for the new list item, such as `tea`, then select the list entity name in the drop-down list, such as **Drink**, then select **Create a new synonym**. 
+In the utterance, select the word or phrase for the new list item, such as `Bob Smith`, then select the list entity name in the drop-down list, such as **Employee**, then select **Create a new normalized view**. 
 
 ![Screenshot of adding new list item](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

@@ -143,6 +143,8 @@ Synonym feature applies to search queries and does not apply to filters or facet
 
 Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and regex terms aren't expanded.
 
+If you need to do a single query that applies synonym expansion and wildcard, regex, or fuzzy searches, you can combine the queries using the OR syntax. For example, to combine synonyms with wildcards for simple query syntax, the term would be `<query> | <query>*`.
+
 ## Tips for building a synonym map
 
 - A concise, well-designed synonym map is more efficient than an exhaustive list of possible matches. Excessively large or complex dictionaries take longer to parse and affect the query latency if the query expands to many synonyms. Rather than guess at which terms might be used, you can get the actual terms via a [search traffic analysis report](search-traffic-analytics.md).

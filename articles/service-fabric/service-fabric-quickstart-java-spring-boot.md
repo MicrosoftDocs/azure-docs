@@ -136,7 +136,7 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-    If using a Mac, start the local cluster from the Docker image (this is assuming you have followed the [preqrequisites](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) to set up your local cluster for Mac). 
+    If using a Mac, start the local cluster from the Docker image (this is assuming you have followed the [prerequisites](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) to set up your local cluster for Mac). 
 
     ```bash
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster

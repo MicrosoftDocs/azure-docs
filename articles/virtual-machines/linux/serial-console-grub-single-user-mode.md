@@ -18,11 +18,11 @@ ms.author: alsin
 ---
 
 # Use Serial Console to access GRUB and Single User Mode
-GRUB is the GRand Unified Bootloader. From GRUB you are able to modify your boot configuration to boot into single user mode, among other things. 
+GRUB is the GRand Unified Bootloader. From GRUB you are able to modify your boot configuration to boot into single user mode, among other things.
 
 Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues, filesystem issues, or network issues. Fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted.
 
-Single user mode is also useful in situations where your VM may only be configured to accept SSH keys to log in. In this case, you may be able to use single user mode to create an account with password authentication. 
+Single user mode is also useful in situations where your VM may only be configured to accept SSH keys to log in. In this case, you may be able to use single user mode to create an account with password authentication.
 
 To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. This may be done with the VM serial console.
 

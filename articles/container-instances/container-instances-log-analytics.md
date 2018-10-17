@@ -2,13 +2,12 @@
 title: Container instance logging with Azure Log Analytics
 description: Learn how to send container output (STDOUT and STDERR) to Azure Log Analytics.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
-ms.author: marsma
+ms.author: danlep
 ---
 # Container instance logging with Azure Log Analytics
 

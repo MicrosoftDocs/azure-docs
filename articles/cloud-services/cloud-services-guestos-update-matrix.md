@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/16/2018
 ms.author: raiye
 
 ---
@@ -39,6 +39,9 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **October 12, 2018**
+The September Guest OS has released.
+
 ###### **September 12, 2018**
 The August Guest OS has released.
 
@@ -54,28 +57,6 @@ The May Guest OS has released.
 ###### **May 4, 2018**
 The April Guest OS has released.
 
-###### **April 6, 2018**
-The March Guest OS has released.
-
-###### **March 19, 2018**
-The February Guest OS has released.
-
-###### **January 29, 2018**
-The January Guest OS has been released for OS Families 2 (WA-GUEST-OS-2.70_201801-01) & 3 (WA-GUEST-OS-3.57_201801-01)
-
-###### **January 4, 2018**
-The January Guest OS has been released for OS Families 4 (WA-GUEST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) and contains important security patches.  
-
-###### **January 4, 2018**
-December Guest OS has released.
-
-###### **December 14, 2017**
-November Guest OS has released.
-
-###### **November 8, 2017**
-October Guest OS has released.
-
-
 
 ## Releases
 ## Family 5 releases
@@ -89,18 +70,12 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-5.23_201809-01 |October 12, 2018 |Post 5.25 |
 | WA-GUEST-OS-5.22_201808-01 |September 12, 2018 |Post 5.24 |
-| WA-GUEST-OS-5.21_201807-02 |August 3, 2018 |Post 5.23 |
+|~~WA-GUEST-OS-5.21_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |July 3, 2018 |September 12, 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |June 1, 2018 |August 3, 2018 |
 |~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |
-|~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|
-|~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |
-|~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |
-|~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |
-|~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|
-|~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |
-
 
 ## Family 4 releases
 **Windows Server 2012 R2**
@@ -109,18 +84,12 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-4.58_201809-01 |October 12, 2018 |Post 4.60 |
 | WA-GUEST-OS-4.57_201808-01 |September 12, 2018 |Post 4.59 |
-| WA-GUEST-OS-4.56_201807-02 |August 3, 2018 |Post 4.58 |
+|~~WA-GUEST-OS-4.56_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |July 3, 2018 |September 12, 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |June 1, 2018 |August 3, 2018 |
 |~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |
-|~~WA-GUEST-OS-4.52_201803-01~~ |April 6, 2018 |June 1, 2018 |
-|~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |
-|~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |
-|~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |
-|~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |
-|~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |
-
 
 ## Family 3 releases
 **Windows Server 2012**
@@ -129,18 +98,12 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-3.65_201809-01 |October 12, 2018 |Post 3.67 |
 | WA-GUEST-OS-3.64_201808-01 |September 12, 2018 |Post 3.66 |
-| WA-GUEST-OS-3.63_201807-02 |August 3, 2018 |Post 3.65 |
+|~~WA-GUEST-OS-3.63_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |July 3, 2018 |September 12, 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |June 1, 2018 |August 3, 2018 |
 |~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |
-|~~WA-GUEST-OS-3.59_201803-01~~ |April 6, 2018 |June 1, 2018 |
-|~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |
-|~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |
-|~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |
-|~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |
-|~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |
-
 
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
@@ -149,20 +112,12 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-2.78_201809-01 |October 12, 2018 |Post 2.80 |
 | WA-GUEST-OS-2.77_201808-01 |September 12, 2018 |Post 2.79 |
-| WA-GUEST-OS-2.76_201807-02 |August 3, 2018 |Post 2.78 |
+|~~WA-GUEST-OS-2.76_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |July 3, 2018 |September 12, 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |June 1, 2018 |August 3, 2018|
 |~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |
-|~~WA-GUEST-OS-2.72_201803-01~~ |April 6, 2018 |June 1, 2018 |
-|~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |
-|~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |
-|~~WA-GUEST-OS-2.69_201712-01~~ |January 4, 2018 |March 12, 2018 |
-|~~WA-GUEST-OS-2.68_201711-01~~ |December 14, 2017 |January 29, 2018 |
-|~~WA-GUEST-OS-2.67_201710-02~~ |November 8, 2017 |January 4, 2018 |
-|~~WA-GUEST-OS-2.66_201709-01~~ |October 6, 2017 |December 14, 2017 |
-|~~WA-GUEST-OS-2.65_201708-01~~ |August 24, 2017 |December 14, 2017 |
-
 
 ## MSRC patch updates
 The list of patches that are included with each monthly Guest OS release is available [here][patches].

@@ -6,7 +6,7 @@ services: cognitive-services
 author: wsturman
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: gracez
@@ -72,11 +72,11 @@ The Speech Service doesn't currently offer a global endpoint. You will need to d
 
 If your application uses long-lived connections and can't use an available SDK, you can use a WebsSockets connection and manage the 10-minute timeout limit by reconnecting at the appropriate times.
 
-To get started with the new Speech SDK:
+To get started with the Speech SDK:
 
 1. Download the [Speech SDK](speech-sdk.md).
 1. Work through the Speech Service [quickstart guides](quickstart-csharp-dotnet-windows.md), [tutorials](how-to-recognize-intents-from-speech-csharp.md), and look at the [code samples](samples.md) to get experience with the new APIs.
-1. Update your application to use the new Speech service and APIs.
+1. Update your application to use the Speech service and APIs.
 
 ## Support
 

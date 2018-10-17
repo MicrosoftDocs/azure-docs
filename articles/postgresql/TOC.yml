@@ -53,8 +53,6 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
-    - name: Server logs
-      href: concepts-server-logs.md
     - name: High availability
       href: concepts-high-availability.md
   - name: Resources
@@ -83,6 +81,8 @@
     items:
     - name: Monitor and tune
       href: concepts-monitoring.md
+    - name: Server logs
+      href: concepts-server-logs.md
     - name: Query Store
       items:
         - name: Query Store
@@ -139,7 +139,7 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
-  - name: Advanced Threat Threat Protection
+  - name: Advanced Threat Protection
     items:
     - name: Azure portal
       href: howto-database-threat-protection-portal.md
