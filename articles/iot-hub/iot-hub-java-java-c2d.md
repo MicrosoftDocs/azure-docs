@@ -18,7 +18,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to a Hub (Java)](quickstart-send-telemetry-java.md). It shows you how to do the following:
+This tutorial builds on [Send telemetry from a device to an IoT Hub (Java)](quickstart-send-telemetry-java.md). It shows you how to do the following:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 
