@@ -32,7 +32,7 @@ To match a sensor telemetry message to its respective logs, you can specify a Co
 
 After sending telemetry, open up Azure Log Analytics to query for logs using the set Correlation ID:
 
-```plaintext
+```Kusto
 AzureDiagnostics
 | where CorrelationId = 'yourCorrelationIdentifier'
 ```
@@ -43,10 +43,12 @@ AzureDiagnostics
 
 If you log your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
 
-```plaintext
+```Kusto
 AzureDiagnostics
 | where Category = 'UserDefinedFunction'
 ```
+
+For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 ## Identify common issues
 
