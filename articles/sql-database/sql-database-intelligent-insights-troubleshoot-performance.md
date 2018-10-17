@@ -55,7 +55,7 @@ The following section describes detectable performance patterns in more detail.
 
 This detectable performance pattern combines performance issues that are related to reaching available resource limits, worker limits, and session limits. After this performance issue is detected, a description field of the diagnostics log indicates whether the performance issue is related to resource, worker, or session limits.
 
-Resources on SQL Database are typically referred to [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) or [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
+Resources on SQL Database are typically referred to [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) or [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
 
 The session limits resource denotes the number of available concurrent logins to the SQL database. This performance pattern is recognized when applications that are connected to the SQL databases have reached the number of available concurrent logins to the database. If applications attempt to use more sessions than are available on a database, the query performance is affected.
 
