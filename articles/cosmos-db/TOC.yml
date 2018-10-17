@@ -119,7 +119,7 @@
     - name : Backup and restore
       href: online-backup-and-restore.md
     - name : High availability
-      href: regional-failover.md
+      href: high-availability.md
   - name: Multi-model APIs
     expanded: true
     items:

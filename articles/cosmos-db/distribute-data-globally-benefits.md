@@ -56,7 +56,7 @@ In this article, you learned about key benefits and use cases for the global dat
 
 * [How to enable multi-master for Azure Cosmos DB accounts](enable-multi-master.md)
 
-* [How automatic and manual failover works in Azure Cosmos DB](regional-failover.md)
+* [How automatic and manual failover works in Azure Cosmos DB](high-availability.md)
 
 * [Understanding conflict resolution in Azure Cosmos DB](multi-master-conflict-resolution.md)
 
