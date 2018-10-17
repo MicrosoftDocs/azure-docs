@@ -123,7 +123,7 @@
 - name: Resources
   items:
   - name: Regional Availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
@@ -135,6 +135,6 @@
   - name: UserVoice
     href: https://aka.ms/qnamaker-uservoice
   - name: Search
-    href: https://docs.microsoft.com/en-us/search/index?search=QnAMaker
+    href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/

@@ -193,6 +193,10 @@
             href: working-with-dates.md
           - name: Geospatial
             href: geospatial.md
+          - name: Bulk executor - .NET library
+            href: bulk-executor-dot-net.md
+          - name: Bulk executor - Java library
+            href: bulk-executor-java.md
       - name: Reference
         items:
         - name: .NET
@@ -459,10 +463,6 @@
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
-      - name: Bulk executor - .NET library
-        href: bulk-executor-dot-net.md
-      - name: Bulk executor - Java library
-        href: bulk-executor-java.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn
