@@ -171,7 +171,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     # Use Docker in the remote VM
     run_config.environment.docker.enabled = True
 
-    # Use CPU base image from DockerHub
+    # Use CPU base image
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
