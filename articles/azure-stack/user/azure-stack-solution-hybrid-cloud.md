@@ -37,7 +37,7 @@ This tutorial covers the following tasks:
 > - Configure DNS for cross-cloud scaling.
 > - Configure SSL certificates for cross-cloud scaling.
 > - Configure and deploy the web application.
-> -  Create a Traffic Manager profile and configure it for cross-cloud scaling.
+> - Create a Traffic Manager profile and configure it for cross-cloud scaling.
 > - Set up Application Insights monitoring and alerting for increased traffic.
 > - Configure automatic traffic switching between global Azure and Azure Stack.
 
