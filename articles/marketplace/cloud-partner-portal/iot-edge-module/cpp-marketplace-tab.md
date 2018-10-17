@@ -49,27 +49,27 @@ The following table describes the purpose and content of these fields.
 
 - When browsing offers:
 
-    ![How marketplace offers are displayed in Azure Marketplace website - browse](media/iot-edge-module-ampdotcom-card.png)
+    ![How marketplace offers are displayed in Azure Marketplace website - browse](./media/iot-edge-module-ampdotcom-card.png)
 
 - When looking at offer details:
 
-    ![How IoT Edge module shows up when looking the product details in the website](media/iot-edge-module-ampdotcom-pdp.png)
+    ![How IoT Edge module shows up when looking the product details in the website](./media/iot-edge-module-ampdotcom-pdp.png)
 
 #### On the Azure portal website:
 
 - When browsing offers:
 
-    ![How IoT Edge module shows up when browsing the Azure portal #1](media/iot-edge-module-portal-browse.png)
+    ![How IoT Edge module shows up when browsing the Azure portal #1](./media/iot-edge-module-portal-browse.png)
 
-    ![How IoT Edge module shows up when browsing the Azure portal #2](media/iot-edge-module-portal-product-picker.png)
+    ![How IoT Edge module shows up when browsing the Azure portal #2](./media/iot-edge-module-portal-product-picker.png)
 
 - When searching for an offer:
 
-    ![How IoT Edge module shows up when searching the Azure portal](media/iot-edge-module-portal-search.png)
+    ![How IoT Edge module shows up when searching the Azure portal](./media/iot-edge-module-portal-search.png)
 
 - When looking at offer details:
 
-    ![How IoT Edge module shows up when looking the product details in the portal](media/iot-edge-module-portal-pdp.png)
+    ![How IoT Edge module shows up when looking the product details in the portal](./media/iot-edge-module-portal-pdp.png)
 
 
 ## Marketing Artifacts
@@ -79,7 +79,7 @@ This section has the following subsections: **Logos**, **Screenshot**, and **Vid
 >[Note]
 >Logos are the only required marketing artifacts, however all are highly recommended for best customer appeal.
 
-![Marketing Artifacts section of the Marketplace tab on the New Offer form for virtual machines](media/publishvm_009.png)
+![Marketing Artifacts section of the Marketplace tab on the New Offer form for virtual machines](./media/publishvm_009.png)
 
 |  **Field**                |     **Description**                                                          |
 |  ---------                |     ---------------                                                          |

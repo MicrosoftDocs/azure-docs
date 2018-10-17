@@ -41,4 +41,4 @@ The following table describes the form fields and the input required for each fi
 
 ## Next steps
 
-After you finish providing support information, you're ready to [publish your offer](cpp-publish-offer.md).
+After you finish providing support information, you're ready to [publish your offer](./cpp-publish-offer.md).

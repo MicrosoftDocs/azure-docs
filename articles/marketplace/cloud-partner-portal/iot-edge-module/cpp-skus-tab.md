@@ -78,11 +78,11 @@ The following table describes the purpose, content, and formatting for fields un
 
 - When looking at SKU details:
 
-    ![How IoT Edge module shows up when looking the product details in the portal](media/iot-edge-module-portal-pdp.png)
+    ![How IoT Edge module shows up when looking the product details in the portal](./media/iot-edge-module-portal-pdp.png)
 
 - When deploying the module:
     
-    ![How IoT Edge module shows up when being deployed](media/iot-edge-module-deployment.png)
+    ![How IoT Edge module shows up when being deployed](./media/iot-edge-module-deployment.png)
 
 ## SKU Content
 
@@ -109,13 +109,13 @@ The following table describes the purpose, contents, and formatting of the field
 | **Username** | The username associated with your ACR (admin username). |
 | **Password** | The password associated with your ACR. |
 |  ***Image Version***   |  |
-| **Image Tag or Digest** | It must at least include a `latest` tag and a version tag (for example, starting with `xx.xx.xx-` where xx is a number). They should be [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. You can add several versions of an IoT Edge module using tags. All manifest tags (except `latest`) must start with either `X.Y-` or `X.Y.Z-` where X, Y, Z are integers. Learn more about [tags guidelines](cpp-create-technical-assets.md#tags-and-versioning). <br/> For example, if a `latest` tag points to  that points to `1.0.1-linux-x64`, `1.0.1-linux-arm32`,  , and `1.0.1-windows-arm32`, these 6 tags needs to be added here. |
+| **Image Tag or Digest** | It must at least include a `latest` tag and a version tag (for example, starting with `xx.xx.xx-` where xx is a number). They should be [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. You can add several versions of an IoT Edge module using tags. All manifest tags (except `latest`) must start with either `X.Y-` or `X.Y.Z-` where X, Y, Z are integers. Learn more about [tags guidelines](./cpp-create-technical-assets.md#tags-and-versioning). <br/> For example, if a `latest` tag points to  that points to `1.0.1-linux-x64`, `1.0.1-linux-arm32`,  , and `1.0.1-windows-arm32`, these 6 tags needs to be added here. |
 
 ### Help your customers launch your IoT Edge module by using default settings
 
 Define the most common settings to deploy your IoT Edge module. Optimize customer deployments by letting them launch your IoT Edge module out-of-the-box with these defaults.
 
-![IoT Edge module default settings at deployment](media/iot-edge-module-skus-tab-iot-edge-defaults.png)
+![IoT Edge module default settings at deployment](./media/iot-edge-module-skus-tab-iot-edge-defaults.png)
 
 The following table describes the purpose, contents, and formatting of the fields for **Default Routes**, **Default twin desired properties**, **Default environment variables**, and **Default CreateOptions**.
 
@@ -130,4 +130,4 @@ The following table describes the purpose, contents, and formatting of the field
 
 ## Next Steps
 
-Use the [Marketplace tab](cpp-marketplace-tab.md) to create a marketplace description for your offer.
+Use the [Marketplace tab](./cpp-marketplace-tab.md) to create a marketplace description for your offer.
