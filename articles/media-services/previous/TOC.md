@@ -64,6 +64,7 @@
 ##### [Customize Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
 ##### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
+##### [Generate a thumbnail sprite](generate-thumbnail-sprite.md)
 #### MES Schemas
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)

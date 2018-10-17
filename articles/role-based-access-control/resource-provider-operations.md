@@ -3343,8 +3343,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool |
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
 > | Action | Microsoft.Network/loadBalancers/delete | Deletes a load balancer |
-> | Action | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. |
-> | Action | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
 > | Action | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound nat pool |
 > | Action | Microsoft.Network/loadBalancers/inboundNatPools/read | Gets a load balancer inbound nat pool definition |
 > | Action | Microsoft.Network/loadBalancers/inboundNatRules/delete | Deletes a load balancer inbound nat rule |
@@ -3474,10 +3472,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/publicIPAddresses/dnsAliases/read | Gets a Public Ip Address Dns Alias resource |
 > | Action | Microsoft.Network/publicIPAddresses/dnsAliases/write | Creates a Public Ip Address Dns Alias resource |
 > | Action | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address |
-> | Action | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | Deletes a public IP Address load balancer backend pool |
-> | Action | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | Joins a public IP Address load balancer backend pool |
-> | Action | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | Gets a public IP Address load balancer backend pool definition |
-> | Action | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | Creates a public IP Address load balancer backend pool or updates an existing public IP Address load balancer backend pool |
 > | Action | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings of Public IP Address |
 > | Action | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings of Public IP Address |
 > | Action | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Get the log definitions of Public IP Address |

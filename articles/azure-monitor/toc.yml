@@ -21,6 +21,8 @@
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Mobile application
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+    - name: Web application
+      href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
@@ -539,6 +541,8 @@
           href: ../log-analytics/log-analytics-network-performance-monitor-expressroute.md?toc=/azure/azure-monitor/toc.json
         - name: Pricing
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
+        - name: FAQ
+          href: ../log-analytics/log-analytics-network-performance-monitor-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor virtual machines
       items:
       - name: Azure Monitor for VMs
@@ -882,6 +886,8 @@
       href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
     - name: Telemetry correlation
       href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
+    - name: NuGet packages
+      href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights data model
     items:
     - name: Overview

@@ -402,7 +402,7 @@ Legacy metrics are available in parallel with Azure Monitor managed metrics. The
 
 **Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
 
-No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) for more details.
+No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) for more details.
 
 ## Next steps
 
