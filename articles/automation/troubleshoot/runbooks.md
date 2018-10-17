@@ -305,6 +305,12 @@ Any of the following solutions fix the problem:
 
 #### Issue
 
+Your runbook shows in a **Stopped** state after running for 3 hours. You may also receive the error:
+
+```
+The job was evicted and subsequently reached a Stopped state. The job cannot continue running
+```
+
 This behavior is by design in Azure sandboxes because of the "Fair Share" monitoring of processes within Azure Automation, which automatically stops a runbook if it executes longer than three hours. The status of a runbook that goes past the fair-share time limit differs by runbook type. PowerShell and Python runbooks are set to a **Stopped** status. PowerShell Workflow runbooks are set to **Failed**.
 
 #### Cause
