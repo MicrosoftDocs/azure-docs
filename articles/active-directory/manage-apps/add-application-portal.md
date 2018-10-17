@@ -152,7 +152,7 @@ To use a custom logo:
 
 ## Next steps
 
-In this quickstart, you've learned how to add a gallery application to your Azure AD tenant. You also learned how to edit the properties for an application. 
+In this quickstart, you've learned how to add a gallery application to your Azure AD tenant. You learned how to edit the properties for an application. 
 
 Now, you're ready to configure the application for single sign-on. 
 
