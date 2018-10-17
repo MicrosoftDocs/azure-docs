@@ -49,6 +49,7 @@ sections:
        - title: Geographic search
          href: specify-geographic-search
 - title: Reference
+  items:
    - type: list
      style: unordered
      items:
