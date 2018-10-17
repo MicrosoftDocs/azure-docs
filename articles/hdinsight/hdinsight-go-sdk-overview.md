@@ -14,7 +14,7 @@ ms.author: tyfox
 # HDInsight Go Management SDK Preview
 
 ## Overview
-The HDInsight Go SDK provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, scale, execute script actions, monitor, get properties of HDInsight clusters, and more.
+The HDInsight Go SDK provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, resize, execute script actions, monitor, get properties of HDInsight clusters, and more.
 
 > [!NOTE]
 >GoDoc reference material for this SDK is also [available here](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
@@ -322,9 +322,9 @@ client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
 ```
 
-### Scale cluster
+### Resize cluster
 
-You can scale a given cluster's number of worker nodes by specifying a new size like so:
+You can resize a given cluster's number of worker nodes by specifying a new size like so:
 
 ```golang
 client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterResizeParameters{<Num of Worker Nodes (int)>})
@@ -434,7 +434,7 @@ for (page.NotDone()) {
 
 ### List all scripts' execution history
 
-For this operation, you need to create a `ScriptExecutionHistoryClient` to use for, similarly to how you created `ClusterClient` to use for management operations. Once you have completed the Authentication section above, you can create a `ScriptActionsClient` like so:
+For this operation, you need to create a `ScriptExecutionHistoryClient`, similarly to how you created `ClusterClient` to use for management operations. Once you have completed the Authentication section above, you can create a `ScriptActionsClient` like so:
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)

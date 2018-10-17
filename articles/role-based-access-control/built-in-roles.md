@@ -782,14 +782,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | Lets you manage data factories, but not access to them. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Actions** |  |
-> | Microsoft.Authorization/*/read | Read roles and role Assignments |
+> | Microsoft.Authorization/*/read | Read roles and role assignments. |
 > | Microsoft.DataFactory/dataFactories/* | Create and manage data factories, and child resources within them. |
 > | Microsoft.DataFactory/factories/* | Create and manage data factories, and child resources within them. |
-> | Microsoft.Insights/alertRules/* | Create and manage alert rules |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Insights/alertRules/* | Create and manage alert rules. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Get the availability statuses for all resources in the specified scope. |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Get or list resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets. |
 
 ## Data Lake Analytics Developer
 > [!div class="mx-tableFixed"]

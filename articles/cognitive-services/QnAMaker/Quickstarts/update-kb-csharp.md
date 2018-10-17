@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Update knowledge base - REST, C# -  QnA Maker"
 titleSuffix: Azure Cognitive Services
-description: This quickstart walks you through updating your sample QnA maker knowledge base (KB), programmatically. The JSON definition you use to update a KB allows you to add, change or delete question and answer pairs. 
+description: This quickstart walks you through updating your sample QnA Maker knowledge base (KB), programmatically. The JSON definition you use to update a KB allows you to add, change or delete question and answer pairs. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -14,21 +14,21 @@ ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically modify a knowledge base using C#. 
 ---
 
-# Quickstart: Update a Qna Maker knowledge base in C#
+# Quickstart: Update a QnA Maker knowledge base in C#
 
-This quickstart walks you through programmatically updating an existing QnA maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
+This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
 
 This API is equivalent to editing, then using the **Save and train** button in the QnA Maker portal.
 
-This quickstart calls Qna Maker APIs:
+This quickstart calls QnA Maker APIs:
 * [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
-* You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard.
-* Qna Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard.
+* QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
@@ -97,7 +97,7 @@ static string new_kb = @"
 
 ## Add PATCH request to update KB
 
-The following code makes an HTTPS request to the Qna Maker API to update question and answer groups in a KB and receives the response:
+The following code makes an HTTPS request to the QnA Maker API to update question and answer groups in a KB and receives the response:
 
 ```csharp
 async static Task<Response> PatchUpdateKB(string kb, string new_kb)
@@ -257,7 +257,7 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-Build and run the program. It will automatically send the request to the Qna Maker API to update the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
+Build and run the program. It will automatically send the request to the QnA Maker API to update the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
 Once your knowledge base is updated, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
 

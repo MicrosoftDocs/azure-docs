@@ -36,9 +36,6 @@ The following script provides an example of gathering the required information, 
 	   -ResourceGroupName $resourceGroup `
 	   -Name $vmName
 
-# Remove the original VM
-    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
-
 # Create new availability set if it does not exist
     $availSet = Get-AzureRmAvailabilitySet `
 	   -ResourceGroupName $resourceGroup `
@@ -53,6 +50,9 @@ The following script provides an example of gathering the required information, 
 	   -PlatformUpdateDomainCount 2 `
 	   -Sku Aligned
     }
+    
+# Remove the original VM
+    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName    
 
 # Create the basic configuration for the replacement VM
     $newVM = New-AzureRmVMConfig `

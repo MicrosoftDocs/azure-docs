@@ -11,6 +11,8 @@
     href: quickstart-create-first-logic-app-workflow.md
   - name: Create logic apps - Visual Studio
     href: quickstart-create-logic-apps-with-visual-studio.md
+  - name: Create logic apps - Visual Studio Code
+    href: quickstart-create-logic-apps-visual-studio-code.md  
 - name: Tutorials
   items:
   - name: Check traffic regularly
@@ -37,8 +39,6 @@
       href: logic-apps-create-logic-apps-from-templates.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
-    - name: Create logic apps - Visual Studio Code
-      href: create-logic-apps-visual-studio-code.md
     - name: Control workflow execution
       items:
       - name: Conditional statements

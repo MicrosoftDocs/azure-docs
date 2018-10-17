@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -90,6 +90,7 @@ In your **DotNetAppSqlDb** project in Visual Studio, open _packages.config_ and 
 
 ```xml
 <package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
+<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
 ```
 
 Open _Models\MyDatabaseContext.cs_ and add the following `using` statements to the top of the file:
@@ -125,7 +126,7 @@ To use this new constructor, open `Controllers\TodosController.cs` and find the 
 Replace the entire line with the following code:
 
 ```csharp
-private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
+private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.SqlConnection());
 ```
 
 ### Publish your changes
@@ -167,32 +168,23 @@ Previously, you assigned the managed identity as the Azure AD administrator for 
 
 ### Grant permissions to Azure Active Directory group
 
-In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<servername>_ with your SQL Database server name, and replace _\<AADusername>_ and _\<AADpassword>_ with your Azure AD user's credentials.
-
-```azurecli-interactive
-sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
-```
-
-In the SQL prompt, run the following commands, which add the Azure Active Directory group you created earlier as a user.
-
-```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-GO
-```
-
-Type `EXIT` to return to the Cloud Shell prompt. Next, run SQLCMD again, but specify the database name in _\<dbname>_.
+In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server\_name>_ with your SQL Database server name, _\<db\_name>_ with the database name your app uses, and _\<AADuser\_name>_ and _\<AADpassword>_ with your Azure AD user's credentials.
 
 ```azurecli-interactive
 sqlcmd -S <server_name>.database.windows.net -d <db_name> -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
-In the SQL prompt for the database you want, run the following commands to grant read and write permissions to the Azure Active Directory group.
+In the SQL prompt for the database you want, run the following commands to add the Azure Active Directory group you created earlier and grant the permissions your app needs. For example, 
 
 ```sql
+CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
 ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
+ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
+
+Type `EXIT` to return to the Cloud Shell prompt. 
 
 ## Next steps
 

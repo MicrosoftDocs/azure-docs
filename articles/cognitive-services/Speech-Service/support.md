@@ -23,7 +23,7 @@ Are you just starting to explore the functionality of the Speech service? Are yo
 
 ## Stay informed
 
-News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). For the latest information about Speech service, track the [Speech service blog](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
+News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech service, track the [Speech service blog](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## Search
 
@@ -38,6 +38,13 @@ For faster results, scope your search to Stack Overflow, the documentation, and 
 ```
 
 Where *{Your Search Terms}* is your search keywords.
+
+## Create an Azure support request
+
+Azure customers can create and manage support requests in the Azure portal.
+
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal for the United States government](https://portal.azure.us)
 
 ## Post a question to Stack Overflow
 

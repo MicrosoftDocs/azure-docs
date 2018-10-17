@@ -34,7 +34,7 @@ For public preview, an admin must first add a policy via powershell to allow use
 
 ### Steps to enable
 
-1. Install the [public preview release of the Azure Active Directory V2 PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.114).  
+1. Install the [public preview release of the Azure Active Directory V2 PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview/).  
 2. In PowerShell, run two commands:
    1. `Connect-AzureAD`
       1. In the authentication dialog, sign in with an account in the tenant. The account must either be a Security Administrator or Global Administrator.
