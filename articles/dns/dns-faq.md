@@ -82,7 +82,7 @@ The DNSSEC feature is tracked in the Azure DNS backlog. Use the feedback site to
 
 ### Does Azure DNS support zone transfers (AXFR/IXFR)?
 
-No. Azure DNS doesn't currently support zone transfers. DNS zones can be [imported into Azure DNS by using the Azure CLI](dns-import-export.md). Then, DNS records are managed via the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or [CLI tool](dns-operations-recordsets-cli.md).
+No. Azure DNS doesn't currently support zone transfers. DNS zones can be [imported into Azure DNS by using the Azure CLI](dns-import-export.md). DNS records are managed via the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
 
 The zone transfer feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
@@ -94,9 +94,9 @@ The URL redirect feature is tracked in the Azure DNS backlog. Use the feedback s
 
 ### Does Azure DNS support the extended ASCII encoding (8-bit) set for TXT record sets?
 
-Yes. Azure DNS supports the extended ASCII encoding set for TXT record sets. But you must use the latest version of the Azure REST APIs, SDKs, PowerShell, and CLI. Versions older than October 1, 2017, or SDK 2.1 don't support the extended ASCII set. 
+Yes. Azure DNS supports the extended ASCII encoding set for TXT record sets. But you must use the latest version of the Azure REST APIs, SDKs, PowerShell, and the CLI. Versions older than October 1, 2017, or SDK 2.1 don't support the extended ASCII set. 
 
-For example, a user might provide a string as the value for a TXT record that has the extended ASCII character \128. An example is "abcd\128efgh." Then, Azure DNS uses the byte value of this character, which is 128, in internal representation. At the time of DNS resolution, this byte value is returned in the response. Also note that "abc" and "\097\098\099" are interchangeable as far as resolution is concerned. 
+For example, a user might provide a string as the value for a TXT record that has the extended ASCII character \128. An example is "abcd\128efgh." Azure DNS uses the byte value of this character, which is 128, in internal representation. At the time of DNS resolution, this byte value is returned in the response. Also note that "abc" and "\097\098\099" are interchangeable as far as resolution is concerned. 
 
 We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master format escape rules for TXT records. For example, "\" now actually escapes everything per the RFC. If you specify "A\B" as the TXT record value, it's represented and resolved as just "AB." If you really want the TXT record to have "A\B" at resolution, you need to escape the "\" again. As an example, specify "A\\B". 
 
@@ -120,7 +120,7 @@ Alias record sets are supported for the following record types in an Azure DNS z
 - **Point to another DNS record set within the same zone.** Alias records can reference to other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME record set of the same type. This arrangement is useful if you want some record sets to be aliases and some non-aliases.
 
 ### Can I create and update alias records from the Azure portal?
-Yes. You can create or manage alias records in the Azure portal along with the Azure REST APIs, PowerShell, CLI, and SDKs.
+Yes. You can create or manage alias records in the Azure portal along with the Azure REST APIs, PowerShell, the CLI, and SDKs.
 
 ### Will alias records help to make sure my DNS record set is deleted when the underlying public IP is deleted?
 Yes. This feature is one of the core capabilities of alias records. It helps you avoid potential outages for users of your application.
@@ -142,7 +142,7 @@ Yes. Azure DNS supports cohosting domains with other DNS services.
 
 To set up cohosting, modify the NS records for the domain to point to the name servers of both providers. The name server (NS) records control which providers receive DNS queries for the domain. You can modify these NS records in Azure DNS, in the other provider, and in the parent zone. The parent zone is typically configured via the domain name registrar. For more information on DNS delegation, see [DNS domain delegation](dns-domain-delegation.md).
 
-Also, make sure that the DNS records for the domain are in sync between both DNS providers. Azure DNS doesn't currently support DNS zone transfers. DNS records must be synchronized by using either the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or [CLI tool](dns-operations-recordsets-cli.md).
+Also, make sure that the DNS records for the domain are in sync between both DNS providers. Azure DNS doesn't currently support DNS zone transfers. DNS records must be synchronized by using either the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
 
 ### Do I have to delegate my domain to all four Azure DNS name servers?
 
@@ -150,7 +150,7 @@ Yes. Azure DNS assigns four name servers to each DNS zone. This arrangement is f
 
 ### What are the usage limits for Azure DNS?
 
-The following default limits apply when you use Azure DNS:
+The following default limits apply when you use Azure DNS.
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
@@ -221,7 +221,7 @@ Yes. If you delete a virtual machine within a Registration virtual network, the 
 No. The virtual machine DNS records that are automatically registered in a private zone from a Registration virtual network aren't visible or editable by customers. You can overwrite the automatically registered DNS records with a manually created DNS record in the zone. The following question and answer address this topic.
 
 ### What happens when we try to manually create a new DNS record into a private zone that has the same hostname as an automatically registered existing virtual machine in a Registration virtual network? 
-You try to manually create a new DNS record into a private zone that has the same hostname as an existing, automatically registered virtual machine in a Registration virtual network. When you do, the new DNS record overwrites the automatically registered virtual machine record. If you subsequently attempt to delete this manually created DNS record from the zone, the delete succeeds. The automatic registration happens again (the DNS record is re-created automatically in the zone) as long as the virtual machine still exists and has a private IP attached to it. 
+You try to manually create a new DNS record into a private zone that has the same hostname as an existing, automatically registered virtual machine in a Registration virtual network. When you do, the new DNS record overwrites the automatically registered virtual machine record. If you try to delete this manually created DNS record from the zone again, the delete succeeds. The automatic registration happens again as long as the virtual machine still exists and has a private IP attached to it. The DNS record is re-created automatically in the zone.
 
 ### What happens when we unlink a Registration virtual network from a private zone? Will the automatically registered virtual machine records from the virtual network be removed from the zone too?
 Yes. To unlink a Registration virtual network from a private zone, you update the DNS zone to remove the associated Registration virtual network. In this process, virtual machine records that were automatically registered are removed from the zone. 
@@ -239,11 +239,11 @@ No. The DNS suffix on the virtual machines in your linked virtual network stays 
 Yes. During the public preview, the following limitations exist.
 * One Registration virtual network per private zone.
 * Up to 10 Resolution virtual networks per private zone.
-* A given virtual network can be linked to only one private zone as a Registration virtual network.
-* A given virtual network can be linked to up to 10 private zones as a Resolution virtual network.
-* If a Registration virtual network is specified, the DNS records for the VMs from that virtual network that are registered to the private zone aren't viewable or retrievable from PowerShell, the CLI, or APIs. The VM records are registered and resolve successfully.
+* A given virtual network links to only one private zone as a Registration virtual network.
+* A given virtual network links to up to 10 private zones as a Resolution virtual network.
+* If a Registration virtual network is specified, the DNS records for the VMs from that virtual network that are registered to the private zone can't be viewed or retrieved from PowerShell, the CLI, or APIs. The VM records are registered and resolve successfully.
 * Reverse DNS works only for private IP space in the Registration virtual network.
-* Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix isn't resolvable. An example is a private IP for a virtual machine in a virtual network that's linked as a Resolution virtual network to a private zone.
+* Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix can't be resolved. An example is a private IP for a virtual machine in a virtual network that's linked as a Resolution virtual network to a private zone.
 * A virtual network can't have any virtual machines with a NIC attached when it links for the first time to a private zone as a Registration or Resolution virtual network. In other words, the virtual network must be empty. The virtual network then can be non-empty for future linking as a Registration or Resolution virtual network to other private zones. 
 * Conditional forwarding isn't supported, for example, to enable resolution between Azure and on-premises networks. Learn how customers can realize this scenario via other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
@@ -251,7 +251,7 @@ Yes. During the public preview, the following limitations exist.
 There are no limits on the number of zones allowed per subscription for private zones. There are no limits on the number of record sets per zone for private zones. Both public and private zones count toward the overall DNS limits. For more information, see the [Azure subscription and service limits](../azure-subscription-service-limits.md#dns-limits)
 
 ### Is there portal support for private zones?
-Private zones that are already created via APIs, PowerShell, CLI, and SDKs are visible on the Azure portal. But customers can't create new private zones or manage associations with virtual networks. For virtual networks associated as Registration virtual networks, automatically registered VM records aren't visible from the portal. 
+Private zones that are already created via APIs, PowerShell, the CLI, and SDKs are visible on the Azure portal. But customers can't create new private zones or manage associations with virtual networks. For virtual networks associated as Registration virtual networks, automatically registered VM records aren't visible from the portal. 
 
 ## Next steps
 
