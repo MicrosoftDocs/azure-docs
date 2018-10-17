@@ -195,4 +195,4 @@ In this tutorial you learned how to:
 
 Advance to the next tutorial to learn how to:
 > [!div class="nextstepaction"]
-> [Offer web apps](/azure-stack-tutorial-app-service.md)
+> [Offer web apps](azure-stack-tutorial-app-service.md)
