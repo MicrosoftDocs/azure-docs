@@ -10,7 +10,7 @@ ms.author: robinsh
 #Customer intent: As a newcomer to IoT, I want to understand what IoT is, and services are available, so I can figure out where to start.
 ---
 
-# What is IoT?
+# What is Azure IoT?
 
 The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices and one or more back-end solutions that communicate with each other. 
 
