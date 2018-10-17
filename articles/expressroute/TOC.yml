@@ -71,7 +71,7 @@
       href: expressroute-howto-linkvnet-arm.md
     - name: Azure CLI
       href: howto-linkvnet-cli.md
-  - name: Encrypt traffic over ExpressRoute circuits
+  - name: Encrypt traffic over circuits
     items:
     - name: Configure a site-to-site VPN over Microsoft peering
       href: site-to-site-vpn-over-microsoft-peering.md
