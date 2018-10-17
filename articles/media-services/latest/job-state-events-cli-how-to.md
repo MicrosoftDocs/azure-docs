@@ -112,3 +112,4 @@ View your web app again, and notice that a subscription validation event has bee
 ## Next steps
 
 [Upload, encode, and stream](stream-files-tutorial-with-api.md)
+
