@@ -4,7 +4,7 @@ description: A technical guide to the Solution Template with Microsoft Cortana I
 services: machine-learning
 documentationcenter: ''
 author: fboylu
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
