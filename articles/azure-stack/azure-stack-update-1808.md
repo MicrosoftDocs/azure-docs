@@ -142,13 +142,6 @@ This update also contains the mitigation for the speculative execution side chan
 
 ### Known issues with the update process
 
-<!-- TBD - IS -->
-- You might see the following alerts repeatedly appear and then disappear on your Azure Stack system:
-   - *Infrastructure role instance unavailable*
-   - *Scale unit node is offline*
-   
-  Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
-
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md) after the 1808 update, a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
 <!-- 2468613 - IS --> 
@@ -171,7 +164,7 @@ The following are post-installation known issues for this build version.
 
 ### Portal
 
-- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
+- The Azure Stack technical documentation focuses on the latest release of Azure Stack. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
 
 <!-- TBD - IS ASDK --> 
 - You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right-click and select **Reset to default state**.
@@ -211,6 +204,14 @@ The following are post-installation known issues for this build version.
 
 
 ### Health and monitoring
+
+<!-- TBD - IS -->
+- You might see the following alerts repeatedly appear and then disappear on your Azure Stack system:
+   - *Infrastructure role instance unavailable*
+   - *Scale unit node is offline*
+   
+  Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
+
 <!-- 1264761 - IS ASDK --> 
 - You might see alerts for the **Health controller** component that have the following details:  
 

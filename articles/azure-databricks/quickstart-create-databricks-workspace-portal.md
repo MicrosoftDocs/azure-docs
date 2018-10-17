@@ -56,7 +56,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 ## Create a Spark cluster in Databricks
 
 > [!NOTE] 
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/en-us/free/).  
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).  
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
 
