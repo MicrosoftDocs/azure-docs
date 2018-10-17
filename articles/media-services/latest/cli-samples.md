@@ -4,14 +4,14 @@ description: Azure CLI examples for Azure Media Services service
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 04/15/2018
+ms.date: 10/15/2018
 ms.author: juliako
 ---
 

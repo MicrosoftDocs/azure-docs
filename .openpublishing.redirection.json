@@ -3062,6 +3062,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-introduction.md",
+            "redirect_url": "/azure/application-gateway/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/application-gateway/create-zone-redundant.md",
             "redirect_url": "/azure/application-gateway/tutorial-autoscale-ps",
             "redirect_document_id": false
@@ -29122,6 +29127,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/aks/networking-overview.md",
+            "redirect_url": "/azure/aks/configure-advanced-networking",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/security-center/security-center-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": false
@@ -29856,6 +29866,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/media-services/latest/intelligence-concept.md",
+            "redirect_url": "/azure/media-services/latest/analyzing-video-audio-files-concept",
+            "redirect_document_id": true
+        },
+        {     
             "source_path": "articles/app-service/web-sites-java-add-app.md",
             "redirect_url": "/azure/app-service/app-service-web-get-started-java",
             "redirect_document_id" : false
