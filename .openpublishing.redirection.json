@@ -258,12 +258,12 @@
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-windesktop",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
             "redirect_document_id": false
         },
         {
@@ -27768,7 +27768,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-conditional-access-vpn-connectivity-windows10.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
+            "redirect_url": "https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
             "redirect_document_id": true
         },
         {
