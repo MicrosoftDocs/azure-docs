@@ -16,17 +16,17 @@ Service Fabric supports many different options for state storage. For a conceptu
 With Service Fabric Mesh, you can easily deploy a new application and connect it to an existing data store hosted in Azure. Besides using any remote database, there are several options for storing data, depending on whether the service desires local or remote storage. 
 
 ## Reliable collections
-Reliable Collections give you highly available, scalable, low-latency, transactional storage for cloud applications.  You can add a library to your service which implements data structures like queues and key-value pairs. Reliable Collections do not require the Service Fabric runtime, so you can use them outside of a Service Fabric environment.
+Reliable Collections give you highly available, scalable, low-latency, transactional storage for cloud applications.  You can add a library to your service, which implements data structures like queues and key-value pairs. Reliable Collections do not require the Service Fabric runtime, so you can use them outside of a Service Fabric environment.
 
 When used in a Service Fabric environment, service state is persisted to the local disk and then replicated and partitioned out to secondaries. This means that:
 * All reads are local, which results in low latency and high-throughput reads.
 * All writes incur the minimum number of network IOs, which results in low latency and high-throughput writes.
 * Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
-* Data is also persisted to multiple secondaries.  When a service crashes or fails over, it starts up again on a node that already has your data on disk.  Fail over is extremely fast.
+* Data is also persisted to multiple secondaries.  When a service crashes or fails over, it starts up again on a node that already has your data on disk.  Failover is fast.
 
 ![Reliable Collections][image2]
 
-When used outside of a Service Fabric environment, service state is still persisted to the local disk.  There is no replication, however, so you do not get the reliability and availability that you would in a Service Fabric environment.
+When used outside of a Service Fabric environment, service state is still persisted to the local disk.  There is no replication, however, so you do not get the reliability and availability that you do in a Service Fabric environment.
 
 ![Reliable Collections][image1]
 
@@ -37,7 +37,7 @@ Containers often make use of temporary disks. Temporary disks are ephemeral, how
 ![Volumes][image3]
 
 ### Service Fabric volume disk
-Service Fabric Volume disk is a Docker volume driver used to mount a local volume to a container. Service Fabric Volume disk uses [Reliable Collections](#reliable-collections) to replicate data to local disks.  Reads/writes are local operations and very fast.  Data is replicated out to secondary nodes, making it highly available. Fail over is also fast.  When a container crashes, it fails over to a node that already has a copy of your data.
+Service Fabric Volume disk is a Docker volume driver used to mount a local volume to a container. Service Fabric Volume disk uses [Reliable Collections](#reliable-collections) to replicate data to local disks.  Reads/writes are local operations and fast.  Data is replicated out to secondary nodes, making it highly available. Failover is also fast.  When a container crashes, it fails over to a node that already has a copy of your data.
 
 ### Azure Files volume driver
 Azure Files volume driver is a Docker volume driver used to mount an Azure Files share to a container. Azure File storage uses network storage, so reads and writes take place over the network. Compared to Service Fabric Volume disk, Azure Files storage is less performant but provides a cheaper and fully reliable data option.  For an example, see [How to deploy an app with Azure Files volume](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md).
