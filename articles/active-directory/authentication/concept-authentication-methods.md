@@ -27,7 +27,7 @@ Microsoft highly recommends Administrators enable users to select more than the 
 | Password | MFA and SSPR |
 | Security questions | SSPR Only |
 | Email address | SSPR Only |
-| Microsoft Authenticator app | MFA and Public Preview for SSPR |
+| Microsoft Authenticator app | MFA and public preview for SSPR |
 | OATH Hardware token | Public preview for MFA and SSPR |
 | SMS | MFA and SSPR |
 | Voice call | MFA and SSPR |
@@ -151,7 +151,7 @@ OATH is an open standard that specifies how one-time password (OTP) codes are ge
 
 ![Uploading OATH tokens to the MFA Server OATH tokens blade in the Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
-OATH hardware tokens are supported as part of a public preview. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+OATH hardware tokens are being supported as part of a public preview. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Once tokens are acquired they must be uploaded in a comma-separated values (CSV) file format including the UPN, serial number, secret key, time interval, manufacturer, and model as the example below shows.
 
