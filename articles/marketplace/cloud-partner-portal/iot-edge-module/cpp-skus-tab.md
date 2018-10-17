@@ -3,7 +3,7 @@ title: IoT Edge module SKUs | Microsoft Docs
 description: Create SKUs for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
