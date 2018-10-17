@@ -129,7 +129,7 @@ Follow these steps to prepare the development environment for DevKit:
     ![Install Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png)
     Together with the IoT Workbench, other dependent extensions will be installed.
 
-4. Open **File > Preference > Settings** and add following lines to configure Arduino.
+4. Open **File > Preference > Settings > ... > Open Settings.json** and add following lines to configure Arduino.
     * **Windows**:
 
     ```json
