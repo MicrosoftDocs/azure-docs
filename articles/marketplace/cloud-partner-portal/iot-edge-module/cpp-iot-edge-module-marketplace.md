@@ -79,7 +79,7 @@ This section has the following subsections: **Logos**, **Screenshot**, and **Vid
 >[Note]
 >Logos are the only required marketing artifacts, however all are highly recommended for best customer appeal.
 
-![Marketing Artifacts section of the Marketplace tab on the New Offer form for virtual machines](/media/publishvm_009.png)
+![Marketing Artifacts section of the Marketplace tab on the New Offer form for virtual machines](media/publishvm_009.png)
 
 |  **Field**                |     **Description**                                                          |
 |  ---------                |     ---------------                                                          |
