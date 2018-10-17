@@ -27,7 +27,7 @@ To install HANA on SAP HANA on Azure (large instances), you must first do the fo
 - You install an Azure virtual machine that you use as a jump box for HANA large instances.
 - You ensure that you can connect from the jump box to your HANA large instance unit, and vice versa.
 - You check whether all the necessary packages and patches are installed.
-- You read the SAP notes and documentation regarding HANA installation on the operating system you are using. Make sure that the HANA release of choice is supported on the operating system release.
+- You read the SAP notes and documentation about HANA installation on the operating system you're using. Make sure that the HANA release of choice is supported on the operating system release.
 
 The next section shows an example of downloading the HANA installation packages to the jump box virtual machine. In this case, the operating system is Windows.
 
