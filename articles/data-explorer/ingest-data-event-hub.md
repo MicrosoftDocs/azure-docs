@@ -9,7 +9,7 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
-#Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze patterns in streaming data.
+#Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze streaming data.
 ---
 
 # Quickstart: Ingest data from Event Hub into Azure Data Explorer
