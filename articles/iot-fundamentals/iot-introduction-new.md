@@ -10,9 +10,9 @@ ms.author: robinsh
 #Customer intent: As a newcomer to IoT, I want to understand what IoT is, and services are available, so I can figure out where to start.
 ---
 
-# What is IoT?
+# What is Azure IoT?
 
-The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices and one or more back-end solutions that communicate with each other. 
+The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices and one or more back-end solutions running in the cloud that communicate with each other. 
 
 This article discusses the basics of IoT, talks about use cases, and briefly explains the eight separate services available. By understanding what's available, you can figure out what you want to look at more closely to help designing your scenario.
 
@@ -79,7 +79,7 @@ Here are some of the functions a back-end service can provide.
 
 * Control the state of your devices and monitor their activities.
 
-For example, in a predictive maintenance scenario, the cloud back-end stores historical telemetry. The solution uses this data to identify potential anomalous behavior on specific pumps before they cause a real problem. Using data analytics, it can identify that the preventative solution is to send a command back to the device to take a corrective action. This process generates an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
+For example, in a predictive maintenance scenario, the cloud back end stores historical telemetry. The solution uses this data to identify potential anomalous behavior on specific pumps before they cause a real problem. Using data analytics, it can identify that the preventative solution is to send a command back to the device to take a corrective action. This process generates an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
 
 ## An IoT example
 
@@ -103,7 +103,7 @@ There are several IoT-related services in Azure and it can be confusing to figur
 
 2. [**IoT solution accelerators**](/azure/iot-suite): This is a collection of PaaS solutions you can use to accelerate your development of an IoT solution. You start with a provided IoT solution and then fully customize that solution to your requirements. You need Java or .NET skills to customize the back-end, and JavaScript skills to customize the visualization. 
 
-3. [**IoT Hub**](/azure/iot-hub/): This service allows you to connect from your devices to an IoT hub, and monitor and control billions of IoT devices. This is especially useful if you need bi-directional communication between your IoT devices and your back-end. This is the underlying service for IoT Central and IoT solution accelerators. 
+3. [**IoT Hub**](/azure/iot-hub/): This service allows you to connect from your devices to an IoT hub, and monitor and control billions of IoT devices. This is especially useful if you need bi-directional communication between your IoT devices and your back end. This is the underlying service for IoT Central and IoT solution accelerators. 
 
 4. [**IoT Hub Device Provisioning Service**](/azure/iot-dps/): This is a helper service for IoT Hub that you can use to provision devices to your IoT hub securely. With this service, you can easily provision millions of devices rapidly, rather than provisioning them one by one. 
 
