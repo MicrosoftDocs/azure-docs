@@ -22,7 +22,7 @@ ms.author: victorh
 
 ### What is Azure DNS?
 
-The Domain Name System (DNS) translates, or resolves, a website or service name to its IP address. Azure DNS is a hosting service for DNS domains. It provides name resolution by using Microsoft Azure infrastructure. When you host your domains in Azure, you can manage your DNS records. You use the same credentials, APIs, tools, and billing as your other Azure services.
+The Domain Name System (DNS) translates, or resolves, a website or service name to its IP address. Azure DNS is a hosting service for DNS domains. It provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
 
 DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. This system uses Anycast networking so that each DNS query is answered by the closest available DNS server. Azure DNS provides fast performance and high availability for your domain.
 
@@ -94,7 +94,7 @@ The URL redirect feature is tracked in the Azure DNS backlog. Use the feedback s
 
 ### Does Azure DNS support the extended ASCII encoding (8-bit) set for TXT record sets?
 
-Yes. Azure DNS supports the extended ASCII encoding set for TXT record sets. But you must use the latest version of the Azure REST APIs, SDKs, PowerShell, and CLI. Versions older than 10/01/2017 or SDK 2.1 don't support the extended ASCII set. 
+Yes. Azure DNS supports the extended ASCII encoding set for TXT record sets. But you must use the latest version of the Azure REST APIs, SDKs, PowerShell, and CLI. Versions older than October 1, 2017, or SDK 2.1 don't support the extended ASCII set. 
 
 For example, a user might provide a string as the value for a TXT record that has the extended ASCII character \128. An example is "abcd\128efgh." Then, Azure DNS uses the byte value of this character, which is 128, in internal representation. At the time of DNS resolution, this byte value is returned in the response. Also note that "abc" and "\097\098\099" are interchangeable as far as resolution is concerned. 
 
@@ -136,11 +136,11 @@ Alias records are a qualification on a valid DNS record set. There's no addition
 
 ## Use Azure DNS
 
-### Can I co-host a domain by using Azure DNS and another DNS provider?
+### Can I cohost a domain by using Azure DNS and another DNS provider?
 
-Yes. Azure DNS supports co-hosting domains with other DNS services.
+Yes. Azure DNS supports cohosting domains with other DNS services.
 
-To set up co-hosting, modify the NS records for the domain to point to the name servers of both providers. The NS records control which providers receive DNS queries for the domain. You can modify these NS records in Azure DNS, in the other provider, and in the parent zone. The parent zone is typically configured via the domain name registrar. For more information on DNS delegation, see [DNS domain delegation](dns-domain-delegation.md).
+To set up cohosting, modify the NS records for the domain to point to the name servers of both providers. The name server (NS) records control which providers receive DNS queries for the domain. You can modify these NS records in Azure DNS, in the other provider, and in the parent zone. The parent zone is typically configured via the domain name registrar. For more information on DNS delegation, see [DNS domain delegation](dns-domain-delegation.md).
 
 Also, make sure that the DNS records for the domain are in sync between both DNS providers. Azure DNS doesn't currently support DNS zone transfers. DNS records must be synchronized by using either the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or [CLI tool](dns-operations-recordsets-cli.md).
 
