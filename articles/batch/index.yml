@@ -24,19 +24,19 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_cligeneric.svg
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
       href: quick-create-cli
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
       href: quick-create-portal
     - image: 
-        src: https://docs.microsoft.com/en-us/media/logos/logo_NET.svg
+        src: https://docs.microsoft.com/media/logos/logo_NET.svg
       text: .NET
       href: quick-run-dotnet
     - image: 
-        src: https://docs.microsoft.com/en-us/media/logos/logo_python.svg
+        src: https://docs.microsoft.com/media/logos/logo_python.svg
       text: Python
       href: quick-run-python  
 - title: Step-by-Step Tutorials

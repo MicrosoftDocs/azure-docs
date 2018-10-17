@@ -40,7 +40,7 @@ In this article, learn about the Azure Machine Learning service releases.
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
 #### Breaking changes
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list. See [azureml.core.Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API documentation.
+ * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list. See [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API documentation.
 
  * Automated Machine Learning removed normalized mean square error from the primary metrics.
 
