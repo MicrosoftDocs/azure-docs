@@ -3,7 +3,7 @@ title:    Remediate certificate issues for Azure Stack | Microsoft Docs
 description: Use the Azure Stack Readiness Checker to review and remediate certificate issues.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer:
 
 ---

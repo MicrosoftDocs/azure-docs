@@ -150,6 +150,8 @@
         href: application-gateway-troubleshooting-502.md
       - name: Diagnostics
         href: application-gateway-diagnostics.md
+  - name: Custom error pages
+    href: custom-error.md
 - name: Reference
   items:
   - name: CRS rules

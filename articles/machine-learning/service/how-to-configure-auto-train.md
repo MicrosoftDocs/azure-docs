@@ -220,7 +220,6 @@ The following metrics are saved in each iteration
 * AUC_macro
 * AUC_micro
 * AUC_weighted
-* AUC_weighted_max
 * accuracy
 * average_precision_score_macro
 * average_precision_score_micro

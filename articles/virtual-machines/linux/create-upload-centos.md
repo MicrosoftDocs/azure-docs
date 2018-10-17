@@ -294,7 +294,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
    
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. If building the image from **VMWare, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
+10. If building the image from **VMware, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
    
    Edit `/etc/dracut.conf`, add content:
    

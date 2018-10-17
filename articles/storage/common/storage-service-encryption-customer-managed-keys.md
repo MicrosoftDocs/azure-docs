@@ -5,7 +5,7 @@ services: storage
 author: lakasa
 ms.service: storage
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
 ---
@@ -96,7 +96,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup"
 $keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### Step 5: Copy data to storage account

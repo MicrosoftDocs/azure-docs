@@ -38,7 +38,7 @@ sections:
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
     - image: 
         src: https://docs.microsoft.com/en-us/media/logos/logo_REST.svg
-      text: C#
+      text: REST API
       href: /azure/azure-signalr/signalr-quickstart-rest-api
 - title: Step-by-Step Tutorials
   items:

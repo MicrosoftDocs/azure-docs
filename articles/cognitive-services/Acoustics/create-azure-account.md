@@ -1,12 +1,14 @@
 ---
-title: Set up Azure accounts for acoustics - Cognitive Services
+title: Set up Azure accounts for Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: Follow this guide for setting up Azure Batch and Storage accounts necessary for working with acoustics.
 services: cognitive-services
 author: ashtat
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
 ---

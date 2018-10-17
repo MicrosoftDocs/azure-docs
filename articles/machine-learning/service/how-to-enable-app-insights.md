@@ -121,7 +121,7 @@ Click [here](../../application-insights/app-insights-overview.md) to learn more 
 
 ## Example Notebook
 
-The `00.Getting Started/13.enable-app-insights-in-production-service.ipynb` notebook demonstrates concepts in this article.  Get this notebook:
+The [00.Getting Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) notebook demonstrates concepts in this article.  Get this notebook:
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
