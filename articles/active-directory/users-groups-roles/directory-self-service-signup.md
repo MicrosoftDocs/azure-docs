@@ -49,7 +49,7 @@ AllowEmailVerifiedUsers and AllowAdHocSubscriptions are directory-wide settings 
 * You use B2B collaboration from a different directory to invite a user that does not already exist (userdoesnotexist@contoso.com) in the home directory of constoso.com
 * The home directory has the AllowEmailVerifiedUsers turned on
 
-If those conditions are true, then a member user is created in the home directory, and the a B2B guest user account is created in the inviting directory.
+If the preceding conditions are true, then a member user is created in the home directory, and a B2B guest user account is created in the inviting directory.
 
 Flow and PowerApps trial signups are not controlled by the **AllowAdHocSubscriptions** setting. For more information, see the following articles:
 
