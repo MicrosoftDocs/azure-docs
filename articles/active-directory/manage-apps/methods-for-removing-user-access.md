@@ -62,11 +62,11 @@ To **disable all future user consent operations in your entire directory**, foll
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  Click **Users and groups** in the navigation menu.
+4.  Click **Enterprise applications** in the navigation menu.
 
 5.  Click **User settings**.
 
-6.  Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
+6.  Disable all future user consent operations by setting the **Users can consent to apps accessing company data on their behalf** toggle to **No** and click the **Save** button.
 
 
 # Next steps
