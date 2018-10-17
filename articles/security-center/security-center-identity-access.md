@@ -23,7 +23,6 @@ This article helps you use Azure Security Center to monitor users' identity and 
 > [!NOTE]
 > Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 >
->
 
 Identity should be the control plane for your enterprise, and protecting your identity should be your top priority. The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
 
@@ -115,6 +114,10 @@ Use the table below as a reference to help you understand the available Identity
 | Remove external accounts with owner permissions from your subscription | Recommends that you remove external accounts with owner permissions from your subscription in order to prevent unmonitored access. |
 | Remove deprecated accounts from subscription | Recommends that you remove deprecated accounts from your subscriptions. |
 | Remove deprecated accounts with owner permissions from subscription | Recommends that you remove deprecated accounts with owner permissions from your subscriptions. |
+
+> ![NOTE]
+> If you created a conditional access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
+>
 
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following:
