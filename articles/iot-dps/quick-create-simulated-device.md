@@ -16,7 +16,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-In this quickstart, you will learn how to create and run a Trusted Platform Module (TPM) device simulator on a Windows development machine. You will connect this simulated device to an IoT hub using a Device Provisioning Service instance. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to help enroll the device with a Device Provisioning Service instance and simulate a boot sequence for the device.
+This quickstart uses individual enrollment. In this quickstart, you will learn how to create and run a Trusted Platform Module (TPM) device simulator on a Windows development machine. You will connect this simulated device to an IoT hub using a Device Provisioning Service instance. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to help enroll the device with a Device Provisioning Service instance and simulate a boot sequence for the device.
 
 If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. 
 
