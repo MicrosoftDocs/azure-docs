@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of streaming live with Me
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
 
 ---

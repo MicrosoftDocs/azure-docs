@@ -29,6 +29,18 @@
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
+  - name: Clusters and workloads
+    href: concepts-clusters-workloads.md
+  - name: Access and identity
+    href: concepts-identity.md
+  - name: Security
+    href: concepts-security.md
+  - name: Networking
+    href: concepts-network.md
+  - name: Storage
+    href: concepts-storage.md
+  - name: Scale
+    href: concepts-scale.md
   - name: Quotas and regional limits
     href: container-service-quotas.md
   - name: Migrate from ACS to AKS
@@ -70,12 +82,12 @@
       href: azure-files-volume.md
   - name: Configure networking
     items:
-    - name: Networking overview
-      href: networking-overview.md
-    - name: Static IP address
-      href: static-ip.md
-    - name: Internal load balancer
+    - name: Create or use existing virtual network
+      href: configure-advanced-networking.md
+    - name: Create an internal load balancer
       href: internal-lb.md
+    - name: Use a static IP addresses
+      href: static-ip.md
     - name: Ingress
       items:
         - name: Create a basic controller

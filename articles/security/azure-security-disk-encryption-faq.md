@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
+ms.date: 10/16/2018
 ---
 
 # Azure Disk Encryption FAQ
@@ -127,6 +127,12 @@ If this workflow isn't possible, relying on [Storage Service Encryption](../stor
 "Bek volume" for Windows or "/mnt/azure_bek_disk" for Linux is a local data volume that securely stores the encryption keys for Encrypted Azure IaaS VMs.
 > [!NOTE]
 > Do not delete or edit any contents in this disk. Do not unmount the disk since the encryption key presence is needed for any encryption operations on the IaaS VM.
+
+
+## What encryption method does Azure Disk Encryption use?
+
+On Windows, ADE uses the Bitlocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
+On Linux, ADE uses the dmcrypt default of aes-xts-plain64 with a 256-bit volume master key.
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
