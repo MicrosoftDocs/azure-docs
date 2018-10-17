@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:
@@ -120,7 +120,7 @@ When you purchase a reservation, you make a one-time payment. There are two ways
 
 The Actual Cost Analysis and Analysis Over Time reports show the full amount that you paid for the reservation, starting in the month of purchase. They help you see your actual spending over a period.
 
-Navigate to **Cost** > **Cost Analysis** > in the Cloudyn portal and then select either **Actual Cost Analysis** or **Actual Cost Over Time**. Set the filters next. For example, filter just Azure/VM service and group by Resource Type and Price Model. See the following image:
+Navigate to **Costs** > **Cost Analysis** > in the Cloudyn portal and then select either **Actual Cost Analysis** or **Actual Cost Over Time**. Set the filters next. For example, filter just Azure/VM service and group by Resource Type and Price Model. See the following image:
 
 ![Actual cost of reserved instance](./media/tutorial-optimize-reserved-instances/azure05.png)
 
