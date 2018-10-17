@@ -11,7 +11,7 @@ ms.date: 08/02/2018
 ms.author: rosh
 ---
 
-# Search the Web locally
+# What is Bing Local Business Search?
 The Local Search API is similar to other Bing endpoints, but the Local Search API query gets localized results: businesses or places relevant to the search.  The Local Search API currently only supports en-us market and language.
 
 To get local search results, call this API instead of the more general Web Search API. 

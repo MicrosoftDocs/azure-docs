@@ -25,20 +25,20 @@ sections:
     items:
     - image:
         src: media/logo_csharp.svg
-        href: local-quickstart.md
-        text: "C#"
+      href: local-quickstart.md
+      text: "C#"
     - image:
         src: media/logo_java.svg
-        href: local-search-java-quickstart.md
-        text: "Java"
+      href: local-search-java-quickstart.md
+      text: "Java"
     - image:
         src: media/logo_nodejs.svg
-        href: local-search-node-quickstart.md
-        text: "Node"
+      href: local-search-node-quickstart.md
+      text: "Node"
     - image:
         src: media/logo_python.svg
-        href: local-search-python-quickstart.md
-        text: "Python"
+      href: local-search-python-quickstart.md
+      text: "Python"
 - title: Concepts
   items:
   - type: list
