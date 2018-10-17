@@ -34,6 +34,9 @@ Service certificates can be managed separately from your services, and may be ma
 >[!Note]
 >The [Cloud Services FAQ](cloud-services-faq.md) article has some helpful information about certificates.
 
+>[!Note]
+>Azure Cloud Services does not accept AES256-SHA256 encrypted certificate.
+
 ## What are management certificates?
 Management certificates allow you to authenticate with the classic deployment model. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. These are not really related to cloud services. 
 
