@@ -28,6 +28,18 @@ Application gateway only communicates with known backend instances that have whi
 > [!NOTE]
 > Authentication certificate setup is not required for trusted Azure services such as Azure Web Apps.
 
+## End to end SSL with the V2 SKU
+
+Authentication Certificates have been deprecated and replaced by Trusted Root Certificates in the Application Gateway V2 SKU. They function very similarly to Authentication Certificates with a few key differences:
+
+- Certificates signed by well known CA authorities whose CN matches the host name in the HTTP backend settings do not require any additional step for end to end SSL to work. 
+
+   For example, if the backend certificates are issued by a well known CA and has a CN of contoso.com, and the backend http setting’s host field is also set to contoso.com, then no additional steps are required. You can set the backend http setting protocol to HTTPS and both the health probe and data path would be SSL enabled. If you are using Azure Web Apps or other Azure web services as your backend, then these are implicitly trusted as well and no further steps are required for end to end SSL.
+- If the certificate is self signed, or signed by unknown intermediaries, then to enable end to end SSL in v2 SKU a trusted root certificates must be defined. Application Gateway will only communicate with backends whose Server certificate’s root certificate matches one of the list of trusted root certificates in the backend http setting associated with the pool.
+- In addition to root certificate match, Application Gateway also validates if the Host setting specified in the backend http setting matches that of the common name (CN) presented by the backend server’s SSL certificate. When trying to establish an SSL connection to the backend, Application Gateway sets the Server Name Indication (SNI) extension to the Host specified in the backend http setting.
+- If **pick hostname from backend address** is chosen instead of the Host field in the backend http setting,  then the SNI header is always set to the backend pool FQDN and the CN on the backend server SSL certificate must match its FQDN. Backend pool members with IPs are not supported in this scenario.
+- The root certificate is a base64 encoded root certificate from the backend Server certificates.
+
 ## Next steps
 
 After learning about end to end SSL, go to [Configure an application gateway with SSL termination using the Azure portal](create-ssl-portal.md) to create an application gateway using end to end SSL.
