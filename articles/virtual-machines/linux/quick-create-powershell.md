@@ -160,11 +160,11 @@ Add-AzureRmVMNetworkInterface `
 
 # Configure SSH Keys
 
-```azurepowershell-interactive
 $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzureRmVMSshPublicKey `
   -VM $vmconfig `
-  -KeyData $sshPublicKey 
+  -KeyData $sshPublicKey `
+  -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
 Now, combine the previous configuration definitions to create with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
