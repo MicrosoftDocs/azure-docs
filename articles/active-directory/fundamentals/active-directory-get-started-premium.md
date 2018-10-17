@@ -50,7 +50,7 @@ Through your Microsoft Volume Licensing plan, you can sign up for Azure AD Premi
 
 - **For 250 or more licenses.** [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-- **For 5 to 250 licenses.** [Open** Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **For 5 to 250 licenses.** [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
 For more information about volume licensing purchase options, see [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
