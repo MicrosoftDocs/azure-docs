@@ -41,7 +41,7 @@ Before you can utilize ExpressRoute direct, you must first enroll your subscript
 | --- | --- | 
 | Utilizes service provider to enable fast onboarding and connectivity into existing infrastructure | Requires 100Gbps infrastructure and full management of all layers
 | Integrates with hundreds of providers including Ethernet and MPLS | Direct/Dedicated capacity for regulated industries and massive data ingestion | 
-| Circuits SKUs from 50Mbps-10Gbps | Circuits SKUs from 1Gbps to 100Gbps
+| Circuits SKUs from 50Mbps-10Gbps | Circuits SKUs from 5Gbps to 100Gbps (5Gbps, 10Gbps, 40Gbps, 100Gbps)
 | Optimized for single tenant | Optimized for single tenant/Cloud Service providers/multiple business units
 
 ## ExpressRoute Direct circuits
