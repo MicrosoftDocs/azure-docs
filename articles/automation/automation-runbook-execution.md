@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/08/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -129,7 +129,7 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## Fair share
 
-In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for three hours. During this time, jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) are stopped and are not be restarted. The job status shows **Stopped**. This type of runbook is always restarted from the beginning since they don't support checkpoints.
+In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload or stop any job that has been running for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows Stopped.
 
 [PowerShell-Workflow-based runbooks](automation-runbook-types.md#powershell-workflow-runbooks) are resumed from their last [checkpoint](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). After running three hours, the runbook job is suspended by the service and its status shows **Running, waiting for resources**. When a sandbox becomes available, the runbook is automatically restarted by the Automation service and resumes from the last checkpoint. This behavior is normal PowerShell-Workflow behavior for suspend/restart. If the runbook again exceeds three hours of runtime, the process repeats, up to three times. After the third restart, if the runbook still has not completed in three hours, then the runbook job is failed, and the job status shows **Failed, waiting for resources**. In this case, you receive the following exception with the failure.
 

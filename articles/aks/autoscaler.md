@@ -22,11 +22,22 @@ This article describes how to deploy the cluster autoscaler on the agent nodes. 
 > Azure Kubernetes Service (AKS) cluster autoscaler integration is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 >
 
-## Prerequisites
+## Prerequisites and considerations
 
 This document assumes that you have an RBAC-enabled AKS cluster. If you need an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart][aks-quick-start].
 
  To use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled. To upgrade your cluster, see the article on [upgrading an AKS cluster][aks-upgrade].
+
+Define resource requests for your pods. The cluster autoscaler looks at what resource requests are made by pods, not the resources actually in use like the horizontal pod autoscaler does. Within the `spec: containers` section of your deployment definition, define the CPU and memory requirements. The following example snippet requests 0.5 vCPU and 64Mb of memory on the node:
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+When cluster autoscaler is used, avoid manually scaling the number of nodes. The cluster autoscaler may not be able to determine the correct amount of compute resources required and conflict with the number of nodes that you manually define.
 
 ## Gather information
 
