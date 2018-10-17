@@ -56,7 +56,7 @@ The template used in this quickstart is called [Create a standard storage accoun
 
 To learn how to edit a template using Visual Studio Code, you add one more element into the `outputs` section.
 
-1. From Visual Studio Code, verify the value of **kind** is **StorageV2**. If the value is **Storage**, update the value to **StorageV2**.
+1. From Visual Studio Code, check the value of **kind**. If the value is **Storage**, update the value to **StorageV2**.
 
     ```json
     "kind": "StorageV2",
@@ -151,7 +151,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
     
     ---
 
-    Update the template file name if you save the file to a name other than **azuredeploy.json.
+    Update the template file name if you save the file to a name other than **azuredeploy.json**.
 
     The following screenshot shows a sample deployment:
 
