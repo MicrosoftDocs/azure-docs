@@ -138,7 +138,7 @@ To manually add VMs:
 
 **Number of DR-Drills in a year**: The number of times you perform DR drills in a year. By default, it's four times in a year. You can modify the period for specific VMs or apply the new value to all VMs. Enter the new value in the top row, and select **Apply to all**. Based on the number of DR drills in a year and each DR-drill duration period, the total DR-drill cost is calculated. 
 
-**Each DR-Drill duration (Days)**: The duration of each DR drill. By default, it's 7 days every 90 days according to the [Disaster Recovery Software Assurance benefit](https://azure.microsoft.com/en-in/pricing/details/site-recovery). You can modify the period for specific VMs, or you can apply a new value to all VMs. Enter a new value in the top row, and select **Apply to all**. The total DR-drill cost is calculated based on the number of DR drills in a year and each DR-drill duration period.
+**Each DR-Drill duration (Days)**: The duration of each DR drill. By default, it's 7 days every 90 days according to the [Disaster Recovery Software Assurance benefit](https://azure.microsoft.com/pricing/details/site-recovery). You can modify the period for specific VMs, or you can apply a new value to all VMs. Enter a new value in the top row, and select **Apply to all**. The total DR-drill cost is calculated based on the number of DR drills in a year and each DR-drill duration period.
  
 **OS Type**: The operating system (OS) type of the VM. It's either Windows or Linux. If the OS type is Windows, the Azure Hybrid Use Benefit can be applied to that VM. 
 
