@@ -11,9 +11,9 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 10/17/2018
 ms.author: glenga
-ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
+ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 
 ---
 # Create your first function using Visual Studio
@@ -50,13 +50,13 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 2. Copy the URL of your function from the Azure Functions runtime output.
 
-    ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
+    ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-debugging.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
+3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<YOUR_NAME>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
 
-    ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+    ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local.png)
 
-4. To stop debugging, press Shift + F5.
+4. To stop debugging, press **Shift + F5**.
 
 After you have verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -68,15 +68,15 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<yourname>` to this URL and execute the request.
+1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<YOUR_NAME>` to this URL and execute the request.
 
     The URL that calls your HTTP triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME> 
 
 2. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function:
 
-    ![Function response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
+    ![Function response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
 
 ## Watch the video
 
