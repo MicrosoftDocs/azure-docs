@@ -38,6 +38,7 @@ Supported Windows operating systems:
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
+* Windows Server 2019
 
 
 ### Supported platforms for Linux computers and VMs
