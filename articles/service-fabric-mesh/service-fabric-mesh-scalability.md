@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt 
 ---
-# Service scalability
+# Scaling Service Fabric Mesh applications
 
 One of the main advantages of deploying applications to Service Fabric Mesh is the ability for you to easily scale your services in or out. This should be used for handling varying amounts of load on your services, or improving availability. You can manually scale your services in or out or setup autoscaling polices.
 
