@@ -145,9 +145,7 @@ The example shows how to:
 
 2. Create a StreamingLocator that is configured to stream an encrypted asset. 
 
-  In the case of this example, we set **StreamingPolicyName** to **PredefinedStreamingPolicy.SecureStreaming** which supports envelope and cenc encryption and sets two content keys on the StreamingLocator. 
-
-  If you also want to encrypt with FairPlay, set the **StreamingPolicyName** to **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+  For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
 
 3. Create a test token.
 

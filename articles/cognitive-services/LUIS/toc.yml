@@ -19,16 +19,10 @@
         href: luis-get-started-go-get-intent.md
       - name: Java
         href: luis-get-started-java-get-intent.md
-      - name: JavaScript
-        href: luis-get-started-js-get-intent.md
       - name: Node.js
         href: luis-get-started-node-get-intent.md
-      - name: PHP
-        href: luis-get-started-php-get-intent.md
       - name: Python
         href: luis-get-started-python-get-intent.md
-      - name: Ruby
-        href: luis-get-started-ruby-get-intent.md
     - name: Change model
       items:
       - name: C#
@@ -37,16 +31,10 @@
         href: luis-get-started-go-add-utterance.md
       - name: Java
         href: luis-get-started-java-add-utterance.md
-      - name: JavaScript
-        href: luis-get-started-javascript-add-utterance.md
       - name: Node.js
         href: luis-get-started-node-add-utterance.md
-      - name: PHP
-        href: luis-get-started-php-add-utterance.md
       - name: Python
         href: luis-get-started-python-add-utterance.md
-      - name: Ruby
-        href: luis-get-started-ruby-add-utterance.md
 - name: Tutorials
   items:
   - name: Build app
