@@ -23,37 +23,37 @@ sections:
   - type: list
     style: icon48
     items:
-      - image:
-          src: media/logo_csharp.svg
-          href: local-quickstart.md
-          text: "C#"
-      - image:
-          src: media/logo_java.svg
-          href: local-search-java-quickstart.md
-          text: "Java"
-      - image:
-          src: media/logo_nodejs.svg
-          href: local-search-node-quickstart.md
-          text: "Node"
-      - image:
-          src: media/logo_python.svg
-          href: local-search-python-quickstart.md
-          text: "Python"
+    - image:
+        src: media/logo_csharp.svg
+        href: local-quickstart.md
+        text: "C#"
+    - image:
+        src: media/logo_java.svg
+        href: local-search-java-quickstart.md
+        text: "Java"
+    - image:
+        src: media/logo_nodejs.svg
+        href: local-search-node-quickstart.md
+        text: "Node"
+    - image:
+        src: media/logo_python.svg
+        href: local-search-python-quickstart.md
+        text: "Python"
 - title: Concepts
   items:
-   - type: list
-     style: unordered
-     items:
-       - title: What is Local Business Search?
-         href: overview
-       - title: Geographic search
-         href: specify-geographic-search
+  - type: list
+    style: unordered
+    items:
+    - title: What is Local Business Search?
+        href: overview.md
+    - title: Geographic search
+        href: specify-geographic-search.md
 - title: Reference
   items:
-   - type: list
+  - type: list
      style: unordered
      items:
-       - title: Local Business Search Reference
+     - title: Local Business Search Reference
          href: local-search-reference.md
-       - title: Use and display requirements  
+     - title: Use and display requirements  
          href: use-and-display-requirements.md
