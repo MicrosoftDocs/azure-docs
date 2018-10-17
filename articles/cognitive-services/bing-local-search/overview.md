@@ -1,5 +1,5 @@
 ---
-title: Bing Local Search API overview | Microsoft Docs
+title: What is Bing Local Business Search? | Microsoft Docs
 description: How to use the Bing Local Search API to search the web locally.
 services: cognitive-services
 author: mikedodaro

@@ -2,7 +2,7 @@
   href: index.yml
   expanded: true
   items:
-  - name: Search the Web locally
+  - name: What is Local Business Search?
     href: overview.md
   - name: Geographic search boundaries
     href: specify-geographic-search.md

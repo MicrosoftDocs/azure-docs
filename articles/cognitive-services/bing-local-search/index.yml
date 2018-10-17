@@ -14,4 +14,45 @@ metadata:
   ms.date: 08/02/2018
   ms.author: rosh, v-gedod
 abstract:
-  description: The Bing Local Search API gets localized information from a query.
+  description: The Bing Local Business Search API gets localized information from a query.  The results include URLs, geographical information, city, street address, neighborhood, phone number, and display text.
+sections:
+- title: Quickstarts
+  items:
+  - type: paragraph
+    text: 'Get started using the Bing Local Search API by making a query and viewing the JSON response:'
+  - type: list
+    style: icon48
+    items:
+      - image:
+          src: media/logo_csharp.svg
+          href: local-quickstart
+          text: "C&#35;"
+      - image:
+          src: media/logo_java.svg
+          href: local-search-java-quickstart
+          text: "Java"
+      - image:
+          src: media/logo_nodejs.svg
+          href: local-search-node-quickstart
+          text: "Node"
+      - image:
+          src: media/logo_python.svg
+          href: local-search-python-quickstart
+          text: "C&#35;"
+- title: Concepts
+  items:
+   - type: list
+     style: unordered
+     items:
+       - title: What is Local Business Search?
+         href: overview
+       - title: Geographic search
+         href: specify-geographic-search
+- title: Reference
+   - type: list
+     style: unordered
+     items:
+       - title: Local Business Search Reference
+         href: local-search-reference
+       - title: Use and display requirements  
+         href: use-and-display-requirements
