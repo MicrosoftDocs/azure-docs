@@ -203,7 +203,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 ```
 ## Service to Service calls using a SAML assertion obtained with an OAuth2.0 on-behalf-of flow
 
-Some OAuth based web services need to access other web service APIs which accept SAML assertion in non-interactive flows.  Azure Active Directory can provide a SAML assertion in response to an on-behalf-of flow with a SAML based web service as an target resource. 
+Some OAuth based web services need to access other web service APIs that accept SAML assertions in non-interactive flows.  Azure Active Directory can provide a SAML assertion in response to an on-behalf-of flow with a SAML-based web service as a target resource. 
 
 >[!NOTE] 
 >This is a non-standard extension to the OAuth 2.0 on-behalf-of flow that allows an OAuth2 based application to access web service API endpoints that consume SAML tokens.  
@@ -227,7 +227,7 @@ A service-to-service request to obtain a SAML assertion contains the following p
 
 The response will contain a UTF8 and Base64url encoded SAML token. 
 
-SubjectConfirmationData for a SAML assertion sourced from an OBO call:  If the target application requires a recipient value in SubjectConfirmationData then it must be set as a non-wildcard Reply URL in the resource application configuration.
+SubjectConfirmationData for a SAML assertion sourced from an OBO call:  If the target application requires a recipient value in SubjectConfirmationData, then it must be set as a non-wildcard Reply URL in the resource application configuration.
 
 The SubjectConfirmationData node can't contain an InResponseTo attribute since it's not part of a SAML response.  The application receiving the SAML token needs to be able to accept the SAML assertion without an InResponseTo attribute.
 
