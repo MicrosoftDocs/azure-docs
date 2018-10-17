@@ -103,7 +103,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
+    href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
     href: samples-powershell.md
 - name: Concepts
@@ -457,7 +457,7 @@
   - name: FAQ
     href: frequently-asked-questions.md
   - name: Roadmap
-    href: https://azure.microsoft.com/en-us/roadmap/?tag=data-factory
+    href: https://azure.microsoft.com/roadmap/?tag=data-factory
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region
