@@ -4,7 +4,7 @@ description: Move Data to and from Azure Blob Storage using AzCopy
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: c309ceb2-0e83-4a07-b16d-c997dcd62d5c
