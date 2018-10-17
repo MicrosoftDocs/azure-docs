@@ -17,9 +17,9 @@ ms.author: mbullwin
 
 # Application Insights NuGet packages
 
-Below is the current supported list of stable release NuGet Packages for Application Insights.
+Below is the current list of stable release NuGet Packages for Application Insights.
 
-## Common NuGet packages for monitoring ASP.NET
+## Common packages for ASP.NET
 
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
@@ -31,7 +31,7 @@ Below is the current supported list of stable release NuGet Packages for Applica
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
-## Common NuGet packages for ASP.NET Core
+## Common packages for ASP.NET Core
 
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
