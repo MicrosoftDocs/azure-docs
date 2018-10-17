@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 10/16/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -39,17 +39,9 @@ You need an SSH key pair to complete this quickstart. If you already have an SSH
 
 Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).  
 
-```bash
+```azurepowershell-interactive
 ssh-keygen -t rsa -b 2048
 ```
-
-The above command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat`.
-
-```bash 
-cat ~/.ssh/id_rsa.pub
-```
-
-Save the output of this command. You will need it when configuring your administrator account to log in to your VM.
 
 For more detailed information on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](ssh-from-windows.md).
 
@@ -168,11 +160,11 @@ Add-AzureRmVMNetworkInterface `
 
 # Configure SSH Keys
 
-$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+```azurepowershell-interactive
+$sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzureRmVMSshPublicKey `
   -VM $vmconfig `
-  -KeyData $sshPublicKey `
-  -Path "/home/azureuser/.ssh/authorized_keys"
+  -KeyData $sshPublicKey 
 ```
 
 Now, combine the previous configuration definitions to create with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
