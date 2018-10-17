@@ -34,6 +34,14 @@ Activity logging for Azure Digital Twins is enabled by default and can be found 
 
     ![Activity log][1]
 
+1. Select the **Logs** option to display the **Activity Log Analytics Overview**:
+
+    ![Selection][2]
+
+1. The **Activity Log Analytics Overview** summarizes essential activity log data:
+
+    ![Activity log analytics overview][3]
+
 >[!TIP]
 >Use **activity logs** for quick insights into subscription-level events.
 
@@ -52,12 +60,12 @@ To set up diagnostic logging for an instance:
 1. Bring up the resource in Azure portal.
 1. Click **Diagnostic settings**:
 
-    ![Diagnostic settings one][2]
+    ![Diagnostic settings one][4]
 
 1. Click **Turn on diagnostics** to collect data.
 1. Fill in the requested fields and select how and where data will be saved:
 
-    ![Diagnostic settings two][3]
+    ![Diagnostic settings two][5]
 
 >[!TIP]
 >Use **diagnostic logs** for insights into resource operations.
@@ -79,21 +87,21 @@ Full log querying capabilities are provided through [Azure Log Analytics](https:
 1. Search for **Log Analytics** in the Azure portal.
 1. You will see your available **Log Analytics** instances. Choose one and select **Logs** to query:
 
-    ![Log analytics][4]
+    ![Log analytics][6]
 
 1. If you don't already have a **Log Analytics** instance, you can create a workspace by clicking the **Add** button:
 
-    ![Create OMS][5]
+    ![Create OMS][7]
 
 Once your **Log Analytics** instance is provisioned, you may use powerful queries to find entries in multiples logs or search using specific criteria using **Log Management**:
 
-   ![Alert and error notifications][6]
+   ![Log management][8]
 
 For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 Azure Log Analytics also provides powerful error and alert notification services, which can be viewed by clicking **Diagnose and solve problems**:
 
-   ![Alert and error notifications][7]
+   ![Alert and error notifications][9]
 
 >[!TIP]
 >Use **Log Analytics** to see log histories for multiple app functionalities or services.
@@ -104,9 +112,11 @@ Azure Digital Twins also supports application-specific logging and security audi
 
 <!-- Images -->
 [1]: media/how-to-use-logging/activity-log.png
-[2]: media/how-to-use-logging/diagnostic-settings-one.png
-[3]: media/how-to-use-logging/diagnostic-settings-two.png
-[4]: media/how-to-use-logging/log-analytics.png
-[5]: media/how-to-use-logging/log-analytics-oms.png
-[6]: media/how-to-use-logging/log-analytics-management.png
-[7]: media/how-to-use-logging/log-analytics-notifications.png
+[2]: media/how-to-use-logging/activity-log-select.png
+[3]: media/how-to-use-logging/log-analytics-overview.png
+[4]: media/how-to-use-logging/diagnostic-settings-one.png
+[5]: media/how-to-use-logging/diagnostic-settings-two.png
+[6]: media/how-to-use-logging/log-analytics.png
+[7]: media/how-to-use-logging/log-analytics-oms.png
+[8]: media/how-to-use-logging/log-analytics-management.png
+[9]: media/how-to-use-logging/log-analytics-notifications.png
