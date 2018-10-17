@@ -22,7 +22,16 @@ The main parts of an IoT solution are as follows: devices, back-end services, th
 
 ## IoT devices
 
-Devices are generally made up of a circuit board with censors attached that connect to the internet. Many devices communicate via a Wi-Fi chip. For example, two such devices are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, as wwell as a gyroscope and accelerometer, a magnetometer and a Wi-Fi chip. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what you need for your scenario. 
+Devices are generally made up of a circuit board with censors attached that connect to the internet. Many devices communicate via a Wi-Fi chip. Here are some examples of IoT devices:
+
+* pressure sensors on a remote oil pump
+* temperature and humidity sensors in an air-conditioning unit
+* accelerometers in an elevator
+* presence sensors in a room
+
+Two devices that are frequently used for prototyping are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, as wwell as a gyroscope and accelerometer, a magnetometer and a Wi-Fi chip. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what you need for your scenario. 
+
+The [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) enable you to build apps that run on your devices so they can perform the tasks you need. With the SDKs, you can send telemetry to your IoT hub, receive messages and updates from the IoT Hub, and so on.
 
 ## Communication
 
@@ -30,13 +39,15 @@ Your device can communicate with back-end services in both directions. Here are 
 
 ### Examples 
 
-* Your device may send telemetry data (such as temperature) every 5 minutes to an IoT Hub. The hub in turn routes it to Blob storage for analysis at a later time with HD Insight.
+* Your device may send temperature from a mobile refrigeration truck every 5 minutes to an IoT Hub. 
 
-* Changes to your device's configuration -- or specific data -- could be pushed to the device from your back-end service.
+* The back-end service can ask the device to send telemetry more frequently to help diagnose a problem. 
 
 * Your device can send alerts based on the values read from its sensors. For example, if monitoring a batch reactor in a chemical plant, you may want to send an alert when the temperatures exceeds a certain value.
 
 * Your device can send information to a dashboard for viewing by human operators. For example, a control room in a refinery may show the temperature and pressure of each pipe, as well as the volume flowing through that pipe, allowing the operators to watch it. 
+
+These tasks, and more, can be implemented using the [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md).
 
 ### Connection Considerations
 
@@ -58,17 +69,17 @@ Connecting devices securely and reliably is often the biggest challenge in IoT s
 
 Here are some of the functions a back-end service can provide.
 
-* Receiving telemetry data at scale from your devices, and determining how to process and store that data.
+* Receiving telemetry at scale from your devices, and determining how to process and store that data.
 
 * Analyzing the telemetry to provide insights, either in real time or after the fact.
 
-* Sending commands from the cloud or a gateway device to a specific device. 
+* Sending commands from the cloud to a specific device. 
 
 * Provisioning devices and control which devices can connect to your infrastructure.
 
 * Control the state of your devices and monitor their activities.
 
-For example, in a predictive maintenance scenario, the cloud back-end stores historical telemetry data. The solution uses this data to identify potential anomalous behavior on specific pumps before they cause a real problem. Using data analytics, it can identify that the preventative solution is to send a command back to the device to take a corrective action. This process generates an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
+For example, in a predictive maintenance scenario, the cloud back-end stores historical telemetry. The solution uses this data to identify potential anomalous behavior on specific pumps before they cause a real problem. Using data analytics, it can identify that the preventative solution is to send a command back to the device to take a corrective action. This process generates an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
 
 ## An IoT example
 
@@ -88,19 +99,19 @@ Implementing this IoT solution made it possible for the company to check and tre
 
 There are several IoT-related services in Azure and it can be confusing to figure out which one you want to use. Some provide templates to help you create your own solution. You can also fully develop your own solutions using other services available -- it all depends on how much help you want, and how much control. Here is a list of the services available, as well as what you may use them for.
 
-1. [**IoT Central**](../iot-central/overview-iot-central.md): This is a SaaS solution that helps you connect, monitor, and manage your ioT devices. To start, you select a template for your device type and create and test a basic IoT Central application that the operators of the device will use. The IoT Central application will also enable you to monitor the devices and provision new devices. This service is for straightforward solutions that don't require deep service customization. No coding skills are required to use this service.
+1. [**IoT Central**](../iot-central/overview-iot-central.md): This is a SaaS solution that helps you connect, monitor, and manage your ioT devices. To start, you select a template for your device type and create and test a basic IoT Central application that the operators of the device will use. The IoT Central application will also enable you to monitor the devices and provision new devices. This service is for straightforward solutions that don't require deep service customization. 
 
-2. [**IoT solution accelerators**](/azure/iot-suite): This service is a collection of PaaS solutions you can use to accelerate your development of an IoT solution. You start with a provided IoT solution and then fully customize that solution to your requirements. You need Java or .NET skills to customize the back-end, and JavaScript skills to customize the visualization. 
+2. [**IoT solution accelerators**](/azure/iot-suite): This is a collection of PaaS solutions you can use to accelerate your development of an IoT solution. You start with a provided IoT solution and then fully customize that solution to your requirements. You need Java or .NET skills to customize the back-end, and JavaScript skills to customize the visualization. 
 
 3. [**IoT Hub**](/azure/iot-hub/): This service allows you to connect from your devices to an IoT hub, and monitor and control billions of IoT devices. This is especially useful if you need bi-directional communication between your IoT devices and your back-end. This is the underlying service for IoT Central and IoT solution accelerators. 
 
 4. [**IoT Hub Device Provisioning Service**](/azure/iot-dps/): This is a helper service for IoT Hub that you can use to provision devices to your IoT hub securely. With this service, you can easily provision millions of devices rapidly, rather than provisioning them one by one. 
 
-5. [**IoT Edge**](/azure/iot-edge/): This service builds on top of IoT Hub. It can be used to analyze data on the IoT devices rather than in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
+5. [**IoT Edge**](/azure/iot-edge/): This service builds on top of IoT Hub. It can be used to analyze data on the IoT devices rather than in the cloud. By moving parts of your workload to the edge, fewer messages need to be sent to the cloud. 
 
-6. [**Azure Digital Twins**](/azure/azure-digital-twins/): This service enables you to create comprehensive models of the physical environment. You can create spatial ingelligence graphs to model the relationships and interactions bewteen people, spaces, and devices. For example, you can predict maintenance needs for a factory, analyze real-time energy requirements for an electrical grid, or optimize the use of available space for an office.
+6. [**Azure Digital Twins**](/azure/azure-digital-twins/): This service enables you to create comprehensive models of the physical environment. You can model the relationships and interactions between people, spaces, and devices. For example, you can predict maintenance needs for a factory, analyze real-time energy requirements for an electrical grid, or optimize the use of available space for an office.
 
-7. [**Time Series Insights**](/azure/time-series-insights): This service enables you to store, visualize, and query large amounts of time series data generated by IoT devices. You can use this service with IoT Hub or Azure Event Hub. 
+7. [**Time Series Insights**](/azure/time-series-insights): This service enables you to store, visualize, and query large amounts of time series data generated by IoT devices. You can use this service with IoT Hub. 
 
 8. [**Azure Maps**](/azure/azure-maps): This service provides geographic information to web and mobile applications. There is a full set of REST APIs as well as a web-based JavaScript control that can be used to create flexible applications that work on desktop or mobile applications for both Apple and Windows devices.
 
