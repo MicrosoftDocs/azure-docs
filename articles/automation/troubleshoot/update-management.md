@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Update Management
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -104,6 +104,27 @@ The Hybrid Runbook Worker was not able to generate a self-signed certificate
 #### Resolution
 
 Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypto\RSA** and try again.
+
+### <a name="hresult"></a>Scenario: Machine shows as Not assessed and shows an HResult exception
+
+#### Issue
+
+You have machines that show as **Not Assessed** under **Compliance**, and you see an exception message below it.
+
+#### Cause
+
+Windows update is not configured correctly in the machine.
+
+#### Resolution
+
+Double click on the exception displayed in red to select it, and copy the exception message to see the entire exception message.
+
+1. If the exception message is similar to `Exception from HRESULT: 0x……C`:
+   1. Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details on the cause of the exception.
+   1. If the error code you receive is `0x8024402C` or `0x8024401C`, these are are network connectivity issues. You need to ensure that your machine has the proper network connectivity to Update Management. See the section on [network planning](../automation-update-management.md#network-planning) for a list of ports and addresses that are required.
+   1. If you see the HResult exception `0x8024402C` and you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.
+1. If the exception is `The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`. Make sure the Windows Update service (wuauserv) is running and is not disabled.
+1. If the exception message is not one of the ones listed previously or in the [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list), this could be a generic exception. Do a search the internet for the possible solutions and reach out to your local IT support.
 
 ## Linux
 
