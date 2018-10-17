@@ -140,11 +140,10 @@ To run the ROOBO tests and validate your development kit setup, build and instal
         exit
         ```
 
-    * Copy the files kws.table, kws_g.fst, kws_k.fst, and words_kw.txt to the device's \data\keyword folder. Run the following commands in a Command Prompt window. If you created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is in the same directory as the kws.table, kws_g.fst, kws_k.fst, and words_kw.txt files. For a custom wake word, use the `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` command to push the kws.table file to the dev kit:
+    * Copy the files kws.table, kws_k.fst, and words_kw.txt to the device's \data\keyword folder. Run the following commands in a Command Prompt window. If you created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is in the same directory as the kws.table, kws_k.fst, and words_kw.txt files. For a custom wake word, use the `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` command to push the kws.table file to the dev kit:
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_g.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
