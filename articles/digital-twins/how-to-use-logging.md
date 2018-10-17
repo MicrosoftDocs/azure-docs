@@ -1,20 +1,20 @@
 ---
-title: How to enable logging in Azure Digital Twins | Microsoft Docs
-description: How to enable logging in Azure Digital Twins
+title: How to configure monitoring in Azure Digital Twins | Microsoft Docs
+description: How to configure monitoring in Azure Digital Twins
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 10/17/2018
 ms.author: adgera
 ---
 
-# How to enable logging in Azure Digital Twins
+# How to configure monitoring in Azure Digital Twins
 
-Azure Digital Twins supports robust logging and analytics provided through Azure Log Analytics, diagnostic logs, and activity logging. Logging methods can be combined to summarize records across several services or to provide granular logging coverage for multiple services.
+Azure Digital Twins supports robust logging, monitoring, and analytics provided through Azure Log Analytics, diagnostic logs, activity logging, and other services. Logging methods can be combined to summarize records across several services or to provide granular logging coverage for multiple services.
 
-This article summarizes logging options and how to combine them in ways specific to Azure Digital Twins.
+This article summarizes logging and monitoring options and how to combine them in ways specific to Azure Digital Twins.
 
 ## Review activity logs
 
@@ -85,13 +85,15 @@ Full log querying capabilities are provided through [Azure Log Analytics](https:
 
     ![Create OMS][5]
 
-Once your **Log Analytics** instance is provisioned, you may use powerful queries to find entries in multiples logs or search for specific data.
+Once your **Log Analytics** instance is provisioned, you may use powerful queries to find entries in multiples logs or search using specific criteria using **Log Management**:
+
+   ![Alert and error notifications][6]
 
 For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 Azure Log Analytics also provides powerful error and alert notification services, which can be viewed by clicking **Diagnose and solve problems**:
 
-   ![Alert and error notifications][6]
+   ![Alert and error notifications][7]
 
 >[!TIP]
 >Use **Log Analytics** to see log histories for multiple app functionalities or services.
@@ -106,4 +108,5 @@ Azure Digital Twins also supports application-specific logging and security audi
 [3]: media/how-to-use-logging/diagnostic-settings-two.png
 [4]: media/how-to-use-logging/log-analytics.png
 [5]: media/how-to-use-logging/log-analytics-oms.png
-[6]: media/how-to-use-logging/log-analytics-notifications.png
+[6]: media/how-to-use-logging/log-analytics-management.png
+[7]: media/how-to-use-logging/log-analytics-notifications.png

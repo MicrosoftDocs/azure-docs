@@ -54,7 +54,7 @@
     href: how-to-egress-endpoints.md
   - name: How to use Digital Twins Swagger
     href: how-to-use-swagger.md
-  - name: How to use logging in Digital Twins
+  - name: How to configure monitoring in Digital Twins
     href: how-to-use-logging.md
 #- name: Reference
 #  items:
