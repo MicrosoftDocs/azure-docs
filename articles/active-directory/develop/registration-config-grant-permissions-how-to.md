@@ -26,11 +26,16 @@ If you want to grant consent preemptively on your app or are running into an err
 
 This has the effect of granting consent to the application for all users in your organization.
 
+Option 1
 1. Navigate to the **App Registrations** blade as a **global administrator**, then select the app.
 
 2. Select **Required Permissions**, and finally hit the **Grant Permissions** button at the top of the blade.
 
+Option 2 <br/>
 Alternatively, you can construct a request to *login.microsoftonline.com* with your app configs and append on *&prompt=admin\_consent*. After signing in with admin credentials, the app has been granted consent for all users.
+
+Option 3 <br/>
+Use the steps outlined in the section below on how to provide admin consent through the enterprise applications page. 
 
 ## How to perform Admin Consent for an application registered in another tenant, but is used by users in your tenant
 When user consent is turned off in your tenant, an admin can consent to applications that already exist in the tenant directly from the Azure Portal. This provides consent on behalf of end users so that they are able to access the apps that are explicitly consented to by an admin.
