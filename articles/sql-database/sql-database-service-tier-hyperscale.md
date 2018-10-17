@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/17/2018
 ---
 
 # Hyperscale service tier (preview) for up to 100 TB
