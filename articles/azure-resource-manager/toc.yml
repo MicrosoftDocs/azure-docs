@@ -15,9 +15,9 @@
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Tutorials
   items:
-  - name: Create an encrypted storage account
+  - name: Utilize template reference
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Create multiple storage account instances
+  - name: Create multiple resource instances
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Set resource deployment order
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
