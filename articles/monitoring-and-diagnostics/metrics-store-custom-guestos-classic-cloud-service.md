@@ -1,6 +1,6 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor metric store classic cloud service 
-description: Send Guest OS metrics to the Azure Monitor metric store classic cloud service
+title: Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
+description: Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,8 +9,8 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
 ---
-# Send Guest OS metrics to the Azure Monitor metric store 
-With the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to many different locations that are listed in the previously linked article.  
+# Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
+With the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
 This article describes the process for sending Guest OS performance metrics for Azure Cloud Services (classic) to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
@@ -23,14 +23,14 @@ The process that's outlined in this article works only for performance counters 
 
 - You must be a [service administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) installed.
 
 
 ## Provision a cloud service and storage account 
 
-1. Create and deploy a classic cloud service. A sample classic cloud service application and deployment can be found at [Get started with Azure Cloud Services and ASP.NET](../cloud-services/cloud-services-dotnet-get-started.md). 
+1. Create and deploy a classic cloud service. A sample classic Cloud Services application and deployment can be found at [Get started with Azure Cloud Services and ASP.NET](../cloud-services/cloud-services-dotnet-get-started.md). 
 
 2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource blade, and then select **Keys**. Take note of  the storage account name and the storage account key. You'll need this information in later steps.
 
@@ -46,7 +46,7 @@ Create a service principle in your Azure Active Directory tenant by using the in
   - Create new client secret for this app.  
   - Save the key and the client ID for use in later steps.  
 
-The app that you created in the previous step (*Monitoring Metrics Publisher*) needs permissions to the resource that you want to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.  
+Give the app created in the previous step *Monitoring Metrics Publisher* permissions to the resource you want to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.  
 
 > [!NOTE]
 > The Diagnostics extension uses the service principal to authenticate against Azure Monitor and emit metrics for your cloud service.
@@ -140,7 +140,7 @@ Launch PowerShell and log in to Azure.
 Login-AzureRmAccount 
 ```
 
-USe the following commands to store the details of the storage account that you created earlier. 
+Use the following commands to store the details of the storage account that you created earlier. 
 
 ```PowerShell
 $storage_account = <name of your storage account from step 3> 
