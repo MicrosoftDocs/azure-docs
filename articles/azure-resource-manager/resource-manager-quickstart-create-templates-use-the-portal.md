@@ -15,6 +15,8 @@ ms.date: 10/16/2018
 ms.topic: quickstart
 ms.author: jgao
 
+#Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
+
 ---
 
 # Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal
