@@ -15,6 +15,7 @@ ms.author: menchi
 
 > [!NOTE]
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
+>
 
 At the end of this tutorial, you have two Python apps:
 
@@ -23,6 +24,7 @@ At the end of this tutorial, you have two Python apps:
 
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
+>
 
 To complete this tutorial, you need the following:
 
@@ -30,17 +32,15 @@ To complete this tutorial, you need the following:
 * An IoT Hub.
 * Install the latest [Python SDK](https://github.com/Azure/azure-iot-sdk-python).
 
-
 You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
 
-<a id="DeviceIdentity_csharp"></a>
 ## Create a device identity and a module identity in IoT Hub
 
 In this section, you create a Python app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
 
 Add the following code to your Python file:
 
-```Python
+```python
 import sys
 import iothub_service_client
 from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubError
@@ -74,21 +74,20 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
 
 > [!NOTE]
 > The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide][lnk-devguide-identity].
+>
 
-
-<a id="D2C_csharp"></a>
 ## Update the module twin using Python device SDK
 
 In this section, you create a Python app on your simulated device that updates the module twin reported properties.
 
 1. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
 
-    ![Azure portal module detail][15]
+  ![Azure portal module detail][15]
 
-2. **Create UpdateModuleTwinReportedProperties app**
+1. **Create UpdateModuleTwinReportedProperties app**
 Add the following `using` statements at the top of the **Program.cs** file:
 
-    ```Python
+    ```python
     import sys
     import iothub_service_client
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubDeviceTwin, IoTHubError
@@ -121,9 +120,10 @@ Add the following `using` statements at the top of the **Program.cs** file:
 This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. 
 
 ## Get updates on the device side
+
 In addition to the above code, you can add below code block to get the twin update message on your device.
 
-```Python
+```python
 import random
 import time
 import sys
@@ -165,7 +165,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]:./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

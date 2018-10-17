@@ -136,7 +136,7 @@ JSON-formatted data is written for the following log categories:
 
 ### Event
 
-The event log contains information about which NSG rules are applied to VMs, based on MAC address. The following example data is logged for each event:
+The event log contains information about which NSG rules are applied to VMs, based on MAC address. The following data is logged for each event. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -150,16 +150,16 @@ The event log contains information about which NSG rules are applied to VMs, bas
 		"subnetPrefix":"192.168.1.0/24",
 		"macAddress":"00-0D-3A-92-6A-7C",
 		"primaryIPv4Address":"192.168.1.4",
-		"ruleName":"[SECURITY RULE NAME]",
-		"direction":"In",
-		"priority":1000,
-		"type":"allow",
+		"ruleName":"[SECURITY-RULE-NAME]",
+		"direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+		"priority":[PRIORITY-SPECIFIED-IN-RULE],
+		"type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
 		"conditions":{
-			"protocols":"6",
-			"destinationPortRange":"[PORT RANGE]",
-			"sourcePortRange":"0-65535",
-			"sourceIP":"0.0.0.0/0",
-			"destinationIP":"0.0.0.0/0"
+			"protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
+			"destinationPortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+			"sourcePortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+			"sourceIP":"[SOURCE-IP-OR-RANGE-SPECIFIED-IN-RULE]",
+			"destinationIP":"[DESTINATION-IP-OR-RANGE-SPECIFIED-IN-RULE]"
 			}
 		}
 }
@@ -167,7 +167,7 @@ The event log contains information about which NSG rules are applied to VMs, bas
 
 ### Rule counter
 
-The rule counter log contains information about each rule applied to resources. The following example data is logged each time a rule is applied:
+The rule counter log contains information about each rule applied to resources. The following example data is logged each time a rule is applied. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -181,9 +181,9 @@ The rule counter log contains information about each rule applied to resources. 
 		"subnetPrefix":"192.168.1.0/24",
 		"macAddress":"00-0D-3A-92-6A-7C",
 		"primaryIPv4Address":"192.168.1.4",
-		"ruleName":"[SECURITY RULE NAME]",
-		"direction":"In",
-		"type":"allow",
+		"ruleName":"[SECURITY-RULE-NAME]",
+		"direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+		"type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
 		"matchedConnections":125
 		}
 }

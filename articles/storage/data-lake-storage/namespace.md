@@ -1,10 +1,8 @@
 ---
 title: Azure Data Lake Storage Gen2 Preview Hierarchical Namespace
-description:  Describes the concept of the hierarchical namespace for Azure Data Lake Storage Gen2 Preview
+description: Describes the concept of the hierarchical namespace for Azure Data Lake Storage Gen2 Preview
 services: storage
 author: jamesbak
-manager: twooley
-
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018

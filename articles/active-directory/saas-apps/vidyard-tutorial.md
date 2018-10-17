@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Vidyard | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Vidyard.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Vidyard from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Vidyard from the gallery
 To configure the integration of Vidyard into Azure AD, you need to add Vidyard from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Vidyard into Azure AD, you need to add Vidyard f
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Vidyard**, select **Vidyard** from result panel then click **Add** button to add the application.
+1. In the search box, type **Vidyard**, select **Vidyard** from result panel then click **Add** button to add the application.
 
 	![Vidyard in the results list](./media/vidyard-tutorial/tutorial_vidyard_addfromgallery.png)
 
@@ -82,10 +82,10 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 To configure and test Azure AD single sign-on with Vidyard, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Vidyard test user](#create-a-vidyard-test-user)** - to have a counterpart of Britta Simon in Vidyard that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Vidyard test user](#create-a-vidyard-test-user)** - to have a counterpart of Britta Simon in Vidyard that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -97,11 +97,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/vidyard-tutorial/tutorial_vidyard_samlbase.png)
 
-3. On the **Vidyard Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **Vidyard Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Vidyard Domain and URLs single sign-on information](./media/vidyard-tutorial/tutorial_vidyard_url2.png)
 
@@ -109,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Vidyard Domain and URLs single sign-on information](./media/vidyard-tutorial/tutorial_vidyard_url1.png)
 
@@ -122,17 +122,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/vidyard-tutorial/tutorial_vidyard_certificate.png) 
 
-6. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/vidyard-tutorial/tutorial_general_400.png)
 
-7. On the **Vidyard Configuration** section, click **Configure Vidyard** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Vidyard Configuration** section, click **Configure Vidyard** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Vidyard Configuration](./media/vidyard-tutorial/tutorial_vidyard_configure.png)
 
-8. In a different web browser window, log in to your Vidyard Software company site as an administrator.
+1. In a different web browser window, log in to your Vidyard Software company site as an administrator.
 
-9. From the Vidyard dashboard, select **Group** > **Security**
+1. From the Vidyard dashboard, select **Group** > **Security**
 
 	![Vidyard Configuration](./media/vidyard-tutorial/configure1.png)
 
@@ -140,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Vidyard Configuration](./media/vidyard-tutorial/configure2.png)
 
-11. In the **SAML Configuration** section, perform the following steps:
+1. In the **SAML Configuration** section, perform the following steps:
 
 	![Vidyard Configuration](./media/vidyard-tutorial/configure3.png)
 
@@ -158,18 +158,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. Click **Confirm**.
 
-12. From the Single Sign On tab, select **Assign** next to an existing profile
+1. From the Single Sign On tab, select **Assign** next to an existing profile
 
 	![Vidyard Configuration](./media/vidyard-tutorial/configure4.png)
 
 	> [!NOTE]
 	> Once you have created an SSO profile, assign it to any group(s) for which users will require access through Azure. If the user does not exist within the group to which they were assigned, Vidyard will automatically create a user account and assign their role in real-time.
 
-13. Select your organization group, which is visible in the **Groups Available to Assign**.
+1. Select your organization group, which is visible in the **Groups Available to Assign**.
 
 	![Vidyard Configuration](./media/vidyard-tutorial/configure5.png)
 
-14. You can see the assigned groups under the **Groups Currently Assigned**. Select a role for the group as per your organization and click **Confirm**.
+1. You can see the assigned groups under the **Groups Currently Assigned**. Select a role for the group as per your organization and click **Confirm**.
 
 	![Vidyard Configuration](./media/vidyard-tutorial/configure6.png)
 
@@ -188,15 +188,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/vidyard-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/vidyard-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/vidyard-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/vidyard-tutorial/create_aaduser_04.png)
 
@@ -226,30 +226,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Vidyard**.
+1. In the applications list, select **Vidyard**.
 
 	![The Vidyard link in the Applications list](./media/vidyard-tutorial/tutorial_vidyard_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Vidyard tile in the Access Panel, you should get automatically signed-on to your Vidyard application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

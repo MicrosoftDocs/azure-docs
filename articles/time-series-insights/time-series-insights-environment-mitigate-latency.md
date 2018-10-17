@@ -4,8 +4,8 @@ description: This article describes how to monitor, diagnose, and mitigate perfo
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -25,6 +25,11 @@ You are most likely to experience latency and throttling when you:
 - Push large amounts of historical events to an event source, resulting in a lag (Time Series Insights will need to catch up).
 - Join reference data with telemetry, resulting in larger event size.  From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed event size is 32 KB; data packets larger than 32 KB are truncated.
 
+## Video: 
+
+### In this video, we cover Time Series Insights data ingress behavior and how to plan for it.</br>
+
+> [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## Monitor latency and throttling with alerts
 

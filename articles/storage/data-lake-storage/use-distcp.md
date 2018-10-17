@@ -2,18 +2,12 @@
 title: Copy data into Azure Data Lake Storage Gen2 Preview using Distcp| Microsoft Docs
 description: Use Distcp tool to copy data to and from Data Lake Storage Gen2 Preview
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: seguler
-
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-
 ---
 # Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2 Preview
 

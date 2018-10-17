@@ -60,7 +60,7 @@ Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if
 
 You can put a subscription into a **Deprovisoned** state to be deleted in 3 days using the Microsoft Store for Business admin center. This capability is coming soon to Office 365 Admin center.
 
-1. Sign in to the [Microsoft Store for Business admin center](https://businessstore.microsoft.com/en-us/manage/) with an account that is a Global Administrator in the tenant. If you are trying to delete the “Contoso” tenant that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
+1. Sign in to the [Microsoft Store for Business admin center](https://businessstore.microsoft.com/manage/) with an account that is a Global Administrator in the tenant. If you are trying to delete the “Contoso” tenant that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
 
 2. Go to the **Manage** tab and select **Products and Services**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
   

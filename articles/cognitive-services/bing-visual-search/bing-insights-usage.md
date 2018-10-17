@@ -1,14 +1,14 @@
 ---
-title: Examples of Bing insights | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: Examples of Bing insights - Bing Visual Search
+titleSuffix: Azure Cognitive Services
 description: Shows examples of image insights shown on Bing.com.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
 ---
@@ -57,7 +57,7 @@ The following shows how Bing might display related searches of images made by ot
 
 ## Entity insight example
 
-The following shows how Bing might display information about the entity (person, place, or thing) shown in the image. If the user clicks the entity link, the user is taken to the Bing.com search results page for entity.
+The following shows how Bing might display information about the entity (person, place, or thing) shown in the image. If the user clicks the entity link, the user is taken to the Bing.com search results page for the entity.
 
 ![Entity shown in image](./media/entity.PNG)
 

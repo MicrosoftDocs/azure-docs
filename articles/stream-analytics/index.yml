@@ -33,15 +33,15 @@ sections:
     - image: 
         src: media/index/stream-analytics.svg
       text: Azure portal
-      href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal
+      href: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: PowerShell
-      href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-powershell
+      href: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-powershell
     - image:
        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       text: Visual Studio
-      href: http://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs
+      href: http://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -52,30 +52,18 @@ sections:
     - html: <a href="stream-analytics-manage-job">Create a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard</a> 
     - html: <a href="stream-analytics-with-azure-functions">Run Azure Functions from Azure Stream Analytics jobs</a>
     - html: <a href="stream-analytics-javascript-user-defined-functions">Run JavaScript user-defined functions in Azure Stream Analytics jobs</a>
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Understanding Azure Stream Analytics
-      href: https://www.pluralsight.com/courses/azure-stream-analytics-understanding
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/azure-stream-analytics-understanding
-    - title: Delivering Real-time Data with Azure and Power BI Streaming
-      href: https://www.pluralsight.com/courses/azure-power-bi-streaming
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started
+    - html: <a href="stream-analytics-tools-visual-studio-cicd-vsts">Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines</a>
+    - html: <a href="stream-analytics-edge-csharp-udf">Write a C# user-defined function for an Azure Stream Analytics Edge job (Preview)</a>
 - title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
+    - title: Previews
+      html: <p><a href="stream-analytics-previews#public-previews">Public previews</a></p><p><a href="stream-analytics-previews#private-previews">Private previews</a></p>
     - title: Command-line
-      html: <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytic">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/?view=azurermps-6.8.1#stream_analytics">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p><p><a href="https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference">Stream Analytics Query Language</a></p>
     - title: REST

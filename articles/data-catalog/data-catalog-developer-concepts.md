@@ -1,20 +1,13 @@
 ---
-title: Data Catalog developer concepts | Microsoft Docs
+title: Azure Data Catalog developer concepts
 description: Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API.
 services: data-catalog
-documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-
 ---
 # Azure Data Catalog developer concepts
 Microsoft **Azure Data Catalog** is a fully managed cloud service that provides capabilities for data source discovery and for crowdsourcing data source metadata. Developers can use the service via its REST APIs. Understanding the concepts implemented in the service is important for developers to successfully integrate with **Azure Data Catalog**.

@@ -4,8 +4,8 @@ description: This article describes how to configure authentication and authoriz
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: dmden
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -78,8 +78,10 @@ Here are the detailed steps:
     If you're using C#, you can use the following code to acquire the token on behalf of the application. For a complete sample, see [Query data using C#](time-series-insights-query-data-csharp.md).
 
     ```csharp
+    // Enter your Active Directory tenant domain name
+    var tenant = "YOUR_AD_TENANT.onmicrosoft.com";
     var authenticationContext = new AuthenticationContext(
-        "https://login.microsoftonline.com/common",
+        $"https://login.microsoftonline.com/{tenant}",
         TokenCache.DefaultShared);
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(

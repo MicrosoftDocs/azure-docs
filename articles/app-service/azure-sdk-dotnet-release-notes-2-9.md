@@ -28,7 +28,7 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
 
 ### Visual Studio 2017 Release Candidate
 
-- In Visual Studio 2017 RC, this release of the Azure SDK for .NET is built in in the Azure Workload. All the tools you need to do Azure development will be part of Visual Studio 2017 RC going forward. For Visual Studio 2015 and Visual Studio 2013, the SDK will still be available through WebPI. We will be discontinuing Azure SDK for .NET releases for Visual Studio 2013, when Visual Studio 2017 releases as a final product. Follow this link to download Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- In Visual Studio 2017 RC, this release of the Azure SDK for .NET is built-in for the Azure Workload. All the tools you need to do Azure development will be part of Visual Studio 2017 RC going forward. For Visual Studio 2015 and Visual Studio 2013, the SDK will still be available through WebPI. We will be discontinuing Azure SDK for .NET releases for Visual Studio 2013, when Visual Studio 2017 releases as a final product. Follow this link to download Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### Azure Diagnostics
 
@@ -64,7 +64,7 @@ For detailed information about updates in this release, see the [Azure SDK 2.9 a
 ## Azure SDK 2.9 for Visual Studio 2015 Update 2 and Visual Studio "15" Preview
 This update includes the following bug fixes:
 
-* Issue related to REST API Client Generation in in which the string "Unknown Type” would appear as the name of the code-gen folder and/or the name of the namespace dropped into the generated code.
+* Issue related to REST API Client Generation in which the string "Unknown Type” would appear as the name of the code-gen folder and/or the name of the namespace dropped into the generated code.
 * Issue related to Scheduled WebJobs in which the authentication information was failing to be passed to the Scheduler provisioning process.
 
 This update includes the following new feature:

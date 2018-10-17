@@ -59,6 +59,9 @@ After the deployment succeeds, you should see the internal virtual IP address of
 
 ![API Management dashboard with an internal virtual network configured][api-management-internal-vnet-dashboard]
 
+> [!NOTE]
+> The Test console available on the Azure Portal will not work for **Internal** VNET deployed service, as the Gateway Url is not registered on the Public DNS. You should instead use the Test Console provided on the **Developer portal**.
+
 ### Enable a virtual network connection by using PowerShell cmdlets
 You can also enable virtual network connectivity by using PowerShell cmdlets.
 

@@ -1,18 +1,21 @@
 ---
-title: Anomaly Detection C# app - Microsoft Cognitive Services | Microsoft Docs
-description: Explore a C# app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
+title: "Tutorial: Anomaly Detection, C#"
+titlesuffix: Azure Cognitive Services
+description: Explore a C# app that uses the Anomaly Detection API. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
 author: chliang
 manager: bix
 
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-# Anomaly Detection C# application
+# Tutorial: Anomaly Detection with C# application
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore a basic Windows application that uses Anomaly Detection API to detect anomalies from the input. 
 The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and expected value for each data point from the API.
@@ -45,7 +48,7 @@ Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solutio
 
 1. After the build is completed, press **F5** or click **Start** on the ribbon menu to run the example.
 2. Locate the Anomaly Detection user interface window with the text edit box reading "{your_subscription_key}".
-3. Replace the request.json file, which contains the sample data, with your own data, then click "Send" button. Microsoft receives the data you upload and use them to detect any anomaly points among then. The data you updated will not be persisted in Microsoft's server. To detect the anomaly point again, you need upload the data once again.
+3. Replace the request.json file, which contains the sample data, with your own data, then click "Send" button. Microsoft receives the data you upload and use them to detect any anomaly points among then. The data you load will not be persisted in Microsoft's server. To detect the anomaly point again, you need upload the data once again.
 4. If the data is good, you will find the anomaly detection result in "Response" field. If any error occurs, the error information will be shown in the Response field as well.
 
 <a name="Review"></a>
@@ -74,8 +77,8 @@ Reviewing how the Restful API gets used in the example application, let's look a
             // ----------------------------------------------------------------------
 
 ```
-**Request(…)**
-Below code snippet shows how to use the HttlClient submit your subscription key and data points to the endpoint of the Anomaly Detection API.
+### **Request**
+The code snippet below shows how to use the HttpClient to submit your subscription key and data points to the endpoint of the Anomaly Detection API.
 
 ```csharp
 	public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

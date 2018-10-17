@@ -1,10 +1,10 @@
 ---
-title: Translator Text find alternate translations with C# | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with C# in Cognitive Services.
+title: "Quickstart: Find alternate translations - Translator Text API, C#"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text
@@ -23,6 +23,9 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
 ## Dictionary Lookup request
+
+> [!TIP]
+> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 The following gets alternate translations for a word using the [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) method.
 

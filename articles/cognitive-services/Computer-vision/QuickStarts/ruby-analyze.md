@@ -1,45 +1,41 @@
 ---
-title: Computer Vision API Ruby quickstart analyze image | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with Ruby in Cognitive Services.
+title: "Quickstart: Analyze a remote image - REST, Ruby - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you analyze an image using the Computer Vision API with Ruby.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/26/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: pafarley
 ---
-# Quickstart: Analyze an image with Ruby
+# Quickstart: Analyze a remote image using the REST API and Ruby in Computer Vision
 
-In this quickstart, you analyze an image to extract visual features using Computer Vision.
+In this quickstart, you analyze a remotely stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x or later installed.
+- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze Image request
+## Create and run the sample
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+To create and run the sample, do the following steps:
 
-* A detailed list of tags related to the image content.
-* A description of image content in a complete sentence.
-* The coordinates, gender, and age of any faces contained in the image.
-* The ImageType (clip art or a line drawing).
-* The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](../Category-Taxonomy.md).
-* Does the image contain adult or sexually suggestive content?
-
-To run the sample, do the following steps:
-
-1. Copy the following code into an editor.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uri` value to the location where you obtained your subscription keys, if necessary.
-1. Optionally, change the response language (`'language' => 'en'`).
-1. Optionally, change the image (`{\"url\":\"...`) to analyze.
-1. Save the file with an `.rb` extension.
-1. Open the Ruby Command Prompt and run the file, for example: `ruby myfile.rb`.
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace `<Subscription Key>` with your subscription key.
+    1. Replace `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method in the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of the `language` request parameter with a different language. 
+    1. Optionally, replace `http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\` with the URL of a different image that you want to analyze.
+1. Save the code as a file with an `.rb` extension. For example, `analyze-image.rb`.
+1. Open a command prompt window.
+1. At the prompt, use the `ruby` command to run the sample. For example, `ruby analyze-image.rb`.
 
 ```ruby
 require 'net/http'
@@ -72,9 +68,9 @@ end
 puts response.body
 ```
 
-## Analyze Image response
+## Examine the response
 
-A successful response is returned in JSON, for example:
+A successful response is returned in JSON. The sample parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
 {
@@ -177,9 +173,13 @@ A successful response is returned in JSON, for example:
 
 ```
 
+## Clean up resources
+
+When no longer needed, delete the file.
+
 ## Next steps
 
-Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
+Explore the Computer Vision API used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explore Computer Vision APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore the Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

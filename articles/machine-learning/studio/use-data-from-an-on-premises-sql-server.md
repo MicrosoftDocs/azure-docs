@@ -19,7 +19,6 @@ ms.date: 03/13/2017
 
 ---
 # Perform advanced analytics with Azure Machine Learning using data from an on-premises SQL Server database
-
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio can now read directly from your on-premises SQL Server database for your training and scoring jobs.
@@ -41,44 +40,42 @@ experiments, *etc.*.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## Install the Microsoft Data Management Gateway
+## Install the Data Factory Self-hosted Integration Runtime
 To access an on-premises SQL Server database in Azure Machine Learning, you need
-to download and install the Microsoft Data Management Gateway. When you configure the gateway connection in Machine Learning Studio, you have the opportunity to
-download and install the gateway using the **Download and register data
+to download and install the Data Factory Self-hosted Integration Runtime, formerly known as the Data Management Gateway. When you configure the connection in Machine Learning Studio, you have the opportunity to download and install the Integration Runtime (IR) using the **Download and register data
 gateway** dialog described below.
 
-You also can install the Data Management Gateway ahead of time by downloading and running the MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).
-Choose the latest version, selecting either 32-bit or 64-bit as appropriate for your computer. The MSI can also be used to upgrade an existing Data Management Gateway to the latest version, with all settings preserved.
 
-The gateway has the following prerequisites:
+You also can install the IR ahead of time by downloading and running the MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).The MSI can also be used to upgrade an existing IR to the latest version, with all settings preserved.
 
-* The supported Windows operating system versions are Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.
-* The recommended configuration for the gateway machine is at least 2 GHz, 4 cores, 8GB RAM, and 80GB disk.
-* If the host machine hibernates, the gateway won’t respond to data requests. Therefore, configure an appropriate power plan on the computer before installing the gateway. If the machine is configured to hibernate, the gateway installation displays a message.
+The Data Factory Self-Hosted Integration Runtime has the following prerequisites:
+
+* The Data Factory Self-Hosted Integration requires a 64-bit Operating System with .NET Framework 4.6.1 or above.
+* The supported Windows operating system versions are Windows 10 , Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
+* The recommended configuration for the IR machine is at least 2 GHz, 4 Core CPU, 8GB RAM, and 80GB disk.
+* If the host machine hibernates, the IR won’t respond to data requests. Therefore, configure an appropriate power plan on the computer before installing the IR. If the machine is configured to hibernate, the IR installation displays a message.
 * Because copy activity occurs at a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress, you'll observe resource usage go up during peak times. While the minimum configuration listed above is technically sufficient, you may want to have a configuration with more resources than the minimum configuration depending on your specific load for data movement.
 
-Consider the following when setting up and using a Data Management Gateway:
+Consider the following when setting up and using a Data Factory Self-hosted Integration Runtime:
 
-* You can install only one instance of Data Management Gateway on a single computer.
-* You can use a single gateway for multiple on-premises data sources.
-* You can connect multiple gateways on different computers to the same on-premises data source.
-* You configure a gateway for only one workspace at a time. Currently, gateways can’t be shared across workspaces.
-* You can configure multiple gateways for a single workspace. For example, you may want to use a gateway that's connected to your test data sources during development and a production gateway when you're ready to operationalize.
-* The gateway does not need to be on the same machine as the data source. But staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that's different from the one that hosts the on-premises data source so that the gateway and data source don't compete for resources.
-* If you already have a gateway installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate gateway for Azure Machine Learning on another computer.
+* You can install only one instance of IR on a single computer.
+* You can use a single IR for multiple on-premises data sources.
+* You can connect multiple IRs on different computers to the same on-premises data source.
+* You configure a IRs for only one workspace at a time. Currently, IRs can’t be shared across workspaces.
+* You can configure multiple IRs for a single workspace. For example, you may want to use a IR that's connected to your test data sources during development and a production IR when you're ready to operationalize.
+* The IR does not need to be on the same machine as the data source. But staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the IR on a machine that's different from the one that hosts the on-premises data source so that the gateway and data source don't compete for resources.
+* If you already have a IR installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate IR for Azure Machine Learning on another computer.
 
   > [!NOTE]
-  > You can't run Data Management Gateway and Power BI Gateway on the same computer.
+  > You can't run Data Factory Self-hosted Integration Runtime and Power BI Gateway on the same computer.
   >
   >
-* You need to use the Data Management Gateway for Azure Machine Learning even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that's behind a firewall) even when you use ExpressRoute. Use the Data Management Gateway to establish connectivity between Machine Learning and the data source.
+* You need to use the Data Factory Self-hosted Integration Runtime for Azure Machine Learning even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that's behind a firewall) even when you use ExpressRoute. Use the Data Factory Self-hosted Integration Runtime to establish connectivity between Machine Learning and the data source.
 
-You can find detailed information on installation prerequisites,
-installation steps, and troubleshooting tips in the article [Data Management
-Gateway](../../data-factory/create-self-hosted-integration-runtime.md).
+You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the article [Integration Runtime in Data Factory](../../data-factory/concepts-integration-runtime.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
-In this walkthrough, you will set up a Data Management Gateway in an Azure
+In this walkthrough, you will set up a Azure Data Factory Integration Runtime in an Azure
 Machine Learning workspace, configure it, and then read data from an
 on-premises SQL Server database.
 
@@ -89,7 +86,8 @@ on-premises SQL Server database.
 > WebStore [Click Once App
 > Extension](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
 >
->
+> [!NOTE]
+> Azure Data Factory Self-hosted Integration Runtime was formerly known as Data Management Gateway. The step by step tutorial will continue to refer to it as a gateway.  
 
 ### Step 1: Create a gateway
 The first step is to create and set up the gateway to access your

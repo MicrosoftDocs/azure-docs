@@ -4,14 +4,13 @@ description: Recommendations for creating Azure Resource Manager templates to de
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
 
 ---
@@ -92,7 +91,7 @@ If your Resource Manager template uses MSDeploy, the deployment error messages c
 
 1. Go to the site's [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 2. Browse to the folder at D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Look for the appManagerStatus.xml and appManagerLog.xml files. The first file logs the status. The second file logs information about the error. If the error is not clear to you, you can include it when you're asking for help on the forum.
+3. Look for the appManagerStatus.xml and appManagerLog.xml files. The first file logs the status. The second file logs information about the error. If the error isn't clear to you, you can include it when you're asking for help on the forum.
 
 ## Choose a unique web app name
 
@@ -106,6 +105,30 @@ The name for your web app must be globally unique. You can use a naming conventi
   ...
 }
 ```
+
+## Deploy web app certificate from Key Vault
+
+If your template includes a [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) resource for SSL binding, and the certificate is stored in a Key Vault, you must make sure the App Service identity can access the certificate.
+
+In global Azure, the App Service service principal has the ID of **abfa0a7c-a6b6-4736-8310-5855508787cd**. To grant access to Key Vault for the App Service service principal, use:
+
+```azurepowershell-interactive
+Set-AzureRmKeyVaultAccessPolicy `
+  -VaultName KEY_VAULT_NAME `
+  -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
+  -PermissionsToSecrets get `
+  -PermissionsToCertificates get
+```
+
+In Azure Government, the App Service service principal has the ID of **6a02c803-dafd-4136-b4c3-5a6f318b4714**. Use that ID in the preceding example.
+
+In your Key Vault, select **Certificates** and **Generate/Import** to upload the certificate.
+
+![Import certificate](media/web-sites-rm-template-guidance/import-certificate.png)
+
+In your template, provide the name of the certificate for the `keyVaultSecretName`.
+
+For an example template, see [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
+ms.date: 9/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
 
@@ -33,7 +33,7 @@ Before you enable your backup service, make sure you have [requirements in place
 
 ## The Infrastructure Backup Service
 
-The services contains the following features.
+The services contain the following features.
 
 | Feature                                            | Description                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|

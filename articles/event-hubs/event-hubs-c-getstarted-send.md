@@ -3,7 +3,7 @@ title: Send events to Azure Event Hubs using C | Microsoft Docs
 description: Send events to Azure Event Hubs using C
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 12/4/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 ---
 
 # Send events to Azure Event Hubs using C

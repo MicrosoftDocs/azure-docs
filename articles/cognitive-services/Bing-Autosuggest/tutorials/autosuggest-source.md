@@ -1,12 +1,14 @@
 ---
-title: Getting Autosuggest Results using Bing Autosuggest API (Azure Cognitive Services) | Microsoft Docs
+title: "Tutorial: Getting Autosuggest Results using Bing Autosuggest API"
+titlesuffix: Azure Cognitive Services
 description: Source code for tutorial showing how to use the Bing Autosuggest API in a single-page Web application.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
 ---

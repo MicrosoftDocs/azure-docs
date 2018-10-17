@@ -2,19 +2,12 @@
 title: Azure Storage metrics migration | Microsoft Docs
 description: Learn how to migrate old metrics to new metrics that are managed by Azure Monitor.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-
-ms.assetid:
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
+ms.component: common
 ---
 
 # Azure Storage metrics migration
@@ -114,7 +107,7 @@ If you have created classic alert rules based on old storage metrics, you need t
 
 ### Is new metric data stored in the same storage account by default?
 
-No. To archive the metric data to a storage account, use the [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate).
+No. To archive the metric data to a storage account, use the [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## Next steps
 

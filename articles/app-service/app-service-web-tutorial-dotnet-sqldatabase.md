@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, vs-azure
 ---
 
 # Tutorial: Build an ASP.NET app in Azure with SQL Database
@@ -46,9 +46,8 @@ If you've installed Visual Studio already, add the workloads in Visual Studio by
 
 ## Download the sample
 
--[Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
--
--Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
+- [Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+- Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
 
 The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) create-read-update-delete (CRUD) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -420,4 +419,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to easily improve the security of your connection Azure SQL Database.
 
 > [!div class="nextstepaction"]
-> [Access SQL Database securely using managed service identity](app-service-web-tutorial-connect-msi.md)
+> [Access SQL Database securely using managed identities for Azure resources](app-service-web-tutorial-connect-msi.md)

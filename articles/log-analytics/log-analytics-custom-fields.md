@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Custom fields in Log Analytics

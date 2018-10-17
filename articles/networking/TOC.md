@@ -1,7 +1,7 @@
 # Overview
 ## [About Azure networking](networking-overview.md)
 ## Architecture
-### [Virtual Datacenters](networking-virtual-datacenter.md)
+### [Virtual Datacenters](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [Asymmetric routing with multiple network paths](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Secure network designs](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Hub-spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -17,7 +17,7 @@
 ##  Concepts
 ### [Virtual networks](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Network load balancing](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Application load balancing](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Application load balancing](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS-based traffic distribution](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect on-premises - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)

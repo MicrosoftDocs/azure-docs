@@ -4,23 +4,28 @@
   items:
   - name: Overview
     href: apache-domain-joined-introduction.md
-  - name: Plan for domain-joined clusters
+  - name: Plan for ESP clusters
     href: apache-domain-joined-architecture.md
-  - name: Configure domain-joined clusters using Azure AD DS
+  - name: Configure ESP clusters using Azure AD DS
     href: apache-domain-joined-configure-using-azure-adds.md
   - name: Synchronize Azure AD users to an HDInsight cluster
     href: ../hdinsight-sync-aad-users-to-cluster.md
     maintainContext: true
   - name: Configure Hive policies
     href: apache-domain-joined-run-hive.md
+  - name: Configure Kafka policies
+    href: apache-domain-joined-run-kafka.md
     maintainContext: true
-  - name: Use VSCode to link to domain joined cluster
+  - name: Use VSCode to link to ESP cluster
     href: ../hdinsight-for-vscode.md
-  - name: Use IntelliJ to link to domain joined cluster
+    maintainContext: true
+  - name: Use IntelliJ to link to ESP cluster
     href: ../spark/apache-spark-intellij-tool-plugin.md
-  - name: Use Eclipse to link to domain joined cluster
+    maintainContext: true
+  - name: Use Eclipse to link to ESP cluster
     href: ../spark/apache-spark-eclipse-tool-plugin.md
-  - name: Use Oozie in domain-joined clusters
+    maintainContext: true
+  - name: Use Oozie in ESP clusters
     href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Securing data
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
@@ -53,11 +58,17 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
+    href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-  - name: .NET (Hadoop)
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet
+  - name: .NET SDK
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: Python SDK
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Java SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)

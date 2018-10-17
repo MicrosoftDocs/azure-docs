@@ -1,4 +1,4 @@
-- name: Chef Software on Azure Documentation
+- name: Chef Software on Azure documentation
   href: ./index.yml
 - name: Overview
   items:
@@ -42,7 +42,7 @@
       href: https://blog.chef.io/
 - name: Tools
   items:
-  - name: Chef Visual Studio Team Services extension
+  - name: Chef Azure DevOps Services extension
     href: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks
-  - name: Habitat Visual Studio Team Services Extension
+  - name: Habitat Azure DevOps Services Extension
     href: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks

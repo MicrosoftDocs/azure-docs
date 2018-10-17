@@ -1,8 +1,8 @@
 ---
-title: Enroll X.509 device to Azure Device Provisioning Service using C# | Microsoft Docs
-description: Azure Quickstart - Enroll X.509 device to Azure IoT Hub Device Provisioning Service using C# service SDK
-author: bryanla
-ms.author: bryanla
+title: This quickstart shows you how to enroll X.509 device to the Azure Device Provisioning Service using C# | Microsoft Docs
+description: In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using C#
+author: wesmc7777
+ms.author: wesmc
 ms.date: 01/21/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -12,27 +12,55 @@ ms.devlang: csharp
 ms.custom: mvc
 ---
  
-# Enroll X.509 devices to IoT Hub Device Provisioning Service using C# service SDK
+# Quickstart: Enroll X.509 devices to the Device Provisioning Service using C#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
 
-These steps show how to programmatically create an enrollment group for an intermediate or root CA X.509 certificate using the [C# Service SDK](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# .NET Core application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). Although the steps in this article work on both Windows and Linux machines, this article uses a Windows development machine.
+This quickstart shows how to use C# to programmatically create an [Enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created using the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# .NET Core application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
 
-## Prepare the development environment
+This quickstart expects you have already created an IoT hub and Device Provisioning Service instance. If you have not already created these resources, complete the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart before proceeding with this article.
 
-1. Make sure you have [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
-2. Make sure you have the [.Net Core SDK](https://www.microsoft.com/net/download/windows) installed on your machine. 
-3. Make sure to complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
-4. You need a .pem or a .cer file that contains the public portion of an intermediate or root CA X.509 certificate that has been uploaded to and verified with your provisioning service. The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. To use this tooling, download the contents of the [azure-iot-sdk-c/tools/CACertificates](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) folder to a working folder on your machine and follow the steps in [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) in the **C# Service SDK** shows how to perform proof-of-possession with an existing X.509 intermediate or root CA certificate. 
+Although the steps in this article work on both Windows and Linux machines, this article is developed for a Windows development machine.
 
-  > [!IMPORTANT]
-  > The certificates created with the SDK tooling are designed to be used for development only. To learn about obtaining obtaining certificates suitable for production code, see [How to get an X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
+## Prerequisites
+
+* Install [Visual Studio 2017](https://www.visualstudio.com/vs/).
+* Install [.Net Core SDK](https://www.microsoft.com/net/download/windows).
+* Install [Git](https://git-scm.com/download/).
+
+
+
+## Prepare test certificates
+
+For this quickstart, you must have a .pem or a .cer file that contains the public portion of an intermediate or root CA X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service. 
+
+The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. Certificates created with the SDK tooling are designed to be used for **development testing only**. These certificates **must not be used in production**. They contain hard-coded passwords ("1234") that expire after 30 days. To learn about obtaining certificates suitable for production use, see [How to get an X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
+
+To use this test tooling to generate certificates, perform the following steps: 
+ 
+1. Open a command prompt or Git Bash shell, and change to a working folder on your machine. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+    
+  ```cmd/sh
+  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+  ```
+
+  The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+
+  The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
+
+2. Follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
+
+In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to perform proof-of-possession in C# with an existing X.509 intermediate or root CA certificate. 
+
 
 ## Get the connection string for your provisioning service
 
-For the sample in this Quickstart, you need the connection string for your provisioning service.
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning Service. 
+For the sample in this quickstart, you need the connection string for your provisioning service.
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning Service. 
 2. Click **Shared access policies**, then click the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
     ![Get provisioning service connection string from the portal](media/quick-enroll-device-x509-csharp/get-service-connection-string.png)

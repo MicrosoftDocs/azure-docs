@@ -3,18 +3,18 @@ title: Map virtual networks between two Azure regions in Azure Site Recovery | M
 description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers. Learn about failover to Azure or to a secondary datacenter.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 editor: ''
 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
 # Map virtual networks in different Azure regions
@@ -84,16 +84,36 @@ If the network interface of the source virtual machine uses DHCP, the network in
 ### Static IP address
 If the network interface of the source virtual machine uses  a static IP address, the network interface of the target virtual machine is also set to use a static IP address. The following sections describe how a static IP address is set.
 
-#### Same address space
+### IP assignment behavior during Failover
+#### 1. Same address space
 
 If the source subnet and the target subnet have the same address space, the IP address of the network interface of the source virtual machine is set as the target IP address. If the same IP address is not available, the next available IP address is set as the target IP address.
 
-#### Different address spaces
+#### 2. Different address spaces
 
 If the source subnet and the target subnet have different address spaces, the next available IP address in the target subnet is set as the target IP address.
 
-To modify the target IP on each network interface, go to the **Compute and Network** settings for the virtual machine.
 
+### IP assignment behavior during Test Failover
+#### 1. If the target network chosen is the production vNet
+- The recovery IP (Target IP) will be a static IP but it **will not be the same IP address** as reserved for Failover.
+- The assigned IP address will be the next available IP from the end of the subnet address range.
+- For e.g., if Source VM static IP is configured to be: 10.0.0.19 and Test Failover was attempted with the configured production network: ***dr-PROD-nw***, with subnet range as 10.0.0.0/24. </br>
+The failed-over VM would be assigned with - The next available IP from the end of the subnet address range that is: 10.0.0.254 </br>
+
+**Note:** The terminology **production vNet** is referred to the 'Target network' mapped during the disaster recovery configuration.
+#### 2. If the target network chosen is not the production vNet but has the same subnet range as production network
+
+- The recovery IP (Target IP) will be a static IP with the **same IP address** (i.e., configured static IP address) as reserved for Failover. Provided the same IP address is available.
+- If the configured static IP is already assigned to some other VM/device, then the recovery IP will be the next available IP from the end of the subnet address range.
+- For e.g., if Source VM static IP is configured to be: 10.0.0.19 and Test Failover was attempted with a test network: ***dr-NON-PROD-nw***, with same subnet range as production network - 10.0.0.0/24. </br>
+  The failed-over VM would be assigned with following static IP </br>
+    - configured static IP: 10.0.0.19 if IP is available.
+    - Next available IP: 10.0.0.254 if the IP address 10.0.0.19 is already in use.
+
+
+To modify the target IP on each network interface, go to the **Compute and Network** settings for the virtual machine.</br>
+As a best practice it is always suggested to choose a test network to perform Test Failover.
 ## Next steps
 
 * Review [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).

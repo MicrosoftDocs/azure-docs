@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
+ms.date: 08/16/2018
 ms.author: shvija 
 
 ---
@@ -21,7 +21,7 @@ ms.author: shvija
 
 Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host* (EPH); an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
 
-The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](http://msdn.microsoft.com/en-us/library/dn568101.aspx) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
+The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](http://msdn.microsoft.com/library/dn568101.aspx) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
 
 ## Home security scenario
 
@@ -42,7 +42,7 @@ Instead of building your own solution for this, Event Hubs provides this functio
 
 ## IEventProcessor interface
 
-First, consuming applications implement the  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface, which has four methods: [OpenAsync, CloseAsync, ProcessErrorAsync, and ProcessEventsAsnyc](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). This interface contains the actual code to consume the events that Event Hubs sends. The following code shows a simple implementation:
+First, consuming applications implement the  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface, which has four methods: [OpenAsync, CloseAsync, ProcessErrorAsync, and ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). This interface contains the actual code to consume the events that Event Hubs sends. The following code shows a simple implementation:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -85,7 +85,8 @@ Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.
 - **eventHubConnectionString:** The connection string to the event hub, which can be retrieved from the Azure portal. This connection string should have **Listen** permissions on the event hub.
 - **storageConnectionString:** The storage account used for internal resource management.
 
-Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance with the Event Hubs service. Registering instructs the Event Hubs service to expect that the consumer app consumes events from some of its partitions, and to invoke the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation code whenever it pushes events to consume.
+Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance with the Event Hubs service. Registering an event processor class with an instance of EventProcessorHost starts event processing. Registering instructs the Event Hubs service to expect that the consumer app consumes events from some of its partitions, and to invoke the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation code whenever it pushes events to consume. 
+
 
 ### Example
 
@@ -120,7 +121,7 @@ Here, each host acquires ownership of a partition for a certain duration (the le
 
 Each call to [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) delivers a collection of events. It is your responsibility to handle these events. It is recommended that you do things relatively fast; that is, do as little processing as possible. Instead, use consumer groups. If you need to write to storage and do some routing, it is generally better to use two consumer groups and have two [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementations that run separately.
 
-At some point during your processing, you might want to keep track of what you have read and completed. Keeping track is critical if you must restart reading, so you don't return to the beginning of the stream. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifies this tracking by using *checkpoints*. A checkpoint is a location, or offset, for a given partition, within a given consumer group, at which point you are satisfied that you have processed the messages. Marking a checkpoint in **EventProcessorHost** is accomplished by calling the [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) method on the [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) object. This operation is generally done within the [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) method but can also be done in [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
+At some point during your processing, you might want to keep track of what you have read and completed. Keeping track is critical if you must restart reading, so you don't return to the beginning of the stream. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifies this tracking by using *checkpoints*. A checkpoint is a location, or offset, for a given partition, within a given consumer group, at which point you are satisfied that you have processed the messages. Marking a checkpoint in **EventProcessorHost** is accomplished by calling the [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) method on the [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) object. This operation is done within the [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) method but can also be done in [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
 ## Checkpointing
 
@@ -137,8 +138,9 @@ By default, [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor
 Finally, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) enables a clean shutdown of all partition readers and should always be called when shutting down an instance of [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Failure to do so can cause delays when starting other instances of **EventProcessorHost** due to lease expiration and Epoch conflicts. Epoch management is covered in detail in this [blog post](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)
 
 ## Lease management
+Registering an event processor class with an instance of EventProcessorHost starts event processing. The host instance obtains leases on some partitions of the Event Hub, possibly grabbing some from other host instances, in a way that converges on an even distribution of partitions across all host instances. For each leased partition, the host instance creates an instance of the provided event processor class, then receives events from that partition, and passes them to the event processor instance. As more instances get added and more leases are grabbed, EventProcessorHost eventually balances the load among all consumers.
 
-As explained previously, the tracking table greatly simplifies the auto-scale nature of [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). As an instance of **EventProcessorHost** starts, it acquires as many leases as possible, and begins reading events. As the leases near expiration, **EventProcessorHost** attempts to renew them by placing a reservation. If the lease is available for renewal, the processor continues reading, but if it is not, the reader is closed and [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) is called. **CloseAsync** is a good time to perform any final cleanup for that partition.
+As explained previously, the tracking table greatly simplifies the autoscale nature of [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). As an instance of **EventProcessorHost** starts, it acquires as many leases as possible, and begins reading events. As the leases near expiration, **EventProcessorHost** attempts to renew them by placing a reservation. If the lease is available for renewal, the processor continues reading, but if it is not, the reader is closed and [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) is called. **CloseAsync** is a good time to perform any final cleanup for that partition.
 
 **EventProcessorHost** includes a [PartitionManagerOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.partitionmanageroptions) property. This property enables control over lease management. Set these options before registering your [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation.
 

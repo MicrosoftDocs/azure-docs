@@ -4,7 +4,7 @@ description: Learn how to quickly create a virtual machine scale in the Azure po
 keywords: virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---

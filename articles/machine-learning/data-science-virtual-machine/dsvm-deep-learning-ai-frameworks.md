@@ -63,7 +63,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Deep learning framework      |
+| What is it?   | High-level deep learning API      |
 | Supported DSVM Editions      | Windows, Linux     |
 | How is it configured / installed on the DSVM?  | TensorFlow is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Links to Samples      | https://github.com/fchollet/keras/tree/master/examples      |

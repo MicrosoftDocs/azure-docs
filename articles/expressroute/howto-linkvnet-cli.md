@@ -32,7 +32,7 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 
 ## Configuration prerequisites
 
-* You need the latest version of the command-line interface (CLI). For more information, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* You need the latest version of the command-line interface (CLI). For more information, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 

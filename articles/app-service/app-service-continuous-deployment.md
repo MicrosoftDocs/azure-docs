@@ -17,14 +17,14 @@ ms.author: cephalin;dariagrigoriu
 
 ---
 # Continuous deployment to Azure App Service
-This article shows you how to configure continuous deployment for [Azure App Service](app-service-web-overview.md). App Service enables continuous deployment from BitBucket, GitHub, and [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) by pulling in the most recent updates from your existing repository in one of these services.
+This article shows you how to configure continuous deployment for [Azure App Service](app-service-web-overview.md). App Service enables continuous deployment from BitBucket, GitHub, and [Azure DevOps Services](https://www.visualstudio.com/team-services/) by pulling in the most recent updates from your existing repository in one of these services.
 
 To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure portal (such as [GitLab](https://gitlab.com/)), see
 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Publish your prepared repository to one of the supported services. For more information on publishing your project to these services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], and [Get started with VSTS].
+Publish your prepared repository to one of the supported services. For more information on publishing your project to these services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], and [Get started with Azure DevOps Services].
 
 ## Deploy continuously from GitHub
 
@@ -44,22 +44,22 @@ In the **Build provider** page, choose the build provider and click > **Continue
 
 In the **Configure** page, select the organization, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
 
-### Option 2: use VSTS continuous delivery
+### Option 2: use Azure DevOps Services continuous delivery
 
 > [!NOTE]
-> For App Service to create the necessary build and release definitions in your VSTS account, your Azure account must have the role of **Owner** in your Azure subscription.
+> For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
 >
 
 In the **Configure** page, in the **Code** section, select the organization, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
 
-In the **Configure** page, in the **Build** section, configure a new VSTS account or specify an existing account. When finished, click **Continue**.
+In the **Configure** page, in the **Build** section, configure a new Azure DevOps Services organization or specify an existing organization. When finished, click **Continue**.
 
 > [!NOTE]
-> If you want to use an existing VSTS account that is not listed, you need to [link the VSTS account to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
-Depending on the [pricing tier](/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](web-sites-staged-publishing.md), then click **Continue**.
+Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](web-sites-staged-publishing.md), then click **Continue**.
 
 ### Finish configuration
 
@@ -87,11 +87,11 @@ In the **Summary** page, verify your options and click **Finish**.
 
 When configuration completes, new commits in the selected repository are deployed continuously into your App Service app.
 
-## Deploy continuously from VSTS
+## Deploy continuously from Azure DevOps Services
 
-To enable continuous deployment with VSTS, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
+To enable continuous deployment with Azure DevOps Services, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
-In the left menu, click **Deployment Center** > **VSTS** > **Continue**. 
+In the left menu, click **Deployment Center** > **Azure DevOps Services** > **Continue**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -99,24 +99,24 @@ In the **Build provider** page, choose the build provider and click > **Continue
 
 ### Option 1: use App Service Kudu build server
 
-In the **Configure** page, select the VSTS account, project, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
+In the **Configure** page, select the Azure DevOps Services organization, project, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
 
-### Option 2: use VSTS continuous delivery
+### Option 2: use Azure DevOps Services continuous delivery
 
 > [!NOTE]
-> For App Service to create the necessary build and release definitions in your VSTS account, your Azure account must have the role of **Owner** in your Azure subscription.
+> For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
 >
 
-In the **Configure** page, in the **Code** section, select the VSTS account, project, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
+In the **Configure** page, in the **Code** section, select the Azure DevOps Services organization, project, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
 
 > [!NOTE]
-> If you want to use an existing VSTS account that is not listed, you need to [link the VSTS account to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-In the **Configure** page, in the **Build** section, specify the language framework that VSTS should use to run the build tasks for your selected repository. When finished, click **Continue**.
+In the **Configure** page, in the **Build** section, specify the language framework that Azure DevOps Services should use to run the build tasks for your selected repository. When finished, click **Continue**.
 
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
-Depending on the [pricing tier](/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](web-sites-staged-publishing.md), then click **Continue**. 
+Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](web-sites-staged-publishing.md), then click **Continue**. 
 
 ### Finish configuration
 
@@ -128,7 +128,7 @@ When configuration completes, new commits in the selected repository are deploye
 
 To disable continuous deployment, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
-In the left menu, click **Deployment Center** > **GitHub** or **VSTS** or **BitBucket** > **Disconnect**.
+In the left menu, click **Deployment Center** > **GitHub** or **Azure DevOps Services** or **BitBucket** > **Disconnect**.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -150,4 +150,4 @@ In the left menu, click **Deployment Center** > **GitHub** or **VSTS** or **BitB
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Get started with VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Get started with Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

@@ -43,9 +43,6 @@ General cluster configurations cover the broad cluster-specific configurations, 
 You can give any friendly name to your Service Fabric cluster by assigning it to the name variable. The clusterConfigurationVersion is the version number of your cluster. Increase it every time you upgrade your Service Fabric cluster. Leave apiVersion set to the default value.
 
 ## Nodes on the cluster
-
-    <a id="clusternodes"></a>
-
 You can configure the nodes on your Service Fabric cluster by using the nodes section, as the following snippet shows:
 
     "nodes": [{
@@ -84,8 +81,6 @@ The properties section in the ClusterConfig.json is used to configure the cluste
 ### Reliability
 The concept of reliabilityLevel defines the number of replicas or instances of the Service Fabric system services that can run on the primary nodes of the cluster. It determines the reliability of these services and hence the cluster. The value is calculated by the system at cluster creation and upgrade time.
 
-    <a id="reliability"></a>
-
 ### Diagnostics
 In the diagnosticsStore section, you can configure parameters to enable diagnostics and troubleshooting node or cluster failures, as shown in the following snippet: 
 
@@ -120,9 +115,6 @@ The security section is necessary for a secure standalone Service Fabric cluster
 The metadata is a description of your secure cluster and can be set according to your setup. The ClusterCredentialType and ServerCredentialType determine the type of security that the cluster and the nodes implement. They can be set to either *X509* for a certificate-based security or *Windows* for Azure Active Directory-based security. The rest of the security section is based on the type of security. For information on how to fill out the rest of the security section, see [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) or [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md).
 
 ### Node types
-
-    <a id="nodetypes"></a>
-
 The nodeTypes section describes the type of nodes that your cluster has. At least one node type must be specified for a cluster, as shown in the following snippet: 
 
     "nodeTypes": [{

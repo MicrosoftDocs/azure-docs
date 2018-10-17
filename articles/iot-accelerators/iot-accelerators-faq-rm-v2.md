@@ -33,11 +33,15 @@ Each deployment option responds to different needs. The basic deployment is desi
 
 For more information, see [Upgrade map key to see devices on a dynamic map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
+### Where can I find information about the previous version of the Remote Monitoring solution?
+
+The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+
 ### Next steps
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
+* [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
 * [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)

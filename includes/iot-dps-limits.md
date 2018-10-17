@@ -16,7 +16,8 @@ The following table lists the limits that apply to IoT Hub Device Provisioning S
 
 The Device Provisioning Service throttles requests when the following quotas are exceeded:
 
-| Throttle | Per-service value |
+| Throttle | Per-unit value |
 | --- | --- |
-| Operations | 100/min |
-| Device registrations | 100/min |
+| Operations | 200/min/service |
+| Device registrations | 200/min/service |
+| Device polling operation | 5/10sec/device |

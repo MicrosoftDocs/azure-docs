@@ -1,19 +1,19 @@
 ---
-title: Use alerts and fix device issues in the remote monitoring solution - Azure | Microsoft Docs
+title: Use alerts and fix device issues in the remote monitoring solution tutorial - Azure | Microsoft Docs
 description: This tutorial shows you how to Use alerts to identify and fix issues with devices connected to the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/18/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
 
-# As an operator of an IoT monitoring solution, I need to use alerts to identify andf fix issues with my devices. 
+# As an operator of an IoT monitoring solution, I need to use alerts to identify and fix issues with my devices. 
 ---
 
-# Troubleshoot and remediate device issues
+# Tutorial: Troubleshoot and fix device issues
 
 In this tutorial, you use the Remote Monitoring solution accelerator to identify and fix issues with your connected IoT devices. You use alerts in the solution accelerator dashboard to identify issues and then run remote jobs to fix those issues.
 
@@ -25,11 +25,9 @@ In this tutorial, you:
 > * Investigate an alert from a device
 > * Resolve the issue with the device
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To follow this tutorial, you need a deployed instance of the Remote Monitoring solution accelerator in your Azure subscription.
-
-If you haven't deployed the Remote Monitoring solution accelerator yet, you should complete the [Deploy a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md) quickstart.
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## Investigate an alert
 
@@ -55,7 +53,7 @@ To acknowledge the alert, select all the **Alert occurrences** and choose **Ackn
 
 When you acknowledge the alert, the status of the occurrence changes to **Acknowledged**.
 
-In the list, you can see the **Prototype** device responsible for firing the temperature alert:
+In the list of alerted devices, you can see the **Prototype** device responsible for firing the temperature alert:
 
 [![List the devices causing the alert](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
@@ -63,11 +61,11 @@ In the list, you can see the **Prototype** device responsible for firing the tem
 
 To resolve the issue with the **Prototype** device, you need to call the **DecreaseTemperature** method on the device.
 
-To act on a device, select it in the list of devices and then choose **Jobs**. The **Prototype** device model specifies six methods a device must support:
+To act on a device, select it in the list of alerted devices and then choose **Jobs**. The **Prototype** device model supports six methods:
 
 [![View the methods the device supports](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Choose **DecreaseTemperature** and set the job name to **DecreaseTemperature**. Then choose **Apply**:
+Choose **DecreaseTemperature** and set the job name to **DecreaseTemperature**. Then click **Apply**:
 
 [![Create the job to decrease the temperature](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
@@ -75,9 +73,11 @@ To track the status of the job, click **View job status**. Use the **Jobs** view
 
 [![Monitor the job to decrease the temperature](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-You can check that the temperature of the device has decreased by viewing the telemetry on the **Dashboard** page:
+You can check that the temperature of the device has fallen by viewing the telemetry on the **Dashboard** page:
 
 [![View the decrease in temperature](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 

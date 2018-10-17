@@ -4,42 +4,25 @@ description: Use copy operation and arrays in an Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: ''
 
-ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
 
 ---
 # Deploy multiple instances of a resource or property in Azure Resource Manager Templates
-This article shows you how to conditionally deploy a resource, and how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
 
-## Conditionally deploy resource
+This article shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource. If you need to specify whether a resource is deployed at all, see [condition element](resource-manager-templates-resources.md#condition).
 
-When you must decide during deployment to create either one instance or no instances of a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is deployed. When the value is false, the resource isn't deployed. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
+For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## Resource iteration
+
 When you must decide during deployment to create one or more instances of a resource, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and can't exceed 800. 
 
 The resource to create multiple times takes the following format:
@@ -452,12 +435,14 @@ The following examples show common scenarios for creating multiple resources or 
 |[Copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Deploys multiple storage accounts with an index number in the name. |
 |[Serial copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Deploys multiple storage accounts one at time. The name includes the index number. |
 |[Copy storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Deploys multiple storage accounts. The name includes a value from an array. |
-|[VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Conditionally deploys either new or existing resources with a virtual machine. |
 |[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Deploys multiple data disks with a virtual machine. |
 |[Copy variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstrates the different ways of iterating on variables. |
 |[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Deploys multiple security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## Next steps
+
+* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
 

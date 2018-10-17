@@ -20,8 +20,8 @@ This article focuses on the use of standard SSD and HDD disks. For more informat
 
 There are two ways to create standard disks for Azure VMs:
 
-**Unmanaged disks**: 
-This type of disk is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 TB of storage per VM.
+**Unmanaged disks**:
+This type of disk is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 TiB of storage per VM. If you use the preview disk sizes, you can have up to around 2 PiB of storage per VM.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md):
 This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium SSD, Standard SSD, or Standard HDD) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
@@ -33,16 +33,16 @@ To get started with Azure Standard Storage, visit [Get started for free](https:/
 For information on how to create a VM with Managed Disks, see one of the following articles.
 
 * [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Create a Linux VM using the Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)
 
-## Standard Storage Features 
+## Standard Storage Features
 
 Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
 Storage](../articles/storage/common/storage-introduction.md).
 
-**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Standard SSD disks:** Standard SSD disks provide more reliable performance than Standard HDD disks, and are currently available in preview. For more information about region availability of Standard SSD disks, see [region availability of Standard SSD disks (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Standard SSD disks:** Standard SSD disks provide more reliable performance than Standard HDD disks, and are currently available. For more information about region availability of Standard SSD disks, see [region availability of Standard SSD disks](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
 **Standard HDD disks:** Standard HDD disks can be attached to all Azure VMs including size-series VMs used with Premium Storage such as the DSv2 and GS series. A Standard HDD disk can only be attached to one VM. However, you can attach one or more of these disks to a VM, up to the maximum disk count defined for that VM size. In the following section on Standard Storage Scalability and Performance Targets, we describe the specifications in more detail.
 
@@ -79,11 +79,11 @@ Unlike Premium Disks, the input/output operations per second (IOPS) and throughp
 
 | **VM Tier**            | **Basic Tier VM** | **Standard Tier VM** |
 |------------------------|-------------------|----------------------|
-| Max Disk size          | 4095 GB           | 4095 GB              |
-| Max 8 KB IOPS per disk | Up to 300         | Up to 500            |
-| Max Bandwidth per disk | Up to 60 MB/s     | Up to 60 MB/s        |
+| Max Disk size          | 32,767 GiB           | 32,767 GiB        |
+| Max 8 KB IOPS per disk | Up to 2,000         | Up to 2,000        |
+| Max Bandwidth per disk | Up to 500 MB/s     | Up to 500 MB/s      |
 
-If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](../articles/virtual-machines/windows/premium-storage.md). 
+If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](../articles/virtual-machines/windows/premium-storage.md).
 
 ## Snapshots and copy blob
 
@@ -119,7 +119,12 @@ When using Standard Storage, the following billing considerations apply:
 
 **Unmanaged storage data and disk size:** For unmanaged disks and other data (blobs, tables, queues, and files), you are charged only for the amount of space you are using. For example, if you have a VM whose page blob is provisioned as 127 GB, but the VM is really only using 10 GB of space, you are billed for 10 GB of space. We support Standard storage up to 8191 GB, and Standard unmanaged disks up to 4095 GB. 
 
-**Managed disks:** Managed disks are billed on the provisioned size. If your disk is provisioned as a 10 GB disk and you are only using 5 GB, you are charged for the provision size of 10 GB.
+**Managed disks:** Billing for standard managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GiB, you are billed as per the pricing of the S15 Disk type.
+
+| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,385 GiB (16 TiB) | 32,767 GiB (32 TiB) |
+
 
 **Snapshots**: Snapshots of standard disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
@@ -133,7 +138,7 @@ For detailed information on pricing for Standard Storage, Virtual Machines, and 
 * [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks)
 
-## Azure Backup service support 
+## Azure Backup service support
 
 Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../articles/backup/backup-azure-vms-first-look-arm.md).
 
@@ -143,10 +148,10 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 * [Introduction to Azure Storage](../articles/storage/common/storage-introduction.md)
 
-* [Create a storage account](../articles/storage/common/storage-create-storage-account.md)
+* [Create a storage account](../articles/storage/common/storage-quickstart-create-account.md)
 
 * [Managed Disks Overview](../articles/virtual-machines/linux/managed-disks-overview.md)
 
 * [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)

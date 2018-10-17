@@ -2,14 +2,16 @@
 title: Use .NET Core to query Azure SQL Database | Microsoft Docs
 description: This topic shows you how to use .NET Core to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.subservice: development
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Use .NET Core (C#) to query an Azure SQL database
 
@@ -21,7 +23,7 @@ To complete this quickstart, make sure you have the following:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart.
+- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
 
 - You have installed [.NET Core for your operating system](https://www.microsoft.com/net/core). 
 
@@ -38,7 +40,7 @@ To complete this quickstart, make sure you have the following:
     ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md). 
 >
   
 ## Create a new .NET project

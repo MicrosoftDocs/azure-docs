@@ -10,7 +10,6 @@ services: iot-dps
 manager: arjmands
 ms.custom: mvc
 ---
-
 # How to use different attestation mechanisms with Device Provisioning Service Client SDK for C
 
 This article shows you how to use different [attestation mechanisms](concepts-security.md#attestation-mechanism) with the Device Provisioning Service Client SDK for C. You can use either a physical device or a simulator. The provisioning service supports authentication for two types of attestation mechanisms: X**.**509 and Trusted Platform Module (TPM).
@@ -138,11 +137,12 @@ Build the SDK prior to creating device enrollment.
 If you are using TPM, follow instructions in ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) to create a device enrollment entry in your Device Provisioning Service and simulate first boot.
 
 ### X**.**509
+
 1. To enroll a device in the provisioning service, you need note down the Endorsement Key and Registration ID for each device, which are displayed in the Provisioning Tool provided by Client SDK. Run the following command to print out the root CA certificate (for enrollment groups) and the leaf certificate (for individual enrollment):
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
+2. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
    - X**.**509 Individual Enrollment: On the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, upload the leaf certificate as required by the blade. Once complete, click the **Save** button. 
    - X**.**509 Group Enrollment: On the provisioning service  summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the CA/Intermediate certificate as required by the blade. Once complete, click the **Save** button. 
 
@@ -180,4 +180,3 @@ Once the device has been provisioned with the provisioning service, this API use
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

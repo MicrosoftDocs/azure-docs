@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/11/2018
 ---
 
 # Minimal-downtime migration to Azure Database for MySQL
@@ -19,8 +19,8 @@ DMS performs an initial load of your on-premises to Azure Database for MySQL, an
 
 ![Continuous sync with the Azure Database Migration Service](./media/howto-migrate-online/ContinuousSync.png)
 
-DMS migration of MySQL sources is currently in preview. If you would like to try out the service to migrate your MySQL workloads, sign up via the Azure DMS [preview page](https://aka.ms/dms-preview) to express your interest. Your feedback is invaluable in helping to further improve the service.
+- DMS migration of MySQL sources is currently in public preview. If you would like to try out the service to migrate your MySQL workloads, go ahead in the portal. Your feedback is invaluable in helping to further improve the service.
 
 ## Next steps
 - View the video [Easily migrate MySQL/PostgreSQL apps to Azure managed service](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), which contains a demo showing how to migrate MySQL apps to Azure Database for MySQL.
-- Sign up for limited preview of minimal-downtime migrations of MySQL to Azure Database for MySQL via the Azure DMS [preview page](https://aka.ms/dms-preview).
+- See the tutorial [Migrate MySQL to Azure Database for MySQL online using DMS](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).

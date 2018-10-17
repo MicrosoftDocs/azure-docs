@@ -3,7 +3,7 @@ title: Identity architecture for Azure Stack | Microsoft Docs
 description: Learn about the identity architecture you can use with Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: PatAltimore
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/28/2018
-ms.author: brenduns
+ms.date: 08/01/2018
+ms.author: patricka
 ms.reviewer:
 ---
 
@@ -31,7 +31,7 @@ The identity provider that you choose can limit your options, including support 
 |------------------------------|----------|-------|
 |Connected to the internet     |Yes       |Optional|
 |Support for multi-tenancy     |Yes       |No      |
-|Marketplace syndication       |Yes       |Yes. Requires use of the [offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) tool.|
+|Offer items in the Marketplace |Yes       |Yes. Requires use of the [offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) tool.|
 |Support for Active Directory Authentication Library (ADAL) |Yes |Yes|
 |Support for tools such as Azure CLI, Visual Studio, and PowerShell  |Yes |Yes|
 |Create service principals through the Azure portal     |Yes |No|

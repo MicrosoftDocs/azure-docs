@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/28/2018
 ms.author: raynew
 ---
 
@@ -30,6 +30,12 @@ To enable collection of disk and network performance data, change the statistics
 * Post planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether the user chose to retain on-premises IP address or not. If both MAC and IP addresses differ, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 * Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Log Analytics traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 
+### I specified an Azure geography, while creating a migration project, how do I find out the exact Azure region where the discovered metadata would be stored?
+
+You can go to the **Essentials** section in the **Overview** page of the project to identify the exact location where the metadata is stored. The location is selected randomly within the geography by Azure Migrate and you cannot modify it. If you want to create a project in a specific region only, you can use the REST APIs to create the migration project and pass the desired region.
+
+   ![Project location](./media/troubleshooting-general/geography-location.png)
+
 ## Collector errors
 
 ### Deployment of collector OVA failed
@@ -45,6 +51,10 @@ If you are using any URL-based firewall proxy to control outbound connectivity, 
 --- | ---
 *.portal.azure.com | Required to check connectivity with the Azure service and validate time synchronization issues.
 *.oneget.org | Required to download the powershell based vCenter PowerCLI module.
+
+**The collector can't connect to the internet because of a certificate validation failure**
+
+This can happen if you are using an intercepting proxy to connect to the Internet, and if you have not imported the proxy certificate on to the collector VM. You can import the proxy certificate using the steps detailed [here](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
 **The collector can't connect to the project using the project ID and key I copied from the portal.**
 
@@ -77,9 +87,11 @@ Azure Migrate collector downloads PowerCLI and installs it on the appliance. Fai
 
 ### Error UnhandledException Internal error occured: System.IO.FileNotFoundException
 
-This is an issue seen on Collector versions less than 1.0.9.5. If you are on a Collector version 1.0.9.2 or pre-GA versions like 1.0.8.59, you will face this issue. Follow the [link given here to the forums for a detailed answer](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
 
-[Upgrade your Collector to fix the issue](https://aka.ms/migrate/col/checkforupdates).
+1. If you are not on the latest version of the collector appliance, [upgrade your Collector to the latest version](https://aka.ms/migrate/col/checkforupdates) and check if the issue is resolved.
+2. If you already have the latest collector version, manually install [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) and check if the issue is resolved.
+3. If the above does not resolve the issue, navigate to the C:\Program Files\ProfilerService folder and remove the VMware.dll and VimService65.dll files present in the folder and then restart the 'Azure Migrate Collector' service in Windows Services Manage (Open 'Run' and type 'services.msc' to open Windows Service Manager).
 
 ### Error UnableToConnectToServer
 
@@ -93,6 +105,37 @@ If the issue still happens in the latest version, it could be because the collec
 2. If step 1 fails, try to connect to the vCenter server over IP address.
 3. Identify the correct port number to connect to the vCenter.
 4. Finally check if the vCenter server is up and running.
+
+## Troubleshoot dependency visualization issues
+
+### I installed the Microsoft Monitoring Agent (MMA) and the dependency agent on my on-premises VMs, but the dependencies are now showing up in the Azure Migrate portal.
+
+Once you have installed the agents, Azure Migrate typically takes 15-30 mins to display the dependencies in the portal. If you have waited for more than 30 minutes, ensure that the MMA agent is able to talk to the OMS workspace by following the below steps:
+
+For Windows VM:
+1. Go to **Control Panel** and launch **Microsoft Monitoring Agent**
+2. Go to the **Azure Log Analytics (OMS)** tab in the MMA properties pop-up
+3. Ensure that the **Status** for the workspace is green.
+4. If the status is not green, try removing the workspace and adding it again to MMA.
+        ![MMA Status](./media/troubleshooting-general/mma-status.png)
+
+For Linux VM, ensure that the installation commands for MMA and dependency agent had succeeded.
+
+### What are the operating systems supported by MMA?
+
+The list of Windows operating systems supported by MMA is [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+The list of Linux operating systems supported by MMA is [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### What are the operating systems supported by dependency agent?
+
+The list of Windows operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+The list of Linux operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### I am unable to visualize dependencies in Azure Migrate for more than one hour duration?
+Azure Migrate lets you visualize dependencies for up to one hour duration. Although, Azure Migrate allows you to go back to a particular date in the history for up to last one month, the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window.
+
+### I am unable to visualize dependencies for groups with more than 10 VMs?
+You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.
 
 ## Troubleshoot readiness issues
 

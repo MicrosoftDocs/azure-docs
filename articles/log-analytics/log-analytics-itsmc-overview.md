@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
+ms.component: 
 ---
 
 # Connect Azure to ITSM tools using IT Service Management Connector
