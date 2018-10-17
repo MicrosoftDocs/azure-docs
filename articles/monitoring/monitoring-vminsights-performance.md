@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/16/2018
 ms.author: magoedte
 ---
 
@@ -29,7 +29,9 @@ From Azure Monitor, the Performance feature provides a multi-virtual machine vie
 
 ![VM insights Performance Top N List view](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution from the **Workspace** selector at the top of the page.  You then select from the **Group** selector, a subscription, resource group, or specific machine, over a specified period of time.  By default, the charts show the last 24 hours.  Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
+On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector will return subscriptions, resource groups, [computer groups](../log-analytics/log-analytics-computer-groups.md), and VM scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and does not carry over to Health or Map.  
+
+By default, the charts show the last 24 hours. Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
 
 The five capacity utilization charts shown on the page are:
 
@@ -96,6 +98,9 @@ The following capacity utilization charts are provided:
 * Bytes Receive Rate - defaults showing average bytes received
 
 ![VM insights Performance directly from VM view](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+
+## Alerting and alert management 
+Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. While there are health alerts corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, low disk space, etc., these health alerts are only applied to all the VMs connected to the same Log Analytics workspace integrated with Azure Monitor for VMs. If you need the flexibility to specify your own criteria or logic, you can create custom alert rules by following [Create, view, and manage alerts using Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## Next steps
 To learn how to use the health feature, see [View Azure Monitor for VMs Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](monitoring-vminsights-maps.md). 

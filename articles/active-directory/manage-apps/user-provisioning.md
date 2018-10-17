@@ -262,9 +262,9 @@ However, usage of dynamic groups can impact the overall performance of end-to-en
 
 No. When configured to "sync only assigned users and groups", the Azure AD user provisioning service is not able to read or provision users that are in nested groups. It is only able to read and provision users that are immediate members of the explicitly-assigned group.
 
-This is a limitation of "group-based assignments to applications", which also affects single sign-on and is described in [Using a group to manage access to SaaS applications](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+This is a limitation of "group-based assignments to applications", which also affects single sign-on and is described in [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
-As a workaround, you should explicitly-assign (or otherwise [scope in](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
+As a workaround, you should explicitly-assign (or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
 
 ## Related articles
 
