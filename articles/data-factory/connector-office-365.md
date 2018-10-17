@@ -121,7 +121,7 @@ To copy data from Office 365, the following properties are supported:
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **Office365Table** | Yes |
 | tableName | Name of the dataset to extract from Office 365. Refer [here](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) for the list of Office 365 datasets available for extraction. | Yes |
-| predicate | A predicate expression that can be used to filter the specific rows to extract from Office 365.  Refer here to find out which columns can be used for predicate filtering for each table and the filter expression format. | No<br>(If no predicate is supplied, the default is to extract data for the last 30 days) |
+| predicate | A predicate expression that can be used to filter the specific rows to extract from Office 365.  Refer [here](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) to find out which columns can be used for predicate filtering for each table and the filter expression format. | No<br>(If no predicate is supplied, the default is to extract data for the last 30 days) |
 
 **Example**
 
