@@ -71,6 +71,21 @@ If you deploy an AKS cluster using the Azure portal, on the *Authentication* pag
 
 ![Image of browsing to Azure Vote](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
+## Delegate access to other Azure resources
+
+The service principal for the AKS cluster can be used to access other resources. If you want to use advanced networking to connect to existing virtual networks, or connect to Azure Container Registry (ACR), you need to delegate access to the service principal.
+
+The following table details the common delegations that you may need to make:
+
+### Networking
+
+Assign the [Network Contributor][rbac-network-contributor] permission on the subnet within the virtual network.
+
+Or you can create a [custom role][rbac-custom-role] and define the following permissions:
+    
+- Microsoft.Network/virtualNetworks/subnets/join/action
+- Microsoft.Network/virtualNetworks/subnets/read
+
 ## Additional considerations
 
 When using AKS and Azure AD service principals, keep the following considerations in mind.
@@ -103,3 +118,5 @@ For more information about Azure Active Directory service principals, see [Appli
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
+[rbac-custom-role]: ../role-based-access-control/custom-roles.md
