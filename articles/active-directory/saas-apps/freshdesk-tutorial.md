@@ -110,9 +110,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
 
 	a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
+	
+	b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
 
 	> [!NOTE]
-	> Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.
+	> Please note that these are not the real values. You have to update the values with the actual Sign on URL and Identifier (Entity ID). Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values.
 
 4. Your application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but **FreshDesk** expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -129,29 +131,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-7. Install **OpenSSL** in your system, if you have not installed in your system.
+7. Open **Command Prompt** and run the following commands:
 
-8. Open **Command Prompt** and run the following commands:
-
-	a. Enter `openssl x509 -inform DER -in FreshDesk.cer -out certificate.crt` value in the command prompt.
+	a. Enter `certutil.exe -dump FreshDesk.cer` value in the command prompt.
 
 	> [!NOTE]
 	> Here **FreshDesk.cer** is the certificate which you have downloaded from the Azure portal.
 
-	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` value in the command prompt. 
-	
-	> [!NOTE]
-	> Here **certificate.crt** is the output certificate which is generated in the previous step.
+	b. Copy the **Cert Hash(sha256)** value and paste it into the Notepad.
 
-	c. Copy the **Thumbprint** value and paste it into the Notepad. Remove colons from Thumbprint and obtain the final Thumbprint value.
-
-9. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
+8. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-10. In a different web browser window, log into your Freshdesk company site as an administrator.
+9. In a different web browser window, log into your Freshdesk company site as an administrator.
 
-11. Select the **Settings icon** and in the **Security** section, perform the following steps:
+10. Select the **Settings icon** and in the **Security** section, perform the following steps:
 
 	![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
   
@@ -163,7 +158,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     d. In the **Logout URL** textbox, paste **Sign-Out URL** value, which you have copied from the Azure portal.
 
-    e. In the **Security Certificate Fingerprint** textbox, paste **Thumbprint** value which you have obtained earlier after removing the colons.
+    e. In the **Security Certificate Fingerprint** textbox, paste **Cert Hash(sha256)** value which you have obtained earlier.
   
 	f. Click **Save**.
 
