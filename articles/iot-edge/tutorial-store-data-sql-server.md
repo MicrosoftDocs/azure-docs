@@ -353,4 +353,4 @@ In this tutorial, you created an Azure Functions module that contains code to fi
 Continue on to the next tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Find averages using a floating window in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Filter sensor data using C# code](tutorial-csharp-module.md)
