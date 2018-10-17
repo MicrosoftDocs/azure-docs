@@ -23,7 +23,7 @@ abstract:
       src: media/index/video-thumb-get-started.png
       width: 250  
     title: Get started with Azure Functions. (2:39)
-    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    href: https://azure.microsoft.com/resources/videos/get-started-with-azure-functions/
     width: 250
 sections:
 - title: 5-Minute Quickstarts
