@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2018
+ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -45,7 +45,7 @@ ssh-keygen -t rsa -b 2048
 
 For more detailed information on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](ssh-from-windows.md).
 
-If you create your SSH key pair using the Cloud Shell, it will be stored in an Azure File Share that is [automatically mounted by the Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Don't delete this file share or storage account until after you have retrieved your keys or you will lose access to the VM. 
+If you create your SSH key pair using the Cloud Shell, it will be stored in a container image in a [storage account that is automatically created by Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Don't delete the storage account, or the files share within it, until after you have retrieved your keys or you will lose access to the VM. 
 
 ## Create a resource group
 
@@ -134,7 +134,7 @@ $nic = New-AzureRmNetworkInterface `
 
 To create a VM in PowerShell, you create a configuration that has settings like the image to use, size, and authentication options. Then the configuration is used to build the VM.
 
-Define the SSH credentials, OS information, and VM size as follows:
+Define the SSH credentials, OS information, and VM size. In this example, the SSH key is stored in `~/.ssh/id_rsa.pub`. 
 
 ```azurepowershell-interactive
 # Define a credential object
@@ -158,8 +158,7 @@ Set-AzureRmVMSourceImage `
 Add-AzureRmVMNetworkInterface `
   -Id $nic.Id
 
-# Configure SSH Keys
-
+# Configure the SSH key
 $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzureRmVMSshPublicKey `
   -VM $vmconfig `
