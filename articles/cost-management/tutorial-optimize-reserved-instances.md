@@ -138,7 +138,7 @@ The amortized reserved instance cost is calculated by taking the reservation one
 
 In the Actual Cost report, you saw a spike for an RI purchase on November 16 of $747. In the Amortized Cost report (see the following image), there's a partial day cost on November 16. Starting on November 17 you see the amortized RI cost of $747/365 = $2.05. Incidentally, you also notice that the purchased reservation is unused, so you can optimize it by switching it to a different VM size.
 
-To view it, navigate to **Cost** > **Cost Analysis** > and then select **Amortized Cost Analysis** or **Amortized Cost Over Time**.
+To view it, navigate to **Costs** > **Cost Analysis** > and then select **Amortized Cost Analysis** or **Amortized Cost Over Time**.
 
 ![Amortized reserved instance cost](./media/tutorial-optimize-reserved-instances/azure07.png)
 
