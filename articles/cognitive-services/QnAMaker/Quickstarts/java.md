@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Java for QnA Maker API (v4)"
+title: "REST API (V4) - Java - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 09/12/2018
 ms.author: diberry
 
 ---
-# Quickstart for Microsoft QnA Maker API with Java 
+# REST API with Java 
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Java to do the following.

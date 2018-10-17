@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Update KB - REST, Python - QnA Maker"
+title: "Quickstart: Update knowledge base - REST, Python - QnA Maker"
 description: How to update a knowledge base in Python for QnA Maker.
 services: cognitive-services
 author: diberry
@@ -12,7 +12,7 @@ ms.date: 09/12/2018
 ms.author: diberry
 ---
 
-# Update a knowledge base in Python
+# Quickstart: Update a knowledge base in Python
 
 The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
 

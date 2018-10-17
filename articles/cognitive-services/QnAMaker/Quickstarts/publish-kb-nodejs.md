@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Publish KB - REST, Node.js - QnA Maker"
+title: "Quickstart: Publish knowledge base - REST, Node.js - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: This quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 10/02/2018
 ms.author: diberry
 ---
 
-# Quickstart: Publish a QnA Maker knowledge base in Node.js
+# Quickstart: Publish a knowledge base in Node.js
 
 This quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
 

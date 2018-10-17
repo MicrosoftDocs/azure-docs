@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Publish KB - REST, Python - QnA Maker"
+title: "Quickstart: Publish knowledge base - REST, Python - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: How to publish a knowledge base in Python for QnA Maker.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 09/12/2018
 ms.author: diberry
 ---
 
-# Publish a knowledge base in Python
+# Quickstart: Publish a knowledge base in Python
 
 The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
 

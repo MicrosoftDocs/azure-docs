@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Update KB - REST, Java - QnA Maker"
+title: "Quickstart: Update knowledge base - REST, Java - QnA Maker"
 titleSuffix: Azure Cognitive Services
 description: How to update a knowledge base in Java for QnA Maker.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 09/12/2018
 ms.author: diberry
 ---
 
-# Update a knowledge base in Java
+# Quickstart: Update a knowledge base in Java
 
 The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
 

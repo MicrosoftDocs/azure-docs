@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Update KB - REST, C# -  QnA Maker"
+title: "Quickstart: Update knowledge base - REST, C# -  QnA Maker"
 titleSuffix: Azure Cognitive Services
 description: This quickstart walks you through updating your sample QnA Maker knowledge base (KB), programmatically. The JSON definition you use to update a KB allows you to add, change or delete question and answer pairs. 
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically modify a knowledge base using C#. 
 ---
 
-# Quickstart: Update a QnA Maker knowledge base in C#
+# Quickstart: Update a knowledge base in C#
 
 This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
 

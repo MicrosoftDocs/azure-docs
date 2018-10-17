@@ -13,7 +13,8 @@ ms.date: 09/12/2018
 ms.author: diberry
 ---
 
-# Create a new knowledge base in Go
+# Quickstart: Create a new knowledge base in Go
+This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 
 ## Prerequisites
 
