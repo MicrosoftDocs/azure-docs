@@ -45,15 +45,15 @@ sections:
     style: unordered
     items:
     - title: What is Local Business Search?
-        href: overview.md
+      href: overview.md
     - title: Geographic search
-        href: specify-geographic-search.md
+      href: specify-geographic-search.md
 - title: Reference
   items:
   - type: list
      style: unordered
      items:
      - title: Local Business Search Reference
-         href: local-search-reference.md
+       href: local-search-reference.md
      - title: Use and display requirements  
-         href: use-and-display-requirements.md
+       href: use-and-display-requirements.md
