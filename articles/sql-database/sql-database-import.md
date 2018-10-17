@@ -24,18 +24,18 @@ When you need to import a database from an archive or when migrating from anothe
 
 This article provides directions for creating an Azure SQL database from a BACPAC file stored in Azure blob storage using the [Azure portal](https://portal.azure.com). Import using the Azure portal only supports importing a BACPAC file from Azure blob storage.
 
-To import a database using the Azure portal, open the page for the server (not the page for the database) to associate the database to and then click **Import** on the toolbar. Specify the storage account and container, and select the BACPAC file you want to import. Select the size of the new database (usually the same as origin) and provide the destination SQL Server credentials.  
+To import a database using the Azure portal, open the page for the server (not the page for the database) to associate the database to and then click **Import** on the toolbar. Specify the storage account and container and select the BACPAC file you want to import. Select the size of the new database (usually the same as origin) and provide the destination SQL Server credentials.  
 
    ![Database import](./media/sql-database-import/import.png)
 
 To monitor the progress of the import operation, open the page for the logical server containing the database being imported. Scroll down to **Operations** and then click **Import/Export** history.
 
 > [!NOTE]
-> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supported importing from a BACPAC file using the other methods in this article, but does not currently support migrating using the Azure portal.
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supported importing from a BACPAC file using the other methods in this article but does not currently support migrating using the Azure portal.
 
 ### Monitor the progress of an import operation
 
-To monitor the progress of the import operation, open the page for the logical server into which the database is being imported imported. Scroll down to **Operations** and then click **Import/Export** history.
+To monitor the progress of the import operation, open the page for the logical server into which the database is being imported. Scroll down to **Operations** and then click **Import/Export** history.
 
    ![import](./media/sql-database-import/import-history.png)
    ![import status](./media/sql-database-import/import-status.png)
