@@ -23,7 +23,7 @@ To complete this how-to, you will need an [Azure storage account](https://docs.m
 
 ## Upload files
 
-To upload a local directory to the storage account, you use the [`az storage blob upload-batch`](https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) command like below:
+To upload a local directory to the storage account, you use the [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) command like the following example:
 
 ```azurecli
 az storage blob upload-batch -d <local_directory_name> --account-name <account_name> --account-key "<access_key>" -s <source_location_name>
