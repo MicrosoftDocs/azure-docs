@@ -135,6 +135,6 @@
   - name: UserVoice
     href: https://aka.ms/qnamaker-uservoice
   - name: Search
-    href: https://docs.microsoft.com/en-us/search/index?search=QnAMaker
+    href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
