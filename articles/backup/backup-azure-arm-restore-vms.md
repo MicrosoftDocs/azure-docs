@@ -73,7 +73,7 @@ Restore can be performed in many ways from this blade. Note that This blade list
   ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade1.png)
 
     >  [!NOTE]
-    > Recovery Type represent if it is in customer storage account, in vault or both. Learn more about [Instant recovery point](https://azure.microsoft.com/en-us/blog/large-disk-support/).
+    > Recovery Type represent if it is in customer storage account, in vault or both. Learn more about [Instant recovery point](https://azure.microsoft.com/blog/large-disk-support/).
 
 8. On the **Restore** blade, select **Restore point**.
 
