@@ -30,7 +30,7 @@ The following steps walk you through the settings necessary to configure a dynam
 
 ### <a name="pre"></a>Prerequisites
 
-* Both VNets have already been created.
+* Both VNets have already been created. If you need to create a resource manager virtual network, see [Create a virtual network](../virtual-network/quick-create-powershell.md#create-a-virtual-network). To create a classic virtual network, see [Create a classic VNet](https://docs.microsoft.com/en-us/azure/virtual-network/create-virtual-network-classic).
 * The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
 * You have installed the latest PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
 
@@ -65,24 +65,24 @@ Gateway IP addressing configuration = gwipconfig
 ### 1. Download your network configuration file
 1. Log in to your Azure account in the PowerShell console with elevated rights. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. The classic Service Management (SM) Azure PowerShell cmdlets are used in this section.
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   Add-AzureAccount
   ```
 
   Get your Azure subscription.
 
-  ```powershell-interactive
+  ```azurepowershell
   Get-AzureSubscription
   ```
 
   If you have more than one subscription, select the subscription that you want to use.
 
-  ```powershell-interactive
+  ```azurepowershell
   Select-AzureSubscription -SubscriptionName "Name of subscription"
   ```
 2. Export your Azure network configuration file by running the following command. You can change the location of the file to export to a different location if necessary.
 
-  ```powershell-interactive
+  ```azurepowershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
 3. Open the .xml file that you downloaded to edit it. For an example of the network configuration file, see the [Network Configuration Schema](https://msdn.microsoft.com/library/jj157100.aspx).
@@ -153,22 +153,24 @@ Before running this example, refer to the network configuration file that you do
 
 Use the following example to create a dynamic routing gateway:
 
-```powershell-interactive
+```azurepowershell
 New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 ```
 
 You can check the status of the gateway by using the **Get-AzureVNetGateway** cmdlet.
 
 ## <a name="creatermgw"></a>Section 2 - Configure the RM VNet gateway
-To create a VPN gateway for the RM VNet, follow the following instructions. Don't start the steps until after you have retrieved the public IP address for the classic VNet's gateway. 
 
-1. Log in to your Azure account in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
+The prerequisites assume that you already have created an RM VNet. In this step, you create a VPN gateway for the RM VNet. Don't start these steps until after you have retrieved the public IP address for the classic VNet's gateway. 
+
+1. Sign in to your Azure account in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After signing in, your account settings are downloaded so that they are available to Azure PowerShell. You can optionally use the "Try It" feature to launch Azure Cloud Shell in the browser.
+
+If you use Azure Cloud Shell, skip the following cmdlet:
 
   ```powershell-interactive
   Connect-AzureRmAccount
   ``` 
-   
-  Get a list of your Azure subscriptions.
+ To verify that you are using the right subscription, run the following cmdlet:  
 
   ```powershell-interactive
   Get-AzureRmSubscription
@@ -183,7 +185,7 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
    
    **-Name** is the name you want to assign to refer to the local network gateway.<br>
    **-AddressPrefix** is the Address Space for your classic VNet.<br>
-   **-GatewayIpAddress** is the public IP address of the classic VNet's gateway. Be sure to change the following sample to reflect the correct IP address.<br>
+   **-GatewayIpAddress** is the public IP address of the classic VNet's gateway. Be sure to change the following sample text "n.n.n.n" to reflect the correct IP address.<br>
 
   ```powershell-interactive
   New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
