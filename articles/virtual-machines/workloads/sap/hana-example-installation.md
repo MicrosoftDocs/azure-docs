@@ -80,54 +80,54 @@ On the next screen, select **Install New System**.
 
 ![Screenshot of SAP HANA Lifecycle Management screen, with Install New System selected](./media/hana-installation/image19_select_new.PNG)
 
-After this step, you need to select between several additional components that can be installed additionally to the SAP HANA database server.
+Next, select among several additional components that you can install.
 
-![Select additional HANA components](./media/hana-installation/image20_select_components.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, with list of additional components](./media/hana-installation/image20_select_components.PNG)
 
-For the purpose of this documentation, we chose the SAP HANA Client and the SAP HANA Studio. We also installed a scale-up instance. hence in the next screen, you need to choose 'Single-Host System' 
+For this example, we choose the SAP HANA Client and the SAP HANA Studio. We also install a scale-up instance. On the next screen, choose **Single-Host System**. 
 
-![Select scale-up installation](./media/hana-installation/image21_single_host.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, with Single Host System selected](./media/hana-installation/image21_single_host.PNG)
 
-In the next screen, you need to provide some data
+Next, provide some data.
 
-![Provide SAP HANA SID](./media/hana-installation/image22_provide_sid.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, with system properties fields to define](./media/hana-installation/image22_provide_sid.PNG)
 
 > [!Important]
-> As HANA System ID (SID), you need to provide the same SID, as you provided Microsoft when you ordered the HANA Large Instance deployment. Choosing a different SID makes the installation fail due to access permission problems on the different volumes
+> As HANA System ID (SID), you must provide the same SID as you provided Microsoft when you ordered the HANA large instance deployment. Choosing a different SID causes the installation to fail, due to access permission problems on the different volumes.
 
-As installation directory you use the /hana/shared directory. In the next step, you need to provide the locations for the HANA data files and the HANA log files
+For the installation path, use the /hana/shared directory. In the next step, you provide the locations for the HANA data files and the HANA log files.
 
 
-![Provide HANA Log location](./media/hana-installation/image23_provide_log.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, with data and log area fields](./media/hana-installation/image23_provide_log.PNG)
 
 > [!Note]
-> You should define as data and log files the volumes that came already with the mount points that contain the SID you chose in the screen selection before this screen. If the SID does mismatch with the one you typed in, in the screen before, go back and adjust the SID to the value you have on the mount points.
+> The SID you specified when you defined system properties (two screens ago) should match the SID of the mount points. If there is a mismatch, go back and adjust the SID to the value you have on the mount points.
 
 In the next step, review the host name and eventually correct it. 
 
-![Review host name](./media/hana-installation/image24_review_host_name.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, with host name](./media/hana-installation/image24_review_host_name.PNG)
 
-In the next step, you also need to retrieve data you gave to Microsoft when you ordered the HANA Large Instance deployment. 
+In the next step, you also need to retrieve data you gave to Microsoft when you ordered the HANA large instance deployment. 
 
-![Provide system user UID and GID](./media/hana-installation/image25_provide_guid.PNG)
+![Screenshot of SAP HANA Lifecycle Management, with system administrator fields to define](./media/hana-installation/image25_provide_guid.PNG)
 
 > [!Important]
-> You need to provide the same System User ID and ID of User Group as you provided Microsoft as you order the unit deployment. If you fail to give the very same IDs, the installation of SAP HANA on the HANA Large Instance unit fails.
+> Provide the same **System Administrator User ID** and **ID of User Group** as you provided to Microsoft, as you order the unit deployment. Otherwise, the installation of SAP HANA on the HANA large instance unit fails.
 
-In the next two screens, which we are not showing in this documentation, you need to provide the password for the SYSTEM user of the SAP HANA database and the password for the sapadm user, which is used for the SAP Host Agent that gets installed as part of the SAP HANA database instance.
+The next two screens are not shown here. They enable you to provide the password for the SYSTEM user of the SAP HANA database, and the password for the sapadm user. The latter is used for the SAP Host Agent that gets installed as part of the SAP HANA database instance.
 
-After defining the password, a confirmation screen is showing up. check all the data listed and continue with the installation. You reach a progress screen that documents the installation progress, like the one below
+After defining the password, you see a confirmation screen. check all the data listed, and continue with the installation. You reach a progress screen that documents the installation progress, like this one:
 
-![Check installation progress](./media/hana-installation/image27_show_progress.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, with installation progress indicators](./media/hana-installation/image27_show_progress.PNG)
 
-As the installation finishes, you should a picture like the following one
+As the installation finishes, you should see a screen like this one:
 
-![Installation is finished](./media/hana-installation/image28_install_finished.PNG)
+![Screenshot of SAP HANA Lifecycle Management screen, indicating installation is finished](./media/hana-installation/image28_install_finished.PNG)
 
-At this point, the SAP HANA instance should be up and running and ready for usage. You should be able to connect to it from SAP HANA Studio. Also make sure that you check for the latest patches of SAP HANA and apply those patches.
+The SAP HANA instance should now be up and running, and ready for usage. You should be able to connect to it from SAP HANA Studio. Also make sure that you check for and apply the latest updates.
 
 
-**Next steps**
+## Next steps
 
-- Refer [SAP HANA Large Instances high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
+- [SAP HANA Large Instances high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
 
