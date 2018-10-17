@@ -4,7 +4,7 @@ description: How to configure downstream or leaf devices to connect through Azur
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/14/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -53,7 +53,7 @@ To connect a downstream device to an IoT Edge gateway you need two things:
 
 ## TLS and certificate fundamentals
 
-The challenge of securely connecting downstream devices to IoT Edge is just like any other secure client/server communication that occurs over the internet. A client and a server securely communicate over the internet using [Transport layer security (TLS)][https://en.wikipedia.org/wiki/Transport_Layer_Security]. TLS is built using standard [Public key infrastructure (PKI)][https://en.wikipedia.org/wiki/Public_key_infrastructure] constructs called certificates. TLS is a fairly involved specification and addresses a wide range of topics related to securing two endpoints but the following section concisely describes what is needed to securely connect devices to an IoT Edge gateway.
+The challenge of securely connecting downstream devices to IoT Edge is just like any other secure client/server communication that occurs over the internet. A client and a server securely communicate over the internet using [Transport layer security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is built using standard [Public key infrastructure (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) constructs called certificates. TLS is a fairly involved specification and addresses a wide range of topics related to securing two endpoints but the following section concisely describes what is needed to securely connect devices to an IoT Edge gateway.
 
 When a client connects to a server, the server presents a chain of certificates, called the *server certificate chain*. A certificate chain typically comprises a root certificate authority (CA) certificate, one or more intermediate CA certificates, and finally the server's certificate itself. A client establishes trust with a server by cryptographically verifying the entire server certificate chain. This client validation of the server certificate chain is called *server authentication*. To validate a server certificate chain, a client needs a copy of the root CA certificate that was used to create (or issue) the server's certificate. Normally when connecting to websites, a browser comes pre-configured with commonly used CA certificates so the client has a seamless process. 
 
@@ -63,8 +63,7 @@ When a device connects to an IoT Edge gateway, the downstream device is the clie
 
 When you use a self-signed root CA certificate for an IoT Edge gateway, it needs to be installed on or provided to all the downstream devices attempting to connect to the gateway. 
 
-To learn more about IoT Edge certificates and some production implications, see [IoT Edge certificate usage details](iot-edge-certs
-.md).
+To learn more about IoT Edge certificates and some production implications, see [IoT Edge certificate usage details](iot-edge-certs.md).
 
 A downstream device application has to trust the owner CA certificate in order to validate the TLS connections to the gateway devices. This step can usually be performed in one of two ways: installation of the certificate at the operating system level or (for certain languages) at the application level. 
 
@@ -96,7 +95,7 @@ The following steps are an example of how to install a CA certificate on a Windo
 
 You can also install certificates programmatically using .NET APIs, as shown in the .NET sample later in this article. 
 
-Typically applications use the Windows provided TLS stack called [Schannel][https://docs.microsoft.com/windows/desktop/com/schannel] to securely connect over TLS. Schannel *requires* that any certificates be installed in the Windows certificate store before attempting to establish a TLS connection.
+Typically applications use the Windows provided TLS stack called [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) to securely connect over TLS. Schannel *requires* that any certificates be installed in the Windows certificate store before attempting to establish a TLS connection.
 
 ## Installation at the application level
 
@@ -120,13 +119,7 @@ Have two things ready before using the application-level samples:
 
 This section provides a sample application to connect an Azure IoT NodeJS device client to an IoT Edge gateway. For Linux and Windows hosts, you must install the root CA certificate at the application level as shown here, as NodeJS applications don't use the system's certificate store. 
 
-1. Get the sample for [edge_downstream_device.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/edge_downstream_device.js).
-
-2. In the edge_downstream_device.js file, update `var connectionsString` with the modified connection string for your downstream device. 
-
-3. Update `var edge_ca_cert_path` with the full path to the root CA certificate.
-
-4. Refer to the NodeJS samples [readme.md](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/readme.md) for instructions on how to run the sample on your device. 
+Get the sample for **edge_downstream_device.js** from the [Azure IoT device SDK for Node.js samples repo]](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples). Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file. In the edge_downstream_device.js file, update the **connectionString** and **edge_ca_cert_path** variables. Refer to the SDK documentation for instructions on how to run the sample on your device. 
 
 To understand the sample that you're running, the following code snippet is how the client SDK reads the certificate file and uses it to establish a secure TLS connection: 
 
@@ -137,3 +130,40 @@ var options = {
     ca : fs.readFileSync(edge_ca_cert_path, 'utf-8'),
 };
 ```
+
+### .NET
+
+This section introduces a sample application to connect an Azure IoT .NET device client to an IoT Edge gateway. However, .NET applications are automatically able to use any installed certificates in the system's certificate store on both Linux and Windows hosts.
+
+Get the sample for **EdgeDownstreamDevice** from the [IoT Edge .NET samples folder](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice). Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file. In the **Properties / launchSettings.json** file, update the **DEVICE_CONNECTION_STRING** and **CA_CERTIFICATE_PATH** variables. If you want to use the certificate installed in the trusted certificate store on the host system, leave this variable blank. Refer to the SDK documentation for instructions on how to run the sample on your device. 
+
+To programmatically install a trusted certificate in the certificate store via a .NET application, refer to the **InstallCACert()** function in the **EdgeDownstreamDevice / Program.cs** file. This operation is idempotent, so can be run multiple times with the same values with no additional effect. 
+
+### C
+
+This section introduces a sample application to connect an Azure IoT C device client to an IoT Edge gateway. The C SDK can operate with many TLS libraries, including OpenSSL, WolfSSL, and Schannel. For more information, see the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
+
+Get the **iotedge_downstream_device_sample** application from the [Azure IoT device SDK for C samples](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples). Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file. In the iotedge_downstream_device_sample.c file, update the **connectionString** and **edge_ca_cert_path** variables. Refer to the SDK documentation for instructions on how to run the sample on your device. 
+
+The Azure IoT device SDK for C provides an option to register a CA certificate when setting up the client. This operation doesn't install the certificate anywhere, but rather uses a string format of the certificate in memory. The saved certificate is provided to the underlying TLS stack when establishing a connection. 
+
+    ```C
+    (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string); 
+    ```
+
+On Windows hosts, if you're not using OpenSSL or another TLS library, the SDK default to using Schannel. For Schannel to work, the IoT Edge root CA certificate should be installed in the Windows certificate store, not set using the `IoTHubDeviceClient_SetOption` operation. 
+
+### Java
+
+This section introduces a sample application to connect an Azure IoT Java device client to an IoT Edge gateway. 
+
+Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples). Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file. Refer to the SDK documentation for instructions on how to run the sample on your device.
+
+### Python
+
+This section introduces a sample application to connect an Azure IoT Python device client to an IoT Edge gateway. 
+
+Get the sample for **edge_downstream_client** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples). Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file. In the edge_downstream_client.py file, update the **CONNECTION_STRING** and **TRUSTED_ROOT_CA_CERTIFICATE_PATH** variables. Refer to the SDK documentation for instructions on how to run the sample on your device. 
+
+
+
