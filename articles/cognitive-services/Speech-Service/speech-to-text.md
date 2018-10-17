@@ -33,7 +33,7 @@ The **Speech to Text** API offers the following features:
 
 ## API capabilities
 
-Some of the capabilities of the **Speech to Text** API -especially around customization- are available via REST. The following table summarizes the capabilities of each method of accessing the API. 
+Some of the capabilities of the **Speech to Text** API, especially around customization, are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details, see [Swagger reference](https://westus.cris.ai/swagger/ui/index).
 
 | Use case | REST | SDKs |
 |-----|-----|-----|----|
@@ -50,7 +50,7 @@ Some of the capabilities of the **Speech to Text** API -especially around custom
 | Create & manage model deployments | Yes | No |
 
 > [!NOTE]
-> The REST API implements throttling that limits the API requests to 25 per 5 second. Message hearders will inform of the limits
+> The REST API implements throttling that limits the API requests to 25 per 5 second. Message headers will inform of the limits
 
 \* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
 
