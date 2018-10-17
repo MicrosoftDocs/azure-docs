@@ -35,7 +35,7 @@ az storage blob upload-batch -d <local_directory_name> --account-name <account_n
 > Linking an existing directory in a web app to a storage account will delete the directory contents. If you are migrating files for an existing app, make a backup of your app and its content before you begin.
 >
 
-To link a storage account to a directory within your web app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/en-us/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command.
+To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command.
 
 ```azurecli
 az webapp config storage-account add --resource-group <resource_group> --name <web_app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
