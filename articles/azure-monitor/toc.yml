@@ -884,6 +884,8 @@
       href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
     - name: Telemetry correlation
       href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
+    - name: NuGet packages
+      href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights data model
     items:
     - name: Overview
