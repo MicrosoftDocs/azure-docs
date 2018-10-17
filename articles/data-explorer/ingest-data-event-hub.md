@@ -2,8 +2,8 @@
 title: 'Quickstart: Ingest data from Event Hub into Azure Data Explorer'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Event Hub.'
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
