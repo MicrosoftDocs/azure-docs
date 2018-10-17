@@ -56,7 +56,7 @@ The following steps walk you through the process of creating the certificates an
       ```
 
 ## Certificate creation
-1.	Create the owner CA certificate and one intermediate certificate. These are all placed in `$WRKDIR`.
+1.	Create the owner CA certificate and one intermediate certificate. These certificates are placed in `$WRKDIR`.
 
    ```cmd
    ./certGen.sh create_root_and_intermediate
@@ -143,11 +143,11 @@ Installing this certificate in the OS certificate store will allow all applicati
  
     You should see a message saying, "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done."
 
-* Windows - Here is an example of how to install a CA certificate on an Windows host.
-  * On the start menu type in "Manage computer certificates". This should bring up a utility called `certlm`.
-  * Navigate to Certificates Local Computer --> Trusted Root Certificates --> Certificates --> Right click --> All Tasks --> Import to launch the certificate import wizard.
-  * Follow the steps as directed and import certificate file $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
-  * When completed, you should see a "Successfully imported" message.
+* Windows - Here is an example of how to install a CA certificate on a Windows host.
+  1. On the start menu type in "Manage computer certificates". This should bring up a utility called `certlm`.
+  2. Navigate to **Certificates Local Computer** > **Trusted Root Certificates** > **Certificates** > Right click > **All Tasks** > **Import** to launch the certificate import wizard.
+  3. Follow the steps as directed and import certificate file $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  4. When completed, you should see a "Successfully imported" message.
 
 ### Application level
 For .NET applications, you can add the following snippet to trust a certificate in PEM format. Initialize the variable `certPath` with `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
@@ -164,7 +164,7 @@ For .NET applications, you can add the following snippet to trust a certificate 
    ```
 
 ## Connect the downstream device to the gateway
-You must initialize the IoT Hub device sdk with a connection string referring to the hostname of the gateway device. This is done by appending the `GatewayHostName` property to your device connection string. For instance, here is a sample device connection string for a device, to which we appended the `GatewayHostName` property:
+Initialize the IoT Hub device SDK with a connection string referring to the hostname of the gateway device. This is done by appending the `GatewayHostName` property to your device connection string. For instance, here is a sample device connection string for a device, to which we appended the `GatewayHostName` property:
 
    ```
    HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com
@@ -184,7 +184,7 @@ The IoT Edge runtime can route messages sent from downstream devices just like m
 
 Refer to the [module composition article](./module-composition.md) for more details on message routing.
 
-[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
+[!INCLUDE [iot-edge-offline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## Next steps
 [Understand the requirements and tools for developing IoT Edge modules](module-development.md).

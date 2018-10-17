@@ -41,11 +41,11 @@ The following steps walk you through the process of creating the certificates an
 
    * Download and install any [third-party OpenSSL binaries](https://wiki.openssl.org/index.php/Binaries), for example, from [this project on SourceForge](https://sourceforge.net/projects/openssl/).
    
-   * Download the OpenSSL source code and build the binaries on your machine by yourself or do this via [vcpkg](https://github.com/Microsoft/vcpkg). The instructions listed below use vcpkg to download source code, compile and install OpenSSL on your Windows machine all in very easy to use steps.
+   * Download the OpenSSL source code and build the binaries on your machine by yourself or via [vcpkg](https://github.com/Microsoft/vcpkg). The instructions listed below use vcpkg to download source code, compile, and install OpenSSL on your Windows machine with easy steps.
 
       1. Navigate to a directory where you want to install vcpkg. From here on we'll refer to this as $VCPKGDIR. Follow the instructions to download and install [vcpkg](https://github.com/Microsoft/vcpkg).
    
-      1. Once vcpkg is installed, from a powershell prompt, run the following command to install the OpenSSL package for Windows x64. This typically takes about 5 mins to complete.
+      1. Once vcpkg is installed, from a powershell prompt, run the following command to install the OpenSSL package for Windows x64. The installation typically takes about 5 mins to complete.
 
          ```PowerShell
          .\vcpkg install openssl:x64-windows
@@ -82,20 +82,20 @@ The following steps walk you through the process of creating the certificates an
    . .\ca-certs.ps1
    ```
 
-1. Verify OpenSSL has been installed correctly and make sure there won't be name collisions with existing certificates by running the following command. If there are problems, the script should describe how to fix these on your system.
+1. Verify OpenSSL has been installed correctly and make sure there won't be name collisions with existing certificates by running the following command. If there are problems, the script should describe how to fix them on your system.
 
    ```PowerShell
    Test-CACertsPrerequisites
    ```
 
 ## Certificate creation
-1.	Create the owner CA certificate and one intermediate certificate. These are all placed in `$WRKDIR`.
+1. Create the owner CA certificate and one intermediate certificate. The certificates are all placed in `$WRKDIR`.
 
       ```PowerShell
       New-CACertsCertChain rsa
       ```
 
-1.	Create the Edge device CA certificate and private key with the command below.
+1. Create the Edge device CA certificate and private key with the command below.
 
    >[!NOTE]
    > **DO NOT** use a name that is the same as the gateway's DNS host name. Doing so will cause client certification against these certificates to fail.
@@ -111,19 +111,19 @@ Create a certificate chain from the owner CA certificate, intermediate certifica
    Write-CACertsCertificatesForEdgeDevice "<gateway device name>"
    ```
 
-   The output of the script execution are the following certificates and key:
+   The script creates the following certificates and key:
    * `$WRKDIR\certs\new-edge-device.*`
    * `$WRKDIR\private\new-edge-device.key.pem`
    * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## Installation on the gateway
-1.	Copy the following files from $WRKDIR anywhere on your Edge device, we'll refer to that as $CERTDIR. If you generated the certificates on your Edge device skip this step.
+1. Copy the following files from $WRKDIR anywhere on your Edge device, we'll refer to that as $CERTDIR. If you generated the certificates on your Edge device, skip this step.
 
    * Device CA certificate -  `$WRKDIR\certs\new-edge-device-full-chain.cert.pem`
    * Device CA private key - `$WRKDIR\private\new-edge-device.key.pem`
    * Owner CA - `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2.	Set the `certificate` properties in the Security Daemon config yaml file to the path where you placed the certificate and key files.
+2. Set the `certificate` properties in the Security Daemon config yaml file to the path where you placed the certificate and key files.
 
 ```yaml
 certificates:
@@ -132,7 +132,7 @@ certificates:
   trusted_ca_certs: "$CERTDIR\\certs\\azure-iot-test-only.root.ca.cert.pem"
 ```
 ## Deploy EdgeHub to the gateway
-One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. This section has you create a seemingly empty deployment; however Edge Hub is automatcially added to all deployments even if there are no other modules present. Edge Hub is the only module you need on an Edge Device to have it act as a transparent gateway so creating an empty deployment is enough. 
+One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. This section has you create a seemingly empty deployment; however Edge Hub is automatically added to all deployments even if there are no other modules present. Edge Hub is the only module you need on an Edge Device to have it act as a transparent gateway so creating an empty deployment is enough. 
 1. In the Azure portal, navigate to your IoT hub.
 2. Go to **IoT Edge** and select your IoT Edge device that you want to use as a gateway.
 3. Select **Set Modules**.
@@ -162,11 +162,11 @@ Installing this certificate in the OS certificate store will allow all applicati
  
     You should see a message saying, "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done."
 
-* Windows - Here is an example of how to install a CA certificate on an Windows host.
-  * On the start menu type in "Manage computer certificates". This should bring up a utility called `certlm`.
-  * Navigate to Certificates Local Computer --> Trusted Root Certificates --> Certificates --> Right click --> All Tasks --> Import to launch the certificate import wizard.
-  * Follow the steps as directed and import certificate file $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
-  * When completed, you should see a "Successfully imported" message.
+* Windows - Here is an example of how to install a CA certificate on a Windows host.
+  1. On the start menu type in "Manage computer certificates". This should bring up a utility called `certlm`.
+  2. Navigate to **Certificates Local Computer** > **Trusted Root Certificates** > **Certificates** > Right click > **All Tasks** > **Import** to launch the certificate import wizard.
+  3. Follow the steps as directed and import certificate file $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  4. When completed, you should see a "Successfully imported" message.
 
 ### Application level
 For .NET applications, you can add the following snippet to trust a certificate in PEM format. Initialize the variable `certPath` with `$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem`.
@@ -183,7 +183,7 @@ For .NET applications, you can add the following snippet to trust a certificate 
    ```
 
 ## Connect the downstream device to the gateway
-You must initialize the IoT Hub device sdk with a connection string referring to the hostname of the gateway device. This is done by appending the `GatewayHostName` property to your device connection string. For instance, here is a sample device connection string for a device, to which we appended the `GatewayHostName` property:
+Initialize the IoT Hub device sdk with a connection string referring to the hostname of the gateway device. This is done by appending the `GatewayHostName` property to your device connection string. For instance, here is a sample device connection string for a device, to which we appended the `GatewayHostName` property:
 
    ```
    HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com
@@ -201,9 +201,9 @@ The IoT Edge runtime can route messages sent from downstream devices just like m
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Refer to the [module composition article](./module-composition.md) for more details on message routing.
+For more information about message routing, see [module composition](./module-composition.md).
 
-[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
+[!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## Next steps
 [Understand the requirements and tools for developing IoT Edge modules](module-development.md).

@@ -15,11 +15,11 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IoT Edge enables you to move analytics to the edge and provides a cloud interface so that you can manage and monitor your IoT Edge devices without having to physically access each one. The capability to remotely manage devices is increasingly important as Internet of Things solutions are growing larger and more complex. Azure IoT Edge is designed to support your business goals, no matter how many devices you add.
+Azure IoT Edge enables you to move analytics to the edge, and provides a cloud interface so that you can manage and monitor your IoT Edge devices remotely. The capability to remotely manage devices is increasingly important as Internet of Things solutions are growing larger and more complex. Azure IoT Edge is designed to support your business goals, no matter how many devices you add.
 
 You can manage individual devices and deploy modules to them one at a time. However, if you want to make changes to devices at a large scale, you can create an **IoT Edge automatic deployment**, which is part of Automatic Device Management in IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices at once, track the status and health of the modules, and make changes when necessary. 
 
-In this article, you set up Azure CLI and the IoT extension. Then you learn how to deploy modules to a set of IoT Edge devices and monitor the progress using the available CLI commands.
+In this article, you set up Azure CLI and the IoT extension. Then, you learn how to deploy modules to a set of IoT Edge devices and monitor the progress using the available CLI commands.
 
 ## CLI Prerequisites
 
