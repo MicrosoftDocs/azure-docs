@@ -104,7 +104,7 @@ Understanding the following storage space quantities are important for managing 
 |**Data space used**|The summation of data space used by all databases in the elastic pool.||
 |**Data space allocated**|The summation of data space allocated by all databases in the elastic pool.||
 |**Data space allocated but unused**|The difference between the amount of data space allocated and data space used by all databases in the elastic pool.|This quantity represents the maximum amount of space allocated for the elastic pool that can be reclaimed by shrinking database data files.|
-|**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the elastic pool should not exceed the elastic pool max size.  If this occurs, then space allocated that is unused can be reclaimed by shrinking database data files.|
+|**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the elastic pool should not exceed the elastic pool max size.  If this condition occurs, then space allocated that is unused can be reclaimed by shrinking database data files.|
 ||||
 
 ## Query an elastic pool for storage space information
