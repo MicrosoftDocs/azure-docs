@@ -26,11 +26,11 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 - Allow changing a single database or elastic pool to a different service tier or performance tier with a lower max size.
 
 ### Monitoring file space usage
-Most storage space metrics displayed in the Azure portal and the following APIs only measure the amount of used data pages:
+Most storage space metrics displayed in the Azure portal and the following APIs only measure the size of used data pages:
 - Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
-However, the following APIs also measure the amount of space allocated for databases and elastic pools:
+However, the following APIs also measure the size of space allocated for databases and elastic pools:
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
