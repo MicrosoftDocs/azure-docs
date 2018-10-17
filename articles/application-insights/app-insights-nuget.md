@@ -81,4 +81,4 @@ These packages make up part of the core functionality of the runtime monitoring 
 
 - Monitor [ASP.NET Core](app-insights-asp-net-core.md).
 - Profile ASP.NET Core [Azure Linux web apps](app-insights-profiler-aspnetcore-linux.md).
-- Debug ASP.NET [snapshots](app-insights-snapshot-debugger)
+- Debug ASP.NET [snapshots](app-insights-snapshot-debugger.md)
