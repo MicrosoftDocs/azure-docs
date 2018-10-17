@@ -71,10 +71,16 @@ If your main app module is contained in a different file, use a different name f
 
 ### Custom startup command
 
-You can control the container's startup behavior by providing a custom Gunicorn startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object is named `myapp`, then the command is as follows:
+You can control the container's startup behavior by providing a custom Gunicorn startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
+
+If your main module is in a subfolder, such as `website`, specify that folder with the `--chdir` argument:
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
 You can also add any additional arguments for Gunicorn to the command, such as `--workers=4`. For more information, see [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
