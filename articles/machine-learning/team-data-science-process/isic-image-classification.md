@@ -5,6 +5,7 @@ services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: deguhath
 ms.author: deguhath
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
