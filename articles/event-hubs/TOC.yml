@@ -64,11 +64,11 @@
     maintainContext: true        
   - name: Event Hubs for Apache Kafka 
     items:
-      - name: Apache Kafka MirrorMaker with Event Hubs
+      - name: Mirror a Kafka broker in an Apache Kafka-enabled event hub
         href: event-hubs-kafka-mirror-maker-tutorial.md
-      - name: Apache Flink with Event Hubs 
+      - name: Connect Apache Flink to a Kafka-enabled event hub 
         href: event-hubs-kafka-flink-tutorial.md
-      - name: Akka Streams with Event Hubs 
+      - name: Connect Akka Streams to a Apache Kafka-enabled event hub
         href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Samples
   href: event-hubs-samples.md
