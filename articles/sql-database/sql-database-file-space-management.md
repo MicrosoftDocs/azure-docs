@@ -125,7 +125,7 @@ ORDER BY end_time DESC
 
 ### Elastic pool data space allocated and unused allocated space
 
-Modify the following PowerShell script to return a table listing the space allocated and unused allocated space for each database in an elastic pool. The table orders databases from those with the greatest amount of unused allocated space to the least amount of unused allocated space.  Units of the query result are in MB.  
+Modify the following PowerShell script to return a table listing the space allocated and unused allocated space for each database in an elastic pool. The table orders databases from those databases with the greatest amount of unused allocated space to the least amount of unused allocated space.  Units of the query result are in MB.  
 
 The query results for determining the space allocated for each database in the pool can be added together to determine the total space allocated for the elastic pool. The elastic pool space allocated should not exceed the elastic pool max size.  
 
