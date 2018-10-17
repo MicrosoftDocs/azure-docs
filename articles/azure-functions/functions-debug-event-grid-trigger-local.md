@@ -26,7 +26,7 @@ This article demonstrates how to debug a local function that handles an Azure Ev
 
 To begin, create a new function app that responds to an Event Grid event.  Open Visual Studio and select **File > New > Project**.
 
-In the *New Project* window open the template pane to **Other Languages > Visual C# > Cloud** and select **Azure Functions**. 
+In the *New Project* window, open the template pane to **Other Languages > Visual C# > Cloud** and select **Azure Functions**. 
 
 ![Create new function app](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-create-new-project.png)
 
@@ -75,7 +75,7 @@ Next, [create a new storage account](../storage/common/create-accound.md) and na
 
 ![Add storage account event](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-In the *Events* window, click on the **\+ Event Subscription** button to create a new event subscription. In the Even Subscription window, click on the **Endpoint Type** dropdown and select **Web Hook**.
+In the *Events* window, click on the **\+ Event Subscription** button. In the Even Subscription window, click on the **Endpoint Type** dropdown and select **Web Hook**.
 
 ![Select subscription type](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
