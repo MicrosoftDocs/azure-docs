@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 - The Azure Machine Learning service workspace object
 
-[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=load-workspace)]
+[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=load)]
 
 - A model to deploy. The examples in this document use the model created when you follow the "[Train a model](tutorial-train-models-with-aml.md)" tutorial. If you do not use this model, modify the steps to refer to your model name.  You also need to write your own scoring script to run your model.
 
