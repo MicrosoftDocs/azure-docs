@@ -4,7 +4,7 @@ description: A comprehensive description of the data science that powers predict
 services: machine-learning
 author: fboylu
 manager: cgronlun
-editor: 
+editor: cgronlun
 
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning

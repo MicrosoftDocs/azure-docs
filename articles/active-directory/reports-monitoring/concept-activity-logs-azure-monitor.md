@@ -27,6 +27,7 @@ You can now route Azure Active Directory (Azure AD) activity logs to your own st
 * Archive your audit logs for an Azure storage account, which enables you to retain the data for a long time.
 * Stream your audit logs to an Azure event hub for analytics by using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
 * Integrate your audit logs with your own custom log solutions by streaming them to an event hub.
+* Send Azure AD activity logs to Log Analytics to enable rich visualizations, monitoring and alerting on the connected data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
@@ -47,16 +48,15 @@ To use this feature, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * Azure AD Free, Basic, Premium 1, or Premium 2 [license](https://azure.microsoft.com/pricing/details/active-directory/), to access the Azure AD audit logs in the Azure portal. 
+* An Azure AD tenant.
+* A user who's a **global administrator** or **security administrator** for the Azure AD tenant.
 * Azure AD Premium 1, or Premium 2 [license](https://azure.microsoft.com/pricing/details/active-directory/), to access the Azure AD sign-in logs in the Azure portal. 
 
 Depending on where you want to route the audit log data, you need either of the following:
 
 * An Azure storage account that you have *ListKeys* permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * An Azure Event Hubs namespace to integrate with third-party solutions.
-
-> [!NOTE]
-> To access the Azure AD activity logs, you need to be a *global administrator* or *security administrator* in the Azure AD tenant.
->
+* An Azure Log Analytics workspace to send logs to Log Analytics.
 
 ## Cost considerations
 
@@ -90,6 +90,9 @@ The following table contains estimated costs per month for a basic event hub in 
 | Audit | 1,000 | 0.1 | 52 | 104 KB | 1 | 8,640 | $10.80 |
 | Sign-ins | 1,000 | 178 | 53,400 | 106.8&nbsp;MB | 418 | 3,611,520 | $11.06 |  
 
+### Log Analytics cost considerations
+
+To review costs related to managing the Log Analytics workspace, see [Manage cost by controlling data volume and retention in Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## Frequently asked questions
 
@@ -170,4 +173,4 @@ This section answers frequently asked questions and discusses known issues with 
 
 * [Archive activity logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Route activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Read more about Azure Diagnostic Logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Integrate activity logs with Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
