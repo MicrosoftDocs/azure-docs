@@ -1,5 +1,5 @@
 ﻿---
-title: Create highly available SQL databases in Azure Stack | Microsoft Docs
+title: Offer highly available SQL databases in Azure Stack | Microsoft Docs
 description: Learn how to create a SQL Server resource provider host computer and highly available SQL AlwaysOn databases with Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 ---
 
-# Tutorial: Create highly available SQL databases
+# Tutorial: Offer highly available SQL databases
 
-As an Azure Stack tenant user, you can configure server VMs to host SQL Server databases. After a SQL hosting server is successfully created, and managed by Azure Stack, users who have subscribed to SQL services can easily create SQL databases.
+As an Azure Stack Operator, you can configure server VMs to host SQL Server databases. After a SQL hosting server is successfully created, and managed by Azure Stack, users who have subscribed to SQL services can easily create SQL databases.
 
 This tutorial shows how to use an Azure Stack quickstart template to create a [SQL Server AlwaysOn availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), add it as an Azure Stack SQL Hosting Server, and then create a highly available SQL database.
 
@@ -33,7 +33,7 @@ What you will learn:
 
 In this tutorial, a two VM SQL Server AlwaysOn availability group will be created and configured using available Azure Stack marketplace items. 
 
-Before starting the steps in this tutorial, ensure that the Azure Stack Operator has made the following items available in the Azure Stack marketplace:
+Before starting the steps in this tutorial, ensure that the [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) has been successfully installed and the following items available in the Azure Stack marketplace:
 
 > [!IMPORTANT]
 > All of the following are required for the Azure Stack quickstart template to be used.
@@ -44,10 +44,7 @@ Before starting the steps in this tutorial, ensure that the Azure Stack Operator
 - [Custom script extension for Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) version 1.9.1 or higher. Custom Script Extension is a tool that can be used to automatically launch post-deployment VM customization tasks.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) version 2.76.0.0 or higher. DSC is a management platform in Windows PowerShell that enables deploying and managing configuration data for software services and managing the environment in which these services run.
 
-  > [!TIP]
-  > You won't be able to see the SQL Server IaaS extension, custom script extension, or PowerSHell DSC marketplace items when creating a VM from the user portal. Contact your Azure Stack Operator to ensure these items have been downloaded from Azure before beginning the steps in this tutorial.
-
-To learn more about adding items to the Azure Stack marketplace, see the [Azure Stack Marketplace overview](.\.\azure-stack-marketplace.md).
+To learn more about adding items to the Azure Stack marketplace, see the [Azure Stack Marketplace overview](azure-stack-marketplace.md).
 
 ## Create a SQL Server AlwaysOn availability group
 Use the steps in this section to deploy the SQL Server AlwaysOn availability group by using the [sql-2016-alwayson Azure Stack quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson). This template deploys two SQL Server Enterprise, Standard or Developer instances in an Always On Availability Group. It creates the following resources:
@@ -62,12 +59,9 @@ Use the steps in this section to deploy the SQL Server AlwaysOn availability gro
 - One VM (Windows Server 2016) configured as the file share witness for the cluster
 - One availability set containing the SQL and file share witness VMs  
 
-> [!NOTE]
-> Run these steps from the Azure Stack user portal as a tenant user with a subscription providing IaaS capabilities (compute, network, storage services).
-
-1. Sign in to the user portal:
-    - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-    - If you’re using the Azure Stack Development Kit (ASDK), the user portal address is [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+1. Sign in to the administration portal:
+    - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+    - If you’re using the Azure Stack Development Kit (ASDK), the user portal address is [https://adminportal.local.azurestack.external](https://portal.local.azurestack.external).
 
 2. Select **\+** **Create a resource** > **Custom**, and then **Template deployment**.
 
@@ -91,7 +85,7 @@ Use the steps in this section to deploy the SQL Server AlwaysOn availability gro
     ![Custom deployment parameters](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
 
 
-6. In the user portal, select **Resource groups** and then the name of the resource group you created for the custom deployment (simply **resource-group** for this example). View the status of the deployment to ensure all deployments have completed successfully.<br><br>Next, review the resource group items and select the **SQLPIPsql\<resource group name\>** Public IP address item. Record the public IP address and full FQDN of the load balancer public IP. You will need to provide this to an Azure Stack Operator so they can create a SQL hosting server leveraging this SQL AlwaysOn availability group.
+6. In the administration portal, select **Resource groups** and then the name of the resource group you created for the custom deployment (**resource-group** for this example). View the status of the deployment to ensure all deployments have completed successfully.<br><br>Next, review the resource group items and select the **SQLPIPsql\<resource group name\>** Public IP address item. Record the public IP address and full FQDN of the load balancer public IP. You will need to provide this to an Azure Stack Operator so they can create a SQL hosting server leveraging this SQL AlwaysOn availability group.
 
    > [!NOTE]
    > The template deployment will take several hours to complete.
@@ -140,17 +134,17 @@ Use these commands to set the contained database authentication server option fo
 ## Create an Azure Stack SQL Hosting Server
 After the SQL Server AlwayOn availability group has been created, and properly configured, an Azure Stack Operator must create an Azure Stack SQL Hosting Server to make the additional capacity available for users to create databases. 
 
-Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the SQL load balancer that was recorded previously when the SQL AlwaysOn availability group's resource group was created (**SQLPIPsql\<resource group name\>**). In addition, the operator will need to know the SQL Server authentication credentials used to access the SQL instances in the AlwaysOn availability group.
+Be sure to use the public IP or full FQDN for the public IP of the SQL load balancer recorded previously when the SQL AlwaysOn availability group's resource group was created (**SQLPIPsql\<resource group name\>**). In addition, you need to know the SQL Server authentication credentials used to access the SQL instances in the AlwaysOn availability group.
 
 > [!NOTE]
 > This step must be run from the Azure Stack administration portal by an Azure Stack Operator.
 
-With the SQL AlwaysOn availability group's load balancer listener Public IP and SQL authentication login information provided by the tenant user, an Azure Stack Operator can now [create a SQL Hosting Server using the SQL AlwaysOn availablity group](.\.\azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
+With the SQL AlwaysOn availability group's load balancer listener Public IP and SQL authentication login information, an Azure Stack Operator can now [create a SQL Hosting Server using the SQL AlwaysOn availablity group](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
 
-Also ensure that the Azure Stack Operator has created plans and offers to make SQL AlwaysOn database creation available for users. The operator will need to add the **Microsoft.SqlAdapter** service to a plan and create a new quota specifically for highly available databases. For more information about creating plans, see [Plan, offer, quota, and subscription overview](.\.\azure-stack-plan-offer-quota-overview.md).
+Also ensure that you have created plans and offers to make SQL AlwaysOn database creation available for users. The operator will need to add the **Microsoft.SqlAdapter** service to a plan and create a new quota specifically for highly available databases. For more information about creating plans, see [Plan, offer, quota, and subscription overview](azure-stack-plan-offer-quota-overview.md).
 
 > [!TIP]
-> The **Microsoft.SqlAdapter** service will not be available to add to plans until the [SQL Server resource provider has been deployed](.\.\azure-stack-sql-resource-provider-deploy.md).
+> The **Microsoft.SqlAdapter** service will not be available to add to plans until the [SQL Server resource provider has been deployed](azure-stack-sql-resource-provider-deploy.md).
 
 ## Create a highly available SQL database
 After the SQL AlwaysOn availability group has been created, configured, and added as an Azure Stack SQL Hosting Server by an Azure Stack Operator, a tenant user with a subscription including SQL Server database capabilities can create SQL databases supporting AlwaysOn functionality by following the steps in this section. 
