@@ -3,7 +3,7 @@ title: Support for an IoT Edge module | Microsoft Docs
 description: Support options for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: dan-wesley
+author: v-wesda
 manager: Patrick.Butler  
 editor:
 

@@ -3,7 +3,7 @@ title: Offer settings for an IoT Edge module | Microsoft Docs
 description: Configure offer settings for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: dan-wesley
+author: v-wesda
 manager: Patrick.Butler  
 editor:
 
