@@ -1,6 +1,6 @@
 ---
 title: This quickstart shows how to provision a simulated X.509 device to Azure IoT Hub using C | Microsoft Docs
-description: In this quickstart you create and provision a simulated X.509 device using C device SDK for Azure IoT Hub Device Provisioning Service
+description: This quickstart uses individual enrollment. In this quickstart, you create and provision a simulated X.509 device using C device SDK for Azure IoT Hub Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 07/16/2018

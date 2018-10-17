@@ -1,6 +1,6 @@
 ---
 title: Provision a simulated X.509 device to Azure IoT Hub using Java | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service
+description: Azure Quickstart - Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service. Uses individual enrollment.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
