@@ -25,7 +25,7 @@ DNS domains in Azure DNS are hosted on Azure's global network of DNS name server
 
 ## Security
 
-The Azure DNS service is based on Azure Resource Manager, which provides features such as:
+ Azure DNS is based on Azure Resource Manager, which provides features such as:
 
 * [Role-based access control](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) to control who has access to specific actions for your organization.
 
@@ -38,7 +38,7 @@ For more information, see [How to protect DNS zones and records](dns-protect-zon
 
 ## Ease of use
 
-The Azure DNS service can manage DNS records for your Azure services and provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, support contract, and billing as your other Azure services. 
+ Azure DNS can manage DNS records for your Azure services and provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, support contract, and billing as your other Azure services. 
 
 DNS billing is based on the number of DNS zones hosted in Azure and on the number of DNS queries received. To learn more about pricing, see [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
 
