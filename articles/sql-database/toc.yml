@@ -96,6 +96,8 @@
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: Hyperscale
         href: sql-database-service-tier-hyperscale.md
+      - name: Hyperscale FAQ
+        href: sql-database-service-tier-hyperscale-faq.md
     - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
@@ -160,6 +162,8 @@
       href: sql-database-business-continuity.md
     - name: High availability
       href: sql-database-high-availability.md
+    - name: Accelerated database recovery
+      href: sql-database-accelerated-database-recovery.md
     - name: Database backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
@@ -178,13 +182,13 @@
         href: sql-database-geo-replication-portal.md
       - name: Configure security for replicas
         href: sql-database-geo-replication-security-config.md
-    - name: Database recovery
+    - name: Database recovery options
       items:
-      - name: Database recovery
+      - name: Recovery using backups
         href: sql-database-recovery-using-backups.md
-      - name: Recover from outage
+      - name: Outage recovery guidance
         href: sql-database-disaster-recovery.md
-      - name: Perform recovery drill
+      - name: Recovery drills
         href: sql-database-disaster-recovery-drills.md
     - name: App design
       items:
@@ -318,7 +322,7 @@
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Performance and tuning
+  - name: Performance and monitoring
     items:
     - name: Intelligent performance   
       items:

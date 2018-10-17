@@ -6,8 +6,6 @@
     href: allocation-failure.md
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
-- name: Boot diagnostics
-  href: boot-diagnostics.md
 - name: RDP
   items:
   - name: Reset RDP
@@ -104,8 +102,10 @@
 - name: Boot errors
   href: boot-error-troubleshoot.md
   items:
-  - name: BitLocker errors
-    href: troubleshoot-bitlocker-boot-error.md
+  - name: Boot diagnostics
+    href: boot-diagnostics.md
+  - name: BitLocker errors 
+    href: troubleshoot-bitlocker-boot-error.md  
   - name: Checking file system errors
     href: troubleshoot-check-disk-boot-error.md
   - name: Blue screen errors
@@ -116,6 +116,8 @@
     href: troubleshoot-critical-service-failed-boot-error.md
   - name: Reboot loop
     href: troubleshoot-reboot-loop.md
+  - name: Stuck at Windows update
+    href: troubleshoot-stuck-updating-boot-error.md
 - name: Throttling errors
   href: troubleshooting-throttling-errors.md
 - name: Use nested virtualization
