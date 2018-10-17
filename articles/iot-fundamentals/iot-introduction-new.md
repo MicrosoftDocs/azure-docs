@@ -14,27 +14,61 @@ ms.author: robinsh
 
 The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices and one or more back-end solutions that communicate with each other. 
 
-This article discusses the basics of IoT, talks about use cases, and briefly explains the eight separate services available. By understanding what's available, you can figure out what you want to look at more closely to help in your scenario.
+This article discusses the basics of IoT, talks about use cases, and briefly explains the eight separate services available. By understanding what's available, you can figure out what you want to look at more closely to help designing your scenario.
 
 ## Introduction
 
-IoT is made up of devices and back-end solutions that communicate with those devices. Devices are generally made up of a circuit board with censors attached that connect to the internet and communicate via a Wi-Fi chip. Two such devices are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, and gyroscope. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what helps you in your scenario. 
+The main parts of an IoT solution are as follows: devices, back-end services, the communication channel between the two. 
 
-Your device can communicate with back-end services -- in both directions. For example, your device may send telemetry data such as temperature every 5 minutes to an IoT Hub that in turn routes it to Blob storage for analysis at a later time with HD Insight. Or there might be changes to your device's configuration that need to be applied, and a back-end service would push those changes to your device. You can also have a device that sends alerts based on the values read from its sensors. Another common use is to send data to a dashboard for viewing by human operators. 
+## IoT devices
 
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+Devices are generally made up of a circuit board with censors attached that connect to the internet. Many devices communicate via a Wi-Fi chip. For example, two such devices are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, as wwell as a gyroscope and accelerometer, a magnetometer and a Wi-Fi chip. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what you need for your scenario. 
 
-Connecting devices securely and reliably is often the biggest challenge in IoT solutions. This is because IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. Specifically, IoT devices:
+## Communication
+
+Your device can communicate with back-end services in both directions. Here are some examples of ways that the device can communicate with the back-end solution.
+
+### Examples 
+
+* Your device may send telemetry data (such as temperature) every 5 minutes to an IoT Hub. The hub in turn routes it to Blob storage for analysis at a later time with HD Insight.
+
+* Changes to your device's configuration -- or specific data -- could be pushed to the device from your back-end service.
+
+* Your device can send alerts based on the values read from its sensors. For example, if monitoring a batch reactor in a chemical plant, you may want to send an alert when the temperatures exceeds a certain value.
+
+* Your device can send information to a dashboard for viewing by human operators. For example, a control room in a refinery may show the temperature and pressure of each pipe, as well as the volume flowing through that pipe, allowing the operators to watch it. 
+
+### Connection Considerations
+
+Connecting devices securely and reliably is often the biggest challenge in IoT solutions. This is because IoT devices have different characteristics when compared to other clients such as browsers and mobile apps. Specifically, IoT devices:
 
 * Are often embedded systems with no human operator (unlike a phone).
-* Can be deployed in remote locations, where physical access is expensive.
-* May only be reachable through the solution back end. There is no other way to interact with the device.
-* May have limited power and processing resources.
-* May have intermittent, slow, or expensive network connectivity.
-* May need to use proprietary, custom, or industry-specific application protocols.
-* Can be created using a large set of popular hardware and software platforms.
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* Can be deployed in remote locations, where physical access is expensive.
+
+* May only be reachable through the solution back end. There is no other way to interact with the device.
+
+* May have limited power and processing resources.
+
+* May have intermittent, slow, or expensive network connectivity.
+
+* May need to use proprietary, custom, or industry-specific application protocols.
+
+## Back-end services 
+
+Here are some of the functions a back-end service can provide.
+
+* Receiving telemetry data at scale from your devices, and determining how to process and store that data.
+
+* Analyzing the telemetry to provide insights, either in real time or after the fact.
+
+* Sending commands from the cloud or a gateway device to a specific device. 
+
+* Provisioning devices and control which devices can connect to your infrastructure.
+
+* Control the state of your devices and monitor their activities.
+
+For example, in a predictive maintenance scenario, the cloud back-end stores historical telemetry data. The solution uses this data to identify potential anomalous behavior on specific pumps before they cause a real problem. Using data analytics, it can identify that the preventative solution is to send a command back to the device to take a corrective action. This process generates an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
 
 ## An IoT example
 
