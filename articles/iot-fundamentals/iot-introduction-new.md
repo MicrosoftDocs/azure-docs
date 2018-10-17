@@ -29,7 +29,7 @@ Devices are generally made up of a circuit board with censors attached that conn
 * accelerometers in an elevator
 * presence sensors in a room
 
-Two devices that are frequently used for prototyping are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, as wwell as a gyroscope and accelerometer, a magnetometer and a Wi-Fi chip. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what you need for your scenario. 
+Two devices that are frequently used for prototyping are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, as well as a gyroscope and accelerometer, a magnetometer and a Wi-Fi chip. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what you need for your scenario. 
 
 The [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) enable you to build apps that run on your devices so they can perform the tasks you need. With the SDKs, you can send telemetry to your IoT hub, receive messages and updates from the IoT Hub, and so on.
 
@@ -87,11 +87,11 @@ Here is an example of how one company used IoT to save millions of dollars.
 
 There is a huge cattle ranch with hundreds of thousands of cows. It's a big deal to keep track of that many cows, and know how they're doing, and requires a lot of driving around. They attached sensors to every single cow, sending information such as the GPS coordinates and temperature to a back-end service to be written to a database.
 
-Then they have an analytical service that scans the incoming data and analyzes the data for each cow to check questions like these:
+Then they have an analytical service that scans the incoming data and analyzes the data for each cow to check questions like the following:
 
 * Is the cow running a temperature? How long has the cow been running a temperature? If it has been longer than a day, get the GPS coordinates and go find the cow, and if appropriate, treat it with antibiotics. 
 
-* Is the cow in the same place for more than a day? If so, get the GPS coordinates and go find the cow. Has it fallen off of a cliff? Is it injured? Does it need help? 
+* Is the cow in the same place for more than a day? If so, get the GPS coordinates and go find the cow. Has the cow fallen off of a cliff? Is the cow injured? Does the cow need help? 
 
 Implementing this IoT solution made it possible for the company to check and treat the cows quickly, and cut down on the amount of time they had to spend driving around checking on their animals, saving them a lot of money. For more real-life examples of how companies use IoT, see [Microsoft Technical Case Studies for IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
