@@ -102,6 +102,9 @@ metadata:
   name: azure-vote-back
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-back
   template:
     metadata:
       labels:
@@ -137,6 +140,9 @@ metadata:
   name: azure-vote-front
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-front
   template:
     metadata:
       labels:
