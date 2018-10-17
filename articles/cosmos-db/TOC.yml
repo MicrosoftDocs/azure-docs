@@ -361,6 +361,8 @@
         items:
           - name: .NET
             href: table-sdk-dotnet.md
+          - name: .NET Standard
+            href: table-sdk-dotnet-standard.md
           - name: Java
             href: table-sdk-java.md
           - name: Node.js
