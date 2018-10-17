@@ -6,7 +6,7 @@ author: seguler
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
 ---
 
@@ -23,7 +23,7 @@ This guide shows you how to use blobfuse, and mount a Blob storage container on 
 > 
 
 ## Install blobfuse on Linux
-Blobfuse binaries are available on [the Microsoft software repositories for Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software). In order to install blobfuse, configure one of these repositories.
+Blobfuse binaries are available on [the Microsoft software repositories for Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu and RHEL distributions. In order to install blobfuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the installation steps [here](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
 ### Configure the Microsoft package repository
 Configure the [Linux Package Repository for Microsoft Products](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -85,7 +85,7 @@ Blobfuse requires your credentials to be stored in a text file in the following 
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
 containerName mycontainer
 ```
 
@@ -93,6 +93,10 @@ Once you've created this file, make sure to restrict access so no other user can
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> If you have created the configuration file on Windows, make sure to run `dos2unix` to sanitize and convert to Unix format. 
+>
 
 ### Create an empty directory for mounting
 ```bash

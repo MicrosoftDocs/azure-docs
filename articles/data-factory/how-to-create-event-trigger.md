@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/11/2018
 ms.author: douglasl
 ---
 # Create a trigger that runs a pipeline in response to an event
@@ -74,7 +74,7 @@ The following table provides an overview of the schema elements that are related
 This section provides examples of event-based trigger settings.
 
 -   **Blob path begins with**('/containername/') – Receives events for any blob in the container.
--   **Blob path begins with**('/containername/blobs/foldername') – Receives events for any blobs in the containername container and foldername folder.
+-   **Blob path begins with**('/containername/blobs/foldername') – Receives events for any blobs in the containername container and foldername folder. You can also reference a subfolder; for example, '/containername/blobs/foldername/subfoldername/'.
 -   **Blob path begins with**('/containername/blobs/foldername/file.txt') – Receives events for a blob named file.txt in the foldername folder under the containername container.
 -   **Blob path ends with**('file.txt') – Receives events for a blob named file.txt at any path.
 -   **Blob path ends with**('/containername/blobs/file.txt') – Receives events for a blob named file.txt under container containername.

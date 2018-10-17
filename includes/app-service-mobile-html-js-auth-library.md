@@ -25,7 +25,7 @@ provider and generates an App Service authentication token after successful sign
 function, when complete, returns a JSON object that exposes both the user ID and App Service authentication token
 in the userId and authenticationToken fields, respectively. This token can be cached and reused until it expires.
 
-###<a name="client-auth"></a>How to: Authenticate with a provider (Client Flow)
+### <a name="client-auth"></a>How to: Authenticate with a provider (Client Flow)
 
 Your app can also independently contact the identity provider and then provide the returned token to your App Service for
 authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional
@@ -69,7 +69,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
 
-###<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
+### <a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
 
 The authentication information can be retrieved from the `/.auth/me` endpoint using an HTTP call with any AJAX
 library.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token
