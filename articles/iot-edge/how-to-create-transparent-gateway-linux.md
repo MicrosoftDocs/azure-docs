@@ -12,7 +12,7 @@ services: iot-edge
 
 # Create a Linux IoT Edge device that acts as a transparent gateway
 
-This article provides detailed instructions for using an IoT Edge device as a transparent gateway. For the rest of this article, the term *IoT Edge gateway* refers to an IoT Edge device used as a transparent gateway. For more detailed information, see [How an IoT Edge device can be used as a gateway][lnk-edge-as-gateway], which gives a conceptual overview.
+This article provides detailed instructions for using an IoT Edge device as a transparent gateway. For the rest of this article, the term *IoT Edge gateway* refers to an IoT Edge device used as a transparent gateway. For more detailed information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md), which gives a conceptual overview.
 
 >[!NOTE]
 >Currently:
@@ -22,9 +22,9 @@ This article provides detailed instructions for using an IoT Edge device as a tr
 
 The hard part about creating a transparent gateway is securely connecting the gateway to downstream devices. Azure IoT Edge allows you to use PKI infrastructure to set up secure TLS connections between these devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway.  To maintain reasonable security, the downstream device should confirm the identity of the Edge device because you only want your devices connecting to your gateways and not a potentially malicious gateway.
 
-You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security][lnk-iothub-x509] in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub owner CA), and a series of certificates, signed with this CA, and a CA for the Edge device.
+You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub owner CA), and a series of certificates, signed with this CA, and a CA for the Edge device.
 
-![Gateway setup][1]
+![Gateway setup](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 The gateway presents its Edge device CA certificate to the downstream device during the initiation of the connection. The downstream device checks to make sure the Edge device CA certificate is signed by the owner CA certificate. This process allows the downstream device to confirm the gateway comes from a trusted source.
 
@@ -32,8 +32,8 @@ The following steps walk you through the process of creating the certificates an
 
 ## Prerequisites
 1.	Install the Azure IoT Edge runtime on a Linux device you want to use as the transparent gateway.
-   * [Linux x64][lnk-install-linux-x64]
-   * [Linux ARM32][lnk-install-linux-arm]
+   * [Linux x64](./how-to-install-iot-edge-linux.md)
+   * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
 2.	Obtain the scripts to generate the required non-production certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway. 
 
@@ -129,7 +129,7 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
 6. In the Review template step, select **Submit**.
 
 ## Installation on the downstream device
-A downstream device can be any application using the [Azure IoT device SDK][lnk-devicesdk], such as the simple one described in [Connect your device to your IoT hub using .NET][lnk-iothub-getstarted]. A downstream device application has to trust the **owner CA** certificate in order to validate the TLS connections to the gateway devices. This step can usually be performed in two ways: at the OS level, or (for certain languages) at the application level.
+A downstream device can be any application using the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md), such as the simple one described in [Connect your device to your IoT hub using .NET](../iot-hub/quickstart-send-telemetry-dotnet.md). A downstream device application has to trust the **owner CA** certificate in order to validate the TLS connections to the gateway devices. This step can usually be performed in two ways: at the OS level, or (for certain languages) at the application level.
 
 ### OS level
 Installing this certificate in the OS certificate store will allow all applications to use the owner CA certificate as a trusted certificate.
@@ -182,31 +182,9 @@ The IoT Edge runtime can route messages sent from downstream devices just like m
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Refer to the [module composition article][lnk-module-composition] for more details on message routing.
+Refer to the [module composition article](./module-composition.md) for more details on message routing.
 
 [!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## Next steps
-[Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
-
-<!-- Images -->
-[1]: ./media/how-to-create-transparent-gateway/gateway-setup.png
-
-<!-- Links -->
-[lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
-[lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
-[lnk-module-composition]: ./module-composition.md
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
-[lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
-[lnk-module-dev]: module-development.md
-[lnk-iothub-getstarted]: ../iot-hub/quickstart-send-telemetry-dotnet.md
-[lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
-[lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
-[lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
-[lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md
-[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus
+[Understand the requirements and tools for developing IoT Edge modules](module-development.md).

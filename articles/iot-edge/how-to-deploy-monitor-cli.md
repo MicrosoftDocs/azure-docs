@@ -123,7 +123,7 @@ Before you can create a deployment, you have to be able to specify which devices
 }
 ```
 
-For more information about device twins and tags, see [Understand and use device twins in IoT Hub][lnk-device-twin].
+For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## Create a deployment
 
@@ -204,16 +204,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## Next steps
 
-Learn more about [Deploying modules to Edge devices][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Learn more about [Deploying modules to Edge devices](module-deployment-monitoring.md).
