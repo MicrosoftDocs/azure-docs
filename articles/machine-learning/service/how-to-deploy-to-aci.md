@@ -46,13 +46,13 @@ Configure the Docker image that is used to store all the model files.
 
 1. Use these two files to configure the Docker image in Python using the SDK as follows:
 
-    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configure-image)]
+    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configImage)]
 
 ## Configure the ACI container
 
 Configure the ACI container by specify the number of CPUs and gigabyte of RAM needed for your ACI container. The default of one core and 1 gigabyte of RAM is sufficient for many models. If you feel you need more later, recreate the image and redeploy the service.  
 
-[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configure-aci)]
+[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configAci)]
 
 ## Register a model
 
@@ -63,13 +63,13 @@ Register a model to use [`Webservice.deploy_from_model`](#deploy-from-registered
 ### Retrieve a registered model 
 If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model](tutorial-train-models-with-aml.md) tutorial] registered the model.  You then retrieve the registered model to deploy.
 
-[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=retrieve-image)]
+[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=retrieveModel)]
   
 ### Register a model file
 
 If your model was built elsewhere, you can still register it into your workspace.  To register a model, the model file (`sklearn_mnist_model.pkl` in this example) must be in the current working directory. Then register that file as a model called `sklearn_mnist` in the workspace with `Model.register()`.
 
-[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=register-model)]
+[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=registerModel)]
 
 
 ## Option 1: Deploy from model file
@@ -94,7 +94,7 @@ This option uses the SDK method, Webservice.deploy().
 
 1. Deploy your model file.
 
-    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option1-deploy)]
+    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option1Deploy)]
 
 1. You can now [test the web service](#test-web-service).
 
@@ -108,7 +108,7 @@ This option uses the SDK method, Webservice.deploy_from_model().
 
 1. Run the code to configure the Docker container and the ACI container and specify the registered model.
 
-    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option2-deploy)]
+    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option2Deploy)]
 
 1. You can now [test the web service](#test-web-service).
 
@@ -120,7 +120,7 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
 
     This method gives you more control over the image by creating it in a separate step.  The registered model (`model`) is included in the image.
 
-    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3-create-image)]
+    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3CreateImage)]
 
 **Time estimate**: Approximately 3 minutes.
 
@@ -128,7 +128,7 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
 
     Now deploy the image to ACI.  
         
-    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3-deploy)]
+    [!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
  
 **Time estimate**: Approximately 3 minutes.
 
@@ -140,7 +140,7 @@ You can now test the web service.
 
 The web service is the same no matter which method was used.  To get predictions, use the `run` method of the service.  
 
-[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=test-service)]
+[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=testService)]
 
 
 
@@ -148,7 +148,7 @@ The web service is the same no matter which method was used.  To get predictions
 
 If you're not going to use this web service, delete it so you don't incur any charges.
 
-[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=delete-service)]
+[!code-python[](~/service-code/docs/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=deleteService)]
 
 
 ## Next steps
