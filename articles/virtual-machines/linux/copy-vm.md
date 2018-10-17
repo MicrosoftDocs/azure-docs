@@ -35,8 +35,8 @@ You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvi
 ## Stop the source VM
 
 Deallocate the source VM by using [az vm deallocate](/cli/azure/vm#az-vm-deallocate).
-The following example deallocates the VM named **myVM** in the resource group
-**myResourceGroup**:
+The following example deallocates the VM named *myVM* in the resource group
+*myResourceGroup*:
 
 ```azurecli
 az vm deallocate \
