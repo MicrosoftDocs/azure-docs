@@ -51,9 +51,9 @@ sections:
 - title: Reference
   items:
   - type: list
-     style: unordered
-     items:
-     - title: Local Business Search Reference
-       href: local-search-reference.md
-     - title: Use and display requirements  
-       href: use-and-display-requirements.md
+    style: unordered
+    items:
+    - title: Local Business Search Reference
+      href: local-search-reference.md
+    - title: Use and display requirements  
+      href: use-and-display-requirements.md

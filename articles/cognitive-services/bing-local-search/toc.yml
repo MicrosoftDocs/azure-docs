@@ -9,13 +9,13 @@
 - name: Quickstarts  
   expanded: true
   items:
-  - name: Local Search C# quickstart
+  - name: C#
     href: local-quickstart.md
-  - name: Local Search Java quickstart
+  - name: Java
     href: local-search-java-quickstart.md
-  - name: Local Search Node quickstart
+  - name: Node
     href: local-search-node-quickstart.md
-  - name: Local Search Python quickstart
+  - name: Python
     href: local-search-python-quickstart.md
 - name: Reference
   expanded: true
