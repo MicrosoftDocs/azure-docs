@@ -312,7 +312,7 @@ The resources you deploy in Azure are similar to the resources you deployed in A
 
 The example Azure network infrastructure is configured as follows:
 
-* A standard hub (192.168.2.0/24) and spoke (10.100.0.0./16) VNet model. For more information about a hub-spoke network topology, see [Implement a hub-spoke network topology in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+* A standard hub (192.168.2.0/24) and spoke (10.100.0.0./16) VNet model. For more information about a hub-spoke network topology, see [Implement a hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 * The workloads are deployed in the spoke VNet and the ExpressRoute circuit is connected to the hub VNet.
 * The two VNets are connected using VNet peering.
 
