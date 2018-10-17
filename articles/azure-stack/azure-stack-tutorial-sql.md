@@ -119,7 +119,7 @@ On secondary SQL instances (replace <availability_group_name> with the AlwaysOn 
 >  ![Secondary SQL instance script](./media/azure-stack-tutorial-sqlrp/sql2.png)
 
 ### Configure contained database authentication
-Before adding a contained database to an availability group, ensure that the contained database authentication server option is set to 1 on every server instance that hosts an availability replica for the availability group. For more information, see [contained database authentication](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Before adding a contained database to an availability group, ensure that the contained database authentication server option is set to 1 on every server instance that hosts an availability replica for the availability group. For more information, see [contained database authentication](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Use these commands to set the contained database authentication server option for each SQL Server instance in the availability group:
 

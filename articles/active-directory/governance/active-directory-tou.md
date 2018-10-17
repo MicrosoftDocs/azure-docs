@@ -238,4 +238,4 @@ A: You can [review previously accepted Terms of use](#how-users-can-review-their
 
 ## Next steps
 
-- [Best practices for conditional access in Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Best practices for conditional access in Azure Active Directory](../../active-directory/conditional-access/best-practices.md)

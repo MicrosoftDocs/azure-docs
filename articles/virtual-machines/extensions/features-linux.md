@@ -62,7 +62,7 @@ Extension packages are downloaded from the Azure Storage extension repository, a
 > [!IMPORTANT]
 > If you have blocked access to *168.63.129.1* using the guest firewall, then extensions fail irrespective of the above.
 
-Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 To redirect agent traffic requests, the Linux Agent has proxy server support. However, this proxy server support does not apply extensions. You must configure each individual extension to work with a proxy.
 
@@ -256,7 +256,7 @@ In the preceding example output, the parent or 'package deployed version' is *WA
 
 The 'Goal state agent' is the auto update version.
 
-It is highly recommended that you always have auto update for the agent, [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Not having this enabled means you need to keep manually updating the agent, and not get bug and security fixes.
+It is highly recommended that you always have auto update for the agent, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Not having this enabled means you need to keep manually updating the agent, and not get bug and security fixes.
 
 #### Extension updates
 
