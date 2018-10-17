@@ -71,7 +71,7 @@ Copy the **HTTPS** URL generated when *ngrok* is run. This value is used when co
 
  ## Create a storage account
 
-Next, [create a new storage account](../storage/common/create-accound.md) and name it **functionlocaldebug**. Once the account is created, click on the **Events** option to create a new event subscription.
+Next, [create a new storage account](../storage/common/storage-quickstart-create-account.md) and name it **functionlocaldebug**. Once the account is created, click on the **Events** option to create a new event subscription.
 
 ![Add storage account event](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
