@@ -94,7 +94,8 @@ The body of the request contains the data source definition, which should includ
   
   * **connectionString**: Required. Specify the connection info to your Azure Cosmos DB database in the following format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
   For MongoDB collections, add **ApiKind=MongoDb** to the connection string: 
-`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
+`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  Avoid port numbers in the endpoint url. If you include the port number, Azure Search will be unable to index your Azure Cosmos DB database.
 * **container**:
   
   * **name**: Required. Specify the id of the database collection to be indexed.
