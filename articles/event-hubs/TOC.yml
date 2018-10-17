@@ -125,8 +125,6 @@
       href: event-hubs-metrics-azure-monitor.md
     - name: Event Hubs management libraries
       href: event-hubs-management-libraries.md
-    - name: Create and deploy an event hub using a Resource Manager template
-      href: event-hubs-resource-manager-namespace-event-hub.md
   - name: Use IP connection filters
     href: event-hubs-ip-filtering.md
   - name: Use virtual network service endpoints
