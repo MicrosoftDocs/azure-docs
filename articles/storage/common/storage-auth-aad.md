@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/09/2018
 ms.author: tamram
 ms.component: common
 ---

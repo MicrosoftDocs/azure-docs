@@ -2,21 +2,13 @@
 title: Azure Data Box limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box components and connections.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/10/2018
 ms.author: alkohli
-ms.custom: 
-
 ---
 # Azure Data Box limits
 

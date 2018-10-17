@@ -51,7 +51,7 @@ The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. I
 * Facilitates communication between modules on the IoT Edge device.
 * Facilitates communication between the IoT Edge device and the cloud.
 
-![IoT Edge runtime sends insights and reporting to IoT Hub][1]
+![IoT Edge runtime sends insights and reporting to IoT Hub](./media/about-iot-edge/runtime.png)
 
 How you use an Azure IoT Edge device is completely up to you. The runtime is often used to deploy AI to gateways which aggregate and process data from multiple other on premises devices, however this is just one option. Leaf devices could also be Azure IoT Edge devices, regardless of whether they are connected to a gateway or directly to the cloud.
 
@@ -67,15 +67,10 @@ Azure IoT Edge integrates seamlessly with Azure IoT solution accelerators to pro
 * Send a workload to a set of devices.
 * Monitor workloads running on devices in the field.
 
-![Telemetry, insights, and actions of devices are coordinated with the cloud][2]
+![Telemetry, insights, and actions of devices are coordinated with the cloud](./media/about-iot-edge/cloud-interface.png)
 
 ## Next steps
 
-Try out these concepts by [deploying IoT Edge on a simulated device][lnk-quickstart].
+Try out these concepts by [deploying IoT Edge on a simulated device](quickstart.md).
 
-<!-- Images -->
-[1]: ./media/about-iot-edge/runtime.png
-[2]: ./media/about-iot-edge/cloud-interface.png
-
-<!-- Links -->
-[lnk-quickstart]: quickstart.md
+ 
