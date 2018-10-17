@@ -201,7 +201,7 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
 
 You can use a code editor of your choice with the Azure Machine Learning SDK.
 
-1. Create your conda environment as described in step 2 of **Configure Visual Studio Code** above.
+1. Create your conda environment as described in step 2 of [Configure Visual Studio Code](#configure-visual-studio-code) above.
 1. Follow the instructions for each editor to use the conda environment. For example, you can follow the [PyCharm instructions](https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html).
 
 ## Next steps
