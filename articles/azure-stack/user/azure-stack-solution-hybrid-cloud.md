@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/24/2018
+ms.date: 10/18/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Tutorial: deploy a hybrid cloud solution with Azure and Azure Stack
+# Tutorial: Deploy a hybrid cloud solution with Azure and Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
