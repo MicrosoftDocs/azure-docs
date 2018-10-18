@@ -67,6 +67,8 @@ Azure AD Events will include information about the IP address and ClientType whe
 
 If additional logging is required, a registry key on the machine can be changed to enable verbose logging. Enable verbose logging for troubleshooting purposes only.
 
+If your Windows 7, 8, and 8.1 machines are behind a proxy server or firewall, HTTPS traffic (443) to passwordreset.microsoftonline.com should be allowed.
+
 ```
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
 ```
