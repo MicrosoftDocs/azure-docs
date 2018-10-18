@@ -2,18 +2,12 @@
 title: Set up your Azure Data Box| Microsoft Docs
 description: Learn how to cable and connect your Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -88,7 +82,9 @@ Perform the following steps to set up your device using the local web UI and the
 
     ![Device dashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
-Once the device setup is complete, you can connect to the device shares and copy the data from your computer to the device. 
+Once the data network interfaces are configured, you can also use the IP address of any of the DATA 1 - DATA 3 interfaces to access the local web UI at `https://<IP address of a data network interface>`. 
+
+After the device setup is complete, you can connect to the device shares and copy the data from your computer to the device. 
 
 ## Next steps
 

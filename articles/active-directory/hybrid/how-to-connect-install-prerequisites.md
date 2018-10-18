@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -24,11 +24,11 @@ This topic describes the pre-requisites and the hardware requirements for Azure 
 Before you install Azure AD Connect, there are a few things that you need.
 
 ### Azure AD
-* An Azure subscription or an [Azure trial subscription](https://azure.microsoft.com/pricing/free-trial/). This subscription is only required for accessing the Azure portal and not for using Azure AD Connect. If you are using PowerShell or Office 365, then you do not need an Azure subscription to use Azure AD Connect. If you have an Office 365 license, then you can also use the Office 365 portal. With a paid Office 365 license, you can also get into the Azure portal from the Office 365 portal.
-  * You can also use the [Azure portal](https://portal.azure.com). This portal does not require an Azure AD license.
+* An Azure AD tenant. You get one with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). You can use one of the following portals to manage Azure AD Connect:
+  * The [Azure portal](https://portal.azure.com).
+  * The [Office portal](https://portal.office.com).  
 * [Add and verify the domain](../active-directory-domains-add-azure-portal.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users then make sure this domain has been verified and you are not only using the contoso.onmicrosoft.com default domain.
 * An Azure AD tenant allows by default 50k objects. When you verify your domain, the limit is increased to 300k objects. If you need even more objects in Azure AD, then you need to open a support case to have the limit increased even further. If you need more than 500k objects, then you need a license, such as Office 365, Azure AD Basic, Azure AD Premium, or Enterprise Mobility and Security.
-* ADSyncPrep is a PowerShell script module that provides functions that are used to prepare your Active Directory environment for Azure AD Connect.  ADSyncPrep requires the [Azure AD Microsoft Online v1.1 PowerShell Module](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Version 2 will not work. You can install the module using the `Install-Module` cmdlet.  For more information see the link provided.
 
 ### Prepare your on-premises data
 * Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Office 365.
@@ -42,7 +42,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * It is recommended to [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
 
 ### Azure AD Connect server
-* Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials. The server must be using Windows Server standard or better.
+* Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better.
 * The Azure AD Connect server must have a full GUI installed. It is **not supported** to install on server core.
 * Azure AD Connect must be installed on Windows Server 2008 or later. This server may be a domain controller or a member server when using express settings. If you use custom settings, then the server can also be stand-alone and does not have to be joined to a domain.
 * If you install Azure AD Connect on Windows Server 2008 or Windows Server 2008 R2, then make sure to apply the latest hotfixes from Windows Update. The installation is not able to start with an unpatched server.
@@ -64,8 +64,8 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### Accounts
 * An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with. This account must be a **school or organization account** and cannot be a **Microsoft account**.
-* If you use express settings or upgrade from DirSync, then you must have an Enterprise Administrator account for your local Active Directory.
-* [Accounts in Active Directory](reference-connect-accounts-permissions.md) if you use the custom settings installation path.
+* If you use express settings or upgrade from DirSync, then you must have an Enterprise Administrator account for your on-premises Active Directory.
+* [Accounts in Active Directory](reference-connect-accounts-permissions.md) if you use the custom settings installation path or an Enterprise Administrator account for your on-premises Active Directory.
 
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.
@@ -179,7 +179,6 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
 The following is a list of components that Azure AD Connect installs on the server where Azure AD Connect is installed. This list is for a basic Express installation. If you choose to use a different SQL Server on the Install synchronization services page, then SQL Express LocalDB is not installed locally.
 
 * Azure AD Connect Health
-* Microsoft Online Services Sign-In Assistant for IT Professionals (installed but no dependency on it)
 * Microsoft SQL Server 2012 Command Line Utilities
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client

@@ -71,7 +71,7 @@ After downloading the files, update the connection string information within the
 
 ```java
 cassandra_host=<FILLME_with_CONTACT POINT> 
-cassandra_host = 10350 
+cassandra_port = 10350 
 cassandra_username=<FILLME_with_USERNAME> 
 cassandra_password=<FILLME_with_PRIMARY PASSWORD> 
 ```

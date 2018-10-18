@@ -44,7 +44,7 @@ To fully enable Profiler, you must change the configuration in three locations:
 
    ![Location of the instrumentation key](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. To finish setting up the Application Insights instance for Profiler, complete the procedure that's described in [Enable Profiler. You don't need to link the web apps, because the steps are specific to the app services resource. Ensure that Profiler is enabled in the **Configure Profiler** pane.
+1. To finish setting up the Application Insights instance for Profiler, complete the procedure that's described in [Enable Profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler). You don't need to link the web apps, because the steps are specific to the app services resource. Ensure that Profiler is enabled in the **Configure Profiler** pane.
 
 
 ## Set up the application source code
