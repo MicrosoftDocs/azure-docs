@@ -258,7 +258,7 @@ sudo yum -q --security check-update
 
 There is currently no method supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
 
-## Ports
+##<a name="ports"></a>Network Planning
 
 The following addresses are required specifically for Update Management. Communication to these addresses occurs over port 443.
 
