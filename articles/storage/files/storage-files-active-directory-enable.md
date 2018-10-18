@@ -64,7 +64,7 @@ Before you enable Azure AD over SMB for Azure Files, make sure you have complete
 
     To verify that your VM and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
 
-## Enable Azure AD authentication over SMB for your account
+## Enable Azure AD authentication over SMB
 
 To enable Azure AD authentication over SMB for Azure Files, you can set a property on storage accounts created after August 29, 2018, using the Azure Storage Resource Provider from PowerShell or Azure CLI. Setting the property in the Azure portal is not supported for the preview release. 
 
@@ -76,19 +76,19 @@ Keep in mind that you can enable Azure AD authentication over SMB only after you
 
 To enable Azure AD authentication over SMB using the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. In the Azure portal, navigate to your storage account.
+1. In the Azure portal, navigate to your existing storage account, or [create a storage account](../common/storage-quickstart-create-account.md).
 2. In the **Settings** section, select **Configuration**.
 3. Enable **Azure Active Directory Authentication for Azure Files (preview)**.
-4. Select the file share, then select **Access Control (IAM)**.
-5. Assign a custom RBAC role that you have previously defined to your file share.
 
-You can define a custom RBAC role using PowerShell or Azure CLI.  
+The following image shows how to enable Azure AD authentication over SMB for your storage account.
 
+![Enable Azure AD authentication over SMB in the Azure portal](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
+  
 ### PowerShell  
 
-Install the `AzureRM.Storage 6.0.0-preview` PowerShell module. For information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+To enable Azure AD authentication over SMB from Azure PowerShell, first install the `AzureRM.Storage 6.0.0-preview` module. For information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-Call [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) and set the **EnableAzureFilesAadIntegrationForSMB** parameter to **true**. In the example below, remember to replace the placeholder values with your own values.
+Next, create a new storage account, then call [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) and set the **EnableAzureFilesAadIntegrationForSMB** parameter to **true**. In the example below, remember to replace the placeholder values with your own values.
 
 ```powershell
 # Create a new storage account
@@ -114,7 +114,7 @@ To enable Azure AD authentication over SMB from Azure CLI 2.0, first install the
 az extension add --name storage-preview
 ```
   
-Call [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) and set the `--file-aad` property to **true**. In the example below, remember to replace the placeholder values with your own values.
+Next, create a new storage account, then call [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) and set the `--file-aad` property to **true**. In the example below, remember to replace the placeholder values with your own values.
 
 ```azurecli-interactive
 # Create a new storage account
@@ -207,15 +207,15 @@ az role definition create --role-definition "<Custom-role-def-JSON-path>"
 
 ### Assign the custom role to the target identity
 
-Next, use PowerShell or Azure CLI to create the role and assign it to an Azure AD identity. 
+Next, use PowerShell or Azure CLI to assign the custom role to an Azure AD identity. 
 
 The following PowerShell command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
-
-When running the following sample script, remember to replace placeholder values with your own values.
 
 **PowerShell**
 
 The following PowerShell command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+
+When running the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
 ```powershell
 #Get the name of the custom role
@@ -230,7 +230,7 @@ New-AzureRmRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName 
   
 The following CLI 2.0 command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
-When running the following sample script, remember to replace placeholder values with your own values.
+When running the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
 ```azurecli-interactive
 #List the custom roles
