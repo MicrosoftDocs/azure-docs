@@ -43,7 +43,7 @@ Microsoft requires the following information to deploy HANA large instance units
   - In the Linux OS, the sidadm user has a user ID. This ID is required to create the necessary SAP HANA-related disk volumes. If you're running multiple HANA instances on the unit, list all the sidadm users. 
 - The Azure subscription ID for the Azure subscription to which SAP HANA on Azure HANA large instances are going to be directly connected. This subscription ID references the Azure subscription, which is going to be charged with the HANA large instance unit or units.
 
-After you provide the preceding information, Microsoft provisions SAP HANA on Azure (large instances). Microsoft returns to you the information necessary to link your Azure virtual networks to HANA large instances, and to access the HANA large instance units.
+After you provide the preceding information, Microsoft provisions SAP HANA on Azure (large instances). Microsoft sends you information to link your Azure virtual networks to HANA large instances. You can also access the HANA large instance units.
 
 Use the following sequence to connect to the HANA large instances after Microsoft has deployed it:
 
