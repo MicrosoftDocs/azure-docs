@@ -24,6 +24,8 @@ LUIS includes a set of prebuilt intents from the prebuilt domains for quickly ad
 
 1. Select the **Calendar** intent then select **Add domain** button.
 
+    ![Add Calendar prebuilt domain](./media/luis-prebuilt-domains/add-prebuilt-domain.png)
+
 1. Select **Intents** in the left navigation to view the Calendar intents. Each intent from this domain is prefixed with `Calendar.`. Along with utterances, two entities for this domain are added to the app: `Calendar.Location` and `Calendar.Subject`. 
 
 ## Train and publish
