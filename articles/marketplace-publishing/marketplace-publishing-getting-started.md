@@ -47,7 +47,7 @@ The first thing you want to do as a publisher is to define what kind of solution
 To publish a virtual machine [solution](https://createopportunity.azurewebsites.net) to the Marketplace, complete the Microsoft Azure Certified **Solution Nomination Form**.
 
 >[!NOTE]
-> If you are working with a Partner Account Manager or a DX Partner Manager, ask them to nominate your solution for the Azure Certified program. You can also go to the [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpage and fill out the application form. Enter the email of your Partner Account Manager or DX Partner Manager in the **Microsoft Sponsor Contact** box.
+> If you are working with a Partner Account Manager or OCP Partner Development Manager, ask them to nominate your solution for the Azure Certified program. You can also go to the [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpage and fill out the application form. Enter the email of your Partner Account Manager or Partner Development Manager in the **Microsoft Sponsor Contact** box.
 
 If you meet the eligibility criteria in the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833) and your application is approved, we start working with you to onboard your solution to the Marketplace.
 
