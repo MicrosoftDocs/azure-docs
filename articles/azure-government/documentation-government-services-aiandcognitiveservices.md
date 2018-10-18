@@ -75,10 +75,6 @@ For more information, see [global Azure documentation](../cognitive-services/lui
 
 #### Speech (Preview)
 
-### Data Considerations
-
-Data considerations for Cognitive Services are not yet available. 
-
 ##### Translator Speech (Speech Translation):
 
 The following variations exist for Translator Speech from global Azure:
@@ -89,6 +85,10 @@ The following variations exist for Translator Speech from global Azure:
 - Available SKUs: S1, S2, S3, S4
 
 For more information, see the [global Azure documentation](../cognitive-services/speech/home.md) for Translator Speech. 
+
+### Data Considerations
+
+Data considerations for Cognitive Services are not yet available. 
 
 ## Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
