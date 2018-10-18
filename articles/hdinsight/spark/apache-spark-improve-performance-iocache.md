@@ -1,5 +1,5 @@
 ---
-title: Improve Performance of Apache Spark workloads using Azure HDInsight IO Cache
+title: Improve Performance of Apache Spark workloads using Azure HDInsight IO Cache (Preview)
 description: Learn about Azure HDInsight IO Cache and how to use it to improve Apache Spark performance.
 services: hdinsight
 ms.service: hdinsight
@@ -8,7 +8,7 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
 ---
-# Improve Performance of Apache Spark workloads using Azure HDInsight IO Cache
+# Improve Performance of Apache Spark workloads using Azure HDInsight IO Cache (Preview)
 
 IO Cache is a data caching service for Azure HDInsight that improves the performance of Apache Spark jobs. IO Cache uses an open-source caching component called RubiX. RubiX is a local disk cache for use with big data analytics engines that access data from cloud storage systems. RubiX is unique among caching systems, because it uses Solid-State Drives (SSDs) rather than reserve operating memory for caching purposes. The IO Cache service launches and manages RubiX Metadata Servers on each worker node of the cluster. It also configures all services of the cluster for transparent use of RubiX cache.
 
@@ -27,18 +27,30 @@ You don't have to make any changes to your Spark jobs to see performance increas
 
 Azure HDInsight IO Cache is deactivated by default in preview. IO Cache is available on Azure HDInsight 3.6+ Spark clusters, which run Apache Spark 2.3.  To activate IO Cache, do the following:
 
-1. Select your HDInsight cluster in the portal
-1. In the **Overview** page (opened by default when you select the cluster) click **Ambari Home** under **Cluster dashboards**
-1. Click the **IO Cache** service on the left
-1. Click **Actions** and **Activate**
+1. Select your HDInsight cluster in the portal.
+1. In the **Overview** page (opened by default when you select the cluster) select **Ambari Home** under **Cluster dashboards**.
+1. Select the **IO Cache** service on the left.
+1. Select **Actions** and **Activate**.
+    ![Enabling the IO Cache service in Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Enabling the IO Cache service in Ambari")
+1. Confirm restart of all the affected services on the cluster.
 
-![Enabling the IO Cache service in Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Enabling the IO Cache service in Ambari")
-
-Confirm restart of all the affected services on the cluster.
-  
 >[!NOTE] 
 > Even though the progress bar shows activated, IO Cache isn't actually enabled until you restart the service.
 
 ## Troubleshooting
   
-You may get disk space errors running Spark jobs after enabling IO Cache. These errors occur because Spark also uses local disk storage for storing data during shuffling operations. Spark may run out of SSD space once IO Cache is enabled and the space for Spark storage is reduced. The amount of space used by IO Cache defaults to half of the total SSD space. The disk space usage for IO Cache is configurable in Ambari. If you get disk space errors, try to reduce the amount of SSD space used for IO Cache and restart the service. If that does not work, disable IO Cache.
+You may get disk space errors running Spark jobs after enabling IO Cache. These errors occur because Spark also uses local disk storage for storing data during shuffling operations. Spark may run out of SSD space once IO Cache is enabled and the space for Spark storage is reduced. The amount of space used by IO Cache defaults to half of the total SSD space. The disk space usage for IO Cache is configurable in Ambari. If you get disk space errors, reduce the amount of SSD space used for IO Cache and restart the service. To change the space set for IO Cache, do the following steps:
+
+1. In Ambari, select the **HDFS** service on the left.
+1. Select the **Configs** and **Advanced** tabs.
+    ![Edit HDFS Advanced Configuration](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Edit HDFS Advanced Configuration")
+1. Scroll down and expand the **Custom core-site** area.
+1. Locate the property **hadoop.cache.data.fullness.percentage**.
+1. Change the value in the box.
+    ![Edit IO Cache Fullness Percentage](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Edit IO Cache Fullness Percentage")
+1. Select **Save** on the upper right.
+1. Select **Restart** > **Restart All Affected**.
+    ![Restart all affected](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Restart all affected")
+1. Select **Confirm Restart All**.
+
+If that does not work, disable IO Cache.
