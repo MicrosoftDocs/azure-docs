@@ -63,7 +63,7 @@ After creating your Azure account, follow the steps in the next section to start
 
 To add a Speech service resource (free or paid tier) to your Azure account:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/) using your Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
 
 1. Select **Create a resource** at the top left of the portal.
 
