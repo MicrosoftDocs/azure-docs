@@ -7,13 +7,13 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
 ---
 
-# Publish a knowledge base in Go
+# Quickstart: Publish a knowledge base in Go
 
 The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
 

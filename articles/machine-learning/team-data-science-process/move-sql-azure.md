@@ -4,7 +4,7 @@ description: Create SQL Table and load data to SQL Table
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa

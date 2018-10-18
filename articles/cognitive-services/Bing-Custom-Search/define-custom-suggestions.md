@@ -7,7 +7,7 @@ author: brapel
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-custom-search
+ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel

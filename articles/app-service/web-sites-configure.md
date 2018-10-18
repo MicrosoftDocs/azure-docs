@@ -69,6 +69,7 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 This section contains name/value pairs that your web app will load on start up. 
 
 * For .NET apps, these settings are injected into your .NET configuration `AppSettings` at runtime, overriding existing settings. 
+* For App Service on Linux or Web App for Containers, if you have nested json key structure in your name like `ApplicationInsights:InstrumentationKey` you will need to have `ApplicationInsights__InstrumentationKey` as key name. So notice that any `:` should be replaced by `__` (i.e. double underscore).
 * PHP, Python, Java and Node applications can access these settings as environment variables at runtime. For each app setting, two environment variables are created; one with the name specified by the app setting entry, and another with a prefix of APPSETTING_. Both contain the same value.
 
 App settings are always encrypted when stored (encrypted-at-rest).

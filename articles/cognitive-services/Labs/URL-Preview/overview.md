@@ -1,14 +1,16 @@
 ---
-title: What is Project URL Preview? - Microsoft Cognitive Services | Microsoft Docs
+title: What is Project URL Preview?
+titlesuffix: Azure Cognitive Services
 description: Introduction to the Project URL Preview.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # What is Project URL Preview?

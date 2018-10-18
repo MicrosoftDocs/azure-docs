@@ -148,6 +148,18 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
+## Create an Azure AD B2C application
+
+Communication with Azure AD B2c occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. Select **Applications**, and then select **Add**.
+5. Enter a name for the application, for example *testapp1*.
+6. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
+7. Click **Create**.
+
 ## Update and test the relying party file
 
 Update the relying party (RP) file that initiates the user journey that you created.
@@ -156,4 +168,5 @@ Update the relying party (RP) file that initiates the user journey that you crea
 2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInTwitter`.
 3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_twitter`
 4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignTwitter).
-5. Save your changes, upload the file, and test it by opening it and clicking **Run now**.
+5. Save your changes, upload the file, and then select the new policy in the list.
+6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.

@@ -73,7 +73,7 @@ Read more to learn how to mount a [new or existing storage account](persisting-s
 * Cloud Shell requires an Azure file share to be mounted
 * Cloud Shell uses the same Azure file share for both Bash and PowerShell
 * Cloud Shell is assigned one machine per user account
-* Cloud Shell persists $Home using a 5-GB image held in your file share
+* Cloud Shell persists $HOME using a 5-GB image held in your file share
 * Permissions are set as a regular Linux user in Bash
 
 Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell](features-powershell.md).

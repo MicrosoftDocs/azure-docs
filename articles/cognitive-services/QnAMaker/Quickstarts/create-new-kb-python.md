@@ -7,7 +7,7 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
@@ -29,7 +29,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ![Azure dashboard service key](../media/sub-key.png)
 
-For more help with Visual Studio and Python: [Work with Python in Visual Studio on Windows](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio).
+For more help with Visual Studio and Python: [Work with Python in Visual Studio on Windows](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio).
 
 ## Create knowledge base
 
@@ -133,8 +133,8 @@ req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }

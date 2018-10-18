@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -42,7 +42,7 @@ You will need the following in place before you register:
 
 Before registering Azure Stack with Azure, you must have:
 
-- The subscription ID for an Azure subscription. Only EA, CSP, or CSP shared services subscriptions are supported for registration. CSPs need to decide whether to [use a CSP or CSPSS subscription](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>To get the ID, sign in to Azure, click **All services**. Then, under the **GENERAL** category, select **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
+- The subscription ID for an Azure subscription. Only EA, CSP, or CSP shared services subscriptions are supported for registration. CSPs need to decide whether to [use a CSP or APSS subscription](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>To get the ID, sign in to Azure, click **All services**. Then, under the **GENERAL** category, select **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
 
   > [!Note]  
   > Germany cloud subscriptions are not currently supported.
@@ -208,11 +208,11 @@ Connected environments can access the internet and Azure. For these environments
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
-      -BillingModel Capacity
+      -BillingModel Capacity `
       -RegistrationName $RegistrationName
   ```
    > [!Note]  
-   > You can disable usage reporting with the UsageReportingEnabled parameter for the **Set-AzsRegistration** cmdlet. Set the parameter to false. For example: `UsageReportingEnabled
+   > You can disable usage reporting with the UsageReportingEnabled parameter for the **Set-AzsRegistration** cmdlet by setting the parameter to false. 
    
   For more information on the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 

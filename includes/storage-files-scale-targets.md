@@ -1,4 +1,4 @@
-| Resource | Standard file shares shares | Premium file shares (preview) |
+| Resource | Standard file shares | Premium file shares (preview) |
 |----------|---------------|------------------------------------------|
 | Minimum size of a file share | (no minimum; pay as you go) | 100 GiB |
 | Max size of a file share | 5 TiB | 5 TiB |

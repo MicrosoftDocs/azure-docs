@@ -45,9 +45,6 @@ Deploying services within a virtual network provides the following capabilities:
 
 ### Services that can be deployed into a virtual network
 
-Each service directly deployed into virtual network has specific requirements for routing and the types of traffic that must be allowed into and out of subnets. The different services that can be deployed into a virtual network are categorized below. Select the specific service in the table to learn more about it and how to integrate it with your virtual network. 
-
-
 |Category|Service|
 |-|-|
 | Compute | Virtual machines: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Cloud Service](https://msdn.microsoft.com/library/azure/jj156091): Virtual network (classic) only<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)  |

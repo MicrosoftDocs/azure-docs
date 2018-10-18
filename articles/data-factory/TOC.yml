@@ -103,7 +103,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
+    href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
     href: samples-powershell.md
 - name: Concepts
@@ -342,6 +342,8 @@
       href: compute-linked-services.md
   - name: Control flow
     items:
+    - name: Append Variable Activity
+      href: control-flow-append-variable-activity.md
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md
     - name: Filter Activity
@@ -354,6 +356,8 @@
       href: control-flow-if-condition-activity.md
     - name: Lookup Activity
       href: control-flow-lookup-activity.md
+    - name: Set Variable Activity
+      href: control-flow-set-variable-activity.md
     - name: Until Activity
       href: control-flow-until-activity.md
     - name: Wait Activity
@@ -453,7 +457,7 @@
   - name: FAQ
     href: frequently-asked-questions.md
   - name: Roadmap
-    href: https://azure.microsoft.com/en-us/roadmap/?tag=data-factory
+    href: https://azure.microsoft.com/roadmap/?tag=data-factory
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region

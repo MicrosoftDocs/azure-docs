@@ -142,10 +142,9 @@ When using service endpoints for Azure SQL Database, review the following consid
 
 #### ExpressRoute
 
-If your network is connected to the Azure network through use of [ExpressRoute][expressroute-indexmd-744v], each circuit is configured with two public IP addresses at the Microsoft Edge. The two IP addresses are used to connect to Microsoft Services, such as to Azure Storage, by using Azure Public Peering.
-
-To allow communication from your circuit to Azure SQL Database, you must create IP network rules for the public IP addresses of your circuits. In order to find the public IP addresses of your ExpressRoute circuit, open a support ticket with ExpressRoute by using the Azure portal.
-
+If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP address(es) that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  
+To allow communication from your circuit to Azure SQL Database, you must create IP network rules for the public IP addresses of your NAT.
 
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.
@@ -182,7 +181,7 @@ PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. I
 #### Azure SQLDB Blob Auditing
 Blob auditing pushes audit logs to your own storage account. If this storage account uses the VNet Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
 
-## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
+## Adding a VNet Firewall rule to your server without turning On VNet Service Endpoints
 
 Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingServiceEndpoint** flag.
 
