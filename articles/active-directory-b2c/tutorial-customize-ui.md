@@ -38,7 +38,7 @@ You create an Azure storage account and container and then place basic HTML and 
 
 Although you can store your files in many ways, for this tutorial, you store them in Azure Blob storage.
 
-1. Make sure you're using the directory that contains your Azure subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
+1. Make sure you're using the directory that contains your Azure subscription. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
 
     ![Switch to subscription directory](./media/tutorial-customize-ui/switch-directories.png)
 
@@ -53,11 +53,11 @@ Although you can store your files in many ways, for this tutorial, you store the
 ### Create a container
 
 1. On the overview page of the storage account, select **Blobs**.
-2. Select **Container**, enter a name for the container, choose **Blob (anaonymous read access for blobs only)**, and then click **OK**.
+2. Select **Container**, enter a name for the container, choose **Blob (anonymous read access for blobs only)**, and then click **OK**.
 
 ### Enable CORS
 
- Azure AD B2C code in a browser uses a modern and standard approach to load custom content from a specific URL that you specify in a policy to point to your own HTML5/CSS files. Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the resource originated.
+ Azure AD B2C code in a browser uses a modern and standard approach to load custom content from a URL that you specify in a policy. Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from other domains.
 
 1. In the menu, select **CORS**.
 2. For **Allowed origins**, **Allowed headers**, and **Exposed headers**, enter an asterisk `*`.
@@ -70,9 +70,9 @@ Although you can store your files in many ways, for this tutorial, you store the
 
 ### Create the customization files
 
-To customize the UI of the sign-up experience, you start by creating the a simple HTML and CSS file. You can configure your HTML any way you want, but it must have a **div** element with an identifier of `api`. For example, `<div id="api"></div>`. Azure AD B2C injects elements into the `api` container when the page is displayed.
+To customize the UI of the sign-up experience, you start by creating a simple HTML and CSS file. You can configure your HTML any way you want, but it must have a **div** element with an identifier of `api`. For example, `<div id="api"></div>`. Azure AD B2C injects elements into the `api` container when the page is displayed.
 
-1. In a local folder, create the following simple file and make sure that you change `your-storage-account` to the name of the storage account and `your-container` to the name of the container that you created. For example, `https://store1.blob.core.windows.net/b2c/style.css`.
+1. In a local folder, create the following file and make sure that you change `your-storage-account` to the name of the storage account and `your-container` to the name of the container that you created. For example, `https://store1.blob.core.windows.net/b2c/style.css`.
 
     ```html
     <!DOCTYPE html>
@@ -88,7 +88,7 @@ To customize the UI of the sign-up experience, you start by creating the a simpl
     </html>
     ```
 
-    The **api** div element defined in the HTML example is required for any HTML customization file that you create. 
+    The page can be designed any way that you want, but the **api** div element is required for any HTML customization file that you create. 
 
 3. Save the file as *custom-ui.html*.
 4. Create the following simple CSS that centers all elements on the sign-up or sign-in page including the elements that Azure AD B2C injects.
@@ -137,7 +137,7 @@ To complete the steps in this tutorial, you need to create a test application an
 
 ### Create an Azure AD B2C application
 
-Communication with Azure AD B2c occurs through an application that you create in your tenant. The following steps create an application that redirects the suthorization token that is returned to [https://jwt.ms](https://jwt.ms).
+Communication with Azure AD B2c occurs through an application that you create in your tenant. The following steps create an application that redirects the authorization token that is returned to [https://jwt.ms](https://jwt.ms).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
@@ -153,7 +153,7 @@ To test your customization files, you create a built-in sign-up or sign-in polic
 
 1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**, and then click **Add**.
 2. Enter a name for the policy. For example, *signup_signin*. The prefix *B2C_1* is added to the name.
-3. Select **Identity providers**, set **Email signup** for a local account, and then click **OK**.
+3. Select **Identity providers**, set **Email sign-up** for a local account, and then click **OK**.
 4. Select **Sign-up attributes**, choose the attributes that you want to collect from the user during sign-up. For example, set **Country/Region**, **Display Name**, and **Postal Code**, and then click **OK**.
 5. Select **Application claims**, choose the claims that you want returned in the authorization tokens sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new** and **User's Object ID**, and then click **OK**.
 6. Select **Page UI customization**, select **Unified sign-up or sign-in page**, and the click **Yes** for **Use custom page**.
@@ -167,7 +167,7 @@ To test your customization files, you create a built-in sign-up or sign-in polic
 
     ![Run the sign-up or sign-in policy](./media/tutorial-customize-ui/signup-signin.png)
 
-    You should see a page similar to the following with the elements centered based on the CSS file that you created:
+    You should see a page similar to the following example with the elements centered based on the CSS file that you created:
 
     ![Policy results](./media/tutorial-customize-ui/run-now.png) 
 
