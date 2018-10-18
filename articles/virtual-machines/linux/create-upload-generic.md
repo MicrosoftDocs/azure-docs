@@ -45,14 +45,14 @@ This article focuses on general guidance for running your Linux distribution on 
 * The maximum size allowed for the VHD is 1,023 GB.
 * When installing the Linux system we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks.
 * Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
-* Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
 
 ### Installing kernel modules without Hyper-V
 Azure runs on the Hyper-V hypervisor, so Linux requires certain kernel modules to run in Azure. If you have a VM that was created outside of Hyper-V, the Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs), unless the VM detects that it's running on a Hyper-V environment. When using a different virtualization system (such as Virtualbox, KVM, and so on) to prepare your Linux image, you may need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk.  This known issue is for systems based on the upstream Red Hat distribution, and possibly others.
 
-The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Consult your distribution's documentation or support for the proper procedure.  Here is one example for rebuilding the initrd by using the mkinitrd utility:
+The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Consult your distribution's documentation or support for the proper procedure.  Here is one example for rebuilding the initrd by using the `mkinitrd` utility:
 
 1. Back up the existing initrd image:
 
@@ -72,13 +72,13 @@ VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs c
 
 * The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
 
-In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using qemu-img to convert (if needed) and resize the VHD.
+In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
 
 > [!NOTE]
-> There is a [known bug in qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. We recommend using either qemu-img 2.2.0 or lower, or 2.6 or higher.
+> There is a [known bug in qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. We recommend using either `qemu-img` 2.2.0 or lower, or 2.6 or higher.
 > 
 
-1. Resizing the VHD directly using tools such as qemu-img or vbox-manage may result in an unbootable VHD.  We recommend first converting the VHD to a RAW disk image.  If the VM image was created as a RAW disk image (the default for some hypervisors such as KVM), then you may skip this step.
+1. Resizing the VHD directly using tools such as `qemu-img` or `vbox-manage` may result in an unbootable VHD.  We recommend first converting the VHD to a RAW disk image.  If the VM image was created as a RAW disk image (the default for some hypervisors such as KVM), then you may skip this step.
  
     ```
     qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
@@ -92,7 +92,7 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 
     MB=$((1024*1024))
     size=$(qemu-img info -f raw --output json "$rawdisk" | \
-        gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+    gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
     rounded_size=$((($size/$MB + 1)*$MB))
     
@@ -148,7 +148,7 @@ The following patches must be included in the kernel. This list can't be complet
 * [scsi_sysfs: protect against double execution of __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## The Azure Linux Agent
-The [Azure Linux Agent](../extensions/agent-linux.md) (waagent) provisions a Linux virtual machine in Azure. You can get the latest version, file issues, or submit pull requests at the [Linux Agent GitHub repo](https://github.com/Azure/WALinuxAgent).
+The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Linux virtual machine in Azure. You can get the latest version, file issues, or submit pull requests at the [Linux Agent GitHub repo](https://github.com/Azure/WALinuxAgent).
 
 * The Linux agent is released under the Apache 2.0 license. Many distributions already provide RPM or deb packages for the agent, and these packages can easily be installed and updated.
 * The Azure Linux Agent requires Python v2.6+.
@@ -170,7 +170,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) (waagent) provisions a Lin
 
 2. Install the Azure Linux Agent.
   
-    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
+    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
 
 3. Ensure that the SSH server is installed, and configured to start at boot time.  This configuration is usually the default.
 
