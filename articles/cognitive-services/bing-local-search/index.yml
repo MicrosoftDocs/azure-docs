@@ -48,8 +48,10 @@ sections:
     items:
       type: paragraph
       text: "What is Bing Local Business Search?"
+      href: overview.md
       type: paragraph
       text: "Geographic search boundaries" 
+      href: specify-geographic-search.md
 - title: Reference
   items:
   - type: paragraph
@@ -58,5 +60,8 @@ sections:
     style: unordered
     items:
       type: paragraph
-      text: Use and display requirements
-      type: Local Business Search API reference  
+      text: "Use and display requirements"
+      href: use-and-disply-requirements.md
+      type: paragraph
+      text: "Local Business Search API reference"
+      href: local-search-reference.md
