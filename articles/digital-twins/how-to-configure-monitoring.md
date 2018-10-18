@@ -69,7 +69,7 @@ To enable diagnostic logs for an instance:
 
     ![Diagnostic settings two][5]
 
-    Diagnostic logs are often saved using [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide) and shared with [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal). Both options can be set.
+    Diagnostic logs are often saved using [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide) and shared with [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal). Both options can be selected.
 
 >[!TIP]
 >Use **diagnostic logs** for insights into resource operations.
@@ -118,7 +118,7 @@ Azure Digital Twins also supports application-specific logging and security audi
 
 Learn more about Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).
 
-Dive deeper into Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 Read more about [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal).
 
