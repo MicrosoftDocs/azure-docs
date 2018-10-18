@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Use the Translator Text API to translate a string using Python
 
-In this quickstart you'll learn how to translate a text string from English to Italian and German using Python and the Translator Text REST API.
+In this quickstart, you'll learn how to translate a text string from English to Italian and German using Python and the Translator Text REST API.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) to get a subscription key.
 
@@ -37,11 +37,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests uuid`.
 
-The first comment tells your Python interpreter to use UTF-8 encoding. Next, modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator Text API.
+The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator Text API.
 
 ## Set the subscription key, base url, and path
 
-This sample attempts to read your Translator Text subscription key from the environment variable `TRANSLATOR_TEXT_KEY`, which you need to set. If you're unfamiliar with how to set an environment variable, you can set `subscriptionKey` as a string and comment out the conditional statement.
+This sample will try to read your Translator Text subscription key from the environment variable `TRANSLATOR_TEXT_KEY`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
 
 Copy this code into your project:
 
@@ -61,7 +61,7 @@ else:
 
 Currently, one endpoint is available for Translator Text, and it's set as the `base_url`. `path` sets the `translate` route and identifies that we want to hit version 3 of the API.
 
-The `params` are used to set the output languages that we are translating to: `it` and `de`, Italian and German.
+The `params` are used to set the output languages. In this sample we're translating from English to Italian and German: `it` and `de`.
 
 >[!NOTE]
 > For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
@@ -76,7 +76,7 @@ constructed_url = base_url + path + params
 ## Add headers
 
 The easiest way to authenticate a request is to pass in your subscription key as an
-`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your subscription key for an access token, and pass the access token along as an `Authorization` header to validate your request. See [Authentication](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) for additional details.
+`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your subscription key for an access token, and pass the access token along as an `Authorization` header to validate your request. For more information, see [Authentication](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 Copy this code snippet into your project:
 
@@ -152,7 +152,15 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including transliteration and language identification, as well as other sample Translator Text projects on GitHub.
-
 > [!div class="nextstepaction"]
 > [Explore Python examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=python)
+
+## See also
+
+In addition to text translation, learn how to use the Translator Text API to:
+
+* [Transliterate text](#)
+* [Identify the language by input](#)
+* [Get alternate translations](#)
+* [Get a list of supported languages](#)
+* [Determine sentence lengths from an input](#)
