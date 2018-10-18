@@ -194,7 +194,7 @@ All configuration items are set before creating the application gateway. The fol
    $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
 
-   For the Application Gateway V2 SKU, use the following command:
+   For the Application Gateway v2 SKU, use the following command:
 
    ```powershell
    $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
