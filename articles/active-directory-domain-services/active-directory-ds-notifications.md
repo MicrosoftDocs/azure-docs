@@ -22,7 +22,7 @@ ms.author: ergreenl
 
 Notifications for Azure AD Domain Services allows you to be updated as soon as a health alert is detected on your managed domain.  
 
-Note that this feature is only available for managed domains that are not on classic virtual networks.
+This feature is only available for managed domains that are not on classic virtual networks.
 
 
 ## How to check your Azure AD Domain Services email notification settings
@@ -47,20 +47,20 @@ The email specifies the managed domain that the alert is present on, as well as 
 
 ## Why would I receive email notifications?
 
-Azure AD Domain Services sends email notifications for important updates about your domain.  These notifications are only for urgent matters that will impact your service and should be addressed immediately. Each email notification is triggered by an alert on your managed domain. These alerts will also appear on the Azure portal and can be viewed on the [Azure AD Domain Services health page]().
+Azure AD Domain Services sends email notifications for important updates about your domain.  These notifications are only for urgent matters that will impact your service and should be addressed immediately. Each email notification is triggered by an alert on your managed domain. These alerts will also appear on the Azure portal and can be viewed on the [Azure AD Domain Services health page](active-directory-ds-check-health.md).
 
 Azure AD Domain Services does not send emails to this list for advertisement, updates, or sales purposes.
 
 ## When will I receive email notifications?
 
-A notification will be sent immediately when a [new alert]() is found on your managed domain. If the alert is not resolved, an email notification will be sent as a reminder every 4 days.
+A notification will be sent immediately when a [new alert](active-directory-ds-troubleshoot-alerts.md) is found on your managed domain. If the alert is not resolved, an email notification will be sent as a reminder every four days.
 
 ## Who should receive the email notifications?
 
 
- We recommended the list of email recipients for Azure AD Domain Services to be comprised of people who are able to administer and make changes to the managed domain. This email list should be thought of as your "first responders" to any problem found. If you have more than 5 additional emails you would like to add, we recommend creating a distribution list to add to the notification list instead.
+ We recommended the list of email recipients for Azure AD Domain Services to be composed of people who are able to administer and make changes to the managed domain. This email list should be thought of as your "first responders" to any problem found. If you have more than five additional emails you would like to add, we recommend creating a distribution list to add to the notification list instead.
 
-You are able to add up to 5 additional emails for notifications regarding Azure AD Domain Services. In addition, you can also choose to have all Global Administrators of your directory and every member of the group 'AAD DC Administrators' receive Azure AD Domain Services email notifications. Note that Azure AD Domain Services will only send notifications to up to 100 email addresses, including the list of global administrators and AAD DC Administrators.
+You are able to add up to five additional emails for notifications regarding Azure AD Domain Services. In addition, you can also choose to have all Global Administrators of your directory and every member of the group 'AAD DC Administrators' receive Azure AD Domain Services email notifications. Azure AD Domain Services will only send notifications to up to 100 email addresses, including the list of global administrators and AAD DC Administrators.
 
 
 ## How to add an additional email recipient
@@ -72,13 +72,13 @@ You are able to add up to 5 additional emails for notifications regarding Azure 
 
 1. Navigate to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) on the Azure portal.
 2. Click on your managed domain.
-3. On the left-hand navigation, click **Notification settings**. The page should look like this:
-4. To add an email, click on the box labelled "" and type in the email address.
+3. On the left-hand navigation, click **Notification settings**.
+4. To add an email, type in the email address in the additional recipients table.
 5. Click "Save" on the top-hand navigation.
 
 ## Frequently Asked Questions
 
-#### I received an email notification for an alert but when I logged onto the Azure portal there was no alert. What happened?
+#### I received an email notification for an alert but when I logged on to the Azure portal there was no alert. What happened?
 
 If an alert is resolved, the alert will disappear from the Azure portal. The most likely reason is that someone else who receives email notifications resolved the alert on your managed domain, or it was auto-resolved by Azure AD Domain Services.
 
