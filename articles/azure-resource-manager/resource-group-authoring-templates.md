@@ -28,21 +28,21 @@ Use the following quickstarts and tutorials to learn how to develop resource man
 
     |Title|Description|
     |------|-----|
-    |[Use the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md)|Learn how to generate a template using the portal, and the process of editing and deploying the template.|
-    |[Use Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Learn how to use Visual Studio Code to create and edit templates, and how to use the Azure Cloud shell to deploy templates.|
-    |[Use Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Learn how to use Visual Studio to create, edit, and deploy templates.|
+    |[Use the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md)|Generate a template using the portal, and the process of editing and deploying the template.|
+    |[Use Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Use Visual Studio Code to create and edit templates, and how to use the Azure Cloud shell to deploy templates.|
+    |[Use Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Use Visual Studio to create, edit, and deploy templates.|
 
 - Tutorials
 
     |Title|Description|
     |------|-----|
-    |[Utilize template reference](./resource-manager-tutorial-crate-encrypted-storage-accounts.md)|Learn how to utilize the template reference documentation to develop templates. In the tutorial, you find the storage account schema, and use the information to create an encrypted storage account.|
-    |[Create multiple instances](./resource-manager-tutorial-create-multiple-instances.md)|Learn how to create multiple instances of Azure resources. In the tutorial, you create multiple instances of storage account.|
-    |[Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Learn how to define resource dependencies. In the tutorial, you create a virtual network, a virtual machine and the dependent Azure resources. You learn how the dependencies are defined.|
-    |[Use conditions](./resource-manager-tutorial-use-conditions.md)|Learn how to deploy resources based on some parameter values. In the tutorial, you define a template to create a new storage account or use an existing storage account based on the value of a parameter.|
-    |[Integrate key vault](./resource-manager-tutorial-use-key-vault.md)|Learn how to retrieve secrets/passwords from Azure Key Vault. In the tutorial, you create a virtual machine.  The virtual machine administrator password is retrieved from a Key Vault.|
-    |[Create linked templates](./resource-manager-tutorial-create-linked-templates.md)|Learn how to modularize templates, and call other templates from a template. In the tutorial, you create a virtual network, a virtual machine and the dependent resources.  The dependent storage account is defined in a linked templates. |
-    |[Use safe deployment practices](./deployment-manager-tutorial.md)|Learn how to use Azure Deployment manager. |
+    |[Utilize template reference](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilize the template reference documentation to develop templates. In the tutorial, you find the storage account schema, and use the information to create an encrypted storage account.|
+    |[Create multiple instances](./resource-manager-tutorial-create-multiple-instances.md)|Create multiple instances of Azure resources. In the tutorial, you create multiple instances of storage account.|
+    |[Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Define resource dependencies. In the tutorial, you create a virtual network, a virtual machine, and the dependent Azure resources. You learn how the dependencies are defined.|
+    |[Use conditions](./resource-manager-tutorial-use-conditions.md)|Deploy resources based on some parameter values. In the tutorial, you define a template to create a new storage account or use an existing storage account based on the value of a parameter.|
+    |[Integrate key vault](./resource-manager-tutorial-use-key-vault.md)|Retrieve secrets/passwords from Azure Key Vault. In the tutorial, you create a virtual machine.  The virtual machine administrator password is retrieved from a Key Vault.|
+    |[Create linked templates](./resource-manager-tutorial-create-linked-templates.md)|Modularize templates, and call other templates from a template. In the tutorial, you create a virtual network, a virtual machine, and the dependent resources.  The dependent storage account is defined in a linked template. |
+    |[Use safe deployment practices](./deployment-manager-tutorial.md)|Use Azure Deployment manager. |
 
 ## Template format
 
