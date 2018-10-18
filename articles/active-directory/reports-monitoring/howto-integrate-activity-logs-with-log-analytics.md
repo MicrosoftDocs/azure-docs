@@ -30,7 +30,7 @@ Log Analytics allows you to query data to find particular events, analyze trends
 
 The following video from an Ignite session demonstrates the benefits of using Log Analytics for Azure AD logs in practical user scenarios.
 
-> [!VIDEO https://www.youtube.com/watch?v=MP5IaCTwkQg&feature=youtu.be&t=31m33s]
+> [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Log Analytics using Azure Monitor.
 
