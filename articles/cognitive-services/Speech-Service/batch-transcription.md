@@ -167,7 +167,7 @@ Now that the request has been made the user can query and download transcription
         }
 ```
 
-The full sample shown here is on [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Our [Swagger document](https://westus.cris.ai/swagger/ui/index) provides full details on the above calls. The full sample shown here is on [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
 > In the preceding code, the subscription key is from the Speech resource that you create on the Azure portal. Keys obtained from the Custom Speech Service resource do not work.
