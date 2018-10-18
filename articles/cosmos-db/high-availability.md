@@ -60,12 +60,3 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 [Azure Cosmos DB SLA](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_0/)
 
-Configuring your Cosmos account for high availability
-
-Changing the regional priorities for your Cosmos account
-
-Configure your Cosmos account with multiple write-regions
-
-Manual failover for your Cosmos account
-
-Use conflict feed

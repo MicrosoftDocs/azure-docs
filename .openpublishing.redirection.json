@@ -227,6 +227,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/regional-failover.md",
+            "redirect_url": "/azure/cosmos-db/high-availability",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/search/search-howto-index-documentdb.md",
             "redirect_url": "/azure/search/search-howto-index-cosmosdb",
             "redirect_document_id": true
