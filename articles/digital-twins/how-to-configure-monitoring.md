@@ -25,7 +25,7 @@ Subscription-level events include:
 * Resource creation
 * Resource removal
 * Creating app secrets
-* Integrating other services
+* Integrating with other services
 
 Activity logging for Azure Digital Twins is enabled by default and can be found through the Azure portal by:
 
@@ -49,12 +49,12 @@ For advanced activity logging:
 
 ## Enable customer diagnostic logs
 
-Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-levels events, diagnostic logging provides insights into the operational history of the resources themselves.
+Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
 
 Examples of diagnostic logging include:
 
-* The execution time for a user-driven function
-* A successful API call
+* The execution time for a user-defined function
+* The response status code of a successful API request
 * Retrieving an app key from a vault
 
 To enable diagnostic logs for an instance:
@@ -64,7 +64,7 @@ To enable diagnostic logs for an instance:
 
     ![Diagnostic settings one][4]
 
-1. Click **Turn on diagnostics** to collect data.
+1. Click **Turn on diagnostics** to collect data (if not previously enabled).
 1. Fill in the requested fields and select how and where data will be saved:
 
     ![Diagnostic settings two][5]
@@ -108,7 +108,7 @@ Azure Log Analytics also provides powerful error and alert notification services
    ![Alert and error notifications][9]
 
 >[!TIP]
->Use **Log Analytics** to query log histories for multiple app functionalities or services.
+>Use **Log Analytics** to query log histories for multiple app functionalities, subscriptions, or services.
 
 ## Other options
 
