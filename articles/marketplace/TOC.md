@@ -35,6 +35,8 @@
 
 # [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
 
+<!-- remove comment markers after toc gets published with iot edge section  -->
+<!-- 
 ## [Virtual machine offer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 ### [Prerequisites](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 ### [Create VM offer](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
@@ -54,7 +56,7 @@
 #### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 #### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
 ### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
-### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
+### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md) -->
 
 <!-- Following legacy VM section was replaced.  -->
 <!-- 
