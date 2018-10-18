@@ -47,6 +47,9 @@ sections:
     text: "What is Bing Local Business Search?"
     href: overview.md
     type: paragraph
+    text: "Query and response"
+    href: local-search-query-response.md
+    type: paragraph
     text: "Geographic search boundaries" 
     href: specify-geographic-search.md
 - title: Reference
