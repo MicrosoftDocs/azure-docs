@@ -165,13 +165,15 @@ In the **Volume** element in the snippet above, the Azure Files volume plugin re
 
 As shown in the **DriverOption** elements in the snippet above, the Azure Files volume plugin supports the following driver options:
 
-Required driver option:
+Required driver options:
 - **shareName** - Name of the Azure Files file share that provides the volume for the container
 - **storageAccountName** - Name of the Azure storage account that contains the Azure Files file share
 - **storageAccountKey** - Access key for the Azure storage account that contains the Azure Files file share
 
-Optional driver option:
-- **storageAccountFQDN** - Domain Name of the Azure Files file share. If storageAccountFQDN is not in the options, domain name will be either storageAccountName if it represents FQDN or formed by using the default suffix(.file.core.windows.net) with the storageAccountName
+Optional driver options:
+- **storageAccountFQDN** - Domain Name of the Azure Files file share. If storageAccountFQDN is not in the options, domain name will be formed by using the default suffix(.file.core.windows.net) with the storageAccountName. 
+    - Example1: aftest.file.core.windows.net
+    - Example2: aftest2.file.core.chinacloudapi.cn
 
 ## Using your own volume or logging driver
 Service Fabric also allows the usage of your own custom [volume](https://docs.docker.com/engine/extend/plugins_volume/) or [logging](https://docs.docker.com/engine/admin/logging/overview/) drivers. If the Docker volume/logging driver is not installed on the cluster, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
