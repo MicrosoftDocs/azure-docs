@@ -130,12 +130,10 @@
     items:
     - name: Use an existing IoT Hub
       href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Use a custom device model
-      href: iot-accelerators-device-simulation-custom-model.md
-    - name: Visualize telemetry with Time Series Insights
-      href: iot-accelerators-device-simulation-time-series-insights.md
     - name: Create an advanced simulated device
       href: iot-accelerators-device-simulation-advanced-device.md
+    - name: Visualize telemetry with Time Series Insights
+      href: iot-accelerators-device-simulation-time-series-insights.md
 
 - name: Reference
   items:
