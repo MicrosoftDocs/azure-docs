@@ -53,7 +53,7 @@ The diagram below illustrates the end-to-end workflow for enabling Azure AD auth
 
     Select a new or existing file share that's associated with the same subscription as your Azure AD tenant. For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md). 
 
-    The Azure AD tenant must be deployed to a region supported for the preview of Azure AD over SMB. The preview is available in all public regions except for: West US, West US 2, South Central US, East US, East US 2, Central US, North Central US, East Australia, West Europe, North Europe.
+    The Azure AD tenant must be deployed to a region supported for the preview of Azure AD over SMB. The preview is available in all public regions except for: West US, West US 2, South Central US, East US, East US 2, Central US, North Central US, Australia East, West Europe, North Europe.
 
     For optimal performance, Microsoft recommends that your file share is in the same region as the VM from which you plan to access the share.
 
