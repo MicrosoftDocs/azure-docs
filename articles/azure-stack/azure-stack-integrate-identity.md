@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -65,6 +65,17 @@ The following information is required as inputs for the automation parameters:
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN of the target Active Directory forest<br>that you want to integrate with|Contoso.com|
 |CustomADAdminCredentials|A user with LDAP Read permission|YOURDOMAIN\graphservice|
+
+### Configure Active Directory Sites
+
+For Active Directory deployments having multiple sites, configure the closest Active Directory Site to your Azure Stack deployment. The configuration avoids having the Azure Stack Graph service resolve queries using a Global Catalog Server from a remote site.
+
+Add the Azure Stack [Public VIP network](azure-stack-network.md#public-vip-network) subnet to the Azure AD Site closest to Azure Stack. For example, if your Active Directory has two sites Seattle and Redmond with Azure Stack deployed at the Seattle site, you would add the Azure Stack external network subnet to the Azure AD site for Seattle.
+
+For more information on  Active Directory Sites see [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> If your Active Directory consist of a single Site you can skip this step. In case you have a catch-all subnet configured validate that the Azure Stack Public VIP network subnet is not part of it.
 
 ### Create user account in the existing Active Directory (optional)
 
