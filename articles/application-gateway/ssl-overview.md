@@ -5,7 +5,7 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 10/19/2018
 ms.author: amsriva
 
 ---
