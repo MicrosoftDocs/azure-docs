@@ -25,42 +25,42 @@ The main sections of the paper focus on migration best practices and processes. 
 
 ## Audience and Scope
 
-This guide is for people who are responsible for the design, deployment and migration of Apache Hadoop solutions in Azure HDInsight. This may include Cloud Architects, Hadoop administrators and DevOps engineers. Software developers, Data Engineers, and Data Scientists should also benefit from the explanation of how different types of clusters work in the cloud.
+This guide is for people who are responsible for the design, deployment, and migration of Apache Hadoop solutions in Azure HDInsight. The roles that may benefit from this article include cloud architects, Hadoop administrators and DevOps engineers. Software developers, data engineers, and data scientists should also benefit from the explanation of how different types of clusters work in the cloud.
 
 ## Why to migrate to Azure HDInsight
 
-Azure HDInsight is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. HDInsight includes the most popular open-source frameworks such as Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm, Apache HBase and R.
+Azure HDInsight is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. HDInsight includes the most popular open-source frameworks such as Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm, Apache HBase, and R.
 
 ## Advantages that Azure HDInsight offers over on-premises Hadoop
 
 - **Low cost** - Costs can be reduced by [creating clusters on demand](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf) and paying only for what you use. Decoupled compute and storage provides flexibility keep the data volume independent of the cluster size.
 - **Automated cluster provisioning** - Automated cluster creation requires minimal setup and configuration. Automation can be used for on-demand clusters.
-- **Managed hardware and configuration** - There's no need to worry about the physical hardware or infrastructure with an HDInsight cluster. Just specify the configuration of the cluster, and Azure allocates  resources for the cluster.
+- **Managed hardware and configuration** - There's no need to worry about the physical hardware or infrastructure with an HDInsight cluster. Just specify the configuration of the cluster, and Azure sets it up.
 - **Easily Scalable** - HDInsight enables you to [scale](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-administer-use-portal-linux) workloads up or down. Azure takes care of data redistribution and workload rebalancing without interrupting the jobs.
 - **Global availability** -  HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/)than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas.
 - **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network), [encryption](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage), and integration with [Azure Active Directory](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
-- **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up to date. Software updates are usually a complex process for on-premises deployments.
-- **Smaller clusters optimized for specific workloads with fewer dependencies between components** -  A typical on-premises Hadoop setup uses a single cluster that serves many purposes. With Azure HDInsight, multiple smaller workload-specific clusters can be created. Creating clusters for specific workloads removes the complexity of maintaining a single cluster with growing complexity.
-- **Productivity** - Azure HDInsight enables to use rich productive tools for Hadoop and Spark components with your preferred development environments and popular notebooks.
-- **Extensibility with custom tools or third-party Applications** - HDInsight clusters can be extended with installed components and enables seamless integration with the most popular big data solutions with a [one-click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) deployment from the Azure Market place.
+- **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up-to-date. Software updates are usually a complex process for on-premises deployments.
+- **Smaller clusters optimized for specific workloads with fewer dependencies between components** -  A typical on-premises Hadoop setup uses a single cluster that serves many purposes. With Azure HDInsight, workload-specific clusters can be created. Creating clusters for specific workloads removes the complexity of maintaining a single cluster with growing complexity.
+- **Productivity** - You can use various tools for Hadoop and Spark in your preferred development environment.
+- **Extensibility with custom tools or third-party Applications** - HDInsight clusters can be extended with installed components and can also integrated with the other big data solutions by using [one-click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) deployments from the Azure Market place.
 - **Easy Management, Administration, and Monitoring** - Azure HDInsight integrates with [Azure Log
 Analytics](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial) to
 provide a single interface with which you can monitor all your clusters.
-- **Integration with other Azure services** - HDInsight can easily be integrated with other popular Azure services including Azure Data Factory(ADF), Azure Blob, Azure Data Lake Store Gen2, Azure Cosmos DB, Azure SQL Database, and Azure Analysis Services.
-- **Self-healing processes and components** - HDInsight constantly checks the infrastructure as well as open-source components using its own monitoring infrastructure. It also automatically recovers critical failures such as open-source component down, nodes down, and other health issues. Alerts are triggered in Ambari if any OSS component is failed.
+- **Integration with other Azure services** - HDInsight can easily be integrated with other popular Azure services such as Azure Data Factory (ADF), Azure Blob, Azure Data Lake Store Gen2, Azure Cosmos DB, Azure SQL Database, and Azure Analysis Services.
+- **Self-healing processes and components** - HDInsight constantly checks the infrastructure and open-source components using its own monitoring infrastructure. It also automatically recovers critical failures such as unavailability of open-source components and nodes. Alerts are triggered in Ambari if any OSS component is failed.
 
 For more information, see the article [What is Azure HDInsight and the Hadoop technology stack](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-introduction).
 
 ## Proposed Azure HDInsight Architecture and Migration Best practices
 
-Migrating from an on-premises Hadoop solution to Azure HDInsight requires a change in approach. A typical on-premises Hadoop infrastructure consists of a single large cluster that supports many workloads. This approach often results in a complex system requiring compromises to get everything working in the single cluster. This problem can be reduced using Azure HDInsight but requires a change in approach to structure the data and jobs.
+A typical on-premises Hadoop infrastructure consists of a single large cluster that supports many workloads. This single cluster is often very complex and may require compromises to the individual services to make everything work together. Migrating to Azure HDInsight requires a change in approach.
 
 Below are some recommendations for an Azure HDInsight Architecture.
 
 ### Use multiple workload-optimized clusters rather than using a single large cluster
 
-Since HDInsight clusters are designed for the specific type of compute usage and since the storage can be shared across multiple clusters, it is a good practice to create multiple workload-optimized compute clusters to meet the needs of different jobs. Each cluster type is tuned with the optimized configuration for the best performance for specific workloads. The below table lists the supported cluster types in HDInsight and the corresponding workloads.
+Azure HDInsight clusters are designed for a specific type of compute usage. Because storage can be shared across multiple clusters, it is a good practice to create multiple workload-optimized compute clusters to meet the needs of different jobs. Each cluster type is tuned with the optimized configuration for the best performance for specific workloads. The below table lists the supported cluster types in HDInsight and the corresponding workloads.
 
 |**Workload**|**HDInsight Cluster type**|
 |---|---|
@@ -89,9 +89,9 @@ For more information, see the article [Cluster types in HDInsight](https://docs.
 
 ### Use Transient on-demand clusters
 
-For many of the HDInsight clusters, there are large periods of time that the cluster is not being used for processing. HDInsight supports on-demand transient clusters, which can be deleted once the workload has been successfully completed. This ability to delete unused clusters, helps to save cost on the cluster compute resources.
+Many HDInsight clusters may go unused for long periods of time. To help save on resource costs, HDInsight supports on-demand transient clusters, which can be deleted once the workload has been successfully completed.
 
-If you delete a cluster, the associated storage account and external metadata remain. The cluster can be re-created using the same storage accounts and meta-stores, when needed.
+When you delete a cluster, the associated storage account and external metadata are not removed. The cluster can later be re-created using the same storage accounts and meta-stores.
 
 Azure Data Factory can be used to schedule creation of on-demand HDInsight clusters.
 
@@ -99,37 +99,30 @@ For more information, see the article [Create on-demand Hadoop clusters in HDIns
 
 ### Decouple Storage from Compute
 
-The typical on-premises Hadoop deployments colocate storage and compute. Because they are linked, compute and storage must be scaled together. The cluster must also be to access the data.
+Typical on-premises Hadoop deployments colocate storage and compute. Because they are linked, compute and storage must be scaled together. The cluster must also be to access the data.
 
-On HDInsight cluster, storage does not need to be co-located with compute and can either be in Azure storage, Azure Data Lake store or both. Decoupling storage from compute has the following benefits.
+On HDInsight clusters, storage does not need to be colocated with compute and can either be in Azure storage, Azure Data Lake store or both. Decoupling storage from compute has the following benefits.
 
-- Data sharing across multiple clusters
-- Ability to have transient clusters since the data is not dependent on cluster
+- Data sharing across clusters
+- Use of transient clusters since the data isn't dependent on cluster
 - Reduced storage cost
 - Scaling storage and compute separately
-- Capability to replicate data across Regions
+- Data replication across Regions
 
-The implied performance cost of not co-locating compute clusters and storage resources is mitigated by the way the compute clusters are created close to the storage account resources inside the Azure region, where the high-speed network makes it efficient for the compute nodes to access the data inside Azure storage.
+Compute clusters are created close to storage account resources in the Azure region to mitigate performance cost of not co-locating compute and storage. High-speed networks make it efficient for the compute nodes to access the data inside Azure storage.
 
 ### Choosing the right Storage system for HDInsight cluster
 
-The on-premises HDFS directory structure can be re-created on one of the following storage systems. All of the below storage systems enable to safely delete HDInsight clusters that are used for computation without losing user data. They can be used as both default file system and additional file system. The HDInsight cluster and the storage account must be hosted in the same region.
+The on-premises Hadoop File System (HDFS) directory structure can be re-created on one Azure Storage or Azure Data Lake Store. You can then safely delete HDInsight clusters that are used for computation without losing user data. They can be used as both the default file system and an additional file system. The HDInsight cluster and the storage account must be hosted in the same region.
 
 #### Azure storage
 
-HDInsight can use the blob container in Azure Storage as the default file system or additional file system for the cluster. The Standard tier storage account is supported, and the Premier tier is not supported with HDInsight clusters. The default Blob container stores cluster-specific information such as job history and logs. Sharing one
-blob container as the default file system for multiple clusters is not supported.
+HDInsight clusters can use the blob container in Azure Storage as either the default file system or an additional file system. The Standard tier storage account is supported for use with HDInsight clusters. The Premier tier is not supported. The default Blob container stores cluster-specific information such as job history and logs. Sharing one blob container as the default file system for multiple clusters is not supported.
 
-The storage accounts that are defined in the creation process and
-their keys are stored in `%HADOOP\_HOME%/conf/core-site.xml` on the
-cluster nodes and can also be accessed under "custom core site"
-section in HDFS configs from Ambari. The storage account key is
-encrypted by default and a custom decryption script is used to decrypt
-the keys before being passed on to Hadoop daemons. The jobs including
-Hive, MapReduce, Hadoop streaming, and Pig, carry a description of
-storage accounts and metadata with them. 
+The storage accounts that are defined in the creation process and their respective keys are stored in `%HADOOP\_HOME%/conf/core-site.xml` on the cluster nodes. They can also be accessed under the "custom core site"
+section in HDFS configuration in the Ambari UI. The storage account key is encrypted by default and a custom decryption script is used to decrypt the keys before being passed on to Hadoop daemons. The jobs including Hive, MapReduce, Hadoop streaming, and Pig, carry a description of storage accounts and metadata with them.
 
-Azure storage can be geo-replicated. Although this gives the geographic recovery and data redundancy, a failover to the geo-replicated location severely impacts the performance, and it may incur additional costs. The recommendation is to choose the geo-replication wisely and only if the value of the data is worth the additional cost.
+Azure storage can be geo-replicated. Although this gives geographic recovery and data redundancy, a failover to the geo-replicated location severely impacts the performance, and it may incur additional costs. The recommendation is to choose the geo-replication wisely and only if the value of the data is worth the additional cost.
 
 One of the below formats can be used to access data that is stored in Azure Storage
 
@@ -143,7 +136,7 @@ One of the below formats can be used to access data that is stored in Azure Stor
 
 Azure Storage offers [soft delete for blob objects](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete) so as to easily recover data when it is erroneously modified or deleted by an application or other storage account user.
 
-The [snapshot](https://docs.microsoft.com/en-us/rest/api/storageservices/creating-a-snapshot-of-a-blob) of a blob can be created. A snapshot is a read-only version of a blob that's taken at a point in time. Once a snapshot has been created, itcan be read, copied, or deleted, but not modified. Snapshots provide a way to back up a blob as it appears at a moment in time.
+The [snapshot](https://docs.microsoft.com/en-us/rest/api/storageservices/creating-a-snapshot-of-a-blob) of a blob can be created. A snapshot is a read-only version of a blob that's taken at a point in time. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Snapshots provide a way to back up a blob as it appears at a moment in time.
 
 >[!Note]: 
 >For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store. Below are the sample commands that can be used for this after replacing storage account with your storage account.
@@ -178,7 +171,7 @@ For more information, see the following articles
 
 #### Azure Data Lake Store Gen1
 
-Azure Data Lake Store implements HDFS and POSIX style access control model. It provides first class integration with AAD to fine grained access control and there are no limits to the size of data and the ability to run massively parallel analytics.
+Azure Data Lake Store implements HDFS and POSIX style access control model. It provides first class integration with AAD for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
 
 One of the below formats can be used to access data that is stored in ADLS Gen1
 
