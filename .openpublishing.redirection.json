@@ -8744,6 +8744,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/event-hubs/event-hubs-quickstart-portal.md",
+            "redirect_url": "/azure/event-hubs/event-hubs-create",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive.md",
             "redirect_url": "/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture",
             "redirect_document_id": false

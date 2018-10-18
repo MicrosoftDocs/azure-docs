@@ -75,22 +75,22 @@
     href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
     href: access-api-cli-how-to.md
-  - name: Use Event Grid
-    items:
-    - name: Monitor events - Portal
-      href: monitor-events-portal-how-to.md
-    - name: Monitor events - CLI
-      href: job-state-events-cli-how-to.md     
-  - name: Encode 
-    items:
-    - name: Customize Transform presets - .NET Core
-      href: customize-encoder-presets-how-to.md
   - name: Upload  
     items:
     - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
+  - name: Encode 
+    items:
+    - name: Customize Transform presets - .NET Core
+      href: customize-encoder-presets-how-to.md
+  - name: Use Event Grid
+    items:
+    - name: Monitor events - Portal
+      href: monitor-events-portal-how-to.md
+    - name: Monitor events - CLI
+      href: job-state-events-cli-how-to.md 
   - name: Protect 
     items:
     - name: With AES-128 - .NET
