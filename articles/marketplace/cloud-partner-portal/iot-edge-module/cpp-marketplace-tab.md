@@ -1,5 +1,5 @@
 ---
-title: Marketplace description for an IoT Edge module | Microsoft Docs
+title: Marketplace description for an Azure IoT Edge module | Microsoft Docs
 description: Create the marketplace description for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 
@@ -43,7 +43,7 @@ The following table describes the purpose and content of these fields.
 
 ### Offer example
 
- The following examples show how the offer **Title**, **Summary**, **Description**, **Logos, and **Screenshots** fields appear in different views.
+ The following examples show how the offer **Title**, **Summary**, **Description**, **Logos**, and **Screenshots** fields appear in different views.
  
 #### On the Azure Marketplace website:
 
@@ -76,7 +76,7 @@ The following table describes the purpose and content of these fields.
 
 This section has the following subsections: **Logos**, **Screenshot**, and **Videos**. 
 
->[Note]
+>[!Note]
 >Logos are the only required marketing artifacts, however all are highly recommended for best customer appeal.
 
 ![Marketing Artifacts section of the Marketplace tab on the New Offer form for virtual machines](./media/publishvm_009.png)

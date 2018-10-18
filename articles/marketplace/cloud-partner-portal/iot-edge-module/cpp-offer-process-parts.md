@@ -1,5 +1,5 @@
 ---
-title: IoT Edge Module offer publishing overview | Microsoft Docs
+title: Azure IoT Edge Module offer publishing overview | Microsoft Docs
 description: Overview of the process for publishing an IoT Edge module offer on Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 
@@ -42,6 +42,6 @@ The following articles cover the key parts of an IoT Edge module offer.
 - [Create an IoT Edge module offer](./cpp-create-offer.md) <br>This article lists the steps required to create a new IoT Edge module offer entry using the [Cloud Partner Portal](https://cloudpartner.azure.com).
 - [Publish IoT Edge module offer](./cpp-publish-offer.md)<br> This article describes how to submit the offer for publishing on the Azure Marketplace.
 
-## Next Steps
+## Next steps
 
 Review the [technical and business requirements](./cpp-prerequisites.md) for publishing an IoT Edge module to the Microsoft Azure Marketplace.

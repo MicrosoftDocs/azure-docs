@@ -1,5 +1,5 @@
 ---
-title: Create an IoT Edge module offer | Microsoft Docs
+title: Create an Azure IoT Edge module offer | Microsoft Docs
 description: How to publish a new IoT Edge Module for the Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 
@@ -35,7 +35,7 @@ Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/), and then 
 
 ![New IoT Edge module offer user interface selection](./media/new-iot-edge-module-offer.png)
 
-## Next Steps
+## Next steps
 
 The **New Offer** page for the IoT Edge module offer type provides a set of tabs and form fields that you'll use to create a new offer. Each of the following articles explains how to use the tab to define the asset groups and supporting services for your new IoT Edge module offer.
 

@@ -1,5 +1,5 @@
 ---
-title: IoT Edge module SKUs | Microsoft Docs
+title: Azure IoT Edge module SKUs | Microsoft Docs
 description: Create SKUs for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 
@@ -28,7 +28,7 @@ When you start creating a new offer, there aren't any SKUs associated with the o
 - On the **IoT Edge Modules > New Offer** page, select the **SKUs** tab.
 - Under SKUs, select **+ New SKU** to open a dialog box.
 
-![New SKU button on the New Offer tab for IoT Edge modules](./media/iot-edge-module-skus-tab-new-sku.png)
+  ![New SKU button on the New Offer tab for IoT Edge modules](./media/iot-edge-module-skus-tab-new-sku.png)
 
 - On the **New SKU** dialog box, enter an identifier for the SKU and then select **OK**.
 (The following table gives the identifier naming conventions.)
@@ -84,7 +84,7 @@ The following table describes the purpose, content, and formatting for fields un
     
     ![How IoT Edge module shows up when being deployed](./media/iot-edge-module-deployment.png)
 
-## SKU Content
+## SKU content
 
 Under Edge Module Images, provide the information we need to upload your IoT Edge module.
 
@@ -128,6 +128,6 @@ The following table describes the purpose, contents, and formatting of the field
 
 <br/> Select **Save** to save your SKU settings. 
 
-## Next Steps
+## Next steps
 
 Use the [Marketplace tab](./cpp-marketplace-tab.md) to create a marketplace description for your offer.

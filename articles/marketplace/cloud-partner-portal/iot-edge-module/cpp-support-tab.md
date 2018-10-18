@@ -1,5 +1,5 @@
 ---
-title: Support for an IoT Edge module | Microsoft Docs
+title: Support for an Azure IoT Edge module | Microsoft Docs
 description: Support options for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 
@@ -22,6 +22,8 @@ ms.author: pbutlerm
 Use the **Support** tab of the **New Offer** page to provide technical and user support resources for your offer.  The following input areas are provided on the Support form: **Engineering Contact**, **Customer Support**, and **Support Urls**. An asterisk (*) appended to the field name indicates that it's required.
 
 ![Support tab on the New Offer form for IoT Edge modules](./media/iot-edge-module-support-tab.png)
+
+## Support form fields
 
 The following table describes the form fields and the input required for each field.
 

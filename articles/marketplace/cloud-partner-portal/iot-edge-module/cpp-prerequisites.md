@@ -1,5 +1,5 @@
 ---
-title: IoT Edge module prerequisites | Microsoft Docs
+title: Azure IoT Edge module prerequisites | Microsoft Docs
 description: Prerequisites for publishing an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 

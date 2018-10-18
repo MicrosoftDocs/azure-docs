@@ -1,5 +1,5 @@
 ---
-title: Offer settings for an IoT Edge module | Microsoft Docs
+title: Offer settings for an Azure IoT Edge module | Microsoft Docs
 description: Configure offer settings for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 
@@ -23,6 +23,8 @@ ms.author: pbutlerm
 The **IoT Edge Modules > New Offer** page opens with the focus on the **Offer Settings** tab. 
 
 ![New Offer page for IoT Edge modules](./media/iot-edge-module-offer-settings-tab.png)
+
+## Offer Identity settings
 
 Under **Offer Identity**, you must provide information for the fields described in the following table. An asterisk (*) appended to the field name indicates that it's required. 
 
@@ -35,6 +37,6 @@ Under **Offer Identity**, you must provide information for the fields described 
 
 Select **Save** to save your Offer Settings.
 
-## Next Steps
+## Next steps
 
 Use the [SKUs](./cpp-skus-tab.md) tab to configure the SKUs for your offer.

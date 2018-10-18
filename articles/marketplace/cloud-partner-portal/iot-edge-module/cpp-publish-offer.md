@@ -1,5 +1,5 @@
 ---
-title: Publish IoT Edge module offer | Microsoft Docs
+title: Publish Azure IoT Edge module offer | Microsoft Docs
 description: How to publishing an IoT Edge module offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 
@@ -24,6 +24,8 @@ ms.author: pbutlerm
 The following diagram shows the main steps in the publishing process for an offer to "go live".
 
 ![Publishing steps for IoT Edge module offer](./media/iot-edge-module-publishing-steps.png)
+
+## Detailed description of publishing steps
 
 The following table describes each publishing step, with a time estimate (maximum) to complete each step.
 <!-- P2: we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->

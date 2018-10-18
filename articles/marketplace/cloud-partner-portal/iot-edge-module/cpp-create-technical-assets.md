@@ -1,5 +1,5 @@
 ---
-title: Create IoT Edge module technical assets | Microsoft Docs
+title: Create Azure IoT Edge module technical assets | Microsoft Docs
 description: Create the technical assets for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: pbutlerm
 ---
 
@@ -56,9 +56,10 @@ IoT Edge module dimensions (CPU/RAM/Storage/GPU/etc.) on targeted IoT Edge devic
 
 - The module must **work with at least one IoT Edge certified** device in the [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) device catalog.
 - The **Minimum hardware requirements** must be documented as the last paragraph in the description of the offer (under the [Marketplace tab](./cpp-marketplace-tab.md)). Optionally, you can also list the recommended hardware requirements if they differ significantly. For example, add the following section at the end of your offer description:
-    ```html
-        <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
-    ```
+
+ ```html
+    <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
+ ```
 
 ### Configuration
 
@@ -74,15 +75,16 @@ IoT Edge modules must be able to start with the default settings provided in [SK
 - Default **createOptions**
 
 In a scenario where a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you add a parameter as the default value. This value is enclosed in brackets and in upper case. For this example, you'd set up the following default environment variable:
-    ```
-        ServerIPAdress = <MY_SERVER_IP_ADDRESS>
-    ```
+
+```
+    ServerIPAddress = <MY_SERVER_IP_ADDRESS>
+```
 
 #### Configuration documentation
 
 All configuration settings of an IoT Edge module must be clearly documented (how to use its routes, twin desired properties, environment variables, createOptions, and so on.) Provide a link to your documentation, or the documentation must be part of your offer/sku description.
-[tags and versioning](#tags-and-versioning)
-### Tags and Versioning
+
+### Tags and versioning
 
 Customers must be able to easily deploy a module and automatically get updates from the marketplace (in a developer scenario.) They also must be able to use and freeze an exact version they've tested (in a production scenario.)
 
@@ -131,7 +133,6 @@ Partners will get notified whenever there is a breaking change that affects thei
 - The IoT Edge module certification guidelines
 
 Partners will have to update their modules and recertify them using the Cloud Partner Portal tool.
-
 
 ## Host your IoT Edge module in an Azure Container Registry
 
