@@ -3,19 +3,18 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
-ms.custom: include file 
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
 
 ---
 
@@ -44,7 +43,7 @@ This guide uses the following library:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Preview|
 
 > [!NOTE]
-> *msal.js* targets the *Azure Active Directory v2 endpoint* - which enables personal, school and work accounts to sign in and acquire tokens. The *Azure Active Directory v2 endpoint* has [some limitations](..\articles\active-directory\develop\active-directory-v2-limitations.md). If you are interested only in school and work accounts, use *adal.js* and the *V1 endpoint*. 
-> To understand differences between the v1 and v2 endpoints read the [v1-v2 comparison](..\articles\active-directory\develop\active-directory-v2-compare.md).
+> *msal.js* targets the *Azure Active Directory v2 endpoint* - which enables personal, school and work accounts to sign in and acquire tokens. The *Azure Active Directory v2 endpoint* has [some limitations](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> To understand differences between the v1 and v2 endpoints read the [v1-v2 comparison](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

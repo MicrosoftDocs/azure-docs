@@ -1,40 +1,81 @@
 ---
-title: Web search SDK Node quickstart | Microsoft Docs
-description: Setup for Web search SDK console application.
-titleSuffix: Azure cognitive services
+title: "Quickstart: Use the Bing Web Search SDK for Node.js"  
+titleSuffix: Azure Cognitive Services
+description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Node.js application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 02/12/2018
-ms.author: v-gedod
+ms.topic: quickstart
+ms.date: 08/16/2018
+ms.author: erhopf
 ---
 
-# Web Search SDK Node quickstart
+# Quickstart: Use the Bing Web Search SDK for Node.js
 
-The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results.
+The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Node.js application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 
-The [source code for Node Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/webSearch.js) is available on Git Hub.
+Want to see the code right now? The [Bing Web Search SDK for Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) are available on GitHub.
 
-## Application dependencies
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-To set up a console application using the Bing Web Search SDK, run `npm install azure-cognitiveservices-websearch` in your development environment.
+## Prerequisites
 
-## Web Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
-```
+Here are a few things that you'll need before running this quickstart:
+
+* [Node.js 6](https://nodejs.org/en/download/) or later
+* A subscription key  
+
+## Set up your development environment
+
+Let's start by setting up the development environment for our Node.js project.
+
+1. Create a new directory for your project:
+
+    ```console
+    mkdir YOUR_PROJECT
+    ```
+
+2. Create a new package file:
+
+    ```console
+    cd YOUR_PROJECT
+    npm init
+    ```
+
+3. Now, let's install some azure modules and add them to the `package.json`:
+
+    ```console
+    npm install --save azure-cognitiveservices-websearch
+    npm install --save ms-rest-azure
+    ```
+
+## Create a project and declare required modules
+
+In the same directory as your `package.json`, create a new Node.js project using your favorite IDE or editor. For example: `sample.js`.
+
+Next, copy this code into your project. It loads the modules installed in the previous section.
+
+```javascript
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
-```
-Then, instantiate the client:
-```
 const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
+```
+
+## Instantiate the client
+
+This code instantiates a client and using the `azure-cognitiveservices-websearch` module. Make sure that you enter a valid subscription key for your Azure account before continuing.
+
+```javascript
+let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 let webSearchApiClient = new WebSearchAPIClient(credentials);
 ```
-Search for results:
-```
+
+## Make a request and print the results
+
+Use the client to send a search query to Bing Web Search. If the response includes results for any of the items in the `properties` array, the `result.value` is printed to console.
+
+```javascript
 webSearchApiClient.web.search('seahawks').then((result) => {
     let properties = ["images", "webPages", "news", "videos"];
     for (let i = 0; i < properties.length; i++) {
@@ -47,18 +88,21 @@ webSearchApiClient.web.search('seahawks').then((result) => {
 }).catch((err) => {
     throw err;
 })
-
 ```
-The code prints `result.value` items to the console without parsing any text.  The results, if any per category, will include:
-- _type: 'ImageObject'
-- _type: 'NewsArticle'
-- _type: 'WebPage'
-- _type: 'VideoObjectElementType'
 
-<!-- Remove until this can be replaced with a sanitized version.
-![Video results](media/web-search-sdk-node-results.png)
--->
+## Run the program
+
+The final step is to run your program!
+
+## Clean up resources
+
+When you're done with this project, make sure to remove your subscription key from the program's code.
 
 ## Next steps
 
-[Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [!div class="nextstepaction"]
+> [Cognitive Services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+
+## See also
+
+* [Azure Node SDK reference](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-websearch/)

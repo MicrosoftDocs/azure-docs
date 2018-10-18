@@ -12,7 +12,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
-ms.author: rithorn
+ms.author: cwatson
 ---
 
 # Troubleshoot enterprise cost views 

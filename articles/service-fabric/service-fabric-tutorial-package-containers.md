@@ -42,18 +42,18 @@ Service fabric provides scaffolding tools to help create applications from termi
 1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-    sudo apt-get install -y nodejs 
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node 
     ```
 2. Install Yeoman template generator on your machine from NPM
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. Install the Service Fabric Yeoman container generator
 
-    ```bash
-    sudo npm install -g generator-azuresfcontainer
+    ```bash 
+    npm install -g generator-azuresfcontainer
     ```
 
 ## Package a Docker image container with Yeoman

@@ -1,5 +1,5 @@
 ---
-title: Build an Azure Cosmos DB .NET Framework or Core application using the Graph API | Microsoft Docs
+title: Build an Azure Cosmos DB .NET Framework or Core application using the Gremlin API | Microsoft Docs
 description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 author: luisbosquez
@@ -14,11 +14,20 @@ ms.date: 01/08/2018
 ms.author: lbosq
 
 ---
-# Azure Cosmos DB: Build a .NET Framework or Core application using the Graph API
+# Azure Cosmos DB: Build a .NET Framework or Core application using the Gremlin API
+
+> [!div class="op_single_selector"]
+> * [Gremlin console](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [Graph API](graph-introduction.md) account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## Prerequisites
 
@@ -38,7 +47,7 @@ If you already have Visual Studio 2017 installed, make sure to be installed up t
 
 ## Clone the sample application
 
-Now let's clone a Graph API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -63,7 +72,7 @@ Now let's clone a Graph API app from GitHub, set the connection string, and run 
 5. Restore the NuGet packages in the project. This should include the Gremlin.Net driver, as well as the Newtonsoft.Json package.
 
 
-6. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
+6. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -149,21 +158,25 @@ The following snippets are all taken from the Program.cs file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. From the [Azure portal](http://portal.azure.com/), navigate to your graph database account. In the **Overview** tab, you can see two endpoints- 
+ 
+   **.Net SDK URI** - This value is used when you connect to the graph account by using Microsoft.Azure.Graphs library. 
 
-    Copy the first portion of the URI value.
+   **Gremlin Endpoint** - This value is used when you connect to the graph account by using Gremlin.Net library.
 
-    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-dotnet/keys.png)
+    ![Copy the endpoint](./media/create-graph-dotnet/endpoint.png)
+
+   To run this sample, copy the **Gremlin Endpoint** value, delete the port number at the end, that is the URI becomes `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`
 
 2. In Program.cs paste the value over `your-endpoint` in the `hostname` variable in line 19. 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     The endpoint value should now look like this:
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Copy your **PRIMARY KEY** value from the portal, and paste it in the `authkey` variable, replacing the `"your-authentication-key"` placeholder in line 21. 
+3. Next, navigate to the **Keys** tab and copy **PRIMARY KEY** value from the portal, and paste it in the `authkey` variable, replacing the `"your-authentication-key"` placeholder in line 21. 
 
     `private static string authKey = "your-authentication-key";`
 

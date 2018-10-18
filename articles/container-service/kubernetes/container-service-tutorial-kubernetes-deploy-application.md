@@ -39,7 +39,7 @@ If you have not done these steps, and would like to follow along, return to [Tut
 
 In this tutorial, Azure Container Registry (ACR) has been used to store a container image. Before running the application, the ACR login server name needs to be updated in the Kubernetes manifest file.
 
-Get the ACR login server name with the [az acr list](/cli/azure/acr#az_acr_list) command.
+Get the ACR login server name with the [az acr list](/cli/azure/acr#az-acr-list) command.
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -82,7 +82,7 @@ service "azure-vote-front" created
 
 A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) is created which exposes the application to the internet. This process can take a few minutes. 
 
-To monitor progress, use the [kubectl get service](https://review.docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) command with the `--watch` argument.
+To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

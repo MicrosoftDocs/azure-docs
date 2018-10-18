@@ -1,10 +1,10 @@
 ---
-title: Translator Text identify language from text with Java | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you identify the language of the source text using the Translator Text API with Java in Cognitive Services.
+title: "Quickstart: Identify language from text - Translator Text, Java"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you identify the language of the source text using the Translator Text API with Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text

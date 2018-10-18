@@ -19,7 +19,7 @@ ms.author: huishao
 
 ---
 # Introduction to FreeBSD on Azure
-This topic provides an overview of running a FreeBSD virtual machine in Azure.
+This article provides an overview of running a FreeBSD virtual machine in Azure.
 
 ## Overview
 FreeBSD for Microsoft Azure is an advanced computer operating system used to power modern servers, desktops, and embedded platforms.
@@ -27,7 +27,7 @@ FreeBSD for Microsoft Azure is an advanced computer operating system used to pow
 Microsoft Corporation is making images of FreeBSD available on Azure with the [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) pre-configured. Currently, the following FreeBSD versions are offered as images by Microsoft:
 
 - FreeBSD 10.3-RELEASE
-- FreeBSD 11.0-RELEASE
+- FreeBSD 10.4-RELEASE
 - FreeBSD 11.1-RELEASE
 
 The agent is responsible for communication between the FreeBSD VM and the Azure fabric for operations such as provisioning the VM on first use (user name, password or SSH key, host name, etc.) and enabling functionality for selective VM extensions.
@@ -37,12 +37,12 @@ As for future versions of FreeBSD, the strategy is to stay current and make the 
 ## Deploying a FreeBSD virtual machine
 Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace from the Azure portal:
 
-- [FreeBSD 10.3 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-- [FreeBSD 11.0 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [FreeBSD 10.3 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103)
+- [FreeBSD 10.4 on the Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeBSD104)
 - [FreeBSD 11.1 on the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
-### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
-First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
+### Create a FreeBSD VM through Azure CLI on FreeBSD
+First you need to install [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
@@ -65,7 +65,7 @@ sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 
 During the installation, you are asked `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. If you answer `y` and enter `/etc/rc.conf` as `a path to an rc file to update`, you may meet the problem `ERROR: [Errno 13] Permission denied`. To resolve this problem, you should grant the write right to current user against the file `etc/rc.conf`.
 
-Now you can log in Azure and create your FreeBSD VM. Below is an example to create a FreeBSD 11.0 VM. You can also add the parameter `--public-ip-address-dns-name` with a globally unique DNS name for a newly created Public IP. 
+Now you can sign in to Azure and create your FreeBSD VM. Below is an example to create a FreeBSD 11.0 VM. You can also add the parameter `--public-ip-address-dns-name` with a globally unique DNS name for a newly created Public IP. 
 
 ```azurecli
 az login 
@@ -77,7 +77,7 @@ az vm create --name myFreeBSD11 \
     --generate-ssh-keys
 ```
 
-Then you can log in to your FreeBSD VM through the ip address that printed in the output of above deployment. 
+Then you can sign in to your FreeBSD VM through the ip address that printed in the output of above deployment. 
 
 ```bash
 ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
@@ -130,4 +130,4 @@ You can optionally obtain a root shell by using `sudo -s`.
 The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
 
 ## Next steps
-* Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
+* Go to [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) to create a FreeBSD VM.

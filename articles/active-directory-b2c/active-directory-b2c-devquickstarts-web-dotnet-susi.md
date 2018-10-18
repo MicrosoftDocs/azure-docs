@@ -92,7 +92,7 @@ Our sample is configured to use the policies and client ID of our demo tenant. T
 
 ## Launch the app
 From within Visual Studio, launch the app. Navigate to the To-Do List tab, and note the URl is:
-https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
+https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
 
 Sign up for the app by using your email address or user name. Sign out, then sign in again and edit the profile or reset the password. Sign out and sign in as a different user. 
 

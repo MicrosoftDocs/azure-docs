@@ -1,23 +1,18 @@
 ---
 title: Decode AS2 messages - Azure Logic Apps | Microsoft Docs
-description: How to use the AS2 decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Decode AS messages with Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 01/27/2016
-ms.author: LADocs; padmavc
-
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
+ms.date: 08/08/2018
 ---
-# Decode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack 
+
+# Decode AS2 messages with Azure Logic Apps and Enterprise Integration Pack 
 
 To establish security and reliability while transmitting messages, use the Decode AS2 message connector. 
 This connector provides digital signing, decryption, and acknowledgements through Message Disposition Notifications (MDN).
@@ -75,6 +70,7 @@ select **Body** and **Headers** from the Request outputs.
 
 	![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## AS2 decoder details
 
 The Decode AS2 connector performs these tasks: 
@@ -83,6 +79,7 @@ The Decode AS2 connector performs these tasks:
 * Verifies the signature (if configured)
 * Decrypts the messages (if configured)
 * Decompresses the message (if configured)
+* Check and disallow message ID duplicates (if configured)
 * Reconciles a received MDN with the original outbound message
 * Updates and correlates records in the non-repudiation database
 * Writes records for AS2 status reporting
@@ -90,6 +87,13 @@ The Decode AS2 connector performs these tasks:
 * Determines whether an MDN is required, and whether the MDN should be synchronous or asynchronous based on configuration in AS2 agreement
 * Generates a synchronous or asynchronous MDN (based on agreement configurations)
 * Sets the correlation tokens and properties on the MDN
+
+
+  > [!NOTE]
+  > If you use Azure Key Vault for certificate management, make sure that you configure the keys to permit the **Decrypt** operation.
+  > Otherwise, the AS2 Decode will fail.
+  >
+  > ![Keyvault decrypts](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## Try this sample
 

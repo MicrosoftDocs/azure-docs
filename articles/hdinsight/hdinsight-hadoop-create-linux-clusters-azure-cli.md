@@ -1,32 +1,24 @@
 ---
-title: Create Hadoop clusters using the command-line - Azure HDInsight | Microsoft Docs
-description: Learn how to create HDInsight clusters using the cross-platform Azure CLI 1.0.
+title: Create Hadoop clusters using the Azure classic CLI - Azure HDInsight
+description: Learn how to create HDInsight clusters using the cross-platform Azure classic CLI.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
-# Create HDInsight clusters using the Azure CLI
+# Create HDInsight clusters using the Azure Classic CLI
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-The steps in this document walk-through creating a HDInsight 3.5 cluster using the Azure CLI 1.0.
+The steps in this document walk-through creating a HDInsight 3.5 cluster using the Azure Classic CLI.
 
-> [!IMPORTANT]
-> This topic describes how to use the Azure CLI 1.0 to create an HDInsight cluster. This version of the CLI is deprecated, and support for creating HDInsight clusters has not been added to Azure CLI 2.0.
->
-> You can also use Azure PowerShell to create and manage HDInsight clusters. For more information, see the [Create HDInsight clusters using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) document.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## Prerequisites
 
@@ -34,14 +26,11 @@ The steps in this document walk-through creating a HDInsight 3.5 cluster using t
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Azure CLI**. The steps in this document were last tested with Azure CLI version 0.10.14.
-
-    > [!IMPORTANT]
-    > Azure CLI 1.0 is deprecated, and support for creating HDInsight clusters has not been added to Azure CLI 2.0.
+* **Azure Classic CLI**. The steps in this document were last tested with Azure Classic CLI version 0.10.14.
 
 ## Log in to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](/cli/azure/authenticate-azure-cli) and connect to your subscription using the **login** method.
+Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface](/cli/azure/authenticate-azure-cli) and connect to your subscription using the **login** method.
 
 ## Create a cluster
 
@@ -51,7 +40,7 @@ The following steps should be performed from a command line, such as PowerShell 
 
         azure login
 
-    You are prompted to provide your name and password. If you have multiple Azure subscriptions, use `azure account set <subscriptionname>` to set the subscription that the Azure CLI commands use.
+    You are prompted to provide your name and password. If you have multiple Azure subscriptions, use `azure account set <subscriptionname>` to set the subscription that the classic CLI commands use.
 
 2. Switch to Azure Resource Manager mode using the following command:
 
@@ -125,7 +114,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-Now that you have successfully created an HDInsight cluster using the Azure CLI, use the following to learn how to work with your cluster:
+Now that you have successfully created an HDInsight cluster using the classic CLI, use the following to learn how to work with your cluster:
 
 ### Hadoop clusters
 

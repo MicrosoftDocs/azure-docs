@@ -3,14 +3,14 @@ title: Azure Event Hubs IP connection filters | Microsoft Docs
 description: Use IP filtering to block connections from specific IP addresses to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: spelluru
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: clemensv
+ms.date: 10/08/2018
+ms.author: spelluru
 
 ---
 
@@ -45,6 +45,9 @@ For example, if you want to accept addresses in the range 70.37.104.0/24 and rej
 > Rejecting IP addresses can prevent other Azure services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with Event Hubs.
 
 ### Creating a virtual network rule with Azure Resource Manager templates
+
+> [!IMPORTANT]
+> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier. 
 
 The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs namespace.
 

@@ -59,8 +59,6 @@
       href: concepts-servers.md
     - name: Supported versions
       href: concepts-supported-versions.md
-    - name: Server logs
-      href: concepts-server-logs.md
     - name: High availability
       href: concepts-high-availability.md
   - name: Resources
@@ -75,6 +73,8 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+      name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md
     - name: VNet
       href: concepts-data-access-and-security-vnet.md 
   - name: Business continuity
@@ -84,7 +84,11 @@
     - name: Backup and restore
       href: concepts-backup.md
   - name: Monitor
-    href: concepts-monitoring.md
+    items:
+    - name: Monitor
+      href: concepts-monitoring.md
+    - name: Server logs
+      href: concepts-server-logs.md
   - name: Development
     items:
     - name: Drivers and tools compatiblity
@@ -95,6 +99,8 @@
     items:
     - name: Data-in replication
       href: concepts-data-in-replication.md
+    - name: Read replicas
+      href: concepts-read-replicas.md  
 - name: How-to guides
   items:
   - name: Manage a Server
@@ -151,12 +157,18 @@
     items:
     - name: Configure data-in replication
       href: howto-data-in-replication.md
+    - name: Create read replicas Azure portal
+      href: howto-read-replicas-portal.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot query performance
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+    name: Advanced Threat Protection
+    items:
+    - name: Azure portal
+      href: howto-database-threat-protection-portal.md
   - name: Virtual Network
     items:
     - name: Azure portal

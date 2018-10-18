@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/12/2016
+ms.date: 08/20/2018
 ms.author: mbullwin
 
 ---
@@ -20,6 +20,9 @@ ms.author: mbullwin
 If you use System Center Operations Manager (SCOM) to manage your servers, you can monitor performance and diagnose performance issues with the help of [Azure Application Insights](app-insights-asp-net.md). Application Insights monitors your web application's incoming requests, outgoing REST and SQL calls, exceptions, and log traces. It provides dashboards with metric charts and smart alerts, as well as powerful diagnostic search and analytical queries over this telemetry. 
 
 You can switch on Application Insights monitoring by using an SCOM management pack.
+
+> [!IMPORTANT]
+> This System Center Operations Manager Management Pack is now **deprecated**. It does not support the latest Application Insights SDKs and is no longer recommended.
 
 ## Before you start
 We assume:

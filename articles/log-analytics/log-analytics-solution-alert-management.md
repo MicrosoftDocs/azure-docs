@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Alert Management solution in Azure Log Analytics
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md).  The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
 
 ## Prerequisites
 The solution works with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
@@ -32,10 +32,10 @@ The solution works with any records in the Log Analytics repository with a type 
 - For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
 ## Configuration
-Add the Alert Management solution to your Log ANalytics workspace using the process described in [Add solutions](log-analytics-add-solutions.md).  There is no further configuration required.
+Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](log-analytics-add-solutions.md). There is no further configuration required.
 
 ## Management packs
-If your System Center Operations Manager management group is connected to your Log Analytics workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.  
+If your System Center Operations Manager management group is connected to your Log Analytics workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 

@@ -99,14 +99,14 @@ The following values are returned under MaintenanceRedeployStatus:
 The following call will initiate maintenance on a VM if `IsCustomerInitiatedMaintenanceAllowed` is set to true.
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
 
 ## Classic deployments
 
-If you still have legacy VMs that were deployed using the classic deployment model, you can use CLI 1.0 to query for VMs and initiate maintenance.
+If you still have legacy VMs that were deployed using the classic deployment model, you can use the Azure classic CLI to query for VMs and initiate maintenance.
 
 Make sure you are in the correct mode to work with classic VM by typing:
 
@@ -158,7 +158,7 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: What is the experience in the case of Virtual Machine Scale Sets?**
 
-**A:** Planned maintenance is now available for Virtual Machine Scale Sets. For instructions on how to initiate self-service maintenance refer "How To->Manage->Planned Maintenance" section in Virtual Machine Scale Set docs.
+**A:** Planned maintenance is now available for Virtual Machine Scale Sets. For instructions on how to initiate self-service maintenance refer [planned maintenance for VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) document.
 
 **Q: What is the experience in the case of Cloud Services (Web/Worker Role) and Service Fabric?**
 

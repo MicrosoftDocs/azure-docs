@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Management - Governance
+metadata:
+  title: Azure Management - Governance
+  description: Learn about the concepts and Azure services available for managing your environment with consistency, through explicit design and rules, and how to audit for compliance.
+  services: governance
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: governance
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure Governance is a collection of concepts and services that are designed to enable management of your varous Azure resources at scale. These services provide the ability to organize and structure your subscriptions in a logical way, create and deploy re-usable and Azure native packages of resources, to define, audit and remediate your resources, and more. Use this page to find out more about these concepts and services and how to enable and use each in your environment today.
+  aside:
+    image:
+      alt: 
+      height: 225
+      src: ./media/video.png
+      width: 250  
+    title: Get speed and control over resources with Azure Governance (1:47)
+    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    width: 250
+sections:
+  - title: Components and Services
+  - items:
+    - type: list
+      style: cards
+      className: cardsD
+      columns: 2
+      items:
+        - href: ./management-groups/overview
+          html: <p>Learn about grouping and organizing your subscriptions in a logical hierarchy that support the deployment of other Governance services in a structured way.<br /></p>
+          image:
+            src: ./media/management-groups-illustration.svg
+          title: Management Groups
+        - href: ./resource-graph/
+          html: <p>Use a powerful command-line tool (supports Azure CLI and Azure PowerShell) to rapidly query complex details about your Azure resources. Find and expose information that previously required complex and iterative scripts to discover those resources at scale.</p>
+          image:
+            src: ./media/resource-graph-illustration.svg
+          title: Resource Graph
+        - href: ./policy/
+          html: <p>Define and apply standards to resources in your environment. Prevent the creation of undesired resources, enhance new resources with additional elements, and audit and remediate resources already in your environment.</p>
+          image:
+            src: ./media/policy-illustration.svg
+          title: Policy
+        - href: ./blueprints/
+          html: <p>Create an Azure native package of <i>artifacts</i> (resource groups, policies, role assignments, Resoure Manager templates and more) that can be dynamically deployed to subscriptions to create consistent, repeatable environments.</p>
+          image:
+            src: ./media/blueprints-illustration.svg
+          title: Blueprints
+  - title: Implementations
+  - items:
+    - type: list
+      style: cards
+      className: cardsZ
+      columns: 3
+      items:
+        - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json 
+          html: <p>In the past, enterprises assumed ownership and responsibility of all levels of technology from infrastructure to software. Now, the cloud offers the potential to transform the way enterprises utilize technology by provisioning and consuming resources as needed.</p>
+          title: Enterprise Cloud Adoption
+        - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+          html: <p>Enables administrators to ensure workloads meet the minimum governance requirements of an organization without preventing business groups and developers from quickly meeting their own goals.<br /><br /></p>
+          title: Enterprise Scaffold

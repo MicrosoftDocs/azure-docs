@@ -1,15 +1,15 @@
 ---
-title: How to edit a knowledge base - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: How to edit a knowledge base 
+title: Edit a knowledge base - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience. 
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
+ms.date: 09/12/2018
+ms.author: tulasim
 ---
 # Edit a knowledge base
 
@@ -24,8 +24,24 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
     ![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Select a particular knowledge base to make edits to it.
+ 
+3. Click on **Settings**.
 
-3. Once you are done making changes to the Knowledge base, click on **Save and train** in the top right corner of the page in order to persist the changes.    
+   Here you can edit mandatory field Service Name.
+  
+   You can add new Urls to add new FAQ content to Knowledgebase by clicking **Manage knowledgebase -> '+ Add URL'** link.
+   
+   You can delete existing URLs by clicking on **delete icon**.
+   
+   If you want Knowledgebase to Crawl the latest content of existing URLs, tick the Check Box name **'Refresh'**, this will update the   Knowledgebase with latest URL content.
+   
+You can add supported file document to be part of knowledgebase, by clicking **Manage knowledgebase -> '+ Add File'**
+
+You can also import any existing knowledgebase by clicking **'Ímport Knowledgebase'** button. 
+   
+Updation of knowledgebase depends on **management pricing tier** being used while creating QnA Maker service associated with your knowledgbase. You can also update the management tier from Azure portal if required.
+
+4. Once you are done making changes to the Knowledge base, click on **Save and train** in the top right corner of the page in order to persist the changes.    
 
     ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

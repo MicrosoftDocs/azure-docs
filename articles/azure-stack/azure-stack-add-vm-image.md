@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -33,7 +33,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 1. [Upload a Windows VM image to Azure for Resource Manager deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) or, for a Linux image, follow the instructions described in [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md). Before you upload the image, it's important to consider the following factors:
 
-   - Azure Stack supports the fixed disk VHD format. The fixed format structures the logical disk linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. To confirm if your disk is fixed, use the [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell command.  
+   - Azure Stack only supports generation one (1) VM in the fixed disk VHD format. The fixed-format structures the logical disk linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. To confirm if your disk is fixed, use the [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell command.  
 
     > [!IMPORTANT]
     >  Azure Stack does not support dynamic disk VHDs. Resizing a dynamic disk that is attached to a VM will leave the VM in a failed state. To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. The, convert the VHD from a dynamic disk to a fixed disk and re-create the virtual machine.
@@ -45,13 +45,13 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
    * Make a note of the blob storage URI where you upload the image. The blob storage URI has the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
-   * To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded. Select **Blob**, and then select **Access Policy**. Optionally, you can instead generate a shared access signature for the container, and include it as part of the blob URI.
+   * To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded. Select **Blob**, and then select **Access Policy**. Optionally, you can instead generate a shared access signature for the container, and include it as part of the blob URI. This step makes sure the blob is available to be used for adding this as an image. If the blob is not anonymously accessible, the VM image will be created to in a failed state.
 
    ![Go to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
    ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as operator. In the menu, select **More services**. Then, select  **Compute** > **VM images** > **Add**.
+2. Sign in to Azure Stack as operator. In the menu, select **All services**. Then, under the **ADMINISTRATION** category select  **Compute** > **VM images** > **Add**.
 
 3. Under **Add a VM Image**, enter the publisher, offer, SKU, and version of the virtual machine image. These name segments refer to the VM   image in Resource Manager templates. Make sure to select the **osType** value correctly. For **OS Disk Blob URI**, enter the Blob URI where the    image was uploaded. Then, select **Create** to begin creating the VM Image.
 
@@ -72,7 +72,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 ## Add a VM image to the Marketplace by using PowerShell
 
 > [!Note]  
-> When you add an image it will only be available for Azure Resource Manger based templates and PowerShell deployments. To make an image available to a your users as a marketplace item, publish the marketplace item using the steps in the article, [Create and publish a Marketplace item](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> When you add an image it will only be available for Azure Resource Manger based templates and PowerShell deployments. To make an image available to a your users as a marketplace item, publish the marketplace item using the steps in the article, [Create and publish a Marketplace item](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
 
@@ -112,7 +112,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
     For more information, see the PowerShell reference for the [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet and the [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## Add a custom VM image to the Marketplace by using PowerShell
-
+ 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
   ```PowerShell  

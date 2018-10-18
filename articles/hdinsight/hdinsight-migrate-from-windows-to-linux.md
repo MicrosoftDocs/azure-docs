@@ -1,19 +1,15 @@
 ---
-title: Migrate from Windows-based HDInsight to Linux-based HDInsight - Azure | Microsoft Docs
+title: Migrate from Windows-based HDInsight to Linux-based HDInsight - Azure 
 description: Learn how to migrate from a Windows-based HDInsight cluster to a Linux-based HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -98,7 +94,7 @@ Alternatively, you may want to use the `Start-AzureStorageBlobCopy` Azure PowerS
 
 ## Client-side technologies
 
-Client-side technologies such as [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md), or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) continue to work Linux-based clusters. These technologies rely on REST APIs that are the same across both cluster OS types.
+Client-side technologies such as [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure Classic CLI](../cli-install-nodejs.md), or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) continue to work Linux-based clusters. These technologies rely on REST APIs that are the same across both cluster OS types.
 
 ## Server-side technologies
 
@@ -107,7 +103,7 @@ The following table provides guidance on migrating server-side components that a
 | If you are using this technology... | Take this action... |
 | --- | --- |
 | **PowerShell** (server-side scripts, including Script Actions used during cluster creation) |Rewrite as Bash scripts. For Script Actions, see [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) and [Script action development for Linux-based HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. For more information on installing the Azure CLI, see [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
+| **Azure Classic CLI** (server-side scripts) |While the Azure Classic CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. For more information on installing the Azure Classic CLI, see [Get started with Azure Classic CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
 | **.NET components** |.NET is supported on Linux-based HDInsight through [Mono](https://mono-project.com). For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Win32 components or other Windows-only technology** |Guidance depends on the component or technology. You may be able to find a version that is compatible with Linux. If not, you must find an alternate solution or rewrite this component. |
 

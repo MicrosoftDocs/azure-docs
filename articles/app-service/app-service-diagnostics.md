@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure App Service diagnostics overview | Microsoft Docs
 description: Learn how you can troubleshoot issues with your web app with App Service diagnostics. 
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
@@ -23,7 +23,7 @@ When you’re running a web application, you want to be prepared for any issues 
  
 Although this experience is most helpful when you’re having issues with your web app within the last 24 hours, all the diagnostic graphs will be available for you to analyze at all times. Additional troubleshooting tools and links to helpful documentation and forums are located on the right-hand column.
 
-App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/en-us/azure/app-service/environment/intro), and [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro), and [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). 
 
 ## Open App Service diagnostics
 

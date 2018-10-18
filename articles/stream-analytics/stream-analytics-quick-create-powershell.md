@@ -2,8 +2,8 @@
 title: Create a Stream Analytics job by using Azure PowerShell
 description: This quickstart details using the Azure PowerShell module to deploy and run an Azure Stream Analytics job.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
@@ -15,7 +15,7 @@ manager: kfile
 # Quickstart: Create a Stream Analytics job by using Azure PowerShell
 
 The Azure PowerShell module is used to create and manage Azure resources by using PowerShell cmdlets or scripts. This quickstart details using the Azure PowerShell module to deploy and run an Azure Stream Analytics job. 
-
+ 
 The example job reads streaming data from a blob in Azure blob storage. The input data file used in this quickstart contains static data for illustrative purposes only. In a real world scenario, you use streaming input data for a Stream Analytics job. Next, the job transforms the data using the Stream Analytics query language to calculate average temperature when over 100°. Finally, it writes the resulting output events into another file. 
 
 ## Before you begin

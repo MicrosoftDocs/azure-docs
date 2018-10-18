@@ -1,21 +1,15 @@
 ---
-title: Create highly available Spark Streaming jobs in YARN - Azure HDInsight | Microsoft Docs
-description: 'How to set up Spark Streaming for a high-availability scenario.'
+title: Create highly available Spark Streaming jobs in YARN - Azure HDInsight
+description: How to set up Spark Streaming for a high-availability scenario.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: ramoha
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
-ms.author: ramoha
-
 ---
 # Create high-availability Spark Streaming jobs with YARN
 

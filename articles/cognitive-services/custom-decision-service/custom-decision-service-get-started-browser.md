@@ -1,13 +1,16 @@
 ---
-title: Call API from a browser - Azure Cognitive Services | Microsoft Docs
-description: How to get started with Azure Custom Decision Service to optimize a webpage by making API calls directly from a browser.
+title: Call API from a browser - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: How to optimize a webpage by making API calls directly from a browser to the Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: slivkins,marcozo,alekh
+ms.author: slivkins
 ---
 
 # Call API from a browser

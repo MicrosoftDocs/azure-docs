@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Hive Performance Tuning Guidelines | Microsoft Docs
-description: Azure Data Lake Store Hive Performance Tuning Guidelines
+title: Azure Data Lake Storage Gen1 Hive Performance Tuning Guidelines | Microsoft Docs
+description: Azure Data Lake Storage Gen1 Hive Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -15,21 +15,21 @@ ms.date: 12/19/2016
 ms.author: stewu
 
 ---
-# Performance tuning guidance for Hive on HDInsight and Azure Data Lake Store
+# Performance tuning guidance for Hive on HDInsight and Azure Data Lake Storage Gen1
 
-The default settings have been set to provide good performance across many different use cases.  For I/O intensive queries, Hive can be tuned to get better performance with ADLS.  
+The default settings have been set to provide good performance across many different use cases.  For I/O intensive queries, Hive can be tuned to get better performance with Azure Data Lake Storage Gen1.  
 
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
-* **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+* **A Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
 * **Running Hive on HDInsight**.  To learn about running Hive jobs on HDInsight, see [Use Hive on HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Performance tuning guidelines on ADLS**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## Parameters
 
-Here are the most important settings to tune for improved ADLS performance:
+Here are the most important settings to tune for improved Data Lake Storage Gen1 performance:
 
 * **hive.tez.container.size** – the amount of memory used by each tasks
 
@@ -59,7 +59,7 @@ The concurrent number of tasks running or parallelism will be bounded by the tot
 
 		Total YARN memory = nodes * YARN memory per node
 		# of YARN containers = Total YARN memory / Tez container size
-The key to improving performance using ADLS is to increase the concurrency as much as possible.  Tez automatically calculates the number of tasks that should be created so you do not need to set it.   
+The key to improving performance using Data Lake Storage Gen1 is to increase the concurrency as much as possible.  Tez automatically calculates the number of tasks that should be created so you do not need to set it.   
 
 ## Example Calculation
 
@@ -71,9 +71,9 @@ Let's say you have an 8 node D14 cluster.
 
 ## Limitations
 
-**ADLS throttling** 
+**Data Lake Storage Gen1 throttling** 
 
-UIf you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.
+If you hit the limits of bandwidth provided by Data Lake Storage Gen1, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.
 
 To check if you are getting throttled, you need to enable the debug logging on the client side. Here's how you can do that:
 

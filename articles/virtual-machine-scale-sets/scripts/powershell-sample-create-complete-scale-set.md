@@ -3,7 +3,7 @@ title: Azure PowerShell Samples - Create a complete virtual machine scale set | 
 description: Azure PowerShell Samples
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 ---

@@ -3,7 +3,7 @@ title: What is Azure Cloud Services | Microsoft Docs
 description: 'Learn about what Azure Cloud Services is.'
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Overview of Azure Cloud Services
@@ -29,7 +29,7 @@ There are two types of Azure Cloud Services roles. The only difference between t
 
 * **Worker role**: Does not use IIS, and runs your app standalone.
 
-For example, a simple application might use just a single web role, serving a website. A more complex application might use a web role to handle incoming requests from users, and then pass those requests on to a worker role for processing. (This communication might use [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) or [Azure Queue storage](../storage/common/storage-introduction.md).)
+For example, a simple application might use just a single web role, serving a website. A more complex application might use a web role to handle incoming requests from users, and then pass those requests on to a worker role for processing. (This communication might use [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) or [Azure Queue storage](../storage/common/storage-introduction.md).)
 
 As the preceding figure suggests, all the VMs in a single application run in the same cloud service. Users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform [scales and deploys](cloud-services-how-to-scale-portal.md) the VMs in an Azure Cloud Services application in a way that avoids a single point of hardware failure.
 

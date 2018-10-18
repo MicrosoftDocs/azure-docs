@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
 
 ---
@@ -24,7 +24,7 @@ Application Insights has always provided a summary overview pane to allow quick,
 
 The new overview dashboard now launches by default:
 
-![Overview Preview Pane](.\media\app-insights-overview-dashboard\overview-0001.png)
+![Overview Preview Pane](.\media\app-insights-overview-dashboard\overview.png)
 
 ## Better performance
 
@@ -46,7 +46,7 @@ To access the default dashboard select _Application Dashboard_ in the upper left
 
 If this is your first time accessing the dashboard, it will launch a default view:
 
-![Dashboard view](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![Dashboard view](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 You can keep the default view if you like it. Or you can also add, and delete from the dashboard to best fit the needs of your team.
 
@@ -56,12 +56,6 @@ You can keep the default view if you like it. Or you can also add, and delete fr
 To navigate back to the overview experience just select:
 
 ![Overview Button](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
-
-## Access the Classic Overview Dashboard
-
-If you miss the old overview, choose **Classic Overview**.
-
-![Classic Overview](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## Next steps
 

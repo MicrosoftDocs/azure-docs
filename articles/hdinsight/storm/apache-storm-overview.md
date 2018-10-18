@@ -1,23 +1,16 @@
 ---
-title: What is Apache Storm - Azure HDInsight | Microsoft Docs
-description: 'Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.'
+title: What is Apache Storm - Azure HDInsight 
+description: Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: apache storm use cases,storm cluster,what is apache storm
 
-ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # What is Apache Storm on Azure HDInsight?
@@ -87,7 +80,7 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
   For more information, see the [Manage HDInsight using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) documents.
 
-* __Azure PowerShell and Azure CLI__: PowerShell and CLI both provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
+* __Azure PowerShell and Azure Classic CLI__: PowerShell and classic CLI both provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
 * __Visual Studio integration__: Azure Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies by using the SCP.Net framework. Data Lake Tools also provide tools to deploy, monitor, and manage solutions with Storm on HDInsight.
 

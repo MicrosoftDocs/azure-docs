@@ -1,15 +1,14 @@
 ---
-title: What is group-based licensing in Azure AD? | Microsoft Docs
-description: Description of Azure Active Directory group-based licensing, how it works and best practices
+title: What is group-based licensing in Azure Active Directory? | Microsoft Docs
+description: Learn about Azure Active Directory group-based licensing, including how it works and best practices.
 services: active-directory
 keywords: Azure AD licensing
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
+
 ms.service: active-directory
 ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/13/2018
 ms.author: lizross
@@ -17,7 +16,7 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ---
 
-# Group-based licensing basics in Azure Active Directory
+# What is group-based licensing in Azure Active Directory?
 
 Microsoft paid cloud services, such as Office 365, Enterprise Mobility + Security, Dynamics 365, and other similar products, require licenses. These licenses are assigned to each user who needs access to these services. To manage licenses, administrators use one of the management portals (Office or Azure) and PowerShell cmdlets. Azure Active Directory (Azure AD) is the underlying infrastructure that supports identity management for all Microsoft cloud services. Azure AD stores information about license assignment states for users.
 
@@ -25,8 +24,8 @@ Until now, licenses could only be assigned at the individual user level, which c
 
 To address those challenges, Azure AD now includes group-based licensing. You can assign one or more product licenses to a group. Azure AD ensures that the licenses are assigned to all members of the group. Any new members who join the group are assigned the appropriate licenses. When they leave the group, those licenses are removed. This eliminates the need for automating license management via PowerShell to reflect changes in the organization and departmental structure on a per-user basis.
 
->[!NOTE]
->This feature currently is in public preview. Be prepared to revert or remove any changes. The feature is available with any paid Azure Active Directory (Azure AD) license plan during public preview. However, when the feature becomes generally available, some aspects of the feature might require one or more Azure Active Directory Premium licenses.
+>[!Note]
+>Group-based licensing is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Features
 

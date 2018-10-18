@@ -11,13 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
+
+ROBOTS: NOINDEX
 ---
 # Use Jupyter Notebooks in Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Azure Machine Learning Workbench supports interactive data science experimentation through its integration with Jupyter Notebooks. This article describes how to make effective use of this feature to increase the rate and quality of your interactive data science experimentation.
 
 ## Prerequisites
-- [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../service/quickstart-installation.md).
+- [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](quickstart-installation.md).
 - Be familiar with the [Jupyter Notebook](http://jupyter.org/). This article is not about learning how to use Jupyter.
 
 ## Jupyter Notebook architecture

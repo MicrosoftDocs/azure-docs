@@ -1,6 +1,6 @@
 ---
 title: Tutorial - High availability for Linux VMs in Azure | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to deploy highly available virtual machines in Availability Sets
+description: In this tutorial, you learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2017
+ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about high availability in Azure so that I can deploy a highly-available and redundant infrastructure.
 ---
 
-# Tutorial: Create and deploy highly available virtual machines with the Azure CLI 2.0
+# Tutorial: Create and deploy highly available virtual machines with the Azure CLI
 
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware clusters. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs is impacted and that your overall solution remains available and operational.
 
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Availability set overview
 
@@ -77,10 +77,11 @@ for i in `seq 1 2`; do
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
+     --vnet-name myVnet \
+     --subnet mySubnet \
      --image UbuntuLTS \
      --admin-username azureuser \
-     --generate-ssh-keys \
-	 --no-wait
+     --generate-ssh-keys
 done
 ```
 
@@ -92,7 +93,7 @@ The availability set distribution can be viewed in the portal by going to Resour
 
 ## Check for available VM sizes
 
-Additional VMs can be added to the availability set later, where VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) to list all the available sizes on the hardware cluster for the availability set:
+Additional VMs can be added to the availability set later, where VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) to list all the available sizes on the hardware cluster for the availability set:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

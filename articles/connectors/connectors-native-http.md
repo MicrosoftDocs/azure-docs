@@ -1,224 +1,119 @@
-﻿---
-title: Communicate with any endpoint over HTTP - Azure Logic Apps | Microsoft Docs
-description: Create logic apps that can communicate with any endpoint over HTTP
-services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/15/2016
-ms.author: jehollan; LADocs
-
 ---
-# Get started with the HTTP action
+title: Connect to any HTTP endpoint with Azure Logic Apps | Microsoft Docs
+description: Automate tasks and workflows that communicate with any HTTP endpoint by using Azure Logic Apps
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
+ms.topic: article
+tags: connectors
+ms.date: 08/25/2018
+---
 
-With the HTTP action, you can extend workflows for your organization and communicate to any endpoint over HTTP.
+# Call HTTP or HTTPS endpoints with Azure Logic Apps
 
-You can:
+With Azure Logic Apps and the Hypertext Transfer Protocol (HTTP) connector, 
+you can automate workflows that communicate with any HTTP or HTTPS endpoint 
+by building logic apps. For example, you can monitor the service endpoint 
+for your website. When an event happens at that endpoint, such as your 
+website going down, the event triggers your logic app's workflow and runs 
+the specified actions. 
 
-* Create logic app workflows that activate (trigger) when a website that you manage goes down.
-* Communicate to any endpoint over HTTP to extend your workflows into other services.
+You can use the HTTP trigger as the first step in your worklfow 
+for checking or *polling* an endpoint on a regular schedule. 
+On each check, the trigger sends a call or *request* to the endpoint. 
+The endpoint's response determines whether your logic app's workflow runs. 
+The trigger passes along any content from the response to the actions 
+in your logic app. 
 
-To get started using the HTTP action in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+You can use the HTTP action as any other step in your workflow 
+for calling the endpoint when you want. The endpoint's response 
+determines how your workflow's remaining actions run.
 
-## Use the HTTP trigger
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+If you're new to logic apps, review 
+[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-Here’s an example sequence of how to set up the HTTP trigger in the Logic App Designer.
+## Prerequisites
 
-1. Add the HTTP trigger in your logic app.
-2. Fill in the parameters for the HTTP endpoint that you want to poll.
-3. Modify the recurrence interval on how frequently it should poll.
+* An Azure subscription. If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-   The logic app now fires with any content that is returned during each check.
+* The URL for the target endpoint you want to call 
 
-   ![HTTP trigger](./media/connectors-native-http/using-trigger.png)
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-### How the HTTP trigger works
+* The logic app from where you want to call the target endpoint 
+To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To use the HTTP action, start your logic app with a trigger.
 
-The HTTP trigger sends a call to HTTP endpoint on a recurring interval. 
-By default, any HTTP response code that is lower than 300 causes a logic app to run. 
-To specify whether the logic app should fire, you can edit the logic app in code view, 
-and add a condition that evaluates after the HTTP call. Here's an example of an HTTP trigger 
-that fires when the returned status code is greater than or equal to `400`.
+## Add HTTP trigger
 
-```javascript
-"Http":
-{
-    "conditions": [
-        {
-            "expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
-        }
-    ],
-    "inputs": {
-        "method": "GET",
-        "uri": "https://blogs.msdn.microsoft.com/logicapps/",
-        "headers": {
-            "accept-language": "en"
-        }
-    },
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 15
-    },
-    "type": "Http"
-}
-```
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your blank logic app in Logic App Designer, 
+if not open already.
 
-Full details about the HTTP trigger parameters are available on [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+1. In the search box, enter "http" as your filter. 
+Under the triggers list, select the **HTTP** trigger. 
 
-## Use the HTTP action
+   ![Select HTTP trigger](./media/connectors-native-http/select-http-trigger.png)
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. 
-[Learn more about actions](connectors-overview.md).
+1. Provide the [HTTP trigger's parameters and values](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) 
+you want to include in the call to the target endpoint. 
+Set up recurrence for how often you want the trigger to check the target endpont.
 
-1. Choose **New Step** > **Add an action**.
-3. In the action search box, type **http** to list the HTTP actions.
-   
-    ![Select the HTTP action](./media/connectors-native-http/using-action-1.png)
+   ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
 
-4. Add any required parameters for the HTTP call.
-   
-    ![Complete the HTTP action](./media/connectors-native-http/using-action-2.png)
+   For more information about the HTTP trigger, parameters, and values, 
+   see [Trigger and action types reference](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger).
 
-5. On the designer toolbar, click **Save**. 
-Your logic app is saved and published (activated) at the same time.
+1. Continue building your logic app's workflow with actions that run 
+when the trigger fires.
 
-## HTTP trigger
-Here are the details for the trigger that this connector supports. The HTTP connector has one trigger.
+## Add HTTP action
 
-| Trigger | Description |
-| --- | --- |
-| HTTP |Makes an HTTP call and returns the response content. |
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## HTTP action
-Here are the details for the action that this connector supports. The HTTP connector has one possible action.
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
 
-| Action | Description |
-| --- | --- |
-| HTTP |Makes an HTTP call and returns the response content. |
+1. Under the last step where you want to add the HTTP action, 
+choose **New step**. 
 
-## HTTP details
-The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
+   In this example, the logic app starts with the HTTP trigger as the first step.
 
-#### HTTP request
-The following are input fields for the action, which makes an HTTP outbound request.
-A * means that it is a required field.
+1. In the search box, enter "http" as your filter. 
+Under the actions list, select the **HTTP** action.
 
-| Display name | Property name | Description |
-| --- | --- | --- |
-| Method* |method |The HTTP verb to use |
-| URI* |uri |The URI for the HTTP request |
-| Headers |headers |A JSON object of HTTP headers to include |
-| Body |body |The HTTP request body |
-| Authentication |authentication |Details in the [Authentication](#authentication) section |
+   ![Select HTTP action](./media/connectors-native-http/select-http-action.png)
 
-<br>
+   To add an action between steps, 
+   move your pointer over the arrow between steps. 
+   Choose the plus sign (**+**) that appears, 
+   and then select **Add an action**.
 
-#### Output details
-The following are output details for the HTTP response.
+1. Provide the [HTTP action's parameters and values](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) 
+you want to include in the call to the target endpoint. 
 
-| Property name | Data type | Description |
-| --- | --- | --- |
-| Headers |object |Response headers |
-| Body |object |Response object |
-| Status Code |int |HTTP status code |
+   ![Enter HTTP action parameters](./media/connectors-native-http/http-action-parameters.png)
+
+1. When you're done, make sure you save your logic app. 
+On the designer toolbar, choose **Save**. 
 
 ## Authentication
-The Logic Apps feature allows you to use different types of authentication against HTTP endpoints. You can use this authentication with the **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)**, and **[HTTP Webhook](connectors-native-webhook.md)** connectors. The following types of authentication are configurable:
 
-* [Basic authentication](#basic-authentication)
-* [Client certificate authentication](#client-certificate-authentication)
-* [Azure Active Directory (Azure AD) OAuth authentication](#azure-active-directory-oauth-authentication)
+To set authentication, choose **Show advanced options** inside the action or trigger. 
+For more information about available authentication types for HTTP triggers and actions, 
+see [Trigger and action types reference](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-#### Basic authentication
+## Get support
 
-The following authentication object is needed for basic authentication.
-A * means that it is a required field.
-
-| Property name | Data type | Description |
-| --- | --- | --- |
-| Type* |type |Type of authentication (must be `Basic` for basic authentication) |
-| Username* |username |User name to authenticate |
-| Password* |password |Password to authenticate |
-
-> [!TIP]
-> If you want to use a password that cannot be retrieved from the definition, 
-> use a `securestring` parameter and the `@parameters()` 
-> [workflow definition function](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-For example:
-
-```javascript
-{
-    "type": "Basic",
-    "username": "user",
-    "password": "test"
-}
-```
-
-#### Client certificate authentication
-
-The following authentication object is needed for client certificate authentication. 
-A * means that it is a required field.
-
-| Property name | Data type | Description |
-| --- | --- | --- |
-| Type* |type |The type of authentication (must be `ClientCertificate` for SSL client certificates) |
-| PFX* |pfx |The Base64-encoded contents of the Personal Information Exchange (PFX) file |
-| Password* |password |The password to access the PFX file |
-
-> [!TIP]
-> To use a parameter that won't be readable in the definition after saving the logic app, 
-> you can use a `securestring` parameter and the `@parameters()` 
-> [workflow definition function](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-For example:
-
-```javascript
-{
-    "type": "ClientCertificate",
-    "pfx": "aGVsbG8g...d29ybGQ=",
-    "password": "@parameters('myPassword')"
-}
-```
-
-#### Azure AD OAuth authentication
-The following authentication object is needed for Azure AD OAuth authentication. A * means that it is a required field.
-
-| Property name | Data type | Description |
-| --- | --- | --- |
-| Type* |type |The type of authentication (must be `ActiveDirectoryOAuth` for Azure AD OAuth) |
-| Tenant* |tenant |The tenant identifier for the Azure AD tenant |
-| Audience* |audience |The resource you are requesting authorization to use. For example: `https://management.core.windows.net/` |
-| Client ID* |clientId |The client identifier for the Azure AD application |
-| Secret* |secret |The secret of the client that is requesting the token |
-
-> [!TIP]
-> You can use a `securestring` parameter and the `@parameters()` [workflow definition function](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) to use a parameter that won't be readable in the definition after saving.
-> 
-> 
-
-For example:
-
-```javascript
-{
-    "type": "ActiveDirectoryOAuth",
-    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "audience": "https://management.core.windows.net/",
-    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-    "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-}
-```
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
-Now, try out the platform and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
 
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

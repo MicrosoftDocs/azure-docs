@@ -1,14 +1,15 @@
 ---
-title: 'Tutorial: Call cognitive search APIs in Azure Search | Microsoft Docs'
-description: Example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
+title: 'Tutorial for calling cognitive search APIs in Azure Search | Microsoft Docs'
+description: In this tutorial, step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
+#Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 
 # Tutorial: Learn how to call cognitive search APIs (Preview)
@@ -18,8 +19,8 @@ In this tutorial, you learn the mechanics of programming data enrichment in Azur
 In this tutorial, you make REST API calls to perform following tasks:
 
 > [!div class="checklist"]
-> * Create an indexing pipeline that enriches source data in route to an index
-> * Use built-in skills on sample data: entity recognition, language detection, text manipulation, key phrase extraction
+> * Create an indexing pipeline that enriches sample data in route to an index
+> * Apply built-in skills: entity recognition, language detection, text manipulation, key phrase extraction
 > * Learn how to chain skills together by mapping inputs to outputs in a skillset
 > * Execute requests and review results
 > * Reset the index and indexers for further development
@@ -27,6 +28,9 @@ In this tutorial, you make REST API calls to perform following tasks:
 Output is a full text searchable index on Azure Search. You can enhance the index with other standard capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
 
 ## Prerequisites
 
@@ -71,11 +75,11 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
+1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container named `basicdemo`. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
 1. Using the Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
 
-1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to you storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
+1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
 
   The connection string should be a URL similar to the following example:
 
@@ -407,7 +411,7 @@ Content-Type: application/json
 
 The response tells you whether the indexer is running. After indexing is finished, use another HTTP GET to the STATUS endpoint (as above) to see reports of any errors and warnings that occurred during enrichment.  
 
-Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status reponse for verbose information about warnings emitted during indexing.
+Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status response for verbose information about warnings emitted during indexing.
  
 ## Verify content
 

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke: #556a8a;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #2bc7f4;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-linecap: round;
+      }
+
+      .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-4 {
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <title>i_debug</title>
+  <g id="ICONS-64x">
+    <circle class="cls-1" cx="32" cy="32" r="31"/>
+    <circle class="cls-2" cx="32" cy="15.5" r="5.5"/>
+    <line class="cls-3" x1="43.04" y1="23.23" x2="48" y2="18"/>
+    <line class="cls-3" x1="43.04" y1="48" x2="48" y2="53.23"/>
+    <line class="cls-4" x1="46" y1="34" x2="53" y2="34"/>
+    <line class="cls-3" x1="23" y1="48" x2="18.04" y2="53.23"/>
+    <line class="cls-4" x1="20.04" y1="34" x2="13.04" y2="34"/>
+    <path class="cls-2" d="M32.5,53A13.51,13.51,0,0,1,19,39.5v-8a13.5,13.5,0,0,1,27,0v8A13.51,13.51,0,0,1,32.5,53Z"/>
+    <line class="cls-3" x1="37" y1="12" x2="41" y2="8"/>
+    <line class="cls-3" x1="27" y1="12" x2="23" y2="8"/>
+    <line class="cls-5" x1="10" y1="10" x2="54" y2="54"/>
+  </g>
+</svg>

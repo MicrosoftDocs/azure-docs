@@ -5,8 +5,8 @@ description: Ban weak passwords in on-premises Active Directory using the Azure 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/25/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,7 +34,9 @@ There are three software components that make up Azure AD password protection:
 ## Requirements
 
 * All machines where Azure AD password protection components are installed including domain controllers must be running Windows Server 2012 or later.
+* All machines where Azure AD password protection components are installed including domain controllers must have the Universal C runtime installed. This is preferably accomplished by fully patching the machine via Windows Update. Otherwise an appropriate OS-specific update package may be installed - see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service.
+* Any Active Directory domain controller that leverages the password protection functionality must have the DC agent installed.
 * Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
 * A global administrator account to register the Azure AD password protection proxy service with Azure AD.
 * An account with Active Directory domain administrator privileges in the forest root domain.
@@ -45,7 +47,7 @@ The benefits of the global banned password list apply to all users of Azure Acti
 
 The custom banned password list requires Azure AD Basic licenses.
 
-Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. 
+Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses.
 
 Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -58,11 +60,13 @@ There are two required installers for Azure AD password protection that can be d
 * No internet connectivity required from the domain controllers. The machine(s) running the Azure AD password protection proxy service are the only machines requiring internet connectivity.
 * No network ports are opened on domain controllers.
 * No Active Directory schema changes are required.
-   * The software uses the existing Active Directory container and serviceConnectionPoint schema objects.
+* The software uses the existing Active Directory container and serviceConnectionPoint schema objects.
 * There is no minimum Active Directory Domain or Forest Functional level (DFL\FFL) requirement.
 * The software does not create or require any accounts in the Active Directory domains it protects.
 * Incremental deployment is supported with the tradeoff that password policy is only enforced where the domain controller agent is installed.
+* It is recommended to install the DC agent on all DCs to ensure password protection enforcement. 
 * Azure AD password protection is not a real-time policy application engine. There may be a delay in the time between a password policy configuration change and the time it reaches and is enforced on all domain controllers.
+
 
 ## Next steps
 

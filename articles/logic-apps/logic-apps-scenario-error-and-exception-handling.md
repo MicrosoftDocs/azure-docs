@@ -1,24 +1,17 @@
 ---
 title: Exception handling & error logging scenario - Azure Logic Apps | Microsoft Docs
-description: Describes a real use case about advanced exception handling and error logging for Azure Logic Apps
-keywords: ''
+description: Here's a real use case about advanced exception handling and error logging in Azure Logic Apps
 services: logic-apps
-author: hedidin
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: hedidin
+ms.author: b-hoedid
+ms.reviewer: estfan, LADocs
+ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: LADocs; b-hoedid
-
 ---
+
 # Scenario: Exception handling and error logging for logic apps
 
 This scenario describes how you can extend a logic app to better support exception handling. 
@@ -467,8 +460,8 @@ Every document in Azure Cosmos DB must have a unique ID.
 We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). 
 We truncate the value to remove the fractional value.
 
-You can view the source code of our error controller API 
-[from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+You can view the source code of our error controller API from
+[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 We call the API from a logic app by using the following syntax:
 

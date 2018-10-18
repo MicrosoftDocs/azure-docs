@@ -8,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 08/17/2018
 ms.author: jingwang
 
 ---
@@ -26,7 +26,7 @@ You can copy data from any supported source data store to Blob storage. You also
 Specifically, this Blob storage connector supports:
 
 - Copying blobs to and from general-purpose Azure storage accounts and hot/cool blob storage. 
-- Copying blobs by using both account key and service shared access signature authentications.
+- Copying blobs by using account key, service shared access signature, service principal or managed identities for Azure resources authentications.
 - Copying blobs from block, append, or page blobs and copying data to only block blobs. Azure Premium Storage isn't supported as a sink because it's backed by page blobs.
 - Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
@@ -38,23 +38,36 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-### Use an account key
+Azure Blob connector support the following authentication types, refer to the corresponding section on details:
 
-You can create a Storage linked service by using the account key. It provides the data factory with global access to Storage. The following properties are supported.
+- [Account key authentication](#account-key-authentication)
+- [Shared access signature authentication](#shared-access-signature-authentication)
+- [Service principal authentication](#service-principal-authentication)
+- [Managed identities for Azure resources authentication](#managed-identity)
+
+>[!NOTE]
+>HDInsights, Azure Machine Learning and Azure SQL Data Warehouse PolyBase load only support Azure Blob storage account key authentication.
+
+### Account key authentication
+
+To use storage account key authentication, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **AzureStorage**. |Yes |
+| type | The type property must be set to **AzureBlobStorage** (suggested) or **AzureStorage** (see notes below). |Yes |
 | connectionString | Specify the information needed to connect to Storage for the connectionString property. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>If you were using "AzureStorage" type linked service, it is still supported as-is, while you are suggested to use this new "AzureBlobStorage" linked service type going forward.
 
 **Example:**
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -69,35 +82,36 @@ You can create a Storage linked service by using the account key. It provides th
 }
 ```
 
-### Use service shared access signature authentication
-
-You also can create a Storage linked service by using a shared access signature. It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage.
+### Shared access signature authentication
 
 A shared access signature provides delegated access to resources in your storage account. You can use a shared access signature to grant a client limited permissions to objects in your storage account for a specified time. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory now supports both service shared access signatures and account shared access signatures. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+> Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
 > To generate a service shared access signature for your storage account, you can execute the following PowerShell commands. Replace the placeholders and grant the needed permission.
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-To use service shared access signature authentication, the following properties are supported.
+To use shared access signature authentication, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **AzureStorage**. |Yes |
+| type | The type property must be set to **AzureBlobStorage** (suggested) or **AzureStorage** (see notes below). |Yes |
 | sasUri | Specify the shared access signature URI to the Storage resources, such as blob, container, or table. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or the Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>If you were using "AzureStorage" type linked service, it is still supported as-is, while you are suggested to use this new "AzureBlobStorage" linked service type going forward.
 
 **Example:**
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
@@ -117,6 +131,105 @@ When you create a shared access signature URI, consider the following points:
 - Set appropriate read/write permissions on objects based on how the linked service (read, write, read/write) is used in your data factory.
 - Set **Expiry time** appropriately. Make sure that the access to Storage objects doesn't expire within the active period of the pipeline.
 - The URI should be created at the right container/blob or table level based on the need. A shared access signature URI to a blob allows Data Factory to access that particular blob. A shared access signature URI to an Blob storage container allows Data Factory to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
+
+### Service principal authentication
+
+For Azure Storage service principal authentication in general, refer to [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md).
+
+To use service principal authentication, follow these steps:
+
+1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+
+    - Application ID
+    - Application key
+    - Tenant ID
+
+2. Grant the service principal proper permission in Azure Blob storage. Refer to [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md) with more details on the roles.
+
+    - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
+    - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+These properties are supported for an Azure Blob storage linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **AzureBlobStorage**. |Yes |
+| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. |Yes |
+| servicePrincipalId | Specify the application's client ID. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>Service principal authentication is only supported by "AzureBlobStorage" type linked service but not previous "AzureStorage" type linked service.
+
+**Example:**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
+
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Blob storage authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Blob storage.
+
+For Azure Storage MSI authentication in general, refer to [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md).
+
+To use managed identities for Azure resources authentication, follow these steps:
+
+1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
+
+2. Grant the service principal proper permission in Azure Blob storage. Refer to [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md) with more details on the roles.
+
+    - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
+    - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+These properties are supported for an Azure Blob storage linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **AzureBlobStorage**. |Yes |
+| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. |Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+> [!NOTE]
+> Managed identities for Azure resources authentication is only supported by "AzureBlobStorage" type linked service but not previous "AzureStorage" type linked service. 
+
+**Example:**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## Dataset properties
 
@@ -143,7 +256,7 @@ To copy data to and from Blob storage, set the type property of the dataset to *
     "properties": {
         "type": "AzureBlob",
         "linkedServiceName": {
-            "referenceName": "<Azure Storage linked service name>",
+            "referenceName": "<Azure Blob storage linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {

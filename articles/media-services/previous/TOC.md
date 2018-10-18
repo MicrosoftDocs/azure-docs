@@ -64,6 +64,7 @@
 ##### [Customize Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
 ##### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
+##### [Generate a thumbnail sprite](generate-thumbnail-sprite.md)
 #### MES Schemas
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)
@@ -230,7 +231,7 @@
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Service Management)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## Specifications

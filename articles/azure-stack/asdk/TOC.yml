@@ -19,7 +19,7 @@
     href: asdk-advanced-eval.md
 - name: How to
   items:
-  - name: Setup the ASDK
+  - name: Set up the ASDK
     items:
     - name: Download and extract the development kit
       href: asdk-download.md
@@ -39,6 +39,8 @@
     href: asdk-telemetry.md  
   - name: Start and stop the ASDK
     href: asdk-start-stop.md
+  - name: Validate an Azure Stack backup
+    href: asdk-validate-backup.md
   - name: Troubleshooting
     href: asdk-troubleshooting.md
 - name: Reference

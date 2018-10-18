@@ -1,27 +1,22 @@
 ---
-title: What is Apache Spark in Azure HDInsight | Microsoft Docs
+title: What is Apache Spark in Azure HDInsight 
 description: This article provides an introduction to Spark in HDInsight and the different scenarios in which you can use Spark cluster in HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 82334b9e-4629-4005-8147-19f875c8774e
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: jgao
+ms.author: jasonh
 
 #customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 
 ---
 # What is Apache Spark in Azure HDInsight
 
-*Apache Spark* parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure HDInsight is the Microsoft's implementation of Apache Hadoop in the cloud. HDInsight makes it easier to create and configure a Spark cluster in Azure. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Store. So you can use HDInsight Spark clusters to process your data stored in Azure. For the components and the versioning information, see [Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md).
+*Apache Spark* parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure HDInsight is the Microsoft implementation of Apache Spark in the cloud. HDInsight makes it easier to create and configure a Spark cluster in Azure. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Store. So you can use HDInsight Spark clusters to process your data stored in Azure. For the components and the versioning information, see [Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md).
 
 ![Spark: a unified framework](./media/apache-spark-overview/hdinsight-spark-overview.png)
 

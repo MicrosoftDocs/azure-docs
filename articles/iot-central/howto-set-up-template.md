@@ -58,7 +58,7 @@ Measurements are the data that comes from your device. You can add multiple meas
 - **State** measurements represent the state of the device or its components over a period of time. For example, a fan mode can be defined as having **Operating** and **Stopped** as the two possible states.
 
 ### Create a telemetry measurement
-To add a new telemetry measurement, select the **+ New Measurement** button. Select **Telemetry** as the measurement type, and enter the details on the **Create Telemetry** form.
+To add a new telemetry measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **Telemetry** as the measurement type, and enter the details on the **Create Telemetry** form.
 
 > [!NOTE]
 > When a real device is connected, pay attention to the name of the measurement that the device reports. The name must exactly match the **Field Name** entry for a measurement.
@@ -67,12 +67,13 @@ For example, you can add a new temperature telemetry measurement:
 
 !["Create Telemetry" form with details for temperature measurement](./media/howto-set-up-template/measurementsform.png)
 
-After you select **Save**, the **Temperature** measurement appears in the list of measurements. An operator can see the visualization of the temperature data that the device is collecting.
+After you select **Done**, the **Temperature** measurement appears in the list of measurements. An operator can see the visualization of the temperature data that the device is collecting.
 
-![Measurement graph](./media/howto-set-up-template/measurementsgraph.png)
+> [!NOTE]
+  The datatype of the telemetry measurement is double.
 
 ### Create an event measurement
-To add a new event measurement, select the **+ New Measurement** button. Select **Event** as the measurement type, and enter the details on the **Create Event** form.
+To add a new event measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **Event** as the measurement type, and enter the details on the **Create Event** form.
 
 Provide the **Display Name**, **Field Name**, and **Severity** details for the event. You can choose from the three available levels of severity: **Error**, **Warning**, and **Information**.  
 
@@ -80,17 +81,19 @@ For example, you can add a new **Fan Motor Error** event.
 
 !["Create Event" form with details for a fan motor event](./media/howto-set-up-template/eventmeasurementsform.png)
 
-After you select **Save**, the **Fan Motor Error** measurement appears in the list of measurements. An operator can see the visualization of the event data that the device is sending.
+After you select **Done**, the **Fan Motor Error** measurement appears in the list of measurements. An operator can see the visualization of the event data that the device is sending.
 
 ![Event measurement chart](./media/howto-set-up-template/eventmeasurementschart.png)
 
-To view more details about the event, select the event icon on the chart:
+To view more details about the event, select the event icon on the chart.
 
 ![Details for the "Fan Motor Error" event](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  The datatype of the Event measurement is string.
 
 ### Create a state measurement
-To add a new state measurement, select the **+ New Measurement** button. Select **State** as the measurement type, and enter the details on the **Create State** form.
+To add a new state measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **State** as the measurement type, and enter the details on the **Create State** form.
 
 Provide the details for **Display Name**, **Field Name**, and **Values** of the state. Each value can also have a display name that will be used when the value appears in charts and tables.
 
@@ -98,14 +101,14 @@ For example, you can add a new **Fan Mode** state that has two possible values t
 
 !["Edit State" form with details for fan mode](./media/howto-set-up-template/statemeasurementsform.png)
 
-After you select **Save**, the **Fan Mode** state measurement appears in the list of measurements. The operator can see the visualization of the state data that the device is sending.
+After you select **Done**, the **Fan Mode** state measurement appears in the list of measurements. The operator can see the visualization of the state data that the device is sending.
 
 ![State measurement chart](./media/howto-set-up-template/statemeasurementschart.png)
 
 If the device sends too many data points in a small duration, the state measurement appears with a different visual, as shown in the following screenshot. If you click on the chart, all the data points within that time period are displayed in a chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
 
-![Details for the "Static Fan Mode" state measurement](./media/howto-set-up-template/statemeasurementsdetail.png)
-
+> [!NOTE]
+  The datatype of the State measurement is string.
 
 ## Settings
 
@@ -122,13 +125,13 @@ Settings can be in one of three states. The device reports these states.
 
 - **Error**: The device has returned an error.
 
-For example, you can add a new fan speed setting:
+For example, you can add a new fan speed setting by selecting **Edit Template** and entering in the new setting:
 
 !["Configure Number" form with details for speed settings](./media/howto-set-up-template/settingsform.png)
 
 After you select **Save**, the **Fan Speed** setting appears as a tile and is ready to be used to change the fan speed of the device.
 
-After you create a tile, you can try out your new setting. First, switch off design mode at the upper-right part of the screen.
+After you create a tile, you can try out your new setting. First, select **Done** at the upper-right part of the screen.
 
 !["Settings" tab with the "Design Mode" switch for the tile](./media/howto-set-up-template/settingstile.png)
 
@@ -144,7 +147,7 @@ There are two categories of properties:
 > [!NOTE]
 > For device properties, when a real device is connected, pay attention to the name of the property that the device reports. The name must exactly match the **Field Name** entry for the property. For application properties, the field name can be anything you want, as long as the name is unique in the device template.
 
-For example, you can add device location as a new property:
+For example, you can add device location as a new property by selecting **Edit Template** and entering in the new property:
 
 !["Configure Text" form on the "Properties" tab](./media/howto-set-up-template/propertiesform.png)
 
@@ -152,7 +155,7 @@ After you select **Save**, device location appears as a tile:
 
 ![Location tile](./media/howto-set-up-template/propertiestile.png)
 
-After you create a tile, you can change the property value. First, switch off design mode in the upper-right part of the screen.
+After you create a tile, you can change the property value. First, select **Done** in the upper-right part of the screen.
 
 ### Create a location property through Azure Maps
 You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates of a street address. Or you can simply map latitude and longitude coordinates. Azure Maps enables this capability in IoT Central.
@@ -165,7 +168,7 @@ You can add two types of location properties:
 You can create a location property as an application property by using Azure Maps in your IoT Central application. 
 For example, you can add the device installation address. 
 
-1. On the **Properties** tab, ensure that **Design Mode** is **On**.
+1. On the **Properties** tab, select **Edit Template**.
 
    !["Properties" tab with design mode turned on](./media/howto-set-up-template/locationcloudproperty1.png)
 
@@ -178,17 +181,13 @@ For example, you can add the device installation address.
    - **Location as an address**
    - **Location as coordinates** 
 
-4. Select **Save**. 
-
-   ![Location property with installation address added](./media/howto-set-up-template/locationcloudproperty3.png)
-
-Now an operator can update the location value in the location field form. 
+4. Select **Save** and **Done**. Now an operator can update the location value in the location field form. 
 
 #### Add location as a device property 
 
 You can create a location property as a device property that the device reports. For example, if you want to track the device location:
 
-1. On the **Properties** tab, ensure that **Design Mode** is **On**.
+1. On the **Properties** tab, select **Edit Template**.
 
    !["Properties" tab with design mode turned on](./media/howto-set-up-template/locationdeviceproperty1.png)
 
@@ -212,13 +211,13 @@ How is a command different from a setting?
 
 * **Command**: You use commands to instantly run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart a device.  
 
-When you run a command, it can be in one of three states, depending on whether the device received the command. 
+When you run a command, it can be in one of three states, depending on whether the device received the command.
 
-For example, you can add a new **Echo** command:
+For example, you can add a new **Echo** command by selecting **Editing Template**, then clicking **+ New Command**, and entering in the new command:
 
 !["Configure Command" form with details for echo](./media/howto-set-up-template/commandsecho.png)
 
-After you select **Save**, the **Echo** command appears as a tile and is ready to be used to echo the device.
+After you select **Save** and **Done**,  the **Echo** command appears as a tile and is ready to be used to echo the device.
 
 After you create a tile, you can try out your new command.
 
@@ -232,7 +231,7 @@ Rules enable operators to monitor devices in near real time. Rules automatically
 
 The dashboard is where an operator can go to see information about a device. As a builder, you can add tiles on this page to help operators understand how the device is behaving. You can add multiple dashboard tiles to your device template. You can add six types of dashboard tiles: image, line chart, bar chart, KPI, settings and properties, and label.
 
-For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties:
+For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties by selecting **Edit Template** and the tile from the Library:
 
 !["Configure Device Details" form with details for settings and properties](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
 
@@ -244,12 +243,12 @@ Now when an operator views the dashboard, they can see this tile that displays t
 
 If you configured a location property earlier in [Create a location property through Azure Maps](#create-a-location-property-through-azure-maps), you can visualize the location by using a map in your device dashboard.
 
-1. On the **Dashboard** tab, ensure that **Design Mode** is **On**.
+1. On the **Dashboard** tab, select **Edit Template**.
 
    !["Dashboard" tab with design mode turned on](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 2. On the device dashboard, select **Map** from the library. 
-3. Give a title and choose the location property that you previously configured as part of your device properties.
+3. Give it a title and choose the location property that you previously configured as part of your device properties.
 
    !["Configure Map" form with details for title and properties](./media/howto-set-up-template/locationcloudproperty5map.png)
 
@@ -257,11 +256,7 @@ If you configured a location property earlier in [Create a location property thr
 
    ![Map tile with selected location](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-You can resize the map to your desired size.
-
-Now when an operator views the dashboard, they can see all the dashboard tiles that you've configured, including a location map.
-
-![Tiles on the dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
+You can resize the map to your desired size. Now when an operator views the dashboard, they can see all the dashboard tiles that you've configured, including a location map.
 
 ## Next steps
 

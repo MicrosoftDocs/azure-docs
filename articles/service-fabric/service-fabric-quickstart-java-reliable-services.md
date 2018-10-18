@@ -62,8 +62,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Local cluster healthy](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Open Eclipse.
-3. Click File -> Open Projects from File System...
-4. Click Directory and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from Github. Click Finish.
+3. Click File -> Import -> Gradle -> Existing Gradle Project and follow the wizard.
+4. Click Directory and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from Github. Click Finish. 
 
     ![Eclipse Import Dialog](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -97,7 +97,7 @@ Sign in and join a [Linux cluster](http://aka.ms/tryservicefabric). Download the
 Service Fabric provides several tools that you can use to manage a cluster and its applications:
 
 * Service Fabric Explorer, a browser-based tool.
-* Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI 2.0.
+* Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI.
 * PowerShell commands.
 
 In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer.

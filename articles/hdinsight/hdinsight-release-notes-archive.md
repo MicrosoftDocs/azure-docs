@@ -1,19 +1,15 @@
 ---
-title: Archived release notes for Azure HDInsight | Microsoft Docs
+title: Archived release notes for Azure HDInsight 
 description: Archived release notes and versions of Azure HDInsight. 
 services: hdinsight
-documentationcenter: ''
-editor: cgronlun
-manager: jhubbard
-author: nitinme
-tags: azure-portal
+ms.reviewer: jasonh
+author: jasonwhowell
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Archived release notes for Azure HDInsight
@@ -24,7 +20,7 @@ For the **most recent** Azure HDInsight release updates, see [HDInsight Release 
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
 ## Notes for 06/27/2018 - Release of new open source versions, ADLS Gen2 etc. on HDInsight 3.6
-The June 2018 release of HDInsight is a significant release with a lot of new updates and capabilities for our customers. Please read this [post](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) for more details.
+The June 2018 release of HDInsight is a significant release with a lot of new updates and capabilities for our customers. Please read this [post](https://azure.microsoft.com/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) for more details.
 
 Following are the highlights. For the detailed release notes, bugs fixed, known issues, etc., please read the [Release notes for Azure HDInsight](hdinsight-release-notes.md).
 

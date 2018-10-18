@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with ScaleX Enterprise | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ScaleX Enterprise.
 services: active-directory
@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding ScaleX Enterprise from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding ScaleX Enterprise from the gallery
 To configure the integration of ScaleX Enterprise in to Azure AD, you need to add ScaleX Enterprise from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of ScaleX Enterprise in to Azure AD, you need to ad
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. Click **Add** button on the top of the dialog.
+1. Click **Add** button on the top of the dialog.
 
 	![Applications][3]
 
-4. In the search box, type **ScaleX Enterprise**.
+1. In the search box, type **ScaleX Enterprise**.
 
 	![Creating an Azure AD test user](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
-5. In the results panel, select **ScaleX Enterprise**, and then click **Add** button to add the application.
+1. In the results panel, select **ScaleX Enterprise**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
@@ -86,10 +86,10 @@ This link relationship is established by assigning the value of the **user name*
 To configure and test Azure AD single sign-on with ScaleX Enterprise, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a ScaleX Enterprise test user](#creating-a-scalex-enterprise-test-user)** - to have a counterpart of Britta Simon in ScaleX Enterprise that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a ScaleX Enterprise test user](#creating-a-scalex-enterprise-test-user)** - to have a counterpart of Britta Simon in ScaleX Enterprise that is linked to the Azure AD representation of user.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign-on.
  
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
-3. On the **ScaleX Enterprise Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **ScaleX Enterprise Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://platform.rescale.com/saml2/<company id>/acs/`
 
-4. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
+1. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
@@ -122,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These are not the real values. Update these values with the actual Identifier, Reply URL or Sign-On URL. Contact [ScaleX Enterprise Client support team](http://info.rescale.com/contact_sales) to get these values. 
 
-5. Your ScaleX application expects the SAML assertions in a specific format, which requires you to modify custom attribute mappings to your SAML token attributes configuration. Click **View and edit all other user attributes** checkbox to open the custom attributes settings.
+1. Your ScaleX application expects the SAML assertions in a specific format, which requires you to modify custom attribute mappings to your SAML token attributes configuration. Click **View and edit all other user attributes** checkbox to open the custom attributes settings.
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/scalex_attributes.png)
 	
@@ -134,32 +134,32 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/edit_email_attribute.png)	
 	
-5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the Certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the Certificate file on your computer.
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
-6. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_general_400.png)
 	
-7. On the **ScaleX Enterprise Configuration** section, click **Configure ScaleX Enterprise** to open **Configure sign-on** window. Copy the **SAML Entity ID** and **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **ScaleX Enterprise Configuration** section, click **Configure ScaleX Enterprise** to open **Configure sign-on** window. Copy the **SAML Entity ID** and **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
-8. To configure single sign-on on **ScaleX Enterprise** side, login to the ScaleX Enterprise company website as an administrator.
+1. To configure single sign-on on **ScaleX Enterprise** side, login to the ScaleX Enterprise company website as an administrator.
 
-9. Click the menu in the upper right and select **Contoso Administration**.
+1. Click the menu in the upper right and select **Contoso Administration**.
 
 	> [!NOTE] 
 	> Contoso is just an example. This should be your actual Company Name. 
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/Test_Admin.png) 
 
-10. Select **Integrations** from the top menu and select **Single Sign-On**.
+1. Select **Integrations** from the top menu and select **Single Sign-On**.
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/admin_sso.png) 
 
-11. Complete the form as follows:
+1. Complete the form as follows:
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
 	
@@ -194,15 +194,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/scalexenterprise-tutorial/create_aaduser_01.png) 
 
-2. Go to **Users and groups** and click **All users** to display the list of users.
+1. Go to **Users and groups** and click **All users** to display the list of users.
 	
 	![Creating an Azure AD test user](./media/scalexenterprise-tutorial/create_aaduser_02.png) 
 
-3. At the top of the dialog, click **Add** to open the **User** dialog.
+1. At the top of the dialog, click **Add** to open the **User** dialog.
  
 	![Creating an Azure AD test user](./media/scalexenterprise-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/scalexenterprise-tutorial/create_aaduser_04.png) 
 
@@ -230,29 +230,29 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **ScaleX Enterprise**.
+1. In the applications list, select **ScaleX Enterprise**.
 
 	![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Click the ScaleX Enterprise tile in the Access Panel, you will get automatically signed-on to your ScaleX Enterprise application. For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+Click the ScaleX Enterprise tile in the Access Panel, you will get automatically signed-on to your ScaleX Enterprise application. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 
 ## Additional resources

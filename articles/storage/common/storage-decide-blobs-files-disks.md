@@ -3,12 +3,11 @@ title: Deciding when to use Azure Blobs, Azure Files, or Azure Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Deciding when to use Azure Blobs, Azure Files, or Azure Disks
@@ -60,8 +59,8 @@ The following table compares Azure Files with Azure Disks.
 |Cleanup|Automatic|Manual|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
 |Max Size|4 TiB disk|5 TiB File Share and 1 TiB file within share|  
-|Max 8KB IOps|500 IOps|1000 IOps|  
-|Throughput|Up to 60 MiB/s per Disk|Up to 60 MiB/s per File Share|  
+|Max IOps|500 IOps|1000 IOps|  
+|Throughput|Up to 60 MiB/s per Disk|Target is 60 MiB/s per File Share (can get higher for higher IO sizes)|  
 
 ## Next steps
 

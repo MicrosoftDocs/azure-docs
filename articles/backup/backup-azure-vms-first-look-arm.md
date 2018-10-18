@@ -7,14 +7,14 @@ manager: carmonm
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/18/2018
+ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: backups; vm backup
 ---
 # Back up Azure virtual machines to Recovery Services vault
 
-This article explains how to configuring protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
+This article explains how to configure protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
 
 * Azure Resource Manager-deployed VMs
 * Classic VMs

@@ -5,7 +5,7 @@
  author: kgremban
  ms.service: iot-edge
  ms.topic: include
- ms.date: 06/27/2018
+ ms.date: 08/14/2018
  ms.author: kgremban
  ms.custom: include file
 ---
@@ -28,7 +28,7 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
    ```json
    {
        "routes": {
-           "route": "FROM /* INTO $upstream"
+           "route": "FROM /messages/* INTO $upstream"
        }
    }
    ```

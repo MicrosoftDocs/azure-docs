@@ -2,9 +2,10 @@
 title: Plan capacity and scaling for VMware replication to Azure with Azure Site Recovery | Microsoft Docs
 description: Use this article to plan capacity and scale when replicating VMware VMs to Azure with Azure Site Recovery
 services: site-recovery
-author: rayne-wiselman
+author: nsoneji
+manager: garavd
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: rayne
 ---
@@ -29,9 +30,9 @@ Gather information about your replication environment by running the [Azure Site
 
 **CPU** | **Memory** | **Cache disk size** | **Data change rate** | **Protected machines**
 --- | --- | --- | --- | ---
-8 vCPUs (2 sockets * 4 cores @ 2.5 gigahertz [GHz]) | 16 GB | 300 GB | 500 GB or less | Replicate less than 100 machines.
-12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) | 18 GB | 600 GB | 500 GB to 1 TB | Replicate between 100-150 machines.
-16 vCPUs (2 sockets * 8 cores @ 2.5 GHz) | 32 GB | 1 TB | 1 TB to 2 TB | Replicate between 150-200 machines.
+8 vCPUs (2 sockets * 4 cores \@ 2.5 gigahertz [GHz]) | 16 GB | 300 GB | 500 GB or less | Replicate less than 100 machines.
+12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) | 18 GB | 600 GB | 500 GB to 1 TB | Replicate between 100-150 machines.
+16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 GB | 1 TB | 1 TB to 2 TB | Replicate between 150-200 machines.
 Deploy another process server | | | > 2 TB | Deploy additional process servers if you're replicating more than 200 machines, or if the daily data change rate exceeds 2 TB.
 
 Where:
@@ -55,9 +56,9 @@ The following table describes a scenario in which:
 
 **Configuration server** | **Additional process server** | **Cache disk size** | **Data change rate** | **Protected machines**
 --- | --- | --- | --- | ---
-8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB memory | 4 vCPUs (2 sockets * 2 cores @ 2.5 GHz), 8 GB memory | 300 GB | 250 GB or less | Replicate 85 or fewer machines.
-8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB memory | 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 12 GB memory | 600 GB | 250 GB to 1 TB | Replicate between 85-150 machines.
-12 vCPUs (2 sockets * 6 cores @ 2.5 GHz), 18 GB memory | 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) 24 GB memory | 1 TB | 1 TB to 2 TB | Replicate between 150-225 machines.
+8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 16 GB memory | 4 vCPUs (2 sockets * 2 cores \@ 2.5 GHz), 8 GB memory | 300 GB | 250 GB or less | Replicate 85 or fewer machines.
+8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 16 GB memory | 8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12 GB memory | 600 GB | 250 GB to 1 TB | Replicate between 85-150 machines.
+12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz), 18 GB memory | 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) 24 GB memory | 1 TB | 1 TB to 2 TB | Replicate between 150-225 machines.
 
 The way in which you scale your servers depends on your preference for a scale-up or scale-out model.  You scale up by deploying a few high-end configuration and process servers, or scale out by deploying more servers with fewer resources. For example, if you need to protect 220 machines, you could do either of the following:
 

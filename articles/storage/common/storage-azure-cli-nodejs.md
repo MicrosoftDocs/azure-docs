@@ -1,40 +1,32 @@
 ---
-title: Using the Azure CLI 1.0 with Azure Storage | Microsoft Docs
-description: Learn how to use the Azure Command-Line Interface (Azure CLI) 1.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI is a cross-platform tool
+title: Using the Azure classic CLI with Azure Storage | Microsoft Docs
+description: Learn how to use the Azure classic Command-Line Interface (CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files.
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-
-ms.assetid: b502232a-e8f6-4d6c-befd-3476592e0e35
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-
+ms.component: common
 ---
-# Using the Azure CLI 1.0 with Azure Storage
+# Using the Azure classic CLI with Azure Storage
 
 ## Overview
 
-The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com) as well as rich data access functionality.
+The Azure classic CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com) as well as rich data access functionality.
 
-In this guide, we'll explore how to use [Azure Command-Line Interface (Azure CLI)](../../cli-install-nodejs.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
+In this guide, we'll explore how to use [Azure classic CLI](../../cli-install-nodejs.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest classic CLI before using this guide.
 
-This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the Azure CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
+This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the classic CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
 
 > [!NOTE]
-> The guide provides the Azure CLI command and script examples for classic storage accounts. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands for Resource Manager storage accounts.
+> The guide provides the Azure classic CLI command and script examples for classic storage accounts. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure classic CLI commands for Resource Manager storage accounts.
 >
 >
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## Get started with Azure Storage and the Azure CLI in 5 minutes
+## Get started with Azure Storage and the Azure classic CLI in 5 minutes
 This guide uses Ubuntu for examples, but other OS platforms should perform similarly.
 
 **New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](https://azure.microsoft.com/pricing/free-trial/), [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](https://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
@@ -43,12 +35,12 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 
 **After creating a Microsoft Azure subscription and account:**
 
-1. Download and install the Azure CLI following the instructions outlined in [Install the Azure CLI](../../cli-install-nodejs.md).
-2. Once the Azure CLI has been installed, you will be able to use the azure command from your command-line interface (Bash, Terminal, Command prompt) to access the Azure CLI commands. Type the _azure_ command and you should see the following output.
+1. Download and install the Azure classic CLI following the instructions outlined in [Install the Azure classic CLI](../../cli-install-nodejs.md).
+2. Once the classic CLI has been installed, you will be able to use the azure command from your command-line interface (Bash, Terminal, Command prompt) to access the classic CLI commands. Type the _azure_ command and you should see the following output.
 
     ![Azure Command Output](./media/storage-azure-cli/azure_command.png)   
-3. In the command-line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities the Azure CLI provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax.
-4. Now, we'll give you a simple script that shows basic Azure CLI commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will download the image file to the destination directory which exists on the local computer.
+3. In the command-line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities the classic CLI provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax.
+4. Now, we'll give you a simple script that shows basic classic CLI commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will download the image file to the destination directory which exists on the local computer.
 
     ```azurecli
     #!/bin/bash
@@ -90,9 +82,9 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 
 After the script runs, you should have a local destination folder that includes the downloaded image file.
 
-## Manage storage accounts with the Azure CLI
+## Manage storage accounts with the Azure classic CLI
 ### Connect to your Azure subscription
-While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
+While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the classic CLI.
 
 ### Create a new storage account
 To use Azure storage, you will need a storage account. You can create a new Azure storage account after you have configured your computer to connect to your subscription.
@@ -104,7 +96,7 @@ azure storage account create <account_name>
 The name of your storage account must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
 ### Set a default Azure storage account in environment variables
-You can have multiple storage accounts in your subscription. You can choose one of them and set it in the environment variables for all the storage commands in the same session. This enables you to run the Azure CLI storage commands without specifying the storage account and key explicitly.
+You can have multiple storage accounts in your subscription. You can choose one of them and set it in the environment variables for all the storage commands in the same session. This enables you to run the classic CLI storage commands without specifying the storage account and key explicitly.
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -179,7 +171,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## Create and manage file shares
-Azure Files offers shared storage for applications using the standard SMB protocol. Microsoft Azure virtual machines and cloud services, as well as on-premises applications, can share file data via mounted shares. You can manage file shares and file data via the Azure CLI. For more information on Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
+Azure Files offers shared storage for applications using the standard SMB protocol. Microsoft Azure virtual machines and cloud services, as well as on-premises applications, can share file data via mounted shares. You can manage file shares and file data via the classic CLI. For more information on Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
 
 ### Create a file share
 An Azure file share is an SMB file share in Azure. All directories and files must be created in a file share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. The following example creates a file share named **myshare**.
@@ -216,7 +208,7 @@ azure storage file list myshare myDir
 Note that the directory name is optional for the listing operation. If omitted, the command lists the contents of the root directory of the share.
 
 ### Copy files
-Beginning with version 0.9.8 of Azure CLI, you can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations using CLI commands. To copy a file to the new directory:
+Beginning with version 0.9.8 of the classic CLI, you can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations using CLI commands. To copy a file to the new directory:
 
 ```azurecli
 azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare
@@ -232,9 +224,9 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 ## Next Steps
 
-You can find Azure CLI 1.0 command reference for working with Storage resources here:
+You can find Azure classic CLI command reference for working with Storage resources here:
 
-* [Azure CLI commands in Resource Manager mode](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Azure CLI commands in Azure Service Management mode](../../cli-install-nodejs.md)
+* [Azure classic CLI commands in Resource Manager mode](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Azure classic CLI commands in Azure Service Management mode](../../cli-install-nodejs.md)
 
-You may also like to try the [Azure CLI 2.0](../storage-azure-cli.md), our next-generation CLI written in Python, for use with the Resource Manager deployment model.
+You may also like to try the latest version of the [Azure CLI](../storage-azure-cli.md), for use with the Resource Manager deployment model.

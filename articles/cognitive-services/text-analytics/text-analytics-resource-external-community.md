@@ -1,16 +1,18 @@
 ---
-title: External & community content for Text Analytics API - Azure Cognitive Services | Microsoft Docs
+title: External & community content for Text Analytics API
+titleSuffix: Azure Cognitive Services
 description: Partner blogs, youtube videos, training for Microsoft Cognitive Services Text Analytics API on Azure.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
 ---
-# External & community content for the Text Analytics API
+# External & community content for the Text Analytics Cognitive Service
 
  Links in this article lead you to helpful web content developed and produced by partners and professionals with experience in using the Text Analytics API.
 

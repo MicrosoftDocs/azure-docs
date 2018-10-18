@@ -3,7 +3,7 @@ title: Overview of reverse DNS in Azure | Microsoft Docs
 description: Learn how reverse DNS works and how it can be used in Azure
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Overview of reverse DNS and support in Azure

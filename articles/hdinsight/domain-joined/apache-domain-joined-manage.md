@@ -1,21 +1,18 @@
 ---
-title: Manage Domain-joined HDInsight clusters - Azure
-description: Learn how to manage Domain-joined HDInsight clusters
+title: Manage HDInsight clusters with Enterprise Security Enterprise - Azure
+description: Learn how to manage HDInsight clusters with Enterprise Security Package.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: omidm
+ms.date: 08/24/2018
 
 ---
-# Manage Domain-joined HDInsight clusters
-Learn the users and the roles in Domain-joined HDInsight, and how to manage domain-joined HDInsight clusters.
+# Manage HDInsight clusters with Enterprise Security Package
+Learn the users and the roles in HDInsight Enterprise Security Package (ESP), and how to manage ESP clusters.
 
 ## Use VSCode to link to domain joined cluster
 
@@ -138,12 +135,12 @@ To find the fully qualified domain name of a headnode, use the information in th
 
 
 
-## Users of Domain-joined HDInsight clusters
-An HDInsight cluster that is not domain-joined has two user accounts that are created during the cluster creation:
+## Users of HDInsight clusters with ESP
+A non-ESP HDInsight cluster has two user accounts that are created during the cluster creation:
 
 * **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to log on to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (for example, PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (for example, Excel, PowerBI, or Tableau).
 
-A domain-joined HDInsight cluster has three new users in addition to Ambari Admin.
+A HDInsight cluster with ESP has three new users in addition to Ambari Admin.
 
 * **Ranger admin**:  This account is the local Apache Ranger admin account. It is not an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is *admin* and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
 * **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
@@ -157,8 +154,8 @@ A domain-joined HDInsight cluster has three new users in addition to Ambari Admi
     There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence are not secure. These end points are locked down for all users except the cluster admin domain user.
 * **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups are synced to Ranger and Ambari. These users are domain users and have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
 
-## Roles of Domain-joined HDInsight clusters
-Domain-joined HDInsight have the following roles:
+## Roles of HDInsight clusters with ESP
+HDInsight Enterprise Security Package has the following roles:
 
 * Cluster Administrator
 * Cluster Operator
@@ -172,7 +169,7 @@ Domain-joined HDInsight have the following roles:
 2. From the left menu, click **Roles**.
 3. Click the blue question mark to see the permissions:
 
-    ![Domain-joined HDInsight roles permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    ![ESP HDInsight roles permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## Open the Ambari Management UI
 
@@ -182,43 +179,43 @@ Domain-joined HDInsight have the following roles:
 4. Log on to Ambari using the cluster administrator domain user name and password.
 5. Click the **Admin** dropdown menu from the upper right corner, and then click **Manage Ambari**.
 
-    ![Domain-joined HDInsight manage Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    ![ESP HDInsight manage Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
     The UI looks like:
 
-    ![Domain-joined HDInsight Ambari management UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    ![ESP HDInsight Ambari management UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
 ## List the domain users synchronized from your Active Directory
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
 
-    ![Domain-joined HDInsight Ambari management UI list users](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    ![ESP HDInsight Ambari management UI list users](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## List the domain groups synchronized from your Active Directory
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
 
-    ![Domain-joined HDInsight Ambari management UI list groups](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    ![ESP HDInsight Ambari management UI list groups](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## Configure Hive Views permissions
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Views**.
 3. Click **HIVE** to show the details.
 
-    ![Domain-joined HDInsight Ambari management UI Hive Views](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+    ![ESP HDInsight Ambari management UI Hive Views](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
 4. Click the **Hive View** link to configure Hive Views.
 5. Scroll down to the **Permissions** section.
 
-    ![Domain-joined HDInsight Ambari management UI Hive Views configure permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+    ![ESP HDInsight Ambari management UI Hive Views configure permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
 6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views.
 
 ## Configure users for the roles
- To see a list of roles and their permissions, see [Roles of Domain-joined HDInsight clusters](#roles-of-domain---joined-hdinsight-clusters).
+ To see a list of roles and their permissions, see [Roles of HDInsight clusters with ESP](#roles-of-domain---joined-hdinsight-clusters).
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Roles**.
 3. Click **Add User** or **Add Group** to assign users and groups to different roles.
 
 ## Next steps
-* For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md).
-* For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md).
+* For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
+* For configuring Hive policies and run Hive queries, see [Configure Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).

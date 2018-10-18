@@ -7,8 +7,10 @@
     href: Overview.md
 - name: Quickstarts
   items:
-  - name: C#
+  - name: C# API
     href: QuickStarts/CSharp.md
+  - name: C# SDK
+    href: QuickStarts/csharp-detect-sdk.md
   - name: cURL
     href: QuickStarts/curl.md
   - name: Go
@@ -29,12 +31,12 @@
   items:
   - name: C#
     href: Tutorials/FaceAPIinCSharpTutorial.md
+  - name: Android
+    href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: How to guides
   items:
   - name: First Face API apps
     items:
-    - name: Java for Android
-      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
     - name: Python
       href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Detect faces in image

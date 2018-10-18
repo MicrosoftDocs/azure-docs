@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Reference guide to View Designer visualization parts in Log Analytics
@@ -320,7 +320,7 @@ The name and value separator is the single-character delimiter to use to parse t
 For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name and value separator and *City-Building* for the name. This approach parses each value into two properties called *City* and *Building*.
 
 ### <a name="click-through-navigation"></a>Click-Through Navigation
-Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Search portal](log-analytics-log-search-portals.md#log-search) or launch another view.
+Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Search portal](log-analytics-log-search-portals.md) or launch another view.
 
 The following table describes the settings for click-through navigation.
 

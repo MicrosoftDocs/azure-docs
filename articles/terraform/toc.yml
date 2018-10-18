@@ -1,4 +1,4 @@
-- name: Terraform on Azure Documentation
+- name: Terraform on Azure documentation
   href: index.yml
 - name: Overview
   items:
@@ -13,33 +13,55 @@
     - name: Create a Linux VM
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
-- name: Tutorials 
+- name: Tutorials
   items:
-    - name: Create a Kubernetes cluster with AKS and Terraform
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: Terraform and Azure provider deployment slots
-      href: terraform-slot-walkthru.md
-    - name: Create a Terraform VM with MSI enabled
-      href: terraform-vm-msi.md
-    - name: Create a VM cluster with Terraform modules
-      href: terraform-create-vm-cluster-module.md
-    - name: Create a VM cluster with Terraform and HCL
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Provision VM scale set with infrastructure
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Provision VM scale set from a Packer custom image
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
-- name: Concepts
-  items:
-    - name: Cloud Shell integration
-      href: terraform-cloud-shell.md
+    - name: App Service
+      items:
+        - name: Terraform and Azure provider deployment slots
+          href: terraform-slot-walkthru.md
+    - name: Containers
+      items:
+        - name: Create a Kubernetes cluster with AKS and Terraform
+          href: terraform-create-k8s-cluster-with-tf-and-aks.md
+    - name: Infrastructure
+      items:
+        - name: Create a Terraform VM with MSI enabled
+          href: terraform-vm-msi.md
+        - name: Create a VM cluster with Terraform modules
+          href: terraform-create-vm-cluster-module.md
+        - name: Create a VM cluster with Terraform and HCL
+          href: terraform-create-vm-cluster-with-infrastructure.md
+        - name: Provision VM scale set with infrastructure
+          href: terraform-create-vm-scaleset-network-disks-hcl.md
+        - name: Provision VM scale set from a Packer custom image
+          href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+    - name: Tools
+      items:
+        - name: Install the Terraform Visual Studio Code extension
+          href: terraform-vscode-extension.md
+        - name: Create a Terraform base template using Yeoman
+          href: terraform-vscode-module-generator.md
 - name: Samples
   items:
     - name: Configuration templates
       href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
-- name: Reference 
+- name: Concepts
+  items:
+    - name: Azure Cloud Shell integration
+      href: terraform-cloud-shell.md
+- name: How-to guides
+  items:
+    - name: Store state in Azure Storage
+      href: terraform-backend.md
+- name: Reference
   items:
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform reference
       href: http://aka.ms/terraform
+- name: Resources
+  items:
+    - name: Azure & Terraform
+      href: https://azure.microsoft.com/solutions/devops/terraform/
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/

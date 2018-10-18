@@ -1,21 +1,21 @@
 ---
-title: Azure Quickstart - Process event streams using Azure CLI | Microsoft Docs
-description: In this quickstart, you learn how to process event streams using Azure CLI.
+title: Azure Quickstart - Create an event hub using Azure CLI | Microsoft Docs
+description: This quickstart describes how to create an event hub using Azure CLI and then send and receive events using Java.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/26/2018
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub?
 
 ---
 
-# Quickstart: Process event streams using Azure CLI and Java
+# Quickstart: Create an event hub using Azure CLI
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create Event Hubs resources using Azure CLI, then send and receive event streams from an event hub using Java code.
 
@@ -25,7 +25,7 @@ To complete this quickstart, you need an Azure subscription. If you don't have o
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use Azure CLI locally, this tutorial requires that you are running Azure CLI version 2.0.4 or later. Run `az --version` to check your version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use Azure CLI locally, this tutorial requires that you are running Azure CLI version 2.0.4 or later. Run `az --version` to check your version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Log on to Azure
 
@@ -291,6 +291,6 @@ In this article, you created the Event Hubs namespace and other resources requir
 > [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

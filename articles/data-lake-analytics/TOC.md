@@ -8,7 +8,7 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure CLI](data-lake-analytics-get-started-cli.md)
 
 # How to
 
@@ -59,6 +59,9 @@
 #### [Custom code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Local run & debug](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## Schedule U-SQL jobs
+### [Schedule jobs using SSIS](data-lake-analytics-schedule-jobs-ssis.md)
+
 ## Continuous integration and continuous deployment
 ### [Overview](data-lake-analytics-cicd-overview.md)
 ### [Set up tests](data-lake-analytics-cicd-test.md)
@@ -68,7 +71,7 @@
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
+## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 

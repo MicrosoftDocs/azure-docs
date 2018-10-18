@@ -29,7 +29,7 @@ You can easily [create a new Azure Container Registry](../../container-registry/
       az group create --name draft --location eastus
       ```
 
-2. Create an ACR image registry using [az acr create](/cli/azure/acr#az_acr_create) and ensure that the `--admin-enabled` option is set to `true`.
+2. Create an ACR image registry using [az acr create](/cli/azure/acr#az-acr-create) and ensure that the `--admin-enabled` option is set to `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -37,7 +37,7 @@ You can easily [create a new Azure Container Registry](../../container-registry/
 
 ## Create an Azure Container Service with Kubernetes
 
-Now you're ready to use [az acs create](/cli/azure/acs#az_acs_create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
+Now you're ready to use [az acs create](/cli/azure/acs#az-acs-create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -217,7 +217,7 @@ Your own domain provider has their own way to assign DNS servers; to [delegate y
     ```
 
 2. Create a DNS zone for your domain.
-Use the [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) command to obtain the nameservers to delegate DNS control to Azure DNS for your domain.
+Use the [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) command to obtain the nameservers to delegate DNS control to Azure DNS for your domain.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
