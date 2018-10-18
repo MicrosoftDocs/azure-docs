@@ -728,6 +728,7 @@ Here is a sample script to stop triggers before deployment and to restart trigge
 ```powershell
 param
 (
+    [parameter(Mandatory = $false)] [String] $rootFolder="$(env:System.DefaultWorkingDirectory)/Dev/",
     [parameter(Mandatory = $false)] [String] $armTemplate="$rootFolder\arm_template.json",
     [parameter(Mandatory = $false)] [String] $ResourceGroupName="sampleuser-datafactory",
     [parameter(Mandatory = $false)] [String] $DataFactoryName="sampleuserdemo2",
