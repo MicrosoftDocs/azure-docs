@@ -42,8 +42,21 @@ sections:
 - title: Concepts
   items:
   - type: paragraph
-    text: 'Using the Bing Local Business Search API:'
+    text: 'Using the Bing Local Business Search API'
   - type: list
     style: unordered
     items:
-      html: <p><a href="https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-local-search/overview?branch=pr-en-us-48110">What is Bing Local Business Search?</a></p>
+      type: paragraph
+      text: "What is Bing Local Business Search?"
+      type: paragraph
+      text: "Geographic search boundaries" 
+- title: Reference
+  items:
+  - type: paragraph
+    text: "Parameters, results, and specifications"
+  - type: list
+    style: unordered
+    items:
+      type: paragraph
+      text: Use and display requirements
+      type: Local Business Search API reference  
