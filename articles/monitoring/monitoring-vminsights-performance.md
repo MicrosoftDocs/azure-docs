@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/18/2018
 ms.author: magoedte
 ---
 
@@ -100,7 +100,11 @@ The following capacity utilization charts are provided:
 ![VM insights Performance directly from VM view](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
 
 ## Alerting and alert management 
-Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. While there are health alerts corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, low disk space, etc., these health alerts are only applied to all the VMs connected to the same Log Analytics workspace integrated with Azure Monitor for VMs. If you need the flexibility to specify your own criteria or logic, you can create custom alert rules by following [Create, view, and manage alerts using Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. While there are health alerts corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, disk I/O, low disk space, etc., these health alerts are only applied to all the VMs connected to the same Log Analytics workspace enabled for Azure Monitor for VMs. 
+
+However, we may only collect and store a subset of the performance metrics you require in the Log Analytics workspace. If your monitoring strategy requires analysis or alerting that includes other performance metrics in order to effectively evaluate capacity or health of the virtual machine, or you need the flexibility to specify your own alerting criteria or logic, you can configure [collection of those performance counters](../log-analytics/log-analytics-data-sources-performance-counters?toc=/azure/azure-monitor/toc.json) in Log Analytics and define [log alerts](../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json). While Log Analytics allows you to perform complex analysis with other data types, and provide longer retention to support trend analysis, metrics on the other hand, are lightweight and capable of supporting near real-time scenarios. They are collected by the [Azure Diagnostic agent](../virtual-machines/windows/monitor.md) and stored in the Azure Monitor metrics store, allowing you to create alerts with lower latency and at a lower cost.
+
+Review the overview of [collection of metrics and logs with Azure Monitor](monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json) to further understand the fundamental differences and other considerations before configuring collection of these additional metrics and alert rules.  
 
 ## Next steps
 To learn how to use the health feature, see [View Azure Monitor for VMs Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](monitoring-vminsights-maps.md). 
