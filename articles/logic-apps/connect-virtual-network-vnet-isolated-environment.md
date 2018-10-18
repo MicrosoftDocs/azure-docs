@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure virtual networks from integration service environments (ISEs) in Azure Logic Apps
-description: Create integration service environments (ISE) for access to Azure virtual networks, while keeping logic apps and other resources private and isolated from public or "global" Azure
+title: Connect to Azure virtual networks from Azure Logic Apps through an integration service environment (ISE)
+description: Create an integration service environment (ISE) so logic apps and integration accounts can access Azure virtual networks, while staying private and isolated from public or "global" Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/25/2018
 ---
 
-# Create integration service environments (ISE) to access Azure virtual networks from Azure Logic Apps
+# Connect to Azure virtual networks from Azure Logic Apps through an integration service environment (ISE)
 
 > [!NOTE]
 > This capability is in *private preview*. 
@@ -19,18 +19,16 @@ ms.date: 09/25/2018
 
 For integration scenarios where your logic apps and integration accounts need access to an 
 [Azure virtual network](../virtual-network/virtual-networks-overview.md), you can create an 
-[*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
-that links to your virtual network and deploys the Logic Apps service into your network. 
-When you create logic apps and integration accounts, you select this ISE as their location. 
-Your logic apps and integration accounts can then directly access resources, 
-such as virtual machines (VMs), servers, systems, and services, in your virtual network. 
+[*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+which is a private and isolated environment that uses dedicated storage and other resources 
+that exist separate from the public or *global* Logic Apps service. This separation also 
+reduces any impact that other Azure tenants might have on your apps' performance. 
+This ISE links to your Azure virtual network and deploys the Logic Apps service into your network. 
+When you create a logic app or integration account, you can select this ISE as their location. 
+Your logic app or integration account can then directly access resources, such as virtual machines (VMs), 
+servers, systems, and services, in your virtual network. 
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
-
-Your ISE is a private and isolated environment that uses dedicated storage and other 
-resources that exist separately from the public or *global* Logic Apps service. 
-This separation also helps reduce any impact other Azure tenants might have on your 
-apps' performance. 
 
 This article shows how to perform these tasks:
 
