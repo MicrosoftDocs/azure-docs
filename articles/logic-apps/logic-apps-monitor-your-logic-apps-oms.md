@@ -107,15 +107,16 @@ From that list, select **Logic Apps Management**.
 
 1. To view the count and status for your logic app runs, 
 go to your Log Analytics workspace, and open the Overview page. 
-On the **Logic Apps Management** tile, review the details.
+
+   Details about your logic app runs appear on the 
+   **Logic Apps Management** tile. To view a summary 
+   with more details about your logic app runs, 
+   choose the **Logic Apps Management** tile. 
 
    ![Overview tile showing logic app run count and status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
-1. To view a summary with more details about your logic app runs, 
-choose the **Logic Apps Management** tile.
-
    Here, your logic app runs are grouped by name or by execution status. 
-   You can also see details about the failures in actions or triggers 
+   This page also shows details about failures in actions or triggers 
    for the logic app runs.
 
    ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
@@ -173,13 +174,15 @@ choose **See All**, which opens the Log Search page.
    On the Log Search page,
 
    * To view the query results in a table, choose **Table**.
+
    * To change the query, you can edit the query string in the search bar. 
    For a better experience, choose **Advanced Analytics**.
 
      ![View actions and details for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     On the Azure Log Analytics page, you can update queries and view the results from the table. 
-     This query uses [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), 
+     On the Azure Log Analytics page, you can update queries and 
+     view the results from the table. This query uses 
+     [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), 
      which you can edit if you want to view different results. 
 
      ![Azure Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
@@ -187,4 +190,3 @@ choose **See All**, which opens the Log Search page.
 ## Next steps
 
 * [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-message.md)
-
