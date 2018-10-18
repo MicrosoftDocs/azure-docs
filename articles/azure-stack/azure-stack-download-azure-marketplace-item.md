@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: ''
 ---
@@ -124,7 +124,7 @@ There are two parts to this scenario:
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
-6. When the tool runs, you are prompted to enter your Azure account credentials. Sign in to the Azure account that you have used to register Azure Stack. After the login succeeds, you should see a screen similar to the following image, with the list of available marketplace items.  
+6. When the tool runs, you should see a screen similar to the following image, with the list of available marketplace items.  
 
    ![Azure Marketplace items popup](media/azure-stack-download-azure-marketplace-item/image05.png)
 
@@ -134,7 +134,7 @@ There are two parts to this scenario:
 
 8. Select **OK**, and then review and accept the legal terms. 
 
-9. The time that the download takes depends on the size of the item. After the download completes, the item is available in the folder that you specified in the script. The download includes a VHD file (for virtual machines) or a .zip file (for virtual machine extensions). It also includes a gallery package in the *.azpkg* format, which is simply a .zip file.
+9. The time that the download takes depends on the size of the item. After the download completes, the item is available in the folder that you specified in the script. The download includes a VHD file (for virtual machines) or a .zip file (for virtual machine extensions). It might also include a gallery package in the *.azpkg* format, which is simply a .zip file.
 
 ### Import the download and publish to Azure Stack Marketplace
 
@@ -208,7 +208,7 @@ Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0
 
    ![Marketplace download directory structure](media/azure-stack-download-azure-marketplace-item/mp1.png)
 
-2. Follow the instructions in [this article](azure-stack-powershell-install.md) to configure the Azure Stack Operator PowerShell session. 
+2. Follow the instructions in [this article](azure-stack-powershell-configure-admin.md) to configure the Azure Stack Operator PowerShell session. 
 
 3. Import the syndication module and then launch the marketplace syndication tool by running the following script:
 
@@ -216,7 +216,7 @@ Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
    ```
-   The `-AzsCredential` parameter is optional. It is used to renew the access token, if it has expired. If the token expires, you receive a prompt to enter the operator credentials.
+   The `-AzsCredential` parameter is optional. It is used to renew the access token, if it has expired. If the `-AzsCredential` parameter is not specified and the token expires, you receive a prompt to enter the operator credentials.
 
 4. After the script successfully completes, the item should be available in the Azure Stack Marketplace.
 
