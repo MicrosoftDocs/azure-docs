@@ -82,8 +82,12 @@
         href: enable-multi-master.md
       - name: Multi-master with OSS NoSQL databases
         href: multi-master-oss-nosql.md
+      - name: Scaling throughput
+        href: scaling-throughput.md
       - name: Conflict resolution
-        href: multi-master-conflict-resolution.md  
+        href: multi-master-conflict-resolution.md
+      - name: Global distribution - how it works
+        href: global-dist-under-the-hood.md  
     - name: Throughput
       href: request-units.md
       items:
@@ -119,7 +123,7 @@
     - name : Backup and restore
       href: online-backup-and-restore.md
     - name : High availability
-      href: regional-failover.md
+      href: high-availability.md
   - name: Multi-model APIs
     expanded: true
     items:
