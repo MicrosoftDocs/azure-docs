@@ -21,7 +21,7 @@ ms.author: mahender,cephalin
 
 Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app. 
 
-Secure authentication and authorization requires deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service provides these utilities so that you can spend more time and energy on providing business value to your customer.
+Secure authentication and authorization require deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service provides these utilities so that you can spend more time and energy on providing business value to your customer.
 
 > [!NOTE]
 > You're not required to use App Service for authentication and authorization. Many web frameworks are bundled with security features, and you can use them if you like. If you need more flexibility than App Service provides, you can also write your own utilities.  
@@ -85,7 +85,7 @@ When you enable authentication and authorization with one of these providers, it
 
 ## Authentication flow
 
-The authentication flow is the same for all providers, but differs depending on whether you want to log in with the provider's SDK:
+The authentication flow is the same for all providers, but differs depending on whether you want to sign in with the provider's SDK:
 
 - Without provider SDK: The application delegates federated sign-in to App Service. This is typically the case with browser apps, which can present the provider's login page to the user. The server code manages the sign-in process, so it is also called _server-directed flow_ or _server flow_. This case applies to web apps. It also applies to native apps that sign users in using the Mobile Apps client SDK because the SDK opens a web view to sign users in with App Service authentication. 
 - With provider SDK: The application signs user in manually and then submits the authentication token to App Service for validation. This is typically the case with browser-less apps, which can't present the provider's sign-in page to the user. The application code manages the sign-in process, so it is also called _client-directed flow_ or _client flow_. This case applies to REST APIs, [Azure Functions](../azure-functions/functions-overview.md), and JavaScript browser clients, as well as web apps that need more flexibility in the sign-in process. It also applies to native mobile apps that sign users in using the provider's SDK.
@@ -117,7 +117,7 @@ The following headings describe the options.
 
 ### Allow all requests (default)
 
-Authentication and authorization is not managed by App Service (turned off). 
+Authentication and authorization are not managed by App Service (turned off). 
 
 Choose this option if you don't need authentication and authorization, or if you want to write your own authentication and authorization code.
 
