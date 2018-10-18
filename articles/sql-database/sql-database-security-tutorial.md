@@ -168,7 +168,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 
-2. In the Settings blade, select **Auditing & Threat Detection**. Notice that sever-level auditing is diabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
+2. In the Settings blade, select **Auditing & Threat Detection**. Notice that server-level auditing is disabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
 
     ![Auditing Blade](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 

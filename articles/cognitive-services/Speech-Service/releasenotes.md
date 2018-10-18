@@ -8,11 +8,25 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
 ---
 
 # Release notes
+
+## Cognitive Services Speech SDK 1.0.1
+
+Reliability improvements and bug fixes:
+
+* Fix potential fatal error due to race condition in disposing recognizer
+* Fix potential fatal error in case of unset properties.
+* Additional error and parameter checking.
+* Objective-C: fix possible fatal error caused by name overriding in NSString.
+* Objectice-C: adjust visibility of API
+* JavaScript: fixes regarding events and their payloads.
+* Documentation improvements.
+
+In our [sample repository](https://aka.ms/csspeech/samples), a new sample for JavaScript was added.
 
 ## Cognitive Services Speech SDK 1.0.0: 2018-September release
 

@@ -3,14 +3,14 @@ title: Use the Azure Database Migration Service to perform an online migration o
 description: Learn to perform an online migration from MySQL on-premises to Azure Database for MySQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: rajpo
+ms.author: scphang
 manager: craigg
 ms.reviewer: 
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 10/06/2018
 ---
 
 # Migrate MySQL to Azure Database for MySQL online using DMS
@@ -45,6 +45,16 @@ To complete this tutorial, you need to:
 - Azure Database for MySQL supports only InnoDB tables. To convert MyISAM tables to InnoDB, see the article [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 
 
 - Enable binary logging in the my.ini (Windows) or my.cnf (Unix) file in source database by using the  following configuration:
+
+    - **server_id** = 1 or greater (relevant only for MySQL 5.6)
+    - **log-bin** =<path> (relevant only for MySQL 5.6)
+
+        For example: log-bin = E:\MySQL_logs\BinLog
+    - **binlog_format** = row
+    - **Expire_logs_days** = 5 (it is recommended to not use zero; relevant only for MySQL 5.6)
+    - **Binlog_row_image** = full (relevant only for MySQL 5.6)
+    - **log_slave_updates** = 1
+ 
 - The user must have the ReplicationAdmin role with the following privileges:
     - **REPLICATION CLIENT** - Required for Change Processing tasks only. In other words, Full Load only tasks don't require this privilege.
     - **REPLICATION REPLICA** - Required for Change Processing tasks only. In other words, Full Load only tasks don't require this privilege.
