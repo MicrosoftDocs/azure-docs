@@ -1,19 +1,23 @@
 ---
-title: Java Quickstart for Azure Cognitive Services, Microsoft Translator Speech API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Speech API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Translator Speech API Java"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the  Translator Speech API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
 ---
-# Quickstart for Microsoft Translator Speech API with Java 
+# Quickstart: Translator Speech API with Java 
 <a name="HOLTop"></a>
 
-This article shows you how to use the Microsoft Translator Speech API to translate words spoken in a .wav file.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+This article shows you how to use the Translator Speech API to translate words spoken in a .wav file.
 
 ## Prerequisites
 
@@ -30,7 +34,7 @@ You will need the following files.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (or newer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (or newer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

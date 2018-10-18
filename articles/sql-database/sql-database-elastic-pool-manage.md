@@ -1,27 +1,29 @@
 ---
 title: Create and manage elastic pools - Azure SQL database | Microsoft Docs
 description: Create and manage Azure SQL elastic pools.
-keywords: multiple databases, database resources, database performance
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
-ms.date: 08/01/2018
-ms.author: ninarn
+subservice: elastic-pool
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
+author: oslake
+ms.author: moslake
 ms.reviewer: carlrab
+manager: craigg
+ms.date: 10/15/2018
 ---
 
 # Create and manage elastic pools in Azure SQL Database
 
-With an elastic pool, you determine the amount of resources that the elastic pool requires to handle the workload of its databases, and the amount of resources for each pooled database. 
+With an elastic pool, you determine the amount of resources that the elastic pool requires to handle the workload of its databases, and the amount of resources for each pooled database.
 
 ## Azure portal: Manage elastic pools and pooled databases
 
 All pool settings can be found in one place: the **Configure pool** blade. To get here, find an elastic pool in the portal and click **Configure pool** either from the top of the blade or from the resource menu on the left.
 
 From here you can make any combination of the following changes and save them all in one batch:
+
 1. Change the service tier of the pool
 2. Scale the performance (DTU or vCores) and storage up or down
 3. Add or remove databases to/from the pool
@@ -30,7 +32,7 @@ From here you can make any combination of the following changes and save them al
 
 ![Elastic pool configuration blade](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-## PowerShell: Manage elastic pools and pooled databases 
+## PowerShell: Manage elastic pools and pooled databases
 
 To create and manage SQL Database elastic pools and pooled databases with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). To create and manage the logical servers for an elastic pool, see [Create and Managed logical servers](sql-database-logical-servers.md). To create and manage firewall rules, see [Create and manage firewall rules using PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
@@ -50,10 +52,8 @@ To create and manage SQL Database elastic pools and pooled databases with Azure 
 |[Set-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into, out of, or between elastic pools.|
 |[Remove-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Removes a database.|
 
-
 > [!TIP]
 > Creation of many databases in an elastic pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into an elastic pool, see [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
->
 
 ## Azure CLI: Manage elastic pools and pooled databases
 
@@ -65,12 +65,12 @@ To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure)
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Creates an elastic pool.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Returns a list of elastic pools in a server.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Returns a list of databases in an elastic pool.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Also includes available pool DTU settings, storage limits, and per database settings. In order to reduce verbosity, additional storage limits and per database settings are hidden by default.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Updates an elastic pool.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Deletes the elastic pool.|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Creates an elastic pool.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Returns a list of elastic pools in a server.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Returns a list of databases in an elastic pool.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Also includes available pool DTU settings, storage limits, and per database settings. In order to reduce verbosity, additional storage limits and per database settings are hidden by default.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Updates an elastic pool.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Deletes the elastic pool.|
 
 ## Transact-SQL: Manage pooled databases
 
@@ -94,24 +94,18 @@ To create and manage SQL Database elastic pools and pooled databases, use these 
 
 | Command | Description |
 | --- | --- |
-|[Elastic Pools - Create Or Update](/rest/api/sql/elasticpools/createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
-|[Elastic Pools - Delete](/rest/api/sql/elasticpools/delete)|Deletes the elastic pool.|
-|[Elastic Pools - Get](/rest/api/sql/elasticpools/get)|Gets an elastic pool.|
-|[Elastic Pools - List By Server](/rest/api/sql/elasticpools/listbyserver)|Returns a list of elastic pools in a server.|
-|[Elastic Pools - Update](/rest/api/sql/elasticpools/update)|Updates an existing elastic pool.|
-|[Recommended Elastic Pools - Get](/rest/api/sql/recommendedelasticpools/get)|Gets a recommended elastic pool.|
-|[Recommended Elastic Pools - List By Server](/rest/api/sql/recommendedelasticpools/listbyserver)|Returns recommended elastic pools.|
-|[Recommended Elastic Pools - List Metrics](/rest/api/sql/recommendedelasticpools/listmetrics)|Returns recommended elastic pool metrics.|
-|[Elastic Pool Activities](/rest/api/sql/elasticpoolactivities)|Returns elastic pool activities.|
-|[Elastic Pool Database Activities](/rest/api/sql/elasticpooldatabaseactivities)|Returns activity on databases inside of an elastic pool.|
-|[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
-|[Databases - Get](/rest/api/sql/databases/get)|Gets a database.|
-|[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Gets a database inside of an elastic pool.|
-|[Databases - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Gets a database inside of a recommended elastic pool.|
-|[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
-|[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommended elastic pool.|
-|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](/rest/api/sql/databases/update)|Updates an existing database.|
+|[Elastic pools - Create Or Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
+|[Elastic pools - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Deletes the elastic pool.|
+|[Elastic pools - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Gets an elastic pool.|
+|[Elastic pools - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Returns a list of elastic pools in a server.|
+|[Elastic pools - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Updates an existing elastic pool.|
+|[Elastic pool Activities](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Returns elastic pool activities.|
+|[Elastic pool Database Activities](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Returns activity on databases inside of an elastic pool.|
+|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Creates a new database or updates an existing database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Gets a database.|
+|[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Returns a list of databases in an elastic pool.|
+|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Returns a list of databases in a server.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Updates an existing database.|
 
 ## Next steps
 

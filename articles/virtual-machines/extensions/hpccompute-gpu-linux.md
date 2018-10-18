@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
 
 ---
@@ -59,7 +59,8 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -73,7 +74,7 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverLinux | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.1 | int |
 
 
 ## Deployment
@@ -99,7 +100,8 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -116,7 +118,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
 	}'
 ```
@@ -129,7 +131,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```
@@ -162,6 +164,8 @@ Extension execution output is logged to the following file:
 | 1 | Incorrect usage of extension. | Contact support with execution output log. |
 | 10 | Linux Integration Services for Hyper-V and Azure not available or installed. | Check output of lspci. |
 | 11 | NVIDIA GPU not found on this VM size. | Use a [supported VM size and OS](../linux/n-series-driver-setup.md). |
+| 12 | Image offer not supported |
+| 13 | VM size not supported | Use an N-series VM to deploy |
 | 14 | Operation unsuccessful | |
 | 21 | Update failed on Ubuntu | Check output of "sudo apt-get update" |
 

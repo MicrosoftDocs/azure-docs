@@ -11,7 +11,7 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/17/2018
-ms.author: john.papa
+ms.author: jopapa
 ms.custom: mvc
 
 ---

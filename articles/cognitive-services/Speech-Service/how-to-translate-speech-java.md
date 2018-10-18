@@ -6,33 +6,34 @@ services: cognitive-services
 author: wolfma61
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
-# Translate speech using the Speech SDK for Java
+# Translate speech with the Cognitive Services Speech SDK for Java
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
 
-[!include[Intro](../../../includes/cognitive-services-speech-service-how-to-translate-speech-intro.md)]
+[!INCLUDE [Introduction](../../../includes/cognitive-services-speech-service-how-to-translate-speech-intro.md)]
 
-[!include[Intro - top-level declarations](../../../includes/cognitive-services-speech-service-how-to-toplevel-declarations.md)]
+[!INCLUDE [Introduction to top-level declarations](../../../includes/cognitive-services-speech-service-how-to-toplevel-declarations.md)]
 
 [!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#toplevel)]
 
-[!include[Intro - using microphone](../../../includes/cognitive-services-speech-service-how-to-translate-speech-microphone.md)]
+[!INCLUDE [Introduction to using a microphone](../../../includes/cognitive-services-speech-service-how-to-translate-speech-microphone.md)]
 
-[!code-java [Translation Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithMicrophoneAsync)]
+[!code-java [Translation from a microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithMicrophoneAsync)]
 
-[!include[Intro - using file](../../../includes/cognitive-services-speech-service-how-to-translate-speech-file.md)]
+[!INCLUDE [Introduction to using a file](../../../includes/cognitive-services-speech-service-how-to-translate-speech-file.md)]
 
-[!code-java [Translation Using File Input](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithFileAsync)]
+[!code-java [Translation from file input](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithFileAsync)]
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Look for the code that's used in this article in the samples/java/jre/console folder.
 
 ## Next steps
 
 - [How to recognize speech](how-to-recognize-speech-java.md)
-- [How to recognize intents from speech](how-to-recognize-intents-from-speech-java.md).
+- [How to recognize intents from speech](how-to-recognize-intents-from-speech-java.md)

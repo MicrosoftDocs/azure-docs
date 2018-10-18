@@ -20,9 +20,6 @@ ms.author: juliako
 # How to configure on-premises encoders when using Azure Media Services to create multi-bitrate streams
 This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS channels (that are live encoding enabled) for further processing. The topic also links to tutorials that show how to configure listed encoders.
 
-## Elemental Live
-For information on how to configure the [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Elemental Live](media-services-configure-elemental-live-encoder.md).
-
 ## Flash Media Live Encoder
 For information on how to configure the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring FMLE](media-services-configure-fmle-live-encoder.md).
 
@@ -34,6 +31,9 @@ For information on how to configure the [Telestream Wirecast](http://www.telestr
 
 ## NewTek TriCaster
 For information on how to configure the [Tricaster](http://newtek.com/products/tricaster-40.html) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Tricaster](media-services-configure-tricaster-live-encoder.md).
+
+## Elemental Live
+For more information, see [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

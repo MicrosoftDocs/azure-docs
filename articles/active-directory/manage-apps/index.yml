@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Application Management Documentation
+metadata:
+  title: Azure Active Directory application management documentation
+  meta.description: Learn how to manage and deploy applications with Azure Active Directory.
+  services: active-directory
+  author: barbkess
+  manager: mtillman
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/14/2018
+  ms.author: barbkess
+abstract:
+  description: Learn how to manage and deploy applications with Azure Active Directory.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to add an application for users to access through Azure Active Directory.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_protect.svg
+      text: Add an application
+      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_protect.svg
+      text: View your applications
+      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to enable a simple and secure sign-in process for your applications.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://docs.microsoft.com/azure/active-directory/manage-apps/saas-apps/">Saas application tutorials</a>
+    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configure single sign-on</a>

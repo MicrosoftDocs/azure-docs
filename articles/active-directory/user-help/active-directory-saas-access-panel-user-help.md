@@ -1,5 +1,5 @@
 ---
-title: Get help with accessing and using the My Apps portal in Azure Active Directory | Microsoft Docs
+title: Get help with accessing and using the MyApps portal in Azure Active Directory | Microsoft Docs
 description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 author: eross-msft
@@ -15,11 +15,11 @@ ms.author: lizross
 ms.reviewer: japere
 ---
 
-# Troubleshoot issues with accessing and using the My Apps portal
+# Troubleshoot issues with accessing and using the MyApps portal
 
-If you're experiencing issues with signing in to or using the My Apps portal, try these troubleshooting tips before you contact helpdesk or your administrator for help.
+If you're experiencing issues with signing in to or using the MyApps portal, try these troubleshooting tips before you contact helpdesk or your administrator for help.
 
-## I am having trouble signing into the My Apps portal
+## I am having trouble signing into the MyApps portal
 
 Try these general tips:
 
@@ -41,7 +41,7 @@ You can reset your password or unlock your account without having to speak to so
 
 ## I am having trouble installing the My Apps Secure Sign-in Extension
 
-The My Apps portal requires a browser that supports JavaScript and has CSS enabled. If you are using password-based single sign-on apps, the accompanying extension must be installed as well. This extension is downloaded automatically when you start an application that is configured for password-based single sign-on apps.
+The MyApps portal requires a browser that supports JavaScript and has CSS enabled. If you are using password-based single sign-on apps, the accompanying extension must be installed as well. This extension is downloaded automatically when you start an application that is configured for password-based single sign-on apps.
 
 Check to ensure that you are meeting the following browser requirements:
 
@@ -59,8 +59,8 @@ You can also download the extension directly from the following sites:
 If you have installed the extension and are still experiencing issues, try the following:
 
 - Check your browser extension settings to ensure that the extension is enabled.
-- Restart your browser, and sign in to the My Apps portal.
-- Clear your browser’s cookies, and sign in to the My Apps portal.
+- Restart your browser, and sign in to the MyApps portal.
+- Clear your browser’s cookies, and sign in to the MyApps portal.
 - For access to a diagnostics tool and step-by-step instructions on configuring the extension for Internet Explorer, see [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## Use the My Apps Secure Sign-in Extension
@@ -81,7 +81,7 @@ If you have installed the extension and are still experiencing issues, try the f
 * To launch an app from the extension, do the following:
    1. After you install the extension, sign in to it by selecting **Sign in to get started**.
    2. Select the extension icon to open its menu.
-   3. Search for an app that's available in the My Apps portal.
+   3. Search for an app that's available in the MyApps portal.
    4. In the search results list, select the app.  
        The last three apps you've used are displayed in the **Recently Used** shortcut list.
 

@@ -1,12 +1,13 @@
 ---
-title: Use and display requirements for the Bing Web Search APIs | Microsoft Docs
-description: Use data from the Bing Web Search APIs to improve results from searches on the web.
+title: Use and display requirements - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Requirements for displaying search results from the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: scottwhi
 ---

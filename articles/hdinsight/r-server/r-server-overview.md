@@ -5,7 +5,7 @@ services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
@@ -142,6 +142,6 @@ The prices that are associated with an ML Services HDInsight cluster are structu
 
 To learn more about how to use ML Services on HDInsight clusters, see the following topics:
 
-* [Get started with ML Serices cluster on HDInsight](r-server-get-started.md)
+* [Get started with ML Services cluster on HDInsight](r-server-get-started.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
 * [Storage options for ML Services cluster on HDInsight](r-server-storage.md)

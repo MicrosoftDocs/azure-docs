@@ -3,12 +3,12 @@ title: Structure projects with the Team Data Science Process template | Microsof
 description: How to instantiate Team Data Science Process (TDSP) templates in Azure Machine Learning that structure projects for collaboration
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: bradsev
 
+ROBOTS: NOINDEX
 ---
 
 # Structure projects with the Team Data Science Process template
 
-This document provides instructions on how to create data science projects in Azure Machine Learning with Team Data Science Process (TDSP) templates. These templates help to structure projects for collaboration and reproducibility. 
+This document provides instructions on how to create data science projects in an earlier version of Azure Machine Learning using Team Data Science Process (TDSP) templates. These templates help to structure projects for collaboration and reproducibility. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## What is the Team Data Science Process?
 The TDSP is an agile, iterative, data science process for executing and delivering advanced analytics solutions. It's designed to improve the collaboration and efficiency of data science teams in enterprise organizations. It supports these objectives with four key components:
@@ -49,7 +50,7 @@ Review the following items *before* you create a new project:
 * Review the TDSP Machine Learning [template](https://aka.ms/tdspamlgithubrepo).
 * The contents (other than what is already present in the "docs" folder) are required to be less than 25 MB in size. See the note that follows this list.
 * The sample\_data folder is only for small data files (less than 5 MB) with which you can test your code or start early development.
-* Storing files, such as Word and PowerPoint files, can increase the size of the "docs" folder substantially. We advise that you to find a collaborative Wiki, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), or other collaborative resource to store such files.
+* Storing files, such as Word and PowerPoint files, can increase the size of the "docs" folder substantially. We advise that you to find a collaborative Wiki, [SharePoint](https://products.office.com/sharepoint/collaboration), or other collaborative resource to store such files.
 * To learn how to handle large files and outputs in Machine Learning, read [Persisting changes and dealing with large files](http://aka.ms/aml-largefiles).
 
 > [!NOTE]

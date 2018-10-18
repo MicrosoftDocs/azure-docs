@@ -3,7 +3,7 @@ title: Restrict access using Shared Access Signatures - Azure HDInsight
 description: Learn how to use Shared Access Signatures to restrict HDInsight access to data stored in Azure storage blobs.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

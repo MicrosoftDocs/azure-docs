@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
 
@@ -122,6 +122,12 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
 If your network is connected to the Azure network through use of [ExpressRoute][expressroute-indexmd-744v], each circuit is configured with two public IP addresses at the Microsoft Edge. The two IP addresses are used to connect to Microsoft Services, such as to Azure Storage, by using Azure Public Peering.
 
 To allow communication from your circuit to Azure Database for PostgreSQL, you must create IP network rules for the public IP addresses of your circuits. In order to find the public IP addresses of your ExpressRoute circuit, open a support ticket with ExpressRoute by using the Azure portal.
+
+## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
+
+Merely setting a Firewall rule does not help secure the server to the VNet. You must also turn VNet service endpoints **On** for the security to take effect. When you turn service endpoints **On**, your VNet-subnet experiences downtime until it completes the transition from **Off** to **On**. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
+
+You can set the **IgnoreMissingServiceEndpoint** flag by using the Azure CLI or portal.
 
 ## Related articles
 - [Azure virtual networks][vm-virtual-network-overview]

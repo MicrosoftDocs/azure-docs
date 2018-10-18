@@ -6,14 +6,13 @@ documentationcenter: na
 author: sethmanheim
 manager: femila
 
-
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
+ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2018
+ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
 

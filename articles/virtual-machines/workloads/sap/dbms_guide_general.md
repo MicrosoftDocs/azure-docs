@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -260,7 +260,7 @@ The way to set up Azure Availability Sets is demonstrated in this [tutorial](htt
 
 
 ## Azure Network considerations 
-In large-scale SAP deployments, recommendation is that you are using the blueprint of [Azure Virtual Datacenter](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) for their VNet configuration and permissions and role assignments to different parts of their organization.
+In large-scale SAP deployments, recommendation is that you are using the blueprint of [Azure Virtual Datacenter](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) for their VNet configuration and permissions and role assignments to different parts of their organization.
 
 There are several best practices, which resulted out of hundreds of customer deployments:
 
@@ -269,6 +269,11 @@ There are several best practices, which resulted out of hundreds of customer dep
 - The VMs within the VNet have a static allocation of the private IP address. See the article [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) as reference.
 - Routing restrictions to and from the DBMS VMs are **NOT** set with firewalls installed on the local DBMS VMs. Instead traffic routing is defined with [Azure Network Security Groups (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview)
 - For the purpose of separating and isolating traffic to the DBMS VM, you assign different NICs to the VM. Where every NIC has a different IP address and every NIC is an assigned to a different VNet subnet, which again has different NSG rules. Keep in mind that the isolation or separation of network traffic is just a measure for routing and does not allow setting quotas for network throughput.
+
+> [!NOTE]
+> You should assign static IP addresses through Azure means to individual vNICs. You should not assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). If you need to assign multiple static IP addresses to a VM, you need to assign multiple vNICs to a VM.
+>
+>
 
 Using two VMs for your production DBMS deployment within an Azure Availability Set plus a separate routing for the SAP application layer and the management and operations traffic to the two DBMS VMs, the rough diagram would look like:
 

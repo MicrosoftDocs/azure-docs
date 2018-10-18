@@ -22,7 +22,7 @@ Microsoft Azure Traffic Manager allows you to control how network traffic is dis
 
 There are three types of endpoint supported by Traffic Manager:
 * **Azure endpoints** are used for services hosted in Azure.
-* **External endpoints** are used for services hosted outside Azure, either on-premises or with a different hosting provider.
+* **External endpoints** are used for IPv4/IPv6 addresses, or, for services hosted outside Azure that can either be on-premises or with a different hosting provider.
 * **Nested endpoints** are used to combine Traffic Manager profiles to create more flexible traffic-routing schemes to support the needs of larger, more complex deployments.
 
 There is no restriction on how endpoints of different types are combined in a single Traffic Manager profile. Each profile can contain any mix of endpoint types.
@@ -33,8 +33,9 @@ The following sections describe each endpoint type in greater depth.
 
 Azure endpoints are used for Azure-based services in Traffic Manager. The following Azure resource types are supported:
 
-* 'Classic' IaaS VMs and PaaS cloud services.
+* PaaS cloud services.
 * Web Apps
+* Web App Slots
 * PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer). The publicIpAddress must have a DNS name assigned to be used in a Traffic Manager profile.
 
 PublicIPAddress resources are Azure Resource Manager resources. They do not exist in the classic deployment model. Thus they are only supported in Traffic Manager's Azure Resource Manager experiences. The other endpoint types are supported via both Resource Manager and the classic deployment model.
@@ -43,11 +44,12 @@ When using Azure endpoints, Traffic Manager detects when a 'Classic' IaaS VM, cl
 
 ## External endpoints
 
-External endpoints are used for services outside of Azure. For example, a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile. Combining Azure endpoints with External endpoints enables various scenarios:
+External endpoints are used for either IPv4/IPv6 addresses, or, for services outside of Azure. Use of IPv4/IPv6 address endpoints allows traffic manager to check the health of endpoints without requiring a DNS name for them. As a result, Traffic Manager can respond to queries with A/AAAA records when returning that endpoint in a response. Services outside of Azure can include a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile except for endpoints specified as IPv4 or IPv6 addresses which can only be external endpoints. Combining Azure endpoints with External endpoints enables various scenarios:
 
-* In either an active-active or active-passive failover model, use Azure to provide increased redundancy for an existing on-premises application.
-* To reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](traffic-manager-routing-methods.md#performance).
-* Use Azure to provide additional capacity for an existing on-premises application, either continuously or as a 'burst-to-cloud' solution to meet a spike in demand.
+* Provide increased redundancy for an existing on-premises application in either an active-active or active-passive failover model using Azure. 
+* Route traffic to endpoints that do not have a DNS name associated with them. In addition, decrease the overall DNS lookup latency by removing the need to run a second DNS query to get an IP address of a DNS name returned. 
+* Reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](traffic-manager-routing-methods.md#performance).
+* Provide additional capacity for an existing on-premises application, either continuously or as a 'burst-to-cloud' solution to meet a spike in demand using Azure.
 
 In certain cases, it is useful to use External endpoints to reference Azure services (for examples, see the [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints)). In this case, health checks are billed at the Azure endpoints rate, not the External endpoints rate. However, unlike Azure endpoints, if you stop or delete the underlying service, health check billing continues until you disable or delete the endpoint in Traffic Manager.
 
@@ -67,7 +69,7 @@ Some additional considerations apply when configuring Web Apps as endpoints in T
 
 Disabling an endpoint in Traffic Manager can be useful to temporarily remove traffic from an endpoint that is in maintenance mode or being redeployed. Once the endpoint is running again, it can be re-enabled.
 
-Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, all of which are supported in both Resource Manager and the classic deployment model.
+Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API.
 
 > [!NOTE]
 > Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App remains running and able to receive traffic even when disabled in Traffic Manager. Traffic can be addressed directly to the service instance rather than via the Traffic Manager profile DNS name. For more information, see [how Traffic Manager works](traffic-manager-how-it-works.md).

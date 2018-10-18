@@ -7,6 +7,9 @@
   - name: Component versioning
     href: ../hdinsight-component-versioning.md
     maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: Quickstarts
   items:
   - name: Create a Kafka cluster - Portal
@@ -17,15 +20,15 @@
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: Kafka and Spark
+  - name: 1 - Use Spark structured streaming
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: Kafka and Storm
+  - name: 2 - Write/read from Kafka with Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: Kafka Producer and Consumer API
+  - name: 3 - Use Kafka Producer and Consumer API
     href: apache-kafka-producer-consumer-api.md
-  - name: Kafka Streams API
+  - name: 4 - Develop app with Kafka Streams API
     href: apache-kafka-streams-api.md
 - name: Concepts
   items:
@@ -110,6 +113,8 @@
     - name: Use SSH tunneling
       href: ../hdinsight-linux-ambari-ssh-tunnel.md
       maintainContext: true
+    - name: Bring your own key
+      href: apache-kafka-byok.md
   - name: Manage
     items:
     - name: Create Linux clusters
@@ -125,7 +130,7 @@
       - name: Use the .NET SDK
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: Use the Azure portal
@@ -144,7 +149,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Ambari web UI
@@ -235,9 +240,17 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
+    href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
+  - name: .NET SDK
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: Python SDK
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Java SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Spark)

@@ -2,12 +2,16 @@
 title: "Best practices for Azure SQL Data Sync | Microsoft Docs"
 description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
-ms.date: 07/03/2018
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.service: "sql-database"
 author: "allenwux"
 ms.author: "xiwu"
+ms.reviewer: 
 manager: "craigg"
+ms.date: 08/20/2018
 ---
 # Best practices for SQL Data Sync 
 
@@ -69,17 +73,16 @@ This section discusses the limitations of provisioning in SQL Data Sync.
 
 #### Autoprovisioning limitations
 
-SQL Data Sync has the following limitations on autoprovisioning:
+SQL Data Sync has the following limitations for autoprovisioning:
 
--   Select only the columns that are created in the destination table.  
-    Any columns that aren't part of the sync group aren't provisioned in the destination tables.
--   Indexes are created only for selected columns.  
-    If the source table index has columns that aren't part of the sync group, those indexes aren't provisioned in the destination tables.  
+-   Select only the columns that are created in the destination table. Any columns that aren't part of the sync group aren't provisioned in the destination tables.
+-   Indexes are created only for selected columns. If the source table index has columns that aren't part of the sync group, those indexes aren't provisioned in the destination tables.  
 -   Indexes on XML type columns aren't provisioned.  
 -   CHECK constraints aren't provisioned.  
 -   Existing triggers on the source tables aren't provisioned.  
 -   Views and stored procedures aren't created on the destination database.
 -   ON UPDATE CASCADE and ON DELETE CASCADE actions on foreign key constraints aren't recreated in the destination tables.
+-   If you have decimal or numeric columns with a precision greater than 28, SQL Data Sync may encounter a conversion overflow issue during sync. We recommend that you limit the precision of decimal or numeric columns to 28 or less.
 
 #### Recommendations
 

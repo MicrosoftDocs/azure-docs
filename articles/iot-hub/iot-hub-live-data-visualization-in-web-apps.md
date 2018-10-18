@@ -56,8 +56,9 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
    | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | Obtained from iothub-explorer                                |
+   | Azure.IoT.IoTHub.ConnectionString     | Obtained from Azure CLI                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
+   | WEBSITE_NODE_DEFAULT_VERSION          | 8.9.4                                                        |
 
    ![Add settings to your web app with key/value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 

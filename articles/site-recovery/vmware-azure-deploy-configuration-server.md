@@ -15,7 +15,7 @@ ms.author: raynew
 You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication. This article walks you through the steps needed to deploy the configuration server when you're replicating VMware VMs to Azure. [Follow this article](physical-azure-set-up-source.md) if you need to set up a configuration server for physical server replication.
 
 >[!TIP]
-You can learn about role of Configuration server as part of Azure Site Recovery architecture [here](vmware-azure-architecture.md).
+You can learn about the role of Configuration server as part of Azure Site Recovery architecture [here](vmware-azure-architecture.md).
 
 ## Deployment of configuration server through OVA template
 
@@ -37,7 +37,7 @@ The sizing requirements for the configuration server depend on the potential dat
 | 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) |18 GB |600 GB |500 GB to 1 TB |Replicate 100-150 machines. |
 | 16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) |32 GB |1 TB |1 TB to 2 TB |Replicate 150-200 machines. |
 
-If you're replicating more than one VMware VM, read [capacity planning considerations](/site-recovery-plan-capacity-vmware.md). Run the [Deployment planner tool](site-recovery-deployment-planner.md) for VMWare replication.
+If you're replicating more than one VMware VM, read [capacity planning considerations](site-recovery-plan-capacity-vmware.md). Run the [Deployment planner tool](site-recovery-deployment-planner.md) for VMWare replication.
 
 ## Download the template
 
@@ -76,7 +76,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 1. In the vSphere Client inventory, right-click the VM and select **Edit Settings**.
 2. In **Hardware**, select **Add** > **Ethernet Adapter**. Then select **Next**.
-3. Select an adapter type and a network. 
+3. Select an adapter type and a network.
 4. To connect the virtual NIC when the VM is turned on, select **Connect at power-on**. Then select **Next** > **Finish** > **OK**.
 
 ## Register the configuration server with Azure Site Recovery services
@@ -97,7 +97,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
     > [!NOTE]
     > Once registered, there is no flexibility to change the recovery services vault.
-    
+
 3. In **Install third-party software**,
 
     |Scenario   |Steps to follow  |
@@ -114,21 +114,21 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## FAQ
 
-1. Can I use the VM, where Configuration server is installed, for different purposes?
+1. Can I use the VM, where the configuration server is installed, for different purposes?
 
-    **No**, we recommend you to use the VM for sole purpose of configuration server. Ensure to follow all the specifications mentioned in the [previous section](vmware-azure-deploy-configuration-server.md#Prerequisites) for efficient management of disaster recovery.
+    **No**, we recommend you to use the VM for sole purpose of configuration server. Ensure you follow all the specifications mentioned in [Prerequisites](#prerequisites) for efficient management of disaster recovery.
 2. Can I switch the vault already registered in the configuration server with a newly created vault?
 
     **No**, once a vault is registered with configuration server, it cannot be changed.
 3. Can I use the same configuration server for protecting both physical and virtual machines?
 
-    **Yes**, same configuration server can be used for replicating physical and virtual machines. However, physical machine can be failed back only to a VMware VM.
-4. What is the purpose of a Configuration server and where is it used?
+    **Yes**, the same configuration server can be used for replicating physical and virtual machines. However, physical machine can be failed back only to a VMware VM.
+4. What is the purpose of a configuration server and where is it used?
 
-    Refer to our Azure Site Recovery architecture [here](vmware-azure-architecture.md) to learn more about configuration server and its functionalities.
+    Refer to [VMware to Azure replication architecture](vmware-azure-architecture.md) to learn more about configuration server and its functionalities.
 5. Where can I find the latest version of Configuration server?
 
-    Refer to the article on steps to upgrade the configuration server [through portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). You can also directly download it from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). You can also directly download it from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 6. Where can I download the passphrase for configuration server?
 
     Refer to [this article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) to download the passphrase.
@@ -138,7 +138,11 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Upgrade the configuration server
 
-To upgrade the configuration server to the latest version, read the steps given [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## Manage the configuration server
+
+To avoid interruptions in ongoing replication, ensure that IP address of the configuration server does not change after the configuration server has been registered to a vault. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ## Troubleshoot deployment issues
 

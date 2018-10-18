@@ -5,7 +5,7 @@ keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is h
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
@@ -216,7 +216,7 @@ There are several services that can be used to run Hive queries as part of a sch
 
 ### Azure Data Factory
 
-Azure Data Factory allows you to use HDInsight as part of a Data Factory pipeline. For more information on using Hive from a pipeline, see the [Transform data using Hive activity in Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md) document.
+Azure Data Factory allows you to use HDInsight as part of a Data Factory pipeline. For more information on using Hive from a pipeline, see the [Transform data using Hive activity in Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md) document.
 
 ### Hive jobs and SQL Server Integration Services
 

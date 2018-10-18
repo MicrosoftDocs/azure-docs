@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 09/24/2018
 ms.author: kumud
 ---
 
@@ -228,6 +228,8 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [supported multi-dimensional metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
+- Learn about [Outbound Rules](load-balancer-outbound-rules-overview.md).
+- Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
 - Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md).
 - Learn about [Virtual Networks](../virtual-network/virtual-networks-overview.md).

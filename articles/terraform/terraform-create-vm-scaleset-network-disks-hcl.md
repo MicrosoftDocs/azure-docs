@@ -1,12 +1,14 @@
 ---
 title: Use Terraform to create an Azure virtual machine scale set
 description: Tutorial about using Terraform to configure and version an Azure virtual machine scale set complete with a virtual network and managed attached disks
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, virtual machine, Azure, scale set, network, storage, modules
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/04/2018
-ms.topic: article
 ---
 
 # Use Terraform to create an Azure virtual machine scale set
@@ -31,7 +33,7 @@ In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/ov
 
 - **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Create an SSH key pair**: If you don't already have an SSH key pair, follow the instructions in the article, [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Create an SSH key pair**: If you don't already have an SSH key pair, follow the instructions in the article, [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## Create the directory structure
 

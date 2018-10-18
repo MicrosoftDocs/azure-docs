@@ -20,7 +20,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
     - [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a step-by-step description of how to create a storage account.
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
+* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Ensure PowerShell 5.1 is installed on your Windows Server. If you are using Windows Server 2012 R2, ensure that you are running at least PowerShell 5.1.\*. You can safely skip this check on Windows Server 2016 as PowerShell 5.1 is the default version out-of-box. On Windows Server 2012 R2, you can verify that you are running PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```PowerShell

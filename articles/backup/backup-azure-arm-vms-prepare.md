@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backups; backing up;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
@@ -31,7 +31,7 @@ If these conditions already exist in your environment, proceed to the [Back up y
 
  * **Linux**: Azure Backup supports [a list of distributions that Azure endorses](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), except CoreOS Linux. For the list of Linux operating systems that support restoring files, see [Recover files from virtual machine backup](backup-azure-restore-files-from-vm.md#for-linux-os).
 
-    > [!NOTE] 
+    > [!NOTE]
     > Other bring-your-own-Linux distributions might work, as long as the VM agent is available on the virtual machine, and support for Python exists. However, those distributions are not supported.
     >
  * **Windows Server**, **Windows client**:  Versions older than Windows Server 2008 R2 or Windows 7, are not supported.
@@ -40,10 +40,10 @@ If these conditions already exist in your environment, proceed to the [Back up y
 ## Limitations when backing up and restoring a VM
 Before you prepare your environment, be sure to understand these limitations:
 
-* Backing up virtual machines with more than 16 data disks is not supported.
+* Backing up virtual machines with more than 32 data disks is not supported.
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
-* We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency. 
+* We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency.
 * Backup data doesn't include network mounted drives attached to a VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region back up and restore are not supported.
@@ -56,6 +56,9 @@ Before you prepare your environment, be sure to understand these limitations:
   * Virtual machines under load balancer configuration (internal and external)
   * Virtual machines with multiple reserved IP addresses
   * Virtual machines with multiple network adapters
+
+  > [!NOTE]
+  > Azure Backup supports [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), a new type of durable storage for Microsoft Azure virtual machines. It is supported for managed disks on [Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## Create a Recovery Services vault for a VM
 A Recovery Services vault is an entity that stores the backups and recovery points that have been created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
@@ -108,7 +111,7 @@ To edit the storage replication setting:
    If you're using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you're using Azure as a non-primary backup storage endpoint, choose locally redundant storage. Read more about storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 1. If you changed the storage replication type, select **Save**.
-    
+
 After you choose the storage option for your vault, you're ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
 ## Select a backup goal, set policy, and define items to protect
@@ -165,11 +168,11 @@ After you successfully enable the backup, your backup policy will run on schedul
 If you have problems registering the virtual machine, see the following information on installing the VM agent and on network connectivity. You probably don't need the following information if you are protecting virtual machines created in Azure. But if you migrated your virtual machines to Azure, be sure that you properly installed the VM agent and that your virtual machine can communicate with the virtual network.
 
 ## Install the VM agent on the virtual machine
-For the Backup extension to work, the Azure [VM agent](../virtual-machines/extensions/agent-windows.md) must be installed on the Azure virtual machine. If your VM was created from the Azure Marketplace, the VM agent is already present on the virtual machine. 
+For the Backup extension to work, the Azure [VM agent](../virtual-machines/extensions/agent-windows.md) must be installed on the Azure virtual machine. If your VM was created from the Azure Marketplace, the VM agent is already present on the virtual machine.
 
 The following information is provided for situations where you are *not* using a VM created from the Azure Marketplace. **For example, you migrated a VM from an on-premises datacenter. In such a case, the VM agent needs to be installed in order to protect the virtual machine.**
 
-**Note**: After installing the VM agent, you must also use Azure PowerShell to update the ProvisionGuestAgent property so Azure knows the VM has the agent installed. 
+**Note**: After installing the VM agent, you must also use Azure PowerShell to update the ProvisionGuestAgent property so Azure knows the VM has the agent installed.
 
 If you have problems backing up the Azure VM, use the following table to check that the Azure VM agent is correctly installed on the virtual machine. The table provides additional information about the VM agent for Windows and Linux VMs.
 
@@ -200,16 +203,16 @@ When you're deciding which option to use, the trade-offs are between manageabili
 ### Whitelist the Azure datacenter IP ranges
 To whitelist the Azure datacenter IP ranges, see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges and instructions.
 
-You can allow connections to storage of the specific region by using [service tags](../virtual-network/security-overview.md#service-tags). Make sure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access. 
+You can allow connections to storage of the specific region by using [service tags](../virtual-network/security-overview.md#service-tags). Make sure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access.
 
 ![NSG with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-The following video walks you through the step by step procedure to configure service tags: 
+The following video walks you through the step by step procedure to configure service tags:
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> Storage service tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
+> [!NOTE]
+> For a list of storage service tags and regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
 
 ### Use an HTTP proxy for VM backups
 When you're backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage by using an HTTPS API. Route the backup extension traffic through the HTTP proxy, because it's the only component configured for access to the public internet.
@@ -285,7 +288,7 @@ HttpProxy.Port=<proxy port>
    * For **Local port**, select **Specific Ports**. In the following box, specify the number of the proxy port that has been configured.
    * For **Remote port**, select **All Ports**.
 
-For the rest of the wizard, accept the default settings until you get to the end. Then give this rule a name. 
+For the rest of the wizard, accept the default settings until you get to the end. Then give this rule a name.
 
 #### Step 3: Add an exception rule to the NSG
 The following command adds an exception to the NSG. This exception allows TCP traffic from any port on 10.0.0.5 to any internet address on port 80 (HTTP) or 443 (HTTPS). If you require a specific port on the public internet, be sure to add that port to ```-DestinationPortRange```.

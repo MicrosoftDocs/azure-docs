@@ -4,17 +4,16 @@ description: This topic gives an overview of Azure Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
-ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2017
-ms.author: juliako;anilmur
+ms.date: 10/15/2018
+ms.author: juliako
 
 ---
 # Azure Media Services overview 
@@ -25,15 +24,7 @@ ms.author: juliako;anilmur
 
 Microsoft Azure Media Services (AMS) is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
-You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services.
-
-You can choose to stream your content live or deliver content on-demand. The topic also links to other relevant topics.
-
-## Media Services learning paths
-You can view AMS learning paths here:
-
-* [AMS Live Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [AMS on-Demand Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services. You can choose to stream your content live or deliver content on-demand. 
 
 ## Prerequisites
 

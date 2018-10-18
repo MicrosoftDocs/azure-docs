@@ -68,7 +68,7 @@ Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 t
 >
 > - Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.
 >
-> - Servers running Red Hat Enterprise Linux 5.2 to 5.11 or CentOS 5.2 to 5.11 should have the Linux Integration Services(LIS) components installed in order for the machines to boot in Azure.
+> - Servers running Red Hat Enterprise Linux 5.2 to 5.11 or CentOS 5.2 to 5.11 should have the [Linux Integration Services(LIS) components](https://www.microsoft.com/en-us/download/details.aspx?id=55106) installed in order for the machines to boot in Azure.
 
 ### Ubuntu kernel versions
 

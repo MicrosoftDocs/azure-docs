@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
 ---
 
@@ -23,10 +23,10 @@ This article helps you understand what is data factory service identity and how 
 
 When creating a data factory, a service identity can be created along with factory creation. The service identity is a managed application registered to Azure Activity Directory, and represents this specific data factory.
 
-Data factory service identity benefits the following two features:
+Data factory service identity benefits the following features:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case data factory service identity is used for Azure Key Vault authentication.
-- [Copy data from/to Azure Data Lake Store](connector-azure-data-lake-store.md), in which case data factory service identity can be used as one of the supported Data Lake Store authentication types.
+- Connectors including [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure SQL Database](connector-azure-sql-database.md), and [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 
 ## Generate service identity
 
@@ -165,6 +165,6 @@ Type                  : ServicePrincipal
 See the following topics which introduce when and how to use data factory service identity:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copy data from/to Azure Data Lake Store using managed service identity authentication](connector-azure-data-lake-store.md)
+- [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](connector-azure-data-lake-store.md)
 
-See [MSI Overview](~/articles/active-directory/msi-overview.md) for more background on Managed Service Identity, which data factory service identity is based upon. 
+See [Managed Identities for Azure Resources Overview](~/articles/active-directory/msi-overview.md) for more background on managed identities for Azure resources, which data factory service identity is based upon. 

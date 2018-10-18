@@ -1,5 +1,5 @@
-The service and your subscription type determines the number of queries that you may make per second (QPS). You should ensure that your application includes the logic necessary to stay within your quota. If you exceed your QPS, the request fails with HTTP status code 429. The response also includes the Retry-After header, which contains the number of seconds that you should wait before sending another request.  
-  
-### Denial of Service (DOS) versus Throttling
+The service and your subscription type determine the number of queries per second (QPS) that you can make. Make sure your application includes the logic to stay within your quota. If the QPS limit is met or exceeded, the request fails and an HTTP 429 status code is returned. The response includes the `Retry-After` header, which indicates how long you must wait before sending another request.
 
-The service differentiates between a DOS attack and QPS violation. If the service suspects a denial of service attack, the request succeeds (HTTP status code is 200 OK); however, the body of the response is empty.
+## Denial-of-service versus throttling
+
+The service makes a differentiation between a denial-of-service (DoS) attack and a QPS violation. If the service suspects a DoS attack, the request succeeds (HTTP status code is 200 OK). However, the body of the response is empty.

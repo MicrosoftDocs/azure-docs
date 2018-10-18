@@ -54,14 +54,15 @@ Concretely, if the "expected entity" field of an action is set to $entity, then 
 
 ### Create two actions
 
-1. Click Actions, then New Action
+1. Click Actions, then New Action.
 2. In Response, type 'What's your name?'.
 3. In Expected Entities, enter $name. Click Save.
 	- This value means that if this question is asked, and the user response does not have any entities detected, the bot should assume the whole of the user's response is this entity.
+	- The entity is automatically added as a disqualifying entity. 
 2. Click Actions, then New Action to create a second action.
 3. In Response, type 'Hello $name'.
-	- The entity is automatically added as a disqualifying entity. 
-4. Click Save
+	- The entity is automatically added as a required entity.
+4. Click Save.
 
 Now you have two actions.
 
@@ -106,7 +107,7 @@ In the following examples, the "expected entity" heuristic triggers, but is inco
 2. Enter 'hello'.
 3. In response to 'what's your name', enter 'I am called frank'.
 	- The entire phrase is highlighted. This is because the statistical model did not find a name, so the heuristic fired and selected the entire answer as the name entity.
-2. To correct it, click on the highlighted phrase, then click on the red x. 
+2. To correct it, click on the highlighted phrase, then click on the red trash can icon. 
 3. Click to select frank, then click on name.
 2. Click Score Actions
 3. Select 'Hello $name'.

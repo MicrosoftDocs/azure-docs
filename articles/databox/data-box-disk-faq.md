@@ -2,19 +2,12 @@
 title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data 
 description: Contains frquently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk? (Preview)
@@ -43,7 +36,7 @@ A. The Azure Data Box Disks allow a quick, inexpensive, and secure transfer of t
 Disks are encrypted using Microsoft BitLocker drive encryption, and your encryption keys are managed on the Azure portal. You then copy the data from the customer’s servers. In the datacenter, Microsoft migrates your data from drive to cloud using a fast, private network upload link and uploads it to Azure.
 
 ### Q. When should I use Data Box Disks?
-A. If you have 35 TB of data (or less) that you want to transfer to Azure, you would benefit from using Data Box Disks.
+A. If you have 40 TB of data (or less) that you want to transfer to Azure, you would benefit from using Data Box Disks.
 
 ### Q. What is the price of Data Box Disks?
 A. During the preview, Data Box Disks are available for no charge. Shipping is also free, however, the charges for Azure storage will apply.
@@ -55,10 +48,10 @@ A.  To get Azure Data Box Disks, first sign up for the [Data Box Disk preview](h
 A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance.  To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
-A.  Data Box Disks are available in US and all the countries in European Union during the preview phase.  
+A.  Data Box Disks are available in US, Canada, Australia, and all the countries in European Union during the preview phase.  
 
 ### Q. Which regions can I store data in with Data Box Disks?
-A. Data Box Disk is supported for all regions within US and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please contact [Data Box Disk Support](mailto:expresspodsupport@microsoft.com).
@@ -69,10 +62,12 @@ A. If you encounter any issues with Data Box Disks, please contact [Data Box Dis
 A.  No. You get 8 TB disks (a maximum of up to 5 disks) depending upon your data size and availability of the disks.  
 
 ### Q. How do I unlock the Data Box Disks? 
-A.  In the Azure portal, go to your Data Box Disk order, and navigate to **Device details**. Copy the passkey. Download and extract the Data Box Disk unlock tool from the Azure portal and run *DataBoxDiskUnlock.exe* on the computer that has the data you want to copy to the disks. Provide the passkey to unlock your disks. The same passkey unlocks all the disks.
+A.  In the Azure portal, go to your Data Box Disk order, and navigate to **Device details**. Copy the passkey. Download and extract the Data Box Disk unlock tool from the Azure portal for your operating system. Run the tool on the computer that has the data you want to copy to the disks. Provide the passkey to unlock your disks. The same passkey unlocks all the disks. 
+
+For step-by-step instructions, go to [Unlock disks on a Windows client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) or [Unlock disks on a Linux client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### Q. Can I use a Linux host computer to connect and copy the data on to the Data Box Disks?
-A.  No. Only the Windows computers are supported. For more information, go to the list of [Supported operating systems](data-box-disk-system-requirements.md) for your host computer.
+A.  Yes. Both the Linux and Windows clinet can be used to connect and copy data on to the Data Box Disks. For more information, go to the list of [Supported operating systems](data-box-disk-system-requirements.md) for your host computer.
 
 ### Q. My disks are dispatched but now I want to cancel this order. Why is the cancel button not available?
 A.  You can only cancel the order after the disks are ordered and before the shipment. Once the disks are dispatched, you can no longer cancel the order. In the preview timeframe, you can return your disks at no charge though this will likely change when the solution is generally available. 
@@ -134,10 +129,10 @@ A.  Once the order status for Data Copy shows as complete, you should be able to
 A.  When you copy the data under *BlockBlob* and *PageBlob* folders on your disk, a container is created in the Azure storage account for each subfolder under the *BlockBlob* and *PageBlob* folder. If you copied the files under *BlockBlob* and *PageBlob* folders directly, then these are in a default container *$root* under the Azure Storage account. 
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
-A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail.
+A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail. For more information, go to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
 
 ### Q. How do I verify the data I copied onto multiple Data Box Disks?
-A.  After the data copy is complete, you can run `AzureExpressDiskService.cmd` provided in the *AzureImportExport* folder to generate checksums for validation. If you have multiple disks, you need to open a command window per disk and run this command. Keep in mind that this operation can take a long time (~hours) depending upon the size of your data.
+A.  After the data copy is complete, you can run `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder to generate checksums for validation. If you have multiple disks, you need to open a command window per disk and run this command. Keep in mind that this operation can take a long time (~hours) depending upon the size of your data.
 
 ### Q. What happens to my data after I have returned the disks?
 A.  Once the data copy to Azure is complete, the data from the disks is securely erased as per the NIST SP 800-88 Revision 1 guidelines.  

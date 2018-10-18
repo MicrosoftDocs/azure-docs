@@ -1,16 +1,16 @@
 ---
-title: Face API C# tutorial | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this tutorial, you create a Windows app that uses the Cognitive Services Face service to detect and frame faces in an image.
+title: "Tutorial: Detect and frame faces in an image - Face API, C#"
+titleSuffix: Azure Cognitive Services
+description: In this tutorial, you create a Windows app that uses the Face API to detect and frame faces in an image.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: nolachar
+ms.date: 09/24/2018
+ms.author: pafarley
 #Customer intent: As a developer, I want to use the client library to make calling the Face service easier.
 ---
 
@@ -33,7 +33,7 @@ This tutorial shows you how to:
 
 - You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/). For Visual Studio 2017, the .NET Desktop application development workload is required. This tutorial uses Visual Studio 2017 Community Edition.
-- The [Microsoft.Azure.CognitiveServices.Vision.Face 2.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.0.0-preview) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
+- The [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
 ## Create the Visual Studio solution
 
@@ -51,7 +51,7 @@ Follow these instructions to install the client library.
 1. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**.
 1. In the **Package Manager Console**, paste the following, then press **Enter**.
 
-    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.0.0-preview`
+    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.2.0-preview`
 
 ## Add the initial code
 
@@ -119,8 +119,8 @@ namespace FaceTutorial
         // NOTE: Free trial subscription keys are generated in the westcentralus
         // region, so if you are using a free trial subscription key, you should
         // not need to change this region.
-        private const string baseUri =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+        private const string faceEndpoint =
+            "https://westcentralus.api.cognitive.microsoft.com";
 
         private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials(subscriptionKey),
@@ -134,13 +134,13 @@ namespace FaceTutorial
         {
             InitializeComponent();
 
-            if (Uri.IsWellFormedUriString(baseUri, UriKind.Absolute))
+            if (Uri.IsWellFormedUriString(faceEndpoint, UriKind.Absolute))
             {
-                faceClient.BaseUri = new Uri(baseUri);
+                faceClient.Endpoint = faceEndpoint;
             }
             else
             {
-                MessageBox.Show(baseUri,
+                MessageBox.Show(faceEndpoint,
                     "Invalid URI", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(0);
             }
@@ -194,8 +194,8 @@ namespace FaceTutorial
 - Find the following line in *MainWindow.xaml.cs* and replace or verify the Azure region associated with your subscription key:
 
     ```csharp
-    private const string baseUri =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+    private const string Endpoint =
+        "https://westcentralus.api.cognitive.microsoft.com";
     ```
 
     Make sure the location is the same as where you obtained your subscription keys. If you obtained your subscription keys from the **westus** region, for example, replace `Westcentralus` with `Westus`.

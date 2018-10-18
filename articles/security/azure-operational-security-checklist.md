@@ -49,8 +49,7 @@ This checklist is intended to help enterprises think through various operational
 Many organizations have successfully deployed and operated their cloud applications on Azure. The checklists provided highlight several checklists that is essential and help you to increase the likelihood of successful deployments and frustration-free operations. We highly recommend these operational and strategic considerations for your existing and new application deployments on Azure.
 
 ## Next steps
-In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
+To learn more about Security, see the following articles:
 
-- [Operations Management Suite (OMS) overview](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Design and operational security](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Azure Security Center planning and operations](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

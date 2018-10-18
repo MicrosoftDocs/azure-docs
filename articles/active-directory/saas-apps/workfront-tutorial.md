@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.attasksandbox.com/SAML2`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Workfront Client support team](https://www.workfront.com/contact-us/) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Workfront Client support team](https://www.workfront.com/services-and-support) to get these values. 
  
 1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the Certificate file on your computer.
 

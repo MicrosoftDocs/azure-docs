@@ -33,8 +33,6 @@ In this tutorial, you learn how to:
 > * Redirect the default URL to a custom directory
 > * Automate domain mapping with scripts
 
-To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).
-
 ## Prerequisites
 
 To complete this tutorial:
@@ -299,6 +297,10 @@ If you receive an HTTP 404 (Not Found) error when browsing to the URL of your cu
 - The browser client has cached the old IP address of your domain. Clear the cache and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
 <a name="virtualdir"></a>
+
+## Migrate an active domain
+
+To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## Redirect to a custom directory
 

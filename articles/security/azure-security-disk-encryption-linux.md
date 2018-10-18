@@ -1,68 +1,31 @@
 ---
 title: Azure Disk Encryption for  Linux IaaS VMs | Microsoft Docs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux IaaS VMs.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 071ee0c3-2e6c-4ea9-bfc7-908865629144
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na 
-ms.workload: na
-ms.date: 07/30/2018
 ms.author: mstewart
+ms.date: 09/19/2018
 
 ---
 
-# Enable Azure Disk Encryption for Linux Iaas VMs 
+# Enable Azure Disk Encryption for Linux IaaS VMs 
 
 You can enable many disk-encryption scenarios, and the steps may vary according to the scenario. The following sections cover the scenarios in greater detail for Linux IaaS VMs. Before you can use disk encryption, the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) need to be completed and the [Additional prerequisites for Linux IaaS VMs](azure-security-disk-encryption-prerequisites.md#bkmk_LinuxPrereq) section should be reviewed.
 
-Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and/or back up  before disks are encrypted. Backups ensure that a recovery option is possible in case of an unexpected failure during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the Set-AzureRmVMDiskEncryptionExtension cmdlet to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article. 
+Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and/or back up  before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the Set-AzureRmVMDiskEncryptionExtension cmdlet to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article. 
 
 >[!WARNING]
- >In order to make sure the encryption secrets don’t cross regional boundaries, Azure Disk Encryption needs the Key Vault and the VMs to be co-located in the same region. Create and use a Key Vault that is in the same region as the VM to be encrypted.</br></br>
+ >Azure Disk Encryption needs the Key Vault and the VMs to be co-located in the same region. Create and use a Key Vault that is in the same region as the VM to be encrypted.</br></br>
 
 > When encrypting Linux OS volumes, the process can take a few hours. It is normal for Linux OS volumes to take longer than data volumes to encrypt. 
 
 >Disabling encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted.  
 
 
-## <a name="bkmk_NewLinux"></a> Deploy a new Linux IaaS VM with disk encryption enabled 
-
-1. Use the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) to create a new encrypted Linux IaaS VM. The template will create a new RedHat Linux 7.2 VM with a 200-GB RAID-0 array and full disk encryption using managed disks. On the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article, you will notice that some Linux distributions only support encryption for data disks. However, this template provides an opportunity to become familiar with deploying templates and verifying encryption status with multiple methods. 
- 
-1. Click **Deploy to Azure** on the Azure Resource Manager template.
-
-2. Select the subscription, resource group, resource group location, parameters, legal terms, and agreement. Click **Create** to enable encryption on the existing or running IaaS VM.
-
-3. After you deploy the template, verify the VM encryption status using your preferred method:
-     - Verify with the Azure CLI by using the [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) command. 
-
-         ```azurecli-interactive 
-         az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
-         ```
-
-     - Verify with Azure PowerShell by using the [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) cmdlet. 
-
-         ```azurepowershell-interactive
-         Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
-         ```
-
-     - Select the VM, then click on **Disks** under the **Settings** heading to verify encryption status in the portal. In the chart under **Encryption**, you will see if it is enabled. 
-
-| Parameter | Description |
-| --- | --- |
-| AAD Client ID | Client ID of the Azure AD application that has permissions to write secrets to the key vault. |
-| AAD Client Secret | Client secret of the Azure AD application that has permissions to write secrets to your key vault. |
-| Key Vault Name | Name of the key vault that the key should be placed. |
-| Key Vault Resource Group | Resource group of the key vault. |
-
-
 ## <a name="bkmk_RunningLinux"> </a> Enable encryption on an existing or running IaaS Linux VM
-In this scenario, you can enable encryption by using the Resource Manager template, PowerShell cmdlets, or CLI commands. 
+In this scenario, you can enable encryption by using the Resource Manager template, PowerShell cmdlets, or CLI commands. If you need schema information for the virtual machine extension, see the [Azure Disk Encryption for Linux extension](../virtual-machines/extensions/azure-disk-enc-linux.md) article.
 
 >[!IMPORTANT]
  >It is mandatory to snapshot and/or backup a managed disk based VM instance outside of, and prior to enabling Azure Disk Encryption. A snapshot of the managed disk can be taken from the portal, or [Azure Backup](../backup/backup-azure-vms-encryption.md) can be used. Backups ensure that a recovery option is possible in the case of any unexpected failure during encryption. Once a backup is made, the Set-AzureRmVMDiskEncryptionExtension cmdlet can be used to encrypt managed disks by specifying the -skipVmBackup parameter. The Set-AzureRmVMDiskEncryptionExtension command will fail against managed disk based VMs until a backup has been made and this parameter has been specified. 
@@ -75,16 +38,16 @@ You can enable disk encryption on your encrypted VHD by installing and using The
 
 Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) command to enable encryption on a running IaaS virtual machine in Azure.
 
--  **Encrypt a running VM using a client secret:**
+-  **Encrypt a running VM:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --aad-client-id "<my spn created with CLI/my Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
+     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
      ```
 
-- **Encrypt a running VM using KEK to wrap the client secret:**
+- **Encrypt a running VM using KEK:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --aad-client-id "<my spn created with CLI which is the Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
+     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
      ```
 
     >[!NOTE]
@@ -108,27 +71,23 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 ### <a name="bkmk_RunningLinuxPSH"> </a> Enable encryption on an existing or running Linux VM using PowerShell
 Use the [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet to enable encryption on a running IaaS virtual machine in Azure. 
 
--  **Encrypt a running VM using a client secret:** The script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet. The resource group, VM, key vault, AAD app, and client secret should have already been created as prerequisites. Replace MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID, and My-AAD-client-secret with your values. You may need to add the -VolumeType parameter if you are encrypting data disks and not the OS disk. 
+-  **Encrypt a running VM:** The script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet. The resource group, VM, and key vault,  should have already been created as prerequisites. Replace MySecureRg, MySecureVM, and MySecureVault with your values. You may need to add the -VolumeType parameter if you're encrypting data disks and not the OS disk. 
 
      ```azurepowershell-interactive
       $rgName = 'MySecureRg';
       $vmName = 'MySecureVM';
-      $aadClientID = 'My-AAD-client-ID';
-      $aadClientSecret = 'My-AAD-client-secret';
       $KeyVaultName = 'MySecureVault';
       $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
 
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
-- **Encrypt a running VM using KEK to wrap the client secret:** Azure Disk Encryption lets you specify an existing key in your key vault to wrap disk encryption secrets that were generated while enabling encryption. When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. You may need to add the -VolumeType parameter if you are encrypting data disks and not the OS disk. 
+- **Encrypt a running VM using KEK:** You may need to add the -VolumeType parameter if you're encrypting data disks and not the OS disk. 
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
      $vmName = 'MyExtraSecureVM';
-     $aadClientID = 'My-AAD-client-ID';
-     $aadClientSecret = 'My-AAD-client-secret';
      $KeyVaultName = 'MySecureVault';
      $keyEncryptionKeyName = 'MyKeyEncryptionKey';
      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
@@ -136,7 +95,7 @@ Use the [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comput
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 
      ```
 
@@ -161,24 +120,122 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ### <a name="bkmk_RunningLinux"> </a> Enable encryption on an existing or running IaaS Linux VM with a template
 
-You can enable disk encryption on an existing or running IaaS Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
+You can enable disk encryption on an existing or running IaaS Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
 
 1. Click **Deploy to Azure** on the Azure quickstart template.
 
 2. Select the subscription, resource group, resource group location, parameters, legal terms, and agreement. Click **Create** to enable encryption on the existing or running IaaS VM.
 
-The following table lists Resource Manager template parameters for existing or running VMs that use an Azure AD client ID:
+The following table lists Resource Manager template parameters for existing or running VMs:
 
 | Parameter | Description |
 | --- | --- |
-| AADClientID | Client ID of the Azure AD application that has permissions to write secrets to the key vault. |
-| AADClientSecret | Client secret of the Azure AD application that has permissions to write secrets to your key vault. |
-| keyVaultName | Name of the key vault that the key should be uploaded to. You can get it by using the Azure CLI command `az keyvault show --name "MySecureVault" --query resourceGroup`. |
-|  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
-| volumeType | Type of volume that the encryption operation is performed on. Valid supported values are _OS_ or _All_ (see supported Linux distros and their versions for OS and data disks in prerequisite section earlier). |
-| sequenceVersion | Sequence version of the BitLocker operation. Increment this version number every time a disk-encryption operation is performed on the same VM. |
-| vmName | Name of the VM that the encryption operation is to be performed on. |
-| passphrase | Type a strong passphrase as the data encryption key. |
+| vmName | Name of the VM to run the encryption operation. |
+| keyVaultName | Name of the key vault that the BitLocker key should be uploaded to. You can get it by using the cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` or the Azure CLI command `az keyvault list --resource-group "MySecureGroup" |Convertfrom-JSON`|
+| keyVaultResourceGroup | Name of the resource group that contains the key vault|
+|  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated BitLocker key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
+| volumeType | Type of volume that the encryption operation is performed on. Valid values are _OS_, _Data_, and _All_. 
+| forceUpdateTag | Pass in a unique value like a GUID every time the operation needs to be force run. |
+| resizeOSDisk | Should the OS partition be resized to occupy full OS VHD before splitting system volume. |
+| location | Location for all resources. |
+
+
+
+## Encrypt virtual machine scale sets
+[Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of identical, load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Use the CLI or Azure PowerShell  to encrypt virtual machine scale sets.
+
+A batch file example for Linux scale set data disk encryption can be found [here](https://github.com/Azure-Samples/azure-cli-samples/tree/master/disk-encryption/vmss). This example creates a resource group, Linux scale set, mounts a 5-GB data disk, and encrypts the virtual machine scale set.
+
+### Register for disk encryption preview using Azure CLI
+
+The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [az feature register](/cli/azure/feature#az_feature_register). You only need to perform the following steps the first time that you use the disk encryption preview feature:
+
+```azurecli-interactive
+az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
+```
+
+It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [az feature show](/cli/azure/feature#az_feature_show). When the `State` reports *Registered*, re-register the *Mirosoft.Compute* provider with [az provider register](/cli/azure/provider#az_provider_register):
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+
+###  Encrypt virtual machine scale sets with Azure CLI
+Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) to enable encryption on a Windows virtual machine scale set. If you set the upgrade policy on the scale set to manual, start the encryption with [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). The resource group, VM, and key vault should have already been created as prerequisites. 
+
+-  **Encrypt a running virtual machine scale set**
+    ```azurecli-interactive
+     az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
+    ```
+
+-  **Encrypt a running virtual machine scale set using KEK to wrap the key**
+    ```azurecli-interactive
+     az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
+
+     ```
+- **Get encryption status for a virtual machine scale set:** Use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show)
+
+    ```azurecli-interactive
+     az vmss encryption show --resource-group "MySecureRG" --name "MySecureVmss"
+    ```
+
+- **Disable encryption on a virtual machine scale set**: Use [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable)
+    ```azurecli-interactive
+     az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
+    ```
+
+### Register for disk encryption preview using Azure Powershell
+
+The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature). You only need to perform the following steps the first time that you use the disk encryption preview feature:
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+```
+
+It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). When the `RegistrationState` reports *Registered*, re-register the *Mirosoft.Compute* provider with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+###  Encrypt virtual machine scale sets with Azure PowerShell
+Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) cmdlet to enable encryption on a Windows virtual machine scale set. The resource group, VM, and key vault should have already been created as prerequisites.
+
+-  **Encrypt a running virtual machine scale set**:
+    ```powershell
+     $rgName= "MySecureRg";
+     $VmssName = "MySecureVmss";
+     $KeyVaultName= "MySecureVault";
+     $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
+     $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+     $KeyVaultResourceId = $KeyVault.ResourceId;
+     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+
+
+-  **Encrypt a running virtual machine scale set using KEK to wrap the key**:
+    ```powershell
+     $rgName= "MySecureRg";
+     $VmssName = "MySecureVmss";
+     $KeyVaultName= "MySecureVault";
+     $keyEncryptionKeyName = "MyKeyEncryptionKey";
+     $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
+     $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+     $KeyVaultResourceId = $KeyVault.ResourceId;
+     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+    ```
+
+- **Get encryption status for a virtual machine scale set:** Use the [Get-Azure​RmVmss​VMDisk​Encryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
+    
+    ```powershell
+    get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
+    ```
+
+- **Disable encryption on a virtual machine scale set**: Use the [Disable-AzureRmVmssDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption) cmdlet. 
+
+    ```powershell
+    Disable-AzureRmVmssDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
+    ```
 
 
 
@@ -198,32 +255,29 @@ The parameter goes though all partitions and encrypts them as long as they meet 
 - Is not a BEK volume
 - Is mounted
 
+### <a name="bkmk_EFAPSH"> </a> Use the EncryptFormatAll parameter with Azure CLI
+Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) command to enable encryption on a running IaaS virtual machine in Azure.
 
-### <a name="bkmk_EFATemplate"> </a> Use the EncryptFormatAll parameter with a template
-To use the EncryptFormatAll option, use any pre-existing Azure Resource Manager template that encrypts a Linux VM and change the **EncryptionOperation** field for the AzureDiskEncryption resource.
+-  **Encrypt a running VM using EncryptFormatAll:**
 
-1. As an example, use the [Resource Manager template to encrypt a running Linux IaaS VM](https://github.com/vermashi/azure-quickstart-templates/tree/encrypt-format-running-linux-vm/201-encrypt-running-linux-vm). 
-2. Click **Deploy to Azure** on the Azure quickstart template.
-3. Change the **EncryptionOperation** from **EnableEncryption** to **EnableEncryptionFormatAl**
-4. Select the subscription, resource group, resource group location, other parameters, legal terms, and agreement. Click **Create** to enable encryption on the existing or running IaaS VM.
-
+     ```azurecli-interactive
+     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --encrypt-format-all
+     ```
 
 ### <a name="bkmk_EFAPSH"> </a> Use the EncryptFormatAll parameter with a PowerShell cmdlet
 Use the [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet with the [EncryptFormatAll parameter](https://www.powershellgallery.com/packages/AzureRM/5.0.0). 
 
-**Encrypt a running VM using a client secret and EncryptFormatAll:** As an example, the script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet with the EncryptFormatAll parameter. The resource group, VM, key vault, AAD app, and client secret should have already been created as prerequisites. Replace MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID, and My-AAD-client-secret with your values.
+**Encrypt a running VM using EncryptFormatAll:** As an example, the script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet with the EncryptFormatAll parameter. The resource group, VM, and key vault should have already been created as prerequisites. Replace MySecureRg, MySecureVM, and MySecureVault with your values.
   
    ```azurepowershell-interactive
      $rgName = 'MySecureRg';
      $vmName = 'MySecureVM';
-     $aadClientID = 'My-AAD-client-ID';
-     $aadClientSecret = 'My-AAD-client-secret';
      $KeyVaultName = 'MySecureVault';
      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
      $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
       
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -EncryptFormatAll
+     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -EncryptFormatAll
    ```
 
 
@@ -252,10 +306,8 @@ We recommend an LVM-on-crypt setup. For all the following examples, replace the 
     5. Set up LVM on top of these new disks. Note the encrypted drives are unlocked after the VM has finished booting. So, the LVM mounting will also have to be subsequently delayed.
 
 
-
-
 ## <a name="bkmk_VHDpre"> </a> New IaaS VMs created from customer-encrypted VHD and encryption keys
-In this scenario, you can enable encrypting by using the Resource Manager template, PowerShell cmdlets, or CLI commands. The following sections explain in greater detail the Resource Manager template and CLI commands. 
+In this scenario, you can enable encrypting by using PowerShell cmdlets or CLI commands. 
 
 Use the instructions in the appendix for preparing pre-encrypted images that can be used in Azure. After the image is created, you can use the steps in the next section to create an encrypted Azure VM.
 
@@ -272,76 +324,56 @@ Use the instructions in the appendix for preparing pre-encrypted images that can
 ### <a name="bkmk_VHDprePSH"> </a> Use Azure PowerShell to encrypt IaaS VMs with pre-encrypted VHDs 
 You can enable disk encryption on your encrypted VHD by using the PowerShell cmdlet [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk#examples). The example below gives you some common parameters. 
 
-```powershell
+```azurepowershell-interactive
 $VirtualMachine = New-AzureRmVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
 $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name "SecureOSDisk" -VhdUri "os.vhd" Caching ReadWrite -Windows -CreateOption "Attach" -DiskEncryptionKeyUrl "https://mytestvault.vault.azure.net/secrets/Test1/514ceb769c984379a7e0230bddaaaaaa" -DiskEncryptionKeyVaultId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mytestvault"
 New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
 ```
 
-### <a name="bkmk_VHDpreRM"> </a> Use the Resource Manager template to encrypt IaaS VMs with pre-encrypted VHDs 
-You can enable disk encryption on your encrypted VHD by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm).
-
-1. On the Azure quickstart template, click **Deploy to Azure**.
-
-2. Select the subscription, resource group, resource group location, parameters, legal terms, and agreement. Click **Create** to enable encryption on the new IaaS VM.
-
-The following table lists the Resource Manager template parameters for your encrypted VHD:
-
-| Parameter | Description |
-| --- | --- |
-| newStorageAccountName | Name of the storage account to store the encrypted OS VHD. This storage account should already have been created in the same resource group and same location as the VM. |
-| osVhdUri | URI of the OS VHD from the storage account. |
-| osType | OS product type (Windows/Linux). |
-| virtualNetworkName | Name of the VNet that the VM NIC should belong to. The name should already have been created in the same resource group and same location as the VM. |
-| subnetName | Name of the subnet on the VNet that the VM NIC should belong to. |
-| vmSize | Size of the VM. Currently, only Standard A, D, and G series are supported. |
-| keyVaultResourceID | The ResourceID that identifies the key vault resource in Azure Resource Manager. You can get it by using the PowerShell cmdlet `(Get-AzureRmKeyVault -VaultName &lt;MyKeyVaultName&gt; -ResourceGroupName &lt;MyResourceGroupName&gt;).ResourceId` or using the Azure CLI command `az keyvault show --name "MySecureVault" --query id`|
-| keyVaultSecretUrl | URL of the disk-encryption key that's set up in the key vault. |
-| keyVaultKekUrl | URL of the key encryption key for encrypting the generated disk-encryption key. |
-| vmName | Name of the IaaS VM. |
 ## Enable encryption on a newly added data disk
+
 You can add a new data disk using [az vm disk attach](../virtual-machines/linux/add-disk.md), or [through the Azure portal](../virtual-machines/linux/attach-disk-portal.md). Before you can encrypt, you need to mount the newly attached data disk first. You must request encryption of the data drive since the drive will be unusable while encryption is in progress. 
 
 ### Enable encryption on a newly added disk with Azure CLI
- The Azure CLI command will automatically provide a new sequence version for you when you run the command to enable encryption. 
--  **Encrypt a running VM using a client secret:**
+
+ If the VM was previously encrypted with "All" then the --volume-type parameter should remain All. All includes both OS and data disks. If the VM was previously encrypted with a volume type of "OS", then the --volume-type parameter should be changed to All so that both the OS and the new data disk will be included. If the VM was encrypted with only the volume type of "Data", then it can remain "Data" as demonstrated below. Adding and attaching a new data disk to a VM is not sufficient preparation for encryption. The newly attached disk must also be formatted and properly mounted within the VM prior to enabling encryption. On Linux the disk must be mounted in /etc/fstab with a [persistent block device name](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-device-names-problems).  
+
+In contrast to Powershell syntax, the CLI does not require the user to provide a unique sequence version when enabling encryption. The CLI automatically generates and uses its own unique sequence version value.
+
+-  **Encrypt data volumes of a running VM:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --aad-client-id "<my spn created with CLI/my Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault "MySecureVault" --volume-type "Data"
+     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "Data"
      ```
 
-- **Encrypt a running VM using KEK to wrap the client secret:**
+- **Encrypt data volumes of a running VM using KEK:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --aad-client-id "<my spn created with CLI which is the Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "Data"
+     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "Data"
      ```
 
 ### Enable encryption on a newly added disk with Azure PowerShell
  When using Powershell to encrypt a new disk for Linux, a new sequence version needs to be specified. The sequence version has to be unique. The script below generates a GUID for the sequence version. 
  
 
--  **Encrypt a running VM using a client secret:** The script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet. The resource group, VM, key vault, AAD app, and client secret should have already been created as prerequisites. Replace MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID, and My-AAD-client-secret with your values. The -VolumeType parameter is set to data disks and not the OS disk. 
+-  **Encrypt data volumes of a running VM:** The script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet. The resource group, VM, and key vault should have already been created as prerequisites. Replace MySecureRg, MySecureVM, and MySecureVault with your values. Acceptable values for the -VolumeType parameter are All, OS, and Data. If the VM was previously encrypted with a volume type of "OS" or "All", then the -VolumeType parameter should be changed to All so that both the OS and the new data disk will be included.
 
      ```azurepowershell-interactive
       $sequenceVersion = [Guid]::NewGuid();
       $rgName = 'MySecureRg';
       $vmName = 'MySecureVM';
-      $aadClientID = 'My-AAD-client-ID';
-      $aadClientSecret = 'My-AAD-client-secret';
       $KeyVaultName = 'MySecureVault';
       $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
 
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion;
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion;
     ```
-- **Encrypt a running VM using KEK to wrap the client secret:** Azure Disk Encryption lets you specify an existing key in your key vault to wrap disk encryption secrets that were generated while enabling encryption. When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. You may need to add the -VolumeType parameter if you are encrypting data disks and not the OS disk. 
+- **Encrypt data volumes of a running VM using KEK:** Acceptable values for the -VolumeType parameter are All, OS, and Data. If the VM was previously encrypted with a volume type of "OS" or "All", then the -VolumeType parameter should be changed to All so that both the OS and the new data disk will be included.
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
      $vmName = 'MyExtraSecureVM';
-     $aadClientID = 'My-AAD-client-ID';
-     $aadClientSecret = 'My-AAD-client-secret';
      $KeyVaultName = 'MySecureVault';
      $keyEncryptionKeyName = 'MyKeyEncryptionKey';
      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
@@ -349,7 +381,7 @@ You can add a new data disk using [az vm disk attach](../virtual-machines/linux/
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data';
 
      ```
 
@@ -375,7 +407,7 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
      ```
-- **Disable encryption with a Resource Manager Template:** Use the [Disable encryption on a running Linux VM](https://aka.ms/decrypt-linuxvm) template to disable encryption.
+- **Disable encryption with a Resource Manager template:** Use the [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) template to disable encryption.
      1. Click **Deploy to Azure**.
      2. Select the subscription, resource group, location, VM, legal terms, and agreement.
      3.  Click **Purchase** to disable disk encryption on a running Windows VM. 

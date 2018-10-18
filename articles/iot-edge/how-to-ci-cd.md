@@ -12,11 +12,11 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-This article demonstrates how you can use the continuous integration and continuous deployment features of Visual Studio Team Services (VSTS) and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+This article demonstrates how you can use the continuous integration and continuous deployment features of Azure DevOps Services and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
 In this article, you will learn how to:
 * Create and check in a sample IoT Edge solution containing unit tests.
-* Install Azure IoT Edge extension for your VSTS.
+* Install Azure IoT Edge extension for your Azure DevOps.
 * Configure continuous integration (CI) to build the solution and run the unit tests.
 * Configure continuous deployment (CD) to deploy the solution and view responses.
 
@@ -272,31 +272,31 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
     ![Unit Test](./media/how-to-ci-cd/unit-test.png)
 
-7. Save these projects, then check it into your VSTS or TFS repository.
+7. Save these projects, then check it into your Azure DevOps or TFS repository.
     
 
 > [!NOTE]
-> For more information about using VSTS code repositories, see [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+> For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
 ## Configure continuous integration
-In this section, you will create a build definition that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
+In this section, you will create a build pipeline that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
 
-1. Sign into your VSTS account (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
+1. Sign into your Azure DevOps organization (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
 
     ![Check-in code](./media/how-to-ci-cd/init-project.png)
 
-1. Visit [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on VSTS Marketplace. Click **Get it free** and follow the wizard to install this extension to your VSTS account or download to your TFS.
+1. Visit [Azure IoT Edge For Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on Azure DevOps Marketplace. Click **Get it free** and follow the wizard to install this extension to your Azure DevOps organization or download to your TFS.
 
     ![Install extension](./media/how-to-ci-cd/install-extension.png)
 
-1. In your VSTS, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New definition**. Or, if you already have build definitions, choose the **+ New** button. 
+1. In your Azure DevOps, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button. 
 
     ![New build](./media/how-to-ci-cd/add-new-build.png)
 
-1. If prompted, select the **VSTS Git** source type; then select the project, repository, and branch where your code is located. Choose **Continue**.
+1. If prompted, select the **Azure DevOps Git** source type; then select the project, repository, and branch where your code is located. Choose **Continue**.
 
-    ![Select VSTS git](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Select Azure DevOps git](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. In **Select a template** window, choose **start with an Empty process**.
 
@@ -338,9 +338,9 @@ In this section, you will create a build definition that is configured to run au
 
     ![Trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Save the new build definition and queue a new build. Click the **Save & queue** button.
+1. Save the new build pipeline and queue a new build. Click the **Save & queue** button.
 
-1. Choose the link to the build in the message bar that appears. Or go to build definition to see the latest queued build job.
+1. Choose the link to the build in the message bar that appears. Or go to build pipeline to see the latest queued build job.
 
     ![Build](./media/how-to-ci-cd/build-def.png)
 

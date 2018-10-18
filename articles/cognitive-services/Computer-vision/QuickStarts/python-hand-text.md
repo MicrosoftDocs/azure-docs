@@ -1,44 +1,47 @@
 ---
-title: Computer Vision Python quickstart handwritten text | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you extract handwritten text from an image using Computer Vision with Python in Cognitive Services.
+title: "Quickstart: Extract handwritten text - REST, Python - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with Python.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/17/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: pafarley
 ---
-# Quickstart: Extract handwritten text with Python
+# Quickstart: Extract handwritten text using the REST API and Python in Computer Vision
 
-In this quickstart, you extract handwritten text from an image using Computer Vision.
+In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) methods, you can detect handwritten text in an image, then extract recognized characters into a machine-usable character stream.
+
+> [!IMPORTANT]
+> Unlike the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Recognize Text method returns a URI in the value of the `Operation-Content` response header field. You can then call this URI, which represents the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) method, to both check the status and return the results of the Recognize Text method call.
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
+- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Extract handwritten text
+## Create and run the sample
 
-With the [Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result methods](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), you can detect handwritten text in an image and extract recognized characters into a machine-usable character stream.
+To create and run the sample, do the following steps:
 
-To run the sample, do the following steps:
-
-1. Copy the following code to a new Python script file.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `vision_base_url` value to the location where you obtained your subscription keys, if necessary.
-1. Optionally, change the `image_url` value to another image.
-1. Run the script.
-
-The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary.
-
-## Recognize Text request
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace the value of `subscription_key` with your subscription key.
+    1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of `image_url` with the URL of a different image from which you want to extract handwritten text.
+1. Save the code as a file with an `.py` extension. For example, `get-handwritten-text.py`.
+1. Open a command prompt window.
+1. At the prompt, use the `python` command to run the sample. For example, `python get-handwritten-text.py`.
 
 ```python
 import requests
@@ -86,15 +89,22 @@ operation_url = response.headers["Operation-Location"]
 
 # The recognized text isn't immediately available, so poll to wait for completion.
 analysis = {}
-while "recognitionResult" not in analysis:
+poll = True
+while (poll):
     response_final = requests.get(
         response.headers["Operation-Location"], headers=headers)
     analysis = response_final.json()
     time.sleep(1)
+    if ("recognitionResult" in analysis):
+        poll= False 
+    if ("status" in analysis and analysis['status'] == 'Failed'):
+        poll= False
 
-# Extract the recognized text, with bounding boxes.
-polygons = [(line["boundingBox"], line["text"])
-    for line in analysis["recognitionResult"]["lines"]]
+polygons=[]
+if ("recognitionResult" in analysis):
+    # Extract the recognized text, with bounding boxes.
+    polygons = [(line["boundingBox"], line["text"])
+        for line in analysis["recognitionResult"]["lines"]]
 
 # Display the image and overlay it with the extracted text.
 plt.figure(figsize=(15, 15))
@@ -110,9 +120,9 @@ for polygon in polygons:
 _ = plt.axis("off")
 ```
 
-## Recognize Text response
+## Examine the response
 
-A successful response is returned in JSON, for example:
+A successful response is returned in JSON. The sample webpage parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
 {
@@ -390,9 +400,13 @@ A successful response is returned in JSON, for example:
 }
 ```
 
+## Clean up resources
+
+When no longer needed, delete the file.
+
 ## Next steps
 
-Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)

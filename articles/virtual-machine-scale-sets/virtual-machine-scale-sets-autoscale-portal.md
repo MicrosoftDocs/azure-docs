@@ -21,11 +21,11 @@ ms.author: cynthn
 # Automatically scale a virtual machine scale set in the Azure portal
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app.
 
-This article shows you how to create autoscale rules in the Azure portal that monitor the performance of the VM instances in your scale set. These autoscale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with [Azure PowerShell](tutorial-autoscale-powershell.md) or the [Azure CLI 2.0](tutorial-autoscale-cli.md).
+This article shows you how to create autoscale rules in the Azure portal that monitor the performance of the VM instances in your scale set. These autoscale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with [Azure PowerShell](tutorial-autoscale-powershell.md) or the [Azure CLI](tutorial-autoscale-cli.md).
 
 
 ## Prerequisites
-To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI 2.0](quick-create-cli.md).
+To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI](quick-create-cli.md).
 
 
 ## Create a rule to automatically scale out

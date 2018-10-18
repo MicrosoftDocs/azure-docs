@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -104,7 +104,7 @@ With approved client apps, you can require a client app that attempts to access 
 You can require a user in your tenant to consent to the terms of use before being granted access to a resource. As an administrator, you can configure and customize terms of use by uploading a PDF document. If a user falls in scope of this control access to an application is only granted if the terms of use have been agreed. 
 
 
-### Custom controls 
+### Custom controls (preview) 
 
 You can create custom controls in Conditional Access that redirect your users to a compatible service to satisfy further requirements outside of Azure Active Directory. This allows you to use certain external multi-factor authentication and verification providers to enforce Conditional Access rules, or to build your own custom service. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. If the user was successfully authenticated or validated, the user continues in the Conditional Access flow. 
 
@@ -117,9 +117,9 @@ These controls allow the use of certain external or custom services as condition
 Providers currently offering a compatible service include:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-
+- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
-
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 For more information on those services, contact the providers directly.

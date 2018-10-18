@@ -1,48 +1,65 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning services (preview) Documentation
+title: Azure Machine Learning service (preview) Documentation
 metadata:
-  title: Azure Machine Learning services (preview) Documentation
-  meta.description: Learn how to use Azure Machine Learning services (preview).
+  title: Azure Machine Learning Documentation (preview) – Tutorials, API reference | Microsoft Docs
+  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
-  author: garyericson
+  author: j-martens
   manager: jhubbard
   ms.service: machine-learning
   ms.component: core
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: garye
+  ms.date: 09/24/2018
+  ms.author: jmartens
 abstract:
-  description: Azure Machine Learning services (preview) enable building, deploying, and managing machine learning and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure to store and process your data.
+  description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how. 
 sections:
 
+- items:
+  - type: list
+    style: cards
+    className: cardsB
+    columns: 1
+    items:
+    - html: <p>Train and deploy your ML models in an Azure cloud service. <a href="overview-what-is-azure-ml.md">Learn more about the service...</a></p>
+      image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: Azure Machine Learning service
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Create your first Machine Learning project'
+    text: 'Set up your resources for Azure Machine Learning service.'
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-installation.md">Install and create</a>
+    - html: <a href="quickstart-get-started.md">Get started in the Azure portal </a>
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models'
+    text: '<b>Tutorials</b>: Learn how to set up an experiment and operationalize your models.'
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-1">Walk through the basics of Machine Learning services (preview)</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-2">Use the Machine Learning Workbench to build a model with the Iris flower dataset</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-3">Learn how to deploy a Machine Learning model</a>
-    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Use Azure Machine Learning Workbench for advanced data prep</a>
-
-- title: More Azure Machine Learning Technologies
-  items:
+    - html: <a href="tutorial-train-models-with-aml">Train your own machine learning model</a>
+    - html: <a href="tutorial-auto-train-models">Let us auto-generate and auto-tune a model for you</a>
+    - html: <a href="tutorial-deploy-models-with-aml">Deploy a model as a web service</a>
   - type: paragraph
-    text: 'Other technologies available in Azure Machine Learning:'
+    text: '<b>Sample notebooks</b>: Explore Azure Machine Learning with <a href="http://aka.ms/aml-notebooks">these Jupyter notebooks</a>, available on GitHub.'
+
+- title: Reference
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="http://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a>
+    - html: <a href="http://aka.ms/data-prep-sdk">Azure Machine Learning Data Prep SDK</a>
+
+- title: Other Azure Machine Learning Technologies
+  items:
   - type: list
     style: cards
     className: cardsFTitle
@@ -57,16 +74,3 @@ sections:
       image: 
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
-
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Packages
-      html: <p><a href="reference-python-package-overview#amlpcv">Computer vision</a></p><p><a href="reference-python-package-overview#amlpf">Forecasting</a></p><p><a href="reference-python-package-overview#amlrealtimeai">FPGA acceleration</a></p><p><a href="reference-python-package-overview#amlpta">Text analytics</a></p>
-    - title: Languages
-      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="model-management-api-reference">Model Management REST API</a></p>     

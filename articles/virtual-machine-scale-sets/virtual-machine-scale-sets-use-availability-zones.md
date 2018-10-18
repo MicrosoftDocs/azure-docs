@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 08/08/2018
 ms.author: cynthn
 
 ---
@@ -62,7 +62,7 @@ When you create a scale set in a single zone, you control which zone all those V
 To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-overview.md#regions-that-support-availability-zones). You can create a scale set that uses Availability Zones with one of the following methods:
 
 - [Azure portal](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager templates](#use-azure-resource-manager-templates)
 
@@ -74,7 +74,7 @@ The process to create a scale set that uses an Availability Zone is the same as 
 
 The scale set and supporting resources, such as the Azure load balancer and public IP address, are created in the single zone that you specify.
 
-## Use the Azure CLI 2.0
+## Use the Azure CLI
 
 The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](quick-create-cli.md). To use Availability Zones, you must create your scale set in a supported Azure region.
 
@@ -95,7 +95,7 @@ For a complete example of a single-zone scale set and network resources, see [th
 
 ### Zone-redundant scale set
 
-To create a zone-redundant scale set, you use a *Standard* SKU public IP address and load balancer. For enhanced redundancy, the *Standard* SKU creates zone-redundant network resources. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md).
+To create a zone-redundant scale set, you use a *Standard* SKU public IP address and load balancer. For enhanced redundancy, the *Standard* SKU creates zone-redundant network resources. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
 
 To create a zone-redundant scale set, specify multiple zones with the `--zones` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across zones *1,2,3*:
 
@@ -212,7 +212,7 @@ To create a zone-redundant scale set, specify multiple values in the `zones` pro
 }
 ```
 
-If you create a public IP address or a load balancer, specify the *"sku": { "name": "Standard" }"* property to create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md).
+If you create a public IP address or a load balancer, specify the *"sku": { "name": "Standard" }"* property to create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
 
 For a complete example of a zone-redundant scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

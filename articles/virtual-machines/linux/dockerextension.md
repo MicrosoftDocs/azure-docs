@@ -1,6 +1,6 @@
 ---
 title: Use the Azure Docker VM extension | Microsoft Docs
-description: Learn how to use the Docker VM extension to quickly and securely deploy a Docker environment in Azure using Resource Manager templates and the Azure CLI 2.0
+description: Learn how to use the Docker VM extension to quickly and securely deploy a Docker environment in Azure using Resource Manager templates and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -18,7 +18,8 @@ ms.author: cynthn
 
 ---
 # Create a Docker environment in Azure using the Docker VM extension
-Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux. In Azure, there are various ways you can deploy Docker according to your needs. This article focuses on using the Docker VM extension and Azure Resource Manager templates with the Azure CLI 2.0. 
+
+Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux. In Azure, there are various ways you can deploy Docker according to your needs. This article focuses on using the Docker VM extension and Azure Resource Manager templates with the Azure CLI. 
 
 > [!WARNING]
 > The Azure Docker VM extension for Linux is deprecated and will be retired November 2018.
@@ -34,7 +35,7 @@ For more information about the different deployment methods, including using Doc
 
 
 ## Deploy a template with the Azure Docker VM extension
-Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). You need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). You need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 

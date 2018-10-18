@@ -4,6 +4,8 @@
   href: dcos-swarm/container-service-dcos-quickstart.md
 - name: Resources
   items:
+  - name: Build your skill with Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances&azure-container-registry
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=containers
   - name: Pricing calculator

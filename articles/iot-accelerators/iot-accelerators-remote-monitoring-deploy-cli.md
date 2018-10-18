@@ -6,7 +6,7 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ---
 
@@ -49,7 +49,7 @@ When you deploy the solution accelerator, there are several options that configu
 | SKU    | `basic`, `standard`, `local` | A _basic_ deployment is intended for test and demonstrations, it deploys all the microservices to a single virtual machine. A _standard_ deployment is intended for production, it deploys the microservices to multiple virtual machines. A _local_ deployment configures a Docker container to run the microservices on your local machine, and uses Azure services, such as storage and Cosmos DB, in the cloud. |
 | Runtime | `dotnet`, `java` | Selects the language implementation of the microservices. |
 
-To learn about how to use the local deployment, see [Running the Remote Monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+To learn about how to use the local deployment, see [Running the Remote Monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md).
 
 ## Basic vs. Standard Deployments
 
@@ -68,9 +68,16 @@ provisioned into your Azure subscription at cost:
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux Virtual Machine](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hosting microservices |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard tier | Device management and communication |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Storing configuration data, and device telemetry like rules, alarms, and messages |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Storing configuration data, rules, alarms, and other cold storage |  
 | 1     | [Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Storage for VM and streaming checkpoints |
 | 1     | [Web Application](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting front-end web application |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Managing user identities and security |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Viewing asset locations |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 units              | Enabling real-time analytics |
+| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning devices at scale |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unit              | Storage for messages data and enables deep-dive telemetry analysis |
+
+
 
 ### Standard
 The standard deployment is a production-ready deployment a developer can
@@ -86,10 +93,15 @@ provisioned into your Azure subscription at cost:
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Linux Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master and 3 agents for hosting microservices with redundancy |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S2 – Standard tier | Device management, command and control |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard tier | Device management, command and control |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Storing configuration data, and device telemetry like rules, alarms, and messages |
 | 5     | [Azure Storage Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over SSL |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Managing user identities and security |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Viewing asset locations |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 units              | Enabling real-time analytics |
+| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning devices at scale |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unit              | Storage for messages data and enables deep-dive telemetry analysis |
 
 > Pricing information for these services can be found
 [here](https://azure.microsoft.com/pricing). Usage amounts and billing details

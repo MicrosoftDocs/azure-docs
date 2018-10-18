@@ -31,6 +31,8 @@
         href: tutorial-python-module.md
       - name: Node.js
         href: tutorial-node-module.md
+      - name: Java
+        href: tutorial-java-module.md
       - name: C
         href: tutorial-c-module.md
   - name: Store data locally with SQL
@@ -39,9 +41,12 @@
   items: 
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
+  - name: IoT Edge certificates
+    href: iot-edge-certs.md
   - name: IoT Edge modules
-    href: iot-edge-modules.md
     items: 
+    - name: Understand Azure IoT Edge modules
+      href: iot-edge-modules.md
     - name: Development
       href: module-development.md
     - name: Composition
@@ -50,11 +55,14 @@
       href: module-edgeagent-edgehub.md
   - name: Deployments
     href: module-deployment-monitoring.md
+  - name: Offline capabilities
+    href: offline-capabilities.md
   - name: IoT Edge device as a gateway
     href: iot-edge-as-gateway.md
   - name: Security
-    href: security.md
     items:
+    - name: Securing Azure IoT Edge
+      href: security.md
     - name: IoT Edge security manager
       href: iot-edge-security-manager.md
   - name: Platform support
@@ -83,22 +91,30 @@
       href: how-to-install-iot-edge-windows-with-linux.md
     - name: IoT Core
       href: how-to-install-iot-core.md
+    - name: Update the runtime version
+      href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
     items: 
     - name: Linux
       href: how-to-auto-provision-simulated-device-linux.md
     - name: Windows
       href: how-to-auto-provision-simulated-device-windows.md
-  - name: Develop and debug modules
+  - name: Develop and debug modules in VS 2017
+    href: how-to-visual-studio-develop-csharp-module.md
+  - name: Develop and debug modules in VS Code
     items:
-    - name: C#
-      href: how-to-develop-csharp-module.md
-    - name: Node.js
-      href: how-to-develop-node-module.md
-    - name: C
-      href: how-to-develop-c-module.md
     - name: Azure Functions
       href: how-to-develop-csharp-function.md
+    - name: C#
+      href: how-to-develop-csharp-module.md
+    - name: Python
+      href: how-to-develop-python-module.md
+    - name: Node.js
+      href: how-to-develop-node-module.md
+    - name: Java
+      href: how-to-develop-java-module.md
+    - name: C
+      href: how-to-develop-c-module.md
     - name: Develop multiple modules
       href: how-to-develop-multiple-modules-vscode.md
     - name: Debug multiple modules
@@ -125,7 +141,13 @@
       href: how-to-create-transparent-gateway-windows.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
-  - name: CI/CD in VSTS
+  - name: Configure proxy support
+    href: how-to-configure-proxy-support.md
+  - name: Store data at the edge
+    items:
+    - name: Azure Blob Storage on IoT Edge
+      href: how-to-store-data-blob.md
+  - name: CI/CD in Azure DevOps
     href: how-to-ci-cd.md
   - name: Troubleshoot
     href: troubleshoot.md
@@ -181,8 +203,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: iothub-explorer tool
-    href: https://github.com/Azure/iothub-explorer
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum

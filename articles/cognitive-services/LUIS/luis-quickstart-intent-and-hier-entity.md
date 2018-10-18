@@ -1,74 +1,69 @@
 ---
-title: Tutorial to create a LUIS app to get location data - Azure | Microsoft Docs 
-description: In this tutorial, learn how to create a simple LUIS app using intents and a hierarchical entity to extract data. 
+title: "Tutorial 5: Parent/Child relationships - LUIS Hierarchical entity for contextually learned data"
+titleSuffix: Azure Cognitive Services
+description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
-
 --- 
 
-# Tutorial: 5. Add hierarchical entity
-In this tutorial, create an app that demonstrates how to find related pieces of data based on context. 
+# Tutorial 5: Extract contextually-related data
+In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. To generate a work order both pieces of data may be required and they are related to each other.  
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Understand hierarchical entities and contextually learned children 
-> * Use LUIS app in Human Resources (HR) domain 
-> * Add location hierarchical entity with origin and destination children
-> * Train, and publish app
-> * Query endpoint of app to see LUIS JSON response including hierarchical children 
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Before you begin
-If you don't have the Human Resources app from the [list entities](luis-quickstart-intent-and-list-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `hier`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
-## Purpose of the app with this entity
-This app determines where an employee is to be moved from the origin location (building and office) to the destination location (building and office). It uses the hierarchical entity to determine the locations within the utterance. 
+This app determines where an employee is to be moved from the origin location (building and office) to the destination location (building and office). It uses the hierarchical entity to determine the locations within the utterance. The purpose of the **hierarchical** entity is to find related data within the utterance based on context. 
 
 The hierarchical entity is a good fit for this type of data because the two pieces of data:
 
+* Are simple entities.
 * Are related to each other in the context of the utterance.
 * Use specific word choice to indicate each location. Examples of these words include: from/to, leaving/headed to, away from/toward.
 * Both locations are frequently in the same utterance. 
+* Need to be grouped and processed by client app as a unit of information.
 
-The purpose of the **hierarchical** entity is to find related data within the utterance based on context. Consider the following utterance:
+**In this tutorial, you learn how to:**
 
-```JSON
-mv Jill Jones from a-2349 to b-1298
-```
-The utterance has two locations specified, `a-2349` and `b-1298`. Assume that the letter corresponds to a building name and the number indicates the office within that building. It makes sense that they are both grouped as children of a hierarchical entity, `Locations` because both pieces of data need to be extracted from the utterance and they are related to each other. 
- 
-If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Use existing tutorial app
+> * Add intent 
+> * Add location hierarchical entity with origin and destination children
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `hier`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL. 
 
 ## Remove prebuilt number entity from app
 In order to see the entire utterance and mark the hierarchical children, temporarily remove the prebuilt number entity.
 
-1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left menu.
 
-3. Select the ellipsis (***...***) button to the right of the number entity in the list. Select **Delete**. 
-
-    [ ![Screenshot of LUIS app on entities list page, with delete button highlighted for Number prebuilt entity](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
-
+3. Select the checkbox to the left of the number entity in the list. Select **Delete**. 
 
 ## Add utterances to MoveEmployee intent
 
 1. Select **Intents** from the left menu.
 
 2. Select **MoveEmployee** from the list of intents.
-
-    [ ![Screenshot of LUIS app with MoveEmployee intent highlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
 3. Add the following example utterances:
 
@@ -82,10 +77,22 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
     [ ![Screenshot of LUIS with new utterances in MoveEmployee intent](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
-    In the [list entity](luis-quickstart-intent-and-list-entity.md) tutorial, an employee could be designated by name, email address, phone extension, mobile phone number, or U.S. federal social security number. These employee numbers are used in the utterances. The previous example utterances include different ways to note the origin and destination locations, marked in bold. A couple of the utterances only have destinations on purpose. This helps LUIS understand how those locations are placed in the utterance when the origin is not specified.     
+    In the [list entity](luis-quickstart-intent-and-list-entity.md) tutorial, an employee is designated by name, email address, phone extension, mobile phone number, or U.S. federal social security number. These employee numbers are used in the utterances. The previous example utterances include different ways to note the origin and destination locations, marked in bold. A couple of the utterances only have destinations on purpose. This helps LUIS understand how those locations are placed in the utterance when the origin is not specified.     
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Create a location entity
 LUIS needs to understand what a location is by labeling the origin and destination in the utterances. If you need to see the utterance in the token (raw) view, select the toggle in the bar above the utterances labeled **Entities View**. After you toggle the switch, the control is labeled **Tokens View**.
+
+Consider the following utterance:
+
+```JSON
+mv Jill Jones from a-2349 to b-1298
+```
+
+The utterance has two locations specified, `a-2349` and `b-1298`. Assume that the letter corresponds to a building name and the number indicates the office within that building. It makes sense that they are both grouped as children of a hierarchical entity, `Locations`, because both pieces of data need to be extracted from the utterance to complete the request in the client application and they are related to each other. 
+ 
+If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
 1. In the utterance, `Displace 425-555-0000 away from g-2323 toward hh-2345`, select the word `g-2323`. A drop-down menu appears with a text box at the top. Enter the entity name `Locations` in the text box then select **Create new entity** in the drop-down menu. 
 
@@ -110,145 +117,136 @@ Add the prebuilt number entity back to the application.
 
 2. Select **Manage prebuilt entities** button.
 
-    [ ![Screenshot of Entities list with Manage prebuilt entities highlighted](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
-
 3. Select **number** from the list of prebuilt entities then select **Done**.
 
     ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## Train the LUIS app
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Publish the app to get the endpoint URL
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Query the endpoint with a different utterance
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
 2. Go to the end of the URL in the address bar and enter `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with the hierarchical entity extracted.
 
-  ```JSON
-  {
-    "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
-    "topScoringIntent": {
-      "intent": "MoveEmployee",
-      "score": 0.9966052
-    },
-    "intents": [
-      {
+    ```JSON
+    {
+      "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+      "topScoringIntent": {
         "intent": "MoveEmployee",
         "score": 0.9966052
       },
-      {
-        "intent": "Utilities.Stop",
-        "score": 0.0325253047
-      },
-      {
-        "intent": "FindForm",
-        "score": 0.006137873
-      },
-      {
-        "intent": "GetJobInformation",
-        "score": 0.00462633232
-      },
-      {
-        "intent": "Utilities.StartOver",
-        "score": 0.00415637763
-      },
-      {
-        "intent": "ApplyForJob",
-        "score": 0.00382325822
-      },
-      {
-        "intent": "Utilities.Help",
-        "score": 0.00249120337
-      },
-      {
-        "intent": "None",
-        "score": 0.00130756292
-      },
-      {
-        "intent": "Utilities.Cancel",
-        "score": 0.00119622645
-      },
-      {
-        "intent": "Utilities.Confirm",
-        "score": 1.26910036E-05
-      }
-    ],
-    "entities": [
-      {
-        "entity": "jill - jones @ mycompany . com",
-        "type": "Employee",
-        "startIndex": 18,
-        "endIndex": 41,
-        "resolution": {
-          "values": [
-            "Employee-45612"
-          ]
+      "intents": [
+        {
+          "intent": "MoveEmployee",
+          "score": 0.9966052
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.0325253047
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.006137873
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.00462633232
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00415637763
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.00382325822
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00249120337
+        },
+        {
+          "intent": "None",
+          "score": 0.00130756292
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00119622645
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 1.26910036E-05
         }
-      },
-      {
-        "entity": "x - 2345",
-        "type": "Locations::Origin",
-        "startIndex": 48,
-        "endIndex": 53,
-        "score": 0.8520272
-      },
-      {
-        "entity": "g - 23456",
-        "type": "Locations::Destination",
-        "startIndex": 58,
-        "endIndex": 64,
-        "score": 0.974032
-      },
-      {
-        "entity": "-2345",
-        "type": "builtin.number",
-        "startIndex": 49,
-        "endIndex": 53,
-        "resolution": {
-          "value": "-2345"
+      ],
+      "entities": [
+        {
+          "entity": "jill - jones @ mycompany . com",
+          "type": "Employee",
+          "startIndex": 18,
+          "endIndex": 41,
+          "resolution": {
+            "values": [
+              "Employee-45612"
+            ]
+          }
+        },
+        {
+          "entity": "x - 2345",
+          "type": "Locations::Origin",
+          "startIndex": 48,
+          "endIndex": 53,
+          "score": 0.8520272
+        },
+        {
+          "entity": "g - 23456",
+          "type": "Locations::Destination",
+          "startIndex": 58,
+          "endIndex": 64,
+          "score": 0.974032
+        },
+        {
+          "entity": "-2345",
+          "type": "builtin.number",
+          "startIndex": 49,
+          "endIndex": 53,
+          "resolution": {
+            "value": "-2345"
+          }
+        },
+        {
+          "entity": "-23456",
+          "type": "builtin.number",
+          "startIndex": 59,
+          "endIndex": 64,
+          "resolution": {
+            "value": "-23456"
+          }
         }
-      },
-      {
-        "entity": "-23456",
-        "type": "builtin.number",
-        "startIndex": 59,
-        "endIndex": 64,
-        "resolution": {
-          "value": "-23456"
-        }
-      }
-    ]
-  }
-  ```
+      ]
+    }
+    ```
+    
+    The correct intent is predicted and the entities array has both the origin and destination values in the corresponding **entity** property.
+    
 
 ## Could you have used a regular expression for each location?
-Yes, create the regular expression with origin and destination roles and use it in a pattern.
+Yes, create the regular expression entity with origin and destination roles and use it in a pattern.
 
-The locations in this example, such as `a-1234`, follow a specific format of one or two letters with a dash then a series of 4 or 5 numerals. This data can be described as a regular expression entity with a role for each location. Roles are available for patterns. You can create patterns based on these utterances, then create a regular expression for the location format and add it to the patterns. <!-- Go to this tutorial to see how that is done -->
-
-## Patterns with roles
-
-[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
-
-## What has this LUIS app accomplished?
-This app, with just a few intents and a hierarchical entity, identified a natural language query intention and returned the extracted data. 
-
-Your chatbot now has enough information to determine the primary action, `MoveEmployee`, and the location information found in the utterance. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+The locations in this example, such as `a-1234`, follow a specific format of one or two letters with a dash then a series of 4 or 5 numerals. This data can be described as a regular expression entity with a role for each location. Roles are available only for patterns. You can create patterns based on these utterances, then create a regular expression for the location format and add it to the patterns. 
 
 ## Clean up resources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+This tutorial created a new intent and added example utterances for the contextually-learned data of origin and destination locations. Once the app is trained and published, a client-application can use that information to create a move ticket with the relevant information.
+
 > [!div class="nextstepaction"] 
 > [Learn how to add a composite entity](luis-tutorial-composite-entity.md) 

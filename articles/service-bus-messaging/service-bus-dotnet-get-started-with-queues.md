@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus queues | Microsoft Docs
 description: Write a C# console application that uses Service Bus messaging queues.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/7/2017
-ms.author: sethm
+ms.date: 09/07/2018
+ms.author: spelluru
 
 ---
 # Get started with Service Bus queues
@@ -169,7 +169,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
                 queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
                 Console.WriteLine("======================================================");
-                Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
+                Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
 
                 // Send Messages

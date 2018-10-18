@@ -1,52 +1,48 @@
 ---
-title: Computer Vision API cURL quickstart analyze a local image | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze a local image using Computer Vision with cURL in Cognitive Services.
+title: "Quickstart: Analyze a local image - REST, cURL - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you analyze a local image using the Computer Vision API with cURL.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 06/10/2018
-ms.author: nolachar
+ms.date: 09/10/2018
+ms.author: pafarley
 ---
-# Quickstart: Analyze a local image with cURL
+# Quickstart: Analyze a local image using the REST API and cURL in Computer Vision
 
-In this quickstart, you analyze a local image to extract visual features using Computer Vision. To analyze a remote image, see [Analyze a remote image with cURL](curl-analyze.md).
+In this quickstart, you analyze a locally stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have [cURL](https://curl.haxx.se/windows).
+- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze a local image
+## Create and run the sample command
 
-This sample is similar to [Analyze a remote image with cURL](curl-analyze.md) except the image to analyze is read locally from disk. Three changes are required:
+To create and run the sample, do the following steps:
 
-- Change the Content-Type to `"Content-Type: application/octet-stream"`.
-- Change the `-d` switch to `--data-binary`.
-- Specify the image to analyze using the following syntax: `@C:/Pictures/ImageToAnalyze.jpg`.
+1. Copy the following command into a text editor.
+1. Make the following changes in the command where needed:
+    1. Replace the value of `<subscriptionKey>` with your subscription key.
+    1. Replace the request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
+    1. Replace the value of `<localImage>` with the full path and file name of the image to be analyzed. For example, `@C:/Pictures/ImageToAnalyze.jpg`.
+    1. Optionally, change the language parameter of the request URL (`language=en`) to use a different supported language.
+1. Open a command prompt window.
+1. Paste the command from the text editor into the command prompt window, and then run the command.
 
-To run the sample, do the following steps:
-
-1. Copy the following code into an editor.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) to use the location where you obtained your subscription keys, if necessary.
-1. Replace `<Image To Analyze>` with the local image you want to analyze.
-1. Optionally, change the response language (`language=en`).
-1. Open a command window on a computer with cURL installed.
-1. Paste the code in the window and run the command.
-
->[!NOTE]
->You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
-
-```json
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary <Image To Analyze>
+```console
+curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
-## Analyze Image response
+## Examine the response
 
-A successful response is returned in JSON, for example:
+A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
 {
@@ -104,9 +100,13 @@ A successful response is returned in JSON, for example:
 }
 ```
 
+## Clean up resources
+
+When no longer needed, close the command prompt window and the text editor.
+
 ## Next steps
 
-Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
+Explore the Computer Vision API used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explore Computer Vision APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore the Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

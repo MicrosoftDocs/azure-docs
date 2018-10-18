@@ -35,7 +35,7 @@ The new outbound IP addresses are shown in the portal before they take effect. W
 
 3.	Select your App Service app from the list.
 
-4.  If the app is a function app, see [Function app outbound IP addresses](../azure-functions/ip-addresses.md#function-app-outbound-ip-addresses).
+4.  If the app is a function app, see [Function app outbound IP addresses](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
 
 4.	Under the **Settings** header, click **Properties** in the left navigation, and find the section labeled **Outbound IP addresses**.
 
@@ -43,4 +43,4 @@ The new outbound IP addresses are shown in the portal before they take effect. W
 
 ## Next steps
 
-This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [outbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).
+This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [Inbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).

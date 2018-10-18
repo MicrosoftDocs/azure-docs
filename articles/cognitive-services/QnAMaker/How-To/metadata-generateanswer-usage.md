@@ -1,19 +1,20 @@
 ---
-title: Use metadata in your knowledge base along with the GenerateAnswer API | Microsoft Docs
-description: Using metadata with GenerateAnswer API
+title: Metadata with GenerateAnswer API - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations.
 services: cognitive-services
-author: pchoudhari
-manager: rsrikan
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/18/2018
-ms.author: pchoudh
+ms.date: 09/12/2018
+ms.author: tulasim88
 ---
 
 # Using metadata and the GenerateAnswer API
 
-QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used in various ways such as filtering results to user queries, boosting certain results, and storing additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
 
 ## QnA Entity
 

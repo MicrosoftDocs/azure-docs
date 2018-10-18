@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 10/3/2018
 ms.author: yurid
 
 ---
@@ -53,6 +53,7 @@ In the bottom part of this page are the details for each alert. To sort, click t
 * **Date**: The date that the event occurred.
 * **State**: The current state for that alert. There are two types of states:
   * **Active**: The security alert has been detected.
+  * **Dismissed**: The security alert has been dismissed by the user. This status is typically used for alerts that were investigated and either mitigated or found not to be an actual attack.
 * **Severity**: The severity level, which can be high, medium or low.
 
 > [!NOTE]

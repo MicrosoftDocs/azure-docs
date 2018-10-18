@@ -3,7 +3,7 @@ title: Offering services in Azure Stack | Microsoft Docs
 description: As a cloud operator, you can offer services to your users.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer:
 
 ---
@@ -22,9 +22,18 @@ ms.reviewer:
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-[Microsoft Azure Stack](azure-stack-poc.md) is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but aren't limited to:
+[Microsoft Azure Stack](azure-stack-poc.md) is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. 
 
-- Platform as a Service (PaaS) services like App Services, API Apps, API Functions, SQL, and MySQL.
+You can offer [Infrastructure as a Service](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) services that enable your users to build an on-demand computing infrastructure, provisioned and managed from the Azure Stack user portal.
+
+You can also deploy [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) services for Azure Stack from Microsoft and other 3rd party providers. The services that you can deliver include, but aren't limited to:
+
+- [Add an App Service resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
+
+- [Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
+
+- [Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
+
 
 You can even combine services to integrate and build complex solutions for different users.
 

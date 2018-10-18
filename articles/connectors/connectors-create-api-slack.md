@@ -1,63 +1,103 @@
 ---
-title: Use the Slack Connector in your Azure logic apps| Microsoft Docs
-description: Connect to Slack in your logic apps
+title: Connect to Slack from Azure Logic Apps | Microsoft Docs
+description: Automate tasks and workflows that monitor files and manage channels, groups, and messages in your Slack account by using Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-
-ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2016
-ms.author: estfan; ladocs
-
+tags: connectors
+ms.date: 08/25/2018
 ---
-# Get started with the Slack connector
-Slack is a team communication tool, that brings together all of your team communications in one place, instantly searchable and available wherever you go. 
 
-Get started by creating a logic app now; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+# Monitor and manage Slack with Azure Logic Apps
 
-## Create a connection to Slack
-To use the Slack connector, you first create a **connection** then provide the details for these properties: 
+With Azure Logic Apps and the Slack connector, 
+you can create automated tasks and workflows that monitor 
+your Slack files and manage your Slack channels, messages, 
+groups, and so on, for example:
 
-| Property | Required | Description |
-| --- | --- | --- |
-| Token |Yes |Provide Slack Credentials |
+* Monitor when new files are created.
+* Create, list, and join channels 
+* Post messages.
+* Create groups and set do not disturb.
 
-Sign in to Slack using the following steps, and complete the configuration of the Slack **connection** in your logic app:
+You can use triggers that get responses from your Slack account 
+and make the output available to other actions. You can use actions 
+that perform tasks with your Slack account. You can also have 
+other actions use the output from Slack actions. For example, 
+when a new file is created, you can send email with the 
+Office 365 Outlook connector. If you're new to logic apps, 
+review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-1. Select **Recurrence**
-2. Select a **Frequency** and enter an **Interval**
-3. Select **Add an action**  
-   ![Configure Slack][1]  
-4. Enter Slack in the search box and wait for the search to return all entries with Slack in the name
-5. Select **Slack - Post message**
-6. Select **Sign in to Slack**:  
-   ![Configure Slack][2]
-7. Provide your Slack credentials to sign in to authorize the  application    
-   ![Configure Slack][3]  
-8. You'll be redirected to your organization's login page. **Authorize** Slack to interact with your logic app:      
-   ![Configure Slack][5] 
-9. After authorization completes, you're redirected to your logic app to complete it by configuring the **Slack - Get all messages** section. Add other triggers and actions that you need.  
-   ![Configure Slack][6]
-10. Save your work by selecting **Save** on the menu (toward the top).
+## Prerequisites
 
-## Connector-specific details
+* An Azure subscription. If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/slack/).
+* Your [Slack](https://slack.com/) account and user credentials
 
-## More connectors
-Go back to the [APIs list](apis-list.md).
+  Your credentials authorize your logic app to create 
+  a connection and access your Slack account.
 
-[1]: ./media/connectors-create-api-slack/connectionconfig1.png
-[2]: ./media/connectors-create-api-slack/connectionconfig2.png 
-[3]: ./media/connectors-create-api-slack/connectionconfig3.png
-[4]: ./media/connectors-create-api-slack/connectionconfig4.png
-[5]: ./media/connectors-create-api-slack/connectionconfig5.png
-[6]: ./media/connectors-create-api-slack/connectionconfig6.png
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* The logic app where you want to access your Slack account. 
+To start with a Slack trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To use a Slack action, start your logic app with a trigger, 
+such as a Slack trigger or another trigger, such as the **Recurrence** trigger.
+
+## Connect to Slack
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
+
+1. For blank logic apps, in the search box, 
+enter "slack" as your filter. Under the triggers list, 
+select the trigger you want. 
+
+   -or-
+
+   For existing logic apps, under the last step where 
+   you want to add an action, choose **New step**. 
+   In the search box, enter "slack" as your filter. 
+   Under the actions list, select the action you want.
+
+   To add an action between steps, 
+   move your pointer over the arrow between steps. 
+   Choose the plus sign (**+**) that appears, 
+   and then select **Add an action**.
+
+1. If you're prompted to sign in to Slack, 
+sign in to your Slack workspace. 
+
+   ![Sign in to Slack workspace](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
+
+1. Authorize access for your logic app.
+
+   ![Authorize access to Slack](./media/connectors-create-api-slack/slack-authorize-access.png)
+
+1. Provide the necessary details for your selected trigger 
+or action. To continue building your logic app's workflow, 
+add more actions.
+
+## Connector reference
+
+For technical details about triggers, actions, and limits, which are 
+described by the connector's OpenAPI (formerly Swagger) description, 
+review the connector's [reference page](/connectors/slack/).
+
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

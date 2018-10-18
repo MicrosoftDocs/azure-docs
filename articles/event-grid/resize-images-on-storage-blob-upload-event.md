@@ -10,7 +10,7 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -38,6 +38,16 @@ To complete this tutorial:
 You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+If you've not previously registered the Event Grid resource provider in your subscription, make sure it's registered.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid
+```
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -86,8 +96,10 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails
+myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
 ```
+
+The `FUNCTIONS_EXTENSION_VERSION=~2` setting makes the function app run on version 2.x of the Azure Functions runtime.
 
 You can now deploy a function code project to this function app.
 
@@ -106,8 +118,7 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 # [Node.js](#tab/nodejs)
-The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
-
+The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command.
 
 In the following command, `<function_app>` is the name of the function app you created earlier.
 

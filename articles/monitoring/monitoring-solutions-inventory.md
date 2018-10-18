@@ -29,7 +29,7 @@ Explanations of the columns are as follows:
 - **Operations Manager** - Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to an Operations Manager management group](../log-analytics/log-analytics-om-agents.md) that's connected to Log Analytics. 
 -  **Azure Storage** - Solution collects data from an Azure storage account. 
 - **Operations Manager required?** - A connected Operations Manager management group is required for data collection by the management solution. 
-- **Operations Manager agent data sent via management group** - If the agent is [connected to a SCOM management group](../log-analytics/log-analytics-om-agents.md), then data is sent to Log Analytics from the management server. In this case, the agent doesn't need to connect directly to Log Analytics. If this box isn't selected, then data is sent from the agent directly to Log Analytics even if the agent is connected to a SCOM management group. it will either need to be able to communicate to Log Analytics through an [OMS gateway](../log-analytics/log-analytics-oms-gateway.md).
+- **Operations Manager agent data sent via management group** - If the agent is [connected to a SCOM management group](../log-analytics/log-analytics-om-agents.md), then data is sent to Log Analytics from the management server. In this case, the agent doesn't need to connect directly to Log Analytics. If this box isn't selected, then data is sent from the agent directly to Log Analytics even if the agent is connected to a SCOM management group. It will need to be able to communicate to Log Analytics through the [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md).
 - **Collection frequency** - Specifies the frequency that data is collected by the management solution. 
 
 
@@ -60,7 +60,7 @@ Explanations of the columns are as follows:
 | [Network Performance Monitor](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP handshakes every 5 seconds, data sent every 3 minutes |
 | [Office 365 Analytics (Preview)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |on notification |
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
-| [Service Fabric Analytics (Preview)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minutes |
+| [Service Fabric Analytics](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutes |
 | [Service Map](../operations-management-suite/operations-management-suite-service-map.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 15 seconds |
 | [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |on arrival |

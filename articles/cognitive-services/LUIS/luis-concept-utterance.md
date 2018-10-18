@@ -1,13 +1,14 @@
 ---
-title: Utterances in LUIS apps in Azure | Microsoft Docs
-description: Add utterances in Language Understanding Intelligent Service (LUIS) apps.
+title: Utterances in LUIS apps
+titleSuffix: Azure Cognitive Services
+description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Utterances in LUIS
@@ -29,12 +30,14 @@ When choosing utterances, be aware that what you think is a common term or phras
 You will find that even if you make efforts to create varied sentence patterns, you will still repeat some vocabulary.
 
 Take these example utterances:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Example utterances|
+|--|
+|how do I get a computer?|
+|Where do I get a computer?|
+|I want to get a computer, how do I go about it?|
+|When can I have a computer?| 
+
 The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Example utterances in each intent

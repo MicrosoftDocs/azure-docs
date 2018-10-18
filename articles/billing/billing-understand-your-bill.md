@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
-ms.author: tonguyen
+ms.author: cwatson
 
 ---
 # Understand your bill for Microsoft Azure
@@ -29,6 +29,9 @@ To obtain a PDF of your invoice and a copy of your detailed daily usage file CSV
 For detailed terms and descriptions of your invoice and detailed daily usage file, see [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) and [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md). 
 
 For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started).
+
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
 
@@ -140,7 +143,6 @@ Azure 1st party charges are for resources that are directly developed and offere
 
 ## Tips for cost management
 - Estimate costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and get the [detailed pricing information for each service](https://azure.microsoft.com/pricing/).
-- [Set up billing alerts](billing-set-up-alerts.md).
 - [Review your usage and costs regularly in the Azure portal](billing-getting-started.md#costs).
 
 ## Need help? Contact support.

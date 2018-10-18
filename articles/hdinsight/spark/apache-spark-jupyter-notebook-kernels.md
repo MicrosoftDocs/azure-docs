@@ -4,7 +4,7 @@ description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter no
 keywords: jupyter notebook on spark,jupyter spark
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -66,7 +66,7 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    
    Instead, you can directly use the preset contexts in your application.
 
-- **Cell magics**. The PySpark kernel provides some predefined “magics”, which are special commands that you can call with `%%` (for example, `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, causes an error.     For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Cell magics**. The PySpark kernel provides some predefined "magics", which are special commands that you can call with `%%` (for example, `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, causes an error.     For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     The following table lists the different magics available through the kernels.
 
