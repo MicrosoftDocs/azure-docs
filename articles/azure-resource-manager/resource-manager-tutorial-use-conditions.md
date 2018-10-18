@@ -82,7 +82,7 @@ Make two changes to the existing template:
 5. Add the following line to the beginning of the storage account definition.
 
     ```json
-    "condition": "[equals(parameters('newOrExisting'),'yes')]",
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
     The condition checks the value of a parameter called **newOrExisting**. If the parameter value is **new**, the deployment creates the storage account.
