@@ -90,86 +90,95 @@ choose **View solutions**.
 
 1. On the Overview page, choose **Add**, 
 which opens the **Management Solutions** list. 
+From that list, select **Logic Apps Management**. 
 
-   ![Choose "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Select "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-1. Scroll through the **Management Solutions** list, 
-select **Logic Apps Management** solution, 
-and choose **Create** to install it to the Overview page.
+   If you can't find the solution, at the bottom of the list, 
+   choose **Load more** until the solution appears.
+
+1. Choose **Create**, which installs the solution.
 
    ![Choose "Add" for "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
-## View your logic app runs in your Log Analytics workspace
+## View logic app runs in Log Analytics workspace
 
 1. To view the count and status for your logic app runs, 
-go to the overview page for your Log Analytics workspace. 
-Review the details on the **Logic Apps Management** tile.
+go to your Log Analytics workspace, and open the Overview page. 
+On the **Logic Apps Management** tile, review the details.
 
    ![Overview tile showing logic app run count and status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
-2. To view a summary with more details about your logic app runs, 
+1. To view a summary with more details about your logic app runs, 
 choose the **Logic Apps Management** tile.
 
-   Here, your logic app runs are grouped by name or by execution status. You can also see details about the failures in actions or triggers for the logic app runs.
+   Here, your logic app runs are grouped by name or by execution status. 
+   You can also see details about the failures in actions or triggers 
+   for the logic app runs.
 
    ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
-3. To view all the runs for a specific logic app or status, 
+1. To view all the runs for a specific logic app or status, 
 select the row for a logic app or a status.
 
    Here is an example that shows all the runs for a specific logic app:
 
    ![View runs for a logic app or a status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   There are two advanced options on this page:
+   This page has these advanced options:
+
    * **Tracked properties:**
-     This column shows tracked properties, which are grouped by actions, for the logic app. To view the tracked properties, choose **View**. You can search the tracked properties by using the column filter.
+
+     This column shows tracked properties, which are grouped by actions, 
+     for the logic app. To view the tracked properties, choose **View**. 
+     To search the tracked properties, use the column filter.
    
      ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-     Any newly added tracked properties might take 10-15 minutes before they appear first time. Learn [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
+     Any newly added tracked properties might take 
+     10-15 minutes before they appear first time. Learn 
+     [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Resubmit:** You can resubmit one or more logic app runs that failed, succeeded, or are still running. Select the checkboxes for the runs that you want to resubmit, and choose **Resubmit**. 
+   * **Resubmit:** You can resubmit one or more logic app runs that failed, 
+   succeeded, or are still running. Select the checkboxes for the runs 
+   that you want to resubmit, and choose **Resubmit**. 
 
      ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-4. To filter these results, you can perform both client-side and server-side filtering.
+1. To filter these results, you can perform both client-side and server-side filtering.
 
-   * Client-side filter: For each column, 
-   choose the filters that you want. 
-   Here are some examples:
+   * **Client-side filter**: For each column, choose the filters that you want, for example:
 
      ![Example column filters](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * Server-side filter: To choose a specific time window 
-   or to limit the number of runs that appear, 
-   use the scope control at the top of the page. 
-   By default, only 1,000 records appear at a time. 
+   * **Server-side filter**: To choose a specific time window or to limit the number of runs that appear, 
+   use the scope control at the top of the page. By default, only 1,000 records appear at a time.
    
      ![Change the time window](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
-5. To view all the actions and their details for a specific run, 
+1. To view all the actions and their details for a specific run, 
 select a row for a logic app run.
 
    Here is an example that shows all the actions for a specific logic app run:
 
    ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
    
-6. On any results page, to view the query behind the results or to see all results, choose **See All**, which opens the Log Search page.
+1. On any results page, to view the query behind the results or to see all results, 
+choose **See All**, which opens the Log Search page.
    
    ![See All on Results pages](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
    
    On the Log Search page,
+
    * To view the query results in a table, choose **Table**.
    * To change the query, you can edit the query string in the search bar. 
    For a better experience, choose **Advanced Analytics**.
 
      ![View actions and details for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     Here on the Azure Log Analytics page, 
-     you can update queries and view the results from the table. 
+     On the Azure Log Analytics page, you can update queries and view the results from the table. 
      This query uses [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), 
      which you can edit if you want to view different results. 
 
