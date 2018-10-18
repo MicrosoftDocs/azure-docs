@@ -290,3 +290,5 @@
     href: reference-connect-adsyncconfig.md
   - name: ADSyncTools Reference
     href: reference-connect-adsynctools.md
+  - name: ADConnectivityTools Reference
+    href: reference-connect-adconnectivitytools.md
