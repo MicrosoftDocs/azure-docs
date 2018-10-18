@@ -134,10 +134,8 @@
       href: iot-accelerators-device-simulation-custom-model.md
     - name: Visualize telemetry with Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Create a simulated device
-      href: iot-accelerators-device-simulation-create-simulated-device.md
-    - name: Deploy a simulated device
-      href: iot-accelerators-device-simulation-deploy-simulated-device.md
+    - name: Create an advanced simulated device
+      href: iot-accelerators-device-simulation-advanced-device.md
 
 - name: Reference
   items:
