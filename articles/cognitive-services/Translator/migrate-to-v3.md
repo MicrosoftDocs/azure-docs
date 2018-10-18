@@ -28,7 +28,7 @@ The end of this document contains helpful links for you to learn more.
 * Transliterate - A transliterate method has been added to the API. This method will convert words and sentences in one script (E.g. Arabic) into another script (E.g. Latin).
 * Languages - A new ‘languages’ method delivers language information, in JSON format, for use with the ‘translate’, ‘dictionary’, and ‘transliterate’ methods.
 * New to Translate - New capabilities have been added to the ‘translate’ method to support some of the features that were in the V2 API as separate methods. An example is TranslateArray.
-* Speak method - Text to speech functionality is no longer supported in the Microsoft Translator API. Text to speech functionality is available in Microsoft [Speech Services](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech).
+* Speak method - Text to speech functionality is no longer supported in the Microsoft Translator API. Text to speech functionality is available in [Microsoft Speech Service](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech).
 
 The following list of V2 and V3 methods identifies the V3 methods and APIs that will provide the functionality that came with V2.
 
@@ -38,12 +38,12 @@ The following list of V2 and V3 methods identifies the V3 methods and APIs that 
 | TranslateArray      | [Translate](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Languages](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Languages](reference/v3-0-languages.md)       |
-| GetLanguagesForSpeak      | Speech Services Speech API         |
-| Speak     | [Speech Services Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech)          |
+| GetLanguagesForSpeak      | [Microsoft Speech Service](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| Speak     | [Microsoft Speech Service](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech)          |
 | Detect     | [Detect](reference/v3-0-detect.md)         |
 | DetectArray     | [Detect](reference/v3-0-detect.md)         |
-| AddTranslation     | Microsoft Translator HUB API         |
-| AddTranslationArray    | Microsoft Translator HUB API          |
+| AddTranslation     | Microsoft Translator Hub API         |
+| AddTranslationArray    | Microsoft Translator Hub API          |
 | BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | Feature is no longer supported         |
 | GetTranslationsArray      | Feature is no longer supported         |
