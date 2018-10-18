@@ -38,7 +38,7 @@ The following variations exist for Computer Vision API from global Azure:
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/vision/v2.0/
 - Available SKUs: S1
 
-For more information, see [global Azure documentation](../cognitive-services/computer-vision/index.yml) and [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
+For more information, see the [global Azure documentation](../cognitive-services/computer-vision/index.yml) and [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
  
 ##### Content Moderator
 
@@ -48,7 +48,7 @@ The following variations exist for Face API from global Azure:
 - The Review UI and Review APIs are not available at this time
 - Available SKUs: S0
  
-For more information, see [global Azure documentation](../cognitive-services/content-moderator/overview.md).
+For more information, see the [global Azure documentation](../cognitive-services/content-moderator/overview.md).
 
 #### Language
  
@@ -61,7 +61,7 @@ The following variations exist for Translator Text API from global Azure:
 - Available SKUs: S1
 - Custom Translator and Translator Hub are not supported.
  
-For more information, see [global Azure documentation](../cognitive-services/translator/translator-info-overview.md) for Translator Text.
+For more information, see the [global Azure documentation](../cognitive-services/translator/translator-info-overview.md) for Translator Text.
 
 ##### Language Understanding (LUIS)
 
@@ -73,8 +73,22 @@ The following variations exist for Language Understanding from global Azure:
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
+#### Speech (Preview)
+
 ### Data Considerations
+
 Data considerations for Cognitive Services are not yet available. 
+
+##### Translator Speech (Speech Translation):
+
+The following variations exist for Translator Speech from global Azure:
+
+- Endpoint: https://docs.microsoft.com/azure/cognitive-services/translator-speech/
+- Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+- Provisioning and management are available through PowerShell and CLI only (no Azure portal support)
+- Available SKUs: S1, S2, S3, S4
+
+For more information, see the [global Azure documentation](../cognitive-services/speech/home.md) for Translator Speech. 
 
 ## Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
