@@ -36,7 +36,7 @@ You create an Azure storage account and container and then place basic HTML and 
 
 ### Create a storage account
 
-Although you can store your files in many ways, for this tutorial, you store them in Azure Blob storage.
+Although you can store your files in many ways, for this tutorial, you store them in [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md).
 
 1. Make sure you're using the directory that contains your Azure subscription. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
 
@@ -137,7 +137,7 @@ To complete the steps in this tutorial, you need to create a test application an
 
 ### Create an Azure AD B2C application
 
-Communication with Azure AD B2c occurs through an application that you create in your tenant. The following steps create an application that redirects the authorization token that is returned to [https://jwt.ms](https://jwt.ms).
+Communication with Azure AD B2C occurs through an application that you create in your tenant. The following steps create an application that redirects the authorization token that is returned to [https://jwt.ms](https://jwt.ms).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
