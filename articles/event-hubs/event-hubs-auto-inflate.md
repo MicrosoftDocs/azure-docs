@@ -54,7 +54,9 @@ You can also enable Auto-inflate using the **Scale** option on the settings pane
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
-When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. 
+
+> [!NOTE]
+> When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. 
 
 ### Enable Auto-Inflate using an Azure Resource Manager template
 
