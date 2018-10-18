@@ -27,7 +27,7 @@ Currently, the only market supported is en-US.  Other options may return results
 Set pagination, if needed, using the `count` and `first` parameters. The `count` parameter specifies the number of results.  The `first` parameter specifies the index of the first result.
 
 ## Features
-In addition to instant answers, Bing Web Search provides additional features and functionality that allow you to customize search results for your users.
+The Bing Local Business Search API provides functionality to find local businesses by query or geographical boundaries.
 
 ## Workflow
 1. Call the Bing Local Business Search REST API from any programming language that can make HTTP requests and parse JSON responses. 

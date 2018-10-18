@@ -12,9 +12,9 @@ ms.date: 08/02/2018
 ms.author: rosh, v-gedod
 ---
 
-# Bing Local Search API v7 reference
+# Bing Local Business Search API v7 reference
 
-The Local Search API sends a search query to Bing to get results that include entities and places. Place results include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries, etc.  
+The Local Business Search API sends a search query to Bing to get results that include include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries, etc.  
 
 This section provides technical details about the response objects, and the query parameters and headers that affect the search results. For examples that show how to make requests, see [Local Search C# quickstart](local-quickstart.md) or [Local Search Java quickstart](local-search-java-quickstart.md). 
   

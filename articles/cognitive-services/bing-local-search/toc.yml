@@ -24,5 +24,5 @@
   items:
   - name: Use and display requirements
     href: use-display-requirements.md
-  - name: Local Search API reference
+  - name: Local Business Search API reference
     href: local-search-reference.md
