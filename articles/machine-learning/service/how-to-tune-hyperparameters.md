@@ -137,8 +137,9 @@ param_sampling = BayesianParameterSampling( {
 
 > [!NOTE]
 > Bayesian sampling does not support any early termination policy (See [Specify an early termination policy](#specify-early-termination-policy)). When using Bayesian parameter sampling, set `early_termination_policy = None`, or leave off the `early_termination_policy` parameter.
-`
+
 <a name='specify-primary-metric-to-optimize'/>
+
 ## Specify primary metric
 
 Specify the primary metric you want the hyperparameter tuning experiment to optimize. Each training run is evaluated for the primary metric. Poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to the primary metric name, you also specify the goal of the optimization - whether to maximize or minimize the primary metric.
