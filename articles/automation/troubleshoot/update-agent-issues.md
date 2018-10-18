@@ -24,7 +24,7 @@ By clicking the **Troubleshoot** link under the **Update Agent Readiness** colum
 > [!NOTE]
 > The checks require the VM to be running. If the VM is not running you are presented with a button to **Start the VM**.
 
-On The **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on machine to verify the dependencies that the agent has. When the troubleshooter is complete, it returns the result of the checks.
+On the **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on the machine to verify the dependencies that the agent has. When the troubleshooter is complete, it returns the result of the checks.
 
 ![Troubleshoot page](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -53,7 +53,7 @@ The .NET framework check, verifies if the system has a minimum of [.NET Framewor
 
 ### WMF 5.1
 
-The WMF check, verifies if the system has the required version of the Windows Management. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the lowest version supported. It is recommended that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) for increased reliability of the Hybrid Runbook Worker.
+The WMF check, verifies if the system has the required version of the Windows Management Framework. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the lowest version supported. It is recommended that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) for increased reliability of the Hybrid Runbook Worker.
 
 ### TLS 1.2
 
