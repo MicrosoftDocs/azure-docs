@@ -116,9 +116,9 @@ If Ctrl+Alt+Del is required by policy, or Lock screen notifications are turned o
 
 The Azure AD audit log will include information about the IP address and ClientType where the password reset occurred.
 
-If your Windows 10 machines are behind a proxy server or firewall, HTTPS traffic (443) to passwordreset.microsoftonline.com and ajax.aspnetcdn.com should be allowed.
-
 ![Example logon screen password reset in the Azure AD audit log](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+If your Windows 10 machines are behind a proxy server or firewall, HTTPS traffic (443) to passwordreset.microsoftonline.com and ajax.aspnetcdn.com should be allowed.
 
 ## Clean up resources
 
