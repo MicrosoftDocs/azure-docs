@@ -218,7 +218,7 @@
         href: apache-spark-settings.md
       - name: Optimize Spark jobs
         href: apache-spark-perf.md
-      - name: Enable Caching with IO Cache
+      - name: Enable caching with IO Cache
         href: apache-spark-improve-performance-iocache.md
       - name: Cluster capacity planning
         href: ../hdinsight-capacity-planning.md
