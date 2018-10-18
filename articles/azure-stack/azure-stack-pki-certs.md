@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -39,8 +39,8 @@ The following list describes the certificate requirements that are needed to dep
 - For deployment and rotation you can either use a single certificate covering all name spaces in the certificate's Subject Name and Subject Alternative Name (SAN) fields OR you can use individual certificates for each of the namespaces below that the Azure Stack services you plan to utilize require. Both approaches require using wild cards for endpoints where they are required, such as **KeyVault** and **KeyVaultInternal**. 
 - The certificate signature algorithm must be 3DES. The algorithm cannot be SHA1, as it must be stronger. 
 - The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
-- The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its “Key Usage" field.
-- The certificate pfx files must have the values “Server Authentication (1.3.6.1.5.5.7.3.1)” and “Client Authentication (1.3.6.1.5.5.7.3.2)” in the "Enhanced Key Usage" field.
+- The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its "Key Usage" field.
+- The certificate pfx files must have the values "Server Authentication (1.3.6.1.5.5.7.3.1)" and "Client Authentication (1.3.6.1.5.5.7.3.2)" in the "Enhanced Key Usage" field.
 - The certificate's "Issued to:" field must not be the same as its "Issued by:" field.
 - The passwords to all certificate pfx files must be the same at the time of deployment
 - Password to the certificate pfx has to be a complex password.

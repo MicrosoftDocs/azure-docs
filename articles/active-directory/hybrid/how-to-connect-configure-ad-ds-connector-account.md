@@ -38,7 +38,7 @@ The following table provides a summary of the permissions required on AD objects
 | Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.  For more information see [Group Writeback](how-to-connect-preview.md#group-writeback).|
 
 ## Using the ADSyncConfig PowerShell Module 
-The ADSyncConfig module requires the [Remote Server Administration Tools (RSAT) for AD DS](https://docs.microsoft.com/en-us/windows-server/remote/remote-server-administration-tools) since it depends on the AD DS PowerShell module and tools. To install RSAT for AD DS, open a Windows PowerShell window with ‘Run As Administrator’ and execute: 
+The ADSyncConfig module requires the [Remote Server Administration Tools (RSAT) for AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) since it depends on the AD DS PowerShell module and tools. To install RSAT for AD DS, open a Windows PowerShell window with ‘Run As Administrator’ and execute: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 

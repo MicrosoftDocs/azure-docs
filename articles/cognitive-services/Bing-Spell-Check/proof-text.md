@@ -31,7 +31,7 @@ This spell-checker can handle any word-processing scenario:
 
 ## Spell check modes
 
-The API supports two proofing modes, `Proof` and `Spell`.  Try examples [here](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).
+The API supports two proofing modes, `Proof` and `Spell`.  Try examples [here](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### Proof - for documents scenario
 The default mode is `Proof`. The `Proof` spelling mode provides the most comprehensive checks,  adding capitalization, basic punctuation, and other features to aid document creation. but it is available only in the en-US (English-United States), es-ES(Spanish), pt-BR(Portuguese) markets (Note: only in beta version for Spanish and Portuguese). For all other markets, set the mode query parameter to Spell. 
 <br /><br/>**NOTE:**   If the length of query text exceeds 4096, it will be truncated to 4096 characters, then get processed. 
