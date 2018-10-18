@@ -40,7 +40,7 @@ In an instance of on-premises SQL Server, dynamic management views return server
 
 If CPU consumption is above 80% for extended periods of time, consider the following troubleshooting steps:
 
-### If the issue is occurring right now
+### If the CPU issue is occurring right now
 
 If issue is occurring right now, there are two possible scenarios:
 
@@ -96,6 +96,56 @@ ORDER BY total_cpu_millisec DESC;
 ```
 
 Once you identify the problematic queries, it's time to tune those queries to reduce CPU utilization.  If you don't have time to tune the queries, you may also choose to upgrade the SLO of the database to work around the issue.
+
+## Identify IO performance issues
+
+When identifying IO performance issues, the top wait types associated with IO issues are:
+
+- `PAGEIOLATCH_*`
+
+  For data file IO issues (including `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  If the wait type name has **IO** in it, it points to an IO issue. If there is no **IO** in the page latch wait name, it points to a different type of problem (for example, tempdb contention).
+
+- `WRITE_LOG`
+
+  For transaction log IO issues.
+
+### If the IO issue is occurring right now
+
+Use the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) or [sys.dm_os_waiting_tasks](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) to see the `wait_type` and `wait_time`.
+
+Use the following query to identify data and log IO usage. If the data or log IO is above 80%, it means users have used the available IO for the SQL DB service tier.
+
+```sql
+SELECT end_time, avg_data_io_percent, avg_log_write_percent
+FROM sys.dm_db_resource_stats
+ORDER BY end_time DESC;
+```
+
+If the IO limit has been reached, you have two options:
+
+- Option 1: Upgrade the compute size or service tier
+- Option 2: Identify and tune the queries consuming the most IO.
+
+For option 2, you can use the following query against Query Store for buffer-related IO (looks at the last two hours of tracked activity):
+
+```SQL
+-- top queries that waited on buffer
+-- note these are finished queries
+WITH Aggregated AS (SELECT q.query_hash, SUM(total_query_wait_time_ms) total_wait_time_ms, SUM(total_query_wait_time_ms / avg_query_wait_time_ms) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text, MIN(wait_category_desc) AS wait_category_desc
+                    FROM sys.query_store_query_text AS qt
+                         JOIN sys.query_store_query AS q ON qt.query_text_id=q.query_text_id
+                         JOIN sys.query_store_plan AS p ON q.query_id=p.query_id
+                         JOIN sys.query_store_wait_stats AS waits ON waits.plan_id=p.plan_id
+                         JOIN sys.query_store_runtime_stats_interval AS rsi ON rsi.runtime_stats_interval_id=waits.runtime_stats_interval_id
+                    WHERE wait_category_desc='Buffer IO' AND rsi.start_time>=DATEADD(HOUR, -2, GETUTCDATE())
+                    GROUP BY q.query_hash), Ordered AS (SELECT query_hash, total_executions, total_wait_time_ms, sampled_query_text, wait_category_desc, ROW_NUMBER() OVER (ORDER BY total_wait_time_ms DESC, query_hash ASC) AS RN
+                                                        FROM Aggregated)
+SELECT OD.query_hash, OD.total_executions, OD.total_wait_time_ms, OD.sampled_query_text, OD.wait_category_desc, OD.RN
+FROM Ordered AS OD
+WHERE OD.RN<=15
+ORDER BY total_wait_time_ms DESC;
+GO
+```
 
 ## Calculating database size
 
