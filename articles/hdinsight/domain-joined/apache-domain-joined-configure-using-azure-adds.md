@@ -65,7 +65,7 @@ After the VNETs are peered, configure the HDInsight VNET to use a custom DNS ser
 
 ![Configuring Custom DNS Servers for Peered VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-**To test** if your networking is setup correctly, join a windows VM to the HDInsight VNET/Subnet and ping the domain name (it should resolve to an IP), then run **ldp.exe** to access Azure AD-DS domain. Then **join this windows VM to the domain to confirm** that all the required RPC calls succeed between the client and server. You can also use **nslooup** to confirm networking access to your storage account or any external DB you might use (eg. external Hive metastore or Ranger DB).
+**To test** if your networking is setup correctly, join a windows VM to the HDInsight VNET/Subnet and ping the domain name (it should resolve to an IP), then run **ldp.exe** to access Azure AD-DS domain. Then **join this windows VM to the domain to confirm** that all the required RPC calls succeed between the client and server. You can also use **nslookup** to confirm networking access to your storage account or any external DB you might use (eg. external Hive metastore or Ranger DB).
 
 You should make sure that all of the [required ports](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) are whitelisted in the AAD-DS subnet NEtwork Security Group rules, if AAD-DS is secured by an NSG. 
 
