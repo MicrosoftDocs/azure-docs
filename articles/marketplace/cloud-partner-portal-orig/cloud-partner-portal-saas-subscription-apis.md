@@ -77,7 +77,9 @@ To register a new application using the Azure portal, perform the following step
 4.  On the Create page, enter your application\'s registration
     information:
     -   **Name**: Enter a meaningful application name
-    -   **Application type**: Select **Web app / API** for
+    -   **Application type**: 
+        - Select **Native** for [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
+        - Select **Web app / API** for
         [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)
         and [resource/API applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)
         that are installed on a secure server. This setting is used for
@@ -92,6 +94,7 @@ To register a new application using the Azure portal, perform the following step
         by Azure AD to return token responses. Enter a value specific to
         your application, for example **http://MyFirstAADApp**.
 
+        ![SaaS AD App Registrations](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png)
         For specific examples for web applications or native
         applications, check out the quick start guided setups that are
         available in the Get Started section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
@@ -145,7 +148,7 @@ HTTP Method
 |  Grant_type         | True         | Grant type. The default value is `client_credentials`.                    |
 |  Client_id          | True         |  Client/app identifier associated with the Azure AD app.                  |
 |  client_secret      | True         |  Password associated with the Azure AD app.                               |
-|  Resource           | True         |  Target resource for which the token is requested. The default value is `b3cca048-ed2e-406c-aff2-40cf19fe7bf5`. |
+|  Resource           | True         |  Target resource for which the token is requested. The default value is `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 
@@ -153,7 +156,7 @@ HTTP Method
 
 |  **Name**  | **Type**       |  **Description**    |
 | ---------- | -------------  | ------------------- |
-| 200 OK/    | TokenResponse  | Request succeeded   |
+| 200 OK    | TokenResponse  | Request succeeded   |
 |  |  |  |
 
 *TokenResponse*
@@ -203,6 +206,7 @@ POST action on resolve endpoint allows users to resolve a token to a persistent 
 | x-ms-correlationid | No           | A unique string value for operation on the client. This correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers. |
 | Content-type       | Yes          | `application/json`                                        |
 | authorization      | Yes          | The JSON web token (JWT) bearer token.                    |
+| x-ms-marketplace-token| Yes| The token query parameter in the URL when the user is redirected to SaaS ISV’s website from Azure. **Note:** URL decode the token value from the browser before using it.|
 |  |  |  |
   
 
@@ -211,14 +215,16 @@ POST action on resolve endpoint allows users to resolve a token to a persistent 
  ``` json       
     { 
         “id”: “”, 
+        “subscriptionName”: “”,
         “offerId”:””, 
-         “planId”:””, 
+         “planId”:””
     }     
 ```
 
 | **Parameter name** | **Data type** | **Description**                       |
 |--------------------|---------------|---------------------------------------|
 | id                 | String        | ID of the SaaS subscription.          |
+| subscriptionName| String| Name of the SaaS subscription set by user in Azure while subscribing to the SaaS service.|
 | OfferId            | String        | Offer ID that the user subscribed to. |
 | planId             | String        | Plan ID that the user subscribed to.  |
 |  |  |  |
@@ -258,7 +264,7 @@ service for a given plan and enable billing in the commerce system.
 
 | **Parameter Name**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | ID of SaaS subscription.                              |
+| subscriptionId      | Unique Id of saas subscription that is obtained after resolving the token via Resolve API.                              |
 | api-version         | The version of the operation to use for this request. |
 |  |  |
 
@@ -271,19 +277,20 @@ service for a given plan and enable billing in the commerce system.
 | If-Match/If-None-Match |   No         |   Strong validator ETag value.                                                          |
 | content-type           |   Yes        |    `application/json`                                                                   |
 |  authorization         |   Yes        |    The JSON web token (JWT) bearer token.                                               |
+| x-ms-marketplace-session-mode| No | Flag to enable dry run mode while subscribing to a SaaS offer. If set, the subscription will not be charged. This is useful for ISV testing scenarios. Please set it to **‘dryrun’**|
 |  |  |  |
 
 *Body*
 
 ``` json
   { 
-      “planId”:””, 
+      “planId”:””
    }      
 ```
 
 | **Element name** | **Data type** | **Description**                      |
 |------------------|---------------|--------------------------------------|
-| planId           | String        | Plan ID that the user subscribed to. |
+| planId           | (Required) String        | Plan Id of the SaaS service user is subscribing to.  |
 |  |  |  |
 
 *Response Codes*
@@ -298,6 +305,8 @@ service for a given plan and enable billing in the commerce system.
 | 429                  | `RequestThrottleId`  | Service is busy processing requests,  retry later.                  |
 | 503                  | `ServiceUnavailable` | Service is down temporarily, retry later.                          |
 |  |  |  |
+
+For a 202 response, follow up on the request operation’s status at the ‘Operation-location’ header. The authentication is the same as other Marketplace APIs.
 
 *Response Headers*
 
@@ -341,14 +350,14 @@ subscribed plan to a new plan.
 
 ``` json
                 { 
-                    “planId”:””, 
+                    “planId”:””
                 } 
 ```
 
 
 |  **Element name** |  **Data type**  | **Description**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId           |  String         | Plan ID that the user subscribed to.         |
+|  planId           |  (Required) String         | Plan Id of the SaaS service user is subscribing to.          |
 |  |  |  |
 
 *Response Codes*
@@ -412,6 +421,8 @@ The Delete action on the subscribe endpoint allows a user to delete a subscripti
 | 429                  | `RequestThrottleId`  | Service is busy processing requests, please retry later.                  |
 | 503                  | `ServiceUnavailable` | Service is down temporarily. Please retry later.                          |
 |  |  |  |
+
+For a 202 response, follow up on the request operation’s status at the ‘Operation-location’ header. The authentication is the same as other Marketplace APIs.
 
 *Response Headers*
 
@@ -492,7 +503,6 @@ This endpoint allows user to track the status of a triggered async operation (Su
 | x-ms-correlationid | Yes          | Correlation ID if passed by the client, otherwise this is the server correlation ID.                   |
 | x-ms-activityid    | Yes          | A unique string value for tracking the request from the service. This is used for any reconciliations. |
 | Retry-After        | Yes          | Interval with which client can check the status.                                                       |
-| Operation-Location | Yes          | Link to a resource to get the operation status.                                                        |
 |  |  |  |
 
 ### Get Subscription
@@ -528,9 +538,9 @@ The Get action on subscribe endpoint allows a user to retrieve a subscription wi
       “saasSubscriptionName”:””, 
       “offerId”:””, 
        “planId”:””, 
-      “saasSubscriptionStatus”:”” 
-      “created”:”” 
-      “lastModified”: “”, 
+      “saasSubscriptionStatus”:””, 
+      “created”:””, 
+      “lastModified”: “” 
   }
 ```
 | **Parameter name**     | **Data type** | **Description**                               |
@@ -576,7 +586,7 @@ The Get action on subscriptions endpoint allows a user to retrieve all subscript
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/subscriptions?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
 | **Parameter Name**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
@@ -601,9 +611,9 @@ The Get action on subscriptions endpoint allows a user to retrieve all subscript
       “saasSubscriptionName”:””, 
       “offerId”:””, 
        “planId”:””, 
-      “saasSubscriptionStatus”:”” 
-      “created”:”” 
-      “lastModified”: “”, 
+      “saasSubscriptionStatus”:””, 
+      “created”:””, 
+      “lastModified”: “”
   }
 ```
 

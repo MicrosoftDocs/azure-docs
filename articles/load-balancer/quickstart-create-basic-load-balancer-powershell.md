@@ -201,7 +201,7 @@ $nsg = New-AzureRmNetworkSecurityGroup`
 -SecurityRules $rule1,$rule2
 ```
 
-###Create NICs
+### Create NICs
 Create virtual NICs created with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). The following example creates two virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
 
 ```azurepowershell-interactive

@@ -70,6 +70,23 @@ In Visual Studio:
 
     ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
     
+You may see this error when attempting to use a multi-stage Dockerfile. The verbose output will look like this:
+
+```cmd
+$ azds up
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+This is because AKS nodes run an older version of Docker that does not support multi-stage builds. You will need to rewrite your Dockerfile to avoid multi-stage builds.
+
 ## DNS name resolution fails for a public URL associated with a Dev Spaces service
 
 When DNS name resolution fails, you might see a "Page cannot be displayed" or "This site cannot be reached" error in your web browser when attempting to connect to the public URL associated with a Dev Spaces service.
@@ -200,6 +217,14 @@ Someone with Owner or Contributor access to the Azure subscription can run the f
 ```cmd
 az provider register --namespace Microsoft.DevSpaces
 ```
+
+## "Error: could not find a ready tiller pod" when launching Dev Spaces
+
+### Reason
+This error occurs if the Helm client can no longer talk to the Tiller pod running in the cluster.
+
+### Try:
+Restarting the agent nodes in your cluster usually resolves this issue.
 
 ## Azure Dev Spaces doesn't seem to use my existing Dockerfile to build a container 
 

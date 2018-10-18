@@ -46,11 +46,12 @@ It can take a few minutes for the data to appear in your logs after you complete
 5. In this example, Log Analytics stores the logs, so type **Firewall log analytics** for the name.
 6. Click **Send to Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
 7. Under **Log Analytics**, click **Configure**.
-8. In the OMS Workspaces page, click **Create New Workspace**.
-9. On the **Log analytics workspace** page, type **firewall-oms** for the new **OMS Workspace** name.
+8. In the Log Analytics workspaces page, click **Create New Workspace**.
+9. On the **Log analytics workspace** page, type **firewall-oms** for the new **Log Analytics workspace** name.
 10. Select your subscription, use the existing firewall resource group (**Test-FW-RG**), select **East US** for the location, and select the **Free** pricing tier.
 11. Click **OK**.
    ![Starting the configuration process][1]
+   OMS workspaces are now referred to as Log Analytics workspaces.  
 12. Under **Log**, click **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** to collect logs for application and network rules.
    ![Save diagnostics settings][2]
 13. Click **Save**.

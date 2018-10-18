@@ -99,6 +99,17 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.10.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
+## Delete the cluster
+
+As this is the last part of the tutorial series, you may want to delete the AKS cluster. As the Kubernetes nodes run on Azure virtual machines (VMs), they continue to incur charges even if you don't use the cluster. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+> [!NOTE]
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+
 ## Next steps
 
 In this tutorial, you upgraded Kubernetes in an AKS cluster. You learned how to:
@@ -123,3 +134,5 @@ Follow this link to learn more about AKS.
 [az aks get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az aks upgrade]: /cli/azure/aks#az-aks-upgrade
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-group-delete]: /cli/azure/group#az-group-delete
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

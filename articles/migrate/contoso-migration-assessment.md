@@ -3,9 +3,10 @@ title: Assess on-premises workloads for Contoso migration to Azure  | Microsoft 
 description: Learn how Contoso assesses its on-premises machines for migration to Azure by using Azure Migrate and Data Migration Assistant.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
 
 
@@ -32,6 +33,7 @@ Article 3: Assess on-premises resources for migration to Azure | Contoso runs an
 [Article 11: Refactor Team Foundation Server on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app in Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrates its SmartHotel app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the database with Azure SQL Database. | Available
 [Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | Available
+[Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
 
 
 ## Overview
@@ -406,8 +408,8 @@ Contoso runs the installation on each VM.
 3. Contoso installs the MMA:
     - Contoso enters the workspace ID and key in the command.
     - Commands are for 64-bit.
-    - The workspace ID and primary key are located in the Microsoft Operations Management Suite (OMS) portal. Select **Settings**, and then select the **Connected Sources** tab.
-    - Run the following commands to download the OMS agent, validate the checksum, and install and onboard the agent:
+    - The workspace ID and primary key are located in the Log Analytics workspace in the Azure portal. Select **Settings**, and then select the **Connected Sources** tab.
+    - Run the following commands to download the Log Analytics agent, validate the checksum, and install and onboard the agent:
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
