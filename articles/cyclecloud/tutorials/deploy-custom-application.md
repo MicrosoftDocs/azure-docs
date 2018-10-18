@@ -36,7 +36,7 @@ For this tutorial, you will need:
 
 ## Customizing Cluster Nodes
 
-When provisioning a VM as a cluster node, there are often configuration steps that need to be performed during the VM boot process. These steps can range from configuring application path environment variables to more complicated tasks such as binding a node to an Active Directory domain. While Azure CycleCloud supports the use of custom images with baked-in applications, it's not unusual to install the applications as part of the node preparation stage. Doing the installations during the node prep will save considerable time, as you won't need to create a new custom image for every variation of the application or application version. 
+When provisioning a VM as a cluster node, there are often configuration steps that need to be performed during the VM boot process. These steps can range from configuring application path environment variables to more complicated tasks such as binding a node to an Active Directory domain. While Azure CycleCloud supports the use of custom images with baked-in applications, it's not unusual to install the applications as part of the node preparation stage. Doing the installations during the node prep will save considerable time, as you won't need to create a new custom image for every variation of the application or application version.
 
 This tutorial illustrates how you could use CycleCloud Projects to install [Salmon](https://combine-lab.github.io/salmon/), a popular bioinformatics application that is used for quantifying RNA in RNA sequencing experiments.
 
@@ -170,14 +170,14 @@ Next, move to the `files` directory and create two files, `salmon.sh` and `salmo
 ``` script
 cat << EOF > ./salmon.sh
 #!/bin/sh
-export PATH=$PATH:/mnt/resource/apps/salmon/bin
+export PATH=\$PATH:/mnt/resource/apps/salmon/bin
 EOF
 ```
 
 ``` script
 cat << EOF > ./salmon.csh
 #!/bin/csh
-setenv PATH $PATH\:/mnt/resource/salmon/bin
+setenv PATH \$PATH\:/mnt/resource/salmon/bin
 EOF
 ```
 
