@@ -75,7 +75,7 @@ You are able to add up to five additional emails for notifications regarding Azu
 4. To add an email, type in the email address in the additional recipients table.
 5. Click "Save" on the top-hand navigation.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 #### I received an email notification for an alert but when I logged on to the Azure portal there was no alert. What happened?
 
@@ -95,5 +95,5 @@ Check your spam or junk folder in your email for the notification and make sure 
 - [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
 - [Contact the product team](active-directory-ds-contact-us.md)
 
-## Contact Us
+## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
