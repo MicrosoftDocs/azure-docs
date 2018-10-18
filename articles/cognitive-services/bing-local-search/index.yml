@@ -43,22 +43,18 @@ sections:
   items:
   - type: paragraph
     text: 'Using the Bing Local Business Search API'
-    type: paragraph
-    text: "What is Bing Local Business Search?"
-    href: overview.md
-    type: paragraph
-    text: "Query and response"
-    href: local-search-query-response.md
-    type: paragraph
-    text: "Geographic search boundaries" 
-    href: specify-geographic-search.md
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="overview.md">What is the Bing Local Buisiness Search API?</a>
+      - html: <a href="local-search-query-response.md">Query and response</a>      
+      - html: <a href="specify-geographic-search.md">Geographic search boundaries</a>
 - title: Reference
   items:
   - type: paragraph
-    text: "Parameters, results, and specifications"
-    type: paragraph
-    text: "Use and display requirements"
-    href: use-and-disply-requirements.md
-    type: paragraph
-    text: "Local Business Search API reference"
-    href: local-search-reference.md
+    text: 'API reference and specifications'
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="use-and-disply-requirements.md">Use and display requirements</a>     
+      - html: <a href="local-search-reference.md">Local Business Search API reference</a>
