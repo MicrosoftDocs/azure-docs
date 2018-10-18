@@ -2,29 +2,33 @@
 title: Use metrics to monitor Azure IoT Hub | Microsoft Docs
 description: How to use Azure IoT Hub metrics to assess and monitor the overall health of your IoT hubs.
 author: nberdy
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-
 ---
+
 # Understand IoT Hub metrics
+
 IoT Hub metrics give you better data about the state of the Azure IoT resources in your Azure subscription. IoT Hub metrics enable you to assess the overall health of the IoT Hub service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
 Metrics are enabled by default. You can view IoT Hub metrics from the Azure portal.
 
 ## How to view IoT Hub metrics
-1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
+
+1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-dotnet.md) guide.
+
 2. Open the blade of your IoT hub. From there, click **Metrics**.
    
-    ![][1]
+    ![Metrics blade for IoT hub](./media/iot-hub-metrics/enable-metrics-1.png)
+
 3. From the metrics blade, you can view the metrics for your IoT hub and create custom views of your metrics. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by clicking **Diagnostics settings**.
    
-    ![][2]
+    ![Diagnostic settings](./media/iot-hub-metrics/enable-metrics-2.png)
 
 ## IoT Hub metrics and how to use them
+
 IoT Hub provides several metrics to give you an overview of the health of your hub and the total number of connected devices. You can combine information from multiple metrics to paint a bigger picture of the state of the IoT hub. The following table describes the metrics each IoT hub tracks, and how each metric relates to the overall status of the IoT hub.
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -93,25 +97,13 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |configurations|Configuration Metrics|Count|Total|Metrics for Configuration Operations|No Dimensions|
 
 ## Next steps
+
 Now that you’ve seen an overview of IoT Hub metrics, follow this link to learn more about managing Azure IoT Hub:
 
-* [Operations monitoring][lnk-monitor]
+* [Operations monitoring](iot-hub-operations-monitoring.md)
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub developer guide][lnk-devguide]
-* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
+* [IoT Hub developer guide](iot-hub-devguide.md)
 
-<!-- Links and images -->
-[1]: media/iot-hub-metrics/enable-metrics-1.png
-[2]: media/iot-hub-metrics/enable-metrics-2.png
-
-[lnk-get-started]: quickstart-send-telemetry-dotnet.md
-[lnk-operations-monitoring]: iot-hub-operations-monitoring.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-dr]: iot-hub-ha-dr.md
-
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
