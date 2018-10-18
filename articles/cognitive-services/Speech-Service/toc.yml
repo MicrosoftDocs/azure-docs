@@ -111,7 +111,7 @@
     - name: From the Custom Speech service
       href: how-to-migrate-from-custom-speech-service.md
     - name: From the Translator Speech API
-      href: how-to-migrate-from-translator-speech-api.md   
+      href: how-to-migrate-from-translator-speech-api.md
 - name: Concepts
   items:
   - name: Speech to Text
@@ -194,7 +194,7 @@
     href: troubleshooting.md
   - name: Support
     href: support.md
-  - name: Pricing
+  - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
