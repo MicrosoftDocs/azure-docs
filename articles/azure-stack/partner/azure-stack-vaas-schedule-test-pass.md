@@ -24,7 +24,7 @@ ms.reviewer: johnhas
 
 Schedule a test in the Validation as a Service (VaaS) portal for your Azure Stack solution. A VaaS solution represents an Azure Stack solution with a particular hardware bill of materials (BoM). You can schedule a test to check that your hardware can run Azure Stack.
 
-To check your solution, create the workflow for a test. A VaaS workflow operates within the context of a VaaS solution. It represents a set of test suites that exercise the functionality of an Azure Stack deployment on your hardware. You must gather your solution's environmental parameters and select one or more tests to run on your solution.
+To check your solution, create the workflow for a test. A VaaS workflow operates within the context of a VaaS solution. It represents a set of test suites that exercise the functionality of an Azure Stack deployment on your hardware. Add your solution's environmental parameters and select one or more tests to run on your solution.
 
 While the Test Pass workflow can be used to run any test provided by VaaS, including tests from the validation workflows, results from the Test Pass workflow are not considered *official*. For information about official validation workflows, see [Workflows](azure-stack-vaas-key-concepts.md#workflows).
 
@@ -43,12 +43,12 @@ Before you follow this quickstart, you should finish the following items:
 Sign in to the portal, select or creation a solution, and then select the solution.
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
-2. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
+2. Type the name of an existing solution or select **New solution** to create a new solution. For instructions, see [Create a solution in the VaaS portal](../azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal).
 3. Select **Start** on the **Test Passes** tile.
 
 ## Specify parameters
 
-![Alt Text](media/vaas_portalsignin.png)
+![Alt Text](media/vaas_test_pass_parameters.png)
 
 Define the workflow for your solution. The workflow has the process steps that used to test your solution.
 
@@ -60,8 +60,6 @@ Define the workflow for your solution. The workflow has the process steps that u
 
 ## Select tests to run
 
-![Alt Text](media/vaas_portalsignin.png)
-
 Choose the tests you would like to run in your workflow.
 
 1. Select the test(s) you want to run in your workflow.
@@ -72,8 +70,6 @@ Choose the tests you would like to run in your workflow.
 1. Select **Next** to review the workflow.
 
 ## Review and submit
-
-![Alt Text](media/vaas_portalsignin.png)
 
 Review, create, and then schedule you workflow.
 
