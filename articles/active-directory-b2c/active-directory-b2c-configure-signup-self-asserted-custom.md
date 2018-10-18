@@ -278,3 +278,48 @@ Add the new claim to the flows for social account logins by changing the Technic
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
+
+Add the claim `<OutputClaim ClaimTypeReferenceId="city"/>` to the TechnicalProfile `SelfAsserted-Social` (found in the TrustFrameworkBase policy file).
+
+```xml
+<TechnicalProfile Id="SelfAsserted-Social">
+  <DisplayName>User ID signup</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+  </CryptographicKeys>
+  <InputClaims>
+    <!-- These claims ensure that any values retrieved in the previous steps (e.g. from an external IDP) are prefilled. 
+         Note that some of these claims may not have any value, for example, if the external IDP did not provide any of
+         these values, or if the claim did not appear in the OutputClaims section of the IDP.
+         In addition, if a claim is not in the InputClaims section, but it is in the OutputClaims section, then its
+         value will not be prefilled, but the user will still be prompted for it (with an empty value). -->
+    <InputClaim ClaimTypeReferenceId="displayName" />
+    <InputClaim ClaimTypeReferenceId="givenName" />
+    <InputClaim ClaimTypeReferenceId="surname" />            
+  </InputClaims>
+  <OutputClaims>
+    <!-- These claims are not shown to the user because their value is obtained through the "ValidationTechnicalProfiles"
+         referenced below, or a default value is assigned to the claim. A claim is only shown to the user to provide a 
+         value if its value cannot be obtained through any other means. -->
+    <OutputClaim ClaimTypeReferenceId="objectId" />
+    <OutputClaim ClaimTypeReferenceId="newUser" />
+    <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+
+    <!-- Optional claims. These claims are collected from the user and can be modified. If a claim is to be persisted in the directory after having been 
+         collected from the user, it needs to be added as a PersistedClaim in the ValidationTechnicalProfile referenced below, i.e. 
+         in AAD-UserWriteUsingAlternativeSecurityId. -->
+    <OutputClaim ClaimTypeReferenceId="displayName" />
+    <OutputClaim ClaimTypeReferenceId="givenName" />
+    <OutputClaim ClaimTypeReferenceId="surname" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <ValidationTechnicalProfiles>
+    <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingAlternativeSecurityId" />
+  </ValidationTechnicalProfiles>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialSignup" />
+</TechnicalProfile>
+```
