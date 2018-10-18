@@ -60,12 +60,12 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
-  - name: Access data
-    href: how-to-access-data.md
   - name: Train models
     items:    
     - name: Set up training environments	
       href: how-to-set-up-training-targets.md
+    - name: Access data in training
+      href: how-to-access-data.md
     - name: Create estimators
       href: how-to-train-ml-models.md
       items:
@@ -73,8 +73,6 @@
         href: how-to-train-pytorch.md
       - name: TensorFlow
         href: how-to-train-tensorflow.md
-    - name: Create and deploy ONNX models
-      href: how-to-build-deploy-onnx.md   
   - name: Tune models
     items:    
     - name: Tune hyperparameters
@@ -88,6 +86,10 @@
       href: how-to-configure-auto-train.md 
     - name: Use remote compute targets
       href: how-to-auto-train-remote.md
+  - name: ONNX models	
+    items:    
+    - name: Create and deploy ONNX models
+      href: how-to-build-deploy-onnx.md   
   - name: Deploy models	
     items:    
     - name: Where to deploy models

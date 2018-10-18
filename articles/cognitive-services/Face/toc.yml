@@ -79,13 +79,13 @@
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
   - name: FAQ
     href: FAQ.md
-  - name: Pricing
+  - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430315-face-api
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure Roadmap
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/

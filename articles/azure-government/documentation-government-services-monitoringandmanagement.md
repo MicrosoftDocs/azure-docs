@@ -152,7 +152,6 @@ The following Log Analytics features and solutions are not currently available i
 * Features that are in preview in public Azure, including:
   * Export of data to Power BI
 * Azure metrics and Azure diagnostics
-* Operations Management Suite mobile application
 
 The URLs for Log Analytics are different in Azure Government:
 
@@ -187,7 +186,7 @@ The following Log Analytics features behave differently in Azure Government:
 ### Frequently asked questions
 * Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
   * No. It is not possible to move data or your workspace from Microsoft Azure to Azure Government.
-* Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite Log Analytics portal?
+* Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite portal?
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
