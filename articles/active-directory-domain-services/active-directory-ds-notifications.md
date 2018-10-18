@@ -31,6 +31,8 @@ This feature is only available for managed domains that are not on classic virtu
 2. Choose your managed domain from the table
 3. In the left-hand navigation, choose **Notification settings**
 
+On the page it lists out all of the email recipients for email notifications for Azure AD Domain Services.
+
 ## What does an email notification look like?
 
 The following picture is an example of an email notification:
@@ -39,7 +41,6 @@ The following picture is an example of an email notification:
 
 The email specifies the managed domain that the alert is present on, as well as giving the time of detection and a link to the Azure AD Domain Services health page in the Azure portal.
 
->
 > [!WARNING]
 > Always make sure that the email is coming from a verified Microsoft sender before clicking links in your emails. The emails always come from the email azure-noreply@microsoft.com
 >
@@ -65,10 +66,8 @@ You are able to add up to five additional emails for notifications regarding Azu
 
 ## How to add an additional email recipient
 
->
-> [WARNING!]
+> [!WARNING]
 > When changing the notification settings, you are changing the notification settings for the entire managed domain, not just yourself.
->
 
 1. Navigate to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) on the Azure portal.
 2. Click on your managed domain.
