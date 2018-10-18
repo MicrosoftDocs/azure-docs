@@ -207,7 +207,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 **Azure Monitor**:
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
 
-Azure Network Watcher: [Azure Network Watcher]9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.  Commonwealth entities should implement Network Watcher flow logs for NSGs and Virtual Machines. These logs should be stored in a dedicated storage account that only security logs are stored in and access to the storage account should be secured with Role Based Access Controls.
+Azure Network Watcher: [Azure Network Watcher]9https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.  Commonwealth entities should implement Network Watcher flow logs for NSGs and Virtual Machines. These logs should be stored in a dedicated storage account that only security logs are stored in and access to the storage account should be secured with Role Based Access Controls.
 
 ## Threat model
 

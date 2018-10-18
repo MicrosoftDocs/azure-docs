@@ -33,7 +33,7 @@ Installing the NuGet Web Search SDK package also installs dependencies, includin
 
 ## Get the ImageInsightsToken from Image Search
 
-This example uses an `ImageInsightsToken` obtained by the following method.  For more information about this call, see [Image Search SDK C# quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
+This example uses an `ImageInsightsToken` obtained by the following method.  For more information about this call, see [Image Search SDK C# quickstart](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
 The code searches for results on a query for 'Canadian Rockies' and gets an ImageInsightsToken. It prints the first image's insights token, thumbnail url, and image content url.  The method returns the `ImageInsightsToken`for use in a subsequent Visual Search request.
 
@@ -134,7 +134,7 @@ Getting the actual image URLs requires a cast that reads an `ActionType` as `Ima
         }
     }
 ```
-For more information about these data types, see [Images - Visual Search](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+For more information about these data types, see [Images - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 ## Complete code
 
