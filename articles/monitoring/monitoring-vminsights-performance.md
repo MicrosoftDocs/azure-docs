@@ -21,7 +21,7 @@ ms.author: magoedte
 Azure Monitor for VMs includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, Azure Monitor for VMs is focused on the operating system as manifested through the processor, memory, network adapters, and disks. Performance complements the health monitoring feature and helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
 
 ## Multi-VM perspective from Azure Monitor
-From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access from Azure Monitor, perform the following. 
+From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access from Azure Monitor, perform the following steps. 
 
 1. In the Azure portal, select **Monitor**. 
 2. Choose **Virtual Machines (preview)** in the **Solutions** section.
@@ -29,17 +29,17 @@ From Azure Monitor, the Performance feature provides a multi-virtual machine vie
 
 ![VM insights Performance Top N List view](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector will return subscriptions, resource groups, [computer groups](../log-analytics/log-analytics-computer-groups.md), and VM scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and does not carry over to Health or Map.  
+On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector will return subscriptions, resource groups, [computer groups](../log-analytics/log-analytics-computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and does not carry over to Health or Map.  
 
 By default, the charts show the last 24 hours. Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
 
 The five capacity utilization charts shown on the page are:
 
-* CPU Utilization % - shows the top 5 machines with the highest average processor utilization 
-* Available Memory - shows the top 5 machines with the lowest average amount of available memory 
-* Logical Disk Space Used % - shows the top 5 machines with the highest average disk space used % across all disk volumes 
-* Bytes Sent Rate - shows the top 5 machines with highest average of bytes sent 
-* Bytes Receive Rate - shows the top 5 machines with highest average of bytes sent 
+* CPU Utilization % - shows the top five machines with the highest average processor utilization 
+* Available Memory - shows the top five machines with the lowest average amount of available memory 
+* Logical Disk Space Used % - shows the top five machines with the highest average disk space used % across all disk volumes 
+* Bytes Sent Rate - shows the top five machines with highest average of bytes sent 
+* Bytes Receive Rate - shows the top five machines with highest average of bytes sent 
 
 Clicking on the upper right-hand corner of any one of the five charts will open **Top N List** view.  Here you see the resource utilization for that performance metric by individual VM in a list view and which machine is trending highest.  
 
