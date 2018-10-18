@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/118/2018
+ms.date: 10/18/2018
 ms.author: douglasl
 ---
 # Create a trigger that runs a pipeline in response to an event
