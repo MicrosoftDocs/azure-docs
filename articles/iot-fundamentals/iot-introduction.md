@@ -1,13 +1,12 @@
 ---
-title: Azure Internet of Things (IoT) Introduction 
-description: Overview Azure IoT and related services and technologies.
-author: BryanLa
-manager: timlt
+title: Introduction to Azure and the Internet of Things (IoT)
+description: Overview of Azure IoT and the services contained therein
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
+ms.date: 10/09/2018
+ms.author: robinsh
 ---
 
 # Introduction to Azure and the Internet of Things
@@ -23,10 +22,10 @@ The following diagram shows the key elements of a typical IoT solution architect
 * Other line-of-business applications.
 * Human operators through a dashboard or other presentation device.
 
-![IoT solution architecture][img-solution-architecture]
+![IoT solution architecture](./media/iot-introduction/iot-reference-architecture.png)
 
 > [!NOTE]
-> For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
+> For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).
 
 ### Device connectivity
 
@@ -77,8 +76,10 @@ The presentation and business connectivity layer allows end users to interact wi
 
 Azure IoT simplifies the complexity of IoT projects and addresses the challenges such as security, infrastructure incompatibility, and scaling your IoT solution. Here is how:
 
-**Agile** <br>
-Accelerate your IoT journey
+### Agile
+
+Accelerate your IoT journey.
+
 * Scale: start small, grow to any size, anywhere and everywhere — millions of devices, terabytes of data, in the most regions worldwide.
 
 * Open: use what you have, or modernize for the future by connecting to any device, software, or service.
@@ -87,8 +88,9 @@ Accelerate your IoT journey
 
 * Pace: deploy faster, speed time-to-market, and stay ahead of your competition with the leader in solution accelerators and pace of innovation in IoT.
 
-**Comprehensive** <br>
-Deliver impact for your business
+### Comprehensive
+
+Deliver impact for your business.
 
 * Complete: Microsoft is the only IoT solution provider with a complete platform spanning device to cloud, across big data, advanced analytics, and with managed services.
 
@@ -98,8 +100,9 @@ Deliver impact for your business
 
 * Device-centric: Microsoft IoT allows you to connect anything, from legacy equipment to a vast ecosystem of certified hardware, and the ability to build your own devices across edge, mobile, and embedded systems.
 
-**Secure** <br>
-Solve the hardest part of IoT — security
+### Secure
+
+Solve the hardest part of IoT — security.
 
 * Empower: with Microsoft IoT, you can bring together your vision, with the technology, best practices, and the capabilities to solve for the hardest part of IoT — security.
 
@@ -111,69 +114,21 @@ Solve the hardest part of IoT — security
 
 ## Next steps
 
-Explore the following areas of technologies and solutions, or see the Table of Contents to the left for the list of Azure IoT services.
+Explore the following areas of technologies and solutions.
 
-<ul class="panelContent cardsF">  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Solutions</h3>
-                        <a href="/azure/iot-suite">IoT solution accelerators</a><br/>
-                        <a href="/azure/iot-central">IoT Central</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Platform services</h3>
-                        <a href="/azure/iot-hub">IoT Hub</a><br/>
-                        <a href="/azure/iot-dps">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/azure-maps">Maps</a><br/>
-                        <a href="/azure/time-series-insights">Time Series Insights</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Edge</h3>
-                        <a href="/azure/iot-edge">IoT Edge</a><br/>
-                        <a href="/azure/iot-edge/how-iot-edge-works">What is IoT Edge?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>      
-</ul>
+**Solutions**
 
-[img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
+* [IoT solution accelerators](/azure/iot-suite)
+* [IoT Central](/azure/iot-central)
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
-[lnk-iot-dps-land]: /azure/iot-dps/index.yml
-[lnk-iot-edge-land]: /azure/iot-edge/index.yml
-[lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: ../iot-accelerators/index.yml
-[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+**Platform services**
 
-[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-accelerators/about-iot-accelerators.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: https://aka.ms/iotrefarchitecture
+* [IoT Hub](/azure/iot-hub)
+* [IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Azure Maps](/azure/azure-maps/)
+* [Time Series Insights](/azure/time-series-insights)
 
+**Edge**
 
+* [IoT Edge Overview](/azure/iot-edge)
+* [What is IoT Edge](/azure/how-iot-edge-works)

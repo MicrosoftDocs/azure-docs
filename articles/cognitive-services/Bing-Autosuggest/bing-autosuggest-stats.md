@@ -7,7 +7,7 @@ author: swhite-msft
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-autosuggest
+ms.component: bing-autosuggest
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: scottwhi

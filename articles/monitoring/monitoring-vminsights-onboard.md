@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/16/2018
 ms.author: magoedte
 ---
 
@@ -40,6 +40,10 @@ A Log Analytics workspace in the following regions is currently supported:
 
 <sup>1</sup> 
 This region does not currently support the Health feature of Azure Monitor for VMs   
+
+>[!NOTE]
+>Azure virtual machines can be on-boarded from any region and are not limited to the supported regions for the Log Analytics workspace.
+>
 
 If you do not have a workspace, you can create it through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md), or with [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
 

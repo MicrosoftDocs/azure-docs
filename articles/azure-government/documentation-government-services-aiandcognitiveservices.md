@@ -70,7 +70,7 @@ For more information, please see [public documentation](../cognitive-services/Sp
 The following variations exist for Translator Text API from Commercial Azure:
 - Endpoint: https://api.microsofttranslator.us
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
-- Available SKUs: S1, S2, S3, S4
+- Available SKUs: S1
 - Translator Hub, Web Widget, and Collaboration Translation Framework (CTF) are not supported.
  
 For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.

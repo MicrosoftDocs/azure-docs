@@ -16,8 +16,6 @@ ms.author: nolachar
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
 
-The source code for this sample is available on [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
-
 ## Prerequisites
 
 You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
@@ -25,6 +23,9 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
 ## Transliterate request
+
+> [!TIP]
+> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 The following converts text in one language from one script to another script using the [Transliterate](./reference/v3-0-transliterate.md) method.
 

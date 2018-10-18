@@ -15,9 +15,9 @@ ms.date: 07/27/2018
 >The resources you created can be used as prerequisites to other Azure Machine Learning service tutorials and how-to articles. 
 
 
-If you're not going to use what you've created here, delete the resources you just created with this quickstart so you don't incur any charges.
+If you don't plan to use the resources you created here, delete them so you don't incur any charges.
 
-1. In the Azure portal, select **Resource groups** on the far left.  
+1. In the Azure portal, select **Resource groups** on the far left.
  
    ![Delete in Azure portal](./media/aml-delete-resource-group/delete-resources.png)
 
@@ -25,6 +25,6 @@ If you're not going to use what you've created here, delete the resources you ju
 
 1. Select **Delete resource group**.
 
-1. Type the resource group name and then select **Delete**.
+1. Enter the resource group name, and then select **Delete**.
 
-   If you get the error "Can not delete resource before nested resources are deleted", you must delete any nested resources first. [Refer to this troubleshooting section](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) for details. 
+   If you see the error message "Cannot delete resource before nested resources are deleted," you must delete any nested resources first. For information on how to delete nested resources, see [this troubleshooting section](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 

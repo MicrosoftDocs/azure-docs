@@ -159,10 +159,10 @@ This example uses the [Azure portal](https://portal.azure.com) to udpate the *ac
 >[!NOTE]
 >To use a custom claim, you must also have a custom policy defined and assigned to the application.  This policy should include all required custom attributes.
 >
->Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy `and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy `and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### Optional - Use a custom claim
-To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## Download PingAccess and configure your app
 

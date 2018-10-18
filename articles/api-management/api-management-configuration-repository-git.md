@@ -214,14 +214,14 @@ The final setting, `$ref-policy`, maps to the global policy statements file for 
 ### apis folder
 The `apis` folder contains a folder for each API in the service instance, which contains the following items.
 
-* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) with `export=true` in `application/json` format.
-* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
+* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/rest/api/apimanagement/api/get) with `export=true` in `application/json` format.
+* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
 
 ### groups folder
 The `groups` folder contains a folder for each group defined in the service instance.
 
-* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) operation.
+* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://docs.microsoft.com/rest/api/apimanagement/group/get) operation.
 * `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### policies folder
@@ -241,7 +241,7 @@ The `portalStyles` folder contains configuration and style sheets for developer 
 ### products folder
 The `products` folder contains a folder for each product defined in the service instance.
 
-* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) operation.
+* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://docs.microsoft.com/rest/api/apimanagement/product/get) operation.
 * `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in the REST API.
 
 ### templates

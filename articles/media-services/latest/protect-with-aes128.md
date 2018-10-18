@@ -4,7 +4,7 @@ description: Deliver your content encrypted with AES 128-bit encryption keys by 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/16/2018
 ms.author: juliako
 
 ---

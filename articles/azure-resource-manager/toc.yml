@@ -15,9 +15,9 @@
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Tutorials
   items:
-  - name: Create an encrypted storage account
+  - name: Utilize template reference
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Create multiple storage account instances
+  - name: Create multiple resource instances
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Set resource deployment order
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
@@ -127,10 +127,6 @@
       href: programmatically-create-subscription.md
     - name: Grant access to create EA subscriptions
       href: grant-access-to-create-subscription.md
-    - name: Create management groups
-      href: management-groups-create.md
-    - name: Manage your management groups
-      href: management-groups-manage.md
   - name: Control Access
     items:
     - name: Create service principal
