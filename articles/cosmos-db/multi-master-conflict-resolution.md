@@ -205,7 +205,7 @@ Below are sample applications that demonstrate conflict resolution for the APIs 
 
 |API model  | SDK |Sample |
 |---------|---------|---------|
-|SQL  API    | .NET    |[azure-cosmos-db-sql-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)  |
+|SQL  API    | .NET    |[azure-cosmosdb-dotnet/samples/MultiMaster/](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/MultiMaster)  |
 |SQL  API    | Node    |[azure-cosmos-js/samples/MultiRegionWrite/](https://github.com/Azure/azure-cosmos-js/tree/master/samples/MultiRegionWrite)  |
 |SQL  API    | Java    |[azure-cosmosdb-java-examples/src/main](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/main)  |
 |MongoDB  | .NET    |[azure-cosmos-db-mongodb-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)   |
