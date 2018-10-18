@@ -46,7 +46,4 @@ sections:
   - type: list
     style: unordered
     items:
-    - text: "What is Bing Local Business Search?"
-        href: overview.md
-    - text: "Geographic search"
-        href: specify-geographic-search.md
+      html: <p><a href="https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-local-search/overview?branch=pr-en-us-48110">What is Bing Local Business Search?</a></p>
