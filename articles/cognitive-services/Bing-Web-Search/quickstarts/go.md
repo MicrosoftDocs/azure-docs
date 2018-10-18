@@ -314,7 +314,7 @@ Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit
 Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
 Microsoft Enterprise Services - Microsoft Enterprise || https://enterprise.microsoft.com/en-us/services/
 Microsoft Cognitive Services || https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
-Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/en-us/magazine/mt742868.aspx  
+Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/mt742868.aspx  
 ```
 
 ## Next steps
