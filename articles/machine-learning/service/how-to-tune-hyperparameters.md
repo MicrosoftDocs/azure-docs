@@ -319,7 +319,7 @@ Additionally, you can visually identify the correlation between performance and 
 
 ![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](how-to-track-experiments.md/#view-the-experiment-in-the-web-portal).
+You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ![hyperparameter tuning portal](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 
