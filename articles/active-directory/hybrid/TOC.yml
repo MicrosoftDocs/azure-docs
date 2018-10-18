@@ -286,5 +286,7 @@
     href: reference-connect-sync-functions-reference.md
   - name: Azure AD federation compatibility list
     href: how-to-connect-fed-compatibility.md
-  - name: ADSyncTools Reference
+  - name: ADSyncConfig Reference
     href: reference-connect-adsyncconfig.md
+  - name: ADSyncTools Reference
+    href: reference-connect-adsynctools.md
