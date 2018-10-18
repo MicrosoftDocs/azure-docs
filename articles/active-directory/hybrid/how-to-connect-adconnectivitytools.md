@@ -20,7 +20,7 @@ The ADConnectivity tool is a PowerShell module that is used in one of the follow
 - During installation when a network connectivity problem is prevents the successful validation of the Active Directory credentials the user provided in the Wizard.
 - Post installation by a user who calls the functions from a PowerShell session.
 
-The tool It is located in: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
+The tool is located in: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
 
 ## ADConnectivityTool during installation
 
@@ -28,7 +28,7 @@ On the **Connect your directories** page, in the Azure AD Connect Wizard, if a n
 
 - The name of the Forest the user provided was typed wrongly, or said Forest doesn’t exist 
 - UDP port 389 is closed in the Domain Controllers associated with the Forest the user provided
-- The credentials provided in the ‘AD forest account’ window (Figure 2) doesn’t have privileges to retrieve the Domain Controllers associated with the target Forest
+- The credentials provided in the ‘AD forest account’ window doesn’t have privileges to retrieve the Domain Controllers associated with the target Forest
 - Any of the TCP ports 53, 88 or 389 are closed in the Domain Controllers associated with the Forest the user provided 
 - Both UDP 389 and a TCP port (or ports) are closed
 - DNS could not be resolved for the provided Forest and\or its associated Domain Controllers
@@ -42,7 +42,7 @@ For example, when we are attempting to add a directory on the **Connect your dir
 
 What is actually happening behind the scenes, is that Azure AD Connect is calling the `Start-NetworkConnectivityDiagnosisTools` function.  This function is the one Azure AD Connect will call when the validation of the AD Credentials fail due to a network connectivity issue. A series of tests are run.
 
-Finally, a detailed log file is generated whenever the tool is called from the wizard. The log is located in **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.logw**
+Finally, a detailed log file is generated whenever the tool is called from the wizard. The log is located in **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
 
 ## ADConnectivityTools post installation
 After Azure AD Connect has been installed, any of the functions in the ADConnectivityTools PowerShell module can be used.  
