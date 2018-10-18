@@ -35,5 +35,4 @@ Your choice of [consistency model](consistency-levels.md) also affects throughpu
 
 ## Next steps
 
-[Azure Cosmos DB SLA](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_0/)
-
+[Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_0/)
