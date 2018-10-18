@@ -3,20 +3,16 @@ title: Testing Azure Functions | Microsoft Docs
 description: Test your Azure functions by using Postman, cURL, and Node.js.
 services: functions
 documentationcenter: na
-author: wesmc7777
-manager: erikre
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, testing
 
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/02/2017
-ms.author: wesmc
+ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 
@@ -31,9 +27,9 @@ This topic demonstrates the various ways to test functions, including using the 
 + Timer-triggered function
 + Testing application or framework
 
-All these testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You create this function in the first section.
+All these testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You create this function using the Azure portal in the first section.
 
-## Create a function for testing
+## Create a simple function for testing using the Azure portal
 For most of this tutorial, we use a slightly modified version of the HttpTrigger JavaScript function template that is available when you create a function. If you need help creating a function, review this [tutorial](functions-create-first-azure-function.md). Choose the **HttpTrigger- JavaScript** template when creating the test function in the [Azure portal].
 
 The default function template is basically a "hello world" function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We'll update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function echoes these back to the client when available.   
@@ -231,7 +227,7 @@ In the portal **Logs** window, output similar to the following is logged in exec
 
 
 ### Test with a timer trigger
-Some functions can't be adequately tested with the tools mentioned previously. For example, consider a queue trigger function that runs when a message is dropped into [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md). You can always write code to drop a message into your queue, and an example of this in a console project is provided later in this article. However, there is another approach you can use that tests functions directly.  
+Some functions can't be adequately tested with the tools mentioned previously. For example, consider a queue trigger function that runs when a message is dropped into [Azure Queue storage](../storage/queues/storage-dotnet-how-to-use-queues.md). You can always write code to drop a message into your queue, and an example of this in a console project is provided later in this article. However, there is another approach you can use that tests functions directly.  
 
 You can use a timer trigger configured with a queue output binding. That timer trigger code can then write the test messages to the queue. This section walks through an example.
 
@@ -375,11 +371,11 @@ In the portal **Logs** window, output similar to the following is logged in exec
 
 
 ### Test a queue trigger function with code: C# #
-We mentioned earlier that you can test a queue trigger by using code to drop a message in your queue. The following example code is based on the C# code presented in the [Getting started with Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md) tutorial. Code for other languages is also available from that link.
+We mentioned earlier that you can test a queue trigger by using code to drop a message in your queue. The following example code is based on the C# code presented in the [Getting started with Azure Queue storage](../storage/queues/storage-dotnet-how-to-use-queues.md) tutorial. Code for other languages is also available from that link.
 
 To test this code in a console app, you must:
 
-* [Configure your storage connection string in the app.config file](../storage/storage-dotnet-how-to-use-queues.md).
+* [Configure your storage connection string in the app.config file](../storage/queues/storage-dotnet-how-to-use-queues.md).
 * Pass a `name` and `address` as parameters to the app. For example, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (This code accepts the name and address for a new user as command-line arguments during runtime.)
 
 Example C# code:

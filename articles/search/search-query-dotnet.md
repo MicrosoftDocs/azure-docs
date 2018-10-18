@@ -1,20 +1,14 @@
 ---
-title: Query your Azure Search Index using the .NET SDK | Microsoft Docs
+title: "Query an index (.NET API - Azure Search) | Microsoft Docs"
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
-services: search
-manager: jhubbard
-documentationcenter: ''
 author: brjohnstmsft
-
-ms.assetid: 12c3efba-ea99-4187-9d2d-f63b5ec7040d
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/19/2017
-ms.author: brjohnst
-
 ---
 # Query your Azure Search index using the .NET SDK
 > [!div class="op_single_selector"]
@@ -29,7 +23,8 @@ This article will show you how to query an index using the [Azure Search .NET SD
 
 Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
-Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> All sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto). You can also read about the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) for a more detailed walk through of the sample code.
 
 ## Identify your Azure Search service's query api-key
 Now that you have created an Azure Search index, you are almost ready to issue queries using the .NET SDK. First, you will need to obtain one of the query api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
@@ -67,7 +62,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 Searching with the .NET SDK is as simple as calling the `Documents.Search` method on your `SearchIndexClient`. This method takes a few parameters, including the search text, along with a `SearchParameters` object that can be used to further refine the query.
 
 #### Types of Queries
-The two main [query types](search-query-overview.md#types-of-queries) you will use are `search` and `filter`. A `search` query searches for one or more terms in all *searchable* fields in your index. A `filter` query evaluates a boolean expression over all *filterable* fields in an index.
+The two main [query types](search-query-overview.md#types-of-queries) you will use are `search` and `filter`. A `search` query searches for one or more terms in all *searchable* fields in your index. A `filter` query evaluates a boolean expression over all *filterable* fields in an index. You can use searches and filters together or separately.
 
 Both searches and filters are performed using the `Documents.Search` method. A search query can be passed in the `searchText` parameter, while a filter expression can be passed in the `Filter` property of the `SearchParameters` class. To filter without searching, just pass `"*"` for the `searchText` parameter. To search without filtering, just leave the `Filter` property unset, or do not pass in a `SearchParameters` instance at all.
 

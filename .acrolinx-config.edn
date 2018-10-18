@@ -1,2 +1,29 @@
-{:allowed-branchname-matches ["master" "release-.*" "sandbox-.*"]
- :allowed-filename-matches ["articles" "includes"]}
+{:allowed-branchname-matches ["^master$" "^release..*"]
+ :allowed-filename-matches ["articles" "includes"]
+
+ :template-header
+   "
+## Acrolinx Scorecards
+
+**A minimum Acrolinx score of 80 is required.** 
+ 
+ Click the scorecard links for each article to review the Acrolinx feedback on grammar, spelling, punctuation, writing style, and terminology:
+
+| Article | Score | Issues | Scorecard |
+| ------- | ----- | ------ | --------- |
+"
+
+   ;; do not remove the spaces at the end of lines! That is markdown for
+   ;; linebreak
+   :template-change
+   "| **${github/filename}** | ${acrolinx/qualityscore} | ${acrolinx/flags/issues} | [link](${acrolinx/scorecard}) |
+"
+
+ :template-footer
+"
+**More info about Acrolinx**
+
+- [Install Acrolinx locally for VSCode](https://review.docs.microsoft.com/en-us/help/contribute/contribute-acrolinx-vscode)
+- [Report false positives or issues](https://aka.ms/acrolinxbug)
+
+"}

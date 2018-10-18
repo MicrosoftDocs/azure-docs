@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/26/2017
+ms.date: 9/20/2017
 ms.author: raiye
 
 ---
@@ -30,10 +30,8 @@ The policy is
 
 At times, more than two families or releases may be supported. Official Guest OS support information will appear on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
-## When a Guest OS family or version is retired
-A new Guest OS **family** is introduced sometime after the release of a new official version of the Windows Server operating system. Whenever a new Guest OS family is introduced, Microsoft will retire the oldest Guest OS family.
-
-New Guest OS **versions** are introduced about every month to incorporate the latest MSRC updates. Because of the regular monthly updates, a Guest OS version is normally disabled 60 days after its release. This activity keeps at least two Guest OS versions for each family available for use.
+## When a Guest OS version is retired
+New Guest OS **versions** are introduced about every month to incorporate the latest MSRC updates. Because of the regular monthly updates, a Guest OS version is normally disabled around 60 days after its release. This activity keeps at least two Guest OS versions for each family available for use.
 
 ### Process during a Guest OS family retirement
 Once the retirement is announced, customers have a 12 month "transition" period before the older family is officially removed from service. This transition time may be extended at the discretion of Microsoft. Updates will be posted on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
@@ -58,8 +56,8 @@ Some time after becoming "disabled", the Guest OS version "*expires*" and any in
 These periods may be made longer at Microsoft's discretion to ease customer transitions. Any changes will be communicated on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
 ### Notifications during retirement
-* **Family retirement** <br>Microsoft will use blog posts and portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page.
-* **Version Retirement** <br>All changes and the dates they occur will be posted to this page and the RSS feed listed at the beginning of this page, including release, disabled, and expiration. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA.
+* **Family retirement** <br>Microsoft will use blog posts and portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+* **Version Retirement** <br>All changes and the dates they occur will be posted to the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md), including release, disabled, and expiration. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA.
 
 ## Frequently asked questions
 **How can I mitigate the impacts of migration?**

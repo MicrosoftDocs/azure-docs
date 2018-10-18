@@ -3,8 +3,8 @@ title: Deploy a VM using C# and a Resource Manager template | Microsoft Docs
 description: Learn to how to use C# and a Resource Manager template to deploy an Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,248 +14,315 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: davidmu
+ms.date: 07/14/2017
+ms.author: cynthn
 
 ---
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
-This article shows you how to deploy an Azure Resource Manager template using C#. The [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
+This article shows you how to deploy an Azure Resource Manager template using C#. The template that you create deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
 For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 It takes about 10 minutes to do these steps.
 
-## Step 1: Create a Visual Studio project
+## Create a Visual Studio project
 
 In this step, you make sure that Visual Studio is installed and you create a console application used to deploy the template.
 
-1. If you haven't already, install [Visual Studio](https://www.visualstudio.com/).
+1. If you haven't already, install [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Select **.NET desktop development** on the Workloads page, and then click **Install**. In the summary, you can see that **.NET Framework 4 - 4.6 development tools** is automatically selected for you. If you have already installed Visual Studio, you can add the .NET workload using the Visual Studio Launcher.
 2. In Visual Studio, click **File** > **New** > **Project**.
-3. In **Templates** > **Visual C#**, select **Console App (.NET Framework)**, enter the name and location of the project, and then click **OK**.
+3. In **Templates** > **Visual C#**, select **Console App (.NET Framework)**, enter *myDotnetProject* for the name of the project, select the location of the project, and then click **OK**.
 
-## Step 2: Install libraries
+## Install the packages
 
-NuGet packages are the easiest way to install the libraries that you need to finish these steps. You need the Azure Resource Manager Library and the Active Directory Authentication Library to create the resources. To get these libraries in Visual Studio, do these steps:
+NuGet packages are the easiest way to install the libraries that you need to finish these steps. To get the libraries that you need in Visual Studio, do these steps:
 
-1. Right-click the project name in the Solution Explorer, click **Manage NuGet Packages for Solution...**, and then click **Browse**.
-2. Type *Microsoft.IdentityModel.Clients.ActiveDirectory* in the search box, select your project, click **Install**, and then follow the instructions to install the package.
-3. At the top of the page, select **Include Prerelease**. Type *Microsoft.Azure.Management.ResourceManager* in the search box, click **Install**, and then follow the instructions to install the package.
-
-Now you're ready to start using the libraries to create your application.
-
-## Step 3: Create credentials used to authenticate requests
-
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager.
-
-1. Open the Program.cs file for the project that you created, and then add these using statements to the existing statements at top of the file:
+1. Click **Tools** > **Nuget Package Manager**, and then click **Package Manager Console**.
+2. Type these commands in the console:
 
     ```
-    using Microsoft.Azure;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.Rest;
-    using System.IO;
+    Install-Package Microsoft.Azure.Management.Fluent
+    Install-Package WindowsAzure.Storage
     ```
 
-2. Add this method to the Program class to get the token that's needed to create the credentials:
+## Create the files
 
-    ```
-    private static async Task<AuthenticationResult> GetAccessTokenAsync()
+In this step, you create a template file that deploys the resources and a parameters file that supplies parameter values to the template. You also create an authorization file that is used to perform Azure Resource Manager operations.
+
+### Create the template file
+
+1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *CreateVMTemplate.json*, and then click **Add**.
+2. Add this JSON code to the file that you created:
+
+    ```json
     {
-      var cc = new ClientCredential("client-id", "client-secret");
-      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
-      var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-      if (token == null)
-      {
-        throw new InvalidOperationException("Could not get the token.");
-      } 
-      return token;
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "adminUsername": { "type": "string" },
+        "adminPassword": { "type": "securestring" }
+      },
+      "variables": {
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+      },
+      "resources": [
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/publicIPAddresses",
+          "name": "myPublicIPAddress",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "publicIPAllocationMethod": "Dynamic",
+            "dnsSettings": {
+              "domainNameLabel": "myresourcegroupdns1"
+            }
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "myVNet",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
+            "subnets": [
+              {
+                "name": "mySubnet",
+                "properties": { "addressPrefix": "10.0.0.0/24" }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/networkInterfaces",
+          "name": "myNic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/publicIPAddresses/', 'myPublicIPAddress')]",
+            "[resourceId('Microsoft.Network/virtualNetworks/', 'myVNet')]"
+          ],
+          "properties": {
+            "ipConfigurations": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Dynamic",
+                  "publicIPAddress": { "id": "[resourceId('Microsoft.Network/publicIPAddresses','myPublicIPAddress')]" },
+                  "subnet": { "id": "[variables('subnetRef')]" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-04-30-preview",
+          "type": "Microsoft.Compute/virtualMachines",
+          "name": "myVM",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkInterfaces/', 'myNic')]"
+          ],
+          "properties": {
+            "hardwareProfile": { "vmSize": "Standard_DS1" },
+            "osProfile": {
+              "computerName": "myVM",
+              "adminUsername": "[parameters('adminUsername')]",
+              "adminPassword": "[parameters('adminPassword')]"
+            },
+            "storageProfile": {
+              "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2012-R2-Datacenter",
+                "version": "latest"
+              },
+              "osDisk": {
+                "name": "myManagedOSDisk",
+                "caching": "ReadWrite",
+                "createOption": "FromImage"
+              }
+            },
+            "networkProfile": {
+              "networkInterfaces": [
+                {
+                  "id": "[resourceId('Microsoft.Network/networkInterfaces','myNic')]"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
     ```
 
-    Replace these values:
-    
-    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
-    - *client-secret* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal. It is labeled *Directory ID*.
+3. Save the CreateVMTemplate.json file.
 
-3. To call the method that you just added, add this code to the Main method:
+### Create the parameters file
 
-    ```
-    var token = GetAccessTokenAsync();
-    var credential = new TokenCredentials(token.Result.AccessToken);
-    ```
+To specify values for the resource parameters that are defined in the template, you create a parameters file that contains the values.
 
-4. Save the Program.cs file.
+1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *Parameters.json*, and then click **Add**.
+2. Add this JSON code to the file that you created:
 
-## Step 4: Create a resource group
-
-Although you can create a resource group from a template, the template that you use from the gallery doesn't create one. In this step, you add the code to create a resource group.
-
-1. To specify values for the application, add variables to the Main method of the Program class:
-
-    ```
-    var groupName = "myResourceGroup";
-    var subscriptionId = "subsciptionId";
-    var deploymentName = "deploymentName";
-    var location = "location";
-    ```
-
-    Replace these values:
-    
-    - *myResourceGroup* with the name of the resource group being created.
-    - *subscriptionId* with your subscription identifier. You can find the subscription identifier on the Subscriptions blade of the Azure portal.
-    - *deploymentName* with the name of the deployment.
-    - *location* with the [Azure region](https://azure.microsoft.com/regions/) where you want to create the resources.
-
-2. To create the resource group, add this method to the Program class:
-
-    ```
-    public static async Task<ResourceGroup> CreateResourceGroupAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location)
-    {
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-
-      Console.WriteLine("Creating the resource group...");
-      var resourceGroup = new ResourceGroup { Location = location };
-      return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(
-        groupName, 
-        resourceGroup);
-    }
-    ```
-
-3. To call the method that you just added, add this code to the Main method:
-
-    ```
-    var rgResult = CreateResourceGroupAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location);
-    Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
-    Console.ReadLine();
-    ```
-
-## Step 5: Create a parameters file
-
-To specify values for the resource parameters that are defined in the template, you create a parameters file that contains the values. The parameters file is used when you deploy the template. The template that you are using from the gallery expects values for *adminUserName*, *adminPassword*, and *dnsLabelPrefix* parameters.
-
-In Visual Studio, do these steps:
-
-1. Right-click the project name in Solution Explorer, click **Add** > **New Item**.
-2. Click **Web**, select **JSON File**, enter *Parameters.json* for the name, and then click **Add**.
-3. Open the Parameters.json file and then add this JSON content:
-
-    ```
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "adminUserName": { "value": "mytestacct1" },
-        "adminPassword": { "value": "mytestpass1" },
-        "dnsLabelPrefix": { "value": "mydns1" }
+        "adminUserName": { "value": "azureuser" },
+        "adminPassword": { "value": "Azure12345678" }
       }
     }
     ```
 
-    Replace the parameter values with values that work in your environment.
-
 4. Save the Parameters.json file.
 
-## Step 6: Deploy a template
+### Create the authorization file
 
-In this example, you deploy a template from the Azure template gallery and supply parameter values to it from the local file that you created. 
+Before you can deploy a template, make sure that you have access to an [Active Directory service principal](../../resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager. You should also record the application ID, the authentication key, and the tenant ID that you need in the authorization file.
 
-1. To deploy the template, add this method to the Program class:
+1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *azureauth.properties*, and then click **Add**.
+2. Add these authorization properties:
 
     ```
-    public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(
-      TokenCredentials credential,
-      string groupName,
-      string deploymentName,
-      string subscriptionId)
-    {
+    subscription=<subscription-id>
+    client=<application-id>
+    key=<authentication-key>
+    tenant=<tenant-id>
+    managementURI=https://management.core.windows.net/
+    baseURL=https://management.azure.com/
+    authURL=https://login.windows.net/
+    graphURL=https://graph.windows.net/
+    ```
+
+    Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
+
+3. Save the azureauth.properties file.
+4. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created, for example the following PowerShell command can be used:
+
+    ```
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    ```
     
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
+## Create the management client
 
-      Console.WriteLine("Creating the template deployment...");
-      var deployment = new Deployment();
-      deployment.Properties = new DeploymentProperties
-        {
-          Mode = DeploymentMode.Incremental,
-          TemplateLink = new TemplateLink("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json"),
-          Parameters = File.ReadAllText("..\\..\\Parameters.json")
-        };
-      
-      return await resourceManagementClient.Deployments.CreateOrUpdateAsync(
-        groupName,
-        deploymentName,
-        deployment
-      );
-    }
-    ```
-
-    You could also deploy a template from a local folder by using the Template property instead of the TemplateLink property.
-
-2. To call the method that you just added, add this code to the Main method:
+1. Open the Program.cs file for the project that you created, and then add these using statements to the existing statements at top of the file:
 
     ```
-    var dpResult = CreateTemplateDeploymentAsync(
-      credential,
-      groupName,
-      deploymentName,
-      subscriptionId);
-    Console.WriteLine(dpResult.Result.Properties.ProvisioningState);
-    Console.ReadLine();
+    using Microsoft.Azure.Management.Compute.Fluent;
+    using Microsoft.Azure.Management.Compute.Fluent.Models;
+    using Microsoft.Azure.Management.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-## Step 7: Delete the resources
+2. To create the management client, add this code to the Main method:
 
-Because you are charged for resources used in Azure, it is always good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. Delete the resource group and all its resources are automatically deleted.
+    ```
+    var credentials = SdkContext.AzureCredentialsFactory
+        .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
-1. To delete the resource group, add this method to the Program class:
+    var azure = Azure
+        .Configure()
+        .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
+        .Authenticate(credentials)
+        .WithDefaultSubscription();
+    ```
 
-   ```
-   public static async void DeleteResourceGroupAsync(
-     TokenCredentials credential,
-     string groupName,
-     string subscriptionId)
-   {
-     Console.WriteLine("Deleting resource group...");
-     var resourceManagementClient = new ResourceManagementClient(credential)
-       { SubscriptionId = subscriptionId };
-     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-   }
-   ```
+## Create a resource group
 
-2. To call the method that you just added, add this code to the Main method:
+To specify values for the application, add code to the Main method:
 
-   ```
-   DeleteResourceGroupAsync(
-     credential,
-     groupName,
-     subscriptionId);
-   Console.ReadLine();
-   ```
+```
+var groupName = "myResourceGroup";
+var location = Region.USWest;
 
-## Step 8: Run the console application
+var resourceGroup = azure.ResourceGroups.Define(groupName)
+    .WithRegion(location)
+    .Create();
+```
+
+## Create a storage account
+
+The template and parameters are deployed from a storage account in Azure. In this step, you create the account and upload the files. 
+
+To create the account, add this code to the Main method:
+
+```
+string storageAccountName = SdkContext.RandomResourceName("st", 10);
+
+Console.WriteLine("Creating storage account...");
+var storage = azure.StorageAccounts.Define(storageAccountName)
+    .WithRegion(Region.USWest)
+    .WithExistingResourceGroup(resourceGroup)
+    .Create();
+
+var storageKeys = storage.GetKeys();
+string storageConnectionString = "DefaultEndpointsProtocol=https;"
+    + "AccountName=" + storage.Name
+    + ";AccountKey=" + storageKeys[0].Value
+    + ";EndpointSuffix=core.windows.net";
+
+var account = CloudStorageAccount.Parse(storageConnectionString);
+var serviceClient = account.CreateCloudBlobClient();
+
+Console.WriteLine("Creating container...");
+var container = serviceClient.GetContainerReference("templates");
+container.CreateIfNotExistsAsync().Wait();
+var containerPermissions = new BlobContainerPermissions()
+    { PublicAccess = BlobContainerPublicAccessType.Container };
+container.SetPermissionsAsync(containerPermissions).Wait();
+
+Console.WriteLine("Uploading template file...");
+var templateblob = container.GetBlockBlobReference("CreateVMTemplate.json");
+templateblob.UploadFromFileAsync("..\\..\\CreateVMTemplate.json").Result();
+
+Console.WriteLine("Uploading parameters file...");
+var paramblob = container.GetBlockBlobReference("Parameters.json");
+paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
+```
+
+## Deploy the template
+
+Deploy the template and parameters from the storage account that was created. 
+
+To deploy the template, add this code to the Main method:
+
+```
+var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
+var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
+var deployment = azure.Deployments.Define("myDeployment")
+    .WithExistingResourceGroup(groupName)
+    .WithTemplateLink(templatePath, "1.0.0.0")
+    .WithParametersLink(paramPath, "1.0.0.0")
+    .WithMode(Microsoft.Azure.Management.ResourceManager.Fluent.Models.DeploymentMode.Incremental)
+    .Create();
+Console.WriteLine("Press enter to delete the resource group...");
+Console.ReadLine();
+```
+
+## Delete the resources
+
+Because you are charged for resources used in Azure, it is always good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. Delete the resource group and all its resources are automatically deleted. 
+
+To delete the resource group, add this code to the Main method:
+
+```
+azure.ResourceGroups.DeleteByName(groupName);
+```
+
+## Run the application
 
 It should take about five minutes for this console application to run completely from start to finish. 
 
-1. To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same credentials that you use with your subscription.
+1. To run the console application, click **Start**.
 
-2. Press **Enter** after the *Succeeded* status appears. 
+2. Before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal. Click the deployment status to see information about the deployment.
 
-    You should also see **1 Succeeded** under Deployments on the Overview blade for your resource group in the Azure portal.
-
-3. Before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal. Click the deployment status to see information about the deployment.
-
-## Next Steps
+## Next steps
 * If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).

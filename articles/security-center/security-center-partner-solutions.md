@@ -1,5 +1,5 @@
 ---
-title: Managing partner solutions in Azure Security Center | Microsoft Docs
+title: Managing connected partner solutions in Azure Security Center | Microsoft Docs
 description: This document walks you through how Azure Security Center lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
 services: security-center
 documentationcenter: na
@@ -10,61 +10,60 @@ editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/20/2018
 ms.author: terrylan
 
 ---
-# Monitoring partner solutions with Azure Security Center
-This document walks you through how to monitor the health status of your partner solutions in Azure Security Center.
-
-> [!NOTE]
-> This document introduces the service by using an example deployment. This is not a step-by-step guide.
->
->
+# Managing connected partner solutions with Azure Security Center
+This article walks you through how to manage and monitor connected security solutions in Azure Security Center.
 
 ## Monitoring partner solutions
-The **Partner solutions** tile on the **Security Center** blade lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
+To monitor the health status of connected security solutions and perform basic management:
 
-![Partner solutions tile][1]
+1. Under **Security Center - Overview**, select **Security solutions**.
 
-The **Partner solutions** tile displays the number of partner solutions integrated with your subscription. If there are no solutions integrated, the tile displays the number zero.
+  ![Select security solutions][1]
 
-To view the health of your partner solutions:
+  The **Connected solutions** section includes security solutions that are connected to Security Center and information about the health status of each solution.
 
-1. Select the **Partner solutions** tile. The **Partner solutions** blade opens displaying a list of your partner solutions connected to Security Center.
-
-   ![Partner solutions][3]
+  ![Partner solutions][2]
 
    The status of a partner solution can be:
 
-   * Protected (green) - there is no health issue.
+   * Healthy (green) - there is no health issue.
    * Unhealthy (red) - there is a health issue that requires immediate attention.
-   * Stopped reporting (orange) - the solution has stopped reporting its health.
-   * Unknown protection status (orange) - the health of the solution is unknown at this time due to a failed process of adding a new resource to the existing solution.
-   * Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying.
+   * Health issues (orange) - the solution has stopped reporting its health.
+   * Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has recently been connected and is still deploying, or no health data is available.
 
-2. Select a partner solution. In this example, lets select the **Qualys** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
+   > [!NOTE]
+   > If health status data is not available, Security Center shows the date and time of the last event received to indicate whether the solution is reporting or not. If no health data is available and no alerts are received within the last 14 days, Security Center indicates that the solution is unhealthy or not reporting.
+   >
+   >
 
-   ![Partner solution detail][4]
-3. Go back to the **Qualys** blade and select **Link VM**. The **Link Applications** blade opens. Here you can connect resources to the partner solution.
+2. Select **VIEW** for additional information and options, which includes:
 
-   ![Link resources to partner solution][5]
+  - **Solution console**. Opens the management experience for this solution.
+  - **Link VM**. Opens the Link Applications blade. Here you can connect resources to the partner solution.
+  - **Delete solution**.
+  - **Configure**.
+
+   ![Partner solution detail][3]
 
 ## Next steps
-In this document, you were introduced to the **Partner Solutions** tile in Security Center. To learn more about Security Center, see the following:
+In this article, you learned how to manage and monitor connected security solutions in Security Center. To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing security recommendations in Azure Security Center](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
+* [Security solutions overview](security-center-partner-integration.md) — Learn how to connect and manage security solutions.
+* [Connecting Microsoft Advanced Threat Analytics (ATA)](security-center-ata-integration.md) — Learn how to connect alerts from ATA.
+* [Connecting Azure Active Directory (AD) Identity Protection ](security-center-aadip-integration.md) — Learn how to connect alerts from Azure AD Identity Protection.
+* [Partner and solutions integration](security-center-partner-integration.md) - Get an overview of integrating other security solutions.
+* [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
+* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
-[3]: ./media/security-center-partner-solutions/partner-solutions.png
-[4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
-[5]: ./media/security-center-partner-solutions/link-applications.png
+[2]: ./media/security-center-partner-solutions/partner-solutions.png
+[3]: ./media/security-center-partner-solutions/partner-solutions-detail.png

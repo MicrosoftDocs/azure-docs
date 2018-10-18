@@ -1,6 +1,6 @@
 ---
-title: Deploy an ASP.NET Core Linux Docker container to a remote Docker host | Microsoft Docs
-description: Learn how to use Visual Studio Tools for Docker to deploy an ASP.NET Core web app to a Docker container running on an Azure Docker Host Linux VM
+title: Deploy an ASP.NET Docker container to Azure Container Registry (ACR) | Microsoft Docs
+description: Learn how to use Visual Studio Tools for Docker to deploy an ASP.NET Core web app to a container registry
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
@@ -13,22 +13,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2016
+ms.date: 05/21/2018
 ms.author: mlearned
 
 ---
-# Deploy an ASP.NET container to a remote Docker host
+# Deploy an ASP.NET container to a container registry using Visual Studio
 ## Overview
 Docker is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services.
-This tutorial walks you through using the [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) extension
-to deploy an ASP.NET Core app to a Docker host on Azure using PowerShell.
+This tutorial walks you through using Visual Studio to publish your containerized application to an [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) before you begin.
 
 ## Prerequisites
-The following is required to complete this tutorial:
+To complete this tutorial:
 
-* Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Install the latest version of [Visual Studio](https://www.visualstudio.com/downloads/)
-* Download the [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
+* Install the latest version of [Visual Studio 2017](https://azure.microsoft.com/downloads/) with the "ASP.NET and web development" workload
 * Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## 1. Create an ASP.NET Core web app
@@ -36,51 +35,22 @@ The following steps guide you through creating a basic ASP.NET Core app that wil
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2. Add Docker support
-[!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
+## 2. Publish your container to Azure Container Registry
+1. Right-click your project in **Solution Explorer** and choose **Publish**.
+2. On the publish target dialog, select the **Container Registry** tab.
+3. Choose **New Azure Container Registry** and click **Publish**.
+4. Fill in your desired values in the **Create a new Azure Container Registry**.
 
-## 3. Use the DockerTask.ps1 PowerShell Script
-1. Open a PowerShell prompt to the root directory of your project. 
-   
-   ```
-   PS C:\Src\WebApplication1>
-   ```
-2. Validate the remote host is running. You should see state = Running 
-   
-   ```
-   docker-machine ls
-   NAME         ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
-   MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
-   ```
-   
-3. Build the app using the -Build parameter
-   
-   ```
-   PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
-   ```  
+    | Setting      | Suggested value  | Description                                |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **DNS Prefix** | Globally unique name | Name that uniquely identifies your container registry. |
+    | **Subscription** | Choose your subscription | The Azure subscription to use. |
+    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your container registry. Choose **New** to create a new resource group.|
+    | **[SKU](https://docs.microsoft.com/azure/container-registry/container-registry-skus)** | Standard | Service tier of the container registry  |
+    | **Registry Location** | A location close to you | Choose a Location in a [region](https://azure.microsoft.com/regions/) near you or near other services that will use your container registry. |
+    ![Visual Studio's create Azure Container Registry dialog][0]
+5. Click **Create**
 
-   > ```
-   > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
-   > ```  
-   > 
-   > 
-4. Run the app, using the -Run parameter
-   
-   ```
-   PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
-   ```
-   
-   > ```
-   > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
-   > ```
-   > 
-   > 
-   
-   Once docker completes, you should see results similar to the following:
-   
-   ![View your app][3]
+You can now pull the container from the registry to any host capable of running Docker images, for example [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md).
 
-[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
-[1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
-[2]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
-[3]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
+[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/vs-acr-provisioning-dialog.png

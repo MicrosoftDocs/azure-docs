@@ -33,7 +33,7 @@ Learn how to create, manage, and migrate databases using SQL DB.
 - [Improve SQL Database performance](/azure/sql-database/sql-database-performance-tutorial)
 - [Implement a multi-tenant SaaS application using SQL DB](/azure/sql-database/sql-database-multi-tenant-application)
 
-## Free PluralSight Video Training
+## Free Pluralsight Video Training
 
 - [Developing with .NET](https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
 

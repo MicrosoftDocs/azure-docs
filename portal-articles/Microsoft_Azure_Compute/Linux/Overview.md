@@ -40,11 +40,9 @@ Learn how to deploy, manage, and scale Linux VMs on Azure.
 - [Manage security on VMs](/azure/virtual-machines/linux/tutorial-azure-security)
 - [Create a CI/CD infrastructure with Jenkins, Docker, and GitHub](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
 
-## Free PluralSight Video Training
+## Free Pluralsight Video Training
 
-- [Managing Infrastructure](https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [Getting Started with Virtual Machines](https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [Getting Started with IaaS Monitoring](https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02")
+- [Azure Administrator](https://go.microsoft.com/fwlink/?linkid=2012827)
 
 ## Samples 
 

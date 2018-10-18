@@ -2,26 +2,24 @@
 title: How to query table data in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query table data in Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: kanshiG
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 05/10/2017
+ms.topic: tutorial
+ms.date: 11/15/2017
 ms.author: govindk
+ms.custom: mvc
 
 ---
 
-# Azure Cosmos DB: How to query table data by using the Table API (preview)?
+# Tutorial: Query Azure Cosmos DB by using the Table API
 
-The Azure Cosmos DB [Table API](table-introduction.md) (preview) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
+The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 
 This article covers the following tasks: 
 
@@ -36,13 +34,13 @@ The queries in this article use the following sample `People` table:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Because Azure Cosmos DB is compatible with the Azure Table storage APIs, see [Querying Tables and Entities] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API. 
+See [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API. 
 
-For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB: Table API](table-introduction.md) and [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md). 
+For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB Table API](table-introduction.md) and [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md). 
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have entity data in the container. Don't have any of those? Complete the [five-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](https://aka.ms/acdbtabletut) to create an account and populate your database.
+For these queries to work, you must have an Azure Cosmos DB account and have entity data in the container. Don't have any of those? Complete the [five-minute quickstart](create-table-dotnet.md) or the [developer tutorial](tutorial-develop-table-dotnet.md) to create an account and populate your database.
 
 ## Query on PartitionKey and RowKey
 Because the PartitionKey and RowKey properties form an entity's primary key, you can use the following special syntax to identify the entity: 
@@ -107,9 +105,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
-> * Learned how to query by using the Table API (preview) 
+> * Learned how to query by using the Table API
 
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
 > [!div class="nextstepaction"]
-> [Distribute your data globally](tutorial-global-distribution-documentdb.md)
+> [Distribute your data globally](tutorial-global-distribution-table.md)

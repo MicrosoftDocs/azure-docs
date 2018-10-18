@@ -1,9 +1,9 @@
 ---
-title: Get started with Azure Relay Hybrid Connections in .NET | Microsoft Docs
-description: How to write a C# console application for Hybrid Connections
+title: Get started with Azure Relay Hybrid Connections Websockets in .NET | Microsoft Docs
+description: Write a C# console application for Azure Relay Hybrid Connections Websockets.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,60 +13,64 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/27/2017
-ms.author: sethm
+ms.date: 12/15/2017
+ms.author: spelluru
 
 ---
 
-# Get started with Relay Hybrid Connections
+# Get started with Relay Hybrid Connections Websockets in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections), and shows how to create a client application that sends messages to a corresponding listener application. 
+This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections). Learn how to use Microsoft .NET to create a client application that sends messages to a corresponding listener application. 
 
 ## What will be accomplished
-Because Hybrid Connections requires both a client and a server component, the tutorial creates two console applications. The steps are:
+Hybrid Connections requires both a client component and a server component. In this tutorial, you complete these steps to create two console applications:
 
-1. Create a Relay namespace, using the Azure portal.
-2. Create a Hybrid Connection, using the Azure portal.
+1. Create a Relay namespace by using the Azure portal.
+2. Create a hybrid connection in that namespace by using the Azure portal.
 3. Write a server (listener) console application to receive messages.
 4. Write a client (sender) console application to send messages.
 
 ## Prerequisites
-1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
-2. An Azure subscription.
+
+To complete this tutorial, you need the following prerequisites:
+
+* [Visual Studio 2015 or later](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
+* An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Create a namespace using the Azure portal
-If you have already created a Relay namespace, jump to the [Create a Hybrid Connection using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal) section.
+## 1. Create a namespace by using the Azure portal
+If you have already created a Relay namespace, go to [Create a hybrid connection by using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## 2. Create a Hybrid Connection using the Azure portal
-If you have already created a Hybrid Connection, jump to the [Create a server application](#3-create-a-server-application-listener) section.
+## 2. Create a hybrid connection by using the Azure portal
+If you have already created a hybrid connection, go to [Create a server application](#3-create-a-server-application-listener).
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## 3. Create a server application (listener)
-To listen and receive messages from the Relay, we will write a C# console application using Visual Studio.
+In Visual Studio, write a C# console application to listen for and receive messages from the relay.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-dotnet-get-started-server.md)]
 
 ## 4. Create a client application (sender)
-To send messages to the Relay, we will write a C# console application using Visual Studio.
+In Visual Studio, write a C# console application to send messages to the relay.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-dotnet-get-started-client.md)]
 
 ## 5. Run the applications
 1. Run the server application.
 2. Run the client application and enter some text.
-3. Ensure that the server application console outputs the text that was entered in the client application.
+3. Ensure that the server application console displays the text that was entered in the client application.
 
 ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Congratulations, you have created an end-to-end Hybrid Connections application.
+Congratulations, you have created an end-to-end Hybrid Connections application!
 
-## Next steps:
+## Next steps
+
 * [Relay FAQ](relay-faq.md)
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)

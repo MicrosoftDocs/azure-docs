@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #e5e5e5;
+      }
+
+      .cls-3 {
+        fill: #55d2f6;
+      }
+    </style>
+  </defs>
+  <title>i_form</title>
+  <g id="ICONS-64x">
+    <rect class="cls-1" x="9" y="1" width="45" height="62"/>
+    <rect class="cls-2" x="23" y="17" width="26" height="8"/>
+    <line class="cls-1" x1="13" y1="21" x2="20" y2="21"/>
+    <rect class="cls-2" x="23" y="32" width="26" height="8"/>
+    <line class="cls-1" x1="13" y1="36" x2="20" y2="36"/>
+    <line class="cls-1" x1="13" y1="47" x2="50" y2="47"/>
+    <line class="cls-1" x1="13" y1="54" x2="50" y2="54"/>
+    <rect class="cls-3" x="10" y="2" width="43" height="7"/>
+    <line class="cls-1" x1="9" y1="10" x2="54" y2="10"/>
+  </g>
+</svg>

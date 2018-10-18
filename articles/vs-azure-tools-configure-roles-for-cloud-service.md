@@ -2,19 +2,16 @@
 title: Configure the roles for an Azure cloud service with Visual Studio | Microsoft Docs
 description: Learn how to set up and configure roles for Azure cloud services using Visual Studio.
 services: visual-studio-online
-documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: ''
-
-ms.assetid: d397ef87-64e5-401a-aad5-7f83f1022e16
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: d397ef87-64e5-401a-aad5-7f83f1022e16
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 03/21/2017
-ms.author: tarcher
+ms.author: ghogen
 
 ---
 # Configure Azure cloud service roles with Visual Studio

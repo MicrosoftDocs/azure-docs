@@ -1,19 +1,19 @@
 ---
-title: 'Connect to Azure Database for MySQL from PHP | Microsoft Docs'
+title: Connect to Azure Database for MySQL from PHP
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL.
 services: mysql
-author: mswutao 
-ms.author: wuta
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: hero-article
-ms.date: 06/26/2017
+ms.topic: quickstart
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use PHP to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](http://php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using PHP, but that you are new to working with Azure Database for MySQL.
+This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](http://php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -21,42 +21,41 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install PHP
-Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) that includes PHP.
+Install PHP on your own server, or create an Azure [web app](../app-service/app-service-web-overview.md) that includes PHP.
 
 ### MacOS
-- Download [PHP 7.1.4 version](http://php.net/downloads.php)
-- Install PHP and refer to the [PHP manual](http://php.net/manual/install.macosx.php) for further configuration
+- Download [PHP 7.1.4 version](http://php.net/downloads.php).
+- Install PHP and refer to the [PHP manual](http://php.net/manual/install.macosx.php) for further configuration.
 
 ### Linux (Ubuntu)
-- Download [PHP 7.1.4 non-thread safe (x64) version](http://php.net/downloads.php)
-- Install PHP and refer to the [PHP manual](http://php.net/manual/install.unix.php) for further configuration
+- Download [PHP 7.1.4 non-thread safe (x64) version](http://php.net/downloads.php).
+- Install PHP and refer to the [PHP manual](http://php.net/manual/install.unix.php) for further configuration.
 
 ### Windows
-- Download [PHP 7.1.4 non-thread safe (x64) version](http://windows.php.net/download#php-7.1)
-- Install PHP and refer to the [PHP manual](http://php.net/manual/install.windows.php) for further configuration
+- Download [PHP 7.1.4 non-thread safe (x64) version](http://windows.php.net/download#php-7.1).
+- Install PHP and refer to the [PHP manual](http://php.net/manual/install.windows.php) for further configuration.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **myserver4demo**.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
-4. Select the server's **Properties** page. Make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL server name](./media/connect-php/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-php/1_server-overview-name-login.png)
 
 ## Connect and create a table
-Use the following code to connect and create a table using **CREATE TABLE** SQL statement. 
+Use the following code to connect and create a table by using **CREATE TABLE** SQL statement. 
 
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code call methods [mysqli_init](http://php.net/manual/mysqli.init.php) and [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) to connect to MySQL. Then it calls method 
+The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code calls methods [mysqli_init](http://php.net/manual/mysqli.init.php) and [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) to connect to MySQL. Then it calls method 
 [mysqli_query](http://php.net/manual/mysqli.query.php) to run the query. Then it calls method [mysqli_close](http://php.net/manual/mysqli.close.php) to close the connection.
 
 Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -86,16 +85,16 @@ mysqli_close($conn);
 ```
 
 ## Insert data
-Use the following code to connect and insert data using an **INSERT** SQL statement.
+Use the following code to connect and insert data by using an **INSERT** SQL statement.
 
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared insert statement, then binds the parameters for each inserted column value using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared insert statement, then binds the parameters for each inserted column value using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -123,14 +122,14 @@ mysqli_close($conn);
 ```
 
 ## Read data
-Use the following code to connect and read the data using a **SELECT** SQL statement.  The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_query](http://php.net/manual/mysqli.query.php) perform the sql query, and uses [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) method to fetch the resulting rows.
+Use the following code to connect and read the data by using a **SELECT** SQL statement.  The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_query](http://php.net/manual/mysqli.query.php) perform the sql query and method [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) to fetch the resulting rows.
 
 Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -154,16 +153,16 @@ mysqli_close($conn);
 ```
 
 ## Update data
-Use the following code to connect and update the data using a **UPDATE** SQL statement.
+Use the following code to connect and update the data by using an **UPDATE** SQL statement.
 
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared update statement, then binds the parameters for each updated column value using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared update statement, then binds the parameters for each updated column value using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -192,16 +191,16 @@ mysqli_close($conn);
 
 
 ## Delete data
-Use the following code to connect and read the data using a **DELETE** SQL statement. 
+Use the following code to connect and read the data by using a **DELETE** SQL statement. 
 
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared delete statement, then binds the parameters for the where clause in the statement using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared delete statement, then binds the parameters for the where clause in the statement using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -228,4 +227,4 @@ mysqli_close($conn);
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Build a PHP and MySQL web app in Azure](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
+> [Connect to Azure Database for MySQL via SSL](howto-configure-ssl.md)

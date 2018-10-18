@@ -1,9 +1,9 @@
----
+﻿---
 title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/24/2016
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.author: mbullwin
 
 ---
 # Monitor a SharePoint site with Application Insights
@@ -22,14 +22,30 @@ Azure Application Insights monitors the availability, performance and usage of y
 ## Create an Application Insights resource
 In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
 
-![Click Properties, select the key, and press ctrl+C](./media/app-insights-sharepoint/01-new.png)
+![Click Properties, select the key, and press ctrl+C](./media/app-insights-sharepoint/001.png)
 
-The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
+The window that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
 
-## Add our script to your web pages
-In Quick Start, get the script for web pages:
+## Add the script to your web pages
 
-![](./media/app-insights-sharepoint/02-monitor-web-page.png)
+```HTML
+<!-- 
+To collect user behavior analytics tools about your application, 
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear 
+automatically in just a few seconds.
+-->
+<script type="text/javascript">
+var appInsights=window.appInsights||function(a){
+  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+  }({
+      instrumentationKey:"<your instrumentation key>"
+  });
+  
+window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+</script>
+```
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
 
@@ -64,18 +80,6 @@ The first events will appear in Search.
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Click Refresh after a few seconds if you're expecting more data.
-
-From the overview blade, click **Usage analytics** to see to charts of users, sessions and page views:
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Click any chart to see more details - for example Page Views:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-Or Users:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## Capturing User Id
 The standard web page code snippet doesn't capture the user id from SharePoint, but you can do that with a small modification.

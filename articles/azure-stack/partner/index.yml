@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Stack partner documentation
+metadata:
+  document_id: 
+  title: Azure Stack partner D\documentation - tutorials, API R\reference
+  description: Learn how to validate your hardware to host Azure Stack. Validation as a Service is a native Azure Service designed for use by solution partners who are co-engineering Azure Stack offerings with Microsoft.
+  services: azure-stack
+  author: mattbriggs
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/25/2018
+  ms.author: mabrigg
+  ms.reviewer: John.Haskin
+abstract:
+  description: You can use the validation as a service  to verify your hardware for use with Azure Stack. The service is a native Azure service designed for use by solution partners who are co-engineering Azure Stack offerings with Microsoft.
+sections:
+- title: 5-Minute Quickstart
+  items: 
+  - type: paragraph
+    text: Learn how to onboard your VMs and computers to Security Center and connect your security solutions.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/i_account-management.svg
+      text: Use the validation as a service portal to schedule your first test
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+- title: Step-by-step tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to validate your Azure Stack hardware.'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-test-vm">Deploy the local agent and test virtual machines</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-automate-with-powershell">Automate Azure Stack validation with PowerShell</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">Validate a new Azure Stack solution</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">Validate OEM packages</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Validate software updates from Microsoft</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Validation as a service
+      html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">Validation configuration file</a>

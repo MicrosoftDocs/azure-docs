@@ -3,8 +3,8 @@ title: Add authentication on Android with Mobile Apps | Microsoft Docs
 description: Learn how to use the Mobile Apps feature of Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.
 services: app-service\mobile
 documentationcenter: android
-author: ysxu
-manager:
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: yuaxu
+ms.date: 11/16/2017
+ms.author: crdun
 
 ---
 # Add authentication to your Android app
@@ -47,7 +47,7 @@ Secure authentication requires that you define a new URL scheme for your app. Th
 
      This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
-Next, you update the app to authenticate users before requesting resources from the Mobile Apps back end. 
+Next, you update the app to authenticate users before requesting resources from the Mobile Apps back end.
 
 ## Add authentication to the app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -76,3 +76,4 @@ Now that you completed this basic authentication tutorial, consider continuing o
 
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-android-get-started.md
+[Azure portal]: https://portal.azure.com/

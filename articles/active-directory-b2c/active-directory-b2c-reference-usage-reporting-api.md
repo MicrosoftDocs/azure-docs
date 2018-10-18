@@ -1,21 +1,18 @@
----
-title: 'Azure Active Directory B2C: Usage reporting API samples and definitions | Microsoft Docs'
-description: Guide and samples on getting reports on Azure AD B2C tenant users, authentications, and multi-factor authentications
+﻿---
+title: Usage reporting API samples and definitions in Azure Active Directory B2C | Microsoft Docs
+description: Guide and samples on getting reports on Azure AD B2C tenant users, authentications, and multi-factor authentications.
 services: active-directory-b2c
-documentationcenter: dev-center-name
-author: rojasja
-manager: mbaldwin
+author: davidmu1
+manager: mtillman
 
-
-ms.service: active-directory-b2c
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.service: active-directory
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/08/2017
-ms.author: joroja
-
+ms.date: 08/04/2017
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Accessing usage reports in Azure AD B2C via the reporting API
 
 Azure Active Directory B2C (Azure AD B2C) provides authentication based on user sign-in and Azure Multi-Factor Authentication. Authentication is provided for end users of your application family across identity providers. When you know the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, you can answer questions like:
@@ -39,7 +36,7 @@ This script demonstrates the creation of four usage reports by using the `TimeSt
 # Constants
 $ClientID      = "your-client-application-id-here"  
 $ClientSecret  = "your-client-application-secret-here"
-$loginURL      = "https://login.windows.net"
+$loginURL      = "https://login.microsoftonline.com"
 $tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
@@ -124,7 +121,7 @@ When combined with [the most current Azure AD B2C pricing available](https://azu
 The following code shows examples of sending output to JSON, a name value list, and XML:
 ```powershell
 # to output to JSON use following line in the PowerShell sample
-$myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
+$myReport.Content | Out-File -FilePath name-your-file.json -Force
 
 # to output the content to a name value list
 ($myReport.Content | ConvertFrom-Json).value | Out-File -FilePath name-your-file.txt -Force

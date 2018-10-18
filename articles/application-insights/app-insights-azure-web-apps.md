@@ -1,23 +1,23 @@
----
+﻿---
 title: Monitor Azure web app performance | Microsoft Docs
 description: Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
-ms.service: azure-portal
+ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/05/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Monitor Azure web app performance
-In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your [Azure web apps](../app-service-web/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
+In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your [Azure web apps](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
 
 ## Run time or build time
 You can configure monitoring by instrumenting the app in either of two ways:
@@ -26,7 +26,7 @@ You can configure monitoring by instrumenting the app in either of two ways:
 * **Build time** - You can install a package in your app in development. This option is more versatile. In addition to the same standard packages, you can write code to customize the telemetry or to send your own telemetry. You can log specific activities or record events according to the semantics of your app domain. 
 
 ## Run time instrumentation with Application Insights
-If you're already running a web app in Azure, you already get some monitoring: request and error rates. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and the powerful Analytics query language. 
+If you're already running a web app in Azure, you already get some monitoring: request and error rates. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and the powerful Log Analytics query language. 
 
 1. **Select Application Insights** in the Azure control panel for your web app.
    
@@ -46,7 +46,7 @@ If you're already running a web app in Azure, you already get some monitoring: r
     
     Value: `true`
    * **Save** the settings and **Restart** your app.
-3. **Monitor your app**.  [Expore the data](#explore-the-data).
+3. **Monitor your app**.  [Explore the data](#explore-the-data).
 
 Later, you can build the app with Application Insights if you want.
 
@@ -97,7 +97,7 @@ Application Insights can provide more detailed telemetry by installing an SDK in
    
     You can [customize searches](app-insights-diagnostic-search.md).
 
-For more powerful searches over your telemetry, use the [Analytics query language](app-insights-analytics-tour.md).
+For more powerful searches over your telemetry, use the [Log Analytics query language](app-insights-analytics-tour.md).
 
 ## More telemetry
 

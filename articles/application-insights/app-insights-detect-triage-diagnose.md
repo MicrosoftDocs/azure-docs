@@ -1,19 +1,19 @@
----
+﻿---
 title: Overview of Azure Application Insights for DevOps | Microsoft Docs
 description: Learn how to use Application Insights in a Dev Ops environment.
-author: CFreemanwa
+author: mrbullwinkle
 services: application-insights
 documentationcenter: ''
 manager: carmonm
-
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 06/26/2017
-ms.author: cfreeman
+ms.custom: mvc
+ms.topic: overview
+ms.date: 09/06/2018
+ms.author: mbullwin
 
 ---
 # Overview of Application Insights for DevOps
@@ -34,7 +34,7 @@ Requirements feed into their development backlog (task list). They work in short
 
 The team uses Application Insights to monitor the live web application closely for:
 
-* Performance. They want to understand how response times vary with request count; how much CPU, network, disk, and other resources are being used; and where the bottlenecks are.
+* Performance. They want to understand how response times vary with request count; how much CPU, network, disk, and other resources are being used; which application code slowed down performance; and where the bottlenecks are.
 * Failures. If there are exceptions or failed requests, or if a performance counter goes outside its comfortable range, the team needs to know rapidly so that they can take action.
 * Usage. Whenever a new feature is released, the team want to know to what extent it is used, and whether users have any difficulties with it.
 
@@ -59,7 +59,7 @@ But more importantly, an alert about any failure is emailed to the development t
 ## Monitor Performance
 On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](app-insights-web-monitor-performance.md).
 
-![Various metrics](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Screenshot of overview performance KPI graphs](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 Browser page load time is derived from telemetry sent directly from web pages. Server response time, server request count, and failed request count are all measured in the web server and sent to Application Insights from there.
 
@@ -67,7 +67,7 @@ Marcela is slightly concerned with the server response graph. This graph shows t
 
 She opens the Servers charts:
 
-![Various metrics](./media/app-insights-detect-triage-diagnose/06.png)
+![Various metrics](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 There seems to be no sign of resource limitation there, so maybe the bumps in the server response charts are just a coincidence.
 
@@ -150,7 +150,7 @@ Exceptions and events show up in the [Diagnostic Search](app-insights-diagnostic
 ## Monitor proactively
 Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](app-insights-web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
 
-![Response time graph and grid of server response times.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Response time graph and grid of server response times.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 She can assess the performance effect of every deployment, typically comparing each week with the last. If there's a sudden worsening, she raises that with the relevant developers.
 
@@ -165,8 +165,6 @@ A useful triage tactic is Try It Yourself. If you run into the same problem, you
 
 What fraction of users are affected? To obtain a rough answer, divide the failure rate by the session count.
 
-![Charts of failed requests and sessions](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
-
 When there are slow responses, compare the table of slowest-responding requests with the usage frequency of each page.
 
 How important is the blocked scenario? If this is a functional problem blocking a particular user story, does it matter much? If customers can't pay their bills, this is serious; if they can't change their screen color preferences, maybe it can wait. The detail of the event or exception, or the identity of the slow page, tells you where customers are having trouble.
@@ -178,11 +176,14 @@ Diagnosis isn't quite the same as debugging. Before you start tracing through th
 
 **Is it us?**  If you have a sudden drop in performance of a particular type of request - for example when the customer wants an account statement - then there's a possibility it might be an external subsystem rather than your web application. In Metrics Explorer, select the Dependency Failure rate and Dependency Duration rates and compare their histories over the past few hours or days with the problem you detected. If there are correlating changes, then an external subsystem might be to blame.  
 
+
 ![Charts of dependency failure and duration of calls to dependencies](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Some slow dependency issues are geolocation problems. Fabrikam Bank uses Azure virtual machines, and discovered that they had inadvertently located their web server and account server in different countries. A dramatic improvement was brought about by migrating one of them.
 
-**What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem.
+**What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem. To identify which lines in the application code slowed down the performance, enable Application Insights Profiler. Please refer to [Profiling live Azure web apps with Application Insights](./app-insights-profiler.md). After the Profiler is enabled, you will see a trace similar to the following. In this example, it's easily noticeable that the method *GetStorageTableData* caused the problem.  
+
+![App Insights Profiler Trace](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
 **What's going on?** Some problems occur only rarely and can be difficult to track down by testing offline. All we can do is to try to capture the bug when it occurs live. You can inspect the stack dumps in exception reports. In addition, you can write tracing calls, either with your favorite logging framework or with TrackTrace() or TrackEvent().  
 
@@ -196,15 +197,14 @@ Fabrikam Bank's development team take a more structured approach to performance 
 * They set performance targets in terms of specific measures in the Application Insights overview page.
 * They design performance measures into the application from the start, such as the metrics that measure user progress through 'funnels.'  
 
-
 ## Monitor user activity
 When response time is consistently good and there are few exceptions, the dev team can move on to usability. They can think about how to improve the users' experience, and how to encourage more users to achieve the desired goals.
 
-Application Insights can also be used to learn what users do with an app. Once it's running smoothly, the team would like to know which features are the most popular, what users like or have difficulty with, and how often they come back. That will help them prioritize their upcoming work. And they can plan to measure the success of each feature as part of the development cycle. 
+Application Insights can also be used to learn what users do with an app. Once it's running smoothly, the team would like to know which features are the most popular, what users like or have difficulty with, and how often they come back. That will help them prioritize their upcoming work. And they can plan to measure the success of each feature as part of the development cycle.
 
 For example, a typical user journey through the web site has a clear "funnel." Many customers look at the rates of different types of loan. A smaller number go on to fill in the quotation form. Of those who get a quotation, a few go ahead and take out the loan.
 
-![Page view counts](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Page view counts](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases, there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
 

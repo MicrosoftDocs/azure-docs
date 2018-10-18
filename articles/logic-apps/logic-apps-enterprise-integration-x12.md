@@ -1,23 +1,18 @@
 ---
 title: X12 messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange X12 messages in EDI format for B2B enterprise integration with Azure Logic Apps
+description: Exchange X12 messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: 
-
-ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.author: LADocs; padmavc
-
 ---
-# Exchange X12 messages for enterprise integration with logic apps
+
+# Exchange X12 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
 Before you can exchange X12 messages for Azure Logic Apps, 
 you must create an X12 agreement and 
@@ -32,49 +27,45 @@ Here are the steps for how to create an X12 agreement.
 
 Here's the items you need:
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
+* An [integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 that's already defined and associated with your Azure subscription
 * At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 that are defined in your integration account and configured with the X12 identifier under **Business Identities**    
-* A required [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) for uploading to your 
-[integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* A required [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) 
+that you can upload to your integration account
 
-After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md), 
+After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 
 [add partners](logic-apps-enterprise-integration-partners.md), 
 and have a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) that you want to use, 
 you can create an X12 agreement by following these steps.
 
 ## Create an X12 agreement
 
-1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
-From the left menu, select **More services**. 
+1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
 
-    > [!TIP]
-    > If you don't see **More services**, you might have to expand the menu first. 
-    > At the top of the collapsed menu, select **Show menu**.
+2. From the main Azure menu, select **All services**. 
+In the search box, enter "integration", 
+and then select **Integration accounts**.  
 
-	![On left menu, select "More services"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Find your integration account](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.	In the search box, type "integration" as your filter. 
-In the results list, select **Integration Accounts**.  
+   > [!TIP]
+   > If **All services** doesn't appear, you might have to expand the menu first. 
+   > At the top of the collapsed menu, select **Show menu**.
 
-	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-x12/account-2.png)
-
-3. In the **Integration Accounts** blade that opens, 
+3. Under **Integration Accounts**, 
 select the integration account where you want to add the agreement.
-If you don't see any integration accounts, 
-[create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").
 
-	![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Select **Overview**, then select the **Agreements** tile. 
 If you don't have an Agreements tile, add the tile first. 
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. In the Agreements blade that opens, choose **Add**.
+5. Under **Agreements**, choose **Add**.
 
-	![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
 For the agreement type, select **X12**. 
@@ -303,13 +294,16 @@ If a character set isn't specified for a given message schema, then the default 
 | Property | Description |
 | --- | --- |
 | Character Set to be used |To validate the properties, select the X12 character set. The options are Basic, Extended, and UTF8. |
-| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the following separator descriptions. |
+| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the separator descriptions below. |
 | Input Type |Select an input type from the drop-down list. |
 | Component Separator |To separate composite data elements, enter a single character. |
 | Data Element Separator |To separate simple data elements within composite data elements, enter a single character. |
 | Replacement Character |Enter a replacement character used for replacing all separator characters in the payload data when generating the outbound X12 message. |
 | Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
+
+> [!TIP]
+> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
 
 ### Validation
 
@@ -330,15 +324,15 @@ If you don't specify any rules, then validation uses the "Default" row.
 ## Find your created agreement
 
 1.	After you finish setting all your agreement properties, 
-on the **Add** blade, choose **OK** to finish creating your agreement 
-and return to your integration account blade.
+on the **Add** page, choose **OK** to finish creating your agreement 
+and return to your integration account.
 
 	Your newly added agreement now appears in your **Agreements** list.
 
 2.	You can also view your agreements in your integration account overview. 
-On your integration account blade, choose **Overview**, then select the **Agreements** tile.
+On your integration account menu, choose **Overview**, then select the **Agreements** tile.
 
-	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## View the swagger
 See the [swagger details](/connectors/x12/). 

@@ -1,21 +1,15 @@
 ---
-title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
-description: Learn about the set of services in Azure Data Lake that enable you to create a cloud-based big data platform.
+title: U-SQL programmability guide for Azure Data Lake
+description: Learn about the set of services in Azure Data Lake Analytics that enable you to create a cloud-based big data platform.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-
-
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/30/2017
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
+ms.topic: conceptual
+ms.date: 06/30/2017
 ---
 
 # U-SQL programmability guide
@@ -28,98 +22,95 @@ Download and install [Azure Data Lake Tools for Visual Studio](https://www.micro
 
 ## Get started with U-SQL  
 
-Let’s look at the following U-SQL script:
+Look at the following U-SQL script:
 
 ```
 @a  = 
-    SELECT * FROM 
-        (VALUES
-            ("Contoso",   1500.0, "2017-03-39"),
-            ("Woodgrove", 2700.0, "2017-04-10")
-        ) AS 
-              D( customer, amount );
+  SELECT * FROM 
+    (VALUES
+       ("Contoso",   1500.0, "2017-03-39"),
+       ("Woodgrove", 2700.0, "2017-04-10")
+    ) AS D( customer, amount, date );
+
 @results =
-    SELECT
-    	customer,
-	amount,
-	date
-    FROM @a;    
+  SELECT
+    customer,
+    amount,
+    date
+  FROM @a;    
 ```
 
-It defines a RowSet called @a and creates a RowSet called @results from @a.
+This script defines two RowSets: `@a` and `@results`. RowSet `@results` is defined from `@a`.
 
 ## C# types and expressions in U-SQL script
 
-A U-SQL Expression is a C# expression combined with U-SQL logical operations such `AND`, `OR`, and `NOT`. U-SQL Expressions can be used with SELECT, EXTRACT, WHERE, HAVING, GROUP BY and DECLARE.
-
-For example, the following script parses a string a DateTime value in the SELECT clause.
+A U-SQL Expression is a C# expression combined with U-SQL logical operations such `AND`, `OR`, and `NOT`. U-SQL Expressions can be used with SELECT, EXTRACT, WHERE, HAVING, GROUP BY and DECLARE. For example, the following script parses a string as a DateTime value.
 
 ```
 @results =
-    SELECT
-    	customer,
-	amount,
-	DateTime.Parse(date) AS date
-    FROM @a;    
+  SELECT
+    customer,
+    amount,
+    DateTime.Parse(date) AS date
+  FROM @a;    
 ```
 
-The following script parses a string a DateTime value in a DECLARE statement.
+The following snippet parses a string as DateTime value in a DECLARE statement.
 
 ```
-DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
+DECLARE @d = DateTime.Parse("2016/01/01");
 ```
 
 ### Use C# expressions for data type conversions
+
 The following example demonstrates how you can do a datetime data conversion by using C# expressions. In this particular scenario, string datetime data is converted to standard datetime with midnight 00:00:00 time notation.
 
 ```
-DECLARE @dt String = "2016-07-06 10:23:15";
+DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
-    SELECT 
-    	Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
-        dt AS olddt
-    FROM @rs0;
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+  SELECT 
+    Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
+    dt AS olddt
+  FROM @rs0;
+
+OUTPUT @rs1 
+  TO @output_file 
+  USING Outputters.Text();
 ```
 
 ### Use C# expressions for today’s date
-To pull today’s date, we can use the following C# expression:
 
-```
-DateTime.Now.ToString("M/d/yyyy")
-```
+To pull today's date, we can use the following C# expression: `DateTime.Now.ToString("M/d/yyyy")`
 
 Here's an example of how to use this expression in a script:
 
 ```
 @rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-        MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
-        DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
-        user,
-        des
-    FROM @rs0
-    GROUP BY user, des;
+  SELECT
+    MAX(guid) AS start_id,
+    MIN(dt) AS start_time,
+    MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
+    MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
+    DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
+    user,
+    des
+  FROM @rs0
+  GROUP BY user, des;
 ```
-
-
-
 ## Using .NET assemblies
-U-SQL’s extensibility model relies heavily on the ability to add custom code. Currently, U-SQL provides you with easy ways to add your own Microsoft .NET-based code (in particular, C#). However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#. 
+
+U-SQL’s extensibility model relies heavily on the ability to add custom code from .NET assemblies. 
 
 ### Register a .NET assembly
 
-Use the CREATE ASSEMBLY statement to place a .NET assembly into a U-SQL Database. Once an assembly is in a database, U-SQL scripts can use those assemblies by using the REFERENCE ASSEMBLY statement. 
+Use the `CREATE ASSEMBLY` statement to place a .NET assembly into a U-SQL Database. Afterwards, U-SQL scripts can use those assemblies by using the `REFERENCE ASSEMBLY` statement. 
 
 The following code shows how to register an assembly:
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
-	FROM "/myassembly.dll";
+   FROM "/myassembly.dll";
 ```
 
 The following code shows how to reference an assembly:
@@ -139,7 +130,6 @@ As mentioned earlier, U-SQL runs code in a 64-bit (x64) format. So make sure tha
 Each uploaded assembly DLL and resource file, such as a different runtime, a native assembly, or a config file, can be at most 400 MB. The total size of deployed resources, either via DEPLOY RESOURCE or via references to assemblies and their additional files, cannot exceed 3 GB.
 
 Finally, note that each U-SQL database can only contain one version of any given assembly. For example, if you need both version 7 and version 8 of the NewtonSoft Json.Net library, you need to register them in two different databases. Furthermore, each script can only refer to one version of a given assembly DLL. In this respect, U-SQL follows the C# assembly management and versioning semantics.
-
 
 ## Use user-defined functions: UDF
 U-SQL user-defined functions, or UDF, are programming routines that accept parameters, perform an action (such as a complex calculation), and return the result of that action as a value. The return value of UDF can only be a single scalar. U-SQL UDF can be called in U-SQL base script like any other C# scalar function.
@@ -244,9 +234,7 @@ namespace USQL_Programmability
 
             return "Q" + FiscalQuarter.ToString() + ":" + FiscalMonth.ToString();
         }
-
     }
-
 }
 ```
 
@@ -551,7 +539,7 @@ The `IFormatter` interface serializes and de-serializes an object graph with the
 
 As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=. It can also include static methods. For example, if we are going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.
 
-Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format Qn:Pn (Q1:P10). The following example shows how to define a custom type for fiscal period values.
+Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format `Qn:Pn (Q1:P10)`. The following example shows how to define a custom type for fiscal period values.
 
 Following is an example of a code-behind section with custom UDT and IFormatter interface:
 
@@ -654,9 +642,9 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-The defined type includes two numbers: quarter and month. Operators ==/!=/>/< and static method ToString() are defined here.
+The defined type includes two numbers: quarter and month. Operators `==/!=/>/<` and static method `ToString()` are defined here.
 
-As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with ToString() or used with a custom OUTPUTTER/EXTRACTOR.
+As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with `ToString()` or used with a custom OUTPUTTER/EXTRACTOR.
 
 Now let’s discuss usage of UDT. In a code-behind section, we changed our GetFiscalPeriod function to the following:
 
@@ -908,7 +896,7 @@ User-defined aggregates are any aggregation-related functions that are not shipp
 
 The user-defined aggregate base class definition is as follows:
 
-```c#
+```csharp
     [SqlUserDefinedAggregate]
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
     {
@@ -1371,7 +1359,7 @@ public class HTMLOutputter : IOutputter
     }
 
     // The Close method is used to write the footer to the file. It's executed only once, after all rows
-    public override void Close().
+    public override void Close()
     {
 	//Reference to IO.Stream object - g_writer
 	StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
@@ -1487,7 +1475,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 To avoid creating an instance of the object in base script, we can create a function wrapper, as shown in our earlier example:
 
-```c#
+```csharp
         // Define the factory classes
         public static class Factory
         {
@@ -1803,7 +1791,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 
 Or with the invocation of a wrapper factory method:
 
-```c#
+```csharp
 	CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
@@ -1881,7 +1869,7 @@ Example: 	[`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 The main programmability objects are:
 
-```c#
+```csharp
 	public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 		IUpdatableRow output
 ```
@@ -2124,7 +2112,7 @@ The **SqlUserDefinedReducer** attribute indicates that the type should be regist
 **SqlUserDefinedReducer** is an optional attribute for a user-defined reducer definition. It's used to define IsRecursive property.
 
 * bool     IsRecursive    
-* **true**  = Indicates whether this Reducer is idempotent
+* **true**  = Indicates whether this Reducer is associative and commutative
 
 The main programmability objects are **input** and **output**. The input object is used to enumerate input rows. Output is used to set output rows as a result of reducing activity.
 

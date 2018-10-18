@@ -3,7 +3,7 @@ title: 'Community-suggested third-party VPN or firewall device settings for Azur
 description: Learn about community-suggested third-party VPN or firewall device settings for Azure VPN gateway.
 services: vpn-gateway
 documentationcenter: ''
-author: Deland-Han
+author: chadmath
 manager: cshepard
 editor: ''
 tags: azure-vpn-gateway
@@ -11,10 +11,10 @@ tags: azure-vpn-gateway
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 06/15/2018
 ms.author: delhan
 
 ---
@@ -35,7 +35,7 @@ The following table lists several common devices and related help:
 |Cisco ASA  |[Community suggested solutions for Cisco ASA on Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Community suggested solutions for Cisco ISR on Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[Community suggested solutions for Cisco ASR on Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
-|Sonicwall |Search for **Azure VPN** on [Sonicwall site](https://support.sonicwall.com/search) |
+|Sonicwall |Search for **Azure VPN** on [Sonicwall site](https://www.sonicwall.com/en-us/support) |
 | Checkpoint	|Search for **Azure VPN** on [Checkpoint site](https://supportcenter.checkpoint.com/supportcenter/portal) |
 |Juniper |Search for **Azure VPN** on [Juniper site]( http://www.juniper.net/search/public/)|
 |Barracuda  |[Community suggested solutions for Barracuda on Azure VPN](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
@@ -45,7 +45,7 @@ The following table lists several common devices and related help:
 
 ## Next step
 
-[Azure Gateways settings](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
+[Azure Gateways settings](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
 
-[Known compatible devices](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
+[Known compatible devices](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
 

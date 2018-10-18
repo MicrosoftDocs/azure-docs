@@ -1,28 +1,30 @@
----
+﻿---
 title: Import your data to Analytics in Azure Application Insights | Microsoft Docs
 description: Import static data to join with app telemetry, or import a separate data stream to query with Analytics.
 services: application-insights
 keywords: "open schema, data import"
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 08/14/2018
+ms.author: mbullwin
 
 ---
 # Import data into Analytics
 
 Import any tabular data into [Analytics](app-insights-analytics.md), either to join it with [Application Insights](app-insights-overview.md) telemetry from your app, or so that you can analyze it as a separate stream. Analytics is a powerful query language well-suited to analyzing high-volume timestamped streams of telemetry.
-
 You can import data into Analytics using your own schema. It doesn't have to use the standard Application Insights schemas such as request or trace.
 
 You can import JSON or DSV (delimiter-separated values - comma, semicolon or tab) files.
+
+> [!IMPORTANT]
+> This article has been **deprecated**. The recommended method of getting data into Log Analytics is via the [Log Analytics data collector API.](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 There are three situations where importing to Analytics is useful:
 
@@ -55,19 +57,13 @@ You need:
 
  * We recommend you create a dedicated storage account for your blobs. If your blobs are shared with other processes, it takes longer for our processes to read your blobs.
 
-2. While this feature is in preview, you must ask for access.
-
- * From your Application Insights resource in the [Azure portal](https://portal.azure.com), open Analytics. 
- * At the bottom of the schema pane, click the 'Contact us' link under **Other Data Sources.** 
- * If you see 'Add data source', then you already have access.
-
 
 ## Define your schema
 
 Before you can import data, you must define a *data source,* which specifies the schema of your data.
 You can have up to 50 data sources in a single Application Insights resource
 
-1. Start the data source wizard.
+1. Start the data source wizard. Use "Add new data source" button. Alternatively - click on settings button in right upper corner and choose "Data Sources" in dropdown menu.
 
     ![Add new data source](./media/app-insights-analytics-import/add-new-data-source.png)
 
@@ -118,15 +114,16 @@ JSON format
 ]
 ```
  
-Each column is identified by the location, name and type. 
+Each column is identified by the location, name and type.
 
 * Location – For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
 * Name – the displayed name of the column.
 * Type – the data type of that column.
  
-In case a sample data was used and file format is delimited, the schema definition must map all columns and add new columns at the end. 
-
-JSON allows partial mapping of the data, therefore the schema definition of JSON format doesn’t have to map every key which is found in a sample data. It can also map columns which are not part of the sample data. 
+> [!NOTE]
+> In case sample data was used and the file format is delimited, the schema definition must map all columns and add new columns at the end.
+> 
+> JSON allows partial mapping of the data, therefore the schema definition with a JSON format doesn’t have to map every key which is found in the sample data. It can also map columns which are not part of the sample data. 
 
 ## Import data
 
@@ -136,7 +133,7 @@ To import data, you upload it to Azure storage, create an access key for it, and
 
 You can perform the following process manually, or set up an automated system to do it at regular intervals. You need to follow these steps for each block of data you want to import.
 
-1. Upload the data to [Azure blob storage](../storage/storage-dotnet-how-to-use-blobs.md). 
+1. Upload the data to [Azure blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
  * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
  * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
@@ -144,7 +141,7 @@ You can perform the following process manually, or set up an automated system to
  * When sending data in high frequency, every few seconds, it is recommended to use more than one storage account, for performance reasons.
 
  
-2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
+2. [Create a Shared Access Signature key for the blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
 
  * Endpoint: `https://dc.services.visualstudio.com/v2/track`
@@ -199,7 +196,7 @@ This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.J
 
 ### Classes
 
-```C#
+```csharp
 namespace IngestionClient 
 { 
     using System; 
@@ -358,7 +355,7 @@ namespace IngestionClient
 
 Use this code for each blob. 
 
-```C#
+```csharp
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
    var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
@@ -368,5 +365,5 @@ Use this code for each blob.
 
 ## Next steps
 
-* [Tour of the Analytics query language](app-insights-analytics-tour.md)
-* [Use *Logstash* to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
+* [Tour of the Log Analytics query language](app-insights-analytics-tour.md)
+* If you're using Logstash, use the [Logstash plugin to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

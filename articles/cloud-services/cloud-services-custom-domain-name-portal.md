@@ -1,9 +1,9 @@
-﻿---
+---
 title: Configure a custom domain name in Cloud Services | Microsoft Docs
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -13,17 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
-ms.author: adegeo
+ms.date: 07/05/2017
+ms.author: jeconnoc
 
 ---
 # Configuring a custom domain name for an Azure cloud service
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-custom-domain-name-portal.md)
-> * [Azure classic portal](cloud-services-custom-domain-name.md)
-> 
-> 
-
 When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.net**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.cloudapp.net. Azure also assigns a virtual IP address.
 
 However, you can also expose your application on your own domain name, such as **contoso.com**. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
@@ -31,7 +25,7 @@ However, you can also expose your application on your own domain name, such as *
 Do you already understand what CNAME and A records are? [Jump past the explanation](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md). For storage accounts, see [Configure a custom domain name for your Azure Blob storage endpoint](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 
@@ -59,7 +53,7 @@ An *A* record maps a domain, such as **contoso.com** or **www.contoso.com**, *or
 > [!NOTE]
 > Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your Cloud Service. The IP address used by your Cloud Service is allocated the first time you deploy to an empty slot (either production or staging.) If you delete the deployment for the slot, the IP address is released by Azure and any future deployments to the slot may be given a new IP address.
 > 
-> Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](cloud-services-how-to-manage.md).
+> Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -128,7 +122,7 @@ For example, the following A record forwards all traffic from **contoso.com** to
 
 | Host name/Subdomain | IP address |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '*****' as the subdomain.
 
@@ -138,7 +132,7 @@ This example demonstrates creating an A record for the root domain. If you wish 
 > 
 
 ## Next steps
-* [How to Manage Cloud Services](cloud-services-how-to-manage.md)
+* [How to Manage Cloud Services](cloud-services-how-to-manage-portal.md)
 * [How to Map CDN Content to a Custom Domain](../cdn/cdn-map-content-to-custom-domain.md)
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).

@@ -1,30 +1,24 @@
 ---
-title: Use SSH tunneling to access Azure HDInsight | Microsoft Docs
+title: Use SSH tunneling to access Azure HDInsight 
 description: Learn how to use an SSH tunnel to securely browse web resources hosted on your Linux-based HDInsight nodes.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/30/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/30/2018
+ms.author: jasonh
 
 ---
 # Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs
 
-Linux-based HDInsight clusters provide access to Ambari web UI over the Internet, but some features of the UI are not. For example, the web UI for other services that are surfaced through Ambari. For full functionality of the Ambari web UI, you must use an SSH tunnel to the cluster head.
+HDInsight clusters provide access to the Ambari web UI over the Internet, but some features require an SSH tunnel. For example, the web UI for the Oozie service cannot be accessed over the internet without an SSh tunnel.
 
 ## Why use an SSH tunnel
 
-Several of the menus in Ambari only work through an SSH tunnel. These menus rely on web sites and services running on other node types, such as worker nodes. Often, these web sites are not secured, so it is not safe to directly expose them on the internet.
+Several of the menus in Ambari only work through an SSH tunnel. These menus rely on web sites and services running on other node types, such as worker nodes.
 
 The following Web UIs require an SSH tunnel:
 
@@ -34,20 +28,23 @@ The following Web UIs require an SSH tunnel:
 * Oozie web UI
 * HBase Master and Logs UI
 
-If you use Script Actions to customize your cluster, any services or utilities that you install that expose a web UI require an SSH tunnel. For example, if you install Hue using a Script Action, you must use an SSH tunnel to access the Hue web UI.
+If you use Script Actions to customize your cluster, any services or utilities that you install that expose a web service require an SSH tunnel. For example, if you install Hue using a Script Action, you must use an SSH tunnel to access the Hue web UI.
+
+> [!IMPORTANT]
+> If you have direct access to HDInsight through a virtual network, you do not need to use SSH tunnels. For an example of directly accessing HDInsight through a virtual network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
 
 ## What is an SSH tunnel
 
-[Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) routes traffic sent to a port on your local workstation. The traffic is routed through an SSH connection to your HDInsight cluster head node. The request is resolved as if it originated on the head node. The response is then routed back through the tunnel to your workstation.
+[Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) connects a port on your local machine to a head node on HDInsight. Traffic sent to the local port is routed through an SSH connection to the head node. The request is resolved as if it originated on the head node. The response is then routed back through the tunnel to your workstation.
 
 ## Prerequisites
 
-* An SSH client. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* An SSH client. Most operating systems provide an SSH client through the `ssh` command. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * A web browser that can be configured to use a SOCKS5 proxy.
 
     > [!WARNING]
-    > The SOCKS proxy support built into Windows does not support SOCKS5, and does not work with the steps in this document. The following browsers rely on Windows proxy settings, and do not currently work with the steps in this document:
+    > The SOCKS proxy support built into Windows Internet settings does not support SOCKS5, and does not work with the steps in this document. The following browsers rely on Windows proxy settings, and do not currently work with the steps in this document:
     >
     > * Microsoft Edge
     > * Microsoft Internet Explorer
@@ -56,10 +53,10 @@ If you use Script Actions to customize your cluster, any services or utilities t
 
 ## <a name="usessh"></a>Create a tunnel using the SSH command
 
-Use the following command to create an SSH tunnel using the `ssh` command. Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster:
+Use the following command to create an SSH tunnel using the `ssh` command. Replace **sshuser** with an SSH user for your HDInsight cluster, and replace **clustername** with the name of your HDInsight cluster:
 
 ```bash
-ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
 This command creates a connection that routes traffic to local port 9876 to the cluster over SSH. The options are:
@@ -68,9 +65,9 @@ This command creates a connection that routes traffic to local port 9876 to the 
 * **C** - Compress all data, because web traffic is mostly text.
 * **2** - Force SSH to try protocol version 2 only.
 * **q** - Quiet mode.
-* **T** - Disable pseudo-tty allocation, since we are just forwarding a port.
-* **n** - Prevent reading of STDIN, since we are just forwarding a port.
-* **N** - Do not execute a remote command, since we are just forwarding a port.
+* **T** - Disable pseudo-tty allocation, since you are just forwarding a port.
+* **n** - Prevent reading of STDIN, since you are just forwarding a port.
+* **N** - Do not execute a remote command, since you are just forwarding a port.
 * **f** - Run in the background.
 
 Once the command finishes, traffic sent to port 9876 on the local computer is routed to the cluster head node.
@@ -109,16 +106,16 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
    > [!NOTE]
    > Selecting **Remote DNS** resolves Domain Name System (DNS) requests by using the HDInsight cluster. This setting resolves DNS using the head node of the cluster.
 
-2. Verify that the tunnel works by visiting a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/). If the proxy is correctly configured, the IP address returned is from a machine in the Microsoft Azure datacenter.
+2. Verify that the tunnel works by visiting a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/). The IP returned should be one used by the Microsoft Azure datacenter.
 
 ## Verify with Ambari web UI
 
 Once the cluster has been established, use the following steps to verify that you can access service web UIs from the Ambari Web:
 
-1. In your browser, go to http://headnodehost:8080. The `headnodehost` address is sent over the tunnel to the cluster and resolve to the headnode that Ambari is running on. When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, reenter the information.
+1. In your browser, go to http://headnodehost:8080. The `headnodehost` address is sent over the tunnel to the cluster and resolve to the head node that Ambari is running on. When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, reenter the information.
 
    > [!NOTE]
-   > When using the http://headnodehost:8080 address to connect to the cluster, you are connecting through the tunnel. Communication is secured using the SSH tunnel instead of HTTPS. To connect over the internet using HTTPS, use https://CLUSTERNAME.azurehdinsight.net, where **CLUSTERNAME** is the name of the cluster.
+   > When using the http://headnodehost:8080 address to connect to the cluster, you are connecting through the tunnel. Communication is secured using the SSH tunnel instead of HTTPS. To connect over the internet using HTTPS, use https://clustername.azurehdinsight.net, where **clustername** is the name of the cluster.
 
 2. From the Ambari Web UI, select HDFS from the list on the left of the page.
 
@@ -129,7 +126,7 @@ Once the cluster has been established, use the following steps to verify that yo
     ![Image with the QuickLinks menu expanded](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
    > [!NOTE]
-   > When you select __Quick Links__, you may get a wait indicator. This can happen if you have a slow internet connection. Wait a minute or two for the data to be received from the server, then try the list again.
+   > When you select __Quick Links__, you may get a wait indicator. This condition can occur if you have a slow internet connection. Wait a minute or two for the data to be received from the server, then try the list again.
    >
    > Some entries in the **Quick Links** menu may be cut off by the right side of the screen. If so, expand the menu using your mouse and use the right arrow key to scroll the screen to the right to see the rest of the menu.
 

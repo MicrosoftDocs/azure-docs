@@ -1,9 +1,9 @@
----
+﻿---
 title: Export using Stream Analytics from Azure Application Insights | Microsoft Docs
 description: Stream Analytics can continuously transform, filter and route the data you export from Application Insights.
 services: application-insights
 documentationcenter: ''
-author: noamben
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 10/18/2016
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 01/04/2018
+ms.author: mbullwin
 
 ---
 # Use Stream Analytics to process exported data from Application Insights
@@ -73,27 +73,27 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to pipe the data to Power BI.
 
 ## Create an Azure Stream Analytics instance
-From the [Classic Azure Portal](https://manage.windowsazure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
+From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-When the new job is created, expand its details:
+When the new job is created, select **Go to resource**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### Set blob location
+### Add a new input
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Set it to take input from your Continuous Export blob:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA0005.png)
 
 Now you'll need the Primary Access Key from your Storage Account, which you noted earlier. Set this as the Storage Account Key.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### Set path prefix pattern
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Be sure to set the Date Format to YYYY-MM-DD (with dashes).**
 
@@ -111,33 +111,19 @@ In this example:
 > [!NOTE]
 > Inspect the storage to make sure you get the path right.
 > 
-> 
 
-### Finish initial setup
-Confirm the serialization format:
+## Add new output
+Now select your job > **Outputs** > **Add**.
 
-![Confirm and close wizard](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Close the wizard and wait for the setup to complete.
 
-> [!TIP]
-> Use the Sample command to download some data. Keep it as a test sample to debug your query.
-> 
-> 
-
-## Set the output
-Now select your job and set the output.
-
-![Select the new channel, click Outputs, Add, Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Select the new channel, click Outputs, Add, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
 Provide your **work or school account** to authorize Stream Analytics to access your Power BI resource. Then invent a name for the output, and for the target Power BI dataset and table.
 
-![Invent three names](./media/app-insights-export-stream-analytics/170.png)
-
 ## Set the query
 The query governs the translation from input to output.
-
-![Select the job and click Query. Paste the sample below.](./media/app-insights-export-stream-analytics/180.png)
 
 Use the Test function to check that you get the right output. Give it the sample data that you took from the inputs page. 
 
@@ -159,7 +145,7 @@ Paste this query:
 
 * export-input is the alias we gave to the stream input
 * pbi-output is the output alias we defined
-* We use [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) because the event name is in a nested JSON arrray. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) clause groups the elements into time periods of 1 minute.
+* We use [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) because the event name is in a nested JSON array. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) clause groups the elements into time periods of one minute.
 
 ### Query to display metric values
 ```SQL
@@ -203,7 +189,7 @@ Paste this query:
 ## Run the job
 You can select a date in the past to start the job from. 
 
-![Select the job and click Query. Paste the sample below.](./media/app-insights-export-stream-analytics/190.png)
+![Select the job and click Query. Paste the sample below.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Wait until the job is Running.
 

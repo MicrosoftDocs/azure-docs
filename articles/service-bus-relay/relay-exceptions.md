@@ -1,9 +1,9 @@
 ---
 title: Azure Relay exceptions and how to resolve them | Microsoft Docs
-description: Get a list of Azure Relay exceptions and suggested actions you can take to help resolve them.
+description: List of Azure Relay exceptions and suggested actions you can take to help resolve them.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
-ms.author: sethm
+ms.date: 12/20/2017
+ms.author: spelluru
 
 ---
 # Azure Relay exceptions
@@ -62,7 +62,7 @@ For Relay, this exception wraps the [System.ServiceModel.QuotaExceededException]
 ## TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indicates that a user-initiated operation is taking longer than the operation timeout. 
 
-Check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) property. Hitting this limit also can cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) property. Reaching this limit also can cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 For Relay, you might receive timeout exceptions when you first open a relay sender connection. There are two common causes for this exception:
 
@@ -72,7 +72,8 @@ For Relay, you might receive timeout exceptions when you first open a relay send
 Example:
 
 ```
-'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10. The time allotted to this operation may have been a portion of a longer timeout.
+'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.
+The time allotted to this operation may have been a portion of a longer timeout.
 ```
 
 ### Common causes
@@ -83,7 +84,7 @@ There are two common causes for this error:
     The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see whether the value in your code is set to something too small. Note that CPU usage and the condition of the network can affect the time it takes for an operation to complete. It's a good idea not to set the operation timeout to a very small value.
 *   **Transient service error**
 
-    Occasionally, Relay might experience delays in processing requests. This might happen, for example, during periods of high traffic. If this occurs, retry your operation after a delay, until the operation is successful. If the same operation continues to fail after multiple attempts, check the [Azure service status site](https://azure.microsoft.com/status/) to see if there are known service outages.
+    Occasionally, the Relay service might experience delays in processing requests. This might happen, for example, during periods of high traffic. If this occurs, retry your operation after a delay, until the operation is successful. If the same operation continues to fail after multiple attempts, check the [Azure service status site](https://azure.microsoft.com/status/) to see if there are known service outages.
 
 ## Next steps
 * [Azure Relay FAQs](relay-faq.md)

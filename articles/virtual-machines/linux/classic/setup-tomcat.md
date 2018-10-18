@@ -4,7 +4,7 @@ description: Learn how to set up Apache Tomcat7 by using Azure Virtual Machines 
 services: virtual-machines-linux
 documentationcenter: ''
 author: NingKuang
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -23,6 +23,7 @@ Apache Tomcat (or simply Tomcat, also formerly called Jakarta Tomcat) is an open
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers how to use the classic deployment model. We recommend that most new deployments use the Resource Manager model. To use a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [this article](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In this article, you will install Tomcat7 on a Linux image and deploy it in Azure.  
 
@@ -60,7 +61,7 @@ Follow these steps to generate the SSH authentication key.
 6. Click **Save private key**, and save it in a file named privateKey.ppk.
 
 ### Step 2: Create the image in the Azure portal
-1. In the [portal](https://portal.azure.com/), click **New** in the task bar to create an image. Then choose the Linux image that is based on your needs. The following example uses the Ubuntu 14.04 image.
+1. In the [portal](https://portal.azure.com/), click **Create a resource** in the task bar to create an image. Then, choose the Linux image that is based on your needs. The following example uses the Ubuntu 14.04 image.
 ![Screenshot of the portal that shows the New button][3]
 
 2. For **Host Name**, specify the name for the URL that you and Internet clients will use to access this virtual machine. Define the last part of the DNS name, for example, tomcatdemo. Azure will then generate the URL as tomcatdemo.cloudapp.net.  

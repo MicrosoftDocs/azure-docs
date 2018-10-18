@@ -1,22 +1,15 @@
 ---
-title: Use Script Action to install Solr on Linux-based HDInsight - Azure | Microsoft Docs
+title: Use Script Action to install Solr on Linux-based HDInsight - Azure 
 description: Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: jasonh
 
 ---
 # Install and use Solr on HDInsight Hadoop clusters
@@ -24,7 +17,7 @@ ms.author: larryfr
 Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop.
 
 > [!IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!IMPORTANT]
 > The sample script used in this document installs Solr 4.9 with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries.
@@ -55,7 +48,7 @@ A sample script to install Solr on an HDInsight cluster is available at the foll
 
 To create a cluster that has Solr installed, use the steps in the [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md) document. During the creation process, use the following steps to install Solr:
 
-1. From the __Cluster summary__ blade, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
+1. From the __Cluster summary__ section, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
 
    * **NAME**: Enter a friendly name for the script action.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -64,7 +57,7 @@ To create a cluster that has Solr installed, use the steps in the [Create HDInsi
    * **ZOOKEEPER**: Check this option to install on the Zookeeper node
    * **PARAMETERS**: Leave this field blank
 
-2. At the bottom of the **Script actions** blade, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
+2. At the bottom of the **Script actions** section, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
 
 3. From the __Cluster summary__ page, select __Create__ to create the cluster.
 
@@ -79,14 +72,17 @@ Use the following steps to add example data to Solr, and then query it:
 
 1. Connect to the HDInsight cluster using SSH:
 
+    > [!NOTE]
+    > Replace `sshuser` with the SSH user for the cluster. Replace `clustername` with the name of the cluster.
+
     ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
      > [!IMPORTANT]
-     > Steps later in this document use an SSL tunnel to connect to the Solr web UI. To use these steps, you must establish an SSL tunnel and then configure your browser to use it.
+     > Steps later in this document use an SSH tunnel to connect to the Solr web UI. To use these steps, you must establish an SSH tunnel and then configure your browser to use it.
      >
      > For more information, see the [Use SSH Tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
 
@@ -316,7 +312,7 @@ Use the following steps to back up Solr data to the default storage for your clu
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
+For more information on working with Solr backup and restores, see [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## Next steps
 

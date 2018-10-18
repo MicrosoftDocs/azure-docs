@@ -3,7 +3,7 @@ title: Azure Key Vault Logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault logging.
 services: key-vault
 documentationcenter: ''
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -12,9 +12,9 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 01/07/2017
-ms.author: cabailey
+ms.topic: conceptual
+ms.date: 10/16/2017
+ms.author: barclayn
 
 ---
 # Azure Key Vault Logging
@@ -49,7 +49,7 @@ To complete this tutorial, you must have the following:
 ## <a id="connect"></a>Connect to your subscriptions
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell will get all the subscriptions that are associated with this account and by default, uses the first one.
 
@@ -232,32 +232,32 @@ The following table lists the operationName and corresponding REST API command.
 | operationName | REST API Command |
 | --- | --- |
 | Authentication |Via Azure Active Directory endpoint |
-| VaultGet |[Get information about a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Create or update a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Delete a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Get information about a key vault](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Create or update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Delete a key vault](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[List all key vaults in a resource group](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Create a key](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Get information about a key](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Import a key into a vault](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Backup a key](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx). |
-| KeyDelete |[Delete a key](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Restore a key](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Sign with a key](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Verify with a key](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Wrap a key](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Unwrap a key](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Encrypt with a key](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Decrypt with a key](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Update a key](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[List the keys in a vault](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[List the versions of a key](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Create a secret](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Get secret](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Update a secret](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Delete a secret](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[List secrets in a vault](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[List versions of a secret](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[List all key vaults in a resource group](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Create a key](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Get information about a key](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Import a key into a vault](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Backup a key](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
+| KeyDelete |[Delete a key](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Restore a key](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Sign with a key](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Verify with a key](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Wrap a key](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Unwrap a key](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Encrypt with a key](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Decrypt with a key](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Update a key](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[List the keys in a vault](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[List the versions of a key](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Create a secret](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Get secret](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Update a secret](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Use Log Analytics
 

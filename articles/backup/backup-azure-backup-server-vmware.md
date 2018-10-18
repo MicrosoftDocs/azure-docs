@@ -1,27 +1,19 @@
 ---
-title: Use Azure Backup Server to protect a VMware server workload | Microsoft Docs
-description: Back up a VMware server to Azure or disk, with Azure Backup Server. Use this article to help protect your VMware workload.
+title: Back up VMware servers with Azure Backup Server
+description: Use Azure Backup Server to back up a VMware vCenter/ESXi servers to Azure or disk. This article provides step=by-step instruction for backing up (or protecting) your VMware workloads.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-
-
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 04/20/2017
-ms.author: markgal;
-
+ms.topic: conceptual
+ms.date: 07/24/2017
+ms.author: adigan
 ---
 # Back up a VMware server to Azure
 
 This article explains how to configure Azure Backup Server to help protect VMware server workloads. This article assumes you already have Azure Backup Server installed. If you don't have Azure Backup Server installed, see [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-Azure Backup Server can back up, or help protect, VMware vCenter Server version 6.0 and 5.5.
+Azure Backup Server can back up, or help protect, VMware vCenter Server version 6.5, 6.0 and 5.5.
 
 
 ## Create a secure connection to the vCenter Server
@@ -94,7 +86,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     ![Certificate store folder](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
-10. On the **Completing the Certificate Import Wizard** page, verify that the certificate is in the desired folder, and then click **Finish** to complete the wizard.
+10. On the **Completing the Certificate Import Wizard** page, verify that the certificate is in the desired folder, and then click **Finish**.
 
     ![Verify certificate is in the proper folder](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -153,8 +145,8 @@ To add a vCenter Server role and its privileges for a backup administrator:
 
   After you click **OK**, the new role appears in the list on the Roles panel.
 
-|Privileges for vCenter 6.0| Privileges for vCenter 5.5|
-|--------------------------|---------------------------|
+|Privileges for vCenter 6.0 and 6.5| Privileges for vCenter 5.5|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |
@@ -246,11 +238,12 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for A
 
 3. In the **Manage Credentials** dialog box, click **Add** to open the **Add Credential** dialog box.
 
-4. In the **Add Credential** dialog box, enter a name and a description for the new credential. Then specify the username and password. The *Contoso Vcenter credential* credential name is used to identify the credential in the next procedure. Use the same username and password that is used for the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, in **User name**, specify the domain.
+4. In the **Add Credential** dialog box, enter a name and a description for the new credential. Then specify the username and password. The name, *Contoso Vcenter credential* is used to identify the credential in the next procedure. Use the same username and password that is used for the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, in **User name**, specify the domain.
 
     ![Azure Backup Server Add Credential dialog box](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Click **Add** to add the new credential to Azure Backup Server. The new credential appears in the list in the **Manage Credentials** dialog box.
+    
     ![Azure Backup Server Manage Credentials dialog box](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. To close the **Manage Credentials** dialog box, click the **X** in the upper-right corner.

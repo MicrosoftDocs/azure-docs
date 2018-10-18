@@ -3,22 +3,22 @@ title: Persist job and task output to Azure Storage with the File Conventions li
 description: Learn how to use Azure Batch File Conventions library for .NET to persist Batch task and job output to Azure Storage, and view the persisted output in the Azure portal.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
-# Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist 
+# Persist job and task data to Azure Storage with the Batch File Conventions library for .NET 
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
@@ -45,7 +45,7 @@ If your scenario differs from those listed above, you may need to consider a dif
 
 ## What is the Batch File Conventions standard?
 
-The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) provides a naming scheme for the destination containers and blob paths to which your output files are written. Files persisted to Azure Storage that adhere to the File Conventions standard are automatically available for viewing in the Azure portal. The portal is aware of the naming convention and so can display files that adhere to it.
+The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) provides a naming scheme for the destination containers and blob paths to which your output files are written. Files persisted to Azure Storage that adhere to the File Conventions standard are automatically available for viewing in the Azure portal. The portal is aware of the naming convention and so can display files that adhere to it.
 
 The File Conventions library for .NET automatically names your storage containers and task output files according to the File Conventions standard. The File Conventions library also provides methods to query output files in Azure Storage according to job ID, task ID, or purpose.   
 
@@ -64,10 +64,10 @@ To persist output data to Azure Storage using the File Conventions library, you 
 
 To persist job and task output data with the File Conventions library, create a container in Azure Storage, then save the output to the container. Use the [Azure Storage client library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) in your task code to upload the task output to the container. 
 
-For more information about working with containers and blobs in Azure Storage, see [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md).
+For more information about working with containers and blobs in Azure Storage, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> All job and task outputs persisted with the File Conventions library are stored in the same container. If a large number of tasks try to persist files at the same time, [storage throttling limits](../storage/storage-performance-checklist.md#blobs) may be enforced.
+> All job and task outputs persisted with the File Conventions library are stored in the same container. If a large number of tasks try to persist files at the same time, [storage throttling limits](../storage/common/storage-performance-checklist.md#blobs) may be enforced.
 > 
 > 
 
@@ -197,7 +197,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## View output files in the Azure portal
 
-The Azure portal displays task output files and logs that are persisted to a linked Azure Storage account using the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). You can implement these conventions yourself in the a language of your choice, or you can use the File Conventions library in your .NET applications.
+The Azure portal displays task output files and logs that are persisted to a linked Azure Storage account using the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). You can implement these conventions yourself in the a language of your choice, or you can use the File Conventions library in your .NET applications.
 
 To enable the display of your output files in the portal, you must satisfy the following requirements:
 
@@ -212,7 +212,7 @@ To view task output files and logs in the Azure portal, navigate to the task who
 
 The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio solution demonstrates how to use the Azure Batch File Conventions library to persist task output to durable storage. To run the sample, follow these steps:
 
-1. Open the project in **Visual Studio 2015 or newer**.
+1. Open the project in **Visual Studio 2017**.
 2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project.
 3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
 4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputsTask**. Include the `PersistOutputsTask.exe` and its dependent assemblies in the .zip package, set the application ID to "PersistOutputsTask", and the application package version to "1.0".

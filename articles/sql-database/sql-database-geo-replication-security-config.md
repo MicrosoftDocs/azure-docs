@@ -1,31 +1,25 @@
 ---
 title: Configure Azure SQL Database security for disaster recovery | Microsoft Docs
-description: This topic explains security considerations for configuring and managing security after a database restore or a failover to a secondary server in the event of a data center outage or other disaster
+description: Learn the security considerations for configuring and managing security after a database restore or a failover to a secondary server.
 services: sql-database
-documentationcenter: na
-author: anosov1960
-manager: jhubbard
-editor: monicar
-
-ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
 ms.service: sql-database
-ms.custom: business continuity
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 10/13/2016
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: anosov1960
 ms.author: sashan
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover 
+
+This topic describes the authentication requirements to configure and control [active geo-replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how to enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 > [!NOTE]
 > [Active geo-replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
 >  
-
-## Overview of authentication requirements for disaster recovery
-This topic describes the authentication requirements to configure and control [active geo-replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 ## Disaster recovery with contained users
 Unlike traditional users, which must be mapped to logins in the master database, a contained user is managed completely by the database itself. This has two benefits. In the disaster recovery scenario, the users can continue to connect to the new primary database or the database recovered using geo-restore without any additional configuration, because the database manages the users. There are also potential scalability and performance benefits from this configuration from a login perspective. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
@@ -33,7 +27,7 @@ Unlike traditional users, which must be mapped to logins in the master database,
 The main trade-off is that managing the disaster recovery process at scale is more challenging. When you have multiple databases that use the same login, maintaining the credentials using contained users in multiple databases may negate the benefits of contained users. For example, the password rotation policy requires that changes be made consistently in multiple databases rather than changing the password for the login once in the master database. For this reason, if you have multiple databases that use the same user name and password, using contained users is not recommended. 
 
 ## How to configure logins and users
-If you are using logins and users (rather than contained users), you must take extra steps to insure that the same logins exist in the master database. The following sections outline the steps involved and additional considerations.
+If you are using logins and users (rather than contained users), you must take extra steps to ensure that the same logins exist in the master database. The following sections outline the steps involved and additional considerations.
 
 ### Set up user access to a secondary or recovered database
 In order for the secondary database to be usable as a read-only secondary database, and to ensure proper access to the new primary database or the database recovered using geo-restore, the master database of the target server must have the appropriate security configuration in place before the recovery.

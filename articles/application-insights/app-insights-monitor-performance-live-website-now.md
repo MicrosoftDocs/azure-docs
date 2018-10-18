@@ -1,9 +1,9 @@
----
+﻿---
 title: Monitor a live ASP.NET web app with Azure Application Insights  | Microsoft Docs
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
@@ -11,18 +11,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 09/05/2018
+ms.author: mbullwin
 
 ---
 # Instrument web apps at runtime with Application Insights
 
-
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
 You need a [Microsoft Azure](http://azure.com) subscription.
 
-![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 You have a choice of three routes to apply Application Insights to your .NET web applications:
 
@@ -38,10 +37,10 @@ Here's a summary of what you get by each route:
 | [More detailed exceptions](app-insights-asp-net-exceptions.md) | |Yes |
 | [Dependency diagnostics](app-insights-asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
 | [System performance counters](app-insights-performance-counters.md) |Yes |Yes |
-| [API for custom telemetry][api] |Yes | |
-| [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes | |
-| [Page view & user data](app-insights-javascript.md) |Yes | |
-| No need to rebuild code |No | |
+| [API for custom telemetry][api] |Yes |No |
+| [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes |No |
+| [Page view & user data](app-insights-javascript.md) |Yes |No |
+| Need to rebuild code |Yes | No |
 
 
 ## Monitor a live Azure web app

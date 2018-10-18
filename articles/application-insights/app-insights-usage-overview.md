@@ -1,23 +1,23 @@
----
-title: Usage analysis for web applications with Azure Application Insights | Microsoft docs
-description: Understand your users and what they do with your web app.
+﻿---
+title: Usage analysis with Azure Application Insights | Microsoft docs
+description: Understand your users and what they do with your app.
 services: application-insights
 documentationcenter: ''
-author: botatoes
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 05/03/2017
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 10/10/2017
+ms.author: mbullwin
 ---
 
-# Usage analysis for web applications with Application Insights
+# Usage analysis with Application Insights
 
-Which features of your web app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](app-insights-overview.md) helps you gain powerful insights into how people use your web app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
+Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
 
 ## Send telemetry from your app
 
@@ -31,22 +31,27 @@ The best experience is obtained by installing Application Insights both in your 
 
     ![Copy the script into the head of your master web page.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
+3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](app-insights-mobile-center-quickstart.md).
 
-3. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
+4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
+## Include user and session ID in your telemetry
+To track users over time, Application Insights requires a way to identify them. The Events tool is the only Usage tool that does not require a user ID or a session ID.
+
+Start sending user and session IDs using [this process](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## Explore usage demographics and statistics
 Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 
 
-The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment,and page. You can also add your own filters.
+The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment, and page. You can also add your own filters.
 
 ![Users](./media/app-insights-usage-overview/users.png)  
 
 Insights on the right point out interesting patterns in the set of data.  
 
-* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. (Users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.)
+* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.
 * The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user, terminated by a period of inactivity of more than half an hour.
 
 [More about the Users, Sessions, and Events tools](app-insights-usage-segmentation.md)  
@@ -87,22 +92,22 @@ The retention controls on top allow you to define specific events and time range
 
 ## Custom business events
 
-To get a clear understanding of what users do with your web app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game. 
+To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game. 
 
 Although in some cases, page views can represent useful events, it isn't true in general. A user can open a product page without buying the product. 
 
 With specific business events, you can chart your users' progress through your site. You can find out their preferences for different options, and where they drop out or have difficulties. With this knowledge, you can make informed decisions about the priorities in your development backlog.
 
-Events can be logged in the web page:
+Events can be logged from the client side of the app:
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-Or in the server side of the web app:
+Or from the server side:
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -111,14 +116,13 @@ Or in the server side of the web app:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user id, which allows you to trace the sequence of activities of an individual user.
+You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
 
 Learn more about [custom events](app-insights-api-custom-events-metrics.md#trackevent) and [properties](app-insights-api-custom-events-metrics.md#properties).
 
 ### Slice and dice events
 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
-
 ![Users](./media/app-insights-usage-overview/users.png)  
   
 ## Design the telemetry with the app
@@ -134,7 +138,7 @@ In the Application Insights portal, filter and split your data on the property v
 
 To do this, [set up a telemetry initializer](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -149,7 +153,7 @@ To do this, [set up a telemetry initializer](app-insights-api-filtering-sampling
 
 In the web app initializer such as Global.asax.cs:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -162,8 +166,9 @@ In the web app initializer such as Global.asax.cs:
 All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
-
-* [Users and sessions](app-insights-usage-segmentation.md)
-* [Retention](app-insights-usage-retention.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)s
-
+   - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+   - [Funnels](usage-funnels.md)
+   - [Retention](app-insights-usage-retention.md)
+   - [User Flows](app-insights-usage-flows.md)
+   - [Workbooks](app-insights-usage-workbooks.md)
+   - [Add user context](app-insights-usage-send-user-context.md)

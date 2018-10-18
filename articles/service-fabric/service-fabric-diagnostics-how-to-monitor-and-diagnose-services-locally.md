@@ -1,5 +1,5 @@
 ---
-title: Debug Azure microservices in Windows | Microsoft Docs
+title: Debug Azure Service Fabric apps in Windows | Microsoft Docs
 description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
 services: service-fabric
 documentationcenter: .net
@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 
 ---
@@ -62,5 +62,5 @@ After adding custom ETW tracing to your service code, you can build, deploy, and
 The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how you can set them up.
 
 * [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
-* [Collect logs directly from service process](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+* [Event aggregation and collection using EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 

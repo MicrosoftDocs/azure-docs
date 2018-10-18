@@ -4,7 +4,7 @@ description: Learn how to use Chef to do automated virtual machine deployment an
 services: virtual-machines-windows
 documentationcenter: ''
 author: diegoviso
-manager: timlt
+manager: jeconnoc
 tags: azure-service-management,azure-resource-manager
 editor: ''
 
@@ -23,14 +23,14 @@ ms.author: diviso
 
 Chef is a great tool for delivering automation and desired state configurations.
 
-With our latest cloud-api release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.
+With the latest cloud API release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.
 
-In this article, I’ll show you how to set up your Chef environment to provision Azure virtual machines and walk you through creating a policy or “CookBook” and then deploying this cookbook to an Azure virtual machine.
+In this article, you set up your Chef environment to provision Azure virtual machines and walk through creating a policy or “CookBook” and then deploying this cookbook to an Azure virtual machine.
 
 Let’s begin!
 
 ## Chef basics
-Before you begin, I suggest you review the basic concepts of Chef. There is great material <a href="http://www.chef.io/chef" target="_blank">here</a> and I recommend you have a quick read before you attempt this walkthrough. I will however recap the basics before we get started.
+Before you begin, [review the basic concepts of Chef](http://www.chef.io/chef). 
 
 The following diagram depicts the high-level Chef architecture.
 
@@ -38,25 +38,24 @@ The following diagram depicts the high-level Chef architecture.
 
 Chef has three main architectural components: Chef Server, Chef Client (node), and Chef Workstation.
 
-The Chef Server is our management point and there are two options for the Chef Server: a hosted solution or an on-premises solution. We will be using a hosted solution.
+The Chef Server is the management point and there are two options for the Chef Server: a hosted solution or an on-premises solution. We will be using a hosted solution for this tutorial.
 
 The Chef Client (node) is the agent that sits on the servers you are managing.
 
-The Chef Workstation is our admin workstation where we create our policies and execute our management commands. We run the **knife** command from the Chef Workstation to manage our infrastructure.
+The Chef Workstation is the admin workstation where we create policies and execute management commands. We run the **knife** command from the Chef Workstation to manage the infrastructure.
 
-There is also the concept of “Cookbooks” and “Recipes”. These are effectively the policies we define and apply to our servers.
+There is also the concept of “Cookbooks” and “Recipes”. These are effectively the policies we define and apply to the servers.
 
 ## Preparing the workstation
-First, lets prep the workstation. I’m using a standard Windows workstation. We need to create a directory to store our config files and cookbooks.
+First, lets prep the workstation. I’m using a standard Windows workstation. We need to create a directory to store the config files and cookbooks.
 
 First create a directory called C:\chef.
 
 Then create a second directory called c:\chef\cookbooks.
 
-We now need to download our Azure settings file so Chef can communicate with our Azure subscription.
+We now need to download the Azure settings file so Chef can communicate with the Azure subscription.
 
-<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
-Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
+Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
 
 Save the publish settings file in C:\chef.
 
@@ -72,7 +71,7 @@ Once your organization is created, download the starter kit.
 ![][4]
 
 > [!NOTE]
-> If you receive a prompt warning you that your keys will be reset, it’s ok to proceed as we have no existing infrastructure configured as yet.
+> If you receive a prompt warning you that your keys will be reset, it’s okay to proceed as we have no existing infrastructure configured as yet.
 > 
 > 
 
@@ -91,7 +90,7 @@ You should now have four files including the Azure publishing file in the root o
 
 The PEM files contain your organization and admin private keys for communication while the knife.rb file contains your knife configuration. We will need to edit the knife.rb file.
 
-Open the file in your editor of choice and modify the “cookbook_path” by removing the /../ from the path so it appears as shown next.
+Open the file in your editor of choice and modify the “cookbook_path” by removing the /../ from the path so it appears as:
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -106,7 +105,7 @@ Your knife.rb file should now look similar to the following example.
 These lines will ensure that Knife references the cookbooks directory under c:\chef\cookbooks, and also uses our Azure Publish Settings file during Azure operations.
 
 ## Installing the Chef Development Kit
-Next [download and install](http://downloads.getchef.com/chef-dk/windows) the ChefDK (Chef Development Kit) to set up your Chef Workstation.
+Next, [download and install](http://downloads.getchef.com/chef-dk/windows) the ChefDK (Chef Development Kit) to set up your Chef Workstation.
 
 ![][7]
 
@@ -116,7 +115,9 @@ Confirm your PATH variable contains entries for C:\opscode\chefdk\bin;C:\opscode
 
 If they are not there, make sure you add these paths!
 
-*NOTE THE ORDER OF THE PATH IS IMPORTANT!* If your opscode paths are not in the correct order you will have issues.
+> [!NOTE]
+> The order of the path is important! If your opscode paths are not in the correct order you will have issues. 
+> 
 
 Reboot your workstation before you continue.
 
@@ -144,13 +145,13 @@ If everything is configured correctly, you will see a list of available Azure im
 Congratulations. The workstation is set up!
 
 ## Creating a Cookbook
-A Cookbook is used by Chef to define a set of commands that you wish to execute on your managed client. Creating a Cookbook is straightforward and we use the **chef generate cookbook** command to generate our Cookbook template. I will be calling my Cookbook web server as I would like a policy that automatically deploys IIS.
+A Cookbook is used by Chef to define a set of commands that you wish to execute on your managed client. Creating a Cookbook is straightforward and we use the **chef generate cookbook** command to generate the Cookbook template. I will be calling my Cookbook web server as I would like a policy that automatically deploys IIS.
 
 Under your C:\Chef directory run the following command.
 
     chef generate cookbook webserver
 
-This will generate a set of files under the directory C:\Chef\cookbooks\webserver. We now need to define the set of commands we would like our Chef client to execute on our managed virtual machine.
+This will generate a set of files under the directory C:\Chef\cookbooks\webserver. We now need to define the set of commands we would like the Chef client to execute on the managed virtual machine.
 
 The commands are stored in the file default.rb. In this file, I’ll be defining a set of commands that installs IIS, starts IIS and copies a template file to the wwwroot folder.
 
@@ -173,7 +174,7 @@ Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the follo
 Save the file once you are done.
 
 ## Creating a template
-As we mentioned previously, we need to generate a template file which will be used as our default.html page.
+As we mentioned previously, we need to generate a template file which will be used as the default.html page.
 
 Run the following command to generate the template.
 
@@ -182,14 +183,14 @@ Run the following command to generate the template.
 Now navigate to the C:\chef\cookbooks\webserver\templates\default\Default.htm.erb file. Edit the file by adding some simple “Hello World” HTML code, and then save the file.
 
 ## Upload the Cookbook to the Chef Server
-In this step, we are taking a copy of the Cookbook that we have created on our local machine and uploading it to the Chef Hosted Server. Once uploaded, the Cookbook will appear under the **Policy** tab.
+In this step, we are taking a copy of the Cookbook that we have created on the local machine and uploading it to the Chef Hosted Server. Once uploaded, the Cookbook will appear under the **Policy** tab.
 
     knife cookbook upload webserver
 
 ![][9]
 
 ## Deploy a virtual machine with Knife Azure
-We will now deploy an Azure virtual machine and apply the “Webserver” Cookbook which will install our IIS web service and default web page.
+We will now deploy an Azure virtual machine and apply the “Webserver” Cookbook which will install the IIS web service and default web page.
 
 In order to do this, use the **knife azure server create** command.
 
@@ -200,7 +201,7 @@ Am example of the command appears next.
 The parameters are self-explanatory. Substitute your particular variables and run.
 
 > [!NOTE]
-> Through the the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
+> Through the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
 > 
 > 
 
@@ -220,7 +221,7 @@ As you can see, I got creative with my HTML code.
 
 Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.
 
-I hope this has been helpful! Go  and start your infrastructure as code journey with Azure today!
+I hope this has been helpful! Go and start your infrastructure as code journey with Azure today!
 
 <!--Image references-->
 [2]: media/chef-automation/2.png

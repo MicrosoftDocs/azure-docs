@@ -3,18 +3,15 @@ title: Configure Azure Function App Settings | Microsoft Docs
 description: Learn how to configure Azure function app settings.
 services: ''
 documentationcenter: .net
-author: rachelappel
-manager: erikre
-editor: ''
+author: ggailey777
+manager: jeconnoc
 
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
-ms.date: 04/23/2017
-ms.author: rachelap, glenga
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 03/28/2018
+ms.author: glenga
+ms.custom: cc996988-fb4f-47
 
 ---
 # How to manage a function app in the Azure portal 
@@ -24,6 +21,24 @@ In Azure Functions, a function app provides the execution context for your indiv
 To begin, go to the [Azure portal](http://portal.azure.com) and sign in to your Azure account. In the search bar at the top of the portal, type the name of your function app and select it from the list. After selecting your function app, you see the following page:
 
 ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>Favorite Functions in the portal 
+
+It can sometimes be hard to find your resources in the [Azure portal]. To make it easier to find the function apps you have created, add Function Apps to your favorites in the portal. 
+
+1. Log in to the [Azure portal].
+
+2. Click the arrow at the bottom left to expand all services, type `Functions` in the **Filter** field, and then click the star next to **Function Apps**.  
+ 
+    ![Create function app in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    This adds the Functions icon to the menu on the left of the portal.
+
+3. Close the menu, then scroll down to the bottom to see the Functions icon. Click this icon to see a list of all your function apps. Click your function app to work with functions in this app. 
+ 
+    ![Function Apps in Favorites](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[Azure portal]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Function app settings tab
 
@@ -53,7 +68,7 @@ The rest of this topic focuses on the following App Service features in the Azur
 + [Authentication](#auth)
 + [API definition](#swagger)
 
-For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md).
+For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/web-sites-configure.md).
 
 ### <a name="editor"></a>App Service Editor
 
@@ -67,7 +82,7 @@ For more information about how to work with App Service settings, see [Configure
 
 | | |
 |-|-|
-| ![Function app application settings.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | The App Service **Application settings** blade is where you configure and manage framework versions, remote debugging, app settings, and connection strings. When you integrate your function app with other Azure and third-party services, you can modify those settings here. |
+| ![Function app application settings.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | The App Service **Application settings** blade is where you configure and manage framework versions, remote debugging, app settings, and connection strings. When you integrate your function app with other Azure and third-party services, you can modify those settings here. To delete a setting, scroll to the right and select the **X** icon at the right end of the line (not shown in the following image).
 
 ![Configure application settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -92,7 +107,7 @@ For more information about how to work with App Service settings, see [Configure
 
 | | |
 |-|-|
-| ![Function app deployment options in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions lets you develop your function code on your local machine. You can then upload your local function app project to Azure. In addition to traditional FTP upload, Functions lets you deploy your function app using popular continuous integration solutions, like GitHub, VSTS, Dropbox, Bitbucket, and others. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). To upload manually using FTP or local Git, you also must [configure your deployment credentials](functions-continuous-deployment.md#credentials). |
+| ![Function app deployment options in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions lets you develop your function code on your local machine. You can then upload your local function app project to Azure. In addition to traditional FTP upload, Functions lets you deploy your function app using popular continuous integration solutions, like GitHub, Azure DevOps, Dropbox, Bitbucket, and others. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). To upload manually using FTP or local Git, you also must [configure your deployment credentials](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS
@@ -116,7 +131,7 @@ For more information about how to work with App Service settings, see [Configure
 
 | | |
 |-|-|
-| ![Function app API swagger definition in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions supports Swagger to allow clients to more easily consume your HTTP-triggered functions. For more information on creating API definitions with Swagger, visit [Get Started with API Apps, ASP.NET, and Swagger in Azure](../app-service-api/app-service-api-dotnet-get-started.md). You can also use Functions Proxies to define a single API surface for multiple functions. For more information, see [Working with Azure Functions Proxies](functions-proxies.md). |
+| ![Function app API swagger definition in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions supports Swagger to allow clients to more easily consume your HTTP-triggered functions. For more information on creating API definitions with Swagger, visit [Host a RESTful API with CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). You can also use Functions Proxies to define a single API surface for multiple functions. For more information, see [Working with Azure Functions Proxies](functions-proxies.md). |
 
 ![Configure Function App's API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
@@ -124,7 +139,7 @@ For more information about how to work with App Service settings, see [Configure
 
 ## Next steps
 
-+ [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md)
++ [Configure Azure App Service Settings](../app-service/web-sites-configure.md)
 + [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
 

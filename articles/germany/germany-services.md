@@ -5,7 +5,7 @@ services: germany
 cloud: na
 documentationcenter: na
 author: gitralf
-manager: rainerst
+manager: chsieg
 
 ms.assetid: na
 ms.service: germany
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 07/20/2017
 ms.author: ralfwi
 ---
 
@@ -27,59 +27,52 @@ Azure Germany is continually expanding its services. These services are deployed
 
 In the following tables, services specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource Manager supported services](../azure-resource-manager/resource-manager-supported-services.md). Services specified as available in the portal can be managed in the [Azure Germany portal](http://portal.microsoftazure.de/). 
 
-
 ## [Compute](./germany-services-compute.md)
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
-| [Virtual Machines](./germany-services-compute.md#virtual-machines) | Yes | Yes |
-| Batch | Yes | Yes |
-| Cloud Services | Yes | Yes |
+| [Virtual Machines](./germany-services-compute.md#virtual-machines)  | Yes | Yes |
+| Virtual Machine Scale Sets | Yes | Yes |
 | Service Fabric | Yes | Yes |
 
 
 ## [Networking](./germany-services-networking.md)
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
 | [ExpressRoute](./germany-services-networking.md#expressroute-private-connectivity) | Yes | Yes |
 | Virtual Network | Yes | Yes |
 | [Load Balancer](./germany-services-networking.md#support-for-load-balancer) | Yes | Yes |
-| [Traffic Manager](./germany-services-networking.md#support-for-traffic-manager) | Yes | Yes |
-| [VPN Gateway](./germany-services-networking.md#support-for-vpn-gateway) | Yes | Yes |
+| [Traffic Manager](./germany-services-networking.md#support-for-traffic-manager)  | Yes | Yes |
+|  [VPN Gateway](./germany-services-networking.md#support-for-vpn-gateway) | Yes | Yes |
 | Application Gateway | Yes | Yes |
 
 
 
 ## [Storage](./germany-services-storage.md)
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
-| [Blob storage](./germany-services-storage.md#storage) | Yes | Yes |
-| [Table storage](./germany-services-storage.md#storage) | Yes | Yes |
-| [Queue storage](./germany-services-storage.md#storage) | Yes | Yes |
-| [File storage](./germany-services-storage.md#storage) | Yes | Yes |
-| [Disk storage](./germany-services-storage.md#storage) | Yes | Yes |
+| [Storage](./germany-services-storage.md#storage) | Yes | Yes |
 | StorSimple | No | No |
-| Backup | No | No |
-| Site Recovery | No | No |
-| Import/Export | No | No |
+| Backup | Yes | Yes |
+| Site Recovery | Yes | Yes |
 
 
 
 ## [Web and mobile](./germany-services-webandmobile.md)
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
 | [App Service: Web Apps](./germany-services-webandmobile.md#app-service) | Yes | Yes |
 | [App Service: API Apps](./germany-services-webandmobile.md#app-service) | Yes | Yes |
 | [App Service: Mobile Apps](./germany-services-webandmobile.md#app-service) | Yes | Yes |
-| Media Services | No | No |
+| Media Services | Yes | Yes |
 
 
 ## [Databases](./germany-services-database.md)
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
 | [SQL Database](./germany-services-database.md#sql-database) | Yes | Yes |
 | SQL Data Warehouse | Yes | Yes |
@@ -90,24 +83,25 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 
 ## Intelligence and analytics
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
 | HDInsight | Yes | Yes |
-| Power BI Pro | Yes | Yes |
+| Machine Learning | Yes | No |
 
 
 ## [Internet of Things (IoT)](./germany-services-iot.md)
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
 | Event Hubs | Yes | Yes |
-| Notification Hubs | No | No |
-| Stream Analytics | Yes | Yes | 
+| IoT Hub | Yes | Yes |
+| Notification Hubs | Yes | No |
+| Stream Analytics | Yes | Yes |
 
 
 ## Enterprise integration
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
 | Service Bus | Yes | Yes |
 | StorSimple | No | No |
@@ -117,25 +111,23 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 
 ## [Security and identity](./germany-services-securityandidentity.md)
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
-| [Azure Active Directory](./germany-services-securityandidentity.md#azure-active-directory) | Yes | Yes |
-| [Key Vault](./germany-services-securityandidentity.md#key-vault) | Yes | Yes |
-| Multi-Factor Authentication | Yes | Yes |
+| Active Directory Free | Yes | Yes |
+| Active Directory Premium | No | No |
+|  [Key Vault](./germany-services-securityandidentity.md#key-vault)  | Yes | No |
 
 
 
 ## Monitoring and management
 
-| Service | Resource Manager enabled | Portal |
+| Service | Resource Manager | Portal |
 | --- | --- | --- |
 | Automation | No | No |
-| Backup | No | No |
+| Backup | Yes | Yes |
 | Log Analytics | No | No |
-| Site Recovery | No | No |
+| Site Recovery | Yes | Yes |
 | Scheduler | Yes | Yes |
-| Monitor | No | No |
-| Diagnostics | No | No |
 
 
 

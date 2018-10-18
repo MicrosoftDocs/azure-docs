@@ -1,19 +1,18 @@
----
+﻿---
 title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
 services: application-insights
 documentationcenter: ''
-author: noamben
+author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/06/2015
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 09/11/2017
+ms.author: mbullwin
 
 ---
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
@@ -137,29 +136,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 In this sample, we are using data from page views. To see the other data available, inspect your JSON output, and see the [export data model](app-insights-export-data-model.md).
 
 ## Create an Azure Stream Analytics instance
-From the [Classic Azure Portal](https://manage.windowsazure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
+From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![Stream analytics settings](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-When the new job is created, expand its details:
+When the new job is created, select **Go to resource**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![Stream analytics settings](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### Set blob location
+#### Add a new input
+
+![Stream analytics settings](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Set it to take input from your Continuous Export blob:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![Stream analytics settings](./media/app-insights-code-sample-export-sql-stream-analytics/SA0005.png)
 
 Now you'll need the Primary Access Key from your Storage Account, which you noted earlier. Set this as the Storage Account Key.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### Set path prefix pattern
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Be sure to set the Date Format to **YYYY-MM-DD** (with **dashes**).
+**Be sure to set the Date Format to YYYY-MM-DD (with dashes).**
 
 The Path Prefix Pattern specifies how Stream Analytics finds the input files in the storage. You need to set it to correspond to how Continuous Export stores the data. Set it like this:
 
@@ -174,22 +173,12 @@ In this example:
 
 To get the name and iKey of your Application Insights resource, open Essentials on its overview page, or open Settings.
 
-#### Finish initial setup
-Confirm the serialization format:
-
-![Confirm and close wizard](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Close the wizard and wait for the setup to complete.
-
 > [!TIP]
 > Use the Sample function to check that you have set the input path correctly. If it fails: Check that there is data in the storage for the sample time range you chose. Edit the input definition and check you set the storage account, path prefix and date format correctly.
 > 
 > 
-
 ## Set query
 Open the query section:
-
-![In stream analytics, select Query](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Replace the default query with:
 
@@ -234,22 +223,20 @@ Notice that the first few properties are specific to page view data. Exports of 
 ## Set up output to database
 Select SQL as the output.
 
-![In stream analytics, select Outputs](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![In stream analytics, select Outputs](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Specify the SQL database.
 
-![Fill in the details of your database](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Fill in the details of your database](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Close the wizard and wait for a notification that the output has been set up.
 
 ## Start processing
 Start the job from the action bar:
 
-![In stream analytics, click  Start](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![In stream analytics, click  Start](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 You can choose whether to start processing the data starting from now, or to start with earlier data. The latter is useful if you have had Continuous Export already running for a while.
-
-![In stream analytics, click  Start](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 After a few minutes, go back to SQL Server Management Tools and watch the data flowing in. For example, use a query like this:
 

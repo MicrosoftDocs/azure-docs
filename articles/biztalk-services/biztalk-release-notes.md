@@ -21,6 +21,8 @@ ms.author: deonhe
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+
 The release notes for the Microsoft Azure BizTalk Services contain the known issues in this release.
 
 ## What’s new in the November update of BizTalk Services
@@ -31,8 +33,8 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
 * Organizational accounts are supported:  
   * **Scenario**: You registered a BizTalk Service deployment using a Microsoft account (like user@live.com). In this scenario, only Microsoft Account users can manage the BizTalk Service using the BizTalk Services portal. An organizational account cannot be used.  
   * **Scenario**: You registered a BizTalk Service deployment using an organizational account in an Azure Active Directory (like user@fabrikam.com or user@contoso.com). In this scenario, only Azure Active Directory users within the same organization can manage the BizTalk Service using the BizTalk Services portal. A Microsoft account cannot be used.  
-* When you create a BizTalk Service in the Azure classic portal, you are automatically registered in the BizTalk Services Portal.
-  * **Scenario**: You sign into the Azure classic portal, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
+* When you create a BizTalk Service, you are automatically registered in the BizTalk Services Portal.
+  * **Scenario**: You sign into Azure, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
     See [Registering and Updating a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### August 14 Update
@@ -60,11 +62,11 @@ You ‘Build’ the solution in Visual Studio successfully. Then, you ‘Rebuild
   Unable to copy file <Path to DLL> to “bin\Debug\FileName.dll”. The process cannot access the file ‘bin\Debug\FileName.dll’ because it is being used by another process.  
 
 #### Workaround
-* If [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) is installed, you have the following two options:
+* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is installed, you have the following two options:
   
   * Restart Visual Studio, or
   * Restart the solution. Then, perform only a Build on the solution.  
-* If [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) is not installed, open Task Manager, click the Processes tab, click the MSBuild.exe process, and then click the End Process button.  
+* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is not installed, open Task Manager, click the Processes tab, click the MSBuild.exe process, and then click the End Process button.  
 
 ### Routing to BasicHttpRelay endpoints is not supported from bridges and BizTalk Services Portal if non-printable characters are promoted as HTTP headers
 If you use non-printable characters as part of promoted properties for messages, those messages cannot be routed to relay destinations that use the BasicHttpRelay binding. Also, the promoted properties that are available as part of tracking are URL-encoded for blobs and un-encoded for destinations.  
@@ -135,7 +137,7 @@ When using user-defined datatypes, copy the files (.dll) to drive:\Program Files
 > 
 
 ### Restarting the BizTalk Adapter Service Web Site
-Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premise service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
+Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premises service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
 
 If you stop and start an application, the configuration for auto-starting an application is not honored. So when **BAService** is stopped, you must always restart the **BizTalk Adapter Service** web site instead. Do not start or stop the **BAService** application.
 

@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 08/20/2018
 ms.author: terrylan
 
 ---
@@ -28,17 +28,18 @@ An email notification is sent on the first daily occurrence of an alert and only
 >
 
 ## Implement the recommendation
-1. In the **Recommendations** blade, select **Provide security contact details**.
+1. Under **Recommendations**, select **Provide security contact details**.
    ![Provide security contact][1]
-2. This opens the blade **Provide security contact details**. Select the Azure subscription to provide contact information on.
+2. Select the Azure subscription to provide contact information on.
+3. This opens **Email notifications**.
+
    ![Provide security contact details][2]
-3. A second **Provide security contact details** blade opens.
 
    * Enter the security contact email address or addresses separated by commas. There is not a limit to the number of email addresses that you can enter.
    * Enter one security contact international phone number.
    * To receive emails about high severity alerts, turn on the option **Send me emails about alerts**.
    * In the future, you will have the option to send email notifications to subscription owners. This option is currently grayed out.
-   * Select **OK** to apply the security contact information to your subscription.
+   * Select **Save** to apply the security contact information to your subscription.
 
 ## See also
 To learn more about Security Center, see the following:

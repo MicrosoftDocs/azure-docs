@@ -1,14 +1,12 @@
 ---
-title: Azure PowerShell Script-Create an Azure Cosmos DB DocumentDB API account | Microsoft Docs
-description: Azure PowerShell Script Sample - Create an Azure Cosmos DB DocumentDB API account
+title: Azure PowerShell Script-Create an Azure Cosmos DB SQL API account | Microsoft Docs
+description: Azure PowerShell Script Sample - Create an Azure Cosmos DB SQL API account
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
 
-ms.assetid:
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -16,10 +14,10 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: sngun
 ---
 
-# Azure Cosmos DB: Create a DocumentDB API account using PowerShell
+# Azure Cosmos DB: Create a SQL API account using PowerShell
 
 This sample PowerShell script creates an Azure Cosmos DB API account. 
 
@@ -43,9 +41,9 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps

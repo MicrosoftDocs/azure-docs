@@ -1,24 +1,20 @@
 ---
-title: 'Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Docs'
-description: How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C
+title: Multi-Factor Authentication in Azure Active Directory B2C | Microsoft Docs
+description: How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
-ms.author: swkrish
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Enable Multi-Factor Authentication in your consumer-facing applications
-Azure Active Directory (Azure AD) B2C integrates directly with [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message verification. If you already created sign-up and sign-in policies, you can still enable Multi-Factor Authentication.
+Azure Active Directory (Azure AD) B2C integrates directly with [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message verification. If you already created sign-up and sign-in policies, you can still enable Multi-Factor Authentication.
 
 > [!NOTE]
 > Multi-Factor Authentication can also be enabled when you create sign-up and sign-in policies, not just by editing existing policies.
@@ -31,7 +27,7 @@ This feature helps applications handle scenarios such as the following:
 * You don't require Multi-Factor Authentication to access an application in general, but you do require it to access the sensitive portions within it. For example, the consumer can sign in to a banking application with a social or local account and check account balance, but must verify the phone number before attempting a wire transfer.
 
 ## Modify your sign-up policy to enable Multi-Factor Authentication
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Click **Sign-up policies**.
 3. Click your sign-up policy (for example, "B2C_1_SiUp") to open it.
 4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
@@ -42,7 +38,7 @@ You can use the "Run now" feature on the policy to verify the consumer experienc
 A consumer account gets created in your directory before the Multi-Factor Authentication step occurs. During the step, the consumer is asked to provide his or her phone number and verify it. If verification is successful, the phone number is attached to the consumer account for later use. Even if the consumer cancels or drops out, he or she can be asked to verify a phone number again during the next sign-in (with Multi-Factor Authentication enabled).
 
 ## Modify your sign-in policy to enable Multi-Factor Authentication
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Click **Sign-in policies**.
 3. Click your sign-in policy (for example, "B2C_1_SiIn") to open it. Click **Edit** at the top of the blade.
 4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.

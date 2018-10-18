@@ -3,10 +3,10 @@ title: 'Azure Notification Hubs: Frequently Asked Questions (FAQs) | Microsoft D
 description: FAQs on designing/implementing solutions on Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
-author: ysxu
-manager: erikre
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
-editor: ''
 
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
@@ -14,8 +14,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/19/2017
-ms.author: yuaxu
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # Push notifications with Azure Notification Hubs: Frequently asked questions
@@ -79,7 +79,7 @@ If you have an existing mobile app back end and you want to add only the capabil
 ### How many devices can I support if I send push notifications via Notification Hubs?
 Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
 
-If you need support for more than 10 million registered devices, [contact us](https://azure.microsoft.com/overview/contact-us/) directly and we will help you scale your solution.
+If you need support for more than 10 million registered devices, [contact us](https://azure.microsoft.com/overview/contact-us/) directly and we help you scale your solution.
 
 ### How many push notifications can I send out?
 Depending on the selected tier, Azure Notification Hubs automatically scales up based on the number of notifications flowing through the system.
@@ -138,7 +138,7 @@ If you have an application that is used globally, you can create hubs in differe
 Registrations from the app back end are useful when you have to authenticate clients before creating the registration. They're also useful when you have tags that must be created or modified by the app back end based on app logic. For more information, go to the [Backend Registration guidance] and [Backend Registration guidance 2] pages.
 
 ### What is the push notification delivery security model?
-Azure Notification Hubs uses a [shared access signature](../storage/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
+Azure Notification Hubs uses a [shared access signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
 
 ### How should I handle sensitive payload in push notifications?
 All notifications are delivered to target devices by the platform's PNS. When a notification is sent to Azure Notification Hubs, it is processed and passed to the respective PNS.
@@ -176,14 +176,14 @@ If you don’t have a back end, when the app starts on target devices, they perf
 There will be a time period when devices with unopened apps won't receive notifications.
 
 ### Is there audit log capability?
-All Notification Hubs management operations go to operation logs, which are exposed in the [Azure classic portal].
+All Notification Hubs management operations go to operation logs, which are exposed in the [Azure portal].
 
 ## Monitoring and troubleshooting
 ### What troubleshooting capabilities are available?
 Azure Notification Hubs provides several features for troubleshooting, particularly for the most common scenario of dropped notifications. For details, see the [Notification Hubs troubleshooting] white paper.
 
 ### What telemetry features are available?
-Azure Notification Hubs enables viewing telemetry data in the [Azure classic portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
+Azure Notification Hubs enables viewing telemetry data in the [Azure portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
 
 > [!NOTE]
 > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNS for Apple or GCM for Google). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
@@ -192,7 +192,7 @@ Azure Notification Hubs enables viewing telemetry data in the [Azure classic por
 
 We also provide the capability to export the telemetry data programmatically (in the Standard tier). For details, see the [Notification Hubs Metrics sample].
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
