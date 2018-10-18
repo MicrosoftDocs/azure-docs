@@ -4,7 +4,7 @@ description: Advanced Analytics Process and Technology in Action
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8

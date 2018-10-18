@@ -2,13 +2,13 @@
 title: Speech service REST APIs
 description: Reference for REST APIs for the Speech service.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 # Speech service REST APIs
 

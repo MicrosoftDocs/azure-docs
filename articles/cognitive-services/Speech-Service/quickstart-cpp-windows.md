@@ -8,7 +8,7 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
 ---
 
@@ -55,7 +55,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
     ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > The current version of the Cognitive Services Speech SDK is `1.0.0`.
+    > The current version of the Cognitive Services Speech SDK is `1.0.1`.
 
 1. Accept the displayed license to begin installation of the NuGet package.
 
