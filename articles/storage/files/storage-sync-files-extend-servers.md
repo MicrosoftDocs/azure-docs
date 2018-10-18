@@ -337,12 +337,10 @@ Your files are now kept in sync across your Azure file share and Windows Server.
 | ![Azure Storage successfully synced](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png) | ![Windows Server successfully synced](media/storage-sync-files-extend-servers/files-synced-on-ws.png) |
 
 ## Clean up resources
-If you wish to clean up the resources created for this tutorial,
 
-Delete the VM
+[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
-Delete the storage account/resource group
-<!--- what needs to be cleaned up here--->
+When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
 
 <!--- Do we need to tell them to enable the **Internet Explorer Enhanced Security Configuration** setting we disabled in ## Prepare the Windows Server?--->
 
