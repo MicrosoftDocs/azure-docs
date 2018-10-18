@@ -43,3 +43,7 @@ LUIS includes a set of prebuilt intents from the prebuilt domains for quickly ad
     |Cancel the meeting.|0.56|
 
     ![Test prebuilt intent](./media/luis-prebuilt-intents/test.png)
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Prebuilt entities](./luis-prebuilt-entities.md)

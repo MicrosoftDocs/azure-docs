@@ -63,4 +63,4 @@ LUIS returns the correct intent and meeting subject:
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Prebuilt entity reference](./luis-reference-prebuilt-entities.md)
+> [Prebuilt domain reference](./luis-reference-prebuilt-domains.md)
