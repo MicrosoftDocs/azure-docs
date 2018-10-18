@@ -272,6 +272,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/service/quickstart-get-started-with-cli.md",
+            "redirect_url": "/azure/machine-learning/service/reference-azure-machine-learning-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models",
             "redirect_document_id": true
