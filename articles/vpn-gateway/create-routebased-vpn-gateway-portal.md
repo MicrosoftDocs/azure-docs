@@ -67,13 +67,14 @@ The gateway subnet contains the reserved IP addresses that the virtual network g
     - Leave **Create new** selected.
     - In the text box, type a **Name** for your public IP address. For this exercise, use **VNet1GWIP**.<br>
 
-  ![Configure gateway settings](./media/create-routebased-vpn-gateway-portal/gw.png "Configure gateway settings")
+    ![Configure gateway settings](./media/create-routebased-vpn-gateway-portal/gw.png "Configure gateway settings")
+
 ## <a name="creategw"></a>Create the VPN gateway
 
 1. Verify the settings on the **Create virtual network gateway** page. Adjust values if necessary.
 2. Click **Create** at the bottom of the page.
 
-After you click **Create**, the settings are validated and the **Deploying Virtual network gateway** tile appears on the dashboard. A VPN gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
+  After you click **Create**, the settings are validated and the **Deploying Virtual network gateway** tile appears on the dashboard. A VPN gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
 ## <a name="viewgw"></a>View the VPN gateway
 
