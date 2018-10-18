@@ -56,5 +56,4 @@ You've now uploaded an IoT Edge deployment manifest as a package. On the **Deplo
 
 ## Next steps
 
-TODO - make sure this next step is updated.
-Now that you have prepared your IoT Edge device, the next step is to deploy modules to it.
+Now that you have learned how to deploy modules to an IoT Edge device from the Remote Monitoring solution, the next step is to learn more about [IoT Edge](../iot-edge/about-iot-edge.md).
