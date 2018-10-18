@@ -48,10 +48,6 @@ Before you can use a custom wake word with your device, you must create the wake
 
     ![Create a new account](media/speech-devices-sdk/wake-word-1.png)
  
-1.	After you sign in, fill out the form, and then select **Start my journey**.
-
-    ![Successfully signed in](media/speech-devices-sdk/wake-word-3.png)
- 
 1. The **Custom Wake Word** page is not available to the public, so there is no direct link that takes you there. The Custom Speech feature requires an Azure subscriptions, but the Custom Wake Word feature doesn't. If you got the **No Subscriptions found.** error page, just replace the **"Subscriptions?errorMessage=No%20Subscriptions%20found"** with "**customkws**" in the URL, and hit ENTER. The URL should be one of these: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws or https://northeurope.cris.ai/customkws, depending on where your region is.
 
     ![The Custom Wake Word page is hidden](media/speech-devices-sdk/wake-word-4.png)
