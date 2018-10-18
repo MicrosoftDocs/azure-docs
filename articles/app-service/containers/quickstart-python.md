@@ -176,4 +176,7 @@ The built-in Python image in App Service on Linux is currently in Preview, and y
 > [Configure a custom startup command](how-to-configure-python.md#custom-startup-command)
 
 > [!div class="nextstepaction"]
+> [Troubleshooting](how-to-configure-python.md#troubleshooting)
+
+> [!div class="nextstepaction"]
 > [Use custom images](tutorial-custom-docker-image.md)
