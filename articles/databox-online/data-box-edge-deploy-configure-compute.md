@@ -44,7 +44,8 @@ For detailed instructions, go to [Create an IoT Hub](https://docs.microsoft.com/
 
 ![Create IoT Hub resource](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-When the Edge compute role isn't set up, note 
+When the Edge compute role isn't set up, note:
+
 - The IoT Hub resource doesn't have any IoT devices or IoT Edge devices.
 - You can't create Edge local shares. When you add a share, the option to create a local share for Edge compute isn't enabled.
 
@@ -87,12 +88,12 @@ To set up the compute role on the device, do the following steps.
 
     ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
 
-There are however no custom modules on this Edge device. You can now add a custom module to this device.
+There are however no custom modules on this Edge device. You can now add a custom module to this device. To learn how to create a custom module, go to [Develop a C# module for your Data Box Edge](data-box-edge-create-iot-edge-module.md).
 
 
 ## Add a custom module
 
-In this section, you'll add a custom module to the IoT Edge device. 
+In this section, you'll add a custom module to the IoT Edge device that you created in [Develop a C# module for your Data Box Edge](data-box-edge-create-iot-edge-module.md). 
 
 This procedure uses an example where the custom module used takes files from a local share on the Edge device and moves those to a cloud share on the device. The cloud share then pushes the files to the Azure storage account associated with the cloud share. 
 
@@ -129,11 +130,20 @@ This procedure uses an example where the custom module used takes files from a l
 
         ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
-    2. Specify the settings for the IoT Edge custom module. Provide the **name** of your module and **image URI**. 
+    2. Specify the settings for the IoT Edge custom module. Provide the **name** of your module and **image URI** for the corresponding container image. 
     
         ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. In the **Container create options**, provide the local mountpoints for the Edge modules copied in the preceding steps for the cloud and local share (important to use these paths as opposed to creating new ones). These shares are mapped to the corresponding container mount points. Also provide any environmental variables here as well for your module.
+    3. In the **Container create options**, provide the local mountpoints for the Edge modules copied in the preceding steps for the cloud and local share (important to use these paths as opposed to creating new ones). These shares are mapped to the corresponding container mount points. 
+    
+        In this case, the paths specified in `Binds` are:
+        
+        ```
+        /home/hcsshares/mysmblocalshare:/home/LocalShare
+        /home/hcsshares/mysmbshare1:/home/CloudShare
+        ```
+
+        Also provide any environmental variables here as well for your module.
 
         ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  

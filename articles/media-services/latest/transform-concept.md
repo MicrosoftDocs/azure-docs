@@ -5,13 +5,13 @@ description: When using Media Services, you need to create a Transform to descri
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ---
 
@@ -75,5 +75,4 @@ Suppose you wanted to extract the first frame of all your videos as a thumbnail 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream video files](stream-files-dotnet-quickstart.md)
+[Stream video files](stream-files-dotnet-quickstart.md)

@@ -59,45 +59,7 @@ To use a certificate in App Service, the certificate must meet all the following
 > [!NOTE]
 > **Elliptic Curve Cryptography (ECC) certificates** can work with App Service but are not covered by this article. Work with your certificate authority on the exact steps to create ECC certificates.
 
-## Prepare your web app
-
-To bind a custom SSL certificate to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tier. In this step, you make sure that your web app is in the supported pricing tier.
-
-### Log in to Azure
-
-Open the [Azure portal](https://portal.azure.com).
-
-### Navigate to your web app
-
-From the left menu, click **App Services**, and then click the name of your web app.
-
-![Select web app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-You have landed in the management page of your web app.  
-
-### Check the pricing tier
-
-In the left-hand navigation of your web app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
-
-![Scale-up menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Check to make sure that your web app is not in the **F1** or **D1** tier. Your web app's current tier is highlighted by a dark blue box.
-
-![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-Custom SSL is not supported in the **F1** or **D1** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page and skip to [Upload and bind your SSL certificate](#upload).
-
-### Scale up your App Service plan
-
-Select any of the non-free tiers (**B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, click **See additional options**.
-
-Click **Apply**.
-
-![Choose pricing tier](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-When you see the following notification, the scale operation is complete.
-
-![Scale up notification](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 
