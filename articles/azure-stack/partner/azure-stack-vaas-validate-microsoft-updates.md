@@ -35,7 +35,7 @@ Update validations use the same workflow as **Package Validation**. Follow the i
 
 ## Execute tests
 
-Update validations use the same workflow as **Package Validation**. Follow the instructions at [Execute Package Validation tests](azure-stack-vaas-validate-oem-package.md#execute-package-validation-tests).
+Update validations use the same workflow as **Package Validation**. Follow the instructions at [Execute Package Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
 
 You do not need to request package signing for update validations.
 

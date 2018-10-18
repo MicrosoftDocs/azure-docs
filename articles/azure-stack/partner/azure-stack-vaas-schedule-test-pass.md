@@ -15,7 +15,7 @@ ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
-# Customer intent: As a partner OEM, I want to enable the service to test my hardware bill of materials to verify that it can run Azure Stack.
+# Customer intent: As a partner OEM, I want to let the service to test my hardware bill of materials to check that it can run Azure Stack.
 ---
 
 # Schedule your first test
@@ -30,7 +30,7 @@ While the Test Pass workflow can be used to run any test provided by VaaS, inclu
 
 ## Prerequisites
 
-Before you follow this quickstart, you should complete the following items:
+Before you follow this quickstart, you should finish the following items:
 
 - [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)
 - [Deploy the local agent](azure-stack-vaas-local-agent.md) (Recommended)
@@ -50,7 +50,7 @@ Sign in to the portal, select or creation a solution, and then select the soluti
 
 ![Alt Text](media/vaas_portalsignin.png)
 
-Define the workflow for your solution. The workflow contains the process steps that used to test your solution.
+Define the workflow for your solution. The workflow has the process steps that used to test your solution.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -81,7 +81,7 @@ Review, create, and then schedule you workflow.
 
     The services creates your workflow with the provided information and the selected tests will be scheduled.
 
-    If anything appears incorrect, use the **Previous** buttons to navigate to an earlier section.
+    If anything appears incorrect, use the **Previous** buttons to go to an earlier section.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
 

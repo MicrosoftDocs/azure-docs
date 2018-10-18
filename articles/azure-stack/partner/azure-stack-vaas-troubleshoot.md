@@ -43,7 +43,7 @@ If the agent process is shut down ungracefully for example, machine restarted, p
 
 ### Handle slow network connectivity
 
-You can download the PIR image to a share in your local datacenter. And then you can verify the image.
+You can download the PIR image to a share in your local datacenter. And then you can check the image.
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
@@ -80,17 +80,17 @@ You can use **Get-HashFile** cmdlet to get the hash value for the downloaded pub
 
 ### Failure occurs when uploading VM image in the `VaaSPreReq` script
 
-First verify that the environment is healthy:
+First check that the environment is healthy:
 
-1. From the DVM / jump box, verify that you can successfully sign in to the admin portal using the admin credentials.
+1. From the DVM / jump box, check that you can successfully sign in to the admin portal using the admin credentials.
 1. Confirm that there are no alerts or warnings.
 
 If the environment is healthy, manually upload the 5 VM Images required for VaaS test runs:
 
 1. Sign in as the service admin to the admin portal. You can find the admin portal URL from ECE store or your stamp information file. For instructions, see [Environment parameters](azure-stack-vaas-parameters.md#environment-parameters).
-1. Click on **More services** > **Resource Providers** > **Compute** > **VM Images**.
-1. Click on the **+ Add** button at the top of the **VM Images** blade.
-1. Modify or verify values of the following fields for the first VM image:
+1. Select **More services** > **Resource Providers** > **Compute** > **VM Images**.
+1. Select the **+ Add** button at the top of the **VM Images** blade.
+1. Modify or check values of the following fields for the first VM image:
     > [!IMPORTANT]
     > Not all defaults are correct for the existing Marketplace Item.
 
@@ -103,7 +103,7 @@ If the environment is healthy, manually upload the 5 VM Images required for VaaS
     | Version | 1.0.0 |
     | OS Disk Blob URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
-1. Click on the **Create** button.
+1. Select the **Create** button.
 1. Repeat for the remaining VM images.
 
 The properties of all 5 VM images are as follows:

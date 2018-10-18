@@ -25,12 +25,15 @@ You can use PowerShell for the following workflow:
 
 - Test Pass
 
+In this tutorial, you learn how to to create a script that:
+
 This script performs the following actions:
 
-- Installs prerequisites.
-- Installs and starts the local agent.
-- Launches a category of tests, such as integration, functional, reliability.
-- Reports test results.
+> [!div class="checklist"]
+> * Installs prerequisites
+> * Installs and starts the local agent
+> * Launches a category of tests, like integration, functional, reliability
+> * Reports test results
 
 ## Launch the Test Pass workflow
 
@@ -84,4 +87,7 @@ This script performs the following actions:
 
 ## Next steps
 
-- To learn more about PowerShell on Azure Stack, see the latest [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Reference.
+To learn more about PowerShell on Azure Stack, review the lastest modules.
+
+> [!div class="nextstepaction"]
+> [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)

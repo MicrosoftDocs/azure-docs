@@ -21,7 +21,7 @@ ms.reviewer: johnhas
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-This article contains the release notes for Azure Stack Validation as a Service.
+This article has the release notes for Azure Stack Validation as a Service.
 
 ## Version 4.0.1
 
@@ -29,7 +29,7 @@ This article contains the release notes for Azure Stack Validation as a Service.
 
 - VaaS prerequisites
 
-    `Install-VaaSPrerequisites` no longer requires cloud admin credentials. If you are running the latest version of this cmdlet, see [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) for the revised commands for installing prerequisites as follows:
+    `Install-VaaSPrerequisites` no longer requires cloud admin credentials. If you are running the latest version of this cmdlet, see [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) for the revised commands for installing prerequisites. Here are the commands:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -73,11 +73,11 @@ This article contains the release notes for Azure Stack Validation as a Service.
 
   - Package signing notifications
 
-    When an OEM customization package is submitted as part of the Package Validation workflow, the package format will be validated to ensure that it follows the published specification. If the package does not comply, the run will fail. E-mail notifications will be sent to the e-mail address of the registered Azure Active Directory contact for the tenant.
+    When an OEM customization package is submitted as part of the Package Validation workflow, the package format will be validated to ensure that it follows the published specification. If the package does not comply, the run will fail. E-mail notifications will be sent to the email address of the registered Azure Active Directory contact for the tenant.
 
   - Interactive test category
 
-    The **Interactive** test category has been added. These tests enable partners to exercise interactive, non-automated Azure Stack scenarios.
+    The **Interactive** test category has been added. These tests let partners to exercise interactive, non-automated Azure Stack scenarios.
 
   - Interactive Feature Verification
 

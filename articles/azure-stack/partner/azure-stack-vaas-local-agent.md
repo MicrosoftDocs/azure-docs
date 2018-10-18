@@ -90,7 +90,7 @@ The command downloads a public image repository (PIR) image (OS VHD) and copy fr
 
 ## Checks before starting the tests
 
-The tests perform remote operations. The machine that runs the tests must have access to the Azure Stack endpoints, otherwise the tests will not work. If you are using the VaaS local agent, use the machine where the agent will run. You can verify that your machine has access to the Azure Stack endpoints by running the following checks:
+The tests run remote actions. The machine that runs the tests must have access to the Azure Stack endpoints, otherwise the tests will not work. If you are using the VaaS local agent, use the machine where the agent will run. You can check that your machine has access to the Azure Stack endpoints by running the following checks:
 
 1. Check that the Base URI can be reached. Open a CMD prompt or bash shell, and run the following command, replacing `<EXTERNALFQDN>` with the External FQDN of your environment:
 
@@ -98,7 +98,7 @@ The tests perform remote operations. The machine that runs the tests must have a
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. Open a web browser and navigate to `https://adminportal.<EXTERNALFQDN>` in order to check that the MAS Portal can be reached.
+2. Open a web browser and go to `https://adminportal.<EXTERNALFQDN>` in order to check that the MAS Portal can be reached.
 
 3. Sign in using the Azure AD service administrator name and password values provided when creating the test pass.
 

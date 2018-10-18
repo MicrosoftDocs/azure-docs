@@ -32,7 +32,7 @@ To certify your solution, run the Solution Validation workflow twice. Run it onc
 ## Create a Solution Validation workflow
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
-2. Click **Start** on the **Solution Validations** tile.
+2. Select **Start** on the **Solution Validations** tile.
 
     ![Solution Validations workflow tile](media/tile_validation-solution.png)
 

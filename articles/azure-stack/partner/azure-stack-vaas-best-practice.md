@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Validation Best Practices. | Microsoft Docs
-description: This article contains best practices for Validation as a Service.
+description: This article has best practices for Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -27,7 +27,7 @@ This article covers best practices for managing resources in Validation as a Ser
 
 ### Naming convention for VaaS solutions
 
-We recommend using a consistent naming convention for all solutions registered in VaaS. For example, the solution name can be constructed from the hardware properties below as follows:
+Use a consistent naming convention for all solutions registered in VaaS. For example, the solution name can be constructed from the hardware properties below as follows:
 
 |Product Name | Unique Hardware Element 1 | Unique Hardware Element 2 | Solution Name
 |---|---|---|---|
@@ -35,13 +35,13 @@ My Solution XYZ |  All Flash | My Switch X01 | MySolutionXYZ_AllFlash_MySwitchX0
 
 ### When to create a new VaaS solution
 
-We recommend using the same VaaS solution when running workflows against the same hardware SKU. A new VaaS solution should be created only when there is a change to the hardware SKU.
+Use the same VaaS solution when running workflows against the same hardware SKU. A new VaaS solution should be created only when there is a change to the hardware SKU.
 
 ## Workflow management
 
 ### Naming convention for VaaS workflows
 
-We recommend using a consistent naming convention for all VaaS workflow runs. For example, the workflow name can be constructed from the build properties below as follows:
+Use a consistent naming convention for all VaaS workflow runs. For example, the construct a workflow name from the build properties below as follows:
 
 |Build Number (Major) | Date | Solution Size | Workflow Name
 |---|---|---| ---|
