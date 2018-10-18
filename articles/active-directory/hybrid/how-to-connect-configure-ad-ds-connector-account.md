@@ -298,3 +298,4 @@ This cmdlet will set the following permissions:
 - [Azure AD Connect: Accounts and permissions](reference-connect-accounts-permissions.md)
 - [Express Installation](how-to-connect-install-express.md)
 - [Custom Installation](how-to-connect-install-custom.md)
+- [ADSyncConfig Reference](reference-connect-adsyncconfig.md)
