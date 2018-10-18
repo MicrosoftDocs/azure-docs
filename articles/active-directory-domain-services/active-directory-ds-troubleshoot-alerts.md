@@ -13,8 +13,8 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+ms.date: 10/17/2018
 ms.author: ergreenl
 
 ---
@@ -35,7 +35,7 @@ Pick the troubleshooting steps that correspond to the ID or message in the alert
 | AADDS105 | *The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. The recreation leaves behind inconsistent permissions on Azure AD Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.* | [The password synchronization application is out of date](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *The managed domain was last synchronized with Azure AD on [date]. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD.* | [Synchronization hasn't happened in a while](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *The managed domain was last backed up on [date].* | [A backup hasn't been taken in a while](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *The secure LDAP certificate for the managed domain will expire on [date]].* | [Expiring secure LDAP certificate](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *The secure LDAP certificate for the managed domain will expire on [date].* | [Expiring secure LDAP certificate](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *The managed domain is suspended because the Azure subscription associated with the domain is not active.* | [Suspension due to disabled subscription](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *The managed domain is suspended due to an invalid configuration. The service has been unable to manage, patch, or update the domain controllers for your managed domain for a long time.* | [Suspension due to an invalid configuration](#aadds504-suspension-due-to-an-invalid-configuration) |
 
