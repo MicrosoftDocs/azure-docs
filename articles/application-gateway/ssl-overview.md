@@ -28,9 +28,9 @@ Application gateway only communicates with known backend instances that have whi
 > [!NOTE]
 > Authentication certificate setup is not required for trusted Azure services such as Azure Web Apps.
 
-## End to end SSL with the V2 SKU
+## End to end SSL with the v2 SKU
 
-Authentication Certificates have been deprecated and replaced by Trusted Root Certificates in the Application Gateway V2 SKU. They function very similarly to Authentication Certificates with a few key differences:
+Authentication Certificates have been deprecated and replaced by Trusted Root Certificates in the Application Gateway v2 SKU. They function very similarly to Authentication Certificates with a few key differences:
 
 - Certificates signed by well known CA authorities whose CN matches the host name in the HTTP backend settings do not require any additional step for end to end SSL to work. 
 
