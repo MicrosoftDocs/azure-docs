@@ -57,7 +57,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     
    Select __Cluster Type__ to display the **Cluster configuration**.
    
-   <img src=./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png width=400 alt="Apache Kafka cluster on HDInsight basic configuration">
+   <img src="./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png" width=400 alt="Apache Kafka cluster on HDInsight basic configuration">
 
 3. From the __Cluster configuration__, select the following values:
 
@@ -85,7 +85,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     >
     > For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
-   <img src=./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png width=300 alt="Select subscription">
+   <img src="./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png" width=300 alt="Select subscription">
 
     Use the __Next__ button to finish basic configuration.
 
@@ -93,11 +93,11 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
    If you would like to connect your cluster to a virtual network, select a virtual network from the **Virtual network** dropdown.
 
-   <img src=./media/apache-kafka-get-started/kafka-security-config.png width=400 alt="Add cluster to a virtual network">
+   <img src="./media/apache-kafka-get-started/kafka-security-config.png" width=400 alt="Add cluster to a virtual network">
 
 6. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-   <img src=./media/apache-kafka-get-started/storage-configuration.png width=400 alt="Set the storage account settings for HDInsight">
+   <img src="./media/apache-kafka-get-started/storage-configuration.png" width=400 alt="Set the storage account settings for HDInsight">
 
 7. From __Applications (optional)__, select __Next__ to continue with the default settings.
 
@@ -109,7 +109,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     > [!TIP]
     > The **disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
 
-   <img src=./media/apache-kafka-get-started/kafka-cluster-size.png width=400 alt="Set the Apache Kafka cluster size">
+   <img src="./media/apache-kafka-get-started/kafka-cluster-size.png" width=400 alt="Set the Apache Kafka cluster size">
 
 9. From __Advanced settings__, select __Next__ to continue with the default settings.
 
