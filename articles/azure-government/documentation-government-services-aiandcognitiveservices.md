@@ -32,23 +32,32 @@ The following Cognitive Services are generally available in Azure Government:
 
 #### Vision
 
-##### Computer Vision API
-The following variations exist for Computer Vision API from global Azure:
+##### Computer Vision
+The following variations exist for Computer Vision from global Azure:
 
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/vision/v2.0/
 - Available SKUs: S1
 
-For more information, see the [global Azure documentation](../cognitive-services/computer-vision/index.yml) and [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
+For more information, see the [global Azure documentation](../cognitive-services/computer-vision/index.yml) and [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
  
+##### Face
+
+The following variations exist for Face from global Azure:
+
+- Endpoint: https://virginia.api.cognitive.microsoft.us/face/v1.0/
+- Available SKUs: S0
+
+For more information, see the [global Azure documentation](../cognitive-services/face/index.yml) and [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+
 ##### Content Moderator
 
-The following variations exist for Face API from global Azure:
+The following variations exist for Content Moderator from global Azure:
 
 - Endpoint: https://virginia.api.cognitive.microsoft.us/contentmoderator
 - The Review UI and Review APIs are not available at this time
 - Available SKUs: S0
  
-For more information, see the [global Azure documentation](../cognitive-services/content-moderator/overview.md).
+For more information, see the [global Azure documentation](../cognitive-services/content-moderator/overview.md) and [Content Moderator API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
 #### Language
  
@@ -61,7 +70,7 @@ The following variations exist for Translator Text API from global Azure:
 - Available SKUs: S1
 - Custom Translator and Translator Hub are not supported.
  
-For more information, see the [global Azure documentation](../cognitive-services/translator/translator-info-overview.md) for Translator Text.
+For more information, see the [global Azure documentation](../cognitive-services/translator/translator-info-overview.md) and [Translator Text API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference).
 
 ##### Language Understanding (LUIS)
 
@@ -73,9 +82,9 @@ The following variations exist for Language Understanding from global Azure:
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
-#### Speech (Preview)
+#### Speech (currently in Public Preview)
 
-##### Translator Speech (Speech Translation):
+##### Translator Speech (Speech Translation)
 
 The following variations exist for Translator Speech from global Azure:
 
