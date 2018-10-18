@@ -31,7 +31,7 @@ You can use the Azure ExpressRoute Monitor capability in [Network Performance Mo
 To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md) and select **Configure**.
 
 ### Configure network security group rules 
-For the servers in Azure that are used for monitoring via Network Performance Monitor, configure network security group (NSG) rules to allow TCP traffic on the port used by Network Performance Monitor for synthetic transactions. The default port is 8084. This configuration allows the Operations Management Suite agent installed on Azure VMs to communicate with an on-premises monitoring agent. 
+For the servers in Azure that are used for monitoring via Network Performance Monitor, configure network security group (NSG) rules to allow TCP traffic on the port used by Network Performance Monitor for synthetic transactions. The default port is 8084. This configuration allows the Log Analytics agent installed on Azure VMs to communicate with an on-premises monitoring agent. 
 
 For more information about NSGs, see [Network security groups](../virtual-network/manage-network-security-group.md). 
 

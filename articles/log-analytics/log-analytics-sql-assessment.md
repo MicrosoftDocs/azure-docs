@@ -81,7 +81,7 @@ Use the following information to set the Operations Manager Run As account for S
 >
 
 1. In Operations Manager, open the Operations console, and then click **Administration**.
-2. Under **Run As Configuration**, click **Profiles**, and open **OMS SQL Assessment Run As Profile**.
+2. Under **Run As Configuration**, click **Profiles**, and open **SQL Assessment Run As Profile**.
 3. On the **Run As Accounts** page, click **Add**.
 4. Select a Windows Run As account that contains the credentials needed for SQL Server, or click **New** to create one.
 
@@ -118,7 +118,7 @@ Open a PowerShell window and run the following script after you’ve updated it 
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
