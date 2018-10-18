@@ -65,11 +65,11 @@ This article will demonstrate individual enrollments.
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
-1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. Note your _Id Scope_ and _Provisioning Service Global Endpoint_.
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. Note your _ID Scope_ and _Provisioning Service Global Endpoint_.
 
     ![Device Provisioning Service information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
+1. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -85,7 +85,7 @@ This article will demonstrate individual enrollments.
     java -jar ./provisioning-tpm-sample-{version}-with-deps.jar
     ```
 
-1. The program begins running. Note the _Endorsement Key_ and _Registration Id_ for the next section and leave the program running.
+1. The program begins running. Note the _Endorsement Key_ and _Registration ID_ for the next section and leave the program running.
 
     ![Java TPM device program](./media/java-quick-create-simulated-device/program.png)
     

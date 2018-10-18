@@ -128,7 +128,7 @@ This article will demonstrate individual enrollments.
     node ExtractDevice.js
     ```
 
-1. The output window displays the **_Endorsement Key_** and the **_Registration Id_** needed for device enrollment. Note down these values. 
+1. The output window displays the **_Endorsement Key_** and the **_Registration ID_** needed for device enrollment. Note down these values. 
 
 
 ## Create a device entry

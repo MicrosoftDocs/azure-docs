@@ -99,7 +99,7 @@ You will use sample code from the [Azure IoT SDK for Java](https://github.com/Az
 
 ## Simulate the device
 
-1. On the Device Provisioning Service summary blade, select **Overview** and note your _Id Scope_ and _Provisioning Service Global Endpoint_.
+1. On the Device Provisioning Service summary blade, select **Overview** and note your _ID Scope_ and _Provisioning Service Global Endpoint_.
 
     ![Service information](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -111,7 +111,7 @@ You will use sample code from the [Azure IoT SDK for Java](https://github.com/Az
 
 3. Enter the provisioning service and X.509 identity information in your code. This is used during autoprovisioning, for attestation of the simulated device, prior to device registration:
 
-   - Edit the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`, to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted previously. Also include _Client Cert_ and _Client Cert Private Key_ as noted in the previous section.
+   - Edit the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`, to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted previously. Also include _Client Cert_ and _Client Cert Private Key_ as noted in the previous section.
 
       ```java
       private static final String idScope = "[Your ID scope here]";

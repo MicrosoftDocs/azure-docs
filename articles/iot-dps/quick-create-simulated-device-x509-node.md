@@ -47,7 +47,7 @@ This article will demonstrate individual enrollments.
 
 In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
 
-* Self-signed certificates are for testing only, and should not to be used in production.
+* Self-signed certificates are for testing only, and should not be used in production.
 * The default expiration date for a self-signed certificate is one year.
 
 You will use sample code from the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) to create the certificate to be used with the individual enrollment entry for the simulated device.
