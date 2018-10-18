@@ -19,9 +19,8 @@ ms.author: shvija
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create Event Hubs resources using Azure CLI, then send and receive event streams from an event hub using Java code.
 
-To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
-
 ## Prerequisites
+To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -285,10 +284,10 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 
 ## Next steps
 
-In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following tutorial:
+In this article, you created the Event Hubs namespace, and used sample applications to send and receive events from your event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the following tutorials:  
 
-> [!div class="nextstepaction"]
-> [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
+1. **Send events to an event hub** tutorials: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+2. **Receive events from an event hub** tutorials: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install the Azure CLI]: /cli/azure/install-azure-cli

@@ -20,12 +20,13 @@ ms.author: shvija
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using Azure PowerShell, and then send to and receive from an event hub using the .NET Standard SDK.
 
-To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
+
 
 ## Prerequisites
 
 To complete this tutorial, make sure you have:
 
+- Azure subscription. If you don't have one, [create a free account][] before you begin.
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
@@ -149,10 +150,10 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following tutorial:
+In this article, you created the Event Hubs namespace, and used sample applications to send and receive events from your event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the following tutorials: 
 
-> [!div class="nextstepaction"]
-> [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
+1. **Send events to an event hub** tutorials: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+2. **Receive events from an event hub** tutorials: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
