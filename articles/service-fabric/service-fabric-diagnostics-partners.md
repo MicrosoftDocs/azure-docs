@@ -36,7 +36,7 @@ The Service Fabric integration with AppDynamics is at the application level. By 
 
 ## New Relic
 
-New Relic is another Application Performance Management tool that integrates well with Service Fabric applications. You can install the New Relic NuGets package and add specific environment variables in your manifest files to send your application telemetry to New Relic. Check out these [instructions](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/install-net-agent-azure-service-fabric) to enable New Relic telemetry for your .NET Service Fabric applications.
+New Relic is another Application Performance Management tool that integrates well with Service Fabric applications. You can install the New Relic NuGet packages and add specific environment variables in your manifest files to send your application telemetry to New Relic. Check out these [instructions](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/install-net-agent-azure-service-fabric) to enable New Relic telemetry for your .NET Service Fabric applications.
 
 ## ELK 
 
