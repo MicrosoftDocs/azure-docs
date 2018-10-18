@@ -795,7 +795,8 @@ Accept wildcard characters: False
 ```
 
 #### -Credentials
-
+The user name and password of the user that is running the test.
+It requires the same level of permissions that is required to run the Azure AD Connect Wizard.
 
 ```yaml
 Type: PSCredential
