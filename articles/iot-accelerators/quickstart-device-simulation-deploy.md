@@ -47,11 +47,11 @@ Click **Create Solution** to begin provisioning your solution. This process take
 
 ## Sign in to the solution
 
-When the provisioning process is complete, you can sign in to your instance of Device Simulation by clicking the **Launch** button.
-
-Click **Accept** to accept the permissions request, the Device Simulation solution dashboard displays in your browser:
+When the provisioning process is complete, you can sign in to your instance of Device Simulation by clicking the **Launch** button:
 
 ![Open Device Simulation](./media/quickstart-device-simulation-deploy/choosenew.png)
+
+Click **Accept** to accept the permissions request, the Device Simulation solution dashboard displays in your browser.
 
 When first opened, you see the Device Simulation dashboard with a **Getting started** guide. Click on the first tile to open a sample simulation. If you close the **Getting started** guide, you can open the **Sample Simple Simulation** from the dashboard by clicking its tile:
 

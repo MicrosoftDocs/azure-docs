@@ -1,39 +1,31 @@
 ---
-title: Create an advanced simulated device model | Microsoft Docs
-description: In this tutorial, you use create an advanced device model for use with Device Simulation.
+title: Create an advanced simulated device model - Azure| Microsoft Docs
+description: In this how-to guide, you learn how to create an advanced device model for use with Device Simulation solution accelerator.
 author: troyhopwood
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.topic: quickstart
+ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/01/2018
 ms.author: troyhop
 
-# As an IT Pro, I need to create simulated devices to test my IoT solution.
+# As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
 ---
 
 # Create an advanced device model
 
-In this tutorial, you learn about device models and how to create an advanced device model to simulate more realistic device behaviors.
-
-In this tutorial, you:
-
->[!div class="checklist"]
-> * Learn about device models
-> * Create a device definition JSON file
-> * Create a device behavior JavaScript file
-> * Deploy your advanced device model
+This how-to guide describes the JSON and JavaScript files that define a custom device model. The article includes some sample device model definition files and shows you how to upload them to you Device Simulation instance. You can create advanced device models to simulate more realistic device behaviors for your testing.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-To follow this tutorial, you need a deployed instance of Device Simulation in your Azure subscription.
+To follow the steps in this how-to guide, you need a deployed instance of Device Simulation in your Azure subscription.
 
 If you haven't deployed Device Simulation yet, you should complete the [Deploy and run an IoT device simulation in Azure](quickstart-device-simulation-deploy.md) quickstart.
 
-## Open Device Simulation
+### Open Device Simulation
 
 To run Device Simulation in your browser, first navigate to [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com).
 
@@ -56,7 +48,7 @@ A typical device model has:
 > [!NOTE]
 > Not all device models define methods. Therefore a device model may or may not have method scripts. However, all device models must have a behavior script.
 
-## The device definition file
+## Device definition file
 
 Each device definition file contains details of a simulated device model, including the following information:
 
@@ -69,7 +61,7 @@ Each device definition file contains details of a simulated device model, includ
 * The schema of the telemetry messages, used by back-end application to parse the telemetry received.
 * A list of supported methods and the JavaScript file to use to simulate each method.
 
-#### File schema
+### File schema
 
 The schema version is always "1.0.0" and is specific to the format of this file:
 
@@ -77,7 +69,7 @@ The schema version is always "1.0.0" and is specific to the format of this file:
 "SchemaVersion": "1.0.0"
 ```
 
-#### Device model description
+### Device model description
 
 The following properties describe the device model. Each type has a unique identifier, a semantic version, a name, and a description:
 
@@ -88,7 +80,7 @@ The following properties describe the device model. Each type has a unique ident
 "Description": "Chiller with external temperature, humidity and pressure sensors."
 ```
 
-#### IoT Protocol
+### IoT Protocol
 
 IoT devices can connect using different protocols. The simulation lets you use either **AMQP**, **MQTT**, or **HTTP**:
 
@@ -96,7 +88,7 @@ IoT devices can connect using different protocols. The simulation lets you use e
 "Protocol": "AMQP"
 ```
 
-#### Simulated device state
+### Simulated device state
 
 Each simulated device has an internal state, which must be defined. The state also defines the properties that can be reported in telemetry. For example, an elevator might have an initial state such as:
 
@@ -130,7 +122,7 @@ The function that generates the state also receives as input:
 * The device model.
 * The current time. This value makes it possible to generate different data by device and by time.
 
-#### Generating telemetry messages
+### Generating telemetry messages
 
 The simulation service can send several telemetry types for each device, and each type can be sent at a different frequency. Typically, telemetry includes data from the device state. For example, a simulated room might send information about temperature and humidity every 10 seconds, and lights status once per minute. Note the placeholders in the following snippet, which are automatically replaced with values from the device state:
 
@@ -166,7 +158,7 @@ The simulation service can send several telemetry types for each device, and eac
 
 The placeholders use a special syntax **${NAME}** where **NAME** is a key from the device state object returned by the JavaScript **main** function. Strings should be quoted, while numbers shouldn't.
 
-##### Message schema
+#### Message schema
 
 Each message type must have a well-defined schema. The message schema is also published to IoT Hub, so that back-end applications can reuse the information to interpret the incoming telemetry.
 
@@ -182,7 +174,7 @@ The fields listed in the schema can be of the following types:
 * Double
 * DateTime
 
-#### Supported methods
+### Supported methods
 
 Simulated devices can also react to method calls, in which case they  execute some logic and provide some response. Similarly to the simulation, the method logic is stored in a JavaScript file, and can interact with the device state. For example:
 
@@ -482,7 +474,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-# Debugging script files
+## Debugging script files
 
 While you can't attach a debugger to a running behavior file, it's possible to write information to the service log using the **log** function. For syntax errors, the interpreter fails and writes information about the exception to the log.
 
@@ -507,15 +499,7 @@ function main(context, state) {
 
 ## Deploy an advanced device model
 
-### Open Device Simulation
-
-To run Device Simulation in your browser, first navigate to [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com).
-
-You may be asked to sign in using your Azure subscription credentials.
-
-Then click **Launch** on the tile for Device Simulation that you deployed in the [Deploy and run an IoT device simulation in Azure](quickstart-device-simulation-deploy.md) quickstart.
-
-### Upload a device model
+To deploy your advanced device model you upload the files your Device Simulation instance:
 
 Select **Device models** in the menu bar. The **Device models** page lists the device models available in this instance of Device Simulation:
 
@@ -539,7 +523,4 @@ If your files pass validation, click **Save** and your device model is ready to 
 
 ## Next steps
 
-In this tutorial, you learned about the device model used in device simulation and how to create an advanced device model
-
-> [!div class="nextstepaction"]
-> [Create a simulaiton with one or more device types](iot-accelerators-device-simulation-create-simulation.md)
+In this how-to guide, you learned about the device model files used in Device Simulation and how to create an advanced device model. Next, you may want to explore how to [Use Time Series Insights to visualize telemetry sent from the Device Simulation solution accelerator](about-iot-accelerators.md).
