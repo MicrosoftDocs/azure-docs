@@ -56,12 +56,7 @@ The template used in this quickstart is called [Create a standard storage accoun
 
 To learn how to edit a template using Visual Studio Code, you add one more element into the `outputs` section.
 
-1. From Visual Studio Code, check the value of **kind**. If the value is **Storage**, update the value to **StorageV2**.
-
-    ```json
-    "kind": "StorageV2",
-    ```
-2. Add one more output to the exported template:
+1. Add one more output to the exported template:
 
     ```json
     "storageUri": {
@@ -89,7 +84,7 @@ To learn how to edit a template using Visual Studio Code, you add one more eleme
 
     ![Resource Manager template visual studio code intellisense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-3. Select **File**>**Save** to save the file.
+2. Select **File**>**Save** to save the file.
 
 ## Deploy the template
 
