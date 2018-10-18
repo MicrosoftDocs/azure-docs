@@ -64,9 +64,9 @@ Before you enable Azure AD over SMB for Azure Files, make sure you have complete
 
     To verify that your VM and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
 
-## Enable Azure AD authentication over SMB
+## Enable Azure AD authentication for your account
 
-To enable Azure AD authentication over SMB for Azure Files, you can set a property on storage accounts created after August 29, 2018, using the Azure portal, Azure PowerShell, or Azure CLI. Setting this property registers the storage account with the associated Azure AD Domain Services deployment. Azure AD authentication over SMB is then enabled for all new and existing file shares in the storage account. 
+To enable Azure AD authentication over SMB for Azure Files, you can set a property on storage accounts created after September 24, 2018, using the Azure portal, Azure PowerShell, or Azure CLI. Setting this property registers the storage account with the associated Azure AD Domain Services deployment. Azure AD authentication over SMB is then enabled for all new and existing file shares in the storage account. 
 
 Keep in mind that you can enable Azure AD authentication over SMB only after you have successfully deployed Azure AD Domain Services to your Azure AD tenant. For more information, refer to the [prerequisites](#prerequisites).
 
@@ -98,7 +98,7 @@ New-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true
 
 # Update an existing storage account
-# Supported for storage accounts created after August 29, 2018 only
+# Supported for storage accounts created after September 24, 2018 only
 Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true```
@@ -119,13 +119,13 @@ Next, create a new storage account, then call [az storage account update](https:
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
 
 # Update an existing storage account
-# Supported for storage accounts created after August 29, 2018 only
+# Supported for storage accounts created after September 24, 2018 only
 az storage account update -n <storage-account-name> -g <resource-group-name> --file-aad true
 ```
 
 ## Assign access permissions to an identity 
 
-To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. The step-by-step guidance below demonstrates how to assign read, write, or delete permissions for a file share to an identity.
+To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Adminstrative control is not supported with Azure AD credentials. 
@@ -209,11 +209,9 @@ az role definition create --role-definition "<Custom-role-def-JSON-path>"
 
 Next, use PowerShell or Azure CLI to assign the custom role to an Azure AD identity. 
 
-The following PowerShell command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
-
 #### PowerShell
 
-The following PowerShell command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+The following PowerShell command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 When running the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
