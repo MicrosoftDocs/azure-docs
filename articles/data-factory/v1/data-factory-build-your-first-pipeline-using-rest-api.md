@@ -1,20 +1,20 @@
----
+﻿---
 title: Build your first data factory (REST) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: craigg
+
 
 ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: spelluru
+ms.author: shlo
 
 robots: noindex
 ---
@@ -31,7 +31,7 @@ robots: noindex
 
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-rest-api.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-rest-api.md).
 
 In this article, you use Data Factory REST API to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
 
@@ -53,7 +53,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
   4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.
 * Install [Azure PowerShell](/powershell/azure/overview).
 * Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
-  1. Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.
+  1. Run **Connect-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.
   2. Run **Get-AzureRmSubscription** to view all the subscriptions for this account.
   3. Run **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
 * Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:
@@ -82,7 +82,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
 >
 >
 
@@ -469,7 +469,7 @@ Run the Invoke-Command and the next one until you see the slice in **Ready** sta
 >
 >
 
-You can also use Azure portal to monitor slices and troubleshoot any issues. See [Monitor pipelines using Azure portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) details.
+You can also use Azure portal to monitor slices and troubleshoot any issues. See [Monitor pipelines using Azure portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) details.
 
 ## Summary
 In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:

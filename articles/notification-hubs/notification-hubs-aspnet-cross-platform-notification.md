@@ -3,9 +3,9 @@ title: Send cross-platform notifications to users with Azure Notification Hubs (
 description: Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms.
 services: notification-hubs
 documentationcenter: ''
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # Send cross-platform notifications to users with Notification Hubs
@@ -78,14 +78,14 @@ To send cross-platform notifications by using templates, do the following:
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    This code sends a notification to all platforms at the same time, without your having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided *tag* value, as specified in the registered templates.
+    This code sends a notification to all platforms at the same time, without you are having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided *tag* value, as specified in the registered templates.
 
-4. Re-publish your WebApi back-end project.
+4. Republish your WebApi back-end project.
 
 5. Run the client app again, and then verify that the registration has succeeded.
 
 6. (Optional) Deploy the client app to a second device, and then run the app.
-    Note that a notification is displayed on each device.
+    A notification is displayed on each device.
 
 ## Next steps
 Now that you have completed this tutorial, find out more about Notification Hubs and templates in these topics:
@@ -101,8 +101,8 @@ Now that you have completed this tutorial, find out more about Notification Hubs
 
 
 <!-- URLs. -->
-[Push to users ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
+[Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Push to users Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

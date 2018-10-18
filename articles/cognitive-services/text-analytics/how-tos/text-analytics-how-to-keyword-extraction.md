@@ -1,18 +1,19 @@
 ---
-title: How-to key phrase extraction in Text Analytics REST API (Microsoft Cognitive Services on Azure) | Microsoft Docs
-description: How to extract key phrases using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
+title: 'Example: How to extract key phrases in Text Analytics'
+titleSuffix: Azure Cognitive Services
+description: Learn how to extract key phrases using the Text Analytics REST API.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
 
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 10/20/2017
+ms.component: text-analytics
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
 ---
 
-# How to extract key phrases in Text Analytics
+# Example: How to extract key phrases in Text Analytics
 
 The [Key Phrase Extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text, and for each JSON document, returns a list of key phrases. 
 
@@ -81,7 +82,7 @@ Analysis is performed upon receipt of the request. The service accepts up to 100
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
-## Step 3: Handle results
+## Step 3: View results
 
 All POST requests return a JSON formatted response with the IDs and detected properties.
 

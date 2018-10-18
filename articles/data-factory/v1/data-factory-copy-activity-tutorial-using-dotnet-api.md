@@ -1,20 +1,20 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline with Copy Activity using .NET API | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: craigg
+
 
 ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 11/01/2017
-ms.author: spelluru
+ms.topic: tutorial
+ms.date: 01/22/2018
+ms.author: jingwang
 
 robots: noindex
 ---
@@ -30,7 +30,7 @@ robots: noindex
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
 
 In this article, you learn how to use [.NET API](https://portal.azure.com) to create a data factory with a pipeline that copies data from an Azure blob storage to an Azure SQL database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
 
@@ -56,7 +56,7 @@ Create an Azure Active Directory application, create a service principal for the
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```
 3. Run the following command to view all the subscriptions for this account.
 

@@ -6,8 +6,8 @@ author: banisadr
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 08/17/2017
+ms.topic: reference
+ms.date: 05/02/2018
 ms.author: babanisa
 ---
 
@@ -15,14 +15,14 @@ ms.author: babanisa
 
 To create an Event Grid subscription, you send a request to the Create Event subscription operation. Use the following format:
 
-```
-PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+```HTTP
+PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 For example, to create an event subscription for a storage account named `examplestorage` in a resource group named `examplegroup`, use the following format:
 
-```
-PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+```HTTP
+PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 The article describes the properties and schema for the body of the request.
@@ -39,7 +39,7 @@ The article describes the properties and schema for the body of the request.
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | endpointType | string | The type of endpoint for the subscription (webhook/HTTP, Event Hub, or queue). | 
-| endpointUrl | string |  | 
+| endpointUrl | string | The destination URL for events in this event subscription. | 
 
 ### filter object
 
@@ -48,7 +48,7 @@ The article describes the properties and schema for the body of the request.
 | includedEventTypes | array | Match when the event type in the event message is an exact match to one of these event type names. Raises an error when event name does not match the registered event type names for the event source. Default matches all event types. |
 | subjectBeginsWith | string | A prefix-match filter to the subject field in the event message. The default or empty string matches all. | 
 | subjectEndsWith | string | A suffix-match filter to the subject field in the event message. The default or empty string matches all. |
-| subjectIsCaseSensitive | string | Controls case-sensitive matching for filters. |
+| isSubjectCaseSensitive | string | Controls case-sensitive matching for filters. |
 
 
 ## Example subscription schema
@@ -63,10 +63,10 @@ The article describes the properties and schema for the body of the request.
       }
     },
     "filter": {
-      "includedEventTypes": [ "blobCreated", "blobDeleted" ],
+      "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
       "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
-      "subjectIsCaseSensitive": "true"
+      "isSubjectCaseSensitive ": "true"
     }
   }
 }

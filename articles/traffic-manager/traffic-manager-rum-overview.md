@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article 
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: 
 ---
 
 # Traffic Manager Real User Measurements overview
-
->[!NOTE]
->The Real User Measurements feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
 
 When you set up a Traffic Manager profile to use the performance routing method, the service looks at where the DNS query requests are coming from and makes routing decisions to direct those requestors to the Azure region that gives them the lowest latency. This is accomplished by utilizing the network latency intelligence that Traffic Manager maintains for different end user networks.
 

@@ -1,27 +1,18 @@
 ---
-title: Use Hadoop Pig in HDInsight | Microsoft Docs
+title: Use Hadoop Pig in HDInsight 
 description: Learn how to use Pig with Hadoop on HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/06/2017
-ms.author: larryfr
-
+ms.topic: conceptual
+ms.date: 04/23/2018
 ---
 # Use Pig with Hadoop on HDInsight
 
-Learn how to use [Apache Pig](http://pig.apache.org/) with HDInsight...
+Learn how to use [Apache Pig](http://pig.apache.org/) with HDInsight.
 
 Pig is a platform for creating programs for Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it is included with Azure HDInsight. Use the following table to discover the various ways that Pig can be used with HDInsight:
 
@@ -31,7 +22,6 @@ Pig is a platform for creating programs for Hadoop by using a procedural languag
 | [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux or Windows |Windows (for now) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
-| [Remote Desktop](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -54,7 +44,7 @@ The Pig Latin language allows you to describe the data flow from raw input, thro
 
 Pig Latin also supports user-defined functions (UDF), which allows you to invoke external components that implement logic that is difficult to model in Pig Latin.
 
-For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) and [Pig Latin Reference Manual 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) and [Pig Latin Reference Manual 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 For an example of using UDFs with Pig, see the following documents:
 
@@ -101,7 +91,6 @@ HDInsight can run Pig Latin jobs by using a variety of methods. Use the followin
 | [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux or Windows |Windows (for now) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
-| [Remote Desktop](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

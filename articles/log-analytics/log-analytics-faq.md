@@ -3,7 +3,7 @@ title: Log Analytics FAQ | Microsoft Docs
 description: Answers to frequently asked questions about the Azure Log Analytics service.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,23 +11,83 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 09/18/2018
 ms.author: magoedte
-
+ms.component: 
 ---
+
 # Log Analytics FAQ
 This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Azure. If you have any additional questions about Log Analytics, go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
+
+## New Logs experience
+
+### Q: What's the difference between the new Logs experience and Log Analytics?
+
+A: They are the same thing. [Log Analytics is being integrated as a feature in Azure Monitor](../azure-monitor/azure-monitor-rebrand.md) to provide a more unified monitoring experience. The new Logs experience in Azure Monitor is exactly the same as the Log Analytics queries that many customers have already been using.
+
+### Q: Can I still use Log Search? 
+
+A: Log Search is currently still available in the OMS portal and in the Azure portal under the name **Logs (classic)**. The OMS portal will be officially retired on January 15, 2019. The classic Logs experience in Azure portal will be gradually retired and replaced the new Logs experience. 
+
+### Q. Can I still use Advanced Analytics Portal? 
+The new Logs experience in the Azure portal is based on the [Advanced Analytics Portal](https://portal.loganalytics.io/), but it still can be accessed outside of the Azure portal. The roadmap for retiring this external portal will be announced soon.
+
+### Q. Why can't I see Query Explorer and Save buttons in the new Logs experience?
+
+**Query Explorer**, **Save** and **Set Alert** buttons are not available when exploring Logs in the context of a specific resource. To create alerts, save or load a query, Logs must be scoped to a workspace. To open Logs in workspace context, select **All services** > **Monitor** > **Logs**. The last used workspace is selected, but you can select any other workspace. See [Viewing and analyzing data in Log Analytics](../log-analytics/log-analytics-log-search-portals.md) for more information.
+
+### Q. How do I extract Custom Fields in the new Logs experience? 
+
+A: Custom Fields extraction are currently supported in the classic Logs experience. 
+
+### Q. Where do I find List view in the new Logs? 
+
+A: List view is not available in the new Logs. There is an arrow to the left of each record in the results table. Click this arrow to open the details for a specific record. 
+
+### Q. After running a query, a list of suggested filters shows up, but it doesn’t include all filters. How can I see the rest? 
+
+A: What you currently see is a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
+
+### Q. Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" in Logs, after drilling-in from VM? 
+
+A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal) for more information.
+
+### Q. Why am I am getting no access error message when accessing Logs from a VM page? 
+
+A: To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
+
+### Q. Why can I can access my workspace in OMS portal, but I get the error “You have no access” in the Azure portal?  
+
+A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](../log-analytics/log-analytics-oms-portal-transition.md) for more information.
+
+### Q. Why can't I can’t see View Designer entry in Logs? 
+A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
+
+### Q. Can I still use the Analytics portal outside of Azure?
+A. Yes, the Logs page in Azure and the [Advanced Analytics portal](https://portal.loganalytics.io) are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+
+
+
 ## General
+
+### Q. How can I see my views and solutions in Azure portal? 
+
+A: The list of views and installed solutions are available in Azure portal. Click **All services**. In the list of resources, select **Monitor**, then click **...More**. The last used workspace is selected, but you can select any other workspace. 
+
+### Q. Why I can’t create workspaces in West Central US region? 
+
+A: This region is at temporary capacity limit. The limit is planned to be addressed in the first half of 2019.
+
 
 ### Q. Does Log Analytics use the same agent as Azure Security Center?
 
-A. In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-platform-migration-faq.md).
+A: In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-platform-migration-faq.md).
 
 ### Q. What checks are performed by the AD and SQL Assessment solutions?
 
-A. The following query shows a description of all checks currently performed:
+A: The following query shows a description of all checks currently performed:
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
@@ -35,7 +95,7 @@ A. The following query shows a description of all checks currently performed:
 
 The results can then be exported to Excel for further review.
 
-### Q: Why do I see something different than OMS in the System Center Operations Manager console?
+### Q. Why do I see something different than OMS in the System Center Operations Manager console?
 
 A: Depending on what Update Rollup of Operations Manager you are on, you may see a node for *System Center Advisor*, *Operational Insights*, or *Log Analytics*.
 
@@ -47,42 +107,46 @@ A: No. Log Analytics is a scalable cloud service that processes and stores large
 
 ### Q. How do I troubleshoot if Log Analytics is no longer collecting data?
 
-A: If you are on the free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.
+A: For a subscription and workspace created before April 2, 2018 that is on the *Free* pricing tier, if more than 500 MB of data is sent in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.  
 
-Log Analytics creates an event of type *Operation* when data collection starts and stops. 
+Log Analytics creates an event of type *Heartbeat* and can be used to determine if data collection stops. 
 
 Run the following query in search to check if you are reaching the daily limit and missing data:
-`Type=Operation OperationCategory="Data Collection Status"`
+`Heartbeat | summarize max(TimeGenerated)`
 
-When data collection stops, the *OperationStatus* is **Warning**. When data collection starts, the *OperationStatus* is **Succeeded**. 
+To check a specific computer, run the following query:
+`Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+When data collection stops, depending on the time range selected, you will not see any records returned.   
 
 The following table describes reasons that data collection stops and a suggested action to resume data collection:
 
 | Reason data collection stops                       | To resume data collection |
 | -------------------------------------------------- | ----------------  |
-| Daily limit of free data reached<sup>1</sup>       | Wait until the following day for collection to automatically restart, or<br> Change to a paid pricing tier |
+| Limit of free data reached<sup>1</sup>       | Wait until the following month for collection to automatically restart, or<br> Change to a paid pricing tier |
 | Azure subscription is in a suspended state due to: <br> Free trial ended <br> Azure pass expired <br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)                          | Convert to a paid subscription <br> Convert to a paid subscription <br> Remove limit, or wait until limit resets |
 
-<sup>1</sup> If your workspace is on the free pricing tier, you're limited to sending 500 MB of data per day to the service. 
-When you reach the daily limit, data collection stops until the next day. Data sent while data collection is stopped is not indexed and is not available for searching. When data collection resumes, processing occurs only for new data sent. 
+<sup>1</sup> If your workspace is on the *Free* pricing tier, you're limited to sending 500 MB of data per day to the service. When you reach the daily limit, data collection stops until the next day. Data sent while data collection is stopped is not indexed and is not available for searching. When data collection resumes, processing occurs only for new data sent. 
 
 Log Analytics uses UTC time and each day starts at midnight UTC. If the workspace reaches the daily limit, processing resumes during the first hour of the next UTC day.
 
 ### Q. How can I be notified when data collection stops?
 
-A: Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when data collection stops.
+A: Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when data collection stops.
 
 When creating the alert for when data collection stops, set the:
-- **Name** to *Data collection stopped*
-- **Severity** to *Warning*
-- **Search query** to `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Time window** to *2 Hours*.
-- **Alert frequency** to be one hour since the usage data only updates once per hour.
-- **Generate alert based on** to be *number of results*
-- **Number of results** to be *Greater than 0*
 
-Use the steps described in [add actions to alert rules](log-analytics-alerts-actions.md) configure an e-mail, webhook, or runbook action for the alert rule.
+- **Define alert condition** specify your Log Analytics workspace as the resource target.
+- **Alert criteria** specify the following:
+   - **Signal Name** select **Custom log search**.
+   - **Search query** to `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
+   - **Time period** of *30* minutes and **Alert frequency** to every *10* minutes
+- **Define alert details** specify the following:
+   - **Name** to *Data collection stopped*
+   - **Severity** to *Warning*
 
+Specify an existing or create a new [Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
 
 ## Configuration
 ### Q. Can I change the name of the table/blob container used to read from Azure Diagnostics (WAD)?
@@ -93,7 +157,7 @@ A. No, it is not currently possible to read from arbitrary tables or containers 
 
 A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653).
 
-As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented at [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
+As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [network requirements](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### Q. I use ExpressRoute for connecting to Azure. Does my Log Analytics traffic use my ExpressRoute connection?
 
@@ -139,9 +203,9 @@ Ensure you have permission in both Azure subscriptions.
 ### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?
 A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
 
-The Log Analytics agent was designed to ensure it has a small footprint. One of our customers wrote a blog about the tests they performed against our agent and how impressed they were. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakup by solution in the [Usage](log-analytics-usage.md) page.
+The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](log-analytics-usage.md) page.
 
-For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) about the low footprint of the OMS agent.
+For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
 
 ### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
 

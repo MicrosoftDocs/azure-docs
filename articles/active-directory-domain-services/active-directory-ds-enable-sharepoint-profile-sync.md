@@ -4,16 +4,17 @@ description: Configure Azure Active Directory Domain Services managed domains to
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/06/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: maheshu
 
 ---
@@ -22,6 +23,8 @@ ms.author: maheshu
 SharePoint Server includes a User Profile Service that is used for user profile synchronization. To set up the User Profile Service, appropriate permissions need to be granted on an Active Directory domain. For more information, see [grant Active Directory Domain Services permissions for profile synchronization in SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).
 
 This article explains how you can configure Azure AD Domain Services managed domains to deploy the SharePoint Server User Profile Sync service.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## The 'AAD DC Service Accounts' group
 A security group called '**AAD DC Service Accounts**' is available within the 'Users' organizational unit on your managed domain. You can see this group in the **Active Directory Users and Computers** MMC snap-in on your managed domain.

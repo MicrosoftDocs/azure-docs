@@ -4,7 +4,7 @@ description: Name Resolution scenarios for Linux virtual machines in Azure IaaS,
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
@@ -20,7 +20,7 @@ ms.author: rclaus
 # DNS Name Resolution options for Linux virtual machines in Azure
 Azure provides DNS name resolution by default for all virtual machines that are in a single virtual network. You can implement your own DNS name resolution solution by configuring your own DNS services on your virtual machines that Azure hosts. The following scenarios should help you choose the one that works for your situation.
 
-* [Name resolution that Azure provides](#azure-provided-name-resolution)
+* [Name resolution that Azure provides](#name-resolution-that-azure-provides)
 * [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)
 
 The type of name resolution that you use depends on how your virtual machines and role instances need to communicate with each other.
@@ -109,7 +109,7 @@ The resolv.conf file is auto-generated and should not be edited. The specific st
 2. Run 'netconfig update' to update.
 
 **CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager)
-1. Add 'echo "options timeout:1 attempts:5"' to '/etc/NetworkManager/dispatcher.d/11-dhclient'.
+1. Add 'RES_OPTIONS="timeout:1 attempts:5"' to '/etc/sysconfig/network'.
 2. Run 'service network restart' to update.
 
 ## Name resolution using your own DNS server

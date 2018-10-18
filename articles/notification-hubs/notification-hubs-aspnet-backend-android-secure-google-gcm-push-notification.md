@@ -3,9 +3,9 @@ title: Sending Secure Push Notifications with Azure Notification Hubs
 description: Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#.
 documentationcenter: android
 keywords: push notification,push notifications,push messages,android push notifications
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 
 ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
@@ -14,8 +14,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.date: 04/25/2018
+ms.author: dimazaid
 
 ---
 # Sending Secure Push Notifications with Azure Notification Hubs
@@ -45,7 +45,7 @@ At a high level, the flow is as follows:
    * The Android device contacts the back-end requesting the secure payload.
    * The app can show the payload as a notification on the device.
 
-It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in. This guarantees a completely seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the push notification should display a generic notification prompting the user to launch the app. The app then authenticates the user and shows the notification payload.
+It is important to note that in the preceding flow (and in this tutorial), it's assumed that the device stores an authentication token in the local storage, after the user logs in. This approach guarantees a seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the push notification should display a generic notification prompting the user to launch the app. The app then authenticates the user and shows the notification payload.
 
 This tutorial shows how to send secure push notifications. It builds on the [Notify Users](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) tutorial, so you should complete the steps in that tutorial first if you haven't already.
 
@@ -57,10 +57,10 @@ This tutorial shows how to send secure push notifications. It builds on the [Not
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modify the Android project
-Now that you modified your app back-end to send just the *id* of a push notification, you have to change your Android app to handle that notification and call back your back-end to retrieve the secure message to be displayed.
+Now that you modified your app back-end to send just the *ID* of a push notification, you have to change your Android app to handle that notification and call back your back-end to retrieve the secure message to be displayed.
 To achieve this goal, you have to make sure that your Android app knows how to authenticate itself with your back-end when it receives the push notifications.
 
-We will now modify the *login* flow in order to save the authentication header value in the shared preferences of your app. Analogous mechanisms can be used to store any authentication token (e.g. OAuth tokens) that the app will have to use without requiring user credentials.
+Now, modify the *login* flow in order to save the authentication header value in the shared preferences of your app. Analogous mechanisms can be used to store any authentication token (for example, OAuth tokens) that the app has to use without requiring user credentials.
 
 1. In your Android app project, add the following constants at the top of the **MainActivity** class:
    
@@ -83,7 +83,7 @@ We will now modify the *login* flow in order to save the authentication header v
    
         import android.content.SharedPreferences;
 
-Now we will change the handler that is called when the notification is received.
+Now, change the handler that is called when the notification is received.
 
 1. In the **MyHandler** class change the `OnReceive()` method to contain:
    
@@ -123,10 +123,10 @@ Now we will change the handler that is called when the notification is received.
 
 This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences and displays it as a normal notification. The notification looks to the app user exactly like any other push notification.
 
-Note that it is preferable to handle the cases of missing authentication header property or rejection by the back-end. The specific handling of these cases depend mostly on your target user experience. One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.
+It's preferable to handle the cases of missing authentication header property or rejection by the back-end. The specific handling of these cases mostly depends on your target user experience. One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.
 
 ## Run the Application
-To run the application, do the following:
+To run the application, do the following actions:
 
 1. Make sure **AppBackend** is deployed in Azure. If using Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
 2. In Eclipse, run the app on a physical Android device or the emulator.

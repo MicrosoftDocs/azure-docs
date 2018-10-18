@@ -4,17 +4,18 @@ description: A printable cheat sheet that shows you how to set up an automated d
 services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mithal;garye
+ms.author: garye
 
 ---
 # Cheat sheet for an automated data pipeline for Azure Machine Learning predictions

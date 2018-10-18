@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SDK for .NET 2.9 Release Notes
 description: Azure SDK for .NET 2.9 Release Notes
 services: app-service\web
@@ -20,7 +20,7 @@ ms.author: juliako
 
 This topic includes release notes for versions 2.9 and 2.9.6 of Azure SDK for .NET.
 
-##Azure SDK for .NET 2.9.6 release summary
+## Azure SDK for .NET 2.9.6 release summary
 
 Release date: 11/16/2016
  
@@ -28,7 +28,7 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
 
 ### Visual Studio 2017 Release Candidate
 
-- In Visual Studio 2017 RC, this release of the Azure SDK for .NET is built in in the Azure Workload. All the tools you need to do Azure development will be part of Visual Studio 2017 RC going forward. For Visual Studio 2015 and Visual Studio 2013, the SDK will still be available through WebPI. We will be discontinuing Azure SDK for .NET releases for Visual Studio 2013, when Visual Studio 2017 releases as a final product. Follow this link to download Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- In Visual Studio 2017 RC, this release of the Azure SDK for .NET is built-in for the Azure Workload. All the tools you need to do Azure development will be part of Visual Studio 2017 RC going forward. For Visual Studio 2015 and Visual Studio 2013, the SDK will still be available through WebPI. We will be discontinuing Azure SDK for .NET releases for Visual Studio 2013, when Visual Studio 2017 releases as a final product. Follow this link to download Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### Azure Diagnostics
 
@@ -38,7 +38,7 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
  
 ### Windows Server 2016 virtual machines
 
-- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
 
 #### Known issues
 
@@ -47,7 +47,7 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
  
 ### Azure In-Role Cache 
 
-- Support for Azure In-Role Cache ends on November 30, 2016. For more details, click [here](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
+- Support for Azure In-Role Cache ends on November 30, 2016. For more details, click [here](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 ### Azure Resource Manager Templates for Azure Stack
 
@@ -64,7 +64,7 @@ For detailed information about updates in this release, see the [Azure SDK 2.9 a
 ## Azure SDK 2.9 for Visual Studio 2015 Update 2 and Visual Studio "15" Preview
 This update includes the following bug fixes:
 
-* Issue related to REST API Client Generation in in which the string "Unknown Type” would appear as the name of the code-gen folder and/or the name of the namespace dropped into the generated code.
+* Issue related to REST API Client Generation in which the string "Unknown Type” would appear as the name of the code-gen folder and/or the name of the namespace dropped into the generated code.
 * Issue related to Scheduled WebJobs in which the authentication information was failing to be passed to the Scheduler provisioning process.
 
 This update includes the following new feature:

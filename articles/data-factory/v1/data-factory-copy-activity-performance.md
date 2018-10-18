@@ -4,23 +4,28 @@ description: Learn about key factors that affect the performance of data movemen
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Copy Activity performance and tuning guide
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1](data-factory-copy-activity-performance.md)
+> * [Version 2 (current version)](../copy-activity-performance.md)
+
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Copy activity performance and tuning guide for Data Factory version 2](../copy-activity-performance.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy activity performance and tuning guide for Data Factory](../copy-activity-performance.md).
 
 Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core “big data” problem: building advanced analytics solutions and getting deep insights from all that data.
 
@@ -46,6 +51,8 @@ As a reference, below table shows the copy throughput number in MBps for the giv
 
 ![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>In Azure Data Factory version 1, the minimal cloud data movement units for cloud-to-cloud copy is two. If not specified, see default data movement units being used in [cloud data movement units](#cloud-data-movement-units).
 
 **Points to note:**
 * Throughput is calculated by using the following formula: [size of data read from source]/[Copy Activity run duration].
@@ -87,9 +94,16 @@ And so on.
 In this example, when the **concurrency** value is set to 2, **Activity run 1** and **Activity run 2** copy data from two activity windows **concurrently** to improve data movement performance. However, if multiple files are associated with Activity run 1, the data movement service copies files from the source to the destination one file at a time.
 
 ### Cloud data movement units
-A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. A DMU might be used in a cloud-to-cloud copy operation, but not in a hybrid copy.
+A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. DMU is applicable for cloud-to-cloud copy operations, but not in a hybrid copy.
 
-By default, Data Factory uses a single cloud DMU to perform a single Copy Activity run. To override this default, specify a value for the **cloudDataMovementUnits** property as follows. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
+**The minimal cloud data movement units to empower Copy Activity run is two.** If not specified, the following table lists the default DMUs used in different copy scenarios:
+
+| Copy scenario | Default DMUs determined by service |
+|:--- |:--- |
+| Copy data between file-based stores | Between 4 and 16 depending on the number and size of the files. |
+| All other copy scenarios | 4 |
+
+To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property are 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
 ```json
 "activities":[  
@@ -111,7 +125,6 @@ By default, Data Factory uses a single cloud DMU to perform a single Copy Activi
     }
 ]
 ```
-The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
 
 > [!NOTE]
 > If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP to Blob storage/Data Lake Store/Azure SQL Database**.

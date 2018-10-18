@@ -3,7 +3,7 @@ title: Use ReportViewer in a Web Site | Microsoft Docs
 description: This topic describes how to build a Microsoft Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Microsoft Azure Virtual Machine.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
-ms.author: asaxton
+ms.author: maghan
 
 ---
 # Use ReportViewer in a Web Site Hosted in Azure

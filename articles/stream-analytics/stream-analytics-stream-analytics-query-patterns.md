@@ -1,26 +1,28 @@
 ---
-title: Query examples for common usage patterns in Stream Analytics | Microsoft Docs
-description: Common Azure Stream Analytics query patterns
-keywords: query examples
+title: Common query patterns in Azure Stream Analytics
+description: This article describes a number of common query patterns and designs that are useful in Azure Stream Analytics jobs.
 services: stream-analytics
-documentationcenter: ''
-author: samacha
-manager: jenniehubbard
-editor: cgronlun
-
-ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
+author: jseb225
+manager: kfile
+ms.author: jeanb
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: samacha
-
 ---
 # Query examples for common Stream Analytics usage patterns
+
 ## Introduction
-Queries in Azure Stream Analytics are expressed in a SQL-like query language. These queries are documented in the [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. This article outlines solutions to several common query patterns, based on real-world scenarios. It is a work in progress and continues to be updated with new patterns on an ongoing basis.
+Queries in Azure Stream Analytics are expressed in a SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. 
+
+The query design can express simple pass-through logic to move event data from one input stream into another output data store. Or it can do rich pattern matching and temporal analysis to calculate aggregates over various time windows as in the TollApp sample. You can join data from multiple inputs to combine streaming events, and do lookups against static reference data to enrich the event values. Also you can write data to multiple outputs.
+
+This article outlines solutions to several common query patterns, based on real-world scenarios. It is a work in progress and continues to be updated with new patterns on an ongoing basis.
+
+## Work with complex Data Types in JSON and AVRO 
+Azure Stream Analytics supports processing events in CSV, JSON and Avro data formats.
+Both JSON and Avro may contain complex types such as nested objects (records) or arrays. In order to work with these complex data types, refer to the [Parsing JSON and AVRO data](stream-analytics-parsing-json.md) article.
+
 
 ## Query example: Convert data types
 **Description**: Define the types of properties on the input stream.
@@ -118,7 +120,7 @@ For example, provide a string description for how many cars of the same make pas
         TumblingWindow(second, 10)
 
 **Explanation**:
-The **CASE** clause allows us to provide a different computation, based on some criteria (in our case, the count of the cars in the aggregate window).
+The **CASE** expression compares an expression to a set of simple expressions to determine the result. In this example, vehicle makes with a count of 1 returned a different string description than vehicle makes with a count other than 1. 
 
 ## Query example: Send data to multiple outputs
 **Description**: Send data to multiple output targets from a single job.
@@ -175,7 +177,7 @@ For example, analyze data for a threshold-based alert and archive all events to 
 
 **Explanation**:
 The **INTO** clause tells Stream Analytics which of the outputs to write the data to from this statement.
-The first query is a pass-through of the data we received to an output that we named **ArchiveOutput**.
+The first query is a pass-through of the data received to an output that named **ArchiveOutput**.
 The second query does some simple aggregation and filtering, and it sends the results to a downstream alerting system.
 
 Note that you can also reuse the results of the common table expressions (CTEs) (such as **WITH** statements) in multiple output statements. This option has the added benefit of opening fewer readers to the input source.
@@ -208,7 +210,7 @@ For example, how many unique makes of cars passed through the toll booth in a 2-
 
 **Output:**
 
-| Count | Time |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -424,7 +426,7 @@ Use the **LAST** function to retrieve the last **TIME** value when the event typ
 
 ## Query example: Detect the duration of a condition
 **Description**: Find out how long a condition occurred.
-For example, suppose that a bug resulted in all cars having an incorrect weight (above 20,000 pounds). We want to compute the duration of the bug.
+For example, suppose that a bug resulted in all cars having an incorrect weight (above 20,000 pounds), and the duration of that bug must be computed.
 
 **Input**:
 
@@ -512,8 +514,127 @@ For example, generate an event every 5 seconds that reports the most recently se
 **Explanation**:
 This query generates events every 5 seconds and outputs the last event that was received previously. The [Hopping window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping window--Azure Stream Analytics") duration determines how far back the query looks to find the latest event (300 seconds in this example).
 
+
+## Query example: Correlate two event types within the same stream
+**Description**: Sometimes alerts need to be generated based on multiple event types that occurred in a certain time range.
+For example, in an IoT scenario for home ovens, an alert must be generated when the fan temperature is less than 40 and the maximum power during the last 3 minutes is less than 10.
+
+**Input**:
+
+| time | deviceId | sensorName | value |
+| --- | --- | --- | --- |
+| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
+| "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
+| "2018-01-01T16:02:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
+| "2018-01-01T16:03:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
+| "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
+| "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
+
+**Output**:
+
+| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
+| --- | --- | --- | --- | --- | 
+| "2018-01-01T16:05:00" | "Oven1" |30 | "Short circuit heating elements" |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | "Short circuit heating elements" |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | "Short circuit heating elements" |15 |
+
+**Solution**:
+
+````
+WITH max_power_during_last_3_mins AS (
+    SELECT 
+        System.TimeStamp AS windowTime,
+        deviceId,
+        max(value) as maxPower
+    FROM
+        input TIMESTAMP BY t
+    WHERE 
+        sensorName = 'power' 
+    GROUP BY 
+        deviceId, 
+        SlidingWindow(minute, 3) 
+)
+
+SELECT 
+    t1.t AS eventTime,
+    t1.deviceId, 
+    t1.value AS temp,
+    'Short circuit heating elements' as alertMessage,
+	t2.maxPower AS maxPowerDuringLast3mins
+    
+INTO resultsr
+
+FROM input t1 TIMESTAMP BY t
+JOIN max_power_during_last_3_mins t2
+    ON t1.deviceId = t2.deviceId 
+    AND t1.t = t2.windowTime
+    AND DATEDIFF(minute,t1,t2) between 0 and 3
+    
+WHERE
+    t1.sensorName = 'temp'
+    AND t1.value <= 40
+    AND t2.maxPower > 10
+````
+
+**Explanation**:
+The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
+The second query is joined to the first query to find the power value in the most recent window relevant for the current event. 
+And then, provided the conditions are met, an alert is generated for the device.
+
+## Query example: Process events independent of Device Clock Skew (substreams)
+**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is ten seconds behind TollID 1, and the device clock for TollID 3 is five seconds behind TollID 1. 
+
+
+**Input**:
+| LicensePlate | Make | Time | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Output**:
+| TollID | Count |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Solution**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Explanation**:
+The [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) clause looks at each device timeline separately using substreams. The output events for each TollID are generated as they are computed, meaning that the events are in order with respect to each TollID instead of being reordered as if all devices were on the same clock.
+
+
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

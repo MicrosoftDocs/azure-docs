@@ -4,7 +4,7 @@ description: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -120,7 +120,7 @@ file is created, you can deploy the VM by using the following CLI command as an 
    ```
 For more information about JSON template files, see [Authoring Azure Resource Manager templates](../../../resource-group-authoring-templates.md) and [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/).
 
-For more information about CLI and Azure Resource Manager, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
+For more information about Azure classic CLI and Azure Resource Manager, see [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
 
 ## SAP license and hardware key
 For the official SAP-Azure certification, a new mechanism was introduced to calculate the SAP hardware key that's used for the SAP license. The SAP kernel had to be adapted to make use of the new algorithm. Former SAP kernel versions for Linux did not include this code change. Therefore, in certain situations (for example, Azure VM resizing), the SAP hardware key changed and the SAP license was no longer be valid. A solution is provided with more recent SAP Linux kernels.  The detailed SAP kernel patches are documented in SAP note 1928533.
@@ -130,7 +130,7 @@ SUSE provides a package called "sapconf" that manages a set of SAP-specific sett
 
 In the meantime, there is a new tool, which replaces 'sapconf - tuned-adm'. One can find more information about this tool following the two links:
 
-- SLES documentation about 'tuned-adm' profile sap-hana can be found [here](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html) 
+- SLES documentation about 'tuned-adm' profile sap-hana can be found [here](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_saptune.html) 
 
 - Tuning Systems for SAP Workloads with 'tuned-adm' - can be found [here](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf) in chapter 6.2
 
@@ -165,5 +165,6 @@ If you want to use the Gnome desktop to install a complete SAP demo system insid
    ```
 
 ## SAP support for Oracle on Linux in the cloud
-There is a support restriction from Oracle on Linux in virtualized environments. Although this support restriction is not an Azure-specific topic, it's important to understand. SAP does not support Oracle on SUSE or Red Hat in a public cloud like Azure. To discuss this topic, contact Oracle directly.
+There is a support restriction from Oracle on Linux in virtualized environments. Although this support restriction is not an Azure-specific topic, it's important to understand. SAP does not support Oracle on SUSE or Red Hat in a public cloud like Azure. 
+In the meantime running, Oracle DB in Azure is fully supported by SAP on Oracle Linux (see SAP Note 1928533). If other combinations are required, contact Oracle directly.
 

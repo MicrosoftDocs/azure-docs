@@ -1,129 +1,116 @@
 ---
 title: Create a Service Principal for Azure Stack | Microsoft Docs
-description: Describes how to create a new service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
+description: Describes how to create a service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: sethmanheim
+manager: femila
 
-
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
+ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 08/22/2018
+ms.author: sethm
+ms.reviewer: thoroet
 
 ---
-# Provide applications access to Azure Stack
+# Give applications access to Azure Stack resources by creating service principals
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-When an application needs access to deploy or configure resources through Azure Resource Manager in Azure Stack, you create a service principal, which is a credential for your application.  You can then delegate only the necessary permissions to that service principal.  
+You can give an application access to Azure Stack resources by creating a service principal that uses Azure Resource Manager. A service principal lets you delegate specific permissions using [role-based access control](azure-stack-manage-permissions.md).
 
-As an example, you may have a configuration management tool that uses Azure Resource Manager to inventory Azure resources.  In this scenario, you can create a service principal, grant the reader role to that service principal, and limit the configuration management tool to read-only access. 
+As a best practice, you should use service principals for your applications. Service principals are preferable to running an app using your own credentials for the following reasons:
 
-Service principals are preferable to running the app under your own credentials because:
+* You can assign permissions to the service principal that are different than your own account permissions. Typically, a service principal's permissions are restricted to exactly what the app needs to do.
+* You do not have to change the app's credentials if your role or responsibilities change.
+* You can use a certificate to automate authentication when running an unattended script.
 
-* You can assign permissions to the service principal that are different than your own account permissions. Typically, these permissions are restricted to exactly what the app needs to do.
-* You do not have to change the app's credentials if your responsibilities change.
-* You can use a certificate to automate authentication when executing an unattended script.  
+## Example scenario
+
+You have a configuration management app that needs to inventory Azure resources using Azure Resource Manager. You can create a service principal and assign it to the Reader role. This role gives the app read-only access to Azure resources.
 
 ## Getting started
 
-Depending on how you have deployed Azure Stack, you start by creating a service principal.  This document guides you through creating a service principal for both [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) and [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) to the role.     
+Use the steps in this article as a guide to:
 
-## Create service principal for Azure AD
+* Create a service principal for your app.
+* Register your app and create an authentication key.
+* Assign your app to a role.
 
-If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure.  This section shows you how to perform the steps through the portal.  Check that you have the [required Azure AD permissions](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
+The way you configured Active Directory for Azure Stack determines how you create a service principal. Pick one of the following options:
+
+* Create a service principal for [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
+* Create a service principal for [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+
+The steps for assigning a service principal to a role the same for Azure AD and AD FS. After you create the service principal, you can [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) by assigning it to a role.
+
+## Create a service principal for Azure AD
+
+If your Azure Stack uses Azure AD as the identity store, you can create a service principal using the same steps as in Azure, using the Azure portal.
+
+>[!NOTE]
+Check to see that you have the [required Azure AD permissions](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before you start creating a service principal.
 
 ### Create service principal
-In this section, you create an application (service principal) in Azure AD that will represent your application.
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **App registrations** > **Add**   
+To create a service principal for your application:
+
+1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
+2. Select **Azure Active Directory** > **App registrations** > **Add**.
 3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
-You have created a service principal for your application.
-
 ### Get credentials
-When programmatically logging in, you use the ID for your application and an authentication key. To get those values, use the following steps:
+
+When logging in programmatically, use the ID for your application and an authentication key. To get these values:
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client id.
+2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) use **client id** when referring to the **Application ID**.
 
-     ![client id](./media/azure-stack-create-service-principal/image12.png)
+     ![Application ID for the application](./media/azure-stack-create-service-principal/image12.png)
 3. To generate an authentication key, select **Keys**.
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
-After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the key value with the application ID to sign as the application. Store the key value where your application can retrieve it.
+>[!IMPORTANT]
+After you save the key, the key **VALUE** is displayed. Write down this value because you can't retrieve the key later. Store the key value where your application can retrieve it.
 
-![saved key](./media/azure-stack-create-service-principal/image15.png)
+![Key value warning for saved key.](./media/azure-stack-create-service-principal/image15.png)
 
-
-Once complete, proceed to [assigning your application a role](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+The final step is [assigning your application a role](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
 ## Create service principal for AD FS
-If you have deployed Azure Stack with AD FS, you can use PowerShell to create a service principal, assign a role for access, and sign in from PowerShell using that identity.
 
-### Before you begin
+If you deployed Azure Stack using AD FS as the identity store, you can use PowerShell for the following tasks:
 
-[Download the tools required to work with Azure Stack to your local computer.](azure-stack-powershell-download.md)
+* Create a service principal.
+* Assign service principal to a role.
+* Sign in using the service principal's identity.
 
-### Import the Identity PowerShell module
-After you download the tools, navigate to the downloaded folder and import the Identity PowerShell module by using the following command:
+For details on how to create the service principal, see [Create service principal for AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
+## Assign the service principal to a role
 
-When you import the module, you may receive an error that says “AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, you can set execution policy to allow running the script with the following command in an elevated PowerShell session:
+To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
 
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
+>[!NOTE]
+You can set a role's scope at the level of a subscription, a resource group, or a resource. Permissions are inherited to lower levels of scope. For example, an app with the Reader role for a resource group means that the app can read any of the resources in the resource group.
 
-### Create the service principal
-You can create a Service Principal by executing the following command, making sure to update the *DisplayName* parameter:
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-```
-### Assign a role
-Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
+Use the following steps as a guide for assigning a role to a service principal.
 
-### Sign in through PowerShell
-Once you've assigned a role, you can sign in to Azure Stack using the service principal with the following command:
+1. In the Azure Stack portal, navigate to the level of scope you want to assign the application to. For example, to assign a role at the subscription scope, select **Subscriptions**.
 
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
- -TenantId $directoryTenantId
-```
+2. Select the subscription to assign the application to. In this example, the subscription is Visual Studio Enterprise.
 
-## Assign role to service principal
-To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../active-directory/role-based-access-built-in-roles.md).
+     ![Select Visual Studio Enterprise subscription for assignment](./media/azure-stack-create-service-principal/image16.png)
 
-You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
+3. Select **Access Control (IAM)** for the subscription.
 
-1. In the Azure Stack portal, navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **Subscriptions**. You could instead select a resource group or resource.
-
-2. Select the particular subscription (resource group or resource) to assign the application to.
-
-     ![select subscription for assignment](./media/azure-stack-create-service-principal/image16.png)
-
-3. Select **Access Control (IAM)**.
-
-     ![select access](./media/azure-stack-create-service-principal/image17.png)
+     ![Select Access control](./media/azure-stack-create-service-principal/image17.png)
 
 4. Select **Add**.
 
@@ -131,9 +118,9 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 6. Search for your application, and select it.
 
-7. Select **OK** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
+7. Select **OK** to finish assigning the role. You can see your application in the list of users assigned to a role for that scope.
 
-Now that you've created a service principal and assigned a role, you can begin using this within your application to access Azure Stack resources.  
+Now that you've created a service principal and assigned a role, your application can access Azure Stack resources.
 
 ## Next steps
 

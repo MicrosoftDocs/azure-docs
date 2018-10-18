@@ -1,4 +1,15 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.
+---
+ title: include file
+ description: include file
+ services: expressroute
+ author: cherylmc
+ ms.service: expressroute
+ ms.topic: include
+ ms.date: 03/22/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
+You must create a VNet and a gateway subnet first, before working on the following tasks.
 
 > [!NOTE]
 > These examples do not apply to S2S/ExpressRoute coexist configurations.

@@ -1,20 +1,29 @@
+- name: Video Indexer Documentation
 - name: Overview
   items:
-    - name: Video Indexer overview
-      href: video-indexer-overview.md
-    - name: Concepts
-      href: video-indexer-concepts.md
+  - name: What is Video Indexer?
+    href: video-indexer-overview.md
+  - name: Concepts
+    href: video-indexer-concepts.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Get started
     href: video-indexer-get-started.md
-- name: How to
+- name: How to guides
   items:
+  - name: Migrate from v1 to v2
+    href: migrate-from-v1-to-v2.md
+  - name: Connect to Azure
+    href: connect-to-azure.md
+  - name: Manage account connected to Azure
+    href: manage-account-connected-to-azure.md
   - name: Use Video Indexer API
-    href: video-indexer-use-apis.md   
+    href: video-indexer-use-apis.md  
+  - name: Use API to upload and index videos
+    href: upload-index-videos.md 
   - name: Examine Video Indexer output
-    href: video-indexer-output-json.md
+    href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     href: video-indexer-search.md
   - name: View and edit Video Indexer insights
@@ -25,9 +34,15 @@
     href: video-indexer-embed-widgets.md
 - name: Reference
   items:
-  - name: REST
-    href: https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4
+  - name: Video Indexer API
+    href: https://api-portal.videoindexer.ai/
 - name: Resources
   items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598144-video-indexer
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning

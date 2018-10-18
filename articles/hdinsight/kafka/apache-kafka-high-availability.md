@@ -1,20 +1,14 @@
 ---
-title: High availability with Apache Kafka - Azure HDInsight | Microsoft Docs
-description: 'Learn how to ensure high availability with Apache Kafka on Azure HDInsight. Learn how to rebalance partition replicas in Kafka so that they are on different fault domains within the Azure region that contains HDInsight.'
+title: High availability with Apache Kafka - Azure HDInsight 
+description: Learn how to ensure high availability with Apache Kafka on Azure HDInsight. Learn how to rebalance partition replicas in Kafka so that they are on different fault domains within the Azure region that contains HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: ''
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/07/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 05/01/2018
 ---
 # High availability of your data with Apache Kafka on HDInsight
 
@@ -27,7 +21,7 @@ A fault domain is a logical grouping of underlying hardware in an Azure data cen
 Each Azure region has a specific number of fault domains. For a list of domains and the number of fault domains they contain, see the [Availability sets](../../virtual-machines/windows/regions-and-availability.md#availability-sets) documentation.
 
 > [!IMPORTANT]
-> Kafka is not aware of fault domains. When you create a topic in Kafka, it may store all partition replicas in the same fault domain. To solve this problem, we provide the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools).
+> Kafka is not aware of fault domains. When you create a topic in Kafka, it may store all partition replicas in the same fault domain. To solve this problem, HDInsight provides the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools).
 
 ## When to rebalance partition replicas
 

@@ -1,17 +1,19 @@
 ---
-title: Concepts | Microsoft Docs
+title: Bing Speech Concepts | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Basic concepts used in Microsoft Speech Service.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
 # Basic concepts
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 This page describes some basic concepts in Microsoft speech recognition service. We recommend you to read this page before using Microsoft speech recognition API in your application.
 
@@ -277,7 +279,7 @@ The payload format of the `detailed` phrase result:
   "RecognitionStatus": "Success",
   "Offset": "1236645672289",
   "Duration": "1236645672289",
-  "N-Best": [
+  "NBest": [
       {
         "Confidence" : "0.87",
         "Lexical" : "remind me to buy five pencils",

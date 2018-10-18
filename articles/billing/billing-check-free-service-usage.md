@@ -1,5 +1,5 @@
 ---
-title: Monitor and track usage of free services - Azure| Microsoft Docs
+title: Monitor and track usage of Azure free services | Microsoft Docs
 description: Learn to check usage of free services. Use Azure portal and usage csv.
 services: ''
 documentationcenter: ''
@@ -10,11 +10,11 @@ tags: billing
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
+ms.author: cwatson
 
 ---
 # Check usage of free services included with your Azure free account 
@@ -25,7 +25,7 @@ You are not charged for services included for free with Azure free account, unle
 
 1.	Log in to the [Azure portal]( http://portal.azure.com).
 
-2.	From bottom of left navigation, select **More services**.
+2.	From left navigation area, select **All services**.
 
 3.	Select **Subscriptions**.
 

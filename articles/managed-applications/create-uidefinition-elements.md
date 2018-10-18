@@ -1,31 +1,33 @@
 ---
-title: Azure Managed Application create UI definition functions | Microsoft Docs
-description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
-services: azure-resource-manager
+title: Azure create UI definition element | Microsoft Docs
+description: Describes the elements to use when constructing UI definitions for Azure portal.
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 09/19/2018
 ms.author: tomfitz
 
 ---
 # CreateUiDefinition elements
-This article describes the schema and properties for all supported elements of a CreateUiDefinition. You use these elements when [creating an Azure Managed Application](publish-service-catalog-app.md). The schema for most elements is as follows:
+This article describes the schema and properties for all supported elements of a CreateUiDefinition. 
+
+## Schema
+
+The schema for most elements is as follows:
 
 ```json
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Keep calm and visit the [Azure Portal](portal.azure.com).",
+  "defaultValue": "my value",
+  "toolTip": "Provide a descriptive name.",
   "constraints": {},
   "options": {},
   "visible": true
@@ -49,9 +51,11 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
+- [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
 - [Microsoft.Common.TextBox](microsoft-common-textbox.md)
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
@@ -62,5 +66,4 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
