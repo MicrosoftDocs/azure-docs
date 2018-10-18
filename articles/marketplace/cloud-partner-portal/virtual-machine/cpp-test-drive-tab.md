@@ -1,5 +1,5 @@
 ---
-title: Virtual machine Test Drive tab | Microsoft Docs
+title: Virtual machine Test Drive tab in the Cloud Partner Portal | Microsoft Docs
 description: Describes the Test Drive tab used in creating a Marketplace VM offer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 documentationcenter:
@@ -17,8 +17,7 @@ ms.date: 08/15/2018
 ms.author: pbutlerm
 ---
 
-Virtual machine Test Drive tab
-==============================
+# Virtual machine Test Drive tab
 
 <!-- TODO: The AMP tree needs a conceptual/business overview of Test Drive. I've deleted all the marketing fluff and most of overview from this topic.   See also https://azure.microsoft.com/blog/azure-marketplace-test-drive/ and https://github.com/Azure/AzureTestDrive/wiki/What-is-a-Test-Drive. -->
 
@@ -42,15 +41,15 @@ The following table describes the purpose and content of these fields.
 | *Technical Configuration* |  |
 | **Instances**             | Specify region availability and relatively availability of the vm instance (click the info icon for more details).  <br/>Potential concurrent Test Drive sessions should not exceed the quota limit for your subscription.  The former is calculated as:  [Number of Regions Selected] x [Hot instances] + [Number of Regions Selected] x [Warm instances] + [Number of Regions Selected] x [Cold instances] |
 | **Test Drive Duration**   | Maximum session duration in hours. The Test Drive session terminates automatically after this time period is exceeded.  |
-|**Test Drive ARM Template**| Upload the Azure Resource Manager (ARM) template associated with this Test Drive. For more information, see [Transforming Virtual Machine Deployment Template for Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
-| **Access Information**    | ARM access and trial login information, written as plain text or simple HTML. |
+|**Test Drive ARM Template**| Upload the Azure Resource Manager template associated with this Test Drive. For more information, see [Transforming Virtual Machine Deployment Template for Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
+| **Access Information**    | Azure Resource Manager access and trial login information, written as plain text or simple HTML. |
 | *Test Drive Deployment Subscription Details* |  |
-| **Azure Subscription Id** | Can be obtained by signing into the [Microsoft Azure Portal](https://ms.portal.azure.com) and clicking **Subscriptions** on the left menubar. (Example: “a83645ac-1234-5ab6-6789-1h234g764ghty”)    This identifier should be a GUID of the form  `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
-| **Azure AD Tenant Id**    | Azure Active Directory tenant ID.  Can be obtained by signing into the [Microsoft Azure Portal](https://ms.portal.azure.com) and clicking **Azure Active Directory** on the left menubar, then clicking **Properties** in the middle menubar, then copying the **Directory ID** from the form.  This identifier should also be a GUID.  If blank, then you must create a tenant ID for your organization. |
+| **Azure Subscription Id** | Can be obtained by signing into the [Microsoft Azure portal](https://ms.portal.azure.com) and clicking **Subscriptions** on the left menubar. (Example: “a83645ac-1234-5ab6-6789-1h234g764ghty”)    This identifier should be a GUID of the form  `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
+| **Azure AD Tenant Id**    | Azure Active Directory tenant ID.  Can be obtained by signing into the [Microsoft Azure portal](https://ms.portal.azure.com) and clicking **Azure Active Directory** on the left menubar, then clicking **Properties** in the middle menubar, then copying the **Directory ID** from the form.  This identifier should also be a GUID.  If blank, then you must create a tenant ID for your organization. |
 | **Azure AD App Id**       | Identifier for your registered Azure VM solution  |
 | **Azure AD App Key**      | Authentication key for your registered solution |
 |  |  |
 
 <br/>
 
-In the next [Marketplace](./cloud-partner-portal/cpp-marketplace-tab.md) tab, you will provide marketing and legal information about your solution.
+In the next [Marketplace](./cpp-marketplace-tab.md) tab, you will provide marketing and legal information about your solution.

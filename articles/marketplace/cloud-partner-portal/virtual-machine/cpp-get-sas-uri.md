@@ -1,5 +1,5 @@
 ---
-title: Get shared access signature URI for your VM image | Microsoft Docs
+title: Get shared access signature URI for your Microsoft Azure-based VM image | Microsoft Docs
 description: Explains how to get the shared access signature (SAS) URI for your VM image.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -18,8 +18,7 @@ ms.author: pbutlerm
 ---
 
 
-Get shared access signature URI for your VM image
-=================================================
+# Get shared access signature URI for your VM image
 
 During the publishing process, you must provide a uniform resource identifier (URI) for each virtual hard disk (VHD) associated with your SKUs. Microsoft needs access to these VHDs during the certification process. This article explains how to generate a shared access signature (SAS) URI for each VHD. You will enter this URI in the **SKUs** tab in the Cloud Partner Portal.
 
@@ -45,10 +44,10 @@ Use the following steps to generate a SAS URI with Azure CLI.
 1.  Download and install the [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Versions are available for Windows, macOS, and various distros of Linux. 
 2.  Create a PowerShell file (`.ps1` file extension), copy in the following code, then save it locally.
 
-``` powershell
-az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
-```
-
+    ``` powershell
+    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
+    ```
+    
 3.  Edit the file to supply the following parameter values.  Dates should be provided in UTC datetime format, for example `10-25-2016T00:00:00Z`.
     - `<account-name>` - Your Azure storage account name
     - `<account-key>` - Your Azure storage account key
@@ -58,9 +57,10 @@ az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=
  
 >   The following example shows proper parameter values (at the time of this writing).
 
-``` powershell
-az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
-```
+    ``` powershell
+    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+    ```
+
 4. Save the changes to this PowerShell script.
 5. Run this script, using administrative privileges, to generate a *SAS connection string* for container level access.  You can use two basic approaches:
     - Run the script from the console.  For example, in Windows, write-click on the script and select **Run as administrator**.
@@ -70,10 +70,10 @@ az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=
     ![SAS URI generation in PowerShell ISE](./media/publishvm_032.png)
 
 6. Copy the resulting SAS connection string and save it to a text file in a secure location.  You will edit this string to add the associated VHD location information to it to create the final SAS URI. 
-7. In the Azure Portal, navigate to the blob storage that contains the VHD associated with the newly generated URI.
+7. In the Azure portal, navigate to the blob storage that contains the VHD associated with the newly generated URI.
 8. Copy the URL value of the **Blob service endpoint**, as shown below.
 
-    ![Blob service endpoint in Azure Portal](./media/publishvm_033.png)
+    ![Blob service endpoint in Azure portal](./media/publishvm_033.png)
 
 9. Edit the text file with the SAS connection string from step 6.  You will construct the complete SAS URI using the following format:
 
@@ -134,6 +134,6 @@ Review and verify each generated SAS URI by using the following checklist.  Veri
 - Copy and paste the URI into a browser to begin to download the associated blob.  (You can cancel the operation before the download completes.)
 
 
-## Next Steps
+## Next steps
 
-If you are having difficulties generating a SAS URI, then see [Common SAS URL issues](./cpp-common-sas-url-issues.md).  Otherwise, save the SAS URI(s) to a secure location for later use. It will be required to [publish your VM offer]((./cpp-publish-offer.md)) in the Cloud Partner Portal.
+If you are having difficulties generating a SAS URI, then see [Common SAS URL issues](./cpp-common-sas-url-issues.md).  Otherwise, save the SAS URI(s) to a secure location for later use. It will be required to [publish your VM offer](./cpp-publish-offer.md) in the Cloud Partner Portal.

@@ -1,5 +1,5 @@
 ---
-title: Common issues during VHD creation (FAQ) | Microsoft Docs
+title: Common issues during VHD creation (FAQ) for the Azure Marketplace | Microsoft Docs
 description: Frequently asked questions about VHD creation and associated issues.
 services: Azure Marketplace
 documentationcenter: ''
@@ -18,14 +18,13 @@ ms.author: hascipio; v-divte; v-miclar
 
 ---
 
-Common issues during VHD creation (FAQ)
-=======================================
+# Common issues during VHD creation (FAQ)
 
 The following frequently asked questions (FAQ) cover common issues encountered during virtual hard disk (VHD) and virtual machine (VM) creation for VM offers.
 
-## How do you create a VM from the Azure Portal using the VHD that is uploaded to premium storage?
+## How do you create a VM from the Azure portal using the VHD that is uploaded to premium storage?
 
-Azure Marketplace does not currently support creating VM offers from images residing on managed storage or from Azure Premium Storage.  For more information about these storage options, see [Azure Managed Disks Overview](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) and [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage).
+Azure Marketplace does not currently support creating VM offers from images residing on managed storage or from Azure Premium Storage.  For more information about these storage options, see [Azure Managed Disks Overview](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) and [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
 
 
 ## Can you use generation 2 VMs for offers?
@@ -48,7 +47,7 @@ The following articles explain how to perform RDS resets for Windows- and Linux-
 
 ## How do you generate new SSH certificates?
 
-Generation of certificates is explained in the article [Get shared access signature URI for your VM image](./cpp-vm-get-sas-uri.md) in the subsequent section [Create technical assets for a VM offer](./cpp-vm-create-technical-assets.md).
+Generation of certificates is explained in the article [Get shared access signature URI for your VM image](./cpp-get-sas-uri.md) in the subsequent section [Create technical assets for a VM offer](./cpp-create-technical-assets.md).
 
 
 ## How do you configure a virtual private network (VPN) to work with my VMs?

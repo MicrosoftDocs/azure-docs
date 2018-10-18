@@ -1,5 +1,5 @@
 ---
-title: Publish VM offer | Microsoft Docs
+title: Publish a virtual machine offer in the Azure Marketplace | Microsoft Docs
 description: Lists the steps required to publish an existing virtual machine offer onto the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -17,10 +17,7 @@ ms.date: 08/17/2018
 ms.author: pbutlerm
 ---
 
-Publish VM offer
-================
-
-<!-- needs an explanation about the certification requirements. Marc Quintal needs to review this file specifically, please rope him in to help. -->
+# Publish a virtual machine offer
 
  The last step, after you have defined the offer in the portal and created the associated technical assets, is to submit the offer for publishing. The following diagram depicts the main steps in the publishing process to "go live": 
 

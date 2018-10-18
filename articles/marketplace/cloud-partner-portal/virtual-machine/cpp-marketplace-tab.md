@@ -1,5 +1,5 @@
 ---
-title: Virtual machine Marketplace tab | Microsoft Docs
+title: Virtual machine Marketplace tab in the Cloud Partner Portal | Microsoft Docs
 description: Describes the Marketplace tab used in creating a Marketplace VM offer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 documentationcenter:
@@ -17,8 +17,7 @@ ms.date: 08/15/2018
 ms.author: pbutlerm
 ---
 
-Virtual machine Marketplace tab
-===============================
+# Virtual machine Marketplace tab
 
 The **Marketplace** tab of the **New Offer** page enables you to provide your prospective customers with marketing, sales, and legal information and agreements and manage leads generated from the marketplace. This long form is divided into four sections: **Overview**, **Marketing Artifacts**, **Lead Management**, and **Legal**.
 
@@ -73,7 +72,7 @@ This second section is divided in three subsections: **Logos**, **Screenshot**, 
 All the logos uploaded to the Cloud Partner Portal should follow the guidelines:
 
 *  The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
-*  The theme colors of the Azure Portal are white and black. Therefore avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. If you are using transparent background, then make sure that the logos/text are not white or black or blue.
+*  The theme colors of the Azure portal are white and black. Therefore avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. If you are using transparent background, then make sure that the logos/text are not white or black or blue.
 *  Do not use a gradient background on your logo.
 *  Avoid placing text—even your company or brand name—on the logo. The look and feel of your logo should be "flat" and should avoid gradients.
 *  Do not stretch the logo.

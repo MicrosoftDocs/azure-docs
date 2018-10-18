@@ -1,6 +1,6 @@
 ---
 title: Create Virtual Machine offer | Microsoft Docs
-description: .
+description: Lists the steps required to create a new virtual machine (VM) offer for the Azure Marketplace..
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: v-miclar
@@ -17,10 +17,9 @@ ms.date: 08/15/2018
 ms.author: pbutlerm
 ---
 
-Create Virtual Machine offer
-============================
+# Create Virtual Machine offer
 
-This section lists the steps required to create a new virtual machine (VM) offer entry for the Azure Marketplace.  Every offer appears as its own entity in Azure Marketplace and is associated with one or more SKUs.  A VM offer is composed of the following groupings of assets and supporting services:
+This section lists the steps required to create a new virtual machine (VM) offer request for the Azure Marketplace.  Every offer appears as its own entity in Azure Marketplace and is associated with one or more SKUs.  A VM offer is composed of the following groupings of assets and supporting services:
 
 ![Assets for a VM offer](./media/publishvm_002.png)
 
@@ -42,11 +41,11 @@ Once your sign into the [Cloud Partner Portal](http://cloudpartner.azure.com/), 
 
 ![New virtual machine offer user interface selection](./media/publishvm_003.png)
 
-> [WARNING!]
-> If the **Virtual Machines** option is not shown or is not enabled, then your account does not have permission to create this offer type.  Please check that you have met all the [prerequisites]((./cpp-prerequisites.md)) for this offer type, including registering for a developer account.
+> [!WARNING]
+> If the **Virtual Machines** option is not shown or is not enabled, then your account does not have permission to create this offer type.  Please check that you have met all the [prerequisites](./cpp-prerequisites.md) for this offer type, including registering for a developer account.
 
 
-## Next Steps
+## Next steps
 
 The subsequent topics in this section mirror the tabs in the **New Offer** page (for a VM offer type).  Each article explains how to use the associated tab to define the asset groups and supporting services for your new VM offer.
 

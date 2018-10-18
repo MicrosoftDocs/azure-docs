@@ -1,5 +1,5 @@
 ---
-title: Update an existing VM offer on Azure Marketplace | Microsoft Docs
+title: Update an existing VM offer in the Azure Marketplace | Microsoft Docs
 description: Explains how to update an existing VM offer on Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -17,8 +17,7 @@ ms.date: 08/27/2018
 ms.author: Ankit.Sud
 ---
 
-Update an existing VM offer on Azure Marketplace
-=================================================
+# Update an existing VM offer on Azure Marketplace
 
 This article walks you through the different aspects of updating your virtual machine (VM) offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and then republishing the offer.
 
@@ -65,9 +64,10 @@ the VM image that your SKU references by using the following steps:
 5.  Provide the new VM Images **Disk version**. The disk version needs to follow the [semantic version](http://semver.org/) format. Versions should be of the
     form X.Y.Z, where X, Y, and Z are integers. Verify that the new version you provide is greater than all previous versions; otherwise after republishing the new version will not display in either the portal or the Azure Marketplace.
 
-6.  For **OS VHD URL**, enter the [shared access signature (SAS) URI](./cpp-obtain-vm-certification.md)  <!-- TODO: After rewrite, point to specific section of this topic. --> created for the operating system VHD. 
+6.  For **OS VHD URL**, enter the [shared access signature (SAS) URI](./cpp-get-sas-uri.md) created for the operating system VHD. 
 
-    > [!WARNING] The data disk count cannot change between different versions of the SKU. If previous versions had data disks configured, this new version must also have the same number of data disks.
+    > [!WARNING] 
+    > The data disk count cannot change between different versions of the SKU. If previous versions had data disks configured, this new version must also have the same number of data disks.
 
 7.  Click on **Publish** to start the workflow to publish your new VM version to the Azure Marketplace.
 
@@ -104,7 +104,7 @@ Use the following steps to make a new SKU available for your existing offer:
 
 3.  Under the **SKUs** tab, click on **Add new SKU** and provide a **SKU ID** in the pop-up.
 
-4.  Republish the VM as detailed in the article [Publish a virtual machine to Azure Marketplace](./cpp-publish-vm-offer.md).
+4.  Republish the VM as detailed in the article [Publish a virtual machine to Azure Marketplace](./cpp-publish-offer.md).
 
 5.  Click on **Publish** to start the workflow to publish your new SKU.
 
@@ -117,7 +117,7 @@ Use the following steps to update the marketplace metadata—company name, logos
 
 2.  Under **All offers** find the offer you would like to update.
 
-3.  Goto the **Marketplace** tab then follow the instructions in the article [Publish a virtual machine to Azure Marketplace](./cpp-publish-vm-offer.md) to make metadata changes.
+3.  Goto the **Marketplace** tab then follow the instructions in the article [Publish a virtual machine to Azure Marketplace](./cpp-publish-offer.md) to make metadata changes.
 
 4.  Click on **Publish** to start the workflow to publish your changes.
 
@@ -170,7 +170,7 @@ regions wherein the settlement currency is not changing.
 > If you use APIs to publish your offer, you may see a new section within the Offer JSON. This would be annotated as `virtualMachinePricingV2` or
 `monthlyPricingV2`, depending upon the type of offer. 
 
-If you have any questions about this change, contact [Azure Marketplace Support](../support-azure-marketplace.md).
+If you have any questions about this change, contact [Azure Marketplace Support](../../support-azure-marketplace.md).
 
 
 ## Compare Feature

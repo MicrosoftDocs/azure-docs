@@ -1,5 +1,5 @@
 ---
-title: Connect to your virtual machine | Microsoft Docs
+title: Connect to your Microsoft Azure-based virtual machine | Microsoft Docs
 description: Explains how to connect to the new virtual machine created on Azure.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -17,8 +17,7 @@ ms.date: 09/11/2018
 ms.author: pbutlerm
 ---
 
-Connect to your Azure-based VM
-==============================
+# Connect to your Azure-based virtual machine
 
 This article explains how to connect to and sign into the virtual machines (VMs) you created on Azure.  Once you have successfully connected, you can work with the VM as if you were locally logged on to its host server. 
 
@@ -26,7 +25,7 @@ This article explains how to connect to and sign into the virtual machines (VMs)
 
 You will use the remote desktop client to connect to the Windows-based VM hosted on Azure.  Most versions of Windows natively contain support for the remote desktop protocol (RDP).  For other machines, you can find more information about clients in [Remote Desktop clients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-The following article details how to use the built-in Windows RDP support to connect to your VM: [How to connect and log on to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).  
+The following article details how to use the built-in Windows RDP support to connect to your VM: [How to connect and log on to an Azure virtual machine running Windows](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
 > You may get security warnings during the process, for example that the .rdp file is from an unknown publisher or that your user credentials cannot be verified.  It is safe to ignore these warnings.
@@ -36,10 +35,10 @@ The following article details how to use the built-in Windows RDP support to con
 
 In order to connect the Linux-based VM, you need a secure shell protocol (SSH) client.  This discussion will use the free [PuTTY](https://www.ssh.com/ssh/putty/) SHH terminal.
 
-1. In the **Virtual machines** blade of the [Azure Portal](https://ms.portal.azure.com), select the VM you want to connect to.  
+1. In the **Virtual machines** blade of the [Azure portal](https://ms.portal.azure.com), select the VM you want to connect to.  
 2. **Start** the VM if it is not already running.
 3. Click on the name of the VM to open its **Overview** page.
-4. Note the Public IP address and DNS name of your VM.  (If these values are not set, then you must [Create a network interface](../../virtual-network/virtual-network-network-interface#create-a-network-interface) for your VM.)
+4. Note the Public IP address and DNS name of your VM.  (If these values are not set, then you must [Create a network interface](../../../virtual-network/virtual-network-network-interface#create-a-network-interface) for your VM.)
 
    ![VM Overview settings](./media/publishvm_019.png)
  
@@ -53,7 +52,7 @@ In order to connect the Linux-based VM, you need a secure shell protocol (SSH) c
 
    If you are having connection problems, refer to the documentation for your SSH client, for example [Chapter 10: Common error messages](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
-For more information, including how to add a desktop to a provisioned Linux VM, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../virtual-machines/linux/use-remote-desktop.md).
+For more information, including how to add a desktop to a provisioned Linux VM, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 
 
 ## Stop unused VMs

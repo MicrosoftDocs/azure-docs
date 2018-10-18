@@ -1,6 +1,6 @@
 ---
-title: Virtual machine SKUs tab | Microsoft Docs
-description: Describes the SKUs tab used in creating a Marketplace VM offer.
+title: Virtual machine SKUs tab in the Cloud Partner Portal | Microsoft Docs
+description: Describes the SKUs tab used in creating a virtual machine offer in the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 documentationcenter:
 author: v-miclar
@@ -17,16 +17,7 @@ ms.date: 08/15/2018
 ms.author: pbutlerm
 ---
 
-Virtual machine SKUs tab
-========================
-<!-- the biggest thing in "authoring virtual machine offer" is that it has all the links to all the technical/nontechnical requirements on how to build your vhd in your sku. we need to have those links somewhere so that a publisher has read them before they got to the SKUs page. 
-Technical prerequisites for creating a virtual machine image for the Azure Marketplace
-Creating and uploading a Linux VHD
-Create & test a Linux VM from an image
-Creating and uploading a Windows VHD 
-Create & test a Windows VM from an image
-How to troubleshoot common issues encountered during VHD creation
--->
+# Virtual machine SKUs tab
 
 The **SKUs** tab of the **New Offer** page enables you to create one or more SKUs and associate them to your new offer.  Different SKUs can differentiate a solution by feature sets, VM image types, throughput or scalability, billing models, or some other characteristic.
 
@@ -58,10 +49,10 @@ The following table describes the purpose, contents, and formatting of these fie
 | **Description**  | Description text that provides a more detailed explanation of the offer.  <!-- TODO: max len/guidance? 3k characters -->  |
 | **Hide this SKU** | Indicates whether the SKU should be visible in the marketplace to customers.  You may want to hide the SKU if you only want it available only via solution templates and not for purchase individually.  It could also be useful for initial testing or for temporary or seasonal offers. |
 | **Cloud Availability** | Determines on which clouds the SKU should be available.  The default is the public version of Azure.  Microsoft Azure Government is a government-community cloud with controlled access for the US Federal, State, local or tribal governments, and their certified partners.  For more information about government cloud, see [Welcome to Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
-| **Is this a Private SKU?** | Indicates whether the SKU is private or public. The default is **No** (public).  For more information, see [Public and Private SKUs](./cloud-partner-portal/cpp-public-private-skus.md). |
+| **Is this a Private SKU?** | Indicates whether the SKU is private or public. The default is **No** (public).  For more information, see [Public and Private SKUs](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). |
 | **Country/Region Availability** | Determines which countries or world regions your SKU will be available for purchase. Select at least one region/country. <!-- TODO: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *Pricing*   |  |
-| **License Model**| Standardized billing model to use.  If you select **Usage-based monthly billed SKU**, an accordion section will open to enable you to specify details of per-core pricing and whether you want to offer a free trial period.  This section also enables you to export and import this pricing schedule to Excel. For more information, see [Billing options in the Azure Marketplace](..\billing-options-azure-marketplace.md). | 
+| **License Model**| Standardized billing model to use.  If you select **Usage-based monthly billed SKU**, an accordion section will open to enable you to specify details of per-core pricing and whether you want to offer a free trial period.  This section also enables you to export and import this pricing schedule to Excel. For more information, see [Billing options in the Azure Marketplace](../../billing-options-azure-marketplace.md). | 
 |  *VM Images*   |  |
 | **Operating System Family** | Indicates whether the solution VM is Windows- or Linux-based. |
 | **Select Operating System Type** | Specific vendor or release of the specified OS. |
@@ -78,9 +69,14 @@ The following table describes the purpose, contents, and formatting of these fie
 <br/> 
 
 
+### Simplified Currency Pricing
+
+Starting September 1 2018, a new section called **Simplified Currency Pricing** will be added to the portal. Microsoft is streamlining the Azure Marketplace business by enabling more predictable pricing and collections from your customers across the world. This streamlining will include reducing the number of currencies in which we invoice your customers.  For more information, see [Update an existing VM offer on Azure Marketplace](./cpp-update-existing-offer.md).
+
+
 ### Additional information on taxes and prices
 
-* Microsoft classifies some countries as *tax remitted countries*.  In such countries, Microsoft collects taxes from customers then pays (remits) taxes to the government.  In other countries, partners are typically responsible for collecting taxes from their customers and paying taxes to the government. If you choose to sell in the latter countries, you must have the capability to calculate and pay local taxes.  <!-- TODO: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/en-us/windows/uwp/publish/tax-details-for-paid-apps -->
+* Microsoft classifies some countries as *tax remitted countries*.  In such countries, Microsoft collects taxes from customers then pays (remits) taxes to the government.  In other countries, partners are typically responsible for collecting taxes from their customers and paying taxes to the government. If you choose to sell in the latter countries, you must have the capability to calculate and pay local taxes.  <!-- TODO: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
 * Prices are not changeable once an offer goes live. However, you may still add or remove supported regions. <!-- TODO: Is this true? Forever? -->
 * Microsoft charges the customer standard Azure VM usage fees in addition to your scheduled SKU fees.
 * Prices are set for all regions in local currency on available currency rates at the time of setting prices.  <!-- TODO: Meaning? - Offer created, published, other? -->

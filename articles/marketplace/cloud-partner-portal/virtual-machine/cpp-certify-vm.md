@@ -1,5 +1,5 @@
 ---
-title: Certify your VM image | Microsoft Docs
+title: Certify your VM image for the Azure Marketplace | Microsoft Docs
 description: Explains how to test and submit a VM image for Azure Marketplace certification.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -17,8 +17,7 @@ ms.date: 09/26/2018
 ms.author: pbutlerm
 ---
 
-Certify your VM image
-=====================
+# Certify your VM image
 
 After you create and deploy your virtual machine (VM), you must test and submit the VM image for Azure Marketplace certification. This article explains where to get the *Certification Test Tool for Azure Certified*, how to use this tool to certify your VM image, and how to upload the verification results to the Azure container where your VHDs reside.
 
@@ -77,6 +76,6 @@ Lastly, click **Generate Report** to download the test results and log files for
 ![Save certification test results](./media/publishvm_031.png)
 
 
-## Next Step
+## Next steps
 
 You must next [generate a uniform resource identifiers (URI) for each VHD](./cpp-get-sas-uri.md) that you submit to the marketplace. 

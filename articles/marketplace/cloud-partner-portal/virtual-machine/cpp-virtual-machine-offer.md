@@ -1,5 +1,5 @@
 ---
-title: Virtual machine offer | Microsoft Docs
+title: Virtual machine offer in the Azure Marketplace | Microsoft Docs
 description: Overview of the process for publishing a VM offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
 documentationcenter:
@@ -17,8 +17,7 @@ ms.date: 09/28/2018
 ms.author: pbutlerm
 ---
 
-Virtual machine offer
----------------------
+# Virtual machine offer
 
 This section outlines the elements of publishing a Virtual Machine (VM), and is intended as a guide for the publisher to the [Azure Marketplace](https://azuremarketplace.microsoft.com).  From this viewpoint, it is divided into the following main parts:
 
@@ -28,7 +27,7 @@ This section outlines the elements of publishing a Virtual Machine (VM), and is 
 - [Publish VM offer](./cpp-publish-offer.md) - how to submit the offer for publishing to the Azure Marketplace
 
 
-### VM Publishing process flow
+## VM Publishing process flow
 
 The following diagram illustrates the high-level steps in publishing a VM offer.
 
@@ -42,6 +41,6 @@ The following diagram illustrates the high-level steps in publishing a VM offer.
  
 4. Certify and publish the offer -  Once the offer and the technical assets are completed, you can submit the offer. This submission will start the publishing process, in which the solution is tested, validated, certified, then "goes live" on the marketplace.  
 
-## Next Steps
+## Next steps
 
 Before you consider these steps, you must meet the [technical and business requirements](./cpp-prerequisites.md) for publishing a VM to the Microsoft Azure Marketplace. 
