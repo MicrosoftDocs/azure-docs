@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 ExpressRoute Direct provides customers with the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100 Gbps connectivity, which supports Active/Active connectivity at scale. 
 
-Key features that ExpressRoute Direct provides include, but are not limited to:
+Key features that ExpressRoute Direct provides include, but aren't limited to:
 
 * Massive Data Ingestion into services like Storage and Cosmos DB 
 * Physical isolation for industries that are regulated and required dedicated and isolated connectivity like: Banking, Government, and retail 
@@ -28,12 +28,12 @@ Key features that ExpressRoute Direct provides include, but are not limited to:
 
 ## Enroll in the Preview
 
-Before you can utilize ExpressRoute direct, you must first enroll your subscription in the preview. To enroll, send an email to <ExpressRouteDirect@microsoft.com> with your subscription ID. ExpressRoute Direct is an enterprise-grade feature. Provide additional details:
+Before using ExpressRoute direct, you must first enroll your subscription in the preview. To enroll, send an email to <ExpressRouteDirect@microsoft.com> with your subscription ID. ExpressRoute Direct is an enterprise-grade feature. Provide additional details:
 
-* Scenarios you are looking to accomplish with **ExpressRoute Direct**
+* Scenarios you're looking to accomplish with **ExpressRoute Direct**
 * Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
 * Timeline for implementation
-* Any questions you have regarding the services
+* Any other questions
 
 ## ExpressRoute using a service provider and ExpressRoute Direct
 
