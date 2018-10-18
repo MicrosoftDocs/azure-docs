@@ -47,6 +47,6 @@ sections:
     style: unordered
     items:
     - text: "What is Bing Local Business Search?"
-      href: overview.md
+        href: overview.md
     - text: "Geographic search"
-      href: specify-geographic-search.md
+        href: specify-geographic-search.md
