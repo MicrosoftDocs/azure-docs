@@ -29,14 +29,14 @@ Set pagination, if needed, using the `count` and `first` parameters. The `count`
 ## Features
 In addition to instant answers, Bing Web Search provides additional features and functionality that allow you to customize search results for your users.
 
-# Workflow
+## Workflow
 1. Call the Bing Local Business Search REST API from any programming language that can make HTTP requests and parse JSON responses. 
 2. Create a Cognitive Services API account with access to the Bing Search APIs. If you don't have an Azure subscription, you can create a free account.
 3. Send a request to the Bing Web Search API.
 Parse the JSON response.
 
 ## Next steps
-- [Query and respons](query-reponse.md)
+- [Query and respons](local-search-query-reponse.md)
 - [Local Search quickstart](local-quickstart.md)
 - [Local Search Java quickstart](local-search-java-quickstart.md)
 - [Local Search Node quickstart](local-search-node-quickstart.md)
