@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 # SAP HANA (large instances) deployment 
 
-This article assumes that you have completed your purchase of SAP HANA on Azure (large instances) from Microsoft. Before reading this article, for general background, see [HANA large instances common terms](hana-know-terms.md) and [HANA large instances SKUs](hana-available-skus.md).
+This article assumes that you've completed your purchase of SAP HANA on Azure (large instances) from Microsoft. Before reading this article, for general background, see [HANA large instances common terms](hana-know-terms.md) and [HANA large instances SKUs](hana-available-skus.md).
 
 
 Microsoft requires the following information to deploy HANA large instance units:
@@ -40,7 +40,7 @@ Microsoft requires the following information to deploy HANA large instance units
   - Desired IP address for the HANA large instance unit out of the Server IP pool address range. (The first 30 IP addresses in the server IP pool address range are reserved for internal use within HANA large instances.)
   - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes). Microsoft needs the HANA SID for creating the permissions for sidadm on the NFS volumes. These volumes attach to the HANA large instance unit. The HANA SID is also used as one of the name components of the disk volumes that get mounted. If you want to run more than one HANA instance on the unit, you should list multiple HANA SIDs. Each one gets a separate set of volumes assigned.
   - In the Linux OS, the sidadm user has a group ID. This ID is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group, with a group ID of 1001. The sidadm user is part of that group.
-  - In the Linux OS, the sidadm user has a user ID. This ID is required to create the necessary SAP HANA-related disk volumes. If you're running multiple HANA instances on the unit, list all the sidadm users. 
+  - In the Linux OS, the sidadm user has a user ID. This ID is required to create the necessary SAP HANA-related disk volumes. If you're running several HANA instances on the unit, list all the sidadm users. 
 - The Azure subscription ID for the Azure subscription to which SAP HANA on Azure HANA large instances are going to be directly connected. This subscription ID references the Azure subscription, which is going to be charged with the HANA large instance unit or units.
 
 After you provide the preceding information, Microsoft provisions SAP HANA on Azure (large instances). Microsoft sends you information to link your Azure virtual networks to HANA large instances. You can also access the HANA large instance units.
