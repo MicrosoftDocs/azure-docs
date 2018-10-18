@@ -77,7 +77,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > Skip this prerequisite if you are [deploying from a model file](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Register a model to use [`Webservice.deploy_from_model`](#deploy-from-registered-model) or [`Webservice.deploy_from_image`](#deploy-from-image). Or if you already have a registered model, retrieve it now.
+Register a model to use [Webservice.deploy_from_model](#deploy-from-registered-model) or [Webservice.deploy_from_image](#deploy-from-image). Or if you already have a registered model, retrieve it now.
 
 ### Retrieve a registered model
 If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model](tutorial-train-models-with-aml.md) tutorial] registered the model.  You then retrieve the registered model to deploy.
@@ -104,7 +104,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## Option 1: Deploy from model file
 
 The option to deploy from a model file requires the least amount of code to write, but also offers the least amount of control over the naming of components. This option starts with a model file and registers it into the workspace for you.  However, you can't name the model or associate tags or a description for it.  
@@ -143,6 +143,7 @@ This option uses the SDK method, Webservice.deploy().
 
 1. You can now [test the web service](#test-web-service).
 
+<a name='deploy-from-registered-model'/>
 ## Option 2: Deploy from registered model
 
 The option to deploy a registered model file takes a few more lines of code and allows some control over the naming of outputs. This option is a convenient way to deploy a registered model you already have.  However, you can't name the Docker image.  
@@ -168,6 +169,7 @@ This option uses the SDK method, Webservice.deploy_from_model().
 
 1. You can now [test the web service](#test-web-service).
 
+<a name='deploy-from-image'/>
 ## Option 3: Deploy from image
 
 Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This method allows you to create the Docker image separately and then deploy from that image.
@@ -210,6 +212,7 @@ This method gives you the most control over creating and naming the components i
 
 You can now test the web service.
 
+<a name='test-web-service'/>
 ## Test the web service
 
 The web service is the same no matter which method was used.  To get predictions, use the `run` method of the service.  
