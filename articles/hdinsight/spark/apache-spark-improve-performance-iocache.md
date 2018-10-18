@@ -27,7 +27,7 @@ You don't have to make any changes to your Spark jobs to see performance increas
 
 Azure HDInsight IO Cache is deactivated by default in preview. IO Cache is available on Azure HDInsight 3.6+ Spark clusters, which run Apache Spark 2.3.  To activate IO Cache, do the following:
 
-1. Select your HDInsight cluster in the portal.
+1. Select your HDInsight cluster in [the Azure portal](https://portal.azure.com).
 1. In the **Overview** page (opened by default when you select the cluster) select **Ambari Home** under **Cluster dashboards**.
 1. Select the **IO Cache** service on the left.
 1. Select **Actions** and **Activate**.
