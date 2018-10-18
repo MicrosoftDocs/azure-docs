@@ -66,9 +66,7 @@ Before you enable Azure AD over SMB for Azure Files, make sure you have complete
 
 ## Enable Azure AD authentication over SMB
 
-To enable Azure AD authentication over SMB for Azure Files, you can set a property on storage accounts created after August 29, 2018, using the Azure Storage Resource Provider from PowerShell or Azure CLI. Setting the property in the Azure portal is not supported for the preview release. 
-
-Setting this property registers the storage account with the associated Azure AD Domain Services deployment. Azure AD authentication over SMB is then enabled for all new and existing file shares in the storage account. 
+To enable Azure AD authentication over SMB for Azure Files, you can set a property on storage accounts created after August 29, 2018, using the Azure portal, Azure PowerShell, or Azure CLI. Setting this property registers the storage account with the associated Azure AD Domain Services deployment. Azure AD authentication over SMB is then enabled for all new and existing file shares in the storage account. 
 
 Keep in mind that you can enable Azure AD authentication over SMB only after you have successfully deployed Azure AD Domain Services to your Azure AD tenant. For more information, refer to the [prerequisites](#prerequisites).
 
@@ -132,7 +130,7 @@ To access Azure Files resources using Azure AD credentials, an identity (a user,
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Adminstrative control is not supported with Azure AD credentials. 
 
-### Define and create a custom role
+### Define a custom role
 
 To grant share-level permissions, define a custom RBAC role and assign it to an identity, scoping it to a specific file share. This process is similar to specifying Windows Share permissions, where you specify the type of access that a given user has to a file share.  
 
@@ -185,9 +183,11 @@ The following custom role template provides share-level Read permissions, granti
 }
 ```
 
+### Create the custom role
+
 To create the custom role, use PowerShell or Azure CLI. 
 
-**PowerShell**
+#### PowerShell
 
 The following PowerShell command creates a custom role based on one of the sample templates.
 
@@ -196,7 +196,7 @@ The following PowerShell command creates a custom role based on one of the sampl
 New-AzureRmRoleDefinition -InputFile "<custom-role-def-json-path>"
 ```
 
-**CLI** 
+#### CLI 
 
 The following Azure CLI command creates a custom role based on one of the sample templates.
 
@@ -211,7 +211,7 @@ Next, use PowerShell or Azure CLI to assign the custom role to an Azure AD ident
 
 The following PowerShell command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-**PowerShell**
+#### PowerShell
 
 The following PowerShell command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
@@ -226,7 +226,7 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzureRmRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-**CLI**
+#### CLI
   
 The following CLI 2.0 command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
@@ -277,6 +277,7 @@ icacls <mounted-drive-letter> /grant <user-email>:(f)
 For more information on how to use icacls to set NTFS permissions and on the different type of permissions supported, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## Mount a file share from a domain-joined VM 
+
 Now you are ready to verify that you've completed the steps above successfully by using your Azure AD credentials to access an Azure file share from a domain-joined VM. First, sign in to the VM using the Azure AD identity to which you have granted permissions, as shown in the following image.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
@@ -290,6 +291,7 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to a file share to an Azure AD identity. To grant access to your file share to additional users, follow the instructions provided in step 2 and 3.
 
 ## Next steps
+
 For more information about Azure Files and using Azure AD over SMB, see these resources:
 
 - [Introduction to Azure Files](storage-files-introduction.md)
