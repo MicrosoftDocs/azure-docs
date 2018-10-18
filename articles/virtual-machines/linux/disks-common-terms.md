@@ -13,6 +13,8 @@ ms.component: disks
 
 # Common terms
 
+This article defines several of the primary terminologies used in the Azure Disks space. Understanding these terms will be essential in determining what resources are necessary for your applications.
+
 ## VHDs
 
 VHDs are virtual hard disks. In the azure space they can either be data or OS disks.
