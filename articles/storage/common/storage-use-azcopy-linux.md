@@ -28,6 +28,10 @@ There are two versions of AzCopy that you can download. AzCopy on Linux targets 
 > For RHEL 7 distributions, install ICU and libunwind dependencies:
 > ```yum install -y libunwind icu```
 
+> [!NOTE]
+> On Alpine Linux, AzCopy (v7.2 or later) is not working, you need to use [AzCopy v10 (Preview)](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10). This new version do not use the .NET Core.
+
+
 Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
 **RHEL 6 based distributions**: [download link](https://aka.ms/downloadazcopylinuxrhel6)
