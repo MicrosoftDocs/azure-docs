@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
 
-<iframe width="560" height="315" src="https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
 In this quickstart, you:
 
