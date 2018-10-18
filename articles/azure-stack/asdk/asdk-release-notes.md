@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2018 
+ms.date: 10/18/2018 
 ms.author: sethm
 ms.reviewer: misainat
 
@@ -40,7 +40,7 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 <!-- TBD - IS ASDK --> 
 - Fixed an issue in which you created virtual machines on the Azure Stack user portal, and the portal displayed an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
-- The following managed disk issues are fixed in 1809 as well as the 1808 [Azure Stack Hotfix 1.1808.4.108](https://support.microsoft.com/help/4467062/): 
+- The following managed disk issues are fixed in 1809 as well as the 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Fixed the issue in which attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) failed with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -111,7 +111,7 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
-      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920).
       2. Follow the steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 <!-- 2869209 – IS, ASDK --> 

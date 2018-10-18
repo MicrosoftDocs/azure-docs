@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -47,7 +47,7 @@ For more information, see [Azure Stack syslog forwarding](azure-stack-integrate-
 <!-- TBD - IS ASDK --> 
 - Fixed an issue in which you created virtual machines on the Azure Stack user portal, and the portal displayed an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
-- The following managed disk issues are fixed in 1809 as well as the 1808 [Azure Stack Hotfix 1.1808.4.108](https://support.microsoft.com/help/4467062/): 
+- The following managed disk issues are fixed in 1809 as well as the 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Fixed the issue in which attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) failed with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*. 
