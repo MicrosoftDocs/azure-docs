@@ -9,3 +9,6 @@ To add a consumer group to your IoT hub, follow these steps:
 2. In the left pane, click **Endpoints**, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
 
    ![Create a consumer group in your IoT hub](./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png)
+
+
+   
