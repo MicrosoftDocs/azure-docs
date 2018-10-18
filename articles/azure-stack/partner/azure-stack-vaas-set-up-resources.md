@@ -22,17 +22,17 @@ ms.reviewer: johnhas
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-You may will need to create a solution. A VaaS solution represents an Azure Stack solution with a particular hardware bill of materials (BoM). You will use the solution  to check if your hardware can support run Azure Stack. Follow this tutorial to get ready to use the service with your solution.
+You will need to create a solution. A Validation as a service (VaaS) solution represents an Azure Stack solution with a particular hardware bill of materials. You will use the solution  to check if your hardware can support run Azure Stack. Follow this tutorial to get ready to use the service with your solution.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Get ready to use VaaS by setting up the Azure Active Directory instance.
-> * Creating a storage account.
+> * Get ready to use VaaS by setting up the Azure AD (Azure AD) instance.
+> * Create a storage account.
 
-## Configure an Azure Active Directory tenant
+## Configure an Azure AD tenant
 
-An Azure Active Directory tenant is required for authenticating and registering with VaaS. The role-based access control (RBAC) features of the tenant will be used by the partner to manage who in the partner organization can use VaaS.
+An Azure AD tenant is required for authenticating and registering with VaaS. The role-based access control (RBAC) features of the tenant will be used by the partner to manage who in the partner organization can use VaaS.
 
 Register your organizational Azure AD tenant directory (rather than the Azure AD tenant directory used for Azure Stack) and establish a policy for managing the user accounts in it. For more information, see [Manage your Azure AD directory](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
 
@@ -40,7 +40,7 @@ Register your organizational Azure AD tenant directory (rather than the Azure AD
 
 Create a tenant specifically for use with VaaS with a descriptive name, for example, `ContosoVaaS@onmicrosoft.com`.
 
-1. Create an Azure Active Directory tenant in the [Azure portal](https://portal.azure.com), or use an existing tenant. <!-- For instructions on creating new Azure Active Directory tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
+1. Create an Azure AD tenant in the [Azure portal](https://portal.azure.com), or use an existing tenant. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. Add members of your organization to the tenant. These users will be responsible for using the service to view or schedule tests. Once you finish registration, you will define users' access levels.
  
@@ -64,7 +64,7 @@ Create a tenant specifically for use with VaaS with a descriptive name, for exam
 
 ### Register your tenant
 
-This process authorizes your tenant with the **Azure Stack Validation Service** Azure Active Directory application.
+This process authorizes your tenant with the **Azure Stack Validation Service** Azure AD application.
 
 1. Send the following information about the tenant to Microsoft at [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
@@ -99,13 +99,13 @@ The Azure Storage account is hosted in the Azure public cloud, not on your Azure
 3. Under **Resource group**, select **Create new**. Enter a name for your new resource group.
 
 4. Enter a name for your storage account. The name you choose must be:
-    - unique across Azure
-    - between 3 and 24 characters
+    - Unique across Azure
+    - Between 3 and 24 characters
     - Only contain numbers and lowercase letters
 
 5. Select the **US West** region for your storage account.
 
-    In order to ensure that networking charges are not incurred for storing logs, it is recommended that the Azure Storage account be configured to use only the **US West** region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase partner costs.
+    In order to ensure that networking charges are not incurred for storing logs, the Azure Storage account can be configured to use only the **US West** region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase your costs.
 
 6. Leave the settings to the default values except for **Account kind**:
 
@@ -116,8 +116,6 @@ The Azure Storage account is hosted in the Azure public cloud, not on your Azure
     - The **Access tier** is set to **Hot** by default.
 
 7. Click **Review + Create** to review your storage account settings and create the account.
-
-    In order to ensure that networking charges are not incurred for storing logs, it is recommended that the Azure Storage account be configured to use only the **US West** region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase partner costs.
 
 ## Next steps
 
