@@ -21,9 +21,9 @@ To learn how to create an Azure storage account, see [Create a storage account](
 
 Azure Storage provides three types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications. The types of storage accounts are:
 
-* **General-purpose v2** accounts (recommended for most scenarios)
-* **General-purpose v1** accounts
-* **Blob storage** accounts
+* **[General-purpose v2 accounts](#general-purpose-v2-accounts)** (recommended for most scenarios)
+* **[General-purpose v1 accounts](#general-purpose-v1-accounts)**
+* **[Blob storage accounts](#blob-storage-accounts)** 
 
 The following table describes the types of storage accounts and their capabilities:
 
@@ -37,7 +37,7 @@ The following table describes the types of storage accounts and their capabiliti
 
 <sup>2</sup>All storage accounts are encrypted using Storage Service Encryption (SSE) for data at rest. For more information, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
-<sup>3</sup>The archive tier is available at level of an individual blob only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+<sup>3</sup>The Archive tier is available at level of an individual blob only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 <sup>4</sup>Zone-redundant storage (ZRS) is available only for standard general-purpose v2 storage accounts. For more information about ZRS, see [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md). For more information about other replication options, see [Azure Storage replication](storage-redundancy.md).
 
@@ -99,9 +99,9 @@ Azure Storage provides different options for accessing block blob data based on 
 
 The available access tiers are:
 
-* The **hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the hot tier by default.
-* The **cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the hot tier.
-* The **archive** tier, which is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the hot or cool tiers. 
+* The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the Hot tier by default.
+* The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the Hot tier.
+* The **Archive** tier, which is available only for individual block blobs. The Archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the Archive tier for at least 180 days. The Archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the Hot or Cool tiers. 
 
 > [!NOTE]
 > The [Premium access tier](../blobs/storage-blob-storage-tiers.md#premium-access-tier) is available in limited preview as a locally redundant storage (LRS) account in the North Europe, US East 2, US Central and US West regions. To learn how to register for the preview, see [Introducing Azure Premium Blob Storage](http://aka.ms/premiumblob).
@@ -111,7 +111,7 @@ If there is a change in the usage pattern of your data, you can switch between t
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges.
 
-For more information about access tiers, see [Azure Blob storage: Premium (preview), hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+For more information about access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 ## Replication
 
