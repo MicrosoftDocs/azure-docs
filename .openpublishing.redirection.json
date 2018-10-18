@@ -8749,6 +8749,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/event-hubs/event-hubs-quickstart-portal.md",
+            "redirect_url": "/azure/event-hubs/event-hubs-create",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive.md",
             "redirect_url": "/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture",
             "redirect_document_id": false
@@ -19272,9 +19277,14 @@
         },
         {
             "source_path": "articles/active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md",
-            "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-logs-in-azure-monitor",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor",
+            "redirect_document_id": false
         },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/concept-activity-logs-in-azure-monitor.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor",
+            "redirect_document_id": true
+        },                
         {
             "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema",
@@ -29874,7 +29884,37 @@
             "source_path": "articles/app-service/web-sites-java-add-app.md",
             "redirect_url": "/azure/app-service/app-service-web-get-started-java",
             "redirect_document_id" : false
+        },        
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
+            "redirect_document_id": false
         },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-get-intent.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-ruby-get-intent.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-ruby-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-javascript-add-utterance.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-js-get-intent.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
+            "redirect_document_id": false
+        },                
         {
             "source_path": "articles/azure-stack/user/azure-stack-tutorial-mysql.md",
             "redirect_url": "/azure/azure-stack/azure-stack-tutorial-mysql",

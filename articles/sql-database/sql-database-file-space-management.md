@@ -210,7 +210,7 @@ For more information about this command, see [SHRINKDATABASE](https://docs.micro
 
 ### Auto-shrink
 
-Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than SHRINKDATABASE or SHRINKFILE.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink is less effective in reclaiming file space than SHRINKDATABASE and SHRINKFILE.
+Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than SHRINKDATABASE or SHRINKFILE.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink can be less effective in reclaiming file space than SHRINKDATABASE and SHRINKFILE.
 To enable auto shrink, modify the name of the database in the following command.
 
 
