@@ -3,13 +3,13 @@ title: Try the Speech service for free
 description: Discover how you can try the Speech service at no cost.
 titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # Try the Speech service for free
@@ -63,7 +63,7 @@ After creating your Azure account, follow the steps in the next section to start
 
 To add a Speech service resource (free or paid tier) to your Azure account:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/) using your Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
 
 1. Select **Create a resource** at the top left of the portal.
 

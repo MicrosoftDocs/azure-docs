@@ -39,6 +39,9 @@ Installing the NuGet Custom Search package also installs the following assemblie
 
 ## Run the code
 
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
+
 To run this example, follow these steps:
 
 1. Open Visual Studio 2017.

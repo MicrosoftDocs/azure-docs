@@ -1,17 +1,19 @@
 ---
-title: Project Answer Search fact query - Microsoft Cognitive Services | Microsoft Docs
+title: "Quickstart: Project Answer Search fact query"
+titlesuffix: Azure Cognitive Services
 description: Queries for facts using Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
-# Query for facts
+# Quickstart: Query for facts
 
 If the query is for a fact such as a date or identifiable knowledge, the response can contain `facts` answers. Fact answers contain relevant results extracted from paragraphs in web documents.  These queries always return webpages, and [facts](fact-queries.md) and/or [entities](entity-queries.md) are query-dependent.
 

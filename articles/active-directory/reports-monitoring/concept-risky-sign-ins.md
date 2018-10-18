@@ -34,6 +34,15 @@ In [the Azure portal](https://portal.azure.com), you can find the security repor
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/10.png)
 
+## Who can access the risky sign-ins report?
+
+The risky sign-ins reports are available to users in the following roles:
+
+- Security Administrator
+- Global Administrator
+- Security Reader
+
+To learn how to assign administrative roles to a user in Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
 ## What Azure AD license do you need to access a security report?  
 
@@ -45,8 +54,6 @@ However, the level of report granularity varies between the editions:
 - The **Azure Active Directory Premium 1** edition extends this model by also enabling you to examine some of the underlying risk events that have been detected for each report. 
 
 - The **Azure Active Directory Premium 2** edition provides you with the most detailed information about all underlying risk events and it also enables you to configure security policies that automatically respond to configured risk levels.
-
-
 
 ## Azure Active Directory free and basic edition
 

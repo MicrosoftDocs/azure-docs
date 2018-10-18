@@ -78,7 +78,8 @@ Running secret rotation using the instructions below will remediate these alerts
 
    > [!IMPORTANT]  
    > Ensure secret rotation hasn't been successfully executed on your environment. If secret rotation has already been performed, update Azure Stack to version 1807 or later before you execute secret rotation. 
-1.  Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
+1.  Operators may notice alerts open and automatically close during rotation of Azure Stack secrets.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running Test-AzureStack.  For operators using SCOM to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable. 
+2. Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
     > [!note]  
     > The next steps only apply when rotating Azure Stack external secrets.
 3. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
