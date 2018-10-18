@@ -158,7 +158,7 @@ Read all configuration | Directory readers | Default user role (see documentatio
 Revoke license | License administrator | User account administrator
 Try or buy subscription | Billing administrator | 
 
-## Multifactor Authentication
+## Multi-factor authentication
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
