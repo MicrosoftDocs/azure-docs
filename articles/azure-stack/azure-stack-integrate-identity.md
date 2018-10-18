@@ -289,7 +289,7 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - System Center Management Pack for Azure Stack when deployed with AD FS
 - Resource providers in Azure Stack when deployed with AD FS
 - Various applications
-- You require a non-interactive logon
+- You require a non-interactive sign in
 
 > [!Important]  
 > AD FS only supports interactive logon sessions. If you require a non-interactive logon for an automated scenario, you must use a SPN.
