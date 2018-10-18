@@ -13,7 +13,7 @@ ms.date: 09/12/2018
 ms.author: diberry
 ---
 
-# Create a new knowledge base in Python
+# Quickstart: Create a new knowledge base in Python
 
 This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
