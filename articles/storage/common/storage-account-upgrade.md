@@ -137,7 +137,7 @@ In order to estimate transaction costs for Blob storage accounts, you need to br
 
 In order to estimate transaction costs for GPv1 storage accounts, you need to aggregate all transactions irrespective of the operation/API.
 
-### Data access and geo-replication data transfer costs
+#### Data access and geo-replication data transfer costs
 
 While storage analytics does not provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table. The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API. Similarly the sum of *'TotalEgress'* indicates the total amount of egress data, in bytes.
 
