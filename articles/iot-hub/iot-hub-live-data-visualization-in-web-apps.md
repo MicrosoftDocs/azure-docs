@@ -44,8 +44,8 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 2. Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.
 
-   We recommend that you select the same location as that of your resource group. Doing so assists with processing speed and reduces the cost of data transfer.
-
+   We recommend that you select the same location as your resource group. 
+   
    ![Create a web app](./media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]

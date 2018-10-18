@@ -20,13 +20,13 @@ ms.author: rangv
 
 ## What you learn
 
-You learn how to visualize real-time sensor data that your Azure IoT hub receives by using Power BI. If you want to try visualize the data in your IoT hub with Web Apps, please see [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+You learn how to visualize real-time sensor data that your Azure IoT hub receives by using Power BI. If you want to try toe visualize the data in your IoT hub with Web Apps, please see [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 ## What you do
 
 * Get your IoT hub ready for data access by adding a consumer group.
 
-* Create, configure and run a Stream Analytics job for data transfer from your IoT hub to your Power BI account.
+* Create, configure, and run a Stream Analytics job for data transfer from your IoT hub to your Power BI account.
 
 * Create and publish a Power BI report to visualize the data.
 
