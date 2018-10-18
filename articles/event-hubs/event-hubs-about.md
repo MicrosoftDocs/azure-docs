@@ -79,7 +79,7 @@ The following figure shows the Event Hubs stream processing architecture:
 
 To get started using Event Hubs, see the following articles:
 
-* [Ingest into Event Hubs](event-hubs-quickstart-portal.md)
+* [Ingest into Event Hubs](event-hubs-create.md)
 * [Event Hubs features overview](event-hubs-features.md)
 * [Frequently asked questions](event-hubs-faq.md)
 
