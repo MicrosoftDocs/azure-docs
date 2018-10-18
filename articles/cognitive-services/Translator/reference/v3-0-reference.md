@@ -96,6 +96,7 @@ For example, a customer with a free trial subscription would receive the followi
     }
 }
 ```
+The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes are:
 
 | Code | Description |
 |:----|:-----|
