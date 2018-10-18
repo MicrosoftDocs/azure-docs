@@ -91,8 +91,8 @@ For example, a customer with a free trial subscription would receive the followi
 ```
 {
   "error": {
-    "code":403000,
-    "message":"The subscription has exceeded its free quota."
+    "code":403001,
+    "message":"The operation is not allowed because the subscription has exceeded its free quota."
     }
 }
 ```
