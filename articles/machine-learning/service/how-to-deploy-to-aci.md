@@ -80,7 +80,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 Register a model to use [Webservice.deploy_from_model](#deploy-from-registered-model) or [Webservice.deploy_from_image](#deploy-from-image). Or if you already have a registered model, retrieve it now.
 
 ### Retrieve a registered model
-If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model](tutorial-train-models-with-aml.md) tutorial] registered the model.  You then retrieve the registered model to deploy.
+If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model tutorial](tutorial-train-models-with-aml.md) registered the model.  You then retrieve the registered model to deploy.
 
 ```python
 from azureml.core.model import Model
