@@ -1,5 +1,4 @@
 ---
-
 title: Azure database security checklist| Microsoft Docs
 description: This article provides a set of checklist for Azure database security.
 services: security
@@ -16,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-
 ---
 
 # Azure database security checklist
