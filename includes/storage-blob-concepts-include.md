@@ -5,14 +5,12 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 04/09/2018
+ms.date: 10/17/2018
 ms.author: tamram
 ms.custom: "include file"
 ---
 
 Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.
-
-Massively scalable object storage for unstructured data
 
 Blob storage is ideal for:
 
@@ -31,24 +29,27 @@ Blob storage exposes three resources: your storage account, the containers in th
 
 ![Diagram of Blob (object) storage architecture](./media/storage-blob-concepts-include/blob1.png)
 
-### Storage Account
+### Storage account
 
 All access to data objects in Azure Storage happens through a storage account. For more information, see [Azure storage account overview](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Container
 
-A container organizes a set of blobs, similar to a folder in a file system. All blobs reside within a container. A storage account can contain an unlimited number of containers, and a container can store an unlimited number of blobs. Note that the container name must be lowercase.
+A container organizes a set of blobs, similar to a folder in a file system. All blobs reside within a container. A storage account can contain an unlimited number of containers, and a container can store an unlimited number of blobs. 
+
+  > [!NOTE]
+  > The container name must be lowercase.
 
 ### Blob
  
-Azure Storage offers three types of blobs -- block blobs, append blobs, and [page blobs](../articles/storage/blobs/storage-blob-pageblob-overview.md) (used for VHD files).
+Azure Storage offers three types of blobs&mdash;block blobs, append blobs, and [page blobs](../articles/storage/blobs/storage-blob-pageblob-overview.md) (used for VHD files).
 
 * Block blobs store text and binary data, up to about 4.7 TB. Block blobs are made up of blocks of data that can be managed individually.
 * Append blobs are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
 * Page blobs store random access files up to 8 TB in size. Page blobs store the VHD files that back VMs.
 
-All blobs reside within a container. A container is similar to a folder in a file system. You can further organize blobs into virtual directories, and traverse them as you would a file system. 
+All blobs reside within a container. A container is similar to a folder in a file system. You can further organize blobs into virtual directories and traverse them as you would a file system. 
 
-For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. For more information, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../articles/storage/common/storage-import-export-service.md).
+For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. For more information, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../articles/storage/common/storage-import-export-service.md).
   
-For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+For details about naming containers and blobs, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
