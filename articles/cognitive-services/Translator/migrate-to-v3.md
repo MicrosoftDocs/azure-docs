@@ -42,8 +42,8 @@ The following list of V2 and V3 methods identifies the V3 methods and APIs that 
 | Speak     | [Microsoft Speech Service](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech)          |
 | Detect     | [Detect](reference/v3-0-detect.md)         |
 | DetectArray     | [Detect](reference/v3-0-detect.md)         |
-| AddTranslation     | Microsoft Translator Hub API         |
-| AddTranslationArray    | Microsoft Translator Hub API          |
+| AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
 | BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | Feature is no longer supported         |
 | GetTranslationsArray      | Feature is no longer supported         |
