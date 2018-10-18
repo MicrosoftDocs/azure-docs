@@ -60,4 +60,4 @@ The behavior of prebuilt entities is pre-trained and **cannot** be modified. Fol
 
 ## Next steps
 
-Learn how to [add prebuilt entities](how-prebuilt-entities.md) to your app.
+Learn how to [add prebuilt entities](luis-prebuilt-entities.md) to your app.
