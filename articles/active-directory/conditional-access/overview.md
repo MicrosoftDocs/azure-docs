@@ -82,6 +82,17 @@ With Azure AD conditional access, you can control how authorized users can acces
 One benefit of using a policy-based approach to protect access to your cloud apps is that you can start drafting the policy requirements for your environment using the structure outlined in this article without worrying about the technical implementation. 
 
 
+## Using Azure AD conditional access with federated authentication
+
+Conditional access policies work seamlessly with [federated authentication](../../security/azure-ad-choose-authn.md#federated-authentication). This support includes all supported conditions and controls and visibility into how policy is applied to active user sign ins using [Azure AD reporting](../reports-monitoring/concept-sign-ins.md).
+
+Federated authentication with Azure AD means user authentication to Azure AD is handled by a trusted authentication service, like Active Directory Federation Services (AD FS), or other federation services. In this configuration, primary user authentication is performed at the service and then Azure AD is used to sign into individual applications. Azure AD conditional access is applied before access is granted to the application the user is accessing. 
+
+When the configured conditional access policy requires multi-factor authentication, Azure AD defaults to using Azure MFA. If you use the federation service for MFA, you can configure Azure AD to redirect to the federation service when MFA is needed by setting `-SupportsMFA` to `$true` in [PowerShell](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msoldomainfederationsettings). This settings works for federated authentication services that support the MFA challenge request issued by Azure AD using `wauth= http://schemas.microsoft.com/claims/multipleauthn`.
+
+Other policy requirements such as device compliance or an approved application are all handled by Azure AD after the user has signed in to the federated authentication service.
+
+
 ## License requirements for using conditional access
 
 Using conditional access requires an Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
