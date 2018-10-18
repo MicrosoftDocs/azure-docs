@@ -117,14 +117,15 @@ Windows update is not configured correctly in the machine.
 
 #### Resolution
 
-Double-click on the exception displayed in red to select it, and copy the exception message to see the entire exception message.
+Double-click on the exception displayed in red to see the entire exception message. Review the following table for potential solutions or actions to take:
 
-1. If the exception message is similar to `Exception from HRESULT: 0x……C`:
-   1. Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details on the cause of the exception.
-   2. If the error code you receive is `0x8024402C` or `0x8024401C`, these errors are network connectivity issues. Make sure that your machine has the proper network connectivity to Update Management. See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required.
-   3. If you see the HResult exception `0x8024402C` and you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.
-2. If the exception is: `The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`. Make sure the Windows Update service (wuauserv) is running and is not disabled.
-3. If the exception message is not one of the ones listed previously or in the [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list), this issue could be a generic exception. Do a search the internet for the possible solutions and work with your local IT support.
+|Exception  |Resolution or Action  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details on the cause of the exception.        |
+|`0x8024402C` or `0x8024401C`     | These errors are network connectivity issues. Make sure that your machine has the proper network connectivity to Update Management. See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required.        |
+|`0x8024402C`     | If you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and is not disabled.        |
+|Any other generic exception     | Do a search the internet for the possible solutions and work with your local IT support.         |
 
 ## Linux
 
