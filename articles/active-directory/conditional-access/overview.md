@@ -23,7 +23,7 @@ ms.reviewer: calebb
 
 # What is conditional access in Azure Active Directory?
 
-Security is a top concern for organizations using the cloud. A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient anymore. To master the balance between security and productivity, you also need to factor how a resource is accessed into an access control decision. With Azure AD conditional access, you can address this requirement. Conditional access is a capability of Azure Active Directory. With conditional access, you can implement automated access control decisions for accessing your cloud apps that are based on conditions. 
+Security is a top concern for organizations using the cloud. A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient anymore. To master the balance between security and productivity, you also need to factor how a resource is accessed into an access control decision. With Azure Active Directory (Azure AD) conditional access, you can address this requirement. Conditional access is a capability of Azure Active Directory. With conditional access, you can implement automated access control decisions for accessing your cloud apps that are based on conditions. 
 
 ![Control](./media/overview/81.png)
 
@@ -62,7 +62,7 @@ A conditional access policy is a definition of an access scenario using the foll
 
 ![Control](./media/overview/10.png)
 
-**Then do this** defines the response of your policy. It is important to note that the objective of a conditional access policy is not to grant access to a cloud app. In Azure AD, granting access to cloud apps is subject of user assignments. With a conditional access policy, you control how authorized users (users that have been granted access to a cloud app) can access cloud apps under specific conditions. In your response, you enforce additional requirements such as multi-factor authentication, a managed device, and others. In the context of Azure AD conditional access, the requirements your policy enforces are called access controls. In the most restrictive form, your policy can block access. For more information, see [Access controls in Azure Active Directory conditional access](controls.md).
+**Then do this** specifies the response of your policy. It is important to note that the objective of a conditional access policy is not to grant access to a cloud app. In Azure AD, granting access to cloud apps is subject of user assignments. With a conditional access policy, you control how authorized users (users that have been granted access to a cloud app) can access cloud apps under specific conditions. In your response, you enforce additional requirements such as multi-factor authentication, a managed device, and others. In the context of Azure AD conditional access, the requirements your policy enforces are called access controls. In the most restrictive form, your policy can block access. For more information, see [Access controls in Azure Active Directory conditional access](controls.md).
      
 
 **When this happens** defines the reason for triggering your policy. This reason is characterized by a group of conditions that have been satisfied. In Azure AD conditional access, the two assignment conditions play a special role:
@@ -86,12 +86,11 @@ A policy-based approach to protect access to your cloud apps enables you to star
 
 Conditional access policies work seamlessly with [federated authentication](../../security/azure-ad-choose-authn.md#federated-authentication). This support includes all supported conditions and controls and visibility into how policy is applied to active user sign ins using [Azure AD reporting](../reports-monitoring/concept-sign-ins.md).
 
-Federated authentication with Azure AD means user authentication to Azure AD is handled by a trusted authentication service, like Active Directory Federation Services (AD FS), or other federation services. In this configuration, primary user authentication is performed at the service and then Azure AD is used to sign into individual applications. Azure AD conditional access is applied before access is granted to the application the user is accessing. 
+*Federated authentication with Azure AD* means that a trusted authentication service handles user authentication to Azure AD. A trusted authentication service is, for example, Active Directory Federation Services (AD FS), or any other federation service. In this configuration, primary user authentication is performed at the service and then Azure AD is used to sign into individual applications. Azure AD conditional access is applied before access is granted to the application the user is accessing. 
 
 When the configured conditional access policy requires multi-factor authentication, Azure AD defaults to using Azure MFA. If you use the federation service for MFA, you can configure Azure AD to redirect to the federation service when MFA is needed by setting `-SupportsMFA` to `$true` in [PowerShell](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msoldomainfederationsettings). This setting works for federated authentication services that support the MFA challenge request issued by Azure AD using `wauth= http://schemas.microsoft.com/claims/multipleauthn`.
 
-Other policy requirements such as device compliance or an approved application are all handled by Azure AD after the user has signed in to the federated authentication service.
-
+After the user has signed in to the federated authentication service, Azure AD handles other policy requirements such as device compliance or an approved application.
 
 ## License requirements for using conditional access
 
