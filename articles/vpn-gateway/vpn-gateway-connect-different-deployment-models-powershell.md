@@ -167,7 +167,7 @@ The prerequisites assume that you already have created an RM VNet. In this step,
 
   If you use Azure Cloud Shell, skip the following cmdlet:
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   Connect-AzureRmAccount
   ``` 
   To verify that you are using the right subscription, run the following cmdlet:  
@@ -238,11 +238,11 @@ The prerequisites assume that you already have created an RM VNet. In this step,
 
 ## <a name="localsite"></a>Section 3 - Modify the classic VNet local site settings
 
-In this section, you work with the classic VNet. You replace the placeholder IP address that you used when specifying the local site settings that will be used to connect to the Resource Manager VNet gateway. 
+In this section, you work with the classic VNet. You replace the placeholder IP address that you used when specifying the local site settings that will be used to connect to the Resource Manager VNet gateway. Because you are working with the classic VNet, use PowerShell installed locally to your computer, not the Azure Cloud Shell TryIt.
 
 1. Export the network configuration file.
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
 2. Using a text editor, modify the value for VPNGatewayAddress. Replace the placeholder IP address with the public IP address of the Resource Manager gateway and then save the changes.
@@ -252,16 +252,16 @@ In this section, you work with the classic VNet. You replace the placeholder IP 
   ```
 3. Import the modified network configuration file to Azure.
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
   ```
 
 ## <a name="connect"></a>Section 4 - Create a connection between the gateways
-Creating a connection between the gateways requires PowerShell. You may need to add your Azure Account to use the classic version of the  PowerShell cmdlets. To do so, use **Add-AzureAccount**.
+Creating a connection between the gateways requires PowerShell. You may need to add your Azure Account to use the classic version of the PowerShell cmdlets. To do so, use **Add-AzureAccount**.
 
 1. In the PowerShell console, set your shared key. Before running the cmdlets, refer to the network configuration file that you downloaded for the exact names that Azure expects to see. When specifying the name of a VNet that contains spaces, use single quotation marks around the value.<br><br>In following example, **-VNetName** is the name of the classic VNet and **-LocalNetworkSiteName** is the name you specified for the local network site. The **-SharedKey** is a value that you generate and specify. In the example, we used 'abc123', but you can generate and use something more complex. The important thing is that the value you specify here must be the same value that you specify in the next step when you create your connection. The return should show **Status: Successful**.
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `
   -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
   ```
@@ -270,7 +270,7 @@ Creating a connection between the gateways requires PowerShell. You may need to 
   Set the variables.
 
   ```azurepowershell-interactive
-  $vnet01gateway = Get-AzureRMLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
+  $vnet01gateway = Get-AzureRmLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
   $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
   ```
    
