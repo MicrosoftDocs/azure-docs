@@ -14,38 +14,28 @@ ms.topic: conceptual
 
 # Add an IoT Edge device to your Remote Monitoring solution accelerator
 
-To add an [IoT Edge](../iot-edge/about-iot-edge.md) device to your solution accelerator, you register it with the IoT hub that's part of your deployment. In the current version of the Remote Monitoring solution accelerator, you can use either the Azure portal or the Azure CLI to add an Edge device.
+To add an [IoT Edge](../iot-edge/about-iot-edge.md) device to your solution accelerator, complete the following two steps:
 
-This article shows you how to use the Azure CLI to add an Edge device. You need the name you chose when you deployed your solution accelerator to complete the steps in this how-to guide.
+1. Add the Edge device on the **Devices** page in the Remote Monitoring solution accelerator web UI.
+1. Install the IoT Edge runtime on your Edge device.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Add the IoT Edge device
 
-## Find your IoT hub
+To add an IoT Edge device to the Remote Monitoring solution accelerator, navigate to the **Devices** page in the web UI and click **+ New device**.
 
-Before you can add a device, you need to know the name of your IoT hub. The IoT hub was created when you deployed the Remote Monitoring solution accelerator. The following command lists the contents in the resource group that contains all the Azure resources used by your Remote Monitoring solution. The name of the resource group is the name you chose when you deployed the Remote Monitoring solution accelerator:
+In the **New device** panel, choose **IoT Edge device**. You can leave the default values for the other settings. The click **Apply**:
 
-```azurecli-interactive
-# The resource group name is the name of your Remote Monitoring solution
-# You can see a list of your resource groups using:
-#   az group list -o table
-az resource list -g {resource group name} -o table
-```
+![Add IoT Edge device](media/iot-accelerators-remote-monitoring-add-edge-device/addedgedevice.png)
 
-Make a note of the name of the IoT hub, you need this name in the following section.
+### Alternative ways to add an IoT Edge device
 
-## Register your device to IoT Hub
-
-Before an IoT Edge device can connect to an IoT hub, you must register it.
-
-You have three options for registering an IoT Edge device. Make sure you add the Edge device to the IoT hub you identified in the previous section:
+It's also possible to register an IoT Edge device directly with the IoT Hub instance in your solution accelerator. You need to know the name of the IoT hub in your solution accelerator before you follow any of these how-to guides:
 
 - [Register a new Azure IoT Edge device from the Azure portal](../iot-edge/how-to-register-device-portal.md)
 - [Register a new Azure IoT Edge device with Azure CLI](../iot-edge/how-to-register-device-cli.md)
 - [Register a new Azure IoT Edge device from Visual Studio Code](../iot-edge/how-to-register-device-vscode.md)
 
-When you register a device with the IoT hub in the Remote Monitoring solution accelerator, it's listed on the **Devices** page in the web UI:
-
-TODO - Add a screenshot here.
+When you register a device directly with the IoT hub in the Remote Monitoring solution accelerator, it's listed on the **Devices** page in the web UI.
 
 ## Install the IoT Edge runtime
 
@@ -59,5 +49,4 @@ Before you can deploy modules to your Edge device, you must install the IoT Edge
 
 ## Next steps
 
-TODO - make sure this next step is updated.
-Now that you have prepared your IoT Edge device, the next step is to deploy modules to it.
+Now that you have prepared your IoT Edge device, the next step is to deploy modules to it. See [Import an IoT Edge package into your Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-import-edge-package.md)
