@@ -5,7 +5,7 @@ author: troyhopwood
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/01/2018
 ms.author: troyhop
@@ -13,7 +13,7 @@ ms.author: troyhop
 # As an IT Pro, I need to create simulated devices to test my IoT solution.
 ---
 
-# Create a custom simulated device
+# Tutorial: Create a custom simulated device
 
 In this tutorial, you use Device Simulation to create a custom simulated device for use in simulations. To get started with Device Simulation, you can use one of the included sample simulated devices. You can also create custom simulated devices as described in this article. For more customization options, see [Create an advanced device model](iot-accelerators-device-simulation-advanced-device.md).
 
@@ -95,7 +95,7 @@ You can delete any custom device model. To delete a device model, check the box 
 
 ## Next steps
 
-In this tutorial, you learned how to create, clone, and delete a custom device models.
+In this tutorial, you learned how to create, clone, and delete a custom device models. To learn more about device models, see the following  how-to article:
 
 > [!div class="nextstepaction"]
->[Create an advanced device model](iot-accelerators-device-simulation-advanced-device.md)
+> [Create an advanced device model](iot-accelerators-device-simulation-advanced-device.md)

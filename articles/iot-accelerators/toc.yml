@@ -21,16 +21,24 @@
 
 - name: Tutorials
   items:
-  - name: Monitor IoT devices
-    href: iot-accelerators-remote-monitoring-monitor.md
-  - name: Detect device issues
-    href: iot-accelerators-remote-monitoring-automate.md
-  - name: Configure and manage devices
-    href: iot-accelerators-remote-monitoring-manage.md
-  - name: Conduct a root cause analysis on an alert
-    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-  - name: Use alerts and fix device issues
-    href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Remote Monitoring
+    items:
+    - name: Monitor IoT devices
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Detect device issues
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Configure and manage devices
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Conduct a root cause analysis on an alert
+      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
+    - name: Use alerts and fix device issues
+      href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Device Simulation
+    items:
+    - name: Create and run a simulation
+      href: iot-accelerators-device-simulation-create-simulation.md
+    - name: Create a custom simulated device
+      href: iot-accelerators-device-simulation-create-custom-device.md
 
 - name: Concepts
   items:

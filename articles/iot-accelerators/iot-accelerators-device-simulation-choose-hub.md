@@ -34,4 +34,4 @@ Use the connection string you copied when you configure the simulation:
 
 ## Next steps
 
-In this how-to guide, you've learned how to use an existing IoT hub in a simulation. Next, you may want to learn how to [Create a custom device](iot-accelerators-device-simulation-create-custom-device.md) for a simulation.
+In this how-to guide, you've learned how to use an existing IoT hub in a simulation. Next, you may want to learn how to [Create an advanced device model](iot-accelerators-device-simulation-advanced-device.md) for a simulation.

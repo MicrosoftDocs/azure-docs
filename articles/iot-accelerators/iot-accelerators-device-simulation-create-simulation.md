@@ -5,7 +5,7 @@ author: troyhopwood
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/01/2018
 ms.author: troyhop
@@ -13,7 +13,7 @@ ms.author: troyhop
 # As an IT Pro, I need to create simulated devices to test my IoT solution.
 ---
 
-# Create and run an IoT device simulation
+# Tutorial: Create and run an IoT device simulation
 
 In this tutorial, you use Device Simulation to create and run a new IoT simulation using one or more simulated devices.
 
@@ -71,7 +71,7 @@ To stop a simulation, click **Stop Simulation** in the action bar in the top rig
 
 ## Next steps
 
-In this tutorial, you learned how to create, run, and stop a simulation. You also learned how to view the simulation details.
+In this tutorial, you learned how to create, run, and stop a simulation. You also learned how to view the simulation details. To learn more about how to run simulations, continue to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Use an existing IoT hub with the Device Simulation solution accelerator](iot-accelerators-device-simulation-choose-hub.md)
+> [Create a custom simulated device](iot-accelerators-device-simulation-create-custom-device.md)
