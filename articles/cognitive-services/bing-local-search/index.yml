@@ -46,15 +46,15 @@ sections:
     - text: "Learn how to develop applications using the Local Business Search API:"
     - type: paragraph
       text: "What is Bing Local Business Search?"
-        href: overview.md
+        src: overview.md
     - type: paragraph
     - text: "Geographic search"
-        href: specify-geographic-search.md
+        src: specify-geographic-search.md
 - title: Reference
   items:
   - type: paragraph
     items:
     - text: Local Business Search Reference
-        href: local-search-reference.md
+        src: local-search-reference.md
     - text: Use and display requirements  
-        href: use-and-display-requirements.md
+        src: use-and-display-requirements.md
