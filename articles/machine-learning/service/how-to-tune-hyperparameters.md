@@ -169,7 +169,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as "accuracy", which is used as the primary metric. Each time the metric is logged it is received by the hyperparameter tuning service. It is up to the model developer to determine how frequently to report this metric.
 
-<a name='specify-early-termination-policy'>
+<a name='specify-early-termination-policy'/>
 
 ## Specify early termination policy
 
