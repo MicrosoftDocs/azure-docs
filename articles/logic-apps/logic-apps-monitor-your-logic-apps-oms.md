@@ -8,7 +8,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 10/11/2018
 ---
 
 # Monitor and get insights about logic app runs with Log Analytics
@@ -78,19 +78,24 @@ and select **Log Analytics**.
 
    ![Select "Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-1. Under **Log Analytics**, find and select your Log Analytics workspace. 
+1. Under **Log Analytics**, 
+find and select your Log Analytics workspace. 
 
-   ![Select your Log Analytics workspace](./media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Select your Log Analytics workspace](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Under **Management**, select **Overview**.
+1. Under **Configure monitoring solutions**, 
+select **View solutions**.
 
-   ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
+   ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
-1. On the Overview page, choose **Add** to open the Management Solutions tile. 
+1. On the Overview page, choose **Add**, 
+which opens the **Management Solutions** list. 
 
    ![Choose "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-1. Scroll through the list of **Management Solutions**, choose **Logic Apps Management** solution, and choose **Create** to install it to the Overview page.
+1. Scroll through the list of **Management Solutions**, 
+choose **Logic Apps Management** solution, 
+and choose **Create** to install it to the Overview page.
 
    ![Choose "Add" for "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
