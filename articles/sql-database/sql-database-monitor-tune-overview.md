@@ -39,6 +39,9 @@ For a workload with performance issues, the performance issue may be due to CPU 
 
   Individual queries may have performance issues due to the query waiting for something. In this scenario, your goal is to remove or reduce the wait time.
 
+> [!TIP]
+> To use DMVs to troubleshoot CPU utilization issues, see []().
+
 ### Determine if you have a running-related performance issue
 
 You can identify running-related performance issues using several methods. The most common methods are:
