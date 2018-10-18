@@ -25,6 +25,10 @@
     href: azure-stack-tutorial-tenant-vm.md
   - name: Offer SQL databases
     href: azure-stack-tutorial-sql-server.md
+  - name: Offer highly available SQL databases
+    href: azure-stack-tutorial-sql.md
+  - name: Offer highly available MyQL databases
+    href: azure-stack-tutorial-mysql.md
   - name: Offer Web Apps
     href: azure-stack-tutorial-app-service.md
   - name: Deploy Ethereum

@@ -27,7 +27,7 @@ In this tutorial, you learn how to perform the following tasks:
 
 ## Prerequisites
 - [GitHub account](https://github.com) : You need a GitHub account to clone the sample repo.
-- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : You use the Azure CLI 2.0 to create the Kubernetes cluster.
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : You use the Azure CLI 2.0 to create the Kubernetes cluster.
 - [Chocolatey](https://chocolatey.org): A package manager you use to install kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): A command-line interface you use for running commands against Kubernetes clusters.
 - [jq](https://stedolan.github.io/jq/download/): A lightweight, command-line JSON processor.
