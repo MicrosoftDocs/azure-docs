@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
