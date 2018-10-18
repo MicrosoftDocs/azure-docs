@@ -35,4 +35,4 @@ The following table includes links to the Azure CLI examples for Azure Media Ser
 
 ## See also
 
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

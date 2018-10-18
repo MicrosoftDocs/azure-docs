@@ -47,7 +47,7 @@ View the health status of your Azure Active Directory Domain Services by selecti
 
 ![Azure Active Directory Domain Services health](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
-You should make sure that all of the [required ports](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) are whitelisted in the AAD-DS subnet NSG rules, if AAD-DS is secured by a Network Security Group. 
+You should make sure that all of the [required ports](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) are whitelisted in the AAD-DS subnet NSG rules, if AAD-DS is secured by a Network Security Group. 
 
 ## Create and Authorize a managed identity
 > [!NOTE]
