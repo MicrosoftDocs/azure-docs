@@ -21,7 +21,7 @@ This article helps you to add and remove a group from another group using Azure 
 >[!Note]
 >If you're trying to delete the parent group, see [How to update or delete a group and its members](active-directory-groups-delete-group.md).
 
-## Add a group as a member of another group
+## Add a group to another group
 You can add an existing Security group to another existing Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
 
 >[!Important]
