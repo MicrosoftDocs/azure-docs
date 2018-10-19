@@ -44,7 +44,13 @@ Azure Container Instances supports both types of managed Azure identities: syste
 
 To use a managed identity, the identity must initially be granted access to one or more Azure service resources (such as a Web App, a Key Vault, or a Storage Account) in the subscription. To access the Azure resources from a running container, your code must acquire an *access token* from an Azure AD endpoint. Then, your code sends the access token on a call to a service that supports Azure AD authentication. 
 
-Use of a managed identity in a running container is essentially the same as using a identity in an Azure VM. See the guidance for using a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
+Using a managed identity in a running container is essentially the same as using an identity in an Azure VM. See the guidance for using a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
+
+## Prerequisites
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.49 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Example: Use a system-assigned identity to access Azure Key Vault
 
