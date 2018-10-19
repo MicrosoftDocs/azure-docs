@@ -32,7 +32,7 @@
       - name: Java
         href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
       - name: NodeJS
-        href: quickstart-v1-openid-connect-code.md
+        href: https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS
       - name: Python
         href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
     - name: Web APIs
