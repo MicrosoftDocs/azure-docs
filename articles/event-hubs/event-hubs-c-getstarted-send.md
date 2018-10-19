@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 10/16/2018
 ms.author: shvija
 ---
 
@@ -30,7 +30,7 @@ To complete this tutorial, you need the following:
 * A C development environment. This tutorial assumes the gcc stack on an Azure Linux VM with Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 
-## Send messages to Event Hubs
+## Write code to send messages to Event Hubs
 In this section shows how to write a C app to send events to your event hub. The code uses the Proton AMQP library from the [Apache Qpid project](http://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP from C as shown [in this sample](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). For more information, see the [Qpid Proton documentation](http://qpid.apache.org/proton/index.html).
 
 1. From the [Qpid AMQP Messenger page](https://qpid.apache.org/proton/messenger.html), follow the instructions to install Qpid Proton, depending on your environment.
@@ -145,6 +145,8 @@ In this section shows how to write a C app to send events to your event hub. The
 	> This code uses an outgoing window of 1 to force the messages out as soon as possible. It is recommended that your application try to batch messages to increase throughput. See the [Qpid AMQP Messenger page](https://qpid.apache.org/proton/messenger.html) for information about how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).
 
 Run the application to send messages to the event hub. 
+
+Congratulations! You have now sent messages to an event hub.
 
 ## Next steps
 To learn about receiving events from the event hub, click the appropriate receiving language under **Receive events from an event hub** node in the table of contents.

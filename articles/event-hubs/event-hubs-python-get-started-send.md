@@ -19,7 +19,8 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service, c
 
 This tutorial describes how to send events to an event hub from an application written in Python. 
 
-Code in this tutorial is taken from [these GitHub samples](https://github.com/Azure/azure-event-hubs-python/tree/master/examples). You can examine the sample to see the full working application, including import statements and variable declarations. Other examples are available in the same GitHub folder.
+> [!NOTE]
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 

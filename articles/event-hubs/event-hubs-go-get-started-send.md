@@ -8,7 +8,7 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: shvija
 
 ---
@@ -19,7 +19,8 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service, c
 
 This tutorial describes how to send events to an event hub from an application written in Go. 
 
-Code in this tutorial is taken from [these GitHub samples](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs). You can examine the sample to see the full working application, including import statements and variable declarations. 
+> [!NOTE]
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
