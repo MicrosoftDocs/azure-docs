@@ -72,7 +72,7 @@ You should make sure that all of the [required ports](https://docs.microsoft.com
 
 ## Create a HDInsight cluster with ESP
 
-After seting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **custom** tab. If you prefer to use an Azure Resource Manager (ARM) template for deployment please use the portal experience once and download the prefilled template on the last "Summary" page for future reuse.
+After setting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **custom** tab. If you prefer to use an Azure Resource Manager (ARM) template for deployment please use the portal experience once and download the pre-filled template on the last "Summary" page for future reuse.
 
 ![Azure HDInsight Security and networking](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-security-networking.png)
 
