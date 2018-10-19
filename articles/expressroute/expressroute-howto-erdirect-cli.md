@@ -24,32 +24,32 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
 1. Sign in to Azure and select the subscription. The ExpressRoute Direct resource and ExpressRoute circuits must be in the same subscription.
 
-```azurecli
+  ```azurecli
   az login
-```
+  ```
 
-Check the subscriptions for the account. 
+  Check the subscriptions for the account. 
 
-```azurecli
-az account list 
-```
+  ```azurecli
+  az account list 
+  ```
 
-Select the subscription for which you want to create an ExpressRoute circuit.
-```azurecli
-az account set --subscription "<subscription ID>"
-```
+  Select the subscription for which you want to create an ExpressRoute circuit.
+  ```azurecli
+  az account set --subscription "<subscription ID>"
+  ```
 
 2. List all locations where ExpressRoute Direct is supported.
 
   
   ```azurecli
-az network express-route port location list
+  az network express-route port location list
   ```
 
   **Example output**
   
   ```azurecli
-[
+  [
   {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
     "availableBandwidths": [],
@@ -110,7 +110,7 @@ az network express-route port location list
 3. Determine if a location listed above has available bandwidth
 
   ```azurecli
-az network express-route port location show -l "Equinix-Ashburn-DC2"
+  az network express-route port location show -l "Equinix-Ashburn-DC2"
   ```
 
   **Example output**
@@ -144,7 +144,7 @@ az network express-route port location show -l "Equinix-Ashburn-DC2"
   > 
  
   ```azurecli
-az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  --encapsulation QinQ | Dot1Q --peering-location $PeeringLocationName -l $AzureRegion 
+  az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  --encapsulation QinQ | Dot1Q --peering-location $PeeringLocationName -l $AzureRegion 
   ```
 
   > [!NOTE]
@@ -203,7 +203,7 @@ az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  -
   "tags": null,
   "type": "Microsoft.Network/expressRoutePorts"
 }  
-```
+  ```
 
 ## <a name="state"></a>2. Change Admin State of links
 
@@ -214,10 +214,10 @@ This process should be used to conduct a Layer 1 test, ensuring that each cross-
   Links[0] is the primary port and Links[1] is the secondary port.
 
   ```azurecli
-az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
- ```
+  az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
+  ```
   ```azurecli
-az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
+  az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
   ```
   **Example output:**
 
@@ -271,9 +271,9 @@ az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --se
   "tags": null,
   "type": "Microsoft.Network/expressRoutePorts"
 }
-```
+  ```
 
-Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
+  Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
 
 ## <a name="circuit"></a>3. Create a circuit
 
@@ -285,15 +285,15 @@ Standard or premium circuits can be created. Standard circuits are included in t
 
 Create a circuit on the ExpressRoute Direct resource.
 
-```powershell
-az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
-```
+  ```azurecli
+  az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
+  ```
 
-Other bandwidths include: 1.0, 2.0, 5.0, 10.0, and 40.0
+  Other bandwidths include: 1.0, 2.0, 5.0, 10.0, and 40.0
 
-**Example output:**
+  **Example output:**
 
-```azurecli
+  ```azurecli
 {
   "allowClassicOperations": false,
   "allowGlobalReach": false,
@@ -325,7 +325,7 @@ Other bandwidths include: 1.0, 2.0, 5.0, 10.0, and 40.0
   "tags": null,
   "type": "Microsoft.Network/expressRouteCircuits"
 }  
-```
+  ```
 
 ## Next steps
 
