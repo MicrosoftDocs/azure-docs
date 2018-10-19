@@ -90,12 +90,12 @@
 
 ## [IoT edge module offer](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Prerequisites](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
-### [Create IoT Edge module technical assets](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 ### [Create IoT Edge module offer](./cloud-partner-portal/iot-edge-module/cpp-create-offer.md)
 #### [Offer Settings tab](./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md)
-#### [SKUs tab](./cloud-partner-portal/iot-edge-module/cpp-iot-edge-module-skus-tab.md)
+#### [SKUs tab](./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md)
 #### [Marketplace tab](./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md)
 #### [Support tab](./cloud-partner-portal/iot-edge-module/cpp-support-tab.md)
+### [Create IoT Edge module technical assets](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 ### [Publish IoT Edge module offer](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
 
