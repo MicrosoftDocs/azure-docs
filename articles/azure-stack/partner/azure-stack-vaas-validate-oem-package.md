@@ -115,7 +115,7 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     You will be redirected to the tests summary page.
 
-## Execute Package Validation tests
+## Run Package Validation tests
 
 In the **Package validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
 

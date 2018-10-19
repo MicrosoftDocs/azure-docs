@@ -43,7 +43,7 @@ Before you follow this quickstart, you should finish the following items:
 Sign in to the portal, select or creation a solution, and then select the solution.
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
-2. Type the name of an existing solution or select **New solution** to create a new solution. For instructions, see [Create a solution in the VaaS portal](../azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal).
+2. Type the name of an existing solution or select **New solution** to create a new solution. For instructions, see [Create a solution in the VaaS portal](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal).
 3. Select **Start** on the **Test Passes** tile.
 
 ## Specify parameters

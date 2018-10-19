@@ -33,7 +33,7 @@ Microsoft will periodically release updates to the Azure Stack software. These u
 
 Update validations use the same workflow as **Package Validation**. Follow the instructions at [Create a Package Validation workflow](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
 
-## Execute tests
+## Run tests
 
 Update validations use the same workflow as **Package Validation**. Follow the instructions at [Execute Package Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
 
