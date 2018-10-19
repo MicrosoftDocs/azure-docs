@@ -15,7 +15,7 @@ ms.date: 10/18/2018
 ms.author: jglixon
 
 ---
-# Azure Government AI and Cognitive Services
+# Azure Government AI and Machine Learning
 
 ## Cognitive Services 
 
@@ -47,7 +47,7 @@ The following variations exist for Face from global Azure:
 - Endpoint: https://virginia.api.cognitive.microsoft.us/face/v1.0/
 - Available SKUs: S0
 
-For more information, see the [global Azure documentation](../cognitive-services/face/index.yml) and [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+For more information, see the [global Azure documentation](../cognitive-services/face/index.yml) and [Face API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ##### Content Moderator
 
@@ -79,6 +79,7 @@ The following variations exist for Language Understanding from global Azure:
 - Endpoint: https://virginia.api.cognitive.microsoft.us/luis/v2.0
 - LUIS portal: https://luis.azure.us
 - Available SKUs: S0
+- Speech Requests are not currently available
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
