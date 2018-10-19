@@ -56,7 +56,7 @@ You can get more details on the relative advantages of each protocol [here](log-
 ### How can I configure a node to support monitoring using TCP protocol?
 For the node to support monitoring using TCP protocol: 
 * Ensure that the node platform is Windows Server (2008 SP1 or later).
-* Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell script on the node. See [instructions](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring) for more details.
+* Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell script on the node. See [instructions](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) for more details.
 
 
 ### How can I change the TCP port being used by NPM for monitoring?
