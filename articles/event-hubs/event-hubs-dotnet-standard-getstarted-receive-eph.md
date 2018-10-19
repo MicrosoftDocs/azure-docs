@@ -19,39 +19,21 @@ ms.author: shvija
 ---
 
 # Get started receiving messages with the Event Processor Host in .NET Standard
+Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT). For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+
+This tutorial shows how to write a .NET Core console application that receives messages from an event hub using the **[Event Processor Host][Event Processor Host]**. The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the Event Processor Host, you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the Event Processor Host for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use the Event Processor Host with multiple receivers.
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
-
-This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using the **Event Processor Host** library. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values. Or you can follow the steps in this tutorial to create your own.
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), replace `EventHubConnectionString` and `EventHubName`, `StorageAccountName`, `StorageAccountKey`, and `StorageContainerName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
-
 * [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017, but Visual Studio 2015 is also supported.
 * [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
-* An Azure subscription.
-* An Azure Event Hubs namespace and an event hub.
-* An Azure storage account.
 
-## Create an Event Hubs namespace and an event hub  
+## Create an Event Hubs namespace and an event hub
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with this tutorial.  
-
-## Create an Azure Storage account  
-
-1. Sign in to the [Azure portal](https://portal.azure.com).  
-2. In the left navigation pane of the portal, select **Create a resource**, select **Storage** from categories, and then select **Storage account - blob, file, table, queue**.  
-3. Complete the fields in the **Create storage account** window, and then select **Review + create**. 
-
-	![Create storage account][1]
-
-4. On the **Review + create** page, select **Create** after reviewing the values for the fields. 
-5. After you see the **Deployments Succeeded** message, select the name of the new storage account. 
-6. In the **Essentials** window, select **Blobs**. 
-7. Select **+ Container** at the top. Give the container a name.  
-8. Select **Access keys** in the left-hand window and copy the name of the storage container, the storage account, and the value of **key1**. 
-
-    Save these values to Notepad or some other temporary location.
+[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
 ## Create a console application
 
