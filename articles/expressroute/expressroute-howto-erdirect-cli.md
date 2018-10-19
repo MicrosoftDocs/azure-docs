@@ -20,7 +20,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 >
 > This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-## <a name="resources"></a>1. Create the resource
+## <a name="resources"></a>Create the resource
 
 1. Sign in to Azure and select the subscription. The ExpressRoute Direct resource and ExpressRoute circuits must be in the same subscription.
 
@@ -38,10 +38,8 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-
 2. List all locations where ExpressRoute Direct is supported.
-
-  
+    
   ```azurecli
   az network express-route port location list
   ```
@@ -204,8 +202,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   "type": "Microsoft.Network/expressRoutePorts"
   }  
   ```
-
-## <a name="state"></a>2. Change Admin State of links
+## <a name="state"></a>Change Admin State of links
 
 This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
 
@@ -275,7 +272,7 @@ This process should be used to conduct a Layer 1 test, ensuring that each cross-
 
   Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
 
-## <a name="circuit"></a>3. Create a circuit
+## <a name="circuit"></a>Create a circuit
 
 By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This can be increased by support. You are responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource and utilized bandwidth is the physical usage of the underlying physical interfaces.
 
