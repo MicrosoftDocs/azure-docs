@@ -783,7 +783,7 @@ This section provides template questionnaires to help gather important informati
 
 | **Question** | **Example** | **Answer** |
 |---|---|---|
-|**Topic** : **Environment**|||
+|**Topic**: **Environment**|||
 |Cluster Distribution type|Hortonworks, Cloudera, MapR| |
 |Cluster Distribution version|HDP 2.6.5, CDH 5.7|
 |Big Data eco-system components|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
@@ -801,7 +801,7 @@ This section provides template questionnaires to help gather important informati
 |Disaster Recovery / Back up|Backup cluster?|  
 |Systems that are dependent on Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Third-party integrations|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**Topic** : **Security**|||
+|**Topic**: **Security**|||
 |Perimeter security|Firewalls|
 |Cluster authentication & authorization|Active Directory, Ambari, Cloudera Manager, No authentication|
 |HDFS Access Control|  Manual, ssh users|
@@ -816,7 +816,7 @@ This section provides template questionnaires to help gather important informati
 
 |**Question**|**Example**|**Answer**|
 |---|---|---|
-|**Topic** : **Workloads and Frequency**|||
+|**Topic**: **Workloads and Frequency**|||
 |MapReduce jobs|10 jobs -- twice daily||
 |Hive jobs|100 jobs -- every hour||
 |Spark batch jobs|50 jobs -- every 15 minutes||
@@ -825,53 +825,53 @@ This section provides template questionnaires to help gather important informati
 |ML Model training jobs|2 jobs -- once in a week||
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
-|**Topic** : **Data**|||
+|**Topic**: **Data**|||
 |Data sources|Flat files, Json, Kafka, RDBMS||
 |Data orchestration|Oozie workflows, Airflow||
 |In memory lookups|Apache Ignite, Redis||
 |Data destinations|HDFS, RDBMS, Kafka, MPP ||
-|**Topic** : **Meta data**|||
+|**Topic**: **Meta data**|||
 |Hive DB type|Mysql, Postgres||
 |No. of Hive metastores|2||
 |No. of Hive tables|100||
 |No. of Ranger policies|20||
 |No. of Oozie workflows|100||
-|**Topic** : **Scale**|||
+|**Topic**: **Scale**|||
 |Data volume including Replication|100 TB||
 |Daily ingestion volume|50 GB||
 |Data growth rate|10% per year||
 |Cluster Nodes growth rate|5% per year
-|**Topic** : **Cluster utilization**|||
+|**Topic**: **Cluster utilization**|||
 |Average CPU % used|60%||
 |Average Memory % used|75%||
 |Disk space used|75%||
 |Average Network % used|25%
-|**Topic** : **Staff**|||
+|**Topic**: **Staff**|||
 |No. of Administrators|2||
 |No. of Developers|10||
 |No. of end users|100||
 |Skills|Hadoop, Spark||
 |No. of available resources for Migration efforts|2||
-|**Topic** : **Limitations**|||
+|**Topic**: **Limitations**|||
 |Current limitations|Latency is high||
 |Current challenges|Concurrency issue||
 
 ### Azure requirements questionnaire
 
-|**Topic** : **Infrastructure** |||
+|**Topic**: **Infrastructure** |||
 |---|---|---|
 |**Question**|**Example**|**Answer**|
 | Preferred Region|US East||
 |VNet preferred?|Yes||
 |HA / DR Needed?|Yes||
 |Integration with other cloud services?|ADF, CosmosDB||
-|**Topic** :   **Data Movement**  |||
+|**Topic**:   **Data Movement**  |||
 |Initial load preference|DistCp, Data box, ADF, WANDisco||
 |Data transfer delta|DistCp, AzCopy||
 |Ongoing incremental data transfer|DistCp, Sqoop||
-|**Topic** :   **Monitoring & Alerting** |||
+|**Topic**:   **Monitoring & Alerting** |||
 |Use Azure Monitoring & Alerting Vs Integrate third-party monitoring|Use Azure Monitoring & Alerting||
-|**Topic** :   **Security preferences** |||
+|**Topic**:   **Security preferences** |||
 |Private and protected data pipeline?|Yes||
 |Domain Joined cluster (ESPP)?|     Yes||
 |On-Premises AD Sync to Cloud?|     Yes||
@@ -884,7 +884,7 @@ This section provides template questionnaires to help gather important informati
 |Auditing needed?|                  Yes||
 |Data encryption at rest?|          Yes||
 |Data encryption in transit?|       Yes||
-|**Topic** :   **Re-Architecture preferences** |||
+|**Topic**:   **Re-Architecture preferences** |||
 |Single cluster vs Specific cluster types|Specific cluster types||
 |Colocated Storage Vs Remote Storage?|Remote Storage||
 |Smaller cluster size as data is stored remotely?|Smaller cluster size||
