@@ -1,6 +1,6 @@
 ---
 
-title: 'Test Terraform modules using Terratest'
+title: 'Test Terraform modules in Azure using Terratest'
 description: Learn how to use Terratest to test your Terraform modules.
 services: terraform
 ms.service: terraform
@@ -384,7 +384,7 @@ GoPath/src/staticwebpage/test$ go test
 
 As you can tell, integration tests take much longer time than unit tests (two minutes for one integration case while one minute for five unit cases). But it is still your decision about when to use unit tests and when to leverage integration tests. Typically, we prefer to use unit tests for complex logic using Terraform HCL functions; while using integration test from the end-to-end perspective of a user.
 
-## Use mage to simplify running the Terratest cases 
+## Use mage to simplify running Terratest cases 
 
 As you have seen, running test cases in shell is not an easy task because you need to navigate to different directories and execute different commands. It is for this reason we introduce the build system in our project. In this section, we will use a Go build system mage to do the job.
 
