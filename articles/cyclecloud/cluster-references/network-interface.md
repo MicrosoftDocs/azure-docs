@@ -10,15 +10,15 @@ ms.date: 010/19/2018
 ms.author: a-kiwels
 ---
 
-# Network-Interface
+# Network Interface
 
-Network-interface objects are rank 3 and subordinate to `node` or `nodearray`. Network-interface represents an Azure Network Interface.
+Network Interface objects are rank 3, and subordinate to `node` or `nodearray`. `network-interface` represents an Azure Network Interface.
 
-## Example
+### Example
 
-Adding a `[[[network-interface]]]` section to a node adds controls to the default NIC. or can add additional NICs and attach them to a VM.
+Adding a `[[[network-interface]]]` section to a node adds controls to the default NIC. You can also add additional NICs and attach them to a VM.
 
-In this example, we attach a pre-existing NIC to a VM:
+In this example, we attach an existing NIC to a VM:
 
 ``` ini
 [cluster my-cluster]
