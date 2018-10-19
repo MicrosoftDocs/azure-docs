@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 10/19/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ---
@@ -16,7 +16,7 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 This tutorial describes how to configure compute role on the Data Box Edge. Once the compute role is configured, Data Box Edge can transform data before sending to Azure.
 
-This procedure can take around 30-45 minutes to complete. 
+This procedure can take around 30-45 minutes to complete.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Verify data transform and transfer
 
 > [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
+> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
  
 ## Prerequisites
 
@@ -134,13 +134,19 @@ This procedure uses an example where the custom module used takes files from a l
     
         ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. In the **Container create options**, provide the local mountpoints for the Edge modules copied in the preceding steps for the cloud and local share (important to use these paths as opposed to creating new ones). These shares are mapped to the corresponding container mount points. 
+    3. In the **Container create options**, provide the local mountpoints for the Edge modules copied in the preceding steps for the cloud and local share (important to use these paths as opposed to creating new ones). The local mountpoints are mapped to the corresponding **InputFolderPath** and the **OutputFolderPath** that you specified in the module when you [updated the module with custom code](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
     
-        In this case, the paths specified in `Binds` are:
+        You can copy and paste the sample shown below in your **Container create options**: 
         
         ```
-        /home/hcsshares/mysmblocalshare:/home/LocalShare
-        /home/hcsshares/mysmbshare1:/home/CloudShare
+        {
+         "HostConfig": {
+          "Binds": [
+           "/home/hcsshares/mysmblocalshare:/home/LocalShare",
+           "/home/hcsshares/mysmbshare1:/home/CloudShare"
+           ]
+         }
+        }
         ```
 
         Also provide any environmental variables here as well for your module.
