@@ -93,6 +93,9 @@ While we're working on an improved experience, today, you are responsible for th
 ### Can I encrypt attached data disks in a cluster node type (virtual machine scale set)?
 Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), and [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
+### Can I use low-priority VMs in a cluster node type (virtual machine scale set)?
+No. Low-priority VMs are not supported. 
+
 ### What are the directories and processes that I need to exclude when running an anti-virus program in my cluster?
 
 | **Antivirus Excluded directories** |
@@ -120,7 +123,7 @@ Yes.  For more information, see [Create a cluster with attached data disks](../v
 The following are means for your application to obtain credentials for authenticating to KeyVault:
 
 A. During your applications build/packing job, you can pull a certificate into your SF app's data package, and use this to authenticate to KeyVault.
-B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
 
 ## Application Design
 

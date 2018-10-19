@@ -164,7 +164,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 14. When using Data Protection Manager, you can modify the settings specified during the registration workflow by clicking the **Configure** option by selecting **Online** under the **Management** Tab.
 
 ## Requirements (and limitations)
-* DPM can be running as a physical server or a Hyper-V virtual machine installed on System Center 2012 SP1 or System Center 2012 R2. It can also be running as an Azure virtual machine running on System Center 2012 R2 with at least DPM 2012 R2 Update Rollup 3 or a Windows virtual machine in VMWare running on System Center 2012 R2 with at least Update Rollup 5.
+* DPM can be running as a physical server or a Hyper-V virtual machine installed on System Center 2012 SP1 or System Center 2012 R2. It can also be running as an Azure virtual machine running on System Center 2012 R2 with at least DPM 2012 R2 Update Rollup 3 or a Windows virtual machine in VMware running on System Center 2012 R2 with at least Update Rollup 5.
 * If you’re running DPM with System Center 2012 SP1 you should install Update Roll up 2 for System Center Data Protection Manager SP1. This is required before you can install the Azure Backup Agent.
 * The DPM server should have Windows PowerShell and .Net Framework 4.5 installed.
 * DPM can back up most workloads to Azure Backup. For a full list of what’s supported see the Azure Backup support items below.

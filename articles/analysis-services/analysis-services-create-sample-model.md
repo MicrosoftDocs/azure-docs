@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, from the portal, I want to add a basic sample model database to my server for testing tool and client connections and queries.

@@ -11,7 +11,7 @@ ms.date: 8/2/2018
 ms.author: markgal
 ---
 # Questions about the Azure Backup service
-This article answers common questions about the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article answers common questions about the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 To quickly scan the sections in this article, use the links to the right, under **In this article**.
 
@@ -25,7 +25,7 @@ Yes. You can create as many as 500 Recovery Services vaults, per supported regio
 You can register upto 1000 Azure Virtual machines per vault. If you are using MAB Agent, you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
 ### Can I use a REST API to query the size of protected items in a vault? <br/>
-Yes, the article, [Usages - List by Vaults](https://t.co/2lgIrIaF0J), lists the information that can be obtained from the Recovery Services vault.
+Yes, the article, [Usages - List by Vaults](https://docs.microsoft.com/rest/api/recoveryservices/usages/usages_listbyvaults), lists the information that can be obtained from the Recovery Services vault.
 
 ### If my organization has one vault, how can I isolate one server's data from another server when restoring data?<br/>
 All servers that are registered to the same vault can recover the data backed up by other servers *that use the same passphrase*. If you have servers whose backup data you want to isolate from other servers in your organization, use a designated passphrase for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.

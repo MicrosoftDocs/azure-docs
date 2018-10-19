@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -154,7 +154,7 @@ This sample assume you have successfully [Installed PowerShell for Azure Stack](
 ```PowerShell  
 # begin
 
-$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
 $GraphAudiance = "https://graph.windows.net/" 
 $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
