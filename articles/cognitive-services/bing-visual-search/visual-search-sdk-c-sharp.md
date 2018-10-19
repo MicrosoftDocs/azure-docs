@@ -276,7 +276,7 @@ public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
 
 ## KnowledgeRequest parameter
 
-The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:www.bing.com\" filter.  Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
+The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:pinterest.com\" filter.  Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
 
 ```csharp
 public static void VisualSearchUrlWithFilters(string subscriptionKey)
@@ -290,7 +290,7 @@ public static void VisualSearchUrlWithFilters(string subscriptionKey)
         ImageInfo ImageInfo = new ImageInfo(url: ImageUrl);
 
         // Optional filters inside the knowledgeRequest will restrict similar products and images to certain domains
-        Filters Filters = new Filters(site: "www.bing.com");
+        Filters Filters = new Filters(site: "pinterest.com");
         KnowledgeRequest KnowledgeRequest = new KnowledgeRequest(filters: Filters);
 
         // An image binary is not necessary here, as the image is specified via URL
@@ -361,7 +361,7 @@ public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
     try
     {
         // The image can be specified via an insights token, in the ImageInfo object
-        var ImageInsightsToken = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145";
+        var ImageInsightsToken = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D";
 
         // An optional crop area can be passed in to define a region of interest in the image
         CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.5, left: (float)0.1, right: (float)0.9);
@@ -449,11 +449,11 @@ public static void VisualSearchUrlWithJson(string subscriptionKey)
         //     },
         //     "knowledgeRequest": {
         //        "filters": {
-        //            "site": "www.bing.com"
+        //            "site": "pinterest.com"
         //        }              
         //     }
 
-        var VisualSearchRequestJSON = "{\"imageInfo\":{\"url\":\"https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80\",\"cropArea\":{\"top\":0.1,\"bottom\":0.5,\"left\":0.1,\"right\":0.9}},\"knowledgeRequest\":{\"filters\":{\"site\":\"www.bing.com\"}}}";
+        var VisualSearchRequestJSON = "{\"imageInfo\":{\"url\":\"https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80\",\"cropArea\":{\"top\":0.1,\"bottom\":0.5,\"left\":0.1,\"right\":0.9}},\"knowledgeRequest\":{\"filters\":{\"site\":\"pinterest.com\"}}}";
 
         // An image binary is not necessary here, as the image is specified by URL in JSON text
         var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequestJSON).Result;

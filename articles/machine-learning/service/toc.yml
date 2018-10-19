@@ -88,7 +88,7 @@
       href: how-to-auto-train-remote.md
   - name: ONNX models	
     items:    
-    - name: Create and deploy ONNX models
+    - name: Create and deploy
       href: how-to-build-deploy-onnx.md   
   - name: Deploy models	
     items:    
@@ -114,8 +114,6 @@
       href: how-to-enable-app-insights.md 
   - name: Manage resource quotas
     href: how-to-manage-quotas.md
-  - name: Export and delete data
-    href: how-to-export-delete-data.md
 - name: Reference
   items:    
   - name: Machine learning SDK
@@ -132,18 +130,20 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Export or delete account data
-    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Release notes
     href: azure-machine-learning-release-notes.md  
   - name: Known issues
     href: resource-known-issues.md
   - name: Get support
     href: support-for-aml-services.md
+  - name: Export and delete data
+    href: how-to-export-delete-data.md
   - name: Deprecated docs
     items:  
     - name: How to migrate
-      href: how-to-migrate.md             
+      href: how-to-migrate.md    
+    - name: Export or delete account data (deprecated)
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Workbench quickstart
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Tutorial 1: Prepare data'
