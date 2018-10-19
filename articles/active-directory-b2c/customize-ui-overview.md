@@ -15,23 +15,27 @@ ms.component: B2C
 
 # Customize the user interface of your applications that use Azure Active Directory B2C
 
-You can customize the user interface (UI) of pages that Azure Active Directory (Azure AD) B2C serves to your applications. By customizing the pages, you provide your customers with a seamless and branded experience. The experiences that you can customize include sign-up, sign-in, profile editing, and password resetting.
+The ability for you to brand and customize the user interface (UI) that Azure Active Directory (Azure AD) B2C serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
 
 Depending on your needs when it comes to these experiences, you customize the UI of your application in different ways. For example:
 
 - If you're using [built-in policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies) to provide sign-up or sign-in, password reset, or profile-editing experiences in your application, you use the [Azure portal to customize the UI](tutorial-customize-ui.md).
-- If you are providing sign-in only, its accompanying password reset page, and verification emails, you use the same customization steps that are used for an [Azure AD sign-in page](../active-directory/fundamentals/customize-branding.md).
+- If you're providing sign-in only, its accompanying password reset page, and verification emails, you use the same customization steps that are used for an [Azure AD sign-in page](../active-directory/fundamentals/customize-branding.md).
 - If customers try to edit their profile before they sign in, they are redirected to a page that you customize using the same steps that are used for customizing the Azure AD sign-in page.
-- If you are using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, you use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
-- If you need to provide dynamic content based on a customer’s decision, you use [custom policies that can change page content](active-directory-b2c-ui-customization-custom-dynamic.md) depending on a parameter that is sent in a query string. For example, the background image on the Azure AD B2C sign-up or sign-in page changes, based on a parameter that you pass from your web or mobile application.
+- If you're using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, you use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
+- If you need to provide dynamic content based on a customer’s decision, you use [custom policies that can change page content](active-directory-b2c-ui-customization-custom-dynamic.md) depending on a parameter that's sent in a query string. For example, the background image on the Azure AD B2C sign-up or sign-in page changes, based on a parameter that you pass from your web or mobile application.
 
-Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). At run-time, content is loaded from a URL that you specify in a policy. You specify different URLs for different pages. After content loaded from your URL, it's merged with an HTML fragment inserted from Azure AD B2C, and then displayed to your customer.
+Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). At run-time, content is loaded from a URL that you specify in a policy. You specify different URLs for different pages. After content is loaded from your URL, it's merged with an HTML fragment inserted from Azure AD B2C, and then displayed to your customer.
 
-If you are planning to customize the UI of your application, review the following best practices:
+Before you start, review the following guidance:
 
-- Azure AD B2C injects HTML content into your pages. Don't copy and try to change the default content that Azure AD B2C provides. It's best to build your HTML5 content from scratch and use the default content as reference.
+- Azure AD B2C merges HTML content into your pages. Don't copy and try to change the default content that Azure AD B2C provides. It's best to build your HTML content from scratch and use the default content as reference.
 - For security reasons, you aren’t allowed to include JavaScript in your content.
-- Supported browser versions are: Internet Explorer 11, 10, Edge, Limited support for Internet Explorer 9, 8, Google Chrome 42.0 and above, and Mozilla Firefox 38.0 and above.
+- Supported browser versions are: 
+    - Internet Explorer 11, 10 and Edge
+    - Limited support for Internet Explorer 9 and 8
+    - Google Chrome 42.0 and above
+    - Mozilla Firefox 38.0 and above
 - Make sure that you don't include form tags in your HTML because it interferes with the POST operations generated by the injected HTML from Azure AD B2C.
 
 ## Where do I store UI content?
@@ -42,7 +46,7 @@ You can host your UI content anywhere, such as on [Azure Blob storage](../storag
 
 You do the following to customize the UI:
 
-- Create well-formed HTML5 content with an empty `<div id="api"></div>` element located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted. The following example shows a minimal page:
+- Create well-formed HTML content with an empty `<div id="api"></div>` element located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted. The following example shows a minimal page:
 
     ```html
     <!DOCTYPE html>
@@ -86,7 +90,7 @@ You do the following to customize the UI:
 
 - Create or edit a policy to use the content that you created.
 
-The following table lists the HTML5 fragments that Azure AD B2C merges into the `<div id="api"></div>` element located in your content.
+The following table lists the HTML fragments that Azure AD B2C merges into the `<div id="api"></div>` element located in your content.
 
 | Inserted page | Description of HTML |
 | ------------- | ------------------- |
@@ -104,4 +108,8 @@ There are two ways to localize your HTML content. One way is to turn on [languag
 
 Or, content is pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value {Culture:RFC5646}. For example, your custom page URI might look like `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`.
 You can load the page in French by pulling content from `https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
+
+## Examples
+
+For customization examples, download and review these [sample template files](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
 
