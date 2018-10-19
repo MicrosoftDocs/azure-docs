@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: 05/09/2018
 ms.author: haroldw
 ---
 
@@ -78,7 +78,7 @@ In the Azure portal:
 
   ![App Registration](media/openshift-post-deployment/app-registration.png)
 
-6.  Click Step 1: Select API, and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Click **Select** at the bottom.
+6.  Click Step 1: Select API, and then click **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Click **Select** at the bottom.
 
   ![App Registration Select API](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -170,7 +170,7 @@ In the OpenShift console, you now see two options for authentication: htpasswd_a
 
 ## Monitor OpenShift with Log Analytics
 
-To monitor OpenShift with Log Analytics, you can use one of two options: OMS Agent installation on VM host, or OMS Container. This article provides instructions for deploying the OMS Container.
+To monitor OpenShift with Log Analytics, you can use one of two options: Log Analytics agent installation on VM host, or Log Analytics container. This article provides instructions for deploying the Log Analytics container.
 
 ## Create an OpenShift project for Log Analytics and set user access
 
@@ -272,7 +272,7 @@ Deploy the secret file:
 oc create -f ocp-secret.yml
 ```
 
-Deploy the OMS Agent daemon set:
+Deploy the Log Analytics Agent daemon set:
 
 ```bash
 oc create -f ocp-omsagent.yml
