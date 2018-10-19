@@ -16,7 +16,9 @@ ms.author: shvija
 ---
 
 # Quickstart: Create an event hub using Azure portal
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. In this quickstart, you create an event hub using the [Azure portal](https://portal.azure.com).
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+
+In this quickstart, you create an event hub using the [Azure portal](https://portal.azure.com).
 
 ## Prerequisites
 
@@ -85,42 +87,15 @@ To create an event hub within the namespace, do the following actions:
    
     ![Create event hub](./media/event-hubs-quickstart-portal/create-event-hub5.png)
 
-## Create a storage account for Event Processor Host
 
-The Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, the Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access:
-
-1. In the Azure portal, and select **Create a resource** at the top left of the screen.
-
-2. Select **Storage**, then select **Storage account - blob, file, table, queue**.
-   
-    ![Select Storage Account](./media/event-hubs-quickstart-portal/create-storage1.png)
-
-3. On the **Create storage account** page, take the following steps: 
-
-    1. Enter a name for the storage account. 
-    2. Choose an Azure subscription that contains the event hub.
-    3. Select the resource group that has the event hub.
-    4. Select a location in which to create the resource. 
-    5. Then click **Review + create**.
-   
-    ![Create storage account - page](./media/event-hubs-quickstart-portal/create-storage2.png)
-
-4. On the **Review + create** page, review the values, and select **Create**. 
-
-    ![Review storage account settings and create](./media/event-hubs-quickstart-portal/review-create-storage-account.png)
-1. On the **Deployment** page, select the **storage account**. 
-
-    ![Select the storage account from deployment](./media/event-hubs-quickstart-portal/select-storage-deployment.png)
-1. On the storage account page, select **Access keys**. Copy the value of **key1** to use later.
-
-Congratulations! You have used the portal to create an Event Hubs namespace, and an event hub within that namespace. You have also created an Azure storage account that's used by Event Processor Host to receive events from an event hub. 
+Congratulations! You have used the portal to create an Event Hubs namespace, and an event hub within that namespace. 
 
 ## Next steps
 
 In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the following tutorials:  
 
-1. **Send events to an event hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-2. **Receive events from an event hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- **Send events to an event hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Receive events from an event hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/
