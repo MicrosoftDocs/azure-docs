@@ -87,7 +87,8 @@ If Azure Monitor for containers is successfully enabled and configured, but you 
 	omsagent 1.6.0.23
 	docker-cimprov 1.0.0.31
     ```
-##Error messages
+
+## Error messages
 
 The table below summarizes known errors you may encounter while using Azure Monitor for containers.
 
