@@ -118,6 +118,8 @@ The Azure AD audit log will include information about the IP address and ClientT
 
 ![Example logon screen password reset in the Azure AD audit log](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
+If your Windows 10 machines are behind a proxy server or firewall, HTTPS traffic (443) to passwordreset.microsoftonline.com and ajax.aspnetcdn.com should be allowed.
+
 ## Clean up resources
 
 If you decide you no longer want to use the functionality you have configured as part of this tutorial, delete the Intune device configuration profile that you created or the registry key.
