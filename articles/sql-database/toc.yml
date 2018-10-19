@@ -64,14 +64,14 @@
     href: sql-database-design-first-database.md
   - name: 2 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
-  - name: 3 - Migrate to SQL Server DB using DMA
-    href: sql-database-migrate-your-sql-server-database.md
+  - name: 3 - Migrate to a single Azure SQL database using DMS
+    href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
   - name: 4 - Secure your SQL DB
     href: sql-database-security-tutorial.md
   - name: 5 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
   - name: 6 - Migrate to a Managed Instance using DMS
-    href: ../dms/tutorial-sql-server-to-managed-instance.md
+    href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: 7 - Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Samples
@@ -595,7 +595,7 @@
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: https://docs.microsoft.com/sql/tools/sqlpackage
+    href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server drivers
