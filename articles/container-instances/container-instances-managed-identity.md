@@ -25,7 +25,7 @@ In this tutorial, you:
 
 ## Why use a managed identity?
 
-Use a managed identity to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) without having any credentials in your container code. For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to retrieve credentials. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+Use a managed identity in a running container to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to retrieve credentials. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). Currently managed identities are supported only on Linux containers in
@@ -49,7 +49,7 @@ Use of a managed identity in a running container is essentially the same as usin
 
 ## Example: Use a system-assigned identity to access Azure Key Vault
 
-Basic CLI example. This example is interactive. However, in practice you would be running a container image that is running code to access Azure services.
+This example walks through enabling and using a system-assigned identity on a container group. You grant the identity access to an Azure service instance, in this case an Azure Key Vault. Then, from a running container, you use the managed identity to access a secret. This example is interactive. However, in practice you would be running a container image that is running code to access Azure services.
 
 ### Enable a system-assigned identity on a container group
 
@@ -59,7 +59,7 @@ First, create a resource group named *myResourceGroup* in the *eastus* location 
 az group create --name myResourceGroup --location eastus
 ```
 
-Run the following [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) command to create a container instance based on Ubuntu Server. This example provides a basic container that you can use to interactively access other Azure services. The `--assign-identity` parameter enables a system-assigned managed identity on the instance. To stay running, the container runs a long-running command.
+Run the following [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) command to create a container instance based on Ubuntu Server. This example provides a single-container group that you can use to interactively access other Azure services. The `--assign-identity` parameter enables a system-assigned managed identity on the group. To stay running, the container runs a long-running command.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image devorbitus/ubuntu-bash-jq-curl --assign-identity --command-line "tail -f /dev/null" --port 80
@@ -149,9 +149,9 @@ Now use the access token to authenticate to Key Vault and read a secret:
 ```bash
 curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer $token"
 
-https://mykeyvaultdanlep1011.vault.azure.net/secrets/SampleSecret/2bf091fdbae946c9b06cc05cd41cfa9a
+curl https://mykeyvaultdl.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
 
-c
+
 ```
 
 The response will look like this, showing the secret:
