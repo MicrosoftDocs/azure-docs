@@ -1,20 +1,21 @@
 ---
-title: Cognitive Services Speech SDK Documentation | Microsoft Docs
+title: Speech Service SDK Documentation
+titlesuffix: Azure Cognitive Services
 description: Release notes - what has changed in the most recent releases
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: wolfma
 ---
 
 # Release notes
 
-## Cognitive Services Speech SDK 1.0.1
+## Speech Service SDK 1.0.1
 
 Reliability improvements and bug fixes:
 
