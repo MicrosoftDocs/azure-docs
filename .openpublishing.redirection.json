@@ -267,6 +267,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/service/quickstart-get-started-with-cli.md",
+            "redirect_url": "/azure/machine-learning/service/reference-azure-machine-learning-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models",
             "redirect_document_id": true
@@ -8748,6 +8753,11 @@
             "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/event-hubs/event-hubs-quickstart-portal.md",
+            "redirect_url": "/azure/event-hubs/event-hubs-create",
+            "redirect_document_id": true
+        },        
         {
             "source_path": "articles/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive.md",
             "redirect_url": "/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture",

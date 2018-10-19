@@ -182,7 +182,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 {
   "IsEncrypted": false,
   "Values": {
-    "FUNCTIONS\_WORKER\_RUNTIME": "<language worker>",
+    "FUNCTIONS_WORKER_RUNTIME": "<language worker>",
     "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
