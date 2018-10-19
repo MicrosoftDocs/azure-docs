@@ -1,8 +1,11 @@
 ---
-title: Create an acoustic model with the Speech Service - Azure Cognitive Services
+title: "Tutorial: Create an acoustic model with the Speech Service"
+titlesuffix: Azure Cognitive Services
 description: Learn how to create an acoustic model with the Speech Service in Azure Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
