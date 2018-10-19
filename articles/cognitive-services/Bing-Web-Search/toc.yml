@@ -1,13 +1,13 @@
-- name: Bing Web Search Documentation
+- name: Bing Web Search API Documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Bing Web Search?
     href: overview.md
+    expanded: true
 - name: Quickstarts
   items:
   - name: REST APIs
-    expanded: true
     items:
     - name: C#
       href: quickstarts/csharp.md
@@ -37,8 +37,6 @@
   items:
   - name: Build a single-page web app
     href: tutorial-bing-web-search-single-page-app.md
-  - name: Single-page web app (source code)
-    href: tutorial-bing-web-search-single-page-app-source.md
 - name: Samples
   items:
   - name: REST samples
@@ -91,8 +89,8 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
-  - name: Supported countries and markets
-    href: supported-countries-markets.md
+  - name: Language and region support
+    href: language-support.md
   - name: Analytics for Bing Web Search API
     href: bing-web-stats.md
   - name: Support

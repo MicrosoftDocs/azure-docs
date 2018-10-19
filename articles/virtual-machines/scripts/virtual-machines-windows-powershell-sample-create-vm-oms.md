@@ -1,9 +1,9 @@
 ﻿---
-title: Azure PowerShell Script Sample - OMS | Microsoft Docs
-description: Azure PowerShell Script Sample - OMS
+title: Azure PowerShell Script Sample - Log Analytics | Microsoft Docs
+description: Azure PowerShell Script Sample - Log Analytics
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
 ---
 
-# Create an Operations Management Suite monitored VM with PowerShell
+# Create a Log Analytics-monitored VM with PowerShell 
 
-This script creates an Azure Virtual Machine, installs the Operations Management Suite (OMS) agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console. Also, you need to update the OMS workspace ID and workspace key.
+This script creates an Azure Virtual Machine, installs the Log Analytics agent, and enrolls the system with a Log Analytics workspace. Once the script has run, the virtual machine will be visible in Azure Monitor. Also, you need to update the Log Analytics workspace ID and workspace key.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -29,7 +29,7 @@ This script creates an Azure Virtual Machine, installs the Operations Management
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM OMS")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM Log Analytics")]
 
 ## Clean up deployment
 
@@ -47,7 +47,7 @@ This script uses the following commands to create the deployment. Each item in t
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also opens port 80 and sets the administrative credentials. |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Add a VM extension to the virtual machine. In this case, the Operations Management Suite agent extension is used to install the OMS agent and enroll the VM in an OMS workspace. |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Add a VM extension to the virtual machine. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps

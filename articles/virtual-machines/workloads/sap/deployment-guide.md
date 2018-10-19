@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Virtual Machines deployment for SAP NetWeaver | Microsoft Docs
 description: Learn how to deploy SAP software on Linux virtual machines in Azure.
 services: virtual-machines-linux,virtual-machines-windows
@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
 
 ---
@@ -479,7 +479,7 @@ In the Azure portal, enter the following parameters for the template:
   * **Admin username** and **Admin password**: A username and password.
     A new user is created, for signing in to the virtual machine.
   * **New or existing subnet**: Determines whether a new virtual network and subnet are  created or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
-  * **Subnet ID**: The ID of the subnet the virtual machines will connect to. Select the subnet of your virtual private network (VPN) or Azure ExpressRoute virtual network to use to connect the virtual machine to your on-premises network. The ID usually looks like this:
+  * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
   /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
 1. **Terms and conditions**:  
@@ -611,8 +611,7 @@ In the Azure portal, enter the following parameters for the template:
 
     A new user is created, for signing in to the virtual machine.
   * **New or existing subnet**: Determines whether a new virtual network and subnet is created or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
-  * **Subnet ID**: The ID of the subnet to which the virtual machines will connect to. Select the subnet of your VPN or ExpressRoute virtual network to use to connect the virtual machine to your on-premises network. The ID usually looks like this:
-
+  * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
     /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
 1. **Terms and conditions**:  
@@ -694,8 +693,7 @@ In the Azure portal, enter the following parameters for the template:
   * **OS disk VHD URI** (unmanaged disk template only): The URI of the private OS disk, for example, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
   * **OS disk Managed Disk Id** (managed disk template only): The Id of the Managed Disk OS disk, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **New or existing subnet**: Determines whether a new virtual network and subnet are created, or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
-  * **Subnet ID**: The ID of the subnet to which the virtual machines will connect to. Select the subnet of your VPN or Azure ExpressRoute virtual network to use to connect the virtual machine to your on-premises network. The ID usually looks like this:
-
+  * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
     /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
 1. **Terms and conditions**:  
@@ -920,9 +918,7 @@ The script output includes the following information:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
 To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
 
-1. Install using Azure CLI 1.0
-
-   1. Install Azure CLI 1.0, as described in [Install the Azure CLI 1.0][azure-cli].
+   1. Install Azure classic CLI, as described in [Install the Azure classic CLI][azure-cli].
    1. Sign in with your Azure account:
 
       ```
@@ -1003,6 +999,10 @@ This check makes sure that all performance metrics that appear inside your SAP a
   >
 
 If the Azure Enhanced Monitoring Extension is not installed, or the AzureEnhancedMonitoring service is not running, the extension has not been configured correctly. For detailed information about how to deploy the extension, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
+
+> [!NOTE]
+> The Azperflib.exe is a component that can't be used for own purposes. It is a component which delivers Azure monitoring data related to the VM for the SAP Host Agent.
+> 
 
 ##### Check the output of azperflib.exe
 Azperflib.exe output shows all populated Azure performance counters for SAP. At the bottom of the list of collected counters, a summary and health indicator show the status of Azure monitoring.
@@ -1097,6 +1097,10 @@ If some of the monitoring data is not delivered correctly as indicated by the te
 
 Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. Wait 15 minutes, and repeat the checks described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1] and [Health check for Azure Monitoring Infrastructure Configuration][deployment-guide-5.2]. If the checks still indicate a problem with some or all counters, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
 
+> [!Note]
+> You can experience some warnings in cases where you use Managed Standard Azure Disks. Warnings will be displayed instead of the tests returning "OK". This is normal and intended in case of that disk type. See also see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3]
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Troubleshooting the Azure monitoring infrastructure for SAP
 
 #### ![Windows][Logo_Windows] Azure performance counters do not show up at all
@@ -1150,6 +1154,23 @@ The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure E
 
 ###### Solution
 The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine and/or rerun the `Set-AzureRmVMAEMExtension` configuration script.
+
+##### The execution of Set-AzureRmVMAEMExtension and Test-AzureRmVMAEMExtension show warning messages stating that Standard Managed Disks are not supported
+
+###### Issue
+When executing Set-AzureRmVMAEMExtension or Test-AzureRmVMAEMExtension messages like these are shown:
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+Executing azperfli.exe as described earlier you can get a result that is indicating a non-healthy state. 
+
+###### Solution
+The messages are caused by the fact that Standard Managed Disks are not delivering the APIs used by the monitoring extension to check on statistics of the Standard Azure Storage Accounts. This is not a matter of concern. Reason for introducing the monitoring for Standard Disk Storage accounts was throttling of I/Os that occurred frequently. Managed disks will avoid such throttling by limiting the number of disks in a storage account. Therefore, not having that type of monitoring data is not critical.
+
 
 #### ![Linux][Logo_Linux] Some Azure performance counters are missing
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Diagnostics. Storage counters come from the logs in your storage subscription.

@@ -1,13 +1,14 @@
 ---
-title: Face API C# tutorial | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Tutorial: Face API C#"
+titleSuffix: Azure Cognitive Services
 description: Create a simple Windows app that uses the Cognitive Services Face API to detect features of faces in an image.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
 ---

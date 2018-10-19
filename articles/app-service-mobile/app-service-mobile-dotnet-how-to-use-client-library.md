@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 09/24/2018
 ms.author: crdun
 
 ---
@@ -84,6 +84,9 @@ In your main activity file, remember to add the following **using** statement:
 ```
 using Microsoft.WindowsAzure.MobileServices;
 ```
+
+> [!NOTE]
+> Please note that all the support packages referenced in your Android project must have the same version. The SDK has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
 ### <a name="symbolsource"></a>How to: Work with debug symbols in Visual Studio
 The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource][10].  Refer to the

@@ -1,13 +1,14 @@
 ---
-title: Understand LUIS app collaboration - Azure | Microsoft Docs
+title: LUIS app collaboration - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: LUIS apps require a single owner and optional collaborators.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Collaborating
@@ -24,6 +25,11 @@ See [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active
 ## LUIS app owner
 The account that creates an app is the owner. Each app has a single owner. The owner is listed on app **[Settings](luis-how-to-collaborate.md)**. This is the account that can delete the app. This is also the account that receives email when the endpoint quota reaches 75% of the monthly limit. 
 
+## Authorization roles
+LUIS doesn't support different roles for owners and collaborators with one exception. The owner is the only account that can delete the app.
+
+If you are interested in controlling access to the model, consider slicing the model into smaller LUIS apps, where each smaller app has a more limited set of collaborators. Use [Dispatch](https://aka.ms/dispatch-tool) to allow a parent LUIS app to manage the coordination between parent and child apps.
+
 ## Transfer ownership
 LUIS doesn't provide transfer of ownership, however any collaborator can export the app, and then create an app by importing it. Be aware the new app has a different App ID. The new app needs to be trained, published, and the new endpoint used.
 
@@ -35,7 +41,7 @@ If you want to share multiple apps with collaborators, each app needs the collab
 ## Managing multiple authors
 The [LUIS](luis-reference-regions.md#luis-website) website doesn't currently offer transaction-level authoring. You can allow authors to work on independent versions from a base version. Two different methods are described in the following sections.
 
-### Manage multiple versions inside the same app
+## Manage multiple versions inside the same app
 Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version), from a base version, for each author. 
 
 Each author makes changes to his own version of the app. Once each author is satisfied with the model, export the new versions to JSON files.  
@@ -44,7 +50,7 @@ Exported apps are JSON-formatted files, which can be compared for changes. Combi
 
 This method allows you to have one active version, one stage version, and one published version. You can compare the results in the interactive testing pane across the three versions.
 
-### Manage multiple versions as apps
+## Manage multiple versions as apps
 [Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
 
 Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.

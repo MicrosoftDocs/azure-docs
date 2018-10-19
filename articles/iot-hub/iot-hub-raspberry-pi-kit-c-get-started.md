@@ -56,10 +56,9 @@ The following items are optional:
 * 6 F/M jumper wires.
 * A diffused 10-mm LED.
 
-
 > [!NOTE] 
-These items are optional because the code sample support simulated sensor data.
-
+> These items are optional because the code sample support simulated sensor data.
+>
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -92,7 +91,8 @@ Prepare the microSD card for installation of the Raspbian image.
    ![Enable SPI and SSH on Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-To enable SSH and SPI, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+> To enable SSH and SPI, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+>
 
 ### Connect the sensor to Pi
 
@@ -166,6 +166,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
    > [!NOTE] 
    > If you **don't have a physical BME280**, you can use '--simulated-data' as command line parameter to simulate temperature&humidity data. `sudo ./setup.sh --simulated-data`
+   >
 
 ### Build and run the sample application
 
@@ -174,6 +175,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    ```bash
    cmake . && make
    ```
+   
    ![Build output](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
 1. Run the sample application by running the following command:
@@ -183,8 +185,8 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    ```
 
    > [!NOTE] 
-   Make sure you copy-paste the device connection string into the single quotes.
-
+   > Make sure you copy-paste the device connection string into the single quotes.
+   >
 
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
@@ -192,6 +194,6 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi in a command line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi, see the [Use Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

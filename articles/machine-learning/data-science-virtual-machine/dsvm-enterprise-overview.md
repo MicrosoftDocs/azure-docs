@@ -48,4 +48,4 @@ This series of articles provides guidance and pointers for each of the preceding
 * [Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Data discovery and governance](https://docs.microsoft.com/azure/data-catalog/)
 
-The [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/) provides a detailed end-to-end architecture and patterns for building and managing your cloud-based analytics infrastructure. 
+The [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) provides a detailed end-to-end architecture and patterns for building and managing your cloud-based analytics infrastructure. 

@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Lessonly.com Client support team](mailto:dev@lessonly.com) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Lessonly.com Client support team](mailto:support@lessonly.com) to get these values. 
 
 1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -162,7 +162,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. To configure single sign-on on **Lessonly.com** side, you need to send the downloaded **Certificate(Base64)** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Lessonly.com support team](mailto:dev@lessonly.com).
+1. To configure single sign-on on **Lessonly.com** side, you need to send the downloaded **Certificate(Base64)** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Lessonly.com support team](mailto:support@lessonly.com).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -205,7 +205,7 @@ The objective of this section is to create a user called Britta Simon in Lessonl
 There is no action item for you in this section. A new user will be created during an attempt to access Lessonly.com if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create an user manually, you need to contact the [Lessonly.com support team](mailto:dev@lessonly.com).
+> If you need to create an user manually, you need to contact the [Lessonly.com support team](mailto:support@lessonly.com).
 
 ### Assigning the Azure AD test user
 

@@ -1,18 +1,19 @@
 ---
-title: Visual search SDK Python Quickstart | Microsoft Docs
-description: Setup for Visual search SDK Python console application.
+title: "Quickstart: Bing Visual Search SDK, Python"
 titleSuffix: Azure Cognitive Services
+description: Setup for Visual search SDK Python console application.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
 ---
 
-# Visual Search SDK Python Quickstart
+# Quickstart: Bing Visual Search SDK Python
 
 The Bing Visual Search SDK uses the functionality of the REST API for web requests and parsing results.
 The [source code for Python Bing Visual Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) is available on Git Hub.
@@ -222,14 +223,14 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## KnowledgeRequest parameter
 
-The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:www.bing.com\" filter. Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
+The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:pinterest.com\" filter. Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
 ```
 def search_url_with_filters(client_in, sub_key):
 
     client = client_in
 
     image_url = "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80"
-    filters = Filters(site="www.bing.com")
+    filters = Filters(site="pinterest.com")
 
     knowledge_request = VisualSearchRequest(
         image_info=ImageInfo(url=image_url),
@@ -276,7 +277,7 @@ The following code sends an image insights token in the knowledgeRequest paramet
 ```
     client = client_in
 
-    image_insights_token = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145"
+    image_insights_token = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D"
     crop_area = CropArea(top=0.1,bottom=0.5,left=0.1,right=0.9)
 
     knowledge_request = VisualSearchRequest(

@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
 
 ---
@@ -222,7 +222,7 @@ You *must* have a tenant subscription to create applications that use App Servic
 >
 As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
 
-1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
+1. In the Azure Stack tenant portal, click **+ Create a resource** > **Web + Mobile** > **Web App**.
 
 2. On the **Web App** blade, type a name in the **Web app** box.
 

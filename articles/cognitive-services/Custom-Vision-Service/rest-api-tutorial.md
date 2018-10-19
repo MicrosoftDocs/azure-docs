@@ -1,12 +1,14 @@
 ---
-title: Use the a Custom Vision Service REST API - Azure Cognitive Services | Microsoft Docs
+title: "Tutorial: Use the a Custom Vision Service REST API"
+titlesuffix: Azure Cognitive Services
 description: Use the REST API to create, train, test, and export a custom vision model.
 services: cognitive-services
 author: blackmist
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
 # As a developer, I want to use the custom vision REST API to create, train, and export a model

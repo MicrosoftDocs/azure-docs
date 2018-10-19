@@ -1,6 +1,6 @@
 ---
-title: Deploy a model tutorial for Azure Machine Learning services
-description: This full-length tutorial shows how to use Azure Machine Learning services end to end. This is part three and discusses the deploying model.
+title: Deploy a model tutorial for Azure Machine Learning service
+description: This full-length tutorial shows how to use Azure Machine Learning service end to end. This is part three and discusses the deploying model.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,9 +12,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
+
+ROBOTS: NOINDEX
 ---
 
+
 # Tutorial 3: Classify Iris: Deploy a model
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is **part three of a three-part series**. In this part of the tutorial, you use Machine Learning (preview) to:
@@ -33,7 +39,7 @@ This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/
 
 To complete this tutorial, you need:
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-- An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](../service/quickstart-installation.md)
+- An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](quickstart-installation.md)
 - The classification model from [Tutorial part 2](tutorial-classifying-iris-part-2.md)
 - A Docker engine installed and running locally
 
@@ -219,9 +225,9 @@ Now you're ready to create the real-time web service.
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   This command generates a web service ID you can use later.
+   This command generates a web service ID you can use later. Omit the output directory if in a notebook.
 
    The following switches are used with the **az ml service create realtime** command:
 
@@ -271,9 +277,9 @@ First, register the model. Then generate the manifest, build the Docker image, a
    To create a manifest, use the following command and provide the model ID output from the previous step:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   This command generates a manifest ID.
+   This command generates a manifest ID.  Omit the output directory if in a notebook.
 
 1. Create a Docker image.
 

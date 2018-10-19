@@ -3,7 +3,7 @@ title:    Remediate certificate issues for Azure Stack | Microsoft Docs
 description: Use the Azure Stack Readiness Checker to review and remediate certificate issues.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer:
 
 ---
@@ -22,6 +22,10 @@ ms.reviewer:
 
 # Remediate common issues for Azure Stack PKI certificates
 The information in this article can help you understand and resolve common issues for Azure Stack PKI certificates. You can discover issues when you use Azure Stack Readiness Checker tool to [validate Azure Stack PKI certificates](azure-stack-validate-pki-certs.md). The tool checks to ensure that certificates meet the PKI requirements of an Azure Stack deployment and Azure Stack Secret Rotation, and logs the results in a [report.json file](azure-stack-validation-report.md).  
+
+## PFX Encryption
+**Failure** - PFX encryption is not TripleDES-SHA1.   
+**Remediation** - Export PFX files with **TripleDES-SHA1** encryption. This is the default for all Windows 10 Clients when exporting from Certificate Snap in or using Export-PFXCertificate. 
 
 ## Read PFX
 **Warning** - Password only protects the private information in the certificate.  
@@ -64,6 +68,7 @@ The information in this article can help you understand and resolve common issue
 
 ## Fix common packaging issues
 The AzsReadinessChecker can import and then export a PFX file to fix common packaging issues, including: 
+ - *PFX Encryption* is not TripleDES-SHA1
  - *Private Key* is missing Local Machine Attribute.
  - *Certificate chain* is incomplete or wrong. (The local machine must contain the certificate chain if the PFX package does not.) 
  - *Other certificates*.

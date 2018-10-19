@@ -1,11 +1,11 @@
 ---
-title: View key metrics in Azure Cost Management dashboards | Microsoft Docs
-description: This article describes how view key metrics with dashboards in Azure Cost Management.
+title: View key metrics with Cloudyn dashboards in Azure | Microsoft Docs
+description: This article describes how view key metrics with dashboards in Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -29,7 +29,7 @@ Dashboard versions differ for Management (MSP), Enterprise, and Premium Cloudyn 
 
 Dashboard availability depends on the type of cloud service provider account that is used when viewing dashboards. The type of information available and collected by Cloudyn affects reports in dashboards. For example, if you don't have an AWS account then you won't see the S3 Tracker dashboard. Similarly, if you don't enable Azure Resource Manager access to Cloudyn then you won't see any Azure-specific information in Optimizer dashboard widgets.
 
-You can use any of the premade dashboards or you can create your own dashboard with customized reports. If you're unfamiliar with Cloudyn reports, see [Use Cost Management reports](use-reports.md).
+You can use any of the premade dashboards or you can create your own dashboard with customized reports. If you're unfamiliar with Cloudyn reports, see [Use Cloudyn reports](use-reports.md).
 
 ## Create a custom dashboard
 
@@ -292,4 +292,4 @@ This widget highlights the best mapping of elastic compute units between Amazon 
 - Click the widget to open the Instances Type Mapping report.
 
 ## Next steps
-- Read the [Use Cost Management reports](use-reports.md) article to learn more about reports.
+- Read the [Use Cloudyn reports](use-reports.md) article to learn more about reports.

@@ -325,7 +325,7 @@ To learn more about how to interpret health data, see [Azure resource health ove
 - [IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox][lnk-monitoring-notifications]
 
 
-[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-AM]: ../azure-monitor/index.yml
 [lnk-ARH]: ../service-health/resource-health-overview.md
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md

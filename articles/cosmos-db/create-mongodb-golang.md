@@ -134,7 +134,7 @@ The **mgo.Dial()** method is used when there is no SSL connection. For an SSL co
 An instance of the **DialWIthInfo{}** object is used to create the session object. Once the session is established, you can access the collection by using the following code snippet:
 
 ```go
-collection := session.DB(“database”).C(“package”)
+collection := session.DB("database").C("package")
 ```
 
 <a id="create-document"></a>

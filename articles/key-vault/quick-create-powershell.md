@@ -51,7 +51,7 @@ Although we use “Contoso KeyVault2” as the name for our Key Vault throughout
 - **Location** East US.
 
 ```azurepowershell-interactive
-New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+New-AzureRmKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
@@ -102,4 +102,4 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 In this quickstart, you have created a Key Vault and stored a software key in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
 
 > [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault from a web application using managed service identities, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md).
+> To learn how to read a secret from Key Vault from a web application using managed identities for Azure resources, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md).

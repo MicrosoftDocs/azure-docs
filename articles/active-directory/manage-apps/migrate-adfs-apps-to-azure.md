@@ -50,7 +50,7 @@ For an organization that already uses AD FS, Ping, or another on-premises authen
 - Azure AD, as an identity provider for SaaS apps, supports additional capabilities such as:
   - Token signing certificates per application.
   - [Configurable certificate expiration dates](manage-certificates-for-federated-single-sign-on.md).
-  - [Automated provisioning](../active-directory-saas-app-provisioning.md) of user accounts (in key Azure Marketplace apps) based on Azure AD identities.
+  - [Automated provisioning](user-provisioning.md) of user accounts (in key Azure Marketplace apps) based on Azure AD identities.
 
 **Keeping the benefits of an on-premises identity provider**
 - While you're gaining the Azure AD benefits, you can keep using your on-premises solution for authentication. That way, benefits like on-premises Multi-Factor Authentication solutions, logging, and auditing stay in place. 
@@ -146,7 +146,7 @@ Apps that you can migrate easily today include SAML 2.0 apps that use the standa
 - Given name.
 - Surname.
 - Alternate attribute as SAML **NameID**, including the Azure AD mail attribute, mail prefix, employee ID, extension attributes 1-15, or on-premises **SamAccountName** attribute. For more information, see [Editing the NameIdentifier claim](../develop/active-directory-saml-claims-customization.md).
-- Custom claims. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](../active-directory-claims-mapping.md) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+- Custom claims. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 In addition to custom claims and **NameID** elements, configurations that require additional configuration steps in Azure AD as part of the migration are:
 - Custom authorization or Multi-Factor Authentication rules in AD FS. You configure them by using the [Azure AD conditional access](../active-directory-conditional-access-azure-portal.md) feature.
@@ -166,7 +166,7 @@ Apps that require the following capabilities cannot be migrated today. If you ha
 - Claims in token capabilities:
     - Issuance of on-premises group names as claims.
     - Claims from stores other than Azure AD.
-    - Complex claims issuance transform rules. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](../active-directory-claims-mapping.md) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+    - Complex claims issuance transform rules. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
     - Issuance of directory extensions as claims.
     - Custom specification of the **NameID** format.
     - Issuance of multiple-value attributes.
@@ -227,10 +227,10 @@ Because of the configuration created earlier under **Identity** > **Single sign-
 ![Selecting Azure AD as the authentication service](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### Optional: Configure user provisioning in Azure AD
-If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
+If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md).
 
 ## Next steps
 
 - [Managing applications with Azure Active Directory](what-is-application-management.md)
 - [Manage access to apps](what-is-access-management.md)
-- [Azure AD Connect federation](../active-directory-aadconnectfed-whatis.md)
+- [Azure AD Connect federation](../hybrid/how-to-connect-fed-whatis.md)

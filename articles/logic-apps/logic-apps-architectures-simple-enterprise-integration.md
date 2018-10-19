@@ -290,7 +290,7 @@ For more information, see [Manage secrets in API Management](../api-management/a
 
 ## Diagnostics and monitoring
 
-You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) 
+You can use [Azure Monitor](../azure-monitor/overview.md) 
 for operational monitoring in both [API Management](../api-management/api-management-howto-use-azure-monitor.md) 
 and [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md). 
 Azure Monitor provides information based on the metrics configured for each service and is enabled by default.

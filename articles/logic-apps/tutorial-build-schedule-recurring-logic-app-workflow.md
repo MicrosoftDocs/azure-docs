@@ -12,7 +12,7 @@ ms.custom: mvc
 ms.date: 01/12/2018
 ---
 
-# Check traffic with a schedule-based logic app
+# Check traffic on a schedule with Azure Logic Apps
 
 Azure Logic Apps helps you automate workflows that run on a schedule. 
 This tutorial shows how you can build a [logic app](../logic-apps/logic-apps-overview.md) 

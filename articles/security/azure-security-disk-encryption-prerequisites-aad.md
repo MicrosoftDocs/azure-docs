@@ -1,18 +1,13 @@
 ---
 title: Azure Disk Encryption with Azure AD App Prerequisites (previous release) | Microsoft Docs
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 973cbdc1-12bc-4e0e-90cd-f19b045417a2
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na 
-ms.workload: na
-ms.date: 08/28/2018
 ms.author: mstewart
+ms.date: 10/12/2018
+
 ---
 # Azure Disk Encryption prerequisites (previous release)
 
@@ -49,11 +44,23 @@ An example of commands that can be used to mount the data disks and create the n
 
 ## <a name="bkmk_GPO"></a> Networking and Group Policy
 
-**To enable the Azure Disk Encryption feature, the IaaS VMs must meet the following network endpoint configuration requirements:**
+**To enable the Azure Disk Encryption feature using the older AAD parameter syntax, the IaaS VMs must meet the following network endpoint configuration requirements:** 
   - To get a token to connect to your key vault, the IaaS VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
   - To write the encryption keys to your key vault, the IaaS VM must be able to connect to the key vault endpoint.
   - The IaaS VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
-  -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../key-vault/key-vault-access-behind-firewall.md).    
+  -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../key-vault/key-vault-access-behind-firewall.md).
+  - On Windows, if TLS 1.0 has been explicitly disabled and the .NET version has not been updated to 4.6 or higher, the following registry change will enable ADE to select the more recent TLS version:
+    
+        [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+        "SystemDefaultTlsVersions"=dword:00000001
+        "SchUseStrongCrypto"=dword:00000001
+
+        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+        "SystemDefaultTlsVersions"=dword:00000001
+        "SchUseStrongCrypto"=dword:00000001` 
+     
+
+ 
 
 
 **Group Policy:**
@@ -65,12 +72,12 @@ An example of commands that can be used to mount the data disks and create the n
 ## <a name="bkmk_PSH"></a> Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) provides a set of cmdlets that uses the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model for managing your Azure resources. You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can install it on your local machine using the instructions below to use it in any PowerShell session. If you already have it installed locally, make sure you use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell release](https://github.com/Azure/azure-powershell/releases).
 
-### Install Azure PowerShell for use on your local machine (optional): 
+### Install Azure PowerShell for use on your local machine (optional):  
 1. Follow the instructions in the links for your operating system, then continue though the rest of the steps below.      
     - [Install and configure Azure PowerShell for Windows](/powershell/azure/install-azurerm-ps). 
         - Install PowerShellGet, Azure PowerShell, and load the AzureRM module. 
     - [Install and configure Azure Powershell on macOS and Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the AzureRM.Netcore module.
+        -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the Az module.
 2. Install the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
      ```powershell

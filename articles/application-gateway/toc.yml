@@ -27,6 +27,8 @@
     href: tutorial-url-route-cli.md
   - name: Redirect web traffic
     href: tutorial-url-redirect-cli.md
+  - name: Autoscaling and zone redundant
+    href: tutorial-autoscale-ps.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -41,10 +43,14 @@
     href: application-gateway-ssl-policy-overview.md
   - name: Web application firewall
     href: waf-overview.md
+  - name: WAF configuration
+    href: application-gateway-waf-configuration.md 
   - name: URL routing
     href: url-route-overview.md
   - name: Multiple site hosting
     href: multiple-site-overview.md
+  - name: Autoscaling and zone-redundancy
+    href: application-gateway-autoscaling-zone-redundant.md
   - name: Redirection support
     href: redirect-overview.md
   - name: Multi-tenant support
@@ -130,8 +136,6 @@
       href: create-web-app.md
   - name: Redirect web traffic using Azure PowerShell
     href: tutorial-url-redirect-powershell.md
-  - name: Create a zone redundant application gateway
-    href: create-zone-redundant.md
   - name: Custom probes
     items:
       - name: Portal
@@ -146,6 +150,8 @@
         href: application-gateway-troubleshooting-502.md
       - name: Diagnostics
         href: application-gateway-diagnostics.md
+  - name: Custom error pages
+    href: custom-error.md
 - name: Reference
   items:
   - name: CRS rules

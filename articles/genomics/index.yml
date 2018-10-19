@@ -3,14 +3,12 @@ documentType: LandingData
 title: Microsoft Genomics Documentation
 metadata:
   title: Microsoft Genomics Documentation
-  meta.description: Learn how to use the Microsoft Genomics service.
-  services: microsoft-genomics
+  meta.description: Learn how Microsoft Genomics can power genome sequencing using a cloud implementation of the Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK) for secondary analysis.
+  services: genomics
   author: grhuynh
-  manager: jhubbard
-  editor: jasonwhowell
+  manager: cgronlun
   ms.author: grhuynh
-  ms.service: microsoft-genomics
-  ms.workload: genomics
+  ms.service: genomics
   ms.topic: landing-page
   ms.date: 12/07/2017
 abstract:

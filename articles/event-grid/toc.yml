@@ -154,6 +154,8 @@
     href: sdk-overview.md
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-event-grid
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

@@ -25,7 +25,7 @@ The cognitive skills in Azure Search are based on the same AI algorithms used in
 Natural language and image processing is applied during the data ingestion phase, with results becoming part of a document's composition in a searchable index in Azure Search. Data is sourced as an Azure data set and then pushed through an indexing pipeline using whichever [built-in skills](cognitive-search-predefined-skills.md) you need. The architecture is extensible so if the built-in skills are not sufficient, you can create and attach [custom skills](cognitive-search-create-custom-skill-example.md) to integrate custom processing. Examples might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
 > [!NOTE]
-> Cognitive search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced. 
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
 
 ## Components of cognitive search
 

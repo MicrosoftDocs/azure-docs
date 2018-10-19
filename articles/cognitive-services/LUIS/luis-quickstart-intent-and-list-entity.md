@@ -1,72 +1,59 @@
 ---
-title: Tutorial create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
-description: In this tutorial, learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
+title: "Tutorial 4: Exact text match - LUIS list entity"
+titleSuffix: Azure Cognitive Services
+description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
 author: diberry
-manager: cjgronlund
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Tutorial: 4. Add list entity
-In this tutorial, create an app that demonstrates how to get data that matches a predefined list. 
+# Tutorial 4: Extract exact text matches
+In this tutorial, understand how to get data that matches a predefined list of items. Each item on the list can include a list of synonyms. For the human resources app, an employee can be identified be several key pieces of information such as name, email, phone number, and U.S. federal tax ID. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Understand list entities 
-> * Create new LUIS app for the Human Resources (HR) domain with MoveEmployee intent
-> * Add list entity to extract Employee from utterance
-> * Train, and publish app
-> * Query endpoint of app to see LUIS JSON response
+The Human Resources app needs to determine which employee is moving from one building to a different building. For an utterance about an employee move, LUIS determines the intent, and extracts the employee so that a standard order to move the employee can be created by the client application.
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Before you begin
-If you don't have the Human Resources app from the [regex entity](luis-quickstart-intents-regex-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
-## Purpose of the list entity
-This app predicts utterances about moving an employee from one building to a different building. This app uses a list entity to extract an employee. The employee can be referred to using name, phone number, email, or U.S. federal social security number. 
-
-A list entity can hold many items with synonyms for each item. For a small to medium size company, the list entity is used to extract the employee information. 
-
-The canonical name for each item is the employee number. For this domain, examples of the synonyms are: 
-
-|Synonym purpose|Synonym value|
-|--|--|
-|Name|John W. Smith|
-|Email address|john.w.smith@mycompany.com|
-|Phone extension|x12345|
-|Personal mobile phone number|425-555-1212|
-|U.S. federal social security number|123-45-6789|
+This app uses a list entity to extract the employee. The employee can be referred to using name, company phone extension, mobile phone number, email, or U.S. federal social security number. 
 
 A list entity is a good choice for this type of data when:
 
 * The data values are a known set.
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
-* The text in the utterance is an exact match with a synonym. 
+* The text in the utterance is an exact match with a synonym or the canonical name. 
 
-LUIS extracts the employee in such as way that a standard order to move the employee can be created by the client application.
-<!--
-## Example utterances
-Simple example utterances for a `MoveEmployee` inent:
+**In this tutorial, you learn how to:**
 
-```
-move John W. Smith from B-1234 to H-4452
-mv john.w.smith@mycompany from office b-1234 to office h-4452
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Use existing tutorial app
+> * Add MoveEmployee intent
+> * Add list entity 
+> * Train 
+> * Publish
+> * Get intents and entities from endpoint
 
-```
--->
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Add MoveEmployee intent
+## Use existing app
+Continue with the app created in the last tutorial, named **HumanResources**. 
 
-1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL. 
+
+
+## MoveEmployee intent
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Create new intent**. 
 
@@ -91,8 +78,23 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## Create an employee list entity
-Now that the **MoveEmployee** intent has utterances, LUIS needs to understand what an employee is. 
+    Remember that number and datetimeV2 were added in a previous tutorial and will be automatically labeled when they are found in any example utterances.
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## Employee list entity
+Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what an employee is. 
+
+The primary, _canonical_, name for each item is the employee number. For this domain, examples of the synonyms of each canonical name are: 
+
+|Synonym purpose|Synonym value|
+|--|--|
+|Name|John W. Smith|
+|Email address|john.w.smith@mycompany.com|
+|Phone extension|x12345|
+|Personal mobile phone number|425-555-1212|
+|U.S. federal social security number|123-45-6789|
+
 
 1. Select **Entities** in the left panel.
 
@@ -130,17 +132,17 @@ Now that the **MoveEmployee** intent has utterances, LUIS needs to understand wh
     |Personal mobile phone number|425-555-0000|
     |U.S. federal social security number|234-56-7891|
 
-## Train the LUIS app
+## Train
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish the app to get the endpoint URL
+## Publish
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query the endpoint with a different utterance
+## Get intent and entities from endpoint
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Go to the end of the URL in the address and enter `shift 123-45-6789 from Z-1242 to T-54672`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with `Employee` extracted.
 
@@ -256,22 +258,12 @@ Now that the **MoveEmployee** intent has utterances, LUIS needs to understand wh
 
   The employee was found and returned as type `Employee` with a resolution value of `Employee-24612`.
 
-## Where is the natural language processing in the List entity? 
-Because the list entity is an exact text match, it doesn't rely on natural language processing (or machine-learning). LUIS does use natural language processing (or machine-learning) to select the correct top-scoring intent. Additionally, an utterance can be a mix of more than one entity or even more than one type of entity. Each utterance is processed for all the entities in the app, including natural language processing (or machine-learned) entities.
-
-## What has this LUIS app accomplished?
-This app, with a list entity, extracted the correct employee. 
-
-Your chatbot now has enough information to determine the primary action, `MoveEmployee`, and which employee to move. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
-
 ## Clean up resources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+This tutorial created a new intent, added example utterances, then created a list entity to extract exact text matches from utterances. After training, and publishing the app, a query to the endpoint identified the intention and returned the extracted data.
 
 > [!div class="nextstepaction"]
 > [Add a hierarchical entity to the app](luis-quickstart-intent-and-hier-entity.md)

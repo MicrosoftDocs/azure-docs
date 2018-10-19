@@ -227,7 +227,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[More info here](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
+[More info here](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 
 ## Schema of Logs & Events
 
@@ -388,7 +388,7 @@ ADFV2 emits the following metrics
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Succeeded pipeline runs metrics | Count    | Total                | Total pipelines runs succeeded within a minute window |
 | PipelineFailedRuns   | Failed pipeline runs metrics    | Count    | Total                | Total pipelines runs failed within a minute window    |
-| ActiviySucceededRuns | Succeeded activity runs metrics | Count    | Total                | Total activity runs succeeded within a minute window  |
+| ActivitySucceededRuns | Succeeded activity runs metrics | Count    | Total                | Total activity runs succeeded within a minute window  |
 | ActivityFailedRuns   | Failed activity runs metrics    | Count    | Total                | Total activity runs failed within a minute window     |
 | TriggerSucceededRuns | Succeeded trigger runs metrics  | Count    | Total                | Total trigger runs succeeded within a minute window   |
 | TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | Total trigger runs failed within a minute window      |

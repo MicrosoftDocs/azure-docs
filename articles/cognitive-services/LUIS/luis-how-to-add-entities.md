@@ -1,14 +1,14 @@
 ---
-title: Add entities in LUIS apps | Microsoft Docs
-titleSuffix: Azure
+title: Add entities in LUIS apps
+titleSuffix: Azure Cognitive Services
 description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
@@ -26,8 +26,6 @@ Prebuilt entities are defined in the [Recognizers-Text](https://github.com/Micro
  
 2. On the **Entities** page, select **Manage prebuilt entities**.
 
-    ![Screenshot of adding prebuilt entity on Entities Page](./media/add-entities/manage-prebuilt-entities-button.png)
-
 3. In **Add or remove prebuilt entities** dialog box, select the **number** and **datetimeV2** prebuilt entities. Then select **Done**.
 
     ![Screenshot of Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
@@ -38,8 +36,6 @@ Prebuilt entities are defined in the [Recognizers-Text](https://github.com/Micro
 A simple entity is a generic entity that describes a single concept. 
 
 1. In your app, from the **Build** section, and then click **Entities** in the left panel, and then select **Create new entity**.
-
-    ![Screenshot of Entities page with Create new entity button highlighted](./media/add-entities/create-new-entity-button.png)
 
 2. In the pop-up dialog box, type `Airline` in the **Entity name** box,  select **Simple** from the **Entity type** list, and then select **Done**.
 
@@ -52,7 +48,7 @@ A regular expression entity is used to pull out data from the utterance based on
 
 1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
 
-2. In the pop-up dialog box, , type `AirFrance Flight` in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. 
+2. In the pop-up dialog box, enter `AirFrance Flight` in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. 
 
     This AirFrance Flight regular expression expects three characters, literally `AFR`, then 3 or 4 digits. The digits can be any number between 0 and 9. The regular expression matches AirFrance flight numbers such as: "AFR101", "ARF1302", and "AFR5006". See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting the entity from the endpoint JSON query response.
 

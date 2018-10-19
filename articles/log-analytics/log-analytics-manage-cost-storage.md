@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
  
 # Manage cost by controlling data volume and retention in Log Analytics

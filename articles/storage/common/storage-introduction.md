@@ -80,7 +80,7 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 ## Disk storage
 
-Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
+Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
 
 ## Types of storage accounts
 
@@ -88,7 +88,7 @@ This table shows the various kinds of storage accounts and which objects can be 
 
 |**Type of storage account**|**General-purpose Standard**|**General-purpose Premium**|**Blob storage, hot and cool access tiers**|
 |-----|-----|-----|-----|
-|**Services supported**| Blob, File, Queue Services | Blob Service | Blob Service|
+|**Services supported**| Blob, File, Queue, and Table Services | Blob Service | Blob Service|
 |**Types of blobs supported**|Block blobs, page blobs, and append blobs | Page blobs | Block blobs and append blobs|
 
 ### General-purpose storage accounts

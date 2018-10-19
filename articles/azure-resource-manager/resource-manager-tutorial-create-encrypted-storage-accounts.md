@@ -11,13 +11,13 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
 
 ---
 
-# Tutorial: create an Azure Resource Manager template for deploying an encrypted storage account
+# Tutorial: Create an Azure Resource Manager template for deploying an encrypted storage account
 
 Learn how to find information to complete an Azure Resource Manager template.
 
@@ -37,8 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Tools extension. To install, see [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## Open a Quickstart template
 
@@ -53,7 +52,7 @@ The template used in this quickstart is called [Create a standard storage accoun
 3. Select **Open** to open the file.
 4. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
-## Understand the format
+## Understand the schema
 
 From VS Code, collapse the template to the root level. You have the simplest structure with the following elements:
 
@@ -66,7 +65,7 @@ From VS Code, collapse the template to the root level. You have the simplest str
 * **resources**: specify the resource types that are deployed or updated in a resource group.
 * **outputs**: specify the values that are returned after deployment.
 
-## Use parameters in template
+## Use parameters
 
 Parameters enable you to customize the deployment by providing values that are tailored for a particular environment. You use the parameters defined in the template when setting values for the storage account.
 
@@ -87,7 +86,7 @@ To use the parameters defined in the template:
 "name": "[parameters('storageAccountType')]"
 ```
 
-## Use variables in template
+## Use variables
 
 Variables allow you to construct values that can be used throughout your template. Variables help reducing the complexity of the templates.
 
@@ -109,9 +108,14 @@ To use the variable defined in the template:
 The goal of this tutorial is to define a template to create an encrypted storage account.  The sample template only creates a basic unencrypted storage account. To find the encryption-related configuration, you can use the template reference of Azure Storage account.
 
 1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
-2. From the TOC on the left, select **Reference**->**Storage**->**Storage Accounts**. You can also enter **storage** in the **Filter by title** field.  The page contains the schema for defining a Storage Account information.
-3. Explore the encryption-related information.  
-4. Inside the properties element of the storage account resource definition, add the following json:
+2. In **Filter by title**, enter **storage accounts**.
+3. Select **Reference/Template reference/Storage/Storage Accounts** as shown in the following screenshot:
+
+    ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Explore the encryption-related information.  
+1. Inside the properties element of the storage account resource definition, add the following json:
 
     ```json
     "encryption": {
@@ -148,7 +152,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to use template reference to customize an existing template. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources. Some of the resources have dependent resources.
+In this tutorial, you learned how to use template reference to customize an existing template. To learn how to create multiple storage account instances, see:
 
 > [!div class="nextstepaction"]
-> [Create multiple resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create multiple instances](./resource-manager-tutorial-create-multiple-instances.md)

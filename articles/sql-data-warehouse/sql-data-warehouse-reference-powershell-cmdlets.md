@@ -83,7 +83,7 @@ For more PowerShell examples, see:
 * [Create a SQL Data Warehouse using PowerShell][Create a SQL Data Warehouse using PowerShell]
 * [Database restore][Database restore]
 
-For other tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][Azure SQL Database Cmdlets]. Note that not all Azure SQL Database cmdlets are supported for Azure SQL Data Warehouse.  For a list of tasks which can be automated with REST, see [Operations for Azure SQL Databases][Operations for Azure SQL Databases].
+For other tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][Azure SQL Database Cmdlets]. Note that not all Azure SQL Database cmdlets are supported for Azure SQL Data Warehouse.  For a list of tasks which can be automated with REST, see [Operations for Azure SQL Database][Operations for Azure SQL Database].
 
 <!--Image references-->
 
@@ -95,7 +95,7 @@ For other tasks which can be automated with PowerShell, see [Azure SQL Database 
 
 <!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.sql
-[Operations for Azure SQL Databases]: https://msdn.microsoft.com/library/azure/dn505719.aspx
+[Operations for Azure SQL Database]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase
 [Get-AzureRmSqlDeletedDatabaseBackup]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-AzureRmSqlDeletedDatabaseBackup
 [Get-AzureRmSqlDatabaseRestorePoints]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-AzureRmSqlDatabaseRestorePoints

@@ -29,7 +29,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 ## Prerequisites
 
-* **An HDInsight cluster**: See [Get Started with HDInsight on Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
