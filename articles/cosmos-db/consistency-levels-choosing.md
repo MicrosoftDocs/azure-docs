@@ -20,7 +20,7 @@ Distributed databases relying on replication for high availability, low latency 
 
 ## SQL API or Table API
 
-- For many real-world scenarios, session consistency is optimal and it is the recommended option. For more details see, [How-to manage session token for your application](how-to-manage-consistency.md).
+- For many real-world scenarios, session consistency is optimal and it is the recommended option. For more details see, [How-to manage session token for your application](how-to-manage-consistency.md#Utilize-session-tokens).
 - If your application requires strong consistency or if you need stricter consistency guarantees than the ones provided by session consistency but still need single-digit-millisecond latency for writes, it is recommended you use bounded staleness consistency level.  
 - If your application requires eventual consistency or if you need less strict consistency guarantees than what is provided by session consistency, it is recommended you use consistent prefix consistency level. If you need the highest availability and lowest latency then use eventual consistency level.
 
@@ -45,6 +45,6 @@ If your Cosmos DB account is configured with any consistency level other than th
 
 Read more about the topic in the following articles:
 
-- [How to manage the session token for your application](how-to-manage-consistency.md)
+- [How to manage the session token for your application](how-to-manage-consistency.md#Utilize-session-tokens)
 - [How to use the PBS metric](tbd.md)
 - [Consistency Levels and choice of Cosmos DB API](consistency-levels-across-apis.md)
