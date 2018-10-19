@@ -33,24 +33,24 @@ Azure HDInsight is a cloud distribution of the Hadoop components from the [Hort
 
 ## Advantages that Azure HDInsight offers over on-premises Hadoop
 
-- **Low cost** - Costs can be reduced by [creating clusters on demand](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf) and paying only for what you use. Decoupled compute and storage provides flexibility keep the data volume independent of the cluster size.
+- **Low cost** - Costs can be reduced by [creating clusters on demand](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf) and paying only for what you use. Decoupled compute and storage provides flexibility keep the data volume independent of the cluster size.
 - **Automated cluster creation** - Automated cluster creation requires minimal setup and configuration. Automation can be used for on-demand clusters.
 - **Managed hardware and configuration** - There's no need to worry about the physical hardware or infrastructure with an HDInsight cluster. Just specify the configuration of the cluster, and Azure sets it up.
-- **Easily Scalable** - HDInsight enables you to [scale](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-administer-use-portal-linux) workloads up or down. Azure takes care of data redistribution and workload rebalancing without interrupting the jobs.
+- **Easily Scalable** - HDInsight enables you to [scale](https://docs.microsoft.com/azure/hdinsight/hdinsight-administer-use-portal-linux) workloads up or down. Azure takes care of data redistribution and workload rebalancing without interrupting the jobs.
 - **Global availability** -  HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/)than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas.
-- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network), [encryption](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage), and integration with [Azure Active Directory](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
+- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network), [encryption](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage), and integration with [Azure Active Directory](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
 - **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up-to-date. Software updates are usually a complex process for on-premises deployments.
 - **Smaller clusters optimized for specific workloads with fewer dependencies between components** -  A typical on-premises Hadoop setup uses a single cluster that serves many purposes. With Azure HDInsight, workload-specific clusters can be created. Creating clusters for specific workloads removes the complexity of maintaining a single cluster with growing complexity.
 - **Productivity** - You can use various tools for Hadoop and Spark in your preferred development environment.
 - **Extensibility with custom tools or third-party Applications** - HDInsight clusters can be extended with installed components and can also be integrated with the other big data solutions by using [one-click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) deployments from the Azure Market place.
 - **Easy Management, Administration, and Monitoring** - Azure HDInsight integrates with [Azure Log
-Analytics](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial) to
+Analytics](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial) to
 provide a single interface with which you can monitor all your clusters.
 - **Integration with other Azure services** - HDInsight can easily be integrated with other popular Azure services such as Azure Data Factory (ADF), Azure Blob, Azure Data Lake Store Gen2, Azure Cosmos DB, Azure SQL Database, and Azure Analysis Services.
 - **Self-healing processes and components** - HDInsight constantly checks the infrastructure and open-source components using its own monitoring infrastructure. It also automatically recovers critical failures such as unavailability of open-source components and nodes. Alerts are triggered in Ambari if any OSS component is failed.
 
-For more information, see the article [What is Azure HDInsight and the Hadoop technology stack](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-introduction).
+For more information, see the article [What is Azure HDInsight and the Hadoop technology stack](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
 
 ## Proposed Azure HDInsight Architecture and Migration Best practices
 
@@ -75,17 +75,17 @@ The following table shows the different methods that can be used to create HDIns
 
 |**Tool**|**Browser based**|**Command Line**|**REST API**|**SDK**|
 |---|---|---|---|---|
-|[Azure portal](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-portal)|X||||
-|[Azure Data Factory](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf)|X|X|X|X|
-|[Azure CLI (ver 1.0)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli)||X|||
-|[Azure PowerShell](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell)||X|||
-|[cURL](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest)||X|X||
-|[.NET SDK](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk)||||X|
+|[Azure portal](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-portal)|X||||
+|[Azure Data Factory](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf)|X|X|X|X|
+|[Azure CLI (ver 1.0)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli)||X|||
+|[Azure PowerShell](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell)||X|||
+|[cURL](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest)||X|X||
+|[.NET SDK](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk)||||X|
 |Python SDK||||X|
 |Java SDK||||X|
-|[Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates)||X|||
+|[Azure Resource Manager templates](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates)||X|||
 
-For more information, see the article [Cluster types in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-introduction)
+For more information, see the article [Cluster types in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
 
 ### Use Transient on-demand clusters
 
@@ -95,7 +95,7 @@ When you delete a cluster, the associated storage account and external metadata 
 
 Azure Data Factory can be used to schedule creation of on-demand HDInsight clusters.
 
-For more information, see the article [Create on-demand Hadoop clusters in HDInsight using Azure Data Factory](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf)
+For more information, see the article [Create on-demand Hadoop clusters in HDInsight using Azure Data Factory](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf)
 
 ### Decouple Storage from Compute
 
@@ -130,16 +130,16 @@ One of the below formats can be used to access data that is stored in Azure Stor
 - `wasbs:///`: Access default storage using encrypted communication.
 - `wasb://<container-name>@<account-name>.blob.core.windows.net/`:    Used when communicating with a non-default storage account. 
 
-[Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets) lists the current limits on the Azure storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
+[Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets) lists the current limits on the Azure storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
 
-[Azure Storage Analytics](https://docs.microsoft.com/en-us/azure/storage/storage-analytics) provides metrics for all storage services and Azure portal can be configured collect metrics to be visualized through charts. Alerts can be created to notify when thresholds have been reached for storage resource metrics.
+[Azure Storage Analytics](https://docs.microsoft.com/azure/storage/storage-analytics) provides metrics for all storage services and Azure portal can be configured collect metrics to be visualized through charts. Alerts can be created to notify when thresholds have been reached for storage resource metrics.
 
-Azure Storage offers [soft delete for blob objects](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete) so as to easily recover data when it is erroneously modified or deleted by an application or other storage account user.
+Azure Storage offers [soft delete for blob objects](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) so as to easily recover data when it is erroneously modified or deleted by an application or other storage account user.
 
-The [snapshot](https://docs.microsoft.com/en-us/rest/api/storageservices/creating-a-snapshot-of-a-blob) of a blob can be created. A snapshot is a read-only version of a blob that's taken at a point in time. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Snapshots provide a way to back up a blob as it appears at a moment in time.
+The [snapshot](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) of a blob can be created. A snapshot is a read-only version of a blob that's taken at a point in time. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Snapshots provide a way to back up a blob as it appears at a moment in time.
 
->[!Note]: 
->For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store. Below are the sample commands that can be used for this after replacing storage account with your storage account.
+> [!Note]
+> For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store. Below are the sample commands that can be used for this after replacing storage account with your storage account.
 
 - Download the Azure Blob ssl cert to a file
 
@@ -163,11 +163,11 @@ blobtrust -file Azure_Storage.cer
 
 For more information, see the following articles 
 
-- [Use Azure storage with Azure HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage)
-- [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets)
-- [Microsoft Azure Storage Performance and Scalability Checklist](https://docs.microsoft.com/en-us/azure/storage/common/storage-performance-checklist)
-- [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-monitoring-diagnosing-troubleshooting)
-- [Monitor a storage account in the Azure portal](https://docs.microsoft.com/en-us/azure/storage/common/storage-monitor-storage-account)
+- [Use Azure storage with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage)
+- [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
+- [Microsoft Azure Storage Performance and Scalability Checklist](https://docs.microsoft.com/azure/storage/common/storage-performance-checklist)
+- [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting)
+- [Monitor a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
 #### Azure Data Lake Store Gen1
 
@@ -201,28 +201,28 @@ ADLS Gen1 is currently available in the following Regions
 
 For more information, see the following articles
 
-- [Create HDInsight clusters with Data Lake Store by using the Azure portal](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)
-- [Use Data Lake Store with Azure HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-data-lake-store)
+- [Create HDInsight clusters with Data Lake Store by using the Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)
+- [Use Data Lake Store with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store)
 
 #### Azure Data Lake Storage Gen2 (Preview)
 
 Azure Data Lake Storage Gen2 is the latest storage offering and is in Preview at the time of writing of this paper. It unifies the core capabilities from the first generation of Azure Data Lake store with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
 
-ADLS Gen 2 is built on top of [Azure Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) and allows you to interface with data using both file system and object storage paradigms. Features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/en-us/azure/data-lake-store/index), such as file system semantics, file-level security, and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities, and a large SDK/tooling ecosystem from [Azure Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction). In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
+ADLS Gen 2 is built on top of [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) and allows you to interface with data using both file system and object storage paradigms. Features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), such as file system semantics, file-level security, and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities, and a large SDK/tooling ecosystem from [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
-A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](https://docs.microsoft.com/en-us/azure/storage/data-lake-storage/namespace) to the Blob storage service, which organizes objects/files into a hierarchy of directories for performant data access. The hierarchical structure enables operations such as renaming or deleting a directory to be single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
+A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](https://docs.microsoft.com/azure/storage/data-lake-storage/namespace) to the Blob storage service, which organizes objects/files into a hierarchy of directories for performant data access. The hierarchical structure enables operations such as renaming or deleting a directory to be single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. Below are the Key features of Data Lake Storage Gen2.
 
-- **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](https://docs.microsoft.com/en-us/azure/storage/data-lake-storage/abfs-driver) is available within all Apache Hadoop environments, including [Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/index) to access data stored in Data Lake Storage Gen2.
+- **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](https://docs.microsoft.com/azure/storage/data-lake-storage/abfs-driver) is available within all Apache Hadoop environments, including [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) to access data stored in Data Lake Storage Gen2.
 
 - **A superset of POSIX permissions**: The security model for Data Lake Gen2 fully supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through admin tools or through frameworks like Hive and Spark.
 
-- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete life-cycle, billing rates change to minimize costs via built-in features such as [Azure Blob storage life cycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts).
+- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete life-cycle, billing rates change to minimize costs via built-in features such as [Azure Blob storage life cycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
 
 - **Works with Blob storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob storage.
 
-- **Optimized driver**: The Azure Blob Filesystem driver (ABFS) is [optimized specifically](https://docs.microsoft.com/en-us/azure/storage/data-lake-storage/abfs-driver) for big data analytics. The corresponding REST APIs are surfaced through the dfs endpoint, dfs.core.windows.net.
+- **Optimized driver**: The Azure Blob Filesystem driver (ABFS) is [optimized specifically](https://docs.microsoft.com/azure/storage/data-lake-storage/abfs-driver) for big data analytics. The corresponding REST APIs are surfaced through the dfs endpoint, dfs.core.windows.net.
 
 One of the below formats can be used to access data that is stored in ADLS Gen2
 - `abfs:///`: Access the default Data Lake Store for the cluster.
@@ -230,8 +230,8 @@ One of the below formats can be used to access data that is stored in ADLS Gen2
 
 For more information, see the following articles
 
-- [Introduction to Azure Data Lake Storage Gen2 Preview](https://docs.microsoft.com/en-us/azure/storage/data-lake-storage/introduction)
-- <https://docs.microsoft.com/en-us/azure/storage/data-lake-storage/abfs-driver>
+- [Introduction to Azure Data Lake Storage Gen2 Preview](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+- <https://docs.microsoft.com/azure/storage/data-lake-storage/abfs-driver>
 
 ### Protect Azure Storage key visibility within the on-premises Hadoop cluster configuration
 
@@ -256,7 +256,7 @@ fs.azure.account.key.account.blob.core.windows.net -value <storage key> -provide
 </property>
 ```
 
-> [!Note] 
+> [!Note]
 > The provider path property can also be added to the distcp command line instead of storing key at cluster level at core-site.xml as below.
 
 ```bash
@@ -292,32 +292,32 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 8. In the Ambari web UI, select HDFS from the list on the left, and then select Restart All Affected from the Service Actions drop down list on the right. When prompted, select Confirm Restart All.
 9. Repeat this process for MapReduce2 and YARN.
 
-> [!Note] 
+> [!Note]
 > When SAS tokens are created with "READ + LIST" permissions, users who access the Blob container with that SAS token won't be able to "write and delete" data. Users who access the Blob container with that SAS token and try a write or delete operation, will receive a message like `"This request is not authorized to perform this operation"`.
 
-> [!Note]: 
+> [!Note]
 > When the SAS tokens are generated with "READ + LIST + WRITE" permissions (to restrict "DELETE" only), the commands like "hadoop fs -put" first write to a "\_COPYING\_" file and then try to rename the file. This maps to a "copy+delete" for WASB. Since the "DELETE" permission was not provided, the "put" would fail. The "\_COPYING\_" operation is a Hadoop feature intended to provide some concurrency control. Currently there is no way to restrict just the "DELETE" operation without affecting "WRITE" operations as well.
 
->[!Note]:
-> Unfortunately, the hadoop credential provider and decryption key provider(ShellDecryptionKeyProvider) currently do not work with the SAS tokens and so it currently cannot be protected from visibility.
+>[!Note]
+> Unfortunately, the hadoop credential provider and decryption key provider (ShellDecryptionKeyProvider) currently do not work with the SAS tokens and so it currently cannot be protected from visibility.
 
-For more information, see the article
-https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storage-sharedaccesssignature-permissions
+For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storage-sharedaccesssignature-permissions)
+
 
 ### Use Data encryption and Replication
 
-All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption). The data in the Azure storage account is always replicated for high availability. When you create a storage account, you can choose one of the following replication options:
+All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). The data in the Azure storage account is always replicated for high availability. When you create a storage account, you can choose one of the following replication options:
 
-- [Locally redundant storage (LRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs)
-- [Zone-redundant storage (ZRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs)
-- [Geo-redundant storage (GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs)
-- [Read-access geo-redundant storage (RA-GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage)
-Azure Data Lake Store provides locally redundant storage (LRS) but you should also copy critical data to another Data Lake Store account in another region with a frequency aligned to the needs of the disaster recovery plan. There are a variety of methods to copy data including [ADLCopy](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob), DistCp, [Azure PowerShell](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell), or [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store). It is also recommended to enforce access policies for Data Lake Store account to prevent accidental deletion.
+- [Locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+- [Zone-redundant storage (ZRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)
+- [Geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)
+- [Read-access geo-redundant storage (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage)
+Azure Data Lake Store provides locally redundant storage (LRS) but you should also copy critical data to another Data Lake Store account in another region with a frequency aligned to the needs of the disaster recovery plan. There are a variety of methods to copy data including [ADLCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob), DistCp, [Azure PowerShell](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell), or [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store). It is also recommended to enforce access policies for Data Lake Store account to prevent accidental deletion.
 
 For more information, see the following articles:
 
-- [Azure storage replication](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
-- [Disaster guidance for ADLS](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-disaster-recovery-guidance)
+- [Azure storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Disaster guidance for ADLS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-disaster-recovery-guidance)
 
 ### Attaching additional Azure storage accounts to the cluster
 
@@ -325,14 +325,14 @@ During the HDInsight creation process, an Azure Storage account or Azure Data La
 
 Additional storage account can be added in one on the following ways:
 - Ambari HDFS Config Advanced Custom core-site Add the storage Account Name and key Restarting the services
-- Using [Script action](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-add-storage)
+- Using [Script action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-add-storage)
     by passing the storage account name and key
 
->[!Note]
->In valid use-cases, the limits on the Azure storage can be increased via a request made to [Azure Support](https://azure.microsoft.com/support/faq/).
+> [!Note]
+> In valid use-cases, the limits on the Azure storage can be increased via a request made to [Azure Support](https://azure.microsoft.com/support/faq/).
 
 For more information, see the following articles:
-- [Add additional storage accounts to HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-add-storage)
+- [Add additional storage accounts to HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-add-storage)
 - [Attach additional Azure storage accounts to the cluster](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ### Plan well for the capacity needed for HDInsight clusters
@@ -344,11 +344,11 @@ The key things to identify for HDInsight cluster capacity planning are:
 - **Choose the VM size and type (now supports the G-series)** - Each cluster type has a set of node types, and each node type has specific options for their VM size and type. The VM size and type is determined by CPU processing power, RAM size, and network latency. A simulated workload can be used to determine the optimal VM size and type for each node types.
 - **Choose the number of worker nodes** - The initial number of worker nodes can be determined using the simulated workloads. The cluster can be scaled later by adding more worker nodes to meet peak load demands. The cluster can later be scaled back when the additional worker nodes are not required.
 
-For more information, see the article [Capacity planning for HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-capacity-planning)
+For more information, see the article [Capacity planning for HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning)
 
 ### Use the recommended Virtual Machine types for Cluster Nodes
 
-The following table lists the recommended and default Virtual Machine types for the cluster Nodes supported regions except [Brazil South and Japan West](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+The following table lists the recommended and default Virtual Machine types for the cluster Nodes supported regions except [Brazil South and Japan West](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 |**Node type**|**Cluster type**|||||
 |---|---|---|---|---|---|---|
@@ -358,8 +358,8 @@ The following table lists the recommended and default Virtual Machine types for 
 |Zookeeper||A4 v2, A8 v2, A2m v2||A2 v2, A4 v2, A8 v2|||
 |Edge|D4 v2, D12 v2, D13 v2, D14 v2|D4 v2, D12 v2, D13 v2, D14 v2|D4 v2, D12 v2, D13 v2, D14 v2|D4 v2, D12 v2, D13 v2, D14 v2|D4 v2, D12 v2, D13 v2, D14 v2|D4 v2, D12 v2, D13 v2, D14 v2|
 
->[!Note]
->If the cluster needs more than 32 worker nodes, head node VM should have at least 8 cores and 14 GB of RAM.
+> [!Note]
+> If the cluster needs more than 32 worker nodes, head node VM should have at least 8 cores and 14 GB of RAM.
 
 ### Check the availability of Hadoop components in HDInsight
 
@@ -421,7 +421,7 @@ Applications or components that were available in On-premises clusters but are n
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-For more information, see the article [Hadoop components available with different HDInsight versions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions)
+For more information, see the article [Hadoop components available with different HDInsight versions](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions)
 
 ### Customize HDInsight clusters using script actions
 
@@ -441,22 +441,22 @@ HDInsight provides scripts to install the following components on HDInsight clus
 - Pre-load Hive libraries
 - Install or update Mono
 
->[!Note]: 
->HDInsight does not provide direct support for custom hadoop components or components installed using script actions.
+> [!Note]
+> HDInsight does not provide direct support for custom hadoop components or components installed using script actions.
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. The
 
 For more information, see the following articles
 
-- [Install third-party Hadoop Applications on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apps-install-applications)
-- [Customize HDInsight clusters using script actions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
-- [Publish an HDInsight application in the Azure Marketplace](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apps-publish-applications)
+- [Install third-party Hadoop Applications on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
+- [Customize HDInsight clusters using script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+- [Publish an HDInsight application in the Azure Marketplace](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-publish-applications)
 
 ### Customize HDInsight configs using Bootstrap
 
 Changes to configs in the config files such as core-site.xml, hive-site.xml and oozie-env.xml can be made using bootstrap. Below is an example using Powershell.
 
-For more information, see the article [Customize HDInsight clusters using Bootstrap](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-bootstrap)
+For more information, see the article [Customize HDInsight clusters using Bootstrap](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-bootstrap)
 
 ### Use edge nodes on Hadoop clusters in HDInsight to access the client tools
 
@@ -468,7 +468,7 @@ An empty edge node is a Linux virtual machine with the same client tools install
 
 Edge nodes can be used during or after cluster creation. After the edge node has been created, you can connect to the edge node using SSH, and run client tools (for example, beeline and hive) to access the Hadoop cluster in HDInsight. The edge node ssh endpoint is `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`. The edge node can be deleted from the Azure portal.
 
-For more information, see the article [Use empty edge nodes on Hadoop clusters in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apps-use-edge-node)
+For more information, see the article [Use empty edge nodes on Hadoop clusters in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-use-edge-node)
 
 ### Use the Scale-up and Scale-down feature of Cluster
 
@@ -502,7 +502,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 After leaving safe mode, you can manually remove the temporary files, or wait for Hive to eventually clean them up automatically.
 
-For more information, see the article [Scale HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-scaling-best-practices)
+For more information, see the article [Scale HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-scaling-best-practices)
 
 ### Use HDInsight with Azure Virtual Network
 
@@ -514,25 +514,25 @@ Using Azure Virtual Network with HDInsight enables the following scenarios:
 - Connecting HDInsight to data stores in an Azure Virtual network.
 - Directly accessing Hadoop services that are not available publicly over the internet. For example, Kafka APIs or the HBase Java API.
 
-HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1)
-in the Azure data center. Also, make sure not to block traffic to the [ports](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ports) which are being used by HDInsight services.
+HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1)
+in the Azure data center. Also, make sure not to block traffic to the [ports](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ports) which are being used by HDInsight services.
 
-> [!Note]:
+> [!Note]
 > HDInsight does not currently support forced tunneling. Forced tunneling is a subnet setting that forces outbound Internet traffic to a device for inspection and logging. Either remove forced tunneling before installing HDInsight into a subnet or create a new subnet for HDInsight. HDInsight also does not support restricting outbound network connectivity.
 
 For more information, see the following articles
 
-- [Azure virtual-networks-overview](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
-- [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
+- [Azure virtual-networks-overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+- [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
 ### Use Azure Virtual Network Service Endpoints to securely connect to other Azure Services
 
-HDInsight supports [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) which allows customers to securely connect to Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB, and SQL databases. By enabling a Service Endpoint for Azure HDInsight, traffic flows through a secured route from within the Azure data center. With this enhanced level of security at the networking layer, customers can lock down their big data storage accounts to their specified Virtual Networks (VNETs) and still use HDInsight clusters seamlessly to access and process that data.
+HDInsight supports [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) which allows customers to securely connect to Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB, and SQL databases. By enabling a Service Endpoint for Azure HDInsight, traffic flows through a secured route from within the Azure data center. With this enhanced level of security at the networking layer, customers can lock down their big data storage accounts to their specified Virtual Networks (VNETs) and still use HDInsight clusters seamlessly to access and process that data.
 
 For more information, see the following articles
 
-- [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview)
-- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/)
+- [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ### Connecting HDInsight to on-premises network
 
@@ -542,7 +542,7 @@ HDInsight can be connected to the on-premises network by using Azure Virtual Net
 - Configure DNS name resolution between the virtual network and on-premises network.
 - Configure network security groups or user-defined routes (UDR) to control network traffic.
 
- For more information, see the article [Connect HDInsight to your on-premises network](https://docs.microsoft.com/en-us/azure/hdinsight/connect-on-premises-network)
+ For more information, see the article [Connect HDInsight to your on-premises network](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
 
 ### Use Enterprise Security Package (Domain-joined HDInsight clusters) to secure and govern the cluster
 
@@ -577,12 +577,12 @@ Below are the main to steps to deploy the Domain-joined HDInsight cluster:
 
 For more information, see the following articles
 
-- [An introduction to Hadoop security with domain-joined HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
-- [Plan Azure domain-joined Hadoop clusters in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-architecture)
-- [Configure a domain-joined HDInsight cluster by using Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)
-- [Synchronize Azure Active Directory users to an HDInsight cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-sync-aad-users-to-cluster?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fdomain-joined%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-- [Configure Hive policies in Domain-joined HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-run-hive?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fdomain-joined%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-- [Run Apache Oozie in domain-joined HDInsight Hadoop clusters](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/hdinsight-use-oozie-domain-joined-clusters)
+- [An introduction to Hadoop security with domain-joined HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+- [Plan Azure domain-joined Hadoop clusters in HDInsight](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture)
+- [Configure a domain-joined HDInsight cluster by using Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)
+- [Synchronize Azure Active Directory users to an HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-sync-aad-users-to-cluster?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fdomain-joined%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+- [Configure Hive policies in Domain-joined HDInsight](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-run-hive?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fdomain-joined%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+- [Run Apache Oozie in domain-joined HDInsight Hadoop clusters](https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-use-oozie-domain-joined-clusters)
 
 ### Implement End to end Enterprise Security Management
 
@@ -607,11 +607,11 @@ The end to end enterprise security can be implemented by integrating the below m
 
 For more information, see the following articles:
 
-- [Azure Virtual Networks overview](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
-- [Azure Network Security Groups overview](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview)
-- [Azure Virtual Network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
-- [Azure storage security guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide)
-- [Azure Storage Service Encryption at rest](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
+- [Azure Virtual Networks overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+- [Azure Network Security Groups overview](https://docs.microsoft.com/azure/virtual-network/security-overview)
+- [Azure Virtual Network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)
+- [Azure storage security guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide)
+- [Azure Storage Service Encryption at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
 
 ### Use external metadata stores with HDInsight clusters 
 
@@ -632,7 +632,7 @@ HDInsight uses Azure SQL Database as the Hive and Oozie metastores. There are tw
     - Single metastore db can be shared with different types of clusters
     - Metastore can be scaled up as needed
 
-For more information, see the article: [Use external metadata stores in Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-external-metadata-stores)
+For more information, see the article: [Use external metadata stores in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores)
 
 ### Best practices for Hive Metastore
 
@@ -742,7 +742,7 @@ The hive metastore can be migrated either by using the scripts or by using the D
 
 For more information, see the article:
 
-[Log Analytics Overview](https://docs.microsoft.com/en-us/azure/log-analytics/log-analy%20tics-overview)
+[Log Analytics Overview](https://docs.microsoft.com/azure/log-analytics/log-analy%20tics-overview)
 
 ### Cluster Upgrade (OS)
 
@@ -758,14 +758,14 @@ be followed to upgrade the cluster to the latest version.
 - Import any transient data was backed up.
 - Start jobs/continue processing using the new cluster.
 
-For more information, see the article: [Upgrade HDInsight cluster to a new version](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-upgrade-cluster)
+For more information, see the article: [Upgrade HDInsight cluster to a new version](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster)
 
 ### OS Patching for HDInsight (Ops)
 
 As a managed Hadoop service, HDInsight takes care of patching the OS
 of the underlying VMs used by HDInsight clusters. 
 
-For more information, see the article: [OS patching for HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-os-patching)
+For more information, see the article: [OS patching for HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching)
 
 ### Post-Migration
 
