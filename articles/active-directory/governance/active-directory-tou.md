@@ -28,7 +28,9 @@ The following video provides a quick overview of Terms of use.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-For additional overview videos, see [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY) and [How to deploy Terms of use in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY).
+For additional overview videos, see:
+- [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
+- [How to deploy Terms of use in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
 
 ## What can I do with Terms of use?
 Azure AD Terms of use enables you to do the following:
