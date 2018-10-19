@@ -76,6 +76,8 @@ Azure Firewall has a fixed cost + variable cost:
 
 There are no costs for a deallocated firewall.
 
+For more information, see [Azure Firewall Pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
 ### How can I stop and start Azure Firewall?
 
 You can use Azure PowerShell *deallocate* and *allocate* methods.
