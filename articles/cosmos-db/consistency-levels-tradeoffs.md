@@ -48,4 +48,4 @@ Read more about the topic in the following articles:
 
 - [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 - [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
-- [High availability](tbd.md)
+- [High availability](high-availability.md)
