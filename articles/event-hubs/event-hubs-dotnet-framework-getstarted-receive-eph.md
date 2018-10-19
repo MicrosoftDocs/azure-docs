@@ -150,12 +150,7 @@ Congratulations! You have now received messages from an event hub using the Even
 > This tutorial uses a single instance of [EventProcessorHost](event-hubs-event-processor-host.md). To increase throughput, we recommend that you run multiple instances of [EventProcessorHost](event-hubs-event-processor-host.md), as shown in the [Scaled out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) sample. In those cases, the multiple instances automatically coordinate with each other to load balance the received events. 
 
 ## Next steps
-
-Now that you've built a working application that creates an event hub and sends and receives data, you can learn more by visiting the following links:
-
-* [Event Processor Host overview][Event Processor Host]
-* [Event Hubs overview][Event Hubs overview]
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you created .NET Framework application that received messages from an event hub. To learn how to send events to an event hub using .NET Framework, see [Send events from event hub - .NET Framework](event-hubs-dotnet-framework-getstarted-send.md).
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
