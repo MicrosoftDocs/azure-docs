@@ -20,14 +20,14 @@ Distributed databases relying on replication for high availability, low latency 
 
 ## SQL API or Table API
 
-- For many real-world scenarios, session consistency is optimal and it is the recommended option. For more details see, [How-to manage session token for your application](tbd.md).
+- For many real-world scenarios, session consistency is optimal and it is the recommended option. For more details see, [How-to manage session token for your application](how-to-manage-consistency.md).
 - If your application requires strong consistency or if you need stricter consistency guarantees than the ones provided by session consistency but still need single-digit-millisecond latency for writes, it is recommended you use bounded staleness consistency level.  
 - If your application requires eventual consistency or if you need less strict consistency guarantees than what is provided by session consistency, it is recommended you use consistent prefix consistency level. If you need the highest availability and lowest latency then use eventual consistency level.
 
 ## Cassandra, MongoDB, or Gremlin API
 
-- For details on mapping between “Read Consistency Level” of Apache Cassandra and Cosmos DB consistency levels, see [Consistency levels and Cosmos DB model APIs](consistency-levels-across-model-apis.md#cassandra-mapping).
-- For details on mapping between “Read Concern” of MongoDB and Azure Cosmos DB consistency levels, see [Consistency levels and Cosmos DB model APIs](consistency-levels-across-model-apis.md#mongo-mapping).
+- For details on mapping between “Read Consistency Level” of Apache Cassandra and Cosmos DB consistency levels, see [Consistency levels and Cosmos DB APIs](consistency-levels-across-apis.md#cassandra-mapping).
+- For details on mapping between “Read Concern” of MongoDB and Azure Cosmos DB consistency levels, see [Consistency levels and Cosmos DB APIs](consistency-levels-across-apis.md#mongo-mapping).
 
 ## You may get stronger consistency guarantees in practice
 
@@ -45,6 +45,6 @@ If your Cosmos DB account is configured with any consistency level other than th
 
 Read more about the topic in the following articles:
 
-- [How to manage the session token for your application](tbd.md)
+- [How to manage the session token for your application](how-to-manage-consistency.md)
 - [How to use the PBS metric](tbd.md)
 - [Consistency Levels and choice of Cosmos DB API](consistency-levels-across-apis.md)
