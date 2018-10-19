@@ -1706,6 +1706,30 @@ By default, when you write to the output parameter in your function, a document 
 |---|---|
 | CosmosDB | [CosmosDB Error Codes](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
+<a name="host-json"></a>  
+
+## Host.json configuration - Functions 2.x
+
+> [!NOTE]
+> These settings apply to Azure Functions 2.x.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md#serviceBus).
+>
+> See [host.json reference for Azure Functions 2.x](functions-host-json.md) for information on the host.json configuration.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "protocol": "Https",
+            "leaseOptions": {
+                "leasePrefix": "prefix1"
+            }
+        }
+    }
+}
+```  
+
 ## Next steps
 
 * [Learn more about serverless database computing with Cosmos DB](..\cosmos-db\serverless-computing-database.md)

@@ -197,6 +197,31 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
+<a name="host-json"></a>  
+
+## Host.json configuration - Functions 2.x
+
+> [!NOTE]
+> These settings apply to Azure Functions 2.x.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md#serviceBus).
+>
+> See [host.json reference for Azure Functions 2.x](functions-host-json.md) for information on the host.json configuration.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|from|n/a|The sender's email address across all functions.| 
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]

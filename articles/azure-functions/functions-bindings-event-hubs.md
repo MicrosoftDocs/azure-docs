@@ -623,6 +623,36 @@ In JavaScript, access the output event by using `context.bindings.<name>`. `<nam
 |---|---|
 | Event Hub | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
+<a name="host-json"></a>  
+
+## Host.json configuration - Functions 2.x
+
+> [!NOTE]
+> These settings apply to Azure Functions 2.x.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md#serviceBus).
+>
+> See [host.json reference for Azure Functions 2.x](functions-host-json.md) for information on the host.json configuration.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "eventHubs": {
+            "batchCheckpointFrequency": 5,
+            "eventProcessorOptions": {
+                "maxBatchSize": 256,
+                "prefetchCount": 512
+            }
+        }
+    }
+}  
+```  
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|maxBatchSize|64|The maximum event count received per receive loop.|
+|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying EventProcessorHost.| 
+|batchCheckpointFrequency|1|The number of event batches to process before creating an EventHub cursor checkpoint.| 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
