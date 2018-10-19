@@ -20,10 +20,8 @@ These steps show you how to build the [Azure IoT Hub C# SDK](https://github.com/
 If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
-
-- Enrollment groups: Used to enroll multiple related devices.
-
-- Individual Enrollments: Used to enroll a single device.
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
 This article will demonstrate individual enrollments.
 
