@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/20018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -90,7 +90,7 @@ If the environment is healthy, manually upload the 5 VM Images required for VaaS
 1. Sign in as the service admin to the admin portal. You can find the admin portal URL from ECE store or your stamp information file. For instructions, see [Environment parameters](azure-stack-vaas-parameters.md#environment-parameters).
 1. Select **More services** > **Resource Providers** > **Compute** > **VM Images**.
 1. Select the **+ Add** button at the top of the **VM Images** blade.
-1. 10/19/20018 or check values of the following fields for the first VM image:
+1. Modify or check values of the following fields for the first VM image:
     > [!IMPORTANT]
     > Not all defaults are correct for the existing Marketplace Item.
 

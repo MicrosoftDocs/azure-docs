@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/20018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -69,7 +69,7 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
     Here is how the format should appear:
     `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
-1. 10/19/20018 the generated SAS URL to include the package container, `{containername}`, and the name of your package blob, `{mypackage.zip}`, as follows:
+1. Modify the generated SAS URL to include the package container, `{containername}`, and the name of your package blob, `{mypackage.zip}`, as follows:
     `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
     Use this value when starting a new **Package Validation** workflow in the VaaS portal.
