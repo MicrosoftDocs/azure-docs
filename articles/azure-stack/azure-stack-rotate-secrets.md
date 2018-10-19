@@ -84,7 +84,7 @@ Running secret rotation using the instructions below will remediate these alerts
     > [!note]  
     > The next steps only apply when rotating Azure Stack external secrets.
 
-3. Run **[Test-AzureStack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-diagnostic-test)** and confirm all test outputs are healthy prior to rotating secrets.
+3. Run **[Test-AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** and confirm all test outputs are healthy prior to rotating secrets.
 4. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 5.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
 6.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
