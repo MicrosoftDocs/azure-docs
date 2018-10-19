@@ -2,13 +2,13 @@
 title: Overview of multi-tenant support for VMware VM replication to Azure (CSP) using Azure Site Recovery | Microsoft Docs
 description: Provides an overview of Azure Site Recovery support for tenant subscriptions in a multi-tenant environment, through the CSP program.
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
 # Overview of multi-tenant support for VMware replication to Azure with CSP

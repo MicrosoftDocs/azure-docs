@@ -215,7 +215,7 @@ function sample() {
         },
         async function () {
             let imageInfo = { url: "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80" };
-            let filters = { site: "www.bing.com" };
+            let filters = { site: "pinterest.com" };
             let knowledgeRequest = { filters: filters };
             let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo, knowledgeRequest: knowledgeRequest });
             let visualSearchResults;
@@ -261,7 +261,7 @@ function sample() {
             }
         },
         async function () {
-            var imageInsightsToken = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145";
+            var imageInsightsToken = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D";
             let cropArea = { top: 0.1, bottom: 0.5, left: 0.1, right: 0.9 };
             let imageInfo = { imageInsightsToken: imageInsightsToken, cropArea: cropArea };
             let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo });

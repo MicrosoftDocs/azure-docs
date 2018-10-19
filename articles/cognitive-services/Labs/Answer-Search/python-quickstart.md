@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: project-answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 # Quickstart Project Answer Search with Python
 

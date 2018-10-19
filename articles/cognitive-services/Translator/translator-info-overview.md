@@ -23,7 +23,7 @@ The Translator Text API is part of the Azure [Cognitive Services API](https://do
 
 Microsoft Translator is a cloud-based machine translation service. At the core of this service are the Translator Text API and [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
 
-Speech translation is also available through the [Cognitive Services Speech preview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/), which combines existing Translator Speech API, Bing Speech API, and Custom Speech Service (preview) into a unified and fully customizable service.  
+Speech translation is also available through the [Cognitive Services Speech preview](https://docs.microsoft.com/azure/cognitive-services/speech-service/), which combines existing Translator Speech API, Bing Speech API, and Custom Speech Service (preview) into a unified and fully customizable service.  
 
 Learn more about the [Microsoft Translator service](https://www.microsoft.com/en-us/translator/home.aspx)
 
