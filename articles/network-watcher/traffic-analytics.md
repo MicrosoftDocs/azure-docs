@@ -49,7 +49,9 @@ Traffic analytics examines the raw NSG flow logs and captures reduced logs by ag
 
 ## Supported regions
 
-You can use traffic analytics for NSGs in any of the following regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, West Europe, North Europe, West UK, South UK, Australia East, Australia Southeast, and Southeast Asia. The log analytics workspace must exist in the West Central US, East US, West Europe, South UK, Australia Southeast, or the Southeast Asia region.
+You can use traffic analytics for NSGs in any of the following regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, Canada Central, West Europe, North Europe, UK West, UK South,  Japan East, India Central, Australia East, Australia Southeast, and Southeast Asia. 
+
+The log analytics workspace must exist in the West Central US, East US, West Europe, South UK, Central Canada, Japan East, India Central Australia Southeast, or the Southeast Asia region.
 
 ## Prerequisites
 
