@@ -29937,7 +29937,7 @@
         },
         {
             "source_path": "articles/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-prebuilt-model",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-domains",
             "redirect_document_id": false
             
         }
