@@ -1,16 +1,17 @@
 ---
-title: Speech service REST APIs
-description: Reference for REST APIs for the Speech service.
+title: Speech Service REST APIs
+description: Reference for REST APIs for the Speech Service.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
 ---
-# Speech service REST APIs
+# Speech Service REST APIs
 
 The REST APIs of the Azure Cognitive Services Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key that corresponds to the endpoint you're using.
 
