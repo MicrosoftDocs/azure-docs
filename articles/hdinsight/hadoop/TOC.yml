@@ -349,6 +349,9 @@
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
+    - name: Migrate on-premises Hadoop clusters to Azure HDInsight
+      href: apache-hadoop-on-premises-to-azure-migration.md
+      maintainContext: true
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
