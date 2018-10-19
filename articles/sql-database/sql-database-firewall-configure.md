@@ -11,7 +11,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/19/2018
 ---
 # Azure SQL Database and SQL Data Warehouse firewall rules
 
@@ -74,7 +74,7 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 
 ## Creating and managing firewall rules
 
-The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), or the [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate). Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL.
+The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), or the [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL.
 
 > [!IMPORTANT]
 > Database-level firewall rules can only be created and managed using Transact-SQL.
@@ -183,10 +183,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Level | Description |
 | --- | --- | --- |
-| [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver) |Server |Displays the current server-level firewall rules |
-| [Create or Update Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate) |Server |Creates or updates server-level firewall rules |
-| [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete) |Server |Removes server-level firewall rules |
-| [Get Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get) | Server | Gets server-level firewall rules |
+| [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Displays the current server-level firewall rules |
+| [Create or Update Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Creates or updates server-level firewall rules |
+| [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Removes server-level firewall rules |
+| [Get Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Gets server-level firewall rules |
 
 ## Server-level firewall rule versus a database-level firewall rule
 
