@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB Table API .NET Standard SDK & Resources | Microsoft Docs
-description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
+description: Learn all about the Azure Cosmos DB Table API and the .NET Standard SDK including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
-author: dox
+author: donghexu
 manager: sudheerd
 
 ms.service: cosmos-db
@@ -30,8 +30,9 @@ ms.author: dox
 ## Release notes
 
 ### <a name="0.9.1-preview"/>0.9.1-preview
-* Azure Cosmos DB Table NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md).
-* Please Note: Azure Storage Table endpoints are not yet supported in this version.
+* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md).
+[!NOTE]
+Please Note: Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
 
 ## Release and Retirement dates
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
