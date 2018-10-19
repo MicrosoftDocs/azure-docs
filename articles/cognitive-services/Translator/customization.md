@@ -5,7 +5,6 @@ description: Use the Microsoft Translator Hub to build your own machine translat
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: article

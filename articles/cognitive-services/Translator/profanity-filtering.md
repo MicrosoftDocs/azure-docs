@@ -5,7 +5,6 @@ description: Use profanity filtering in the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
@@ -31,4 +30,3 @@ The Translate() method takes an “options” parameter, which contains the new 
 ## Next steps
 > [!div class="nextstepaction"]
 > [Apply profanity filtering with your Translator API call](reference/v3-0-translate.md)
-

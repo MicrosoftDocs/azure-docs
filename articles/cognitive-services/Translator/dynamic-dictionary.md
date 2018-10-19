@@ -5,7 +5,6 @@ description: How to use the dynamic dictionary feature of the Translator Text AP
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual

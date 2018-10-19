@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Convert text script - Translator Text, C#"
+title: "Quickstart: Convert text script, C# - Translator Text"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Transliterate text with C&#35;
+# Quickstart: Transliterate text with the Translator Text REST API (C#)
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
 
