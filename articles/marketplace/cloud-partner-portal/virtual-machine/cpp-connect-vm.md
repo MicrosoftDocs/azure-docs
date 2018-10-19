@@ -38,7 +38,8 @@ In order to connect the Linux-based VM, you need a secure shell protocol (SSH) c
 1. In the **Virtual machines** blade of the [Azure portal](https://ms.portal.azure.com), select the VM you want to connect to.  
 2. **Start** the VM if it is not already running.
 3. Click on the name of the VM to open its **Overview** page.
-4. Note the Public IP address and DNS name of your VM.  (If these values are not set, then you must [Create a network interface](../../../virtual-network/virtual-network-network-interface#create-a-network-interface) for your VM.)
+4. Note the Public IP address and DNS name of your VM.  (If these values are not set, then you must [Create a network interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface) for your VM.)
+
 
    ![VM Overview settings](./media/publishvm_019.png)
  
