@@ -40,7 +40,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 * An Azure Machine Learning workspace. Follow the instructions in [Prepare to deploy models on IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md) to create one.
 
 

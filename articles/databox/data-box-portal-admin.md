@@ -2,21 +2,15 @@
 title: Azure Data Box portal admin guide | Microsoft Docs 
 description: Describes how to use the Azure portal to administer your Azure Data Box.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: 
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 10/19/2018
 ms.author: alkohli
 ---
+
 # Use the Azure portal to administer your Data Box
 
 This article describes some of the complex workflows and management tasks that can be performed on the Data Box. You can manage the Data Box via the Azure portal or via the local web UI. 
@@ -127,7 +121,7 @@ When the device status changes in portal, you are notified via an email.
 |Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
 |Completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs using the path provided in the Azure portal.   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order. If the order cannot be fulfilled in 90 days, the order is also canceled and you are notified.     |
-|Clean up | The data on the device disks is erased. The device cleanup is considered complete when the order log report is available in the Azure portal.|
+|Clean up | The data on the device disks is erased. The device cleanup is considered complete when the order history is available for download in the Azure portal.|
 
 
 

@@ -2,18 +2,11 @@
 title: Microsoft Azure Data Box FAQ | Microsoft Docs in data 
 description: Contains frquently asked questions and answers for Azure Data Box, a cloud solution that enables you to transfer large amounts of data into Azure.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: 
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/27/2018
 ms.author: alkohli
 ---

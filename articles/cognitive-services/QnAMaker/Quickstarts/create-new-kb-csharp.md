@@ -7,7 +7,7 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/19/2018
 ms.author: diberry
@@ -66,8 +66,8 @@ static string kb = @"
     }
   ],
   'urls': [
-    'https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs',
-    'https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq'
+    'https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs',
+    'https://docs.microsoft.com/bot-framework/resources-bot-framework-faq'
   ],
   'files': []
 }

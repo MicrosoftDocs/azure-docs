@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -65,6 +65,17 @@ The following information is required as inputs for the automation parameters:
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN of the target Active Directory forest<br>that you want to integrate with|Contoso.com|
 |CustomADAdminCredentials|A user with LDAP Read permission|YOURDOMAIN\graphservice|
+
+### Configure Active Directory Sites
+
+For Active Directory deployments having multiple sites, configure the closest Active Directory Site to your Azure Stack deployment. The configuration avoids having the Azure Stack Graph service resolve queries using a Global Catalog Server from a remote site.
+
+Add the Azure Stack [Public VIP network](azure-stack-network.md#public-vip-network) subnet to the Azure AD Site closest to Azure Stack. For example, if your Active Directory has two sites Seattle and Redmond with Azure Stack deployed at the Seattle site, you would add the Azure Stack Public VIP network subnet to the Azure AD site for Seattle.
+
+For more information on  Active Directory Sites see [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> If your Active Directory consist of a single Site you can skip this step. In case you have a catch-all subnet configured validate that the Azure Stack Public VIP network subnet is not part of it.
 
 ### Create user account in the existing Active Directory (optional)
 
@@ -231,7 +242,7 @@ If you decide to manually run the commands, follow these steps:
 
    @RuleTemplate = "PassThroughClaims"
    @RuleName = "Pass through all windows account name claims"
-   c:[Type == http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname]
+   c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
    => issue(claim = c);
    ```
 
@@ -278,7 +289,7 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - System Center Management Pack for Azure Stack when deployed with AD FS
 - Resource providers in Azure Stack when deployed with AD FS
 - Various applications
-- You require a non-interactive logon
+- You require a non-interactive sign in
 
 > [!Important]  
 > AD FS only supports interactive logon sessions. If you require a non-interactive logon for an automated scenario, you must use a SPN.
