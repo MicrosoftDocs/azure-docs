@@ -171,7 +171,7 @@ Required driver options:
 - **storageAccountKey** - Access key for the Azure storage account that contains the Azure Files file share
 
 Optional driver options:
-- **storageAccountFQDN** - Domain Name of the Azure Files file share. If storageAccountFQDN is not in the options, domain name will be formed by using the default suffix(.file.core.windows.net) with the storageAccountName. 
+- **storageAccountFQDN** - Domain Name of the Azure Files file share. If storageAccountFQDN is not in the options, domain name will be formed by using the default suffix(.file.core.windows.net) with the storageAccountName. In the following examples, aftest is storageAccountName for general Azure and aftest2 is storageAccountName for Azure China.
     - Example1: aftest.file.core.windows.net
     - Example2: aftest2.file.core.chinacloudapi.cn
 
