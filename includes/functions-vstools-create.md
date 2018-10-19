@@ -24,7 +24,7 @@ The Azure Functions project template in Visual Studio creates a project that can
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Version** | Azure Functions v2 <br />(.NET Core) | This creates a function project that uses the version 2 runtime of Azure Functions which supports .NET Core. Azure Functions v1 supports the .NET Framework. For more information, see [How to target Azure Functions runtime version](../articles/azure-functions/functions-versions.md).   |
+    | **Version** | Azure Functions 2.x <br />(.NET Core) | This creates a function project that uses the version 2.x runtime of Azure Functions which supports .NET Core. Azure Functions 1.x supports the .NET Framework. For more information, see [How to target Azure Functions runtime version](../articles/azure-functions/functions-versions.md).   |
     | **Template** | HTTP trigger | This creates a function triggered by an HTTP request. |
     | **Storage account**  | Storage Emulator | An HTTP trigger doesn't use the Storage account connection. All other trigger types require a valid Storage account connection string. |
     | **Access rights** | Anonymous | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) in the [HTTP and webhook bindings](../articles/azure-functions/functions-bindings-http-webhook.md). |
