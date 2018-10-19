@@ -1,6 +1,6 @@
 ---
-title: Local Search API Java quick start | Microsoft Docs
-description: How to start using the Bing Local Search API in Java.
+title: Local Business Search API Java quick start | Microsoft Docs
+description: Start using the Bing Local Business Search API in Java.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -11,8 +11,8 @@ ms.date: 08/02/2018
 ms.author: rosh, v-gedod
 ---
 
-# Local Search query in Java
-This article uses Java to demonstrate the Bing Local Search API, part of Microsoft Cognitive Services on Azure. The API is a REST Web service compatible with any programming language that can make HTTP requests and parse JSON.
+# Local Business Search query in Java
+This article uses Java to demonstrate the Bing Local Business Search API, which is part of Microsoft Cognitive Services on Azure. The API is a REST Web service compatible with any programming language that can make HTTP requests and parse JSON.
  
 The example code uses Java with minimal external dependencies.  You can also run it on Linux or Mac OS X using Mono.
 

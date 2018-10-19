@@ -1,6 +1,6 @@
 ---
-title: Local Search API quick start | Microsoft Docs
-description: How to start using the Bing Local Search API.
+title: Local Business Search API quick start | Microsoft Docs
+description: Start using the Bing Local Business Search API in C#.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -11,9 +11,9 @@ ms.date: 08/02/2018
 ms.author: rosh, v-gedod
 ---
 
-# Local Search C# query
+# Local Business Search C# query
 
-This C# example demonstrates the Bing Local Search API of Microsoft Cognitive Services on Azure. The API is a REST Web service compatible with any programming language that can make HTTP requests and parse JSON.
+This C# example demonstrates the Bing Local Business Search API, which is part of Microsoft Cognitive Services on Azure. The API is a REST Web service compatible with any programming language that can make HTTP requests and parse JSON.
  
 The example uses C# in a .NET Console application with minimal external dependencies.  You can also run it on Linux or Mac OS X using Mono.
 

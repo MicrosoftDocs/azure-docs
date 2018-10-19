@@ -19,7 +19,7 @@ The `localCircularView` parameter sets a geographic coordinate by latitude and l
 
 The `localMapView` specifies the southeast and northwest coordinates of a box to search. The response includes relevant places within and just outside the specified area. Because the map view may include relevant places outside of the specified area, it may be advantageous to use it instead of the circular view.
 
-If you do not specify a geographic location and the user is searching for a local business, Bing uses the user's current location to determine the area to search. Bing determines the user's location from the `X-Search-ClientIP` header or the `X-Search-Location` header. If neither is specified, Bing determines the client IP from the request or GPS for mobile devices.
+If you do not specify a geographic location and the user is searching for a local business, Bing uses the user's current location to determine the area to search. Bing determines the user's location from the `X-Search-ClientIP` header or the `X-Search-Location` header. If neither is specified, Bing determines the location from client IP of the request or GPS for mobile devices.
 
 Bing ignores the specified location if the query includes a geographic location. For example, if the query is "sailing in San Diego," Bing uses San Diego as the location and ignores the location specified in the `localCircularView` or `localMapView` query parameter or the `X-Search-ClientIP` or `X-Search-Location` header.
 
@@ -38,7 +38,7 @@ https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localCircula
 ````
 
 ## localMapView
-To specify a bounding box for geographic search, get the longitude/latitude coordinates of the southeast and northwest corners of the bounding box, then assign the coordinates to the localMapView parameter, southeast coordinates first, as in the following example: `localMapView=47.619987,-122.181671,47.6421,-122.13715`.  This box defines a rectangle bounded by the Microsoft visitor center in Redmond, WA and Lake Bellevue, WA.
+To specify a bounding box for geographic search, get the longitude/latitude coordinates of the southeast and northwest corners of the bounding box, then assign the coordinates to the `localMapView` parameter, southeast coordinates first, as in the following example: `localMapView=47.619987,-122.181671,47.6421,-122.13715`.  This box defines a rectangle bounded by the Microsoft visitor center in Redmond, WA and Lake Bellevue, WA.
 
 Complete query:
 ````
