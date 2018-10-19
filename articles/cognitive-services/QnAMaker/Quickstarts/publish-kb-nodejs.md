@@ -9,11 +9,11 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 
-# Quickstart: Publish a knowledge base in Node.js
+# Quickstart: Publish a knowledge base in QnA Maker using Node.js
 
 This quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
 
