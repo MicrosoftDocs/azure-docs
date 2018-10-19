@@ -25,7 +25,7 @@ This article describes how to expand managed disks for a Linux virtual machine (
 > Always make sure that you back up your data before you perform disk resize operations. For more information, see [Back up Linux VMs in Azure](tutorial-backup-vms.md).
 
 ## Expand an Azure Managed Disk
-Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and are logged in to an Azure account by using [az login](/cli/azure/reference-index#az-login).
+Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and are signed in to an Azure account by using [az login](/cli/azure/reference-index#az-login).
 
 This article requires an existing VM in Azure with at least one data disk attached and prepared. If you do not already have a VM that you can use, see [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks).
 
