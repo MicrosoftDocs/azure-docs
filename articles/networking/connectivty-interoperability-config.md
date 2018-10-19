@@ -48,7 +48,7 @@ The following portal screenshot shows the connection configuration between Expre
 
 [![5]][5]
 
-The following is the listing of the primary CE router (Cisco ASR1000 routers are used as CE routers in the test setup) configuration related to ExpressRoute private peering connectivity. When both Site-to-Site VPN and ExpressRoute circuit are configured in parallel to connect an on-premises network to Azure; Azure prefers ExpressRoute circuit by default. To avoid asymmetrical routing, on-premises network should also prefer ExpressRoute over Site-to-Site VPN for the routes received both via the ExpressRoute and Site-to-Site VPN. This is achieved in the following configuration using BGP local-preference attribute. 
+The following configuration is the listing of the primary CE router (Cisco ASR1000 routers are used as CE routers in the test setup) configuration related to ExpressRoute private peering connectivity. When both Site-to-Site VPN and ExpressRoute circuit are configured in parallel to connect an on-premises network to Azure; Azure prefers ExpressRoute circuit by default. To avoid asymmetrical routing, on-premises network should also prefer ExpressRoute over Site-to-Site VPN for the routes received both via the ExpressRoute and Site-to-Site VPN. This is achieved in the following configuration using BGP local-preference attribute. 
 
 	interface TenGigabitEthernet0/0/0.300
 	 description Customer 30 private peering to Azure

@@ -34,7 +34,7 @@ VNet peering emulates Network Bridge functionality between the two VNets that ar
 
 	Trace complete.
 
-The following is the graphical connection view of the Hub VNet and the spoke VNet presented by Azure Network Watcher:
+The following screen clip is the graphical connection view of the Hub VNet and the spoke VNet presented by Azure Network Watcher:
 
 
 [![1]][1]
@@ -53,11 +53,11 @@ The following is the graphical connection view of the Hub VNet and the spoke VNe
 
 In the above traceroute, the first hop is the VPN GW of the Hub VNet. The second hop is the VPN GW of the Branch VNet, whose IP address is not advertised within the Hub VNet. The third hop is the VM on the Branch VNet.
 
-The following is the graphical connection view of the Hub VNet and the Branch VNet presented by Azure Network Watcher:
+The following screen clip is the graphical connection view of the Hub VNet and the Branch VNet presented by Azure Network Watcher:
 
 [![2]][2]
 
-For the same connection, following is the grid view presented by Azure Network Watcher:
+For the same connection, following screen clip is the grid view presented by Azure Network Watcher:
 
 [![3]][3]
 
@@ -270,7 +270,7 @@ In the above traceroute, the first two hops are part of the On-Premises network.
 
 The Azure Network Watcher provides only Azure-centric view. Therefore, for on-premises centric view we have used Azure Network Performance Monitor (NPM). NPM provides agents that can be installed servers in network outside Azure and do data-path analysis.
 
-The following is the topology view of the on-premises location-1 VM connectivity to the VM on the hub VNet via ExpressRoute.
+The following screen clip is the topology view of the on-premises location-1 VM connectivity to the VM on the hub VNet via ExpressRoute.
 
 [![4]][4]
 
@@ -286,7 +286,7 @@ Recall, the test setup uses Site-to-Site VPN as backup connectivity for ExpressR
 
 	Trace complete.
 
-The following is the topology view of the on-premises location-1 VM connectivity to the VM on the hub VNet via Site-to-Site VPN connectivity when the ExpressRoute connectivity is down.
+The following screen clip is the topology view of the on-premises location-1 VM connectivity to the VM on the hub VNet via Site-to-Site VPN connectivity when the ExpressRoute connectivity is down.
 
 [![5]][5]
 
