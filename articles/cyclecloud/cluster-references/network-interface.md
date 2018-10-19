@@ -6,7 +6,7 @@ author: KimliW
 ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 010/19/2018
 ms.author: a-kiwels
 ---
 
@@ -38,9 +38,9 @@ The `$` is a reference to a parameter name.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-AssociatePublicIpAddress | Boolean | Associate a public IP address with the NIC.
-StaticPublicIpAddress | Boolean | If true, the IP address will be persisted between node restarts.
-EnableIpForwarding | Boolean | If true, allow IP forwarding.
+AssociatePublicIpAddress | Boolean | Associate a public IP address with the NIC
+StaticPublicIpAddress | Boolean | If true, the IP address will be persisted between node restarts
+EnableIpForwarding | Boolean | If true, allow IP forwarding
 PrivateIp | String | Assign a specific private IP address (node only)
-NetworkInterfaceId | String | Specify an existing NIC by resource ID.
+NetworkInterfaceId | String | Specify an existing NIC by resource ID
 ApplicationSecurityGroups | String (list) | List of Application Security Groups by Resource ID and separated by comma

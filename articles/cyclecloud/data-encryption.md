@@ -7,7 +7,7 @@ author: KimliW
 ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 10/19/2018
 ms.author: a-kiwels
 ---
 
@@ -65,7 +65,7 @@ There are three ways to specify files are to be encrypted:
 
 ## Azure Disk Encryption
 
-It is possible to encryption your Azure IaaS VMs with Azure CycleCloud using the encryption extension detailed [here](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-overview). At this point in time, only **Windows** OS virtual machines can utilize this feature, Linux support is coming in a future release. To enable encryption you will have to provide some parameters to the node.
+It is possible to encryption your Azure IaaS VMs with CycleCloud using the [encryption extension](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-overview). Currently, only Windows OS virtual machines can utilize this feature (Linux support is coming in a future release). To enable encryption add these parameters to the node:
 
 ``` ini
 [[node my-virutal-machine]]
@@ -74,7 +74,7 @@ It is possible to encryption your Azure IaaS VMs with Azure CycleCloud using the
   Encryption.KeyEncryptionKeyURL = https://my-keyvault.vault.azure.net/keys/my-key-encryption-key/cedcdd41234c457882bf5b2914e253d5
 ```
 
-The KeyEncryptioinKeyURL is only required if you are going to use a key to encrypt the auto-generated disk encryption keys.
+The `KeyEncryptioinKeyURL` is only required if you are going to use a key to encrypt the auto-generated disk encryption keys.
 
 > [!NOTE]
 > You will have to set up your keys and vaults in the Azure Portal before using this feature. Remember to enable your vault for disk encryption!
