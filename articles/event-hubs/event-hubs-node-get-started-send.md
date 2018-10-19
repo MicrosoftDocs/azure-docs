@@ -8,31 +8,29 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/18/2018
 ms.author: shvija
 
 ---
 
 # Send events to Azure Event Hubs using Node.js
 
-Azure Event Hubs is a highly scalable event management system that can handle millions of events per second, enabling applications to process and analyze massive amounts of data produced by connected devices and other systems. Once collected into an event hub, you can receive and handle events using in-process handlers or by forwarding to other analytics systems.
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-To learn more about Event Hubs, see the [Event Hubs overview](event-hubs-about.md).
+This tutorial describes how to send events to an event hub from an application written in Node.js.
 
-This tutorial describes how to send events to an event hub from an application written in Node.js. To receive events using the Node.js Event Processor Host package, see [the corresponding Receive article](event-hubs-node-get-started-receive.md).
-
-Code for this quickstart is available on [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client). 
+> [!NOTE]
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
 To complete this tutorial, you need the following prerequisites:
 
 - Node.js version 8.x and higher. Download the latest LTS version from [https://nodejs.org](https://nodejs.org).
-- An active Azure account. If you don't have an Azure subscription, create a [free account][] before you begin.
 - Visual Studio Code (recommended) or any other IDE
 
-## Create a namespace and event hub
-The first step is to use the Azure portal to create an Event Hubs namespace with an event hub. If you do not have an existing one, you can create these entities by following the instructions in [Create an Event Hubs namespace and an event hub using the Azure portal](event-hubs-create.md).
+## Create an Event Hubs namespace and an event hub
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
 ## Clone the sample Git repository
 Clone the sample Git repository from [Github](https://github.com/Azure/azure-event-hubs-node) on your machine. 
@@ -102,12 +100,6 @@ export EVENTHUB_NAME="<your-event-hub-name>"
 ```
 
 ## Next steps
+In this quickstart, you have sent messages to an event hub using Node.js. To learn how to receive events from an event hub using Node.js, see [Receive events from event hub - Node.js](event-hubs-node-get-started-receive.md)
 
-See the following articles to learn more about Event Hubs:
-
-* [Receive events using Node.js](event-hubs-node-get-started-receive.md)
-* [Samples on GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/)
-* [Event Hubs FAQ](event-hubs-faq.md)
-
-<!-- Links -->
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+Check out other Node.js samples for Event Hubs on [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/).
