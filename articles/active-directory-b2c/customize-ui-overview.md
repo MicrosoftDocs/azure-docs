@@ -1,6 +1,6 @@
 ---
 title: Customize the user interface for applications in Azure Active Directory B2C | Microsoft Docs
-description: Learn about user interface customization for your applications that use Azure Active Directory B2C.
+description: Learn about how to customize the user interface for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Customize the user interface of your applications that use Azure Active Directory B2C
+# Customize the user interface of your applications in Azure Active Directory B2C
 
 The ability for you to brand and customize the user interface (UI) that Azure Active Directory (Azure AD) B2C serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
 
