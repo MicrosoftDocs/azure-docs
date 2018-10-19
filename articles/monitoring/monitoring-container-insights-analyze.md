@@ -144,7 +144,7 @@ Here you can view the performance health of your controllers.
 
 ![<Name> controllers performance view](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-The row hierarchy starts with a controller and expands the controller. You view one or more containers. Expand a pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill-down to the node it is running on to view performance data filtered for that node. Click on the value under the **Node** column for the specific controller.   
+The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill-down to the node it is running on to view performance data filtered for that node. Click on the value under the **Node** column for the specific controller.   
 
 ![Example drill-down from node to controller in the performance view](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
@@ -181,7 +181,7 @@ Here you can view the performance health of your Azure Kubernetes containers.
 
 ![<Name> controllers performance view](./media/monitoring-container-insights-analyze/containers-containers-view.png)
 
-From a container, you can drill-down to a pod or node to view performance data filtered for that object. Click on the value under the **POD** or **NODE** column for the specific container.   
+From a container, you can drill-down to a pod or node to view performance data filtered for that object. Click on the value under the **Pod** or **Node** column for the specific container.   
 
 ![Example drill-down from node to controller in the performance view](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
