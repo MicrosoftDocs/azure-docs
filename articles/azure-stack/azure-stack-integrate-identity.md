@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -70,7 +70,7 @@ The following information is required as inputs for the automation parameters:
 
 For Active Directory deployments having multiple sites, configure the closest Active Directory Site to your Azure Stack deployment. The configuration avoids having the Azure Stack Graph service resolve queries using a Global Catalog Server from a remote site.
 
-Add the Azure Stack [Public VIP network](azure-stack-network.md#public-vip-network) subnet to the Azure AD Site closest to Azure Stack. For example, if your Active Directory has two sites Seattle and Redmond with Azure Stack deployed at the Seattle site, you would add the Azure Stack external network subnet to the Azure AD site for Seattle.
+Add the Azure Stack [Public VIP network](azure-stack-network.md#public-vip-network) subnet to the Azure AD Site closest to Azure Stack. For example, if your Active Directory has two sites Seattle and Redmond with Azure Stack deployed at the Seattle site, you would add the Azure Stack Public VIP network subnet to the Azure AD site for Seattle.
 
 For more information on  Active Directory Sites see [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
