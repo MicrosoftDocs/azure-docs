@@ -49,7 +49,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   **Example output**
   
   ```azurecli
-  [
+[
   {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
     "availableBandwidths": [],
