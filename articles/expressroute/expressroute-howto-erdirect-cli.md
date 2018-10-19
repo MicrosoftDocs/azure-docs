@@ -49,7 +49,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   **Example output**
   
   ```azurecli
-[
+ [
   {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
     "availableBandwidths": [],
@@ -105,7 +105,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
     "tags": null,
     "type": "Microsoft.Network/expressRoutePortsLocations"
   }
-]
+ ]
   ```
 3. Determine if a location listed above has available bandwidth
 
@@ -116,7 +116,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   **Example output**
 
   ```azurecli
-{
+ {
   "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
   "availableBandwidths": [
     {
@@ -131,7 +131,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   "provisioningState": "Succeeded",
   "tags": null,
   "type": "Microsoft.Network/expressRoutePortsLocations"
-}
+ }
   ```
 4. Create an ExpressRoute Direct resource based on the location chosen above
 
@@ -154,7 +154,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   **Example output:**
 
   ```azurecli
-{
+ {
   "allocationDate": "Wednesday, October 17, 2018",
   "bandwidthInGbps": 100,
   "circuits": null,
@@ -202,7 +202,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   "resourceGuid": "02ee21fe-4223-4942-a6bc-8d81daabc94f",
   "tags": null,
   "type": "Microsoft.Network/expressRoutePorts"
-}  
+ }  
   ```
 
 ## <a name="state"></a>2. Change Admin State of links
@@ -222,7 +222,7 @@ This process should be used to conduct a Layer 1 test, ensuring that each cross-
   **Example output:**
 
   ```azurecli
-{
+ {
   "allocationDate": "Wednesday, October 17, 2018",
   "bandwidthInGbps": 100,
   "circuits": null,
@@ -270,7 +270,7 @@ This process should be used to conduct a Layer 1 test, ensuring that each cross-
   "resourceGuid": "<resourceGUID>",
   "tags": null,
   "type": "Microsoft.Network/expressRoutePorts"
-}
+ }
   ```
 
   Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
@@ -294,7 +294,7 @@ Create a circuit on the ExpressRoute Direct resource.
   **Example output:**
 
   ```azurecli
-{
+ {
   "allowClassicOperations": false,
   "allowGlobalReach": false,
   "authorizations": [],
@@ -324,7 +324,7 @@ Create a circuit on the ExpressRoute Direct resource.
   "stag": null,
   "tags": null,
   "type": "Microsoft.Network/expressRouteCircuits"
-}  
+ }  
   ```
 
 ## Next steps
