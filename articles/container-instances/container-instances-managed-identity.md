@@ -64,7 +64,7 @@ First, create a resource group named *myResourceGroup* in the *eastus* location 
 az group create --name myResourceGroup --location eastus
 ```
 
-Run the following [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) command to create a container instance based on Ubuntu Server. This example provides a single-container group that you can use to interactively access other Azure services. The `--assign-identity` parameter enables a system-assigned managed identity on the group. To stay running, the container runs a long-running command.
+Run the following [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) command to create a container instance based on Ubuntu Server. This example provides a single-container group that you can use to interactively access other Azure services. The `--assign-identity` parameter enables a system-assigned managed identity on the group. The long-running command keeps the container running.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image devorbitus/ubuntu-bash-jq-curl --assign-identity --command-line "tail -f /dev/null" --port 80
@@ -134,7 +134,7 @@ curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-
 Output:
 
 ```bash
-{"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xXxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
+{"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
 ```
 
 To store the access token in a variable to use in subsequent commands to authenticate, run the following command::
@@ -147,11 +147,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 Now use the access token to authenticate to Key Vault and read a secret. Be sure to substitute the name of your key vault in the URL (*https://mykeyvault.vault.azure.net/...*):
 
 ```bash
-curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer $token"
-
-curl https://mykeyvaultdl2.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
-
-
+curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
 ```
 
 The response looks similar to the following, showing the secret. In your code, you would parse this output to obtain the secret. Then you'd use the secret in a subsequent operation to access an Azure resource.
