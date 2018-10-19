@@ -34,7 +34,7 @@ To get started, you need to opt-in to the Preview experience for app registratio
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations > New registration**.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
 
     - **Name** - Enter a meaningful application name that will be displayed to users of the app.
@@ -48,7 +48,7 @@ To get started, you need to opt-in to the Preview experience for app registratio
 
     - **Redirect URI (optional)** - Select the type of app you're building, **Web** or **Public client (mobile & desktop)**, and then enter the redirect URI (or reply URL) for your application.
         - For web applications, provide the base URL of your app. For example, `http://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application.
-        - For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `http://MyFirstApp`.
+        - For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `myapp://auth`.
 
     To see specific examples for web applications or native applications, check out our [quickstarts](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
 
@@ -62,10 +62,11 @@ Azure AD assigns a unique application ID to your app, and you're taken to your a
 
 ## Next steps
 
-- See [Azure AD consent framework](consent-framework.md) for an overview of consent.
+- Learn about the [permissions and consent](v2-permissions-and-consent.md).
 - To enable additional configuration features in your application registration, such as credentials and permissions, and enable sign-in for users from other tenants, see these quickstarts:
-    - [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis-preview.md)
-    - [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis-preview.md)
-    - [Modify the accounts supported by an application](quickstart-modify-supported-accounts-preview.md)
+    - [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
+    - [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
+    - [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
+- Choose a [quickstart](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.
 - Learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
 - Learn more about the branding guidelines you should use when developing apps, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).

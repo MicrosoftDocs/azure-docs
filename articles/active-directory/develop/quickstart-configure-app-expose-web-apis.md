@@ -32,7 +32,7 @@ To get started, make sure you complete these prerequisites:
 
 * Read the overview of the [Azure AD consent framework](consent-framework.md), which is important to understand when building applications that need to be used by other users or applications.
 * Have a tenant that has applications registered to it.
-  * If you don't have apps registered, [learn how to register applications with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md).
+  * If you don't have apps registered, [learn how to register applications with the Microsoft identity platform](quickstart-register-app.md).
 * Opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience.
 
 ## Sign in to the Azure portal and select the app
@@ -41,7 +41,7 @@ Before you can configure the app, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations**.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations (Preview)**.
 1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
 1. Choose which method you want to use, UI or application manifest, to expose a new scope:
     * [Expose a new scope through the UI](#expose-a-new-scope-through-the-ui)
@@ -129,10 +129,10 @@ For more information on application manifest concepts in general, see [Understan
 
 Learn about these other related app management quickstarts for apps:
 
-* [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md)
-* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis-preview.md)
-* [Modify the accounts supported by an application](quickstart-modify-supported-accounts-preview.md)
-* [Remove an application registered with the Microsoft identity platform](quickstart-remove-azure-ad-app-preview.md)
+* [Register an application with the Microsoft identity platform](quickstart-register-app.md)
+* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
+* [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
+* [Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md)
 
 To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
 

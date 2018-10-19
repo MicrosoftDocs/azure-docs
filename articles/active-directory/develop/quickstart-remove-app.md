@@ -33,7 +33,7 @@ In this quickstart, you'll learn how to:
 
 To get started, make sure you complete these prerequisites:
 
-* Have a tenant that has applications registered to it. To learn how to add and register apps, see [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md).
+* Have a tenant that has applications registered to it. To learn how to add and register apps, see [Register an application with the Microsoft identity platform](quickstart-register-app.md).
 * Opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience..
 
 ## Remove an application authored by you or your organization
@@ -44,7 +44,7 @@ Applications that you or your organization have registered are represented by bo
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 2. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-3. In the left-hand navigation pane, select the **Azure Active Directory** service, then select **App registrations**. Find and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
+3. In the left-hand navigation pane, select the **Azure Active Directory** service, then select **App registrations (Preview)**. Find and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
 4. From the **Overview** page, select **Delete**.
 5. Select **Yes** to confirm that you want to delete the app.
 
@@ -61,7 +61,7 @@ In order to remove an application’s access to your directory (after having gra
 
 Learn about these other related app management quickstarts:
 
-* [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md)
-* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis-preview.md)
-* [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis-preview.md)
-* [Modify the accounts supported by an application](quickstart-modify-supported-accounts-preview.md)
+* [Register an application with the Microsoft identity platform](quickstart-register-app.md)
+* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
+* [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
+* [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
