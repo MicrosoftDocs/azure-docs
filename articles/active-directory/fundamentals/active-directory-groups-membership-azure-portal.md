@@ -21,7 +21,7 @@ This article helps you to add and remove a group from another group using Azure 
 >[!Note]
 >If you're trying to delete the parent group, see [How to update or delete a group and its members](active-directory-groups-delete-group.md).
 
-## Add a Security group as a member of another Security group
+## Add a group as a member of another group
 You can add an existing Security group to another existing Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
 
 >[!Important]
@@ -54,8 +54,8 @@ You can add an existing Security group to another existing Security group (also 
 
     ![Group membership page showing both the member and the group details](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
-## Remove a Security group from another Security group
-You can remove an existing Security group from another group. However, removing the group also removes any inherited attributes and properties for its members.
+## Remove a group from another group
+You can remove an existing Security group from another Security group. However, removing the group also removes any inherited attributes and properties for its members.
 
 ### To remove a member group from another group
 1. On the **Groups - All groups** page, search for and select the group that's to be removed as a member of another group. For this exercise, we're again using the **MDM policy - West** group.
@@ -82,4 +82,4 @@ These articles provide additional information on Azure Active Directory.
 
 - [Using a group to manage access to SaaS applications](../users-groups-roles/groups-saasapps.md)
 
-- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
+- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues.md)
