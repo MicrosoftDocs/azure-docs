@@ -220,7 +220,7 @@ The following sample policies can be used for TIC compliance scenarios:
 
 ### Network Watcher traffic analytics
 
-Network Watcher [traffic analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) consume flow log data and other logs to provide a high-level overview of network traffic. The data is useful for auditing TIC compliance and to identify trouble spots. You can use the high-level dashboard to rapidly screen the virtual machines that are communicating with the internet and get a focused list for TIC routing.
+Network Watcher [traffic analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) consume flow log data and other logs to provide a high-level overview of network traffic. The data is useful for auditing TIC compliance and to identify trouble spots. You can use the high-level dashboard to rapidly screen the virtual machines that are communicating with the internet and get a focused list for TIC routing.
 
 ![Traffic analytics](media/tic-traffic-analytics-1.png)
 

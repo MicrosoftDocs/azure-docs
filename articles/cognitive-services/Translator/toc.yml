@@ -165,7 +165,7 @@
     href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
   - name: Language and region support
     href: language-support.md
-  - name: Pricing
+  - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/

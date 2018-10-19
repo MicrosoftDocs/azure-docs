@@ -67,6 +67,10 @@ Then you can pass the following value to the parameter:
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> When you pass no value to an optional `[String]` type parameter that has a _default value_ of `$null`, then the parameter's value will be an _empty string_, **not** `$null`.
+> 
+> 
 
 ## Configure input parameters in graphical runbooks
 

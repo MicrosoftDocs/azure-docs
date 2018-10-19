@@ -1,15 +1,11 @@
-- name: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer."
-  href: troubleshoot-vm-boot-configure-update.md
 - name: Troubleshooting Azure VMs
   href: index.md
 - name: Allocation failures
   items:
-  - name: Allocation failures 
+  - name: Allocation failures
     href: allocation-failure.md
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
-- name: Boot diagnostics
-  href: boot-diagnostics.md
 - name: RDP
   items:
   - name: Reset RDP
@@ -20,8 +16,8 @@
     href: detailed-troubleshoot-rdp.md
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
-- name: SSH 
-  items: 
+- name: SSH
+  items:
   - name: SSH troubleshooting
     href: troubleshoot-ssh-connection.md
   - name: Detailed SSH troubleshooting
@@ -29,8 +25,8 @@
 - name: Common error messages
   href: error-messages.md
 - name: Performance issues with Windows VMs
-  href: performance-diagnostics.md  
-  items: 
+  href: performance-diagnostics.md
+  items:
   - name: How to use PerfInsights
     href: how-to-use-perfInsights.md
   - name: Performance diagnostics extension
@@ -44,7 +40,7 @@
   - name: Windows
     href: redeploy-to-new-node-windows.md
 - name: Reset VM password
-  items:    
+  items:
   - name: Windows
     href: reset-local-password-without-agent.md
   - name: Linux
@@ -62,21 +58,21 @@
       href: serial-console-grub-single-user-mode.md
     - name: Serial Console NMI/SysRq
       href: serial-console-nmi-sysrq.md
-  - name: Windows VM   
+  - name: Windows VM
     href: serial-console-windows.md
     items:
     - name: CMD and PowerShell commands
       href: serial-console-cmd-ps-commands.md
 - name: Errors when deleting storage resources
-  href: storage-resource-deletion-errors.md      
-- name: Unexpected reboots of VMs with attached VHDs  
+  href: storage-resource-deletion-errors.md
+- name: Unexpected reboots of VMs with attached VHDs
   href: unexpected-reboots-attached-vhds.md
 - name: Windows activation problems
   href: troubleshoot-activation-problems.md
 - name: Application access issues
   href: troubleshoot-app-connection.md
 - name: New VM deployments
-  items: 
+  items:
     - name: Linux
       href: troubleshoot-deployment-new-vm-linux.md
     - name: Windows
@@ -106,15 +102,25 @@
 - name: Boot errors
   href: boot-error-troubleshoot.md
   items:
+  - name: Boot diagnostics
+    href: boot-diagnostics.md
   - name: BitLocker errors 
     href: troubleshoot-bitlocker-boot-error.md  
   - name: Checking file system errors
     href: troubleshoot-check-disk-boot-error.md
   - name: Blue screen errors
     href: troubleshoot-common-blue-screen-error.md
+  - name: VM startup is stuck
+    href: troubleshoot-vm-boot-configure-update.md
+  - name: Critical service failed
+    href: troubleshoot-critical-service-failed-boot-error.md
+  - name: Reboot loop
+    href: troubleshoot-reboot-loop.md
+  - name: Stuck at Windows update
+    href: troubleshoot-stuck-updating-boot-error.md
 - name: Throttling errors
   href: troubleshooting-throttling-errors.md
-- name: Use nested virtualization 
+- name: Use nested virtualization
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Understand a system reboot
   href: understand-vm-reboot.md
