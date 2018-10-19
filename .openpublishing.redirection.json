@@ -16480,7 +16480,12 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-openid-connect-code",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/quickstart-v1-openid-connect-code.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-angular.md",
