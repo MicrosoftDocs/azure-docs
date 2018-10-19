@@ -25,7 +25,7 @@ In this tutorial, you create a storage account, a virtual machine, a virtual net
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Prepare the Key Vault
+> * Setup a secure environment
 > * Open a quickstart template
 > * Explore the template
 > * Edit the parameters file
@@ -49,43 +49,43 @@ To prevent the password spray attacks, it is recommended to use a generated pass
 3. Run the following Azure PowerShell or Azure CLI command.  
 
     ```azurecli-interactive
-    keyVaultName='<your-unique-vault-name>'
-    resourceGroupName='<your-resource-group-name>'
-    location='Central US'
-    userPrincipalName='<your-email-address-associated-with-your-subscription>'
+    echo "Enter the Resource Group Name:" &&
+    read resourceGroupName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter the Key Vault name:" &&
+    read keyVaultName &&
+    echo "Enter your email address associated with your Azure subscription:" &&
+    read userPrincipalName &&
     
-    # Create a resource group
-    az group create --name $resourceGroupName --location $location
+    # Create a resource group &&
+    az group create --name $resourceGroupName --location $location &&
     
-    # Create a Key Vault
-    keyVault=$(az keyvault create \
-      --name $keyVaultName \
-      --resource-group $resourceGroupName \
-      --location $location \
-      --enabled-for-template-deployment true)
-    keyVaultId=$(echo $keyVault | jq -r '.id')
-    az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-
-    # Create a secret
-    password=$(openssl rand -base64 32)
-    az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
+    # Create a Key Vault &&
+    keyVault=$(az keyvault create --name $keyVaultName --resource-group $resourceGroupName --location $location --enabled-for-template-deployment true) &&
+    keyVaultId=$(echo $keyVault | jq -r '.id') &&
+    az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list &&
     
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
+    # Create a secret &&
+    password=$(openssl rand -base64 32) &&
+    az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password &&
+    
+    # Print the useful property values &&
+    echo "You need the following values for the virtual machine deployment:" &&
+    echo "Resource group name is: $resourceGroupName." &&
+    echo "The admin password is: $password." &&
     echo "The Key Vault resource ID is: $keyVaultId."
     ```
 
     ```azurepowershell-interactive
-    $keyVaultName = "<your-unique-vault-name>"
-    $resourceGroupName="<your-resource-group-name>"
-    $location='Central US'
-    $userPrincipalName="<your-email-address-associated-with-your-subscription>"
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $keyVaultName = Read-Host -Prompt "Enter the Key Vault Name"
+    $userPrincipalName= Read-Host -Promt "Enter your email address associated with your subscription"
     
     # Create a resource group
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-        
+    
     # Create a Key Vault
     $keyVault = New-AzureRmKeyVault `
       -VaultName $keyVaultName `
@@ -93,7 +93,7 @@ To prevent the password spray attacks, it is recommended to use a generated pass
       -Location $location `
       -EnabledForTemplateDeployment
     Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-      
+    
     # Create a secret
     $password = openssl rand -base64 32
     
@@ -223,9 +223,9 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ```
 7. From the Cloud shell, run the following PowerShell commands. The sample script uses the same resource group created for the Key Vault. Using the same resource group makes it easier to clean up the resources.
 
-    ```powershell
-    $resourceGroupName = "<Enter the resource group name>"
-    $deploymentName = "<Enter a deployment name>"
+    ```azurepowershell
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
@@ -234,7 +234,8 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ```
 8. Run the following PowerShell command to list the newly created virtual machine:
 
-    ```powershell
+    ```azurepowershell
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
