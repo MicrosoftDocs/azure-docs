@@ -124,7 +124,7 @@ The client or clients in this case are the HANA large instance units. The SMT se
 
 ![Screenshot of configuring the SMT client](./media/hana-installation/image12_configure_client.PNG)
 
-It's possible that the load of the certificate from the server by the client succeeds, but the registration fails, as shown belowin the following screenshot.
+It's possible that the load of the certificate from the server by the client succeeds, but the registration fails, as shown in the following screenshot.
 
 ![Screenshot of client registration failure](./media/hana-installation/image13_registration_failed.PNG)
 
