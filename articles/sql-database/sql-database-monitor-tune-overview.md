@@ -101,6 +101,7 @@ As shown in the previous chart, the most common waits are:
 >
 > - [Identify I/O performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identify `tempdb` performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
+> - [Identify memory grant waits](sql-database-monitoring-with-dmvs.md#identify-imemory-grant-wait-performance-issues)
 
 ## Improving database performance with more resources
 
