@@ -33,6 +33,7 @@ This hands-on guide is platform-independent; it can be run it on Windows, Linux,
 - **The Go Programming language**: The Terraform test cases are written in [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
 - **Azure CLI**: The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool for managing Azure resources. (Terraform supports authenticating to Azure through a Service Principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **mage**: We will be using the [mage executable](https://github.com/magefile/mage/releases) to learn how to sinplify running your Terratest cases. 
 
 ## Create a static webpage module
 
@@ -126,7 +127,7 @@ resource "azurerm_storage_blob" "homepage" {
 }
 ```
 
-### Unit Test
+### Unit test
 
 Terratest is traditionally a tool designed for integration tests--which means it will provision real resources in a real environment. Sometimes such jobs can become exceptionally large, especially when you have tons of resources to be provisioned. The storage account naming conversion logic described in the previous section is a good example: we don't really need to provision any resources--we just want to make sure the naming conversion logic is correct.
 
@@ -257,7 +258,7 @@ GoPath/src/staticwebpage/test$ go test -run TestUT_StorageAccountName
 
 You will see the traditional Go test result after about one minute.
 
-### Integration Test
+### Integration test
 
 In contrast to unit tests, integration tests are required to provision resources to a real environment from the end-to-end perspective. Terratest does a good job on such things. Since the best practice of Terraform module also recommends the `examples` folder containing some end-to-end samples, why not just test those samples as integration tests? In this section, we will focus on three files, each marked with an asterisk `(*)`.
 
@@ -316,7 +317,7 @@ output "homepage" {
 
 Terratest and classic Go test function appear again in the integration test file `./test/hello_world_example_test.go`.
 
-Unlike unit tests, integration tests will create actual resources in Azure, and that is why you need to be particularly careful to avoid name conflictions. (Pay special attention to some globally unique names like storage account name). Therefore, the first step of the testing logic is to generate a randomized `websiteName` using the `UniqueId()` function provided by TerraTest. This function will generate a random name containing lower case letters, upper case letters, or numbers. `tfOptions` makes all Terraform commands targeting the `./examples/hello-world/` folder, and also makes sure `website_name` is set to the randomized `websiteName`.
+Unlike unit tests, integration tests will create actual resources in Azure, and that is why you need to be careful to avoid name conflicts. (Pay special attention to some globally unique names like storage account name). Therefore, the first step of the testing logic is to generate a randomized `websiteName` using the `UniqueId()` function provided by TerraTest. This function will generate a random name containing lower case letters, upper case letters, or numbers. `tfOptions` makes all Terraform commands targeting the `./examples/hello-world/` folder, and also makes sure `website_name` is set to the randomized `websiteName`.
 
 Then, `terraform init`, `terraform apply`, and `terraform output` are executed, one by one. We used another helper function `HttpGetWithCustomValidation()` provided by Terratest to make sure that HTML is uploaded to the output `homepage` URL returned by `terraform output` by comparing the HTTP Get status code with `200` and looking for some keywords in the HTML content. Finally, `terraform destroy` is "promised" to be executed by leveraging the `defer` feature of Go.
 
@@ -385,12 +386,9 @@ As you can tell, integration tests take much longer time than unit tests (two mi
 
 ## Use mage to simplify running the Terratest cases 
 
-As you have seen, running test cases in shell is not an easy task because you need to navigate to different directories and execute different commands. It is for this reason we introduce the build system in our project. In this section, we will use a Go build system `mage` to do the job.
+As you have seen, running test cases in shell is not an easy task because you need to navigate to different directories and execute different commands. It is for this reason we introduce the build system in our project. In this section, we will use a Go build system mage to do the job.
 
-> [!NOTE]
-> As a prerequiste, [install `mage` executable](https://github.com/magefile/mage/releases) in your system.
-
-The only thing required by `mage` is a `magefile.go` in your project's root directory (marked with `(+)` in the following figure).
+The only thing required by mage is a `magefile.go` in your project's root directory (marked with `(+)` in the following figure).
 
 ```
  📁 GoPath/src/staticwebpage
@@ -504,7 +502,7 @@ GoPath/src/staticwebpage$ az login    # Required when no service principal envir
 GoPath/src/staticwebpage$ mage
 ```
 
-Feel free to replace the last command line with any mage steps, for instance `mage unit` or `mage clean`. Now you might think that there are still many command lines here, and it is a good idea to embed `dep` commands as well as `az login` into the magefile. But we will not show the code here. One further step of using `mage` is that the steps could be shared using the Go package system. So that magefiles across all your modules could be simplified by just referencing a common implementation and declaring dependencies (`mg.Deps()`).
+Feel free to replace the last command line with any mage steps, for instance `mage unit` or `mage clean`. Now you might think that there are still many command lines here, and it is a good idea to embed `dep` commands as well as `az login` into the magefile. But we will not show the code here. One further step of using mage is that the steps could be shared using the Go package system. So that magefiles across all your modules could be simplified by just referencing a common implementation and declaring dependencies (`mg.Deps()`).
 
 > [!NOTE]
 > **Option: Setting service principal environment variables to run acceptance tests**
@@ -513,4 +511,4 @@ Feel free to replace the last command line with any mage steps, for instance `ma
 
 ## Next steps
 
-For more information about Terratest, see [its GitHub page](https://github.com/gruntwork-io/terratest). You might find some useful information about `mage` in [its GitHub page](https://github.com/magefile/mage) and [its home page](https://magefile.org/).
+For more information about Terratest, see [its GitHub page](https://github.com/gruntwork-io/terratest). You might find some useful information about mage in [its GitHub page](https://github.com/magefile/mage) and [its home page](https://magefile.org/).
