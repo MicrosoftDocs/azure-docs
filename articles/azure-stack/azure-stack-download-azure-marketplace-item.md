@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2018
+ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: ''
 ---
@@ -121,7 +121,10 @@ There are two parts to this scenario:
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
+   Sync-AzSOfflineMarketplaceItem 
+      -Destination "Destination folder path in quotes" `
+      -AzureTenantID $AzureContext.Tenant.TenantId ` 
+      -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
 6. When the tool runs, you should see a screen similar to the following image, with the list of available marketplace items:
@@ -199,26 +202,6 @@ With the release of Azure Stack PowerShell 1.3.0 you can now add Virtual Machine
 ````PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ````
-
-### Import the download and publish to Azure Stack Marketplace (1811 and higher)
-
-1. The files that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.
-
-   The following image shows a folder structure example. `D:\downloadfolder` contains all the downloaded marketplace items. Each sub-folder is a marketplace item (for example, `microsoft.custom-script-linux-arm-2.0.3`), named by the product ID. Inside each sub-folder is the marketplace item's downloaded content.
-
-   [ ![Marketplace download directory structure](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace download directory structure") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
-
-2. Follow the instructions in [this article](azure-stack-powershell-configure-admin.md) to configure the Azure Stack Operator PowerShell session. 
-
-3. Import the syndication module and then launch the marketplace syndication tool by running the following script:
-
-   ```PowerShell
-   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
-   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
-   ```
-   The `-AzsCredential` parameter is optional. It is used to renew the access token, if it has expired. If the `-AzsCredential` parameter is not specified and the token expires, you receive a prompt to enter the operator credentials.
-
-4. After the script successfully completes, the item should be available in the Azure Stack Marketplace.
 
 ## Next steps
 
