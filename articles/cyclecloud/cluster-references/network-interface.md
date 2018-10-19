@@ -39,6 +39,7 @@ The `$` is a reference to a parameter name.
 Attribute | Type | Definition
 ------ | ----- | ----------
 AssociatePublicIpAddress | Integer | Associate a public ip address with the NIC.
+StaticPublicIpAddress | Boolean | If true, the IP address will be persisted between node restarts.
 EnableIpForwarding | Boolean | If true, allow ip forwarding.
 PrivateIp | IP Address | Assign a specific private ip address (node only)
 NetworkInterfaceId | String | Specify an existing NIC by resource ID.
