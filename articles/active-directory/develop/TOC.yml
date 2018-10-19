@@ -42,7 +42,7 @@
       - name: Java
         href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
       - name: NodeJS
-        href: quickstart-v1-openid-connect-code.md
+        href: https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS
       - name: Python
         href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
     - name: Web APIs
@@ -323,6 +323,8 @@
           href: v2-oauth2-on-behalf-of-flow.md
         - name: OAuth 2.0 client credentials grant
           href: v2-oauth2-client-creds-grant-flow.md
+      - name: Signing key rollover
+        href: active-directory-signing-key-rollover.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
@@ -413,5 +415,5 @@
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Getting help
     href: developer-support-help-options.md
-  - name: Managed Service Identity for Azure resources
+  - name: Managed identities for Azure resources
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview

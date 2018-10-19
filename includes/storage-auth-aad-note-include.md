@@ -10,7 +10,7 @@ ms.author: tamram
 ms.custom: "include file"
 ---
 
-> [!IMPORTANT]
+> [!NOTE]
 > - The preview of Azure AD authentication for blobs and queues is intended for non-production use only. Production service-level agreements (SLAs) are not currently available. If Azure AD authentication is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications.
 >
 > - During the preview, RBAC role assignments may take up to five minutes to propagate.
@@ -22,5 +22,8 @@ ms.custom: "include file"
 > - The Azure portal does not currently support using Azure AD credentials to read and write queue data. Queue data is accessed via your storage account keys.
 >
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) currently uses your storage account key to access blob and queue data.
+>
+> - Azure Files supports authentication with Azure AD over SMB for domain-joined VMs only (preview). To learn about using Azure AD over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](../articles/storage/files/storage-files-active-directory-overview.md).
+
 
 

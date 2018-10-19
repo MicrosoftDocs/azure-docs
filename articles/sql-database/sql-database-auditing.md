@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/02/2018
+ms.date: 10/15/2018
 ---
 # Get started with SQL database auditing
 
@@ -25,9 +25,8 @@ Azure SQL database auditing tracks database events and writes them to an audit l
 
 You can use SQL database auditing to:
 
-
 - **Retain** an audit trail of selected events. You can define categories of database actions to be audited.
-- **Report** on database activity. You can use preconfigured reports and a dashboard to get started quickly with activity and event reporting.
+- **Report** on database activity. You can use pre-configured reports and a dashboard to get started quickly with activity and event reporting.
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 You can configure auditing for different types of event categories, as explained in the [Set up auditing for your database](#subheading-2) section.
@@ -75,7 +74,7 @@ The following section describes the configuration of auditing using the Azure po
 
     ![Navigation pane][3]
 
-5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to an OMS workspace for consumption by Log Analytics, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
+5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to an Log Analytics workspace for consumption by Log Analytics, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
 
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -83,9 +82,9 @@ The following section describes the configuration of auditing using the Azure po
 
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. To configure writing audit logs to an OMS workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the OMS workspace where logs will be written and then click **OK**.
+7. To configure writing audit logs to an Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
 
-    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 
@@ -93,7 +92,7 @@ The following section describes the configuration of auditing using the Azure po
 
 9. Click **Save**.
 10. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
-11. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md). 
+11. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
@@ -105,10 +104,10 @@ If you chose to write audit logs to Log Analytics:
 
 - Then, clicking on **Open in OMS** at the top of the **Audit records** page will open the Logs view in Log Analytics, where you can customize the time range and the search query.
 
-    ![open in OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    ![open in Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: *search "SQLSecurityAuditEvents"* to view the audit logs.
-    From here, you can also use [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md)  to run advanced searches on your audit log data. Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about OMS Log Analytics search language and commands, see [Log Analytics search reference](../log-analytics/log-analytics-log-search.md).
+    From here, you can also use [Log Analytics](../log-analytics/log-analytics-log-search.md)  to run advanced searches on your audit log data. Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../log-analytics/log-analytics-log-search.md).
 
 If you chose to write audit logs to Event Hub:
 
@@ -224,10 +223,11 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 - [Get Server Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Extended policy with WHERE clause support for additional filtering:
+
 - [Create or Update Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Create or Update Server *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+- [Create or Update Server *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Get Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Get Server *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
+- [Get Server *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

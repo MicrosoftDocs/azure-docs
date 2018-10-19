@@ -59,4 +59,4 @@ The Microsoft identity platform has two endpoints (v1.0 and v2.0) and two sets o
 Learn more about v1.0 and v2.0.
 
 * [About v1.0](azure-ad-developers-guide.md)
-* [About v2.0](azure-ad-developers-guide.md)
+* [About v2.0](v2-overview.md)

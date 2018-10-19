@@ -21,7 +21,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
       href: quickstart-create-front-door.md
 - title: Step-by-Step Tutorials

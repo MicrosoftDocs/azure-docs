@@ -1,8 +1,11 @@
 ---
-title: How to create a language model with Speech Services - Microsoft Cognitive Services
-description: Learn how to create a language model with Speech Services in Microsoft Cognitive Services.
+title: "Tutorial: How to create a language model with Speech Service"
+titlesuffix: Azure Cognitive Services
+description: Learn how to create a language model with Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
@@ -93,8 +96,6 @@ The appropriate locale must be selected before taking any action. The current lo
 On the Create Language Model page, enter a **Name** and **Description** to help you keep track of pertinent information about this model, such as the data set that's used. Next, select the **Base Language Model** from the drop-down menu. This model is the starting point for your customization. 
 
 There are two base language models to choose from. The Search and Dictation model is appropriate for speech that's directed at an application, such as commands, search queries, or dictation. The Conversational model is appropriate for recognizing speech that's spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings. 
-
-On the "Create Language Model" page, enter a **Name** and **Description** to help you keep track of pertinent information about this model, such as the data set that you used. Next, select the **Base Language Model** from the drop-down menu. This model is the starting point for your customization. There are two base language models to choose from. 
 
 The Search and Dictation model is appropriate for speech that's directed at an application, such as commands, search queries, or dictation. The Conversational model is appropriate for recognizing speech that's spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings. A new model called "Universal" is also publicly available. Universal aims to tackle all scenarios and eventually replace the Search and Dictation and the Conversational models.
 

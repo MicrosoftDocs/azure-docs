@@ -16,6 +16,9 @@ ms.date: 09/24/2018
 
 In the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article, you'll learn about the different ways to add logging to your training script, how to submit the experiment with **start_logging** and **ScriptRunConfig**, how to check the progress of a running job, and how to view the results of a run. 
 
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.168 
+
 ## List of training metrics 
 
 The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
@@ -137,7 +140,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_submitted_run()
+  run = Run.get_context()
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
   data = {"train": {"X": X_train, "y": y_train},
@@ -228,6 +231,7 @@ Model training and monitoring occur in the background so that you can run other 
 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
+<a name='view-the-experiment-in-the-web-portal'/>
 ## View the experiment in the Azure portal
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can do this in two ways:
