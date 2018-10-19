@@ -1,5 +1,5 @@
 ---
-title: 'Interoperability of ExpressRoute, Site-to-site VPN, and VNet Peering - Test Setup Configuration Details: Backend Connectivity Features Interoperability | Microsoft Docs'
+title: 'Interoperability of ExpressRoute, Site-to-site VPN, and VNet Peering - Configuration Details: Azure Backend Connectivity Features Interoperability | Microsoft Docs'
 description: This page provides the configuration details of the test setup that is used to analyze interoperability of ExpressRoute, Site-to-site VPN, and VNet Peering features.
 documentationcenter: na
 services: networking
@@ -14,7 +14,7 @@ ms.author: rambala
 
 ---
 
-# Interoperability of ExpressRoute, Site-to-site VPN, and VNet-Peering - Test Configuration Details
+# Interoperability of ExpressRoute, Site-to-site VPN, and VNet-Peering - Test configuration details
 
 In this article, let's go through the configuration details of the test setup. To review the Test Setup, see the [Test Setup][Setup]. 
 
@@ -159,19 +159,11 @@ The ExpressRoute1 connects both the Hub Vnet and Location-1 on-premises to a rem
 
 [![8]][8]
 
-## Next Steps
+## Further reading
 
-For control plane analysis of the test setup and to understand the views of different VNet/VLAN of the topology, see [Control-Plane Analysis][Control-Analysis].
+### Using ExpressRoute and Site-to-Site VPN connectivity in tandem
 
-For data plane analysis of the test setup and for Azure network monitoring features views, see [Data-Plane Analysis][Data-Analysis].
-
-To learn how many ExpressRoute circuits you can connect to an ExpressRoute Gateway, or how many ExpressRoute Gateways you can connect to an ExpressRoute circuit, or to learn other scale limits of ExpressRoute, see [ExpressRoute FAQ][ExR-FAQ]
-
-## Further Reading
-
-### Using ExpressRoute and Site-to-Site VPN connectivity in Tandem
-
-#### Site-to-Site VPN over ExpressRoute Microsoft Peering
+#### Site-to-Site VPN over ExpressRoute
 
 Site-to-Site VPN can be configured over ExpressRoute Microsoft peering to privately exchange data between your on-premises network and your Azure VNets with confidentiality, anti-replay, authenticity, and integrity. For more information regarding how to configure Site-to-Site IPSec VPN in tunnel mode over ExpressRoute Microsoft peering, see [Site-to-site VPN over ExpressRoute Microsoft-peering][S2S-Over-ExR]. 
 
@@ -182,7 +174,7 @@ ExpressRoute is offered as redundant circuit pair to ensure high availability. Y
 
 For more information regarding how to configure ExpressRoute and Site-to-Site VPN coexisting connections, see [ExpressRoute and Site-to-Site Coexistence][ExR-S2S-CoEx].
 
-### Extending Backend Connectivity to Spoke VNets and Branch Locations
+### Extending backend connectivity to spoke VNets and branch locations
 
 #### Spoke VNet connectivity using VNet peering
 
@@ -196,6 +188,14 @@ If you want branch Vnets (in different regions) and on-premises networks communi
 
 For configuring VPN gateways, see [Configuring VPN Gateway][VPN]. For deploying highly available NVA, see [Deploy highly available NVA][Deploy-NVA].
 
+## Next steps
+
+For control plane analysis of the test setup and to understand the views of different VNet/VLAN of the topology, see [Control-Plane Analysis][Control-Analysis].
+
+For data plane analysis of the test setup and for Azure network monitoring features views, see [Data-Plane Analysis][Data-Analysis].
+
+To learn how many ExpressRoute circuits you can connect to an ExpressRoute Gateway, or how many ExpressRoute Gateways you can connect to an ExpressRoute circuit, or to learn other scale limits of ExpressRoute, see [ExpressRoute FAQ][ExR-FAQ]
+
 
 <!--Image References-->
 [1]: ./media/backend-interoperability/SpokeVNet_peering.png "Spoke VNet's VNet peering"
@@ -208,19 +208,19 @@ For configuring VPN gateways, see [Configuring VPN Gateway][VPN]. For deploying 
 [8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "Connection configuration of ExpressRoute2 to Remote VNet ExR GW"
 
 <!--Link References-->
-[Setup]: https://docs.microsoft.com/en-us/azure/networking/connectivty-interoperability-preface
-[ExpressRoute]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
-[VPN]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways
-[VNet]: https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.microsoft.com/en-us/azure/networking/connectivty-interoperability-config
-[Control-Analysis]:https://docs.microsoft.com/en-us/azure/networking/connectivty-interoperability-CtrlPln
-[Data-Analysis]: https://docs.microsoft.com/en-us/azure/networking/connectivty-interoperability-DataPln
-[ExR-FAQ]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs
-[S2S-Over-ExR]: https://docs.microsoft.com/en-us/azure/expressroute/site-to-site-vpn-over-microsoft-peering
-[ExR-S2S-CoEx]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager
-[Hub-n-Spoke]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/nva-ha
-[VNet-Config]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering
+[Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface
+[ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
+[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
+[Configuration]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-configuration
+[Control-Analysis]:https://docs.microsoft.com/azure/networking/connectivty-interoperability-control-plane
+[Data-Analysis]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-data-plane
+[ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
+[S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+[ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
+[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
+[VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
 
 
 
