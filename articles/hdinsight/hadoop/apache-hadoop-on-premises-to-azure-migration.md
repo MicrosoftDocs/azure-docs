@@ -1,5 +1,5 @@
 ---
-title: On-premises Hadoop eco-system to Azure HDInsight Migration
+title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight
 description: Learn best-practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 services: hdinsight
 author: ashishthaps
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ashishth
 ---
-# On-premises Apache Hadoop eco-system to Azure HDInsight Migration
+# Migrate on-premises Hadoop clusters to Azure HDInsight
 
-This paper is a best-practices guide for migrating on-premises Apache Hadoop eco-system deployments to Azure HDInsight. We describe the migration process and provide guidance on rearchitecting the on-premises Hadoop system to take advantage of the benefits of Azure HDInsight optimized for cloud computing. We also discuss questions designed to gather information critical to the success of the migration.
+This paper is a best-practices guide for migrating on-premises Apache Hadoop eco-system deployments to Azure HDInsight. We describe the migration process and provide guidance on re-architecting the on-premises Hadoop system to take advantage of the benefits of Azure HDInsight which is optimized for cloud computing. We also discuss questions designed to gather information critical to the success of the migration.
 
-Several customers have asked for guidance on migrating on-premises Hadoop eco-system deployments to Azure HDInsight. In many of these discussions, it has been helpful to follow a specific process:
+We recommend the following process for planning a migration of on-premises Hadoop clusters to Azure HDInsight:
 
 1. Understand the current on-premises deployment and topologies.
 2. Understand the current project scope, timelines, and team expertise.
@@ -23,7 +23,7 @@ Several customers have asked for guidance on migrating on-premises Hadoop eco-sy
 
 The main sections of the paper focus on migration best practices and processes. The questionnaires that capture information about the on-premises deployment and migration requirements are included in the appendix.
 
-## Audience and Scope
+## Audience and scope
 
 This guide is for people who are responsible for the design, deployment, and migration of Apache Hadoop solutions in Azure HDInsight. The roles that may benefit from this article include cloud architects, Hadoop administrators, and DevOps engineers. Software developers, data engineers, and data scientists should also benefit from the explanation of how different types of clusters work in the cloud.
 
@@ -52,7 +52,7 @@ provide a single interface with which you can monitor all your clusters.
 
 For more information, see the article [What is Azure HDInsight and the Hadoop technology stack](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
 
-## Proposed Azure HDInsight Architecture and Migration Best practices
+## Proposed Azure HDInsight architecture and migration best practices
 
 A typical on-premises Hadoop infrastructure consists of a single large cluster that supports many workloads. This single cluster is often complex and may require compromises to the individual services to make everything work together. Migrating to Azure HDInsight requires a change in approach.
 
@@ -87,7 +87,7 @@ The following table shows the different methods that can be used to create HDIns
 
 For more information, see the article [Cluster types in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
 
-### Use Transient on-demand clusters
+### Use transient on-demand clusters
 
 Many HDInsight clusters may go unused for long periods of time. To help save on resource costs, HDInsight supports on-demand transient clusters, which can be deleted once the workload has been successfully completed.
 
@@ -97,7 +97,7 @@ Azure Data Factory can be used to schedule creation of on-demand HDInsight clust
 
 For more information, see the article [Create on-demand Hadoop clusters in HDInsight using Azure Data Factory](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf)
 
-### Decouple Storage from Compute
+### Decouple storage from compute
 
 Typical on-premises Hadoop deployments colocate storage and compute. Because they are linked, compute and storage must be scaled together. The cluster must also be to access the data.
 
@@ -111,7 +111,7 @@ On HDInsight clusters, storage does not need to be colocated with compute and ca
 
 Compute clusters are created close to storage account resources in the Azure region to mitigate performance cost of not colocating compute and storage. High-speed networks make it efficient for the compute nodes to access the data inside Azure storage.
 
-### Choosing the right Storage system for HDInsight cluster
+### Choose the right storage system for HDInsight clusters
 
 The on-premises Hadoop File System (HDFS) directory structure can be re-created on one Azure Storage or Azure Data Lake Store. You can then safely delete HDInsight clusters that are used for computation without losing user data. They can be used as both the default file system and an additional file system. The HDInsight cluster and the storage account must be hosted in the same region.
 
@@ -204,7 +204,7 @@ For more information, see the following articles
 - [Create HDInsight clusters with Data Lake Store by using the Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)
 - [Use Data Lake Store with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store)
 
-#### Azure Data Lake Storage Gen2 (Preview)
+#### Azure Data Lake Storage Gen2 (preview)
 
 Azure Data Lake Storage Gen2 is the latest storage offering and is in Preview at the time of writing of this paper. It unifies the core capabilities from the first generation of Azure Data Lake store with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
 
@@ -304,7 +304,7 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storage-sharedaccesssignature-permissions)
 
 
-### Use Data encryption and Replication
+### Use data encryption and replication
 
 All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). The data in the Azure storage account is always replicated for high availability. When you create a storage account, you can choose one of the following replication options:
 
@@ -319,7 +319,7 @@ For more information, see the following articles:
 - [Azure storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Disaster guidance for ADLS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-disaster-recovery-guidance)
 
-### Attaching additional Azure storage accounts to the cluster
+### Attach additional Azure storage accounts to the cluster
 
 During the HDInsight creation process, an Azure Storage account or Azure Data Lake storage account is chosen as the default file system. In addition to this default storage account, additional storage accounts can be added from the same Azure subscription or different Azure subscriptions during the cluster creation process or after a cluster has been created.
 
@@ -346,7 +346,7 @@ The key things to identify for HDInsight cluster capacity planning are:
 
 For more information, see the article [Capacity planning for HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning)
 
-### Use the recommended Virtual Machine types for Cluster Nodes
+### Use the recommended virtual machine types for cluster nodes
 
 The following table lists the recommended and default Virtual Machine types for the cluster Nodes supported regions except [Brazil South and Japan West](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
@@ -454,7 +454,7 @@ For more information, see the following articles
 
 ### Customize HDInsight configs using Bootstrap
 
-Changes to configs in the config files such as core-site.xml, hive-site.xml and oozie-env.xml can be made using bootstrap. Below is an example using Powershell.
+Changes to configs in the config files such as core-site.xml, hive-site.xml and oozie-env.xml can be made using Bootstrap. Below is an example using Powershell.
 
 For more information, see the article [Customize HDInsight clusters using Bootstrap](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-bootstrap)
 
@@ -470,11 +470,11 @@ Edge nodes can be used during or after cluster creation. After the edge node has
 
 For more information, see the article [Use empty edge nodes on Hadoop clusters in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-use-edge-node)
 
-### Use the Scale-up and Scale-down feature of Cluster
+### Use the scale-up and scale-down feature of clusters
 
 HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This feature allows you to shrink a cluster after hours or on weekends and expand it during peak business demands.
 
-Cluster scaling can be automated with the
+Cluster scaling can be automated with the following methods:
 
 #### PowerShell cmdlet
 
@@ -488,7 +488,7 @@ Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 ```
 
-#### Azure Portal Scale cluster
+#### Azure portal
 
 When you add nodes to your running HDInsight cluster, any pending or running jobs will not be affected. New jobs can be safely submitted while the scaling process is running. If the scaling operations fail for any reason, the failure is gracefully handled, leaving the cluster in a functional state.
 
@@ -525,16 +525,16 @@ For more information, see the following articles
 - [Azure virtual-networks-overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 - [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-### Use Azure Virtual Network Service Endpoints to securely connect to other Azure Services
+### Use Azure Virtual Network service endpoints to securely connect to other Azure services
 
-HDInsight supports [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) which allows customers to securely connect to Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB, and SQL databases. By enabling a Service Endpoint for Azure HDInsight, traffic flows through a secured route from within the Azure data center. With this enhanced level of security at the networking layer, customers can lock down their big data storage accounts to their specified Virtual Networks (VNETs) and still use HDInsight clusters seamlessly to access and process that data.
+HDInsight supports [virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) which allows customers to securely connect to Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB, and SQL databases. By enabling a Service Endpoint for Azure HDInsight, traffic flows through a secured route from within the Azure data center. With this enhanced level of security at the networking layer, customers can lock down their big data storage accounts to their specified Virtual Networks (VNETs) and still use HDInsight clusters seamlessly to access and process that data.
 
 For more information, see the following articles
 
-- [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 - [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
-### Connecting HDInsight to on-premises network
+### Connect HDInsight to the on-premises network
 
 HDInsight can be connected to the on-premises network by using Azure Virtual Networks and a VPN gateway. Below steps can be followed to establish the connectivity.
 
@@ -544,7 +544,7 @@ HDInsight can be connected to the on-premises network by using Azure Virtual Net
 
  For more information, see the article [Connect HDInsight to your on-premises network](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
 
-### Use Enterprise Security Package (Domain-joined HDInsight clusters) to secure and govern the cluster
+### Use the Enterprise Security Package to secure and govern the cluster
 
 The Enterprise Security Package (ESP) supports Active Directory-based authentication, multiuser support, and role-based access control. With the ESP option chosen, HDInsight cluster is joined to the Active Directory domain and the enterprise admin can configure role-based access control (RBAC) for Hive security by using Apache Ranger. The admin can also audit the data access by employees and any changes done to access control policies.
 
@@ -584,7 +584,7 @@ For more information, see the following articles
 - [Configure Hive policies in Domain-joined HDInsight](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-run-hive?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fdomain-joined%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 - [Run Apache Oozie in domain-joined HDInsight Hadoop clusters](https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-use-oozie-domain-joined-clusters)
 
-### Implement End to end Enterprise Security Management
+### Implement end to end enterprise security management
 
 The end to end enterprise security can be implemented by integrating the below measures.
 
@@ -660,10 +660,9 @@ Eg: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
 - Consider using Ranger RBAC on Hive tables and auditing
 - Consider using CosmosDB in place of MongoDB or Cassandra
 
-### Data Migration from on-premises to Azure
+### Migrate data from on-premises to Azure
 
-There are two main options to migrate data from on-premises to Azure
-environment
+There are two main options to migrate data from on-premises to Azure environment
 
 1.  Transfer data over network with TLS
     1.  Over internet
@@ -738,16 +737,15 @@ The hive metastore can be migrated either by using the scripts or by using the D
 - Transform on-prem specific HDFS-based paths to WASB/ADLS using a tool like XSLT
 - import the policies on to Ranger running on HDI
 
-### Use Monitoring & Alerting
+### Use monitoring & alerting
 
 For more information, see the article:
 
 [Log Analytics Overview](https://docs.microsoft.com/azure/log-analytics/log-analy%20tics-overview)
 
-### Cluster Upgrade (OS)
+### Upgrade clusters
 
-It is a good practice to upgrade to the latest HDInsight version so as to take advantage of the latest features. Below are the steps that can
-be followed to upgrade the cluster to the latest version.
+It is a good practice to upgrade to the latest HDInsight version so as to take advantage of the latest features. Below are the steps that can be followed to upgrade the cluster to the latest version.
 
 - Create a new TEST HDI cluster using the latest available HDI version
 - Perform testing on the new cluster to make sure that the jobs and workloads work as expected.
@@ -760,7 +758,7 @@ be followed to upgrade the cluster to the latest version.
 
 For more information, see the article: [Upgrade HDInsight cluster to a new version](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster)
 
-### OS Patching for HDInsight (Ops)
+### Patch cluster operating systems
 
 As a managed Hadoop service, HDInsight takes care of patching the OS
 of the underlying VMs used by HDInsight clusters. 
@@ -773,7 +771,7 @@ For more information, see the article: [OS patching for HDInsight](https://docs.
 2. **Perform Tests** - Iteratively run functional and performance tests
 3. **Optimize** - Address any performance issues based on the above test results and then retest to confirm the performance improvements.
 
-## Appendix: Gathering details to prepare for a migration
+## Appendix: gathering details to prepare for a migration
 
 This section provides template questionnaires to help gather important information about:
 
@@ -781,7 +779,7 @@ This section provides template questionnaires to help gather important informati
 - Project details.
 - Azure requirements.
 
-### On-Premises Deployment Questionnaire
+### On-Premises deployment questionnaire
 
 | **Question** | **Example** | **Answer** |
 |---|---|---|
@@ -801,7 +799,7 @@ This section provides template questionnaires to help gather important informati
 |HDFS Encryption?|Yes|
 |High Availability|HDFS HA, Metastore HA|
 |Disaster Recovery / Back up|Backup cluster?|  
-|Systems that are dependent on Cluster|SQL Server, Teradata, PowerBI, MongoDB|
+|Systems that are dependent on Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Third-party integrations|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**Topic** : **Security**|||
 |Perimeter security|Firewalls|
@@ -814,7 +812,7 @@ This section provides template questionnaires to help gather important informati
 |Data Retention duration| 3 years, 5 years|
 |Cluster Administrators|Single Administrator, Multiple Administrators|
 
-### Project Details questionnaire
+### Project details questionnaire
 
 |**Question**|**Example**|**Answer**|
 |---|---|---|
@@ -858,7 +856,7 @@ This section provides template questionnaires to help gather important informati
 |Current limitations|Latency is high||
 |Current challenges|Concurrency issue||
 
-### Azure Requirements Questionnaire
+### Azure requirements questionnaire
 
 |**Topic** : **Infrastructure** |||
 |---|---|---|
