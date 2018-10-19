@@ -159,6 +159,9 @@ This procedure uses an example where the custom module used takes files from a l
  
 6.	Under **Specify routes**, set routes between modules. In this case, provide the name of the local share that will push data to cloud share. Click **Next**.
 
+    You can replace route with the following route string:
+          "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
+
     ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  
 7.	Under **Review deployment**, review all the settings and if satisfied, **submit** the module for deployment.
