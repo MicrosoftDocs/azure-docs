@@ -56,7 +56,7 @@ add the **Logic Apps B2B** solution to Log Analytics. Learn more about
 
 1. In the [Azure portal](https://portal.azure.com), 
 select **All services**. In the search box, 
-find "log analytics", and select **Log Analytics**:
+find "log analytics", and select **Log Analytics**.
 
    ![Select Log Analytics](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
@@ -65,10 +65,10 @@ select your Log Analytics workspace.
 
    ![Select Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-1. Under **Configure monitoring solutions**, 
+1. Under **Get started with Log Analytics** > **Configure monitoring solutions**, 
 choose **View solutions**.
 
-   ![Choose Log Analytics portal](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
+   ![Choose "View solutions"](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
 1. On the Overview page, choose **Add**, 
 which opens the **Management Solutions** list. 
@@ -95,25 +95,26 @@ and then choose **Create** again.
 
 <a name="message-status-details"></a>
 
-## Track messages with Log Analytics
+## View B2B message information
 
-1. After B2B messages are processed, 
-you can view the status and details for those messages. 
-On the Overview page for your Log Analytics workspace, 
-choose **Logic Apps B2B**.
+After B2B messages are processed, you can view 
+the status and details for those messages on the 
+**Logic Apps B2B** tile.
+
+1. Go to your Logic Analytics workspace, and open the Overview page. 
+Choose **Logic Apps B2B**.
 
    ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > By default, the **Logic Apps B2B Messages** tile 
+   > By default, the **Logic Apps B2B** tile 
    > shows data based on a single day. 
    > To change the data scope to a different interval, 
    > choose the scope control at the top of the page:
    > 
-   > ![Change data scope](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
-   >
+   > ![Change interval](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-2. After the message status dashboard appears, 
+1. After the message status dashboard appears, 
 you can view more details for a specific message type, 
 which shows data based on a single day. 
 Choose the tile for **AS2**, **X12**, or **EDIFACT**.

@@ -1,6 +1,6 @@
 ---
-title: Create queries for B2B messages in Log Analytics - Azure Logic Apps  | Microsoft Docs
-description: Create queries that track AS2, X12, and EDIFACT messages with Log Analytics for Azure Logic Apps
+title: Create tracking queries for B2B messages in Log Analytics - Azure Logic Apps  | Microsoft Docs
+description: Create queries that track AS2, X12, and EDIFACT messages in Azure Log Analytics for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,61 +8,51 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 10/19/2018
 ---
 
-# Create queries for tracking AS2, X12, and EDIFACT messages in Log Analytics for Azure Logic Apps
+# Create tracking queries for B2B messages in Log Analytics for Azure Logic Apps
 
-To find the AS2, X12, or EDIFACT messages that you're tracking with 
+To find AS2, X12, or EDIFACT messages that you're tracking with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md), 
 you can create queries that filter actions based on specific criteria. 
 For example, you can find messages based on a specific interchange control number.
 
-## Requirements
+## Prerequisites
 
-* A logic app that's set up with diagnostics logging. 
-Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+* A logic app that's set up with diagnostics logging. Learn 
+[how to create a logic app](quickstart-create-first-logic-app-workflow.md) 
 and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* An integration account that's set up with monitoring and logging. 
-Learn [how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+* An integration account that's set up with monitoring and logging. Learn 
+[how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
 * If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 
 and [set up message tracking in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-> [!NOTE]
-> After you've met the previous requirements, 
-> you should have a workspace in Log Analytics. 
-> You should use the same workspace for tracking 
-> your B2B communication in Log Analytics. 
->  
-> If you don't have a Log Analytics workspace, 
-> learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+## Create queries with filters
 
-## Create message queries with filters in Log Analytics
+This example shows how you can find messages 
+based on their interchange control number.
 
-This example shows how you can find messages based on their interchange control number.
+1. In the [Azure portal](https://portal.azure.com), 
+select **All services**. In the search box, 
+find "log analytics", and select **Log Analytics**.
 
-> [!TIP] 
-> If you know your Log Analytics workspace name, go to your workspace home page 
-(`https://{your-workspace-name}.portal.mms.microsoft.com`), 
-> and start at Step 4. Otherwise, start at Step 1.
+   ![Select Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. In the [Azure portal](https://portal.azure.com), choose **All Services**. 
-Search for "log analytics", and then choose **Log Analytics** as shown here:
+1. Under **Log Analytics**, find and 
+select your Log Analytics workspace. 
 
-   ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
+   ![Select Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-2. Under **Log Analytics**, find and select your Log Analytics workspace.
+1. Under **Maximize your Log Analytics experience** > **Search and analyze logs**, 
+choose **View logs**.
 
-   ![Select your Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Choose "View logs"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-logs.png)
 
-3. Under **Management**, choose **Log Search**.
-
-   ![Choose Lo Search](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
-
-4. In the search box, enter a field that you want to find, and press **Enter**. 
+1. In the search box, enter a field that you want to find, and press **Enter**. 
 When you start typing, Log Analytics shows you possible matches and operations that you can use. 
 Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
