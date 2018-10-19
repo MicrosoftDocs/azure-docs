@@ -125,102 +125,102 @@ Usage is reported for the following resource providers:
 
 **Meter ID**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Meter name**: S4   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Standard Managed Disk – 32 GB 
 
 **Meter ID**: dc9fc6a9-0782-432a-b8dc-978130457494   
 **Meter name**: S6   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Standard Managed Disk – 64 GB 
 
 **Meter ID**: e5572fce-9f58-49d7-840c-b168c0f01fff   
 **Meter name**: S10   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Standard Managed Disk – 128 GB 
 
 **Meter ID**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
 **Meter name**: S15   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Standard Managed Disk – 256 GB 
 
 **Meter ID**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
 **Meter name**: S20   
-**Unit**: Count of Disks      
+**Unit**: Count of Disks\*hours      
 **Notes**: Standard Managed Disk – 512 GB 
 
 **Meter ID**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
 **Meter name**: S30   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Standard Managed Disk – 1024 GB 
 
 **Meter ID**: d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
 **Meter name**: S40   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Standard Managed Disk – 2048 GB 
 
 **Meter ID**: a54899dd-458e-4a40-9abd-f57cafd936a7   
 **Meter name**: S50   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Standard Managed Disk – 4096 GB 
 
 **Meter ID**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
 **Meter name**: P4   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Premium Managed Disk – 32 GB 
 
 **Meter ID**: 518b412b-1927-4f25-985f-4aea24e55c4f   
 **Meter name**: P6   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Premium Managed Disk – 64 GB 
 
 **Meter ID**: 5cfb1fed-0902-49e3-8217-9add946fd624   
 **Meter name**: P10   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Premium Managed Disk – 128 GB  
 
 **Meter ID**: 8de91c94-f740-4d9a-b665-bd5974fa08d4   
 **Meter name**: P15  
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Premium Managed Disk – 256 GB 
 
 **Meter ID**: c7e7839c-293b-4761-ae4c-848eda91130b   
 **Meter name**: P20   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Premium Managed Disk – 512 GB 
 
 **Meter ID**: 9f502103-adf4-4488-b494-456c95d23a9f   
 **Meter name**: P30   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Premium Managed Disk – 1024 GB 
 
 **Meter ID**: 043757fc-049f-4e8b-8379-45bb203c36b1   
 **Meter name**: P40   
-**Unit**: Count of Disks    
+**Unit**: Count of Disks\*hours    
 **Notes**: Premium Managed Disk – 2048 GB 
 
 **Meter ID**: c0342c6f-810b-4942-85d3-6eaa561b6570   
 **Meter name**: P50   
-**Unit**: Count of Disks   
+**Unit**: Count of Disks\*hours   
 **Notes**: Premium Managed Disk – 4096 GB 
 
 **Meter ID**: 8a409390-1913-40ae-917b-08d0f16f3c38   
 **Meter name**: ActualStandardDiskSize   
-**Unit**: Byte      
+**Unit**: Byte\*hours      
 **Notes**: The actual size on disk of standard managed disk  
 
 **Meter ID**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
 **Meter name**: ActualPremiumDiskSize   
-**Unit**: Byte      
+**Unit**: Byte\*hours      
 **Notes**: The actual size on disk of premium managed disk 
 
 **Meter ID**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
 **Meter name**: ActualStandardSnapshotSize   
-**Unit**: Byte   
+**Unit**: Byte\*hours   
 **Notes**: The actual size on disk of managed standard snapshot.  
 
 **Meter ID**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Meter name**: ActualPremiumSnapshotSize   
-**Unit**: Byte   
+**Unit**: Byte\*hours   
 **Notes**: The actual size on disk of managed premium.   
 
 ### Sql RP

@@ -206,7 +206,7 @@ Place the new DSVM in the same resource group as the newly created storage accou
 
     d.  For the **Diagnostics Storage Account**, select the storage account created earlier.
 
-    e.  Note: With AAD enabled and configured for the Azure Subscription, Managed Service Identity can be enabled as well.
+    e.  Note: With AAD enabled and configured for the Azure Subscription, managed identities for Azure resources can be enabled as well.
 
 2.  Select **OK**.
 

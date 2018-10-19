@@ -78,7 +78,6 @@ This solution creates a virtual machine as a domain-joined bastion host with the
 -	[Azure Diagnostics extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -	[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) using Azure Key Vault
 -	An [auto-shutdown policy](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of virtual machine resources when not in use
--	[Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) enabled so that credentials and other secrets run in a protected environment that is isolated from the running operating system
 
 **App Service Environment v2**:
 The [Azure App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service applications at a high scale.
@@ -208,7 +207,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 **Azure Monitor**:
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
 
-Azure Network Watcher: [Azure Network Watcher]9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.  Commonwealth entities should implement Network Watcher flow logs for NSGs and Virtual Machines. These logs should be stored in a dedicated storage account that only security logs are stored in and access to the storage account should be secured with Role Based Access Controls.
+Azure Network Watcher: [Azure Network Watcher]9https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.  Commonwealth entities should implement Network Watcher flow logs for NSGs and Virtual Machines. These logs should be stored in a dedicated storage account that only security logs are stored in and access to the storage account should be secured with Role Based Access Controls.
 
 ## Threat model
 

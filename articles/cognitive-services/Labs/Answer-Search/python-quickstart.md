@@ -1,15 +1,18 @@
 ---
-title: Python quickstart for Microsoft Cognitive Services, Project Answer Search | Microsoft Docs
-description: Python example get started using Project Answer Search, Microsoft Cognitive Services on Azure.
+title: "Quickstart: Project Answer Search, Python"
+titlesuffix: Azure Cognitive Services
+description: Python example get started using Project Answer Search.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ---
-# Project Answer Search Python quickstart
+# Quickstart Project Answer Search with Python
 
 The following Python example creates and sends a request for information about "Rock of Gibraltar".
 

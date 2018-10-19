@@ -69,8 +69,8 @@ This update includes the following improvements for Azure Stack.
 ## Before you begin    
 
 ### Prerequisites
-- Install the Azure Stack [1804 Update](azure-stack-update-1804.md) before you apply the Azure Stack 1805 update.  
-- Install the latest available [update or hotfix for version 1804](azure-stack-update-1804.md#post-update-steps).   
+- Install the Azure Stack 1804 update before you apply the Azure Stack 1805 update.  
+- Install the latest available update or hotfix for version 1804.   
 - Before you start installation of update 1805, run [Test-AzureStack](azure-stack-diagnostic-test.md) to validate the status of your Azure Stack and resolve any operational issues found. Also review active alerts, and resolve any that require action. 
 
 ### Known issues with the update process   
@@ -114,7 +114,7 @@ The following are post-installation known issues for this build version.
   Workaround:  To resolve this issue after you install this update, use step 3 from the [Trigger automation to configure claims provider trust in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure to reset the owner of the default provider subscription.   
 
 <!-- TBD - IS ASDK --> 
-- Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+- Some administrative subscription types are not available. When you upgrade Azure Stack to this version, the two subscription types that were introduced with version 1804 are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
 
 <!-- 2403291 - IS ASDK --> 
 - You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.

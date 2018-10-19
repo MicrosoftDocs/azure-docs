@@ -11,7 +11,7 @@ ms.component: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 
-By using the Azure Monitor [Windows Azure Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
+By using the Azure Monitor [Windows Azure Diagnostics (WAD) extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
 
 This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. Starting with Windows Azure Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. By storing them in this location, you can access the same actions that are available for platform metrics. Actions include near real-time alerting, charting, routing, access from the REST API, and more. In the past, the Windows Azure Diagnostics extension wrote to Azure Storage but not the Azure Monitor data store.  
 
@@ -19,7 +19,7 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 ## Prerequisites
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - You need to have [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md). 
 
@@ -49,7 +49,7 @@ Download and save both files locally.
 ###  Modify azuredeploy.json
 1. Open the **azuredeploy.json** file. 
 
-1. Add a variable to hold the storage account information in the Resource Manager template. You must also provide a storage account as part of the installation of the diagnostics extension. Any logs or performance counters specified in the diagnostics config file are written to the specified storage account. They're also sent to the Azure Monitor metric store: 
+1. Add a variable to hold the storage account information in the Resource Manager template. Any logs or performance counters specified in the diagnostics config file are written to both the Azure Monitor metric store and the storage account you specify here: 
 
     ```json
     "variables": { 
@@ -75,30 +75,15 @@ Download and save both files locally.
 1. In the virtual machine scale set resource, find the **virtualMachineProfile** section. Add a new profile called **extensionsProfile** to manage extensions.  
 
 
-1. In the **extensionProfile**, add a new extension to the template as shown in the **VMSS-WAD-extension** section. This section is the Managed Service Identity (MSI) extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
+In the **extensionProfile**, add a new extension to the template as shown in the **VMSS-WAD-extension** section.  This section is the managed identities for Azure resources extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
 
     The following code from the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource. Feel free to add or remove performance counters as needed: 
 
-    ```json
-              "extensionProfile": { 
-                "extensions": [ 
-                    // BEGINNING of added code  
-               // Managed service identity   
-                    { 
-                     "name": "VMSS-WAD-extension", 
-                     "properties": { 
-                           "publisher": "Microsoft.ManagedIdentity", 
-                           "type": "ManagedIdentityExtensionForWindows", 
-                           "typeHandlerVersion": "1.0", 
-                           "autoUpgradeMinorVersion": true, 
-                           "settings": { 
-                                 "port": 50342 
-                               }, 
-                           "protectedSettings": {} 
-                         } 
-
-                }, 
-                // add diagnostic extension. (Remove this comment after pasting.)
+```json
+          "extensionProfile": { 
+            "extensions": [ 
+            // BEGINNING of added code  
+            // Managed identites for Azure resources   
                 { 
                   "name": "[concat('VMDiagnosticsVmExt','_vmNodeType0Name')]", 
                   "properties": { 
@@ -225,10 +210,10 @@ Download and save both files locally.
 > You must be running the Azure Diagnostics extension version 1.5 or higher **and** have the **autoUpgradeMinorVersion:** property set to **true** in your Resource Manager template. Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template. 
 
 
-To deploy the Resource Manager template, we'll leverage Azure PowerShell:  
+To deploy the Resource Manager template, use Azure PowerShell:  
 
 1. Launch PowerShell. 
-1. Sign in to Azure by using `Login-AzureRmAccount`.
+1. Sign in to Azure using `Login-AzureRmAccount`.
 1. Get your list of subscriptions by using `Get-AzureRmSubscription`.
 1. Set the subscription you'll create, or update the virtual machine: 
 

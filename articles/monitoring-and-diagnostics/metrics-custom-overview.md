@@ -17,7 +17,7 @@ These **custom** metrics can be collected via your application telemetry, an age
 ## Send custom metrics
 Custom metrics can be sent to Azure Monitor via several methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
-- Install the Azure Diagnostics extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [virtual machine scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
+- Install the Windows Azure Diagnostics (WAD) extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [virtual machine scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
 - Install the [InfluxData Telegraf agent](metrics-store-custom-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
@@ -25,8 +25,9 @@ When you send custom metrics to Azure Monitor, each data point, or value, report
 
 ### Authentication
 To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Azure Active Directory (Azure AD) token in the **Bearer** header of the request. There are a few supported ways to acquire a valid bearer token:
-1. [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) gives an identity to an Azure Resource itself, such as a VM. MSI is designed to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its MSI, can be granted Monitoring Metrics Publisher permissions on another resource. Then the MSI can emit metrics for other resources as well.
-2. [Azure AD service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource. To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing Monitoring Metrics Publisher role already has this permission, which is available in the Azure portal. Depending on what resources it will emit custom metrics for, you can give the service principal the Monitoring Metrics Publisher role at the scope required. Examples are subscription, resource group, or specific resource.
+1. [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Gives an identity to an Azure resource itself, such as a VM. Managed Service Identity (MSI) is designed to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its MSI, can be granted **Monitoring Metrics Publisher** permissions on another resource. With this permission, the MSI can emit metrics for other resources as well.
+2. [Azure AD Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource.
+To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal. The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
 > [!NOTE]  
 > When you request an Azure AD token to emit custom metrics, ensure that the audience or resource the token is requested for is https://monitoring.azure.com/. Be sure to include the trailing '/'.
@@ -77,7 +78,7 @@ Azure Monitor stores all metrics at one-minute granularity intervals. We underst
 * **Sum**: The summation of all the observed values from all the samples and measurements during the minute.
 * **Count**: The number of samples and measurements taken during the minute.
 
-For example, if there were four sign-in transactions to your app during a given a minute, the resulting measured latencies for each might be as follows:
+For example, if there were 4 sign-in transactions to your app during a given a minute, the resulting measured latencies for each might be as follows:
 
 |Transaction 1|Transaction 2|Transaction 3|Transaction 4|
 |---|---|---|---|
@@ -137,7 +138,7 @@ In the following example, you create a custom metric called **Memory Bytes in Us
   }
 ```
 > [!NOTE]  
-> Application Insights, the Azure Diagnostics extension, and the InfluxData Telegraf agent are already configured to emit metric values against the correct regional endpoint and carry all of the preceding properties in each emission.
+> Application Insights, the diagnostics extension, and the InfluxData Telegraf agent are already configured to emit metric values against the correct regional endpoint and carry all of the preceding properties in each emission.
 >
 >
 

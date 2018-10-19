@@ -5,8 +5,9 @@ description: A list of natural languages, countries and regions that are support
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi

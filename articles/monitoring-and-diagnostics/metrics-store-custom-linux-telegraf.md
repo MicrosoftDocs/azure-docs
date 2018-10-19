@@ -23,33 +23,33 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 
 For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both the Debian and RPM packages are available along with unpackaged Linux binaries on the InfluxData download portal. See this installation guide for additional Telegraf installation instructions and options. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Create a new Linux VM: 
+Create a new Linux VM: 
 
-    1. Select the **Create a resource** option from the left-hand navigation pane. 
-    1. Search for **Virtual Machine**.  
-    1. Select **Ubuntu 16.04 LTS** and select **Create**. 
-    1. Provide a VM name like **MyTelegrafVM**.  
-    1. Leave the disk type as **SSD**. Then provide a **username**, such as **azureuser**. 
-    1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
-    1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
+1. Select the **Create a resource** option from the left-hand navigation pane. 
+1. Search for **Virtual Machine**.  
+1. Select **Ubuntu 16.04 LTS** and select **Create**. 
+1. Provide a VM name like **MyTelegrafVM**.  
+1. Leave the disk type as **SSD**. Then provide a **username**, such as **azureuser**. 
+1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
+1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
 
-        ![Create an Ubuntu VM](./media/metrics-store-custom-linux-telegraf/create-vm.png)
+    ![Create an Ubuntu VM](./media/metrics-store-custom-linux-telegraf/create-vm.png)
 
-    1. Select a size for the VM. You can filter by **Compute type** or **Disk type**, for example. 
+1. Select a size for the VM. You can filter by **Compute type** or **Disk type**, for example. 
 
-        ![Virtual machine size Telegraph agent overview](./media/metrics-store-custom-linux-telegraf/vm-size.png)
+    ![Virtual machine size Telegraph agent overview](./media/metrics-store-custom-linux-telegraf/vm-size.png)
 
-    1. On the **Settings** page in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**. 
+1. On the **Settings** page in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**. 
 
-    1. On the summary page, select **Create** to start the VM deployment. 
+1. On the summary page, select **Create** to start the VM deployment. 
 
-    1. The VM is pinned to the Azure portal dashboard. After the deployment finishes, the VM summary automatically opens. 
+1. The VM is pinned to the Azure portal dashboard. After the deployment finishes, the VM summary automatically opens. 
 
-    1. In the VM pane, navigate to the **Identity** tab. Ensure that your VM has a system-assigned identity set to **On**. 
+1. In the VM pane, navigate to the **Identity** tab. Ensure that your VM has a system-assigned identity set to **On**. 
  
-        ![Telegraf VM identity preview](./media/metrics-store-custom-linux-telegraf/connect-to-VM.png)
+    ![Telegraf VM identity preview](./media/metrics-store-custom-linux-telegraf/connect-to-VM.png)
  
 ## Connect to the VM 
 
@@ -67,36 +67,36 @@ For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating
 
 ## Install and configure Telegraf 
 
-1. To install the Telegraf Debian package onto the VM, run the following commands from your SSH session: 
+To install the Telegraf Debian package onto the VM, run the following commands from your SSH session: 
 
-    ```cmd
-    # download the package to the VM 
-    wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
-    # install the package 
-    sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
-    ```
-1. Telegraf’s configuration file defines Telegraf’s operations. By default, an example configuration file is installed at the path **/etc/telegraf/telegraf.conf**. The example configuration file lists all possible input and output plug-ins. However, we'll create a custom configuration file and have the agent use it by running the following commands: 
+```cmd
+# download the package to the VM 
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
+# install the package 
+sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
+```
+Telegraf’s configuration file defines Telegraf’s operations. By default, an example configuration file is installed at the path **/etc/telegraf/telegraf.conf**. The example configuration file lists all possible input and output plug-ins. However, we'll create a custom configuration file and have the agent use it by running the following commands: 
 
-    ```cmd
-    # generate the new Telegraf config file in the current directory 
-    telegraf --input-filter cpu:mem --output-filter azure_monitor config > azm-telegraf.conf 
+```cmd
+# generate the new Telegraf config file in the current directory 
+telegraf --input-filter cpu:mem --output-filter azure_monitor config > azm-telegraf.conf 
 
-    # replace the example config with the new generated config 
-    sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf 
-    ```
+# replace the example config with the new generated config 
+sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf 
+```
 
-    > [!NOTE]  
-    > The preceding code enables only two input plug-ins: **cpu** and **mem**. You can add more input plug-ins, depending on the workload that runs on your machine. Examples are Docker, MySQL, and NGINX. For a full list of input plug-ins, see the **Additional configuration** section. 
+> [!NOTE]  
+> The preceding code enables only two input plug-ins: **cpu** and **mem**. You can add more input plug-ins, depending on the workload that runs on your machine. Examples are Docker, MySQL, and NGINX. For a full list of input plug-ins, see the **Additional configuration** section. 
 
-1. Finally, to have the agent start using the new configuration, we force the agent to stop and start by running the following commands: 
+Finally, to have the agent start using the new configuration, we force the agent to stop and start by running the following commands: 
 
-    ```cmd
-    # stop the telegraf agent on the VM 
-    sudo systemctl stop telegraf 
-    # start the telegraf agent on the VM to ensure it picks up the latest configuration 
-    sudo systemctl start telegraf 
-    ```
-    Now the agent will collect metrics from each of the input plug-ins specified and emit them to Azure Monitor. 
+```cmd
+# stop the telegraf agent on the VM 
+sudo systemctl stop telegraf 
+# start the telegraf agent on the VM to ensure it picks up the latest configuration 
+sudo systemctl start telegraf 
+```
+Now the agent will collect metrics from each of the input plug-ins specified and emit them to Azure Monitor. 
 
 ## Plot your Telegraf metrics in the Azure portal 
 
