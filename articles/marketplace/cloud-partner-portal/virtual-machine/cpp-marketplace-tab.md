@@ -1,6 +1,6 @@
 ---
-title: Virtual machine Marketplace tab in the Cloud Partner Portal | Microsoft Docs
-description: Describes the Marketplace tab used in creating a Marketplace VM offer.
+title: Virtual machine Marketplace tab in the Cloud Partner Portal for Azure | Microsoft Docs
+description: Describes the Marketplace tab used in creating an Azure Marketplace VM offer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 documentationcenter:
 author: v-miclar
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/19/2018
 ms.author: pbutlerm
 ---
 
 # Virtual machine Marketplace tab
 
-The **Marketplace** tab of the **New Offer** page enables you to provide your prospective customers with marketing, sales, and legal information and agreements and manage leads generated from the marketplace. This long form is divided into four sections: **Overview**, **Marketing Artifacts**, **Lead Management**, and **Legal**.
+The **Marketplace** tab of the **New Offer** page enables you to provide your prospective customers with marketing, sales, and legal information and agreements and manage leads generated from the marketplace. This long form is divided into four sections: **Overview**, **Marketing Artifacts**, **Lead Management**, and **Legal**. 
 
 ## Overview section
 In this section, you enter the general information about your Azure Marketplace Offer.  An appended asterisk (*) on the field name indicates that it is required.

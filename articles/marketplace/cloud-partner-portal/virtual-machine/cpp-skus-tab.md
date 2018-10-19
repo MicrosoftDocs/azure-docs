@@ -1,5 +1,5 @@
 ---
-title: Virtual machine SKUs tab in the Cloud Partner Portal | Microsoft Docs
+title: Virtual machine SKUs tab in the Cloud Partner Portal for azure Marketplace | Microsoft Docs
 description: Describes the SKUs tab used in creating a virtual machine offer in the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/19/2018
 ms.author: pbutlerm
 ---
 
@@ -62,12 +62,14 @@ The following table describes the purpose, contents, and formatting of these fie
 | **Disk Version**  | Associated solution VM, specified by disk version number and disk URL. The disk version must be in [semantic version](http://semver.org/) format: `<major>.<minor>.<patch>`.  The URL is the shared access signature URI created for the operating system VHD.  Although, you can add up to eight disk versions per SKU, only the highest disk version number for an SKU will show up in Azure Marketplace. The other versions will only be visible via APIs.  <!--TD: Add more specific link to API --> <br/> The **New data disk** accordion section enables you to attach up to 15 data disks to your VM.  Once you publish a SKU with a given VM version and associated data disks, this configuration cannot be modified.  If additional VM versions get added to the SKU, they must also support the same number of data disks. <br/> If you have not created your Azure-based VM image(s), you can add update this field later.  For information about creating the associated VM resource, see the section [Create VM technical assets](./cpp-create-technical-assets.md).  
 |  |  |
 
-<!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. -->
+<!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 
 
 <br/> Click **Save** to save your progress. In the next tab, you will specify if your offer supports [Test Drive](./cpp-test-drive-tab.md).
 
-<br/> 
 
+## Additional pricing considerations
+
+The pricing model described above is a basic description.  It is undergoing changes and may be affected by local or regional tax regulations and Microsoft pricing policies. 
 
 ### Simplified Currency Pricing
 
@@ -77,7 +79,7 @@ Starting September 1 2018, a new section called **Simplified Currency Pricing** 
 ### Additional information on taxes and prices
 
 * Microsoft classifies some countries as *tax remitted countries*.  In such countries, Microsoft collects taxes from customers then pays (remits) taxes to the government.  In other countries, partners are typically responsible for collecting taxes from their customers and paying taxes to the government. If you choose to sell in the latter countries, you must have the capability to calculate and pay local taxes.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
-* Prices are not changeable once an offer goes live. However, you may still add or remove supported regions. <!-- TD: Is this true? Forever? -->
+* Prices are not changeable once an offer goes live. However, you may still add or remove supported regions. 
 * Microsoft charges the customer standard Azure VM usage fees in addition to your scheduled SKU fees.
 * Prices are set for all regions in local currency on available currency rates at the time of setting prices.  <!-- TD: Meaning? - Offer created, published, other? -->
 * To set each region’s price individually, please export the pricing spreadsheet, apply custom pricing, then import. 

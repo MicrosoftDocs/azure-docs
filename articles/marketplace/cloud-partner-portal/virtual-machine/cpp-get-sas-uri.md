@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/19/2018
 ms.author: pbutlerm
 ---
 
@@ -55,17 +55,17 @@ Use the following steps to generate a SAS URI with Azure CLI.
     - `<start-date>` - Permission start date for VHD access. Provide a date one day before the current date. 
     - `<expiry-date>` - Permission expiration date for VHD access.  Provide a date at least three weeks beyond the current date. 
  
->   The following example shows proper parameter values (at the time of this writing).
+    The following example shows proper parameter values (at the time of this writing).
 
     ``` powershell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
     ```
-
+ 
 4. Save the changes to this PowerShell script.
 5. Run this script, using administrative privileges, to generate a *SAS connection string* for container level access.  You can use two basic approaches:
     - Run the script from the console.  For example, in Windows, write-click on the script and select **Run as administrator**.
     - Run the script from a PowerShell script editor, such as the [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), using administrative privileges. 
-  The following demonstrates a SAS connection string being generated within this editor.
+  The following demonstrates a SAS connection string being generated within this editor. 
 
     ![SAS URI generation in PowerShell ISE](./media/publishvm_032.png)
 

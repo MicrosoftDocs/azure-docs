@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: pbutlerm
 ---
 
 # Connect to your Azure-based virtual machine
 
-This article explains how to connect to and sign into the virtual machines (VMs) you created on Azure.  Once you have successfully connected, you can work with the VM as if you were locally logged on to its host server.
+This article explains how to connect to and sign into the virtual machines (VMs) you created on Azure.  Once you have successfully connected, you can work with the VM as if you were locally logged on to its host server. 
 
 ## Connect to a Windows-based VM
 
@@ -38,8 +38,7 @@ In order to connect the Linux-based VM, you need a secure shell protocol (SSH) c
 1. In the **Virtual machines** blade of the [Azure portal](https://ms.portal.azure.com), select the VM you want to connect to.  
 2. **Start** the VM if it is not already running.
 3. Click on the name of the VM to open its **Overview** page.
-4. Note the Public IP address and DNS name of your VM.  (If these values are not set, then you must [Create a network interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface) for your VM.)
-
+4. Note the Public IP address and DNS name of your VM.  (If these values are not set, then you must [Create a network interface](../../../virtual-network/virtual-network-network-interface#create-a-network-interface) for your VM.)
 
    ![VM Overview settings](./media/publishvm_019.png)
  
@@ -69,6 +68,6 @@ Azure quickly stops the VM in a process called *deallocation*, which not only sh
 If you want to later reactivate a stopped VM, select it and click the **Start** button.
 
 
-## Next step
+## Next steps
 
 After you are remotely connected, you are ready to [configure your VM](./cpp-configure-vm.md).

@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 10/19/2018
 ms.author: pbutlerm
 ---
 
@@ -80,7 +80,6 @@ Use the following process to deploy your user VM from the Azure portal.
 
 4. Provide the parameter values for the displayed **Custom deployment** property pages.
 
-
     <table>
     <tr>
     <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td>
@@ -109,7 +108,7 @@ Use the following process to deploy your user VM from the Azure portal.
     
 5. After you supply these values, click **Purchase**. 
 
-Azure will begin deployment: it creates a new VM with the specified unmanaged VHD, in the specified storage account path.  You can track the progress in the Azure portal by clicking on **Virtual Machines** on the left-hand side of the portal.  When the VM has been created, the status will change from `Starting` to `Running`.
+Azure will begin deployment: it creates a new VM with the specified unmanaged VHD, in the specified storage account path.  You can track the progress in the Azure portal by clicking on **Virtual Machines** on the left-hand side of the portal.  When the VM has been created, the status will change from `Starting` to `Running`. 
 
 
 ### Deploy a VM from PowerShell
@@ -128,6 +127,6 @@ To deploy a large VM from the generalized VM image just created, use the followi
 For help with issues, see [Troubleshooting common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting) for additional assistance.
 -->
 
-## Next step
+## Next steps
 
 After your VM is deployed, you are ready to [configure the VM](./cpp-configure-vm.md).

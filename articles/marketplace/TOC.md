@@ -49,7 +49,7 @@
 #### [Connect to VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
 #### [Configure VM](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
 #### [Deploy VM from VHDs](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD Deployment Template (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+##### [VHD Deployment Template (JSON)](./cpp-deploy-json-template.md)
 #### [Certify VM image](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
 #### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 #### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)

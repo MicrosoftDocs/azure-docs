@@ -1,6 +1,6 @@
 ---
-title: Virtual Machine Offer Settings tabin the Cloud Partner Portal | Microsoft Docs
-description: Describes the Offer Settings tab used in creating a Marketplace VM offer.
+title: Virtual Machine Offer Settings tab in the Cloud Partner Portal for Azure Marketplace | Microsoft Docs
+description: Describes the Offer Settings tab used in creating an Azure Marketplace VM offer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 documentationcenter:
 author: v-miclar
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/19/2018
 ms.author: pbutlerm
 ---
 
 # Virtual machine Offer Settings tab
 
-The **New Offer** page for virtual machines opens in the first tab named **Offer Settings**.  An appended asterisk (*) on the field name indicates that it is required.
+The **New Offer** page for virtual machines opens in the first tab named **Offer Settings**.  An appended asterisk (*) on the field name indicates that it is required. 
 
 ![New Offer page for virtual machines](./media/publishvm_004.png)
 

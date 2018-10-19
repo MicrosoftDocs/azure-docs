@@ -1,6 +1,6 @@
 ---
-title: Virtual machine Test Drive tab in the Cloud Partner Portal | Microsoft Docs
-description: Describes the Test Drive tab used in creating a Marketplace VM offer.
+title: Virtual machine Test Drive tab in the Cloud Partner Portal for the Azure Marketplace| Microsoft Docs
+description: Describes the Test Drive tab used in creating an Azure Marketplace VM offer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 documentationcenter:
 author: v-miclar
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/19/2018
 ms.author: pbutlerm
 ---
 
 # Virtual machine Test Drive tab
 
-<!-- TD: The AMP tree needs a conceptual/business overview of Test Drive. I've deleted all the marketing fluff and most of overview from this topic.   See also https://azure.microsoft.com/blog/azure-marketplace-test-drive/ and https://github.com/Azure/AzureTestDrive/wiki/What-is-a-Test-Drive. -->
+<!-- TD: The AMP tree needs a conceptual/business overview of Test Drive. I've deleted all the marketing fluff and most of overview from this topic.   See also https://azure.microsoft.com/blog/azure-marketplace-test-drive/ and https://github.com/Azure/AzureTestDrive/wiki/What-is-a-Test-Drive. --> 
 
 The **Test Drive** tab of the **New Offer** page enables you to provide your prospective customers with a hands-on, self-guided demonstration of your product's key features and benefits, demonstrated in a standardized scenario.  Test Drive is an optional feature for the offer types that support Test Drive.  Test Drive requires supporting assets to be properly implemented.  For more information, see the article [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
 
