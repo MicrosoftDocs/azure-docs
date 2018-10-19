@@ -40,7 +40,7 @@ There are a few things you need to put in place for this tutorial before you dep
 
 ### Create a folder and .txt file
 
-On your local computer, create a new folder named *afstutorialfolder* and add a text file named *mytestdoc.txt*. you'll upload that file to the file share later in this tutorial.
+On your local computer, create a new folder named *FilesToSync* and add a text file named *mytestdoc.txt*. you'll upload that file to the file share later in this tutorial.
 
 ### Create a storage account
 
@@ -72,7 +72,7 @@ Next, you create a file share for this tutorial, follow these steps:
 
     ![Upload a file](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
-1. Browse to the *afstutorialfolder* folder where you created your .txt file, select *mytestdoc.txt* and click **Upload**.
+1. Browse to the *FilesToSync* folder where you created your .txt file, select *mytestdoc.txt* and click **Upload**.
 
     ![Browse file share](./media/storage-sync-files-extend-servers/create-file-share-portal6.png)
 
@@ -237,8 +237,8 @@ Deploying Azure File Sync starts with placing a **Storage Sync Service** resourc
 ## Install the Azure File Sync agent
 The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share.
 
-1. In the **Windows Server 2016 Datacenter** VM, open **Internet Explorer**
-1. Go to the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257) and click **Download**.
+1. Switch back to the **Windows Server 2016 Datacenter** VM and open **Internet Explorer**
+1. Go to the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Scroll down to the **Azure File Sync Agent** section and click **Download**.
 
    ![Sync agent download](media/storage-sync-files-extend-servers/sync-agent-download.png)
 
@@ -273,38 +273,35 @@ The Server Registration UI should open automatically after installing the **Azur
    | ----- | ----- |
    | Value | Description |
    | **Azure Subscription** | The subscription that contains the Storage Sync Service. |
-   | **Resource Group** | The resource group that contains the Storage Sync Service for this tutorial. We've used *afsresourcegroup101518* throughout this tutorial. |
-   | **Storage Sync Service** | The name of the Storage Sync Service you used for this tutorial. We've used *afssyncservice01* throughout this tutorial. |
+   | **Resource Group** | The resource group that contains the Storage Sync Service for this tutorial. We've used *afsresgroup101918* throughout this tutorial. |
+   | **Storage Sync Service** | The name of the Storage Sync Service you used for this tutorial. We've used *afssyncservice02* throughout this tutorial. |
 
 1. Click **Register** to complete the server registration.
 1. As part of the registration process, you are prompted for an additional sign-in. Sign in and click **Next**.
-1. Click **Okay**
+1. Click **OK**
 
 ## Create a sync group and a cloud endpoint
 A sync group defines the sync topology for a set of files. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on a registered server.
 
-1. To create a sync group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
+1. To create a sync group, in the [Azure portal](https://portal.azure.com/), select **+ Sync group** from the Storage Sync Service you created for this tutorial. We used *afssyncservice02* as the example in this tutorial.
 
    ![Create a new sync group in the Azure portal](media/storage-sync-files-extend-servers/add-sync-group.png)
 
 1. In the pane that opens, enter the following information to create a sync group with a cloud endpoint:
 
-   | | |
-   | ----- | ----- |
    | Value | Description |
-   | **Sync group name** | The name of the sync group to be created. This name must be unique within the Storage Sync Service but can be any name that is logical for you. In this tutorial, we're using *afssyncgroup*.|
+   | ----- | ----- |
+   | **Sync group name** | This name must be unique within the Storage Sync Service but can be any name that is logical for you. In this tutorial, we're using *afssyncgroup*.|
    | **Subscription** | The subscription where you deployed the Storage Sync Service. |
-   | **Storage account** |Click **Select storage account**. On the pane that appears, select the storage account that has the Azure file share that you created for this tutorial. We used *afsstorageacct101518*. |
+   | **Storage account** |Click **Select storage account**. On the pane that appears, select the storage account that has the Azure file share that you created for this tutorial. We used *afsstoracct101918*. |
    | **Azure file share** | The name of the Azure file share you created for this tutorial. We used *afsfileshare*. |
 
 1. Click **Create**.
 
-<!---at this point "cloud endpoint creation" failed. is this common. should we provide steps to retry???--->
+If you select your sync group, you can see that you now have one **cloud endpoint**.
 
 ## Add a server endpoint
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume.
-<!---Can we explain this as the location of your files????--->
-<!---if we don't need to address cloud tiering in this tutorial, can we just create a folder on the customers C drive???--->
 
 1. To add a server endpoint, select the newly created sync group and then select **Add server endpoint**.
 
@@ -315,7 +312,7 @@ A server endpoint represents a specific location on a registered server, such as
    | | |
    | ----- | ----- |
    | Value | Description |
-   | **Registered server** | The name of the server you created for this tutorial. We used *afsvm101518* in this tutorial ||
+   | **Registered server** | The name of the server you created for this tutorial. We used *afsvm101918* in this tutorial ||
    | **Path** | The Windows Server path to the drive you created for this tutorial. In our example, it is *f:\filestosync*. |
    | **Cloud Tiering** | Leave disabled for this tutorial. |
    | **Volume Free Space** | Leave blank for this tutorial. |
