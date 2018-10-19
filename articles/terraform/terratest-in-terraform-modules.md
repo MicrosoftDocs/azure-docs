@@ -9,7 +9,7 @@ author: JunyiYi
 manager: jeconnoc
 ms.author: junyi
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 10/19/2018
 
 ---
 
@@ -32,7 +32,7 @@ This hands-on guide is platform-independent; it can be run it on Windows, Linux,
 
 - **The Go Programming language**: The Terraform test cases are written in [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
-- **Azure CLI**: The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool for managing Azure resources. (Terraform supports authenticating to Azure through a Service Principle or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **Azure CLI**: The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool for managing Azure resources. (Terraform supports authenticating to Azure through a Service Principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
 
 ## Create a static webpage module
 
@@ -41,7 +41,7 @@ In this tutorial, you will create a Terraform module that will provision a stati
 > [!NOTE]
 > All files described in this section should be created under your [GOPATH](https://github.com/golang/go/wiki/SettingGOPATH).
 
-First, create a new folder named `staticwebpage` under the `src` folder of your GoPath. The overall folder structure of this tutorial is depicted below. (Files marked with an asterisk `(*)` are the major focus in this subsection.)
+First, create a new folder named `staticwebpage` under the `src` folder of your GoPath. The overall folder structure of this tutorial is depicted below. (Files marked with an asterisk `(*)` are the major focus in this section.)
 
 ```
  📁 GoPath/src/staticwebpage
@@ -128,11 +128,11 @@ resource "azurerm_storage_blob" "homepage" {
 
 ### Unit Test
 
-Terratest is traditionally a tool designed for integration tests--which means it will provision real resources in a real environment. Sometimes such jobs can become exceptionally large, especially when you have tons of resources to be provisioned. The storage account naming conversion logic described in the previous subsection is a good example: we don't really need to provision any resources--we just want to make sure the naming conversion logic is correct.
+Terratest is traditionally a tool designed for integration tests--which means it will provision real resources in a real environment. Sometimes such jobs can become exceptionally large, especially when you have tons of resources to be provisioned. The storage account naming conversion logic described in the previous section is a good example: we don't really need to provision any resources--we just want to make sure the naming conversion logic is correct.
 
 Thanks to the flexibility of Terratest, this is easily accomplished via the use of unit tests. Unit tests are local running test cases (although internet access is still required) by just executing `terraform init` and `terraform plan` commands, the unit test cases will parse the output of `terraform plan` and look for the attribute values to be compared.
 
-The rest of this subsection will describe how we use Terratest to implement a unit test to make sure storage account naming conversion logic is correct. We will be only interested in the files marked with an asterisk `(*)`.
+The rest of this section will describe how we use Terratest to implement a unit test to make sure storage account naming conversion logic is correct. We will be only interested in the files marked with an asterisk `(*)`.
 
 ```
  📁 GoPath/src/staticwebpage
@@ -259,7 +259,7 @@ You will see the traditional Go test result after about one minute.
 
 ### Integration Test
 
-In contrast to unit tests, integration tests are required to provision resources to a real environment from the end-to-end perspective. Terratest does a good job on such things. Since the best practice of Terraform module also recommends the `examples` folder containing some end-to-end samples, why not just test those samples as integration tests? In this subsection, we will focus on three files, each marked with an asterisk `(*)`.
+In contrast to unit tests, integration tests are required to provision resources to a real environment from the end-to-end perspective. Terratest does a good job on such things. Since the best practice of Terraform module also recommends the `examples` folder containing some end-to-end samples, why not just test those samples as integration tests? In this section, we will focus on three files, each marked with an asterisk `(*)`.
 
 ```
  📁 GoPath/src/staticwebpage
@@ -374,7 +374,7 @@ GoPath/src/staticwebpage/test$ az login    # Required when no service principal 
 GoPath/src/staticwebpage/test$ go test -run TestIT_HelloWorldExample
 ```
 
-You will see the traditional Go test result after about two minutes. Of course, you could also run both unit tests as well as integration test by executing:
+You will see the traditional Go test result after about two minutes. Of course, you could also run both unit tests as well as integration tests by executing:
 
 ```shell
 GoPath/src/staticwebpage/test$ go fmt
@@ -383,9 +383,9 @@ GoPath/src/staticwebpage/test$ go test
 
 As you can tell, integration tests take much longer time than unit tests (two minutes for one integration case while one minute for five unit cases). But it is still your decision about when to use unit tests and when to leverage integration tests. Typically, we prefer to use unit tests for complex logic using Terraform HCL functions; while using integration test from the end-to-end perspective of a user.
 
-## Use a Go build system magefile to simplify running the Terratest test case 
+## Use mage to simplify running the Terratest cases 
 
-As you have seen, running test cases in shell is not an easy task because you need to navigate to different directories and execute different commands. It is for this reason we introduce the build system in our project. In this section, we will use a Go build system `magefile` to do the job.
+As you have seen, running test cases in shell is not an easy task because you need to navigate to different directories and execute different commands. It is for this reason we introduce the build system in our project. In this section, we will use a Go build system `mage` to do the job.
 
 > [!NOTE]
 > As a prerequiste, [install `mage` executable](https://github.com/magefile/mage/releases) in your system.
@@ -416,7 +416,7 @@ Here is one example of `./magefile.go`. In this build script, written in Go, we 
 - `Format`: this step will run `terraform fmt` and `go fmt` to format your code base.
 - `Unit`: this step will run all unit tests (using function name convention `TestUT_*`) under `./test/` folder.
 - `Integration`: similar to `Unit`, but instead of unit tests, it executes integration tests (`TestIT_*`).
-- `Full`: this step runs `Clean`, `Format`, and `Integration`, in sequence.
+- `Full`: this step runs `Clean`, `Format`, `Unit', and `Integration`, in sequence.
 
 ```go
 // +build mage
