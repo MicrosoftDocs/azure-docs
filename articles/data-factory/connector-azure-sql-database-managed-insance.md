@@ -55,7 +55,7 @@ The following properties are supported for Azure SQL Database Managed Instance l
 >[!TIP]
 >If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
 
-**Example 1: using SQL authentication**
+**Example 1: Using SQL authentication**
 
 ```json
 {
@@ -76,7 +76,7 @@ The following properties are supported for Azure SQL Database Managed Instance l
 }
 ```
 
-**Example 2: using Windows authentication**
+**Example 2: Using Windows authentication**
 
 ```json
 {
@@ -113,7 +113,7 @@ To copy data from/to Azure SQL Database Managed Instance, set the type property 
 | type | The type property of the dataset must be set to: **SqlServerTable** | Yes |
 | tableName |Name of the table or view in the database instance that linked service refers to. | Yes |
 
-**Example:**
+**Example**
 
 ```json
 {
@@ -147,13 +147,13 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
 | sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are: name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 
-**Points to note:**
+**Points to note**
 
 - If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Managed Instance source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
 - If you do not specify either "sqlReaderQuery" or "sqlReaderStoredProcedureName" property, the columns defined in the "structure" section of the dataset JSON are used to construct a query (`select column1, column2 from mytable`) to run against the Managed Instance. If the dataset definition does not have the "structure", all columns are selected from the table.
 - When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
-**Example: using SQL query**
+**Example: Using a SQL query**
 
 ```json
 "activities":[
@@ -185,7 +185,7 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
 ]
 ```
 
-**Example: using stored procedure**
+**Example: Using a stored procedure**
 
 ```json
 "activities":[
@@ -221,7 +221,7 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
 ]
 ```
 
-**The stored procedure definition:**
+**The stored procedure definition**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -257,7 +257,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 > [!TIP]
 > When copying data to Azure SQL Database Managed Instance, the copy activity appends data to the sink table by default. To perform an UPSERT or additional business logic, use the stored procedure in SqlSink. Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
-**Example 1: appending data**
+**Example 1: Appending data**
 
 ```json
 "activities":[
@@ -289,7 +289,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 ]
 ```
 
-**Example 2: invoking a stored procedure during copy for upsert**
+**Example 2: Invoking a stored procedure during copy for upsert**
 
 Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -332,7 +332,7 @@ Learn more details from [Invoking stored procedure for SQL Sink](#invoking-store
 
 This section provides an example that copies data from a source table with no identity column to a destination table with an identity column.
 
-**Source table:**
+**Source table**
 
 ```sql
 create table dbo.SourceTbl
@@ -342,7 +342,7 @@ create table dbo.SourceTbl
 )
 ```
 
-**Destination table:**
+**Destination table**
 
 ```sql
 create table dbo.TargetTbl
