@@ -1,6 +1,6 @@
 ---
-title: How to add or remove a Security group from another Security group in Azure Active Directory | Microsoft Docs
-description: Learn how to add or remove a Security group from another Security group using Azure Active Directory.
+title: How to add or remove a group from another group in Azure Active Directory | Microsoft Docs
+description: Learn how to add or remove a group from another group using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
 ---
 
-# How to: Add or remove a Security group from another Security group using Azure Active Directory
+# How to: Add or remove a group from another group using Azure Active Directory
 This article helps you to add and remove a group from another group using Azure Active Directory.
 
 >[!Note]
@@ -25,7 +25,7 @@ This article helps you to add and remove a group from another group using Azure 
 You can add an existing Security group to another existing Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
 
 >[!Important]
->We don't currently support:<ul><li>Adding Security groups to Office 365 groups</li><li>Adding Office 365 groups to Security or other Office 365 groups</li><li>Assigning apps to nested groups</li><li>Applying licenses to nested groups</li></ul>
+>We don't currently support:<ul><li>Adding Security groups to Office 365 groups</li><li>Adding Office 365 groups to Security groups or other Office 365 groups</li><li>Assigning apps to nested groups</li><li>Applying licenses to nested groups</li></ul>
 
 ### To add a group as a member of another group
 
