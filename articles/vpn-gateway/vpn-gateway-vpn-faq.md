@@ -8,7 +8,6 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: yushwang
-
 ---
 # VPN Gateway FAQ
 
