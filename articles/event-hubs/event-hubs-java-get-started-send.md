@@ -15,20 +15,20 @@ ms.author: shvija
 
 # Send events to Azure Event Hubs using Java
 
-Event Hubs is a highly scalable ingestion system that can ingest millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into an event hub, you can transform and store data using any real-time analytics provider or storage cluster.
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-For more information, see the [Event Hubs overview][Event Hubs overview].
-
-This tutorial shows how to send events to an event hub by using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](event-hubs-java-get-started-receive-eph.md), or click the appropriate receiving language in the left-hand table of contents.
+This tutorial shows how to send events to an event hub by using a console application written in Java. 
 
 ## Prerequisites
 
-In order to complete this tutorial, you need the following prerequisites:
+To complete this tutorial, you need the following prerequisites:
 
 * A Java development environment. This tutorial uses [Eclipse](https://www.eclipse.org/).
-* An active Azure account. If you do not have an Azure subscription, create a [free account][] before you begin.
 
 The code in this tutorial is based on the [SimpleSend GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), which you can examine to see the full working application.
+
+## Create an Event Hubs namespace and an event hub
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
 ## Send events to Event Hubs
 
@@ -135,12 +135,7 @@ eventHubClient.closeSync();
 
 ## Next steps
 
-You can learn more about Event Hubs by visiting the following links:
-
-* [Receive events using the EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
-* [Event Hubs overview][Event Hubs overview]
-* [Create an event hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you have sent messages to an event hub using Java. To learn how to receive events from an event hub using .NET Framework, see [Receive events from event hub - Java](event-hubs-java-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
