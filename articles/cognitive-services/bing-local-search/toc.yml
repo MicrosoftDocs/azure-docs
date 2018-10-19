@@ -4,6 +4,9 @@
   items:
   - name: What is Local Business Search?
     href: overview.md
+- name: Features
+  expanded: true
+  items:
   - name: Query and response
     href: local-search-query-response.md
   - name: Geographic search boundaries
