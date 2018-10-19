@@ -1,5 +1,5 @@
 ---
-title: Virtual machine SKUs tab in the Cloud Partner Portal for azure Marketplace | Microsoft Docs
+title: Virtual machine SKUs tab in the Cloud Partner Portal for Azure Marketplace | Microsoft Docs
 description: Describes the SKUs tab used in creating a virtual machine offer in the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 documentationcenter:
