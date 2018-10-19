@@ -32,7 +32,7 @@ This hands-on guide is platform-independent; it can be run it on Windows, Linux,
 
 - **The Go Programming language**: The Terraform test cases are written in [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
-- **Azure CLI**: The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool for managing Azure resources. (Terraform supports authenticating to Azure through a Service Principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **Azure CLI**: The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool for managing Azure resources. (Terraform supports authenticating to Azure through a Service Principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
 
 ## Create a static webpage module
 
