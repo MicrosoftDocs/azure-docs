@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/19/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -122,7 +122,7 @@ To customize the UI of the sign-up experience, you start by creating a simple HT
 
 In this tutorial, you store the files that you created in the storage account so that Azure AD B2C can access them.
 
-1. Choose All services in the top-left corner of the Azure portal, search for and select **Storage accounts**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Storage accounts**.
 2. Select the storage account you created, select **Blobs**, and then select the container that you created.
 3. Select **Upload**, navigate to and select the *custom-ui.html* file, and then click **Upload**.
 
@@ -152,9 +152,9 @@ Communication with Azure AD B2C occurs through an application that you create in
 To test your customization files, you create a built-in sign-up or sign-in policy that uses the application that you previously created.
 
 1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**, and then click **Add**.
-2. Enter a name for the policy. For example, *signup_signin*. The prefix *B2C_1* is added to the name.
+2. Enter a name for the policy. For example, *signup_signin*. The prefix *B2C_1* is automatically added to the name when the policy is created.
 3. Select **Identity providers**, set **Email sign-up** for a local account, and then click **OK**.
-4. Select **Sign-up attributes**, choose the attributes that you want to collect from the user during sign-up. For example, set **Country/Region**, **Display Name**, and **Postal Code**, and then click **OK**.
+4. Select **Sign-up attributes**, choose the attributes that you want to collect from the customer during sign-up. For example, set **Country/Region**, **Display Name**, and **Postal Code**, and then click **OK**.
 5. Select **Application claims**, choose the claims that you want returned in the authorization tokens sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new** and **User's Object ID**, and then click **OK**.
 6. Select **Page UI customization**, select **Unified sign-up or sign-in page**, and the click **Yes** for **Use custom page**.
 7. In **Custom page URI**, enter the URL for the *custom-ui.html* file that you recorded earlier, and then click **OK**.
@@ -162,7 +162,7 @@ To test your customization files, you create a built-in sign-up or sign-in polic
 
 ## Test the policy
 
-1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**, and then select the policy that you created. For example, *B2C_1A_signup_signin*.
+1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**, and then select the policy that you created. For example, *B2C_1_signup_signin*.
 2. Make sure that the application that you created is selected in **Select application**, and then click **Run Now**.
 
     ![Run the sign-up or sign-in policy](./media/tutorial-customize-ui/signup-signin.png)
