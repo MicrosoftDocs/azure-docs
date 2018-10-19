@@ -22,10 +22,10 @@ This article helps you to add and remove a group from another group using Azure 
 >If you're trying to delete the parent group, see [How to update or delete a group and its members](active-directory-groups-delete-group.md).
 
 ## Add a Security group as a member of another Security group
-You can add an existing Security group to another existing Security group, creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
+You can add an existing Security group to another existing Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
 
 >[!Important]
->We don’t currently support adding Office 365 groups to other groups (also known as nesting groups), assigning apps to nested groups, or applying licenses to nested groups. For more information about SaaS app support, see [Using a group to manage access to SaaS applications](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps). For more information about limitations and known issues with group-based licensing, see [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/licensing-group-advanced#limitations-and-known-issues).
+>We don't currently support:<ul><li>Adding Security groups to Office 365 groups</li><li>Adding Office 365 groups to Security or other Office 365 groups</li><li>Assigning apps to nested groups</li><li>Applying licenses to nested groups</li></ul>
 
 ### To add a group as a member of another group
 
@@ -79,3 +79,7 @@ These articles provide additional information on Azure Active Directory.
 - [Add or remove members from a group](active-directory-groups-members-azure-portal.md)
 
 - [Edit your group settings](active-directory-groups-settings-azure-portal.md)
+
+- [Using a group to manage access to SaaS applications](../users-groups-roles/groups-saasapps.md)
+
+- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
