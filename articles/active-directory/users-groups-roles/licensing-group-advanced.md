@@ -213,7 +213,7 @@ If you use group-based licensing, it's a good idea to familiarize yourself with 
 
 - Group-based licensing currently does not support groups that contain other groups (nested groups). If you apply a license to a nested group, only the immediate first-level user members of the group have the licenses applied.
 
-- The feature can only be used with Security groups and Office 365 groups with securityEnabled=TRUE.
+- The feature can only be used with security groups and Office 365 groups that have securityEnabled=TRUE.
 
 - The [Office 365 admin portal](https://portal.office.com ) does not currently support group-based licensing. If a user inherits a license from a group, this license appears in the Office admin portal as a regular user license. If you try to modify that license or try to remove the license, the portal returns an error message. Inherited group licenses cannot be modified directly on a user.
 
