@@ -1,6 +1,6 @@
 ## Go to your API Management instance
 
-![Navigate to API Management instance](./media/api-management-navigate-to-instance/get-started-create-service-instance-created.png)
+![Navigate to API Management instance](./media/api-management-navigate-to-instance/00-FindResource-01.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
