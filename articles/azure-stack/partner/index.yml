@@ -16,7 +16,7 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: John.Haskin
 abstract:
-  description: You can use Validation as a Service to verify your hardware for use with Azure Stack. The service is a native Azure service designed for use by solution partners who are co-engineering Azure Stack offerings with Microsoft.
+  description: You can use Validation as a Service to check your hardware for use with Azure Stack. The service is a native Azure service designed for use by solution partners who are co-engineering Azure Stack offerings with Microsoft.
 sections:
 - title: 5-Minute Quickstart
   items: 

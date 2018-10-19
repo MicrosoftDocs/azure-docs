@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -32,7 +32,7 @@ To certify your solution, run the Solution Validation workflow twice. Run it onc
 ## Create a Solution Validation workflow
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
-2. Click **Start** on the **Solution Validations** tile.
+2. Select **Start** on the **Solution Validations** tile.
 
     ![Solution Validations workflow tile](media/tile_validation-solution.png)
 
