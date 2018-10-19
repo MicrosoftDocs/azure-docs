@@ -98,7 +98,9 @@ As shown in the previous chart, the most common waits are:
 
 > [!IMPORTANT]
 > For a set a T-SQL queries using these DMVs to troubleshoot these waiting-related issues, see:
-> - [Identify I/O issues](sql-database-monitoring-with-dmvs.md#identify-io-issues).
+>
+> - [Identify I/O performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
+> - [Identify `tempdb` performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 
 ## Improving database performance with more resources
 

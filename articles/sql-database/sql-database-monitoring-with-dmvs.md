@@ -147,6 +147,178 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
+## Identify `tempdb` performance issues
+
+When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb `contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database id, `x` is the file id, and `y` is the page id.  
+
+For tempdb contention, a common method is to reduce or re-write application code that relies on `tempdb`.  Common `tempdb` usage areas include:
+
+- Temp tables
+- Table variables
+- Table valued parameters
+- Version store usage (specifically associated with long running transactions)
+- Queries that have query plans that use sorts, hash joins, and spools
+
+Use the following query to identify top queries that use table variables and temporary tables:
+
+```sql
+SELECT plan_handle, execution_count, query_plan
+INTO #tmpPlan
+FROM sys.dm_exec_query_stats
+     CROSS APPLY sys.dm_exec_query_plan(plan_handle);
+GO
+
+WITH XMLNAMESPACES('http://schemas.microsoft.com/sqlserver/2004/07/showplan' AS sp)
+SELECT plan_handle, stmt.stmt_details.value('@Database', 'varchar(max)') 'Database', stmt.stmt_details.value('@Schema', 'varchar(max)') 'Schema', stmt.stmt_details.value('@Table', 'varchar(max)') 'table'
+INTO #tmp2
+FROM(SELECT CAST(query_plan AS XML) sqlplan, plan_handle FROM #tmpPlan) AS p
+    CROSS APPLY sqlplan.nodes('//sp:Object') AS stmt(stmt_details);
+GO
+
+SELECT t.plan_handle, [Database], [Schema], [table], execution_count
+FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
+     FROM #tmp2
+     WHERE [table] LIKE '%@%' OR [table] LIKE '%#%') AS t
+    JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
+```
+
+Use the following query to identify long running transactions. Long running transactions prevent version store cleanup.
+
+```sql
+SELECT DB.database_id,
+    SessionTrans.session_id AS SPID,
+    enlist_count AS [Active Requests],
+    ActiveTrans.transaction_id AS ID,
+    ActiveTrans.name AS Name,
+    ActiveTrans.transaction_begin_time AS [Start Time],
+    CASE transaction_type
+        WHEN 1 THEN
+            'Read/Write'
+        WHEN 2 THEN
+            'Read-Only'
+        WHEN 3 THEN
+            'System'
+        WHEN 4 THEN
+            'Distributed'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), transaction_type)
+       END AS [Transaction Type],
+    CASE transaction_state
+        WHEN 0 THEN
+            'Uninitialized'
+        WHEN 1 THEN
+            'Not Yet Started'
+        WHEN 2 THEN
+            'Active'
+        WHEN 3 THEN
+            'Ended (Read-Only)'
+        WHEN 4 THEN
+            'Committing'
+        WHEN 5 THEN
+            'Prepared'
+        WHEN 6 THEN
+            'Committed'
+        WHEN 7 THEN
+            'Rolling Back'
+        WHEN 8 THEN
+            'Rolled Back'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), transaction_state)
+    END AS 'State',
+    CASE dtc_state
+        WHEN 0 THEN
+            NULL
+        WHEN 1 THEN
+            'Active'
+        WHEN 2 THEN
+            'Prepared'
+        WHEN 3 THEN
+            'Committed'
+        WHEN 4 THEN
+            'Aborted'
+        WHEN 5 THEN
+            'Recovered'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), dtc_state)
+    END AS 'Distributed State',
+       DB.name AS 'Database',
+       database_transaction_begin_time AS [DB Begin Time],
+    CASE database_transaction_type
+        WHEN 1 THEN
+            'Read/Write'
+        WHEN 2 THEN
+            'Read-Only'
+        WHEN 3 THEN
+            'System'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_type)
+    END AS 'DB Type',
+    CASE database_transaction_state
+        WHEN 1 THEN
+            'Uninitialized'
+        WHEN 3 THEN
+            'No Log Records'
+        WHEN 4 THEN
+            'Log Records'
+        WHEN 5 THEN
+            'Prepared'
+        WHEN 10 THEN
+            'Committed'
+        WHEN 11 THEN
+            'Rolled Back'
+        WHEN 12 THEN
+            'Committing'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_state)
+    END AS 'DB State',
+       database_transaction_log_record_count AS [Log Records],
+       database_transaction_log_bytes_used / 1024 AS [Log KB Used],
+       database_transaction_log_bytes_reserved / 1024 AS [Log KB Reserved],
+       database_transaction_log_bytes_used_system / 1024 AS [Log KB Used (System)],
+       database_transaction_log_bytes_reserved_system / 1024 AS [Log KB Reserved (System)],
+       database_transaction_replicate_record_count AS [Replication Records],
+       command AS [Command Type],
+       total_elapsed_time AS [Elapsed Time],
+       cpu_time AS [CPU Time],
+       wait_type AS [Wait Type],
+       wait_time AS [Wait Time],
+       wait_resource AS [Wait Resource],
+       reads AS Reads,
+       logical_reads AS [Logical Reads],
+       writes AS Writes,
+       SessionTrans.open_transaction_count AS [Open Transactions],
+       open_resultset_count AS [Open Result Sets],
+       row_count AS [Rows Returned],
+       nest_level AS [Nest Level],
+       granted_query_memory AS [Query Memory],
+       SUBSTRING(
+            SQLText.text,
+            ExecReqs.statement_start_offset / 2,
+            (CASE
+                WHEN ExecReqs.statement_end_offset = -1 THEN
+                    LEN(CONVERT(NVARCHAR(MAX), SQLText.text)) * 2
+                ELSE
+                    ExecReqs.statement_end_offset
+                END - ExecReqs.statement_start_offset
+                ) / 2
+                ) AS query_text
+FROM sys.dm_tran_active_transactions AS ActiveTrans (NOLOCK)
+    INNER JOIN sys.dm_tran_database_transactions AS DBTrans (NOLOCK)
+        ON DBTrans.transaction_id = ActiveTrans.transaction_id
+    INNER JOIN sys.databases AS DB (NOLOCK)
+        ON DB.database_id = DBTrans.database_id
+    LEFT JOIN sys.dm_tran_session_transactions AS SessionTrans (NOLOCK)
+        ON SessionTrans.transaction_id = ActiveTrans.transaction_id
+    LEFT JOIN sys.dm_exec_requests AS ExecReqs (NOLOCK)
+        ON ExecReqs.session_id = SessionTrans.session_id
+           AND ExecReqs.transaction_id = SessionTrans.transaction_id
+    OUTER APPLY sys.dm_exec_sql_text(ExecReqs.sql_handle) AS SQLText
+WHERE ActiveTrans.transaction_type <> 2 --ignore read only transactions
+    AND SessionTrans.session_id IS NOT NULL
+ORDER BY database_id ASC,
+    start_time ASC;
+```
+
 ## Calculating database size
 
 The following query returns the size of your database (in megabytes):
