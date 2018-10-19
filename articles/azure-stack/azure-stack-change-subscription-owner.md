@@ -53,9 +53,9 @@ Replace the following values in the script before it runs:
 Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
 Add-AzureRmAccount -Environment AzureStack-admin -TenantId $TenantId
 
-# Select admin subscriptionr
+# Select admin subscription
 $providerSubscriptionId = (Get-AzureRmSubscription -SubscriptionName "Default Provider Subscription").Id
-Write-Output "Setting context the Default Provider Subscription: $providerSubscriptionId" 
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId" 
 Set-AzureRmContext -Subscription $providerSubscriptionId
 
 # Change user subscription owner
