@@ -80,32 +80,26 @@ Use the following process to deploy your user VM from the Azure portal.
 
 4. Provide the parameter values for the displayed **Custom deployment** property pages.
 
-    <table>
-    <tr>
-    <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td>
-    <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td>
-    </tr>
-    </table>
-    
+   <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-    |  **Parameter**              |   **Description**                                                            |
-    |  -------------              |   ---------------                                                            |
-    | User Storage Account Name   | Storage account name where the generalized VHD is located                    |
-    | User Storage Container Name | Container name where the generalized VHD is located                          |
-    | DNS Name for Public IP      | Public IP DNS name                                                           |
-    | Admin User Name             | Administrator account's username for new VM                                  |
-    | Admin Password              | Administrator account's password for new VM                                  |
-    | OS Type                     | VM operating system: `Windows` \| `Linux`                                    |
-    | Subscription ID             | Identifier of the selected subscription                                      |
-    | Location                    | Geographic location of the deployment                                        |
-    | VM Size                     | [Azure VM size](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), for example `Standard_A2` |
-    | Public IP Address Name      | Name of your public IP address                                               |
-    | VM Name                     | Name of the new VM                                                           |
-    | Virtual Network Name        | Name of the virtual network used by the VM                                   |
-    | NIC Name                    | Name of the network interface card running the virtual network               |
-    | VHD URL                     | Complete OS Disk VHD URL                                                     |
-    |  |  |
-    
+   |  **Parameter**              |   **Description**                                                            |
+   |  -------------              |   ---------------                                                            |
+   | User Storage Account Name   | Storage account name where the generalized VHD is located                    |
+   | User Storage Container Name | Container name where the generalized VHD is located                          |
+   | DNS Name for Public IP      | Public IP DNS name                                                           |
+   | Admin User Name             | Administrator account's username for new VM                                  |
+   | Admin Password              | Administrator account's password for new VM                                  |
+   | OS Type                     | VM operating system: `Windows` \| `Linux`                                    |
+   | Subscription ID             | Identifier of the selected subscription                                      |
+   | Location                    | Geographic location of the deployment                                        |
+   | VM Size                     | [Azure VM size](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), for example `Standard_A2` |
+   | Public IP Address Name      | Name of your public IP address                                               |
+   | VM Name                     | Name of the new VM                                                           |
+   | Virtual Network Name        | Name of the virtual network used by the VM                                   |
+   | NIC Name                    | Name of the network interface card running the virtual network               |
+   | VHD URL                     | Complete OS Disk VHD URL                                                     |
+   |  |  |
+            
 5. After you supply these values, click **Purchase**. 
 
 Azure will begin deployment: it creates a new VM with the specified unmanaged VHD, in the specified storage account path.  You can track the progress in the Azure portal by clicking on **Virtual Machines** on the left-hand side of the portal.  When the VM has been created, the status will change from `Starting` to `Running`. 
