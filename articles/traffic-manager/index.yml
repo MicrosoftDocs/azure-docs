@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 10/15/2018
   ms.author: kumud
 abstract:
   description:  Learn how to use Azure Traffic Manager. Quickstarts, tutorials, samples, and more, show you how to manage incoming traffic for optimal application performance, and how to distribute traffic to Azure or external service endpoints.
@@ -37,10 +37,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Route traffic based on geographic location of endpoint</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Route traffic for low latency</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-improve-website-response">Route traffic for low latency</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic to a set of endpoints</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic to a priority endpoint</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic based on user's subnet</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing">Control traffic with weighted endpoints</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-subnet-routing">Route traffic based on user's subnet</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

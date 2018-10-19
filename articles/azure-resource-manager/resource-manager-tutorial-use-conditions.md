@@ -94,13 +94,14 @@ Make two changes to the existing template:
     The updated storage account definition looks like:
 
     ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Add the API version to the following line:
+6. Update **storageUri** with the following value:
 
     ```json
-    "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
     ```
 
-    The API version is required when the resource is not provisioned within same template. The use existing option fails if you don't have the API version specified.
+    This change is necessary when you use an existing storage account under a different resource group.
+
 7. Save the changes.
 
 ## Deploy the template
@@ -109,7 +110,7 @@ Follow the instructions in [Deploy the template](./resource-manager-tutorial-cre
 
 When you deploy the template using Azure PowerShell, you need to specify one additional parameter:
 
-```powershell
+```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"

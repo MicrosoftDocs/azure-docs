@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/18/2018
 ms.author: srrengar
 
 ---
@@ -68,7 +68,7 @@ In addition to seeing latest health reports in SFX, each report is also availabl
 
 ## Other logging solutions
 
-Although the two solutions we recommended, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) have built in integration with Service Fabric, many events are written out through etw providers and are extensible with other logging solutions. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/), or any other platform of your preference. 
+Although the two solutions we recommended, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) have built in integration with Service Fabric, many events are written out through ETW providers and are extensible with other logging solutions. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Dynatrace](https://www.dynatrace.com/), or any other platform of your preference. We have a list of integrated partners available [here](service-fabric-diagnostics-partners.md).
 
 The key points for any platform you choose should include how comfortable you are with the user interface and querying options, the ability to visualize data and create easily readable dashboards, and the additional tools they provide to enhance your monitoring, such as automated alerting.
 
@@ -77,5 +77,7 @@ The key points for any platform you choose should include how comfortable you ar
 * For getting started with instrumenting your applications, see [Application level event and log generation](service-fabric-diagnostics-event-generation-app.md).
 * Learn more about monitoring the platform and the events Service Fabric provides for you at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md).
 * Go through the steps to set up AI for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
-* Learn how to set up Azure Log Analytics for monitoring containers - [Monitoring and Diagnostics for Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Learn how to set up OMS Log Analytics for monitoring containers - [Monitoring and Diagnostics for Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* See example diagnostics problems and solutions with Service Fabric in [diagnosing common scenarios](service-fabric-diagnostics-common-scenarios.md)
+* Check out other diagnostics products that integrate with Service Fabric in [Service Fabric diagnostic partners](service-fabric-diagnostics-partners.md)
 * Learn about general monitoring recommendations for Azure resources - [Best Practices - Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
