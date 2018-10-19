@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/28/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -20,7 +20,7 @@ ms.author: jgao
 
 Learn how to deploy Azure resources based on conditions. 
 
-The scenario used in this tutorial is the same as the one used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). In additional to a storage account, a virtual machine, a virtual network, and some other dependent resources, you also deploy an additional storage account based on the value of a parameter.  If the value of the parameter is "yes", the storage account is deployed. Otherwise, the storage account is not deployed.
+The scenario used in this tutorial is similar to the one used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). In that tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created.
 
 This tutorial covers the following tasks:
 
@@ -53,33 +53,56 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 ## Modify the template
 
-1. Open **azuredeploy.json** if it is not opened.
-2. Make a copy of the storage account definition, and place it right after the existing storage account definition.
-3. Update the name of the new storage account to:
+Make two changes to the existing template:
+
+* Add a storage account name parameter. Users can specify either a new storage account name or an existing storage account name.
+* Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine where to create a new storage account or use an existing storage account.
+
+1. Open **azuredeploy.json** in Visual Studio Code.
+2. Replace **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.  There are three appearances of **variables('storageAccountName')**.
+3. Remove the following variable definition:
 
     ```json
-    "name": "[concat(variables('storageAccountName'), '1')]",
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
     ```
-4. Add the following line to the beginning of the new storage account definition.
+4. Add the following two parameters to the template:
 
     ```json
-    "condition": "[equals(parameters('deployStorage1'),'yes')]",
+    "storageAccountName": {
+      "type": "string"
+    },    
+    "newOrExisting": {
+      "type": "string", 
+      "allowedValues": [
+        "new", 
+        "existing"
+      ]
+    },
+    ```
+    The updated parameters definition looks like:
+
+    ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
+
+5. Add the following line to the beginning of the storage account definition.
+
+    ```json
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    The condition checks the value of a parameter called **deployStorage1**. If the parameter value is **yes**, it creates the storage account.
+    The condition checks the value of a parameter called **newOrExisting**. If the parameter value is **new**, the deployment creates the storage account.
 
-    After you are done, the new storage account definition looks like:
+    The updated storage account definition looks like:
 
     ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-
-5. Add one more parameter to the template:
+6. Update **storageUri** with the following value:
 
     ```json
-    "deployStorage1": {
-      "type": "string"
-    }
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
     ```
-6. Save the changes.
+
+    This change is necessary when you use an existing storage account under a different resource group.
+
+7. Save the changes.
 
 ## Deploy the template
 
@@ -87,23 +110,27 @@ Follow the instructions in [Deploy the template](./resource-manager-tutorial-cre
 
 When you deploy the template using Azure PowerShell, you need to specify one additional parameter:
 
-```powershell
-$resourceGroupName = "<Enter the resource group name>"
-$location = "<Enter the Azure location>"
-$vmAdmin = "<Enter the admin username>"
-$vmPassword = "<Enter the password>"
-$dnsLabelPrefix = "<Enter the prefix>"
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+$vmAdmin = Read-Host -Prompt "Enter the admin username"
+$vmPassword = Read-Host -Prompt "Enter the admin password"
+$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -deployStorage1 "yes"
+New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin -adminPassword $vmPW `
+    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+    -TemplateFile azuredeploy.json
 ```
 
-After the template is deployed successfully, open the resource group and check the resources in the group. You shall see two storage accounts. 
+> [!NOTE]
+> The deployment fails if **newOrExisting** is **new**, but the storage account with the storage account name specified already exists.
 
-Try making another deployment with **deployStorage1**  set to "no". And then verify the additional storage is not created.
+Try making another deployment with **newOrExisting** set to "existing" and specify an exiting storage account. To create a storage account beforehand, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 ## Clean up resources
 
@@ -116,7 +143,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to retrieve secrets from Azure Key Vault, and use the secrets in the template deployment, see:
+In this tutorial, you develop a template that allows users to choose between creating a new storage account and using an existing storage account. The virtual machine created in this tutorial requires an administrator username and password. Instead of passing the password during the deployment, you can pre-store the password using Azure Key Vault, and retrieve the password during the deployment. To learn how to retrieve secrets from Azure Key Vault, and use the secrets in the template deployment, see:
 
 > [!div class="nextstepaction"]
 > [Integrate Key Vault in template deployment](./resource-manager-tutorial-use-key-vault.md)

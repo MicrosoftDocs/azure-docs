@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - IIS with DSC | Microsoft Docs
 description: Azure PowerShell Script Sample - IIS with DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ---
 
 # Create an IIS VM with PowerShell

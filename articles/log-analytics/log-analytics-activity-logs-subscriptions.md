@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: richrund; bwren
-ms.component: na
+ms.author: magoedte
+ms.component: 
 
 ---
 # Collect Azure Activity Logs into Log Analytics across subscriptions

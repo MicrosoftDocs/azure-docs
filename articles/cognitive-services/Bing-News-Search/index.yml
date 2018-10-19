@@ -7,7 +7,8 @@ metadata:
   services: cognitive-services
   author: mikedodaro
   manager: rosh
-  ms.service: bing-video-search
+  ms.service: cognitive-services
+  ms.component: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

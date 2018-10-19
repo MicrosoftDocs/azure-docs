@@ -1,6 +1,6 @@
 ---
-title: What happened to Azure Machine Learning Workbench? | Microsoft Docs
-description: Learn about what happened the Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
+title: What is happening to Azure Machine Learning Workbench? | Microsoft Docs
+description: Learn about what is happening to the Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,21 +11,21 @@ author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
 ---
-# What happened to Workbench in Azure Machine Learning (preview)?
+# What is happening to Workbench in Azure Machine Learning (preview)?
 
-The Workbench application and some other early features were deprecated in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to improve your experience. The core functionality from experiment runs to model deployment has not changed, but now you can use the robust <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
+The Workbench application and some other early features were replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to improve your experience. The core functionality from experiment runs to model deployment has not changed, but now you can use the robust <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
 
 In this article, you'll learn about what changed and how it affects your pre-existing work with the Azure Machine Learning service.
 
 ## What changed?
 
-The latest release of Azure Machine Learning includes:
+The latest release of Azure Machine Learning service includes:
 + A [simplified Azure resources model](concept-azure-machine-learning-architecture.md)
 + [New portal UI](how-to-track-experiments.md) to manage your experiments and compute targets
 + A new, more comprehensive Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
 + A new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md#workspace).  You can create workspaces quickly in the [Azure portal](quickstart-get-started.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-azure-machine-learning-architecture.md#workspace).  You can create workspaces quickly in the [Azure portal](quickstart-get-started.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 While there are new improved CLI and SDK clients in the current release, the desktop Workbench application itself is deprecated. Now, you can monitor your experiments in the [workspace dashboard in the Azure web portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
@@ -69,7 +69,7 @@ You can use this same  <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> f
 
 ## Will projects persist?
 
-You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning Workspace using a local config file. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
+You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning service Workspace using a local config file. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
 
 Since much of the project content was already on your local machine, you just need to create a config file in that directory and reference it in your code to connect to your workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
 

@@ -30,7 +30,7 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 6. Select **Email owners...** if you want administrators and co-administrators to receive email notifications when the alert fires.
 
-7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semicolons, in the following format: *email@contoso.com; email2@contoso.com*
+7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semicolons, in the following format: *email@contoso.com;email2@contoso.com*
 
 8. Put in a valid URI in the **Webhook** field if you want it to be called when the alert fires.
 
@@ -48,7 +48,7 @@ After you create an alert, you can select it and do one of the following tasks:
 
 ## With Azure CLI
 
-The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest).
+The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).
 
 ### Get all classic metric alert rules in a resource group
 

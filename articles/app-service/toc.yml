@@ -94,8 +94,6 @@
     items:
     - name: Use app settings
       href: web-sites-configure.md
-    - name: Upload existing Java app
-      href: web-sites-java-add-app.md
     - name: Configure PHP
       href: web-sites-php-configure.md
     - name: Connect to on-prem resources
