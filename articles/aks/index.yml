@@ -33,7 +33,7 @@ sections:
       text: Azure Portal
       href: /azure/aks/kubernetes-walkthrough-portal
   - type: paragraph
-    text: 'Learn how to develop applications with AKS and Azure Dev Spaces:'
+    text: 'Learn how to develop and debug applications with AKS:'
   - type: list
     style: icon48
     items: 
