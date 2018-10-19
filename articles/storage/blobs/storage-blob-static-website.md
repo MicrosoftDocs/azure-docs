@@ -2,12 +2,12 @@
 title: Static website hosting in Azure Storage
 description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.  
 services: storage
-author: MichaelHauss
+author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 09/17/18
-ms.author: mihauss
+ms.date: 10/19/18
+ms.author: tamram
 ms.component: blobs
 ---
 
@@ -82,7 +82,7 @@ Install the storage preview extension:
 ```azurecli-interactive
 az extension add --name storage-preview
 ```
-Enable the feature:
+Enable the feature. Make sure to replace all placeholder values, including brackets, with your own values:
 
 ```azurecli-interactive
 az storage blob service-properties update --account-name <ACCOUNT_NAME> --static-website --404-document <ERROR_DOCUMENT_NAME> --index-document <INDEX_DOCUMENT_NAME>
@@ -96,7 +96,7 @@ az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEn
 Upload objects to the *$web* container:
 
 ```azurecli-interactive
-az storage blob upload-batch -s deploy -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE> -d $web --account-name <ACCOUNT_NAME>
 ```
 
 ## Deployment
