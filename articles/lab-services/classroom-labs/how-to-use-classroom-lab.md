@@ -41,9 +41,6 @@ This article describes how to access a classroom lab, connect to the VM in the l
     ![Save the RDP file](../media/how-to-use-classroom-lab/save-rdp-file.png)
 4. Use the **user name** and **password** you get from your educator/professor for logging in to the machine. 
 
-    > [!NOTE] 
-    > When adding a Linux VM to a lab, you can enable SSH and RDP access to the VM. If you don't enable the access while creating the VM, you can manually add rules in the network security group associated with the VM to open ports for SSH and RDP. For steps to connect to a Linux VM via RDP, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](virtual-machines/linux/use-remote-desktop.md). 
-
 ## Stop the virtual machine in a classroom lab
 
 Select **Stop** on the tile that represents the classroom lab. When the VM is stopped, the **Start** button on the tile is enabled. 
