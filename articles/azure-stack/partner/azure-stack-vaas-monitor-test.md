@@ -33,7 +33,7 @@ After scheduling tests against your Azure Stack solution, Validation as a Servic
 
 1. Select the workflow name to open its test summary.
 
-## Modify workflow parameters
+## Change workflow parameters
 
 Each workflow type lets you to edit the [Test parameters](azure-stack-vaas-parameters.md#test-parameters) specified during workflow creation.
 
