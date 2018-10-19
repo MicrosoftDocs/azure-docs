@@ -202,6 +202,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   "type": "Microsoft.Network/expressRoutePorts"
   }  
   ```
+
 ## <a name="state"></a>Change Admin State of links
 
 This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
