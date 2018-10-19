@@ -13,27 +13,39 @@ ms.custom: mvc
 
 # Tutorial: How to use managed identities for Azure Container Instances
 
-Need intro. Refer to [overview content](../active-directory/managed-identities-azure-resources/overview.md) about system-assigned managed identities and user-assigned managed identities.
+Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to run code in Azure Container Instances that interacts with other Azure services without having to access secrets or credentials in code. The feature provides an Azure Container Instances deployment with an automatically managed identity in Azure Active Directory.
 
-You can use a managed identity to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) without having any credentials in your code. For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to retrieve credentials. 
+In this tutorial, you:
 
-Value in ACI: use to run code in ACI containers that can interact with other Azure services without managing access secrets or credentials directly in code.
+> [!div class="checklist"]
+> * Learn more about managed identities in Azure Container Instances
+> * Enable a managed identity in a container group
+> * Grant the container group access to another Azure resource
+> * Use the managed identity to access the resource from a running container
 
-## Prerequisites
+## Why use a managed identity?
 
-* Requires Azure CLI version XXX (az container module XXX) or cloud shell.
+Use a managed identity to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) without having any credentials in your container code. For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to retrieve credentials. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
-## Things to know
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). Currently managed identities are supported only on Linux containers in
+>  
 
-* Preview feature
-* Configure (only?) on container groups? Applies to all containers in a multi-container group.
-* Must configure at time container group is created; could assign identity later via the patching API. (az container create with the same name but different properties - s/b without a restart)
-* Portal around Thanksgiving/Dec.
-* Available only for Linux containers per Allan - not Win
-* Any restrictions on region availability?
-* Container instances supports configuring a system-assigned managed identity, a user-assigned managed identity, or both (or none) on a container group. Explain quick difff between system and user. System assigned - lifetime of resource. User assigned can be reused.
-* Use of managed identity in a container is essentially the same as using identity in an Azure VM: via a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
+### Enable a managed identity
 
+ In Azure Container Instances, managed identities for Azure resources are supported as of API version 2018-10-01 and corresponding SDKs and tools. Enable managed identities by specifying a [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) property when you create a container group. You can also enable or update manage updates after a container group is running; either action will cause the container group to restart. To set the properties of the identities on a new or existing container group, You can use the Azure CLI, a Resource Manager template, or a YAML file. 
+
+Azure Container Instances supports both types of managed Azure identities: system-assigned and user-assigned. On a container group, you can enable a system-assigned identity, one or more user-assigned identities, or both system- and user-assigned identities.
+
+* A **system-assigned** managed identity is enabled directly on a container group in Azure Container Instances. When the identity is enabled, Azure creates an identity for the group in the Azure AD tenant that's trusted by the subscription of the instance. After the identity is created, the credentials are provisioned onto each container in the container group. The lifecycle of a system-assigned identity is directly tied to the container group that it's enabled on. When the group is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
+
+* A **user-assigned** managed identity is created as a standalone Azure resource in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances (in Azure Container Instances or other Azure services). The lifecycle of a user-assigned identity is managed separately from the lifecycle of the container groups or other services to which it's assigned.
+
+### Use a managed identity
+
+To use a managed identity, the identity must initially be granted access to one or more Azure service instances (such as a Web App, a Key Vault, or a Storage Account) in the subscription. To access the Azure resources from a running container, your code must acquire an *access token* from an Azure AD endpoint. Then, your code sends the access token on a call to a service that supports Azure AD authentication. 
+
+Use of a managed identity in a running container is essentially the same as using a identity in an Azure VM. See the guidance for using a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
 
 ## Example: Use a system-assigned identity to access Azure Key Vault
 
@@ -47,13 +59,11 @@ First, create a resource group named *myResourceGroup* in the *eastus* location 
 az group create --name myResourceGroup --location eastus
 ```
 
-Run the following [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) command to create a container instance that runs Ubuntu Server. This is for example purposes to provide a container that you can use to easily access other Azure services. The `--assign-identity` parameter enables a system-assigned managed identity on the instance. To ensure the container stays running, the container runs a long-running command.
+Run the following [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) command to create a container instance based on Ubuntu Server. This example provides a basic container that you can use to interactively access other Azure services. The `--assign-identity` parameter enables a system-assigned managed identity on the instance. To stay running, the container runs a long-running command.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image ubuntu:latest --assign-identity --command-line "tail -f /dev/null"
+az container create --resource-group myResourceGroup --name mycontainer --image devorbitus/ubuntu-bash-jq-curl --assign-identity --command-line "tail -f /dev/null" --port 80
 ```
-
-[choose ubuntu]
 
 Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show][az-container-show](/cli/azure/container?view=azure-cli-latest#az-container-show) command.
 
@@ -88,35 +98,36 @@ Use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvau
 az keyvault create --name mykeyvault --resource-group myResourceGroup --location eastus
 ```
 
-Store a sample secret in the Key Vault using the [az keyvault secret set](//cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command:
+Store a sample secret in the Key Vault using the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command:
 
 ```azurecli-interactive
-az keyvault secret set --name SampleSecret --value SecretValue --description "Sample Secret Value" --vault-name mykeyvault
+az keyvault secret set --name SampleSecret --value "Hello Container Instances!" --description ACIsecret  --vault-name mykeyvault
 ```
+
 
 ### Grant container group access to the Key Vault
 
 Run the following command to set a variable to the Key Vault resource ID:
 
 ```azurecli-interactive
-keyvaultID=$(az keyvault show --name mykeyvault --resource-group myResourceGroup --query id --output tsv)
+kvID=$(az keyvault show --name mykeyvault --resource-group myResourceGroup --query id --output tsv)
 ```
 
 Use the [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) command to assign the container group's managed identity a Contributor role to the Key Vault:
 
 ```azurecli-interactive
-az role assignment create --assignee $spID --role Contributor --scope $keyvaultID
+az role assignment create --assignee $spID --role Contributor --scope $kvID
 ```
 
 ### Use container group identity to get secret from Key Vault
 
-Now you can use the managed identity to access the Key Vault within the running container instance. For this example first launch a bash shell in the container:
+Now you can use the managed identity to access the Key Vault within the running container instance. For this example, first launch a bash shell in the container:
 
 ```azurecli-interactive
 az container exec --resource-group myResourceGroup --name mycontainer --exec-command "/bin/bash"
 ```
 
-Run the following commands in the bash shell in the container. 
+Run the following commands in the bash shell in the container. First get an access token:
 
 ```bash
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
@@ -130,7 +141,7 @@ Output:
 Get the access token:
 
 ```bash
-token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s | jq '.access_token')
+token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s | jq -r '.access_token')
 ```
 
 Now use the access token to authenticate to Key Vault and read a secret:
@@ -138,11 +149,9 @@ Now use the access token to authenticate to Key Vault and read a secret:
 ```bash
 curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer $token"
 
-#header="Authorization: Bearer "$token
-# curl https://myKeyVaultdanlep1011.vault.azure.net/secrets/SampleSecret?api-version=2016-10-01 -H "Authorization: Bearer $token"
+https://mykeyvaultdanlep1011.vault.azure.net/secrets/SampleSecret/2bf091fdbae946c9b06cc05cd41cfa9a
 
-# try this
-#curl https://myKeyVaultdanlep1011.vault.azure.net/secrets/SampleSecret?api-version=2016-10-01 -H $header
+c
 ```
 
 The response will look like this, showing the secret:
