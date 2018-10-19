@@ -435,7 +435,7 @@ To learn how many ExpressRoute circuits you can connect to an ExpressRoute Gatew
 
 ### Using ExpressRoute and Site-to-Site VPN connectivity in Tandem
 
-#### Site-t0-Site VPN over ExpressRoute Microsoft Peering
+#### Site-to-Site VPN over ExpressRoute Microsoft Peering
 
 Site-to-Site VPN can be configured over ExpressRoute Microsoft peering to privately exchange data between your on-premises network and your Azure VNets with confidentiality, anti-replay, authenticity, and integrity. For more information regarding how to configure Site-to-Site IPSec VPN in tunnel mode over ExpressRoute Microsoft peering, see [Site-to-site VPN over ExpressRoute Microsoft-peering][S2S-Over-ExR]. 
 
