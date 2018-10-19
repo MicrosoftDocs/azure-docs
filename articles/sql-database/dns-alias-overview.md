@@ -7,8 +7,8 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
-author: DhruvMsft 
-ms.author: dmalik
+author: oslake
+ms.author: moslake
 ms.reviewer: genemi,ayolubek
 manager: craigg
 ms.date: 02/05/2018

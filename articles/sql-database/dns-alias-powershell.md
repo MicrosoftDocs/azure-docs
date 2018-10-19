@@ -7,8 +7,8 @@ ms.service: sql-database
 ms.subservice: operations
 ms.devlang: PowerShell
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dmalik
+author: oslake
+ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja
 manager: craigg
 ms.date: 02/05/2018
