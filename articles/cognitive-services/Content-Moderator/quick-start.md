@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator get started | Microsoft Docs
-description: How to get started with Azure Content Moderator.
+title: Get started with Content Moderator
+titlesuffix: Azure Cognitive Services
+description: How to get started with Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: sajagtap
 ---

@@ -37,10 +37,14 @@
     href: write-queries.md
   - name: Ingest sample data
     href: ingest-sample-data.md
+  - name: Delete data
+    href: delete-data.md
   - name: Manage database permissions
     href: manage-database-permissions.md
   - name: Check cluster health
     href: check-cluster-health.md
+  - name: Manage cluster scaling
+    href: manage-cluster-scaling.md
   - name: Troubleshooting
     items:
     - name: Creating a cluster
@@ -51,5 +55,33 @@
       href: troubleshoot-database-table.md
 - name: Reference
   items:
-  - name: Language reference
-    href: https://aka.ms/kustolangref
+  - name: Query language
+    href: /azure/kusto/query/
+  - name: Management commands
+    href: /azure/kusto/management/
+  - name: APIs
+    href: /azure/kusto/api/
+  - name: Tools
+    href: /azure/kusto/tools/
+  - name: Concepts
+    href: /azure/kusto/concepts/
+- name: Resources
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/tag/azure-data-explorer/
+  - name: Forums
+    items:
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
+    - name: Microsoft Tech Community
+      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
+    - name: MSDN forum
+      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
+  - name: Product feedback
+    href: http://aka.ms/adefeedback
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/data-explorer/
+  - name: Cost Estimator
+    href: http://aka.ms/adecostestimator
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-explorer

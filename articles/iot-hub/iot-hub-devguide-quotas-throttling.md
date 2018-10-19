@@ -13,13 +13,15 @@ ms.author: dobett
 # Reference - IoT Hub quotas and throttling
 
 ## Quotas and throttling
+
 Each Azure subscription can have at most 50 IoT hubs, and at most 1 Free hub.
 
-Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub Pricing][lnk-pricing].
+Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
 
 ## Operation throttles
+
 Operation throttles are rate limitations that are applied in minute ranges, and are intended to prevent abuse. IoT Hub tries to avoid returning errors whenever possible, but starts returning `429 ThrottlingException` if the throttle is violated for too long.
 
 At any given time, you can increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
@@ -48,10 +50,10 @@ The *device connections* throttle governs the rate at which new device connectio
 
 For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. Therefore, to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry.
 
-For an in-depth discussion of IoT Hub throttling behavior, see the blog post [IoT Hub throttling and you][lnk-throttle-blog].
+For an in-depth discussion of IoT Hub throttling behavior, see the blog post [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/).
 
 > [!IMPORTANT]
-> Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
+> Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 > 
 > 
 
@@ -68,9 +70,9 @@ IoT Hub enforces other operational limits:
 | Device-to-cloud messaging | Maximum message size 256 KB |
 | Cloud-to-device messaging<sup>1</sup> | Maximum message size 64 KB. Maximum pending messages for delivery is 50. |
 | Direct method<sup>1</sup> | Maximum direct method payload size is 128 KB. |
-| Configurations | 20 configurations per hub. |
-| Edge deployments | 20 deployments per hub. 20 modules per deployment. |
-| Twins | Maximum size per twin section (tags, desired properties, reported properties) is 8 KB |
+| Automatic device configurations<sup>1</sup> | 100 configurations per paid SKU hub. 20 configurations per free SKU hub. |
+| Automatic Edge deployments<sup>1</sup> | 20 modules per deployment. 100 deployments per paid SKU hub. 20 deployments per free SKU hub. |
+| Twins<sup>1</sup> | Maximum size per twin section (tags, desired properties, reported properties) is 8 KB |
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).
 
@@ -85,19 +87,11 @@ IoT Hub strives to provide low latency for all operations. However, due to netwo
 * Consider using Azure IoT Edge to perform latency-sensitive operations on the device or on a gateway close to the device.
 
 Multiple IoT Hub units affect throttling as described previously, but do not provide any additional latency benefits or guarantees.
+
 If you see unexpected increases in operation latency, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## Next steps
+
 Other reference topics in this IoT Hub developer guide include:
 
-* [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query]
-* [IoT Hub MQTT support][lnk-devguide-mqtt]
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
-[lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+* [IoT Hub endpoints](iot-hub-devguide-endpoints.md)

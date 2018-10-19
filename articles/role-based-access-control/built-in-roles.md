@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 09/15/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -59,8 +59,11 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) | Lets you manage classic storage accounts, but not access to them. |
 | [Classic Storage Account Key Operator Service Role](#classic-storage-account-key-operator-service-role) | Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts |
 | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to. |
+| [Cognitive Services Contributor](#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. |
 | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. |
 | [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) | Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts. |
+| [Cost Management Contributor](#cost-management-contributor) | Can view costs and manage cost configuration (e.g. budgets, exports) |
+| [Cost Management Reader](#cost-management-reader) | Can view cost data and configuration (e.g. budgets, exports) |
 | [Data Box Contributor](#data-box-contributor) | Lets you manage everything under Data Box Service except giving access to others. |
 | [Data Box Reader](#data-box-reader) | Lets you manage Data Box Service except creating order or editing order details and giving access to others. |
 | [Data Factory Contributor](#data-factory-contributor) | Lets you manage data factories, but not access to them. |
@@ -69,6 +72,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown virtual machines in your Azure DevTest Labs. |
 | [DNS Zone Contributor](#dns-zone-contributor) | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. |
 | [DocumentDB Account Contributor](#documentdb-account-contributor) | Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB. |
+| [HDInsight Domain Services Contributor](#hdinsight-domain-services-contributor) | Can Read, Create, Modify and Delete Domain Services related operations needed for HDInsight Enterprise Security Package |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Lets you manage Intelligent Systems accounts, but not access to them. |
 | [Key Vault Contributor](#key-vault-contributor) | Lets you manage key vaults, but not access to them. |
 | [Lab Creator](#lab-creator) | Lets you create, manage, delete your managed labs under your Azure Lab Accounts. |
@@ -87,6 +91,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Network Contributor](#network-contributor) | Lets you manage networks, but not access to them. |
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. |
+| [PowerApps Administrator Test](#powerapps-administrator-test) | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. |
 | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. |
 | [Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Redis caches, but not access to them. |
 | [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
@@ -369,6 +374,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Network/virtualNetworks/read | Get the virtual network definition |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Manage results of operation on backup management |
@@ -389,14 +395,13 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Gets the alerts for the Recovery services vault. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Manage discovery operation for fetching newly created containers |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Refreshes the container list |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Create and manage registered identities |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Create and manage usage of Recovery Services vault |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
-> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Create and manage support tickets |
 
 ## Backup Operator
@@ -502,9 +507,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Billing/*/read | Read Billing information |
-> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Commerce/*/read |  |
+> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Create and manage support tickets |
 
 ## BizTalk Contributor
@@ -651,6 +657,31 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
+## Cognitive Services Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you create, read, update, delete and manage keys of Cognitive Services. |
+> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.CognitiveServices/* |  |
+> | Microsoft.Features/features/read | Gets the features of a subscription. |
+> | Microsoft.Features/providers/features/read | Gets the feature of a subscription in a given resource provider. |
+> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | Microsoft.Insights/logDefinitions/read | Read log definitions |
+> | Microsoft.Insights/metricdefinitions/read | Read metric definitions |
+> | Microsoft.Insights/metrics/read | Read metrics |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
+> | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+
 ## Cognitive Services User
 > [!div class="mx-tableFixed"]
 > | | |
@@ -687,6 +718,34 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
+## Cost Management Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Can view costs and manage cost configuration (e.g. budgets, exports) |
+> | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **Actions** |  |
+> | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | Lists available billing periods |
+> | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+
+## Cost Management Reader
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Can view cost data and configuration (e.g. budgets, exports) |
+> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **Actions** |  |
+> | Microsoft.Consumption/*/read |  |
+> | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | Lists available billing periods |
+> | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+
 ## Data Box Contributor
 > [!div class="mx-tableFixed"]
 > | | |
@@ -710,7 +769,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Databox/*/read |  |
-> | Microsoft.Databox/jobs/listsecrets/action | Lists the unencrypted secrets related to the order. |
+> | Microsoft.Databox/jobs/listsecrets/action |  |
+> | Microsoft.Databox/jobs/listcredentials/action | Lists the unencrypted credentials related to the order. |
 > | Microsoft.Databox/locations/availableSkus/action | This method returns the list of available skus. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Support/* | Create and manage support tickets |
@@ -722,14 +782,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | Lets you manage data factories, but not access to them. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Actions** |  |
-> | Microsoft.Authorization/*/read | Read roles and role Assignments |
+> | Microsoft.Authorization/*/read | Read roles and role assignments. |
 > | Microsoft.DataFactory/dataFactories/* | Create and manage data factories, and child resources within them. |
 > | Microsoft.DataFactory/factories/* | Create and manage data factories, and child resources within them. |
-> | Microsoft.Insights/alertRules/* | Create and manage alert rules |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Insights/alertRules/* | Create and manage alert rules. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Get the availability statuses for all resources in the specified scope. |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Get or list resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets. |
 
 ## Data Lake Analytics Developer
 > [!div class="mx-tableFixed"]
@@ -842,6 +902,17 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+
+## HDInsight Domain Services Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Can Read, Create, Modify and Delete Domain Services related operations needed for HDInsight Enterprise Security Package |
+> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **Actions** |  |
+> | Microsoft.AAD/*/read |  |
+> | Microsoft.AAD/domainServices/*/read |  |
+> | Microsoft.AAD/domainServices/oucontainer/* |  |
 
 ## Intelligent Systems Account Contributor
 > [!div class="mx-tableFixed"]
@@ -1136,6 +1207,21 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | NewRelic.APM/accounts/* |  |
 
+## PowerApps Administrator Test
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. |
+> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Network/dnsZones/* |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+
 ## Reader and Data Access
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1421,6 +1507,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/read | Return the list of servers or gets the properties for the specified server. |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit audit settings |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Retrieve the database blob audit records |
@@ -1448,6 +1535,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Create and manage SQL server auditing policies |
 > | Microsoft.Sql/servers/auditingSettings/* | Create and manage SQL server auditing setting |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Create and manage SQL server database auditing policies |
@@ -1487,6 +1575,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/* | Create and manage SQL servers |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Can't edit SQL server auditing policies |
 > | Microsoft.Sql/servers/auditingSettings/* | Can't edit SQL server auditing settings |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit SQL server database auditing policies |

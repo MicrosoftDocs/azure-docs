@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Virtual Machines deployment for SAP NetWeaver | Microsoft Docs
 description: Learn how to deploy SAP software on Linux virtual machines in Azure.
 services: virtual-machines-linux,virtual-machines-windows
@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
 
 ---
@@ -1000,6 +1000,10 @@ This check makes sure that all performance metrics that appear inside your SAP a
 
 If the Azure Enhanced Monitoring Extension is not installed, or the AzureEnhancedMonitoring service is not running, the extension has not been configured correctly. For detailed information about how to deploy the extension, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
 
+> [!NOTE]
+> The Azperflib.exe is a component that can't be used for own purposes. It is a component which delivers Azure monitoring data related to the VM for the SAP Host Agent.
+> 
+
 ##### Check the output of azperflib.exe
 Azperflib.exe output shows all populated Azure performance counters for SAP. At the bottom of the list of collected counters, a summary and health indicator show the status of Azure monitoring.
 
@@ -1093,6 +1097,10 @@ If some of the monitoring data is not delivered correctly as indicated by the te
 
 Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. Wait 15 minutes, and repeat the checks described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1] and [Health check for Azure Monitoring Infrastructure Configuration][deployment-guide-5.2]. If the checks still indicate a problem with some or all counters, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
 
+> [!Note]
+> You can experience some warnings in cases where you use Managed Standard Azure Disks. Warnings will be displayed instead of the tests returning "OK". This is normal and intended in case of that disk type. See also see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3]
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Troubleshooting the Azure monitoring infrastructure for SAP
 
 #### ![Windows][Logo_Windows] Azure performance counters do not show up at all
@@ -1146,6 +1154,23 @@ The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure E
 
 ###### Solution
 The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine and/or rerun the `Set-AzureRmVMAEMExtension` configuration script.
+
+##### The execution of Set-AzureRmVMAEMExtension and Test-AzureRmVMAEMExtension show warning messages stating that Standard Managed Disks are not supported
+
+###### Issue
+When executing Set-AzureRmVMAEMExtension or Test-AzureRmVMAEMExtension messages like these are shown:
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+Executing azperfli.exe as described earlier you can get a result that is indicating a non-healthy state. 
+
+###### Solution
+The messages are caused by the fact that Standard Managed Disks are not delivering the APIs used by the monitoring extension to check on statistics of the Standard Azure Storage Accounts. This is not a matter of concern. Reason for introducing the monitoring for Standard Disk Storage accounts was throttling of I/Os that occurred frequently. Managed disks will avoid such throttling by limiting the number of disks in a storage account. Therefore, not having that type of monitoring data is not critical.
+
 
 #### ![Linux][Logo_Linux] Some Azure performance counters are missing
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Diagnostics. Storage counters come from the logs in your storage subscription.

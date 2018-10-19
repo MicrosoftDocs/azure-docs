@@ -44,7 +44,7 @@ The following sample *host.json* files have all possible options specified.
         },
         "http": {
             "routePrefix": "api",
-            "maxConcurrentRequests": 5,
+            "maxConcurrentRequests": 100,
             "maxOutstandingRequests": 30
         },
         "queues": {
@@ -437,6 +437,12 @@ Configuration settings for logs that you create by using a `TraceWriter` object.
 |---------|---------|---------| 
 |consoleLevel|info|The tracing level for console logging. Options are: `off`, `error`, `warning`, `info`, and `verbose`.|
 |fileLoggingMode|debugOnly|The tracing level for file logging. Options are `never`, `always`, `debugOnly`.| 
+
+## version
+
+*Version 2.x*
+
+The version string `"version": "2.0"` is required for a function app that targets the v2 runtime.
 
 ## watchDirectories
 

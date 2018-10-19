@@ -27,9 +27,9 @@ Before you start, make sure you have the following prerequisites:
 
 **Enabled by conditional access policy** - This method is discussed in this article. It is the most flexible means to enable two-step verification for your users. Enabling using conditional access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD.
 
-Enabled by Azure AD Identity Protection - This method uses the Azure AD Identity Protection risk policy to require two-step verification based only on sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. More information on this method can be found in [How to configure the user risk policy](../identity-protection/howto-user-risk-policy.md).
+**Enabled by Azure AD Identity Protection** - This method uses the Azure AD Identity Protection risk policy to require two-step verification based only on sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. More information on this method can be found in [How to configure the user risk policy](../identity-protection/howto-user-risk-policy.md).
 
-Enabled by changing user state - This is the traditional method for requiring two-step verification. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method requires users to perform two-step verification **every time** they sign in and overrides conditional access policies. More information on this method can be found in [How to require two-step verification for a user](howto-mfa-userstates.md).
+**Enabled by changing user state** - This is the traditional method for requiring two-step verification. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method requires users to perform two-step verification **every time** they sign in and overrides conditional access policies. More information on this method can be found in [How to require two-step verification for a user](howto-mfa-userstates.md).
 
 > [!Note]
 > More information about licenses and pricing can be found on the [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
@@ -102,6 +102,8 @@ To confirm that your conditional access policy works, test logging in to a resou
 ## Next steps
 
 Congratulations, you have set up Azure Multi-Factor Authentication in the cloud.
+
+Why was a user prompted or not prompted to perform MFA? See the section [Azure AD sign-ins report in the Reports in Azure Multi-Factor Authentication document](howto-mfa-reporting.md#azure-ad-sign-ins-report).
 
 To configure additional settings like trusted IPs, custom voice messages, and fraud alerts, see the article [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
 

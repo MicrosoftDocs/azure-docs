@@ -3,13 +3,16 @@ title: 'VS Code: Connect and query data in Azure SQL Database | Microsoft Docs'
 description: Learn how to connect to SQL Database on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
@@ -28,7 +31,7 @@ Before you start, make sure you have installed the newest version of [Visual Stu
 ## Configure VS Code 
 
 ### **Mac OS**
-For macOS, you need to install OpenSSL which is a prerequiste for .Net Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
+For macOS, you need to install OpenSSL which is a prerequisite for .Net Core that mssql extension uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

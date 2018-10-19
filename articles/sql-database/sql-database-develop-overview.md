@@ -2,15 +2,17 @@
 title: SQL Database Application Development Overview | Microsoft Docs
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
-author: stevestein
-manager: craigg
-ms.reviewer: genemi
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: 
+ms.devlang:
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: genemi
+manager: craigg
+ms.service: sql-database
+ms.date: 06/20/2018
 ---
 # SQL Database application development overview
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.

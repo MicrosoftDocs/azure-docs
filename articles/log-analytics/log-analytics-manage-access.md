@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Manage workspaces

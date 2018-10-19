@@ -312,9 +312,3 @@ Azure provides a set of Billing REST APIs that give access to resource consumpti
 Although it's challenging to estimate costs ahead of time, Azure has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) that you can use when you estimate the cost of deployed resources. You can also use the Billing blade in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
 
 >**Get started**: See [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
-
-#### Set up billing alerts
-
-After you’ve deployed your application or solution on Azure, you can create alerts that send you email when you approach the spending limits that are defined in the alert.
-
->**Get started**: To learn more, see [Set up billing alerts for your Microsoft Azure subscriptions](../../billing-set-up-alerts.md).

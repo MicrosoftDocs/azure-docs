@@ -1,12 +1,14 @@
 ---
-title: Java Quickstart for Azure Cognitive Services, Bing News Search API | Microsoft Docs
+title: "Quickstart: Bing News Search API, Java"
+titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
 ---

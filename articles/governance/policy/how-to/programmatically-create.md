@@ -33,7 +33,7 @@ Before you begin, make sure that the following prerequisites are met:
 
    For more information about registering and viewing resource providers, see  [Resource Providers and Types](../../../azure-resource-manager/resource-manager-supported-services.md).
 
-1. If you haven't already, install Azure CLI. You can get the latest version at [Install Azure CLI 2.0 on Windows](/cli/azure/install-azure-cli-windows).
+1. If you haven't already, install Azure CLI. You can get the latest version at [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
 
 ## Create and assign a policy definition
 

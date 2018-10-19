@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric-mesh
 ms.devlang: dotNet
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA 
 ms.date: 07/17/2018

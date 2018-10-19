@@ -9,7 +9,7 @@ manager: mtillman
 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
-ms.component: protection
+ms.component: user-help
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

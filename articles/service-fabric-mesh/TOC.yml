@@ -52,10 +52,6 @@
     href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
   - name: Set up Service Fabric Mesh CLI
     href: service-fabric-mesh-howto-setup-cli.md
-  - name: Deploy a .NET Core microservices app
-    href: service-fabric-mesh-howto-deploy-app-template.md
-  - name: Deploy an app from a private registry
-    href: service-fabric-mesh-howto-deploy-app-private-registry.md
   - name: Store state with Azure Files volume
     href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
   - name: Independently scale microservices in an app

@@ -1,22 +1,16 @@
 ---
 title: Azure Data Box Gateway Preivew release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway running Preview release.
-services: databox-edge-gateway
-documentationcenter: ''
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ 
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-
 ---
+
 # Azure Data Box Gateway Preview release notes
 
 ## Overview
@@ -48,9 +42,11 @@ The following table provides a summary of known issues for the Data Box Gateway 
 | **4.** |Rename |Rename of objects is not supported. |Contact Microsoft Support if this feature is crucial for your workflow. |
 | **5.** |Copy| If a read-only file is copied to the device, the read-only property is not preserved. | |
 | **6.** |Logs| Due to a bug in this release, you may see instances of error code 110 in *error.xml* with unrecognizable item names. | |
-| **7.** |Upload | Due to a bug in this release, you may instances of error code 2003 during the upload of specific files. | |
-| **8.** |Deletion | Due to a bug in this release, if an NFS share is deleted, then the share may not be deleted. The share status will display *Deleting*.  |This occurs only when the share is using an unsupported file name. |
-| **9.** |Online help |The Help links in the Azure portal may not link to  documentation.|The Help links will work in the General Availability release. |
+| **7.** |Upload | Due to a bug in this release, you may see instances of error code 2003 during the upload of specific files. | |
+| **8.** |File types | The following Linux file types are not supported: character files, block files, sockets, pipes, symbolic links.  |Copying these files results in 0-length files getting created on the NFS share. These files remain in an error state and are also reported in *error.xml*. |
+| **9.** |Deletion | Due to a bug in this release, if an NFS share is deleted, then the share may not be deleted. The share status will display *Deleting*.  |This occurs only when the share is using an unsupported file name. |
+| **10.** |Refresh | Permissions and access control lists (ACLs) are not preserved across a refresh operation.  | |
+| **11.** |Online help |The Help links in the Azure portal may not link to  documentation.|The Help links will work in the General Availability release. |
 
 
 

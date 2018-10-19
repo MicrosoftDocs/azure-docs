@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

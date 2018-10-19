@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -17,7 +17,7 @@ Before you can properly control and optimize your Azure costs, you need to under
 
 In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provider adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. And, you can download the current report's data for further analysis or to use in an external system.
 
-In this quickstart, you learn how to
+In this quickstart, you learn how to:
 
 - Review costs in cost analysis
 - Customize cost views
@@ -26,11 +26,23 @@ In this quickstart, you learn how to
 
 ## Prerequisites
 
-Cost analysis is available to all Enterprise Agreement (EA) customers. You must have read access to at least one of the following scopes to view cost data.
+Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
 
-- Azure EA billing account (enrollment)
-- Azure EA subscription
-- Azure EA subscription resource group
+- The *billing account* scope is defined at  https://ea.azure.com and requires Enterprise Admin access. No prerequisite EA setting is required. Billing information in cost analysis is consolidated for all subscriptions in the enterprise agreement. Billing account is often referred to as the *Enterprise Agreement* or *Enrollment*.
+
+- The *department* scope is defined at https://ea.azure.com and requires Department Admin access. The **DA view charges**  enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions belonging to the enrollment account that are linked to the department.
+
+- The *enrollment account* scope is defined at https://ea.azure.com and requires Account Owner access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions belonging to the enrollment account. The enrollment account is often referred to as the *account owner*.
+
+- The *management group* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions below the management group.
+
+- The *subscription* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all resources and resource groups in the subscription.
+
+- The *resource group* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all resources in the resource group.
+
+
+
+For more information about configuring **DA view charges** and **AO view charges** settings, see [Enabling access to costs](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
 
 ## Sign in to Azure
 
@@ -38,7 +50,11 @@ Cost analysis is available to all Enterprise Agreement (EA) customers. You must 
 
 ## Review costs in cost analysis
 
-To review your costs with cost analysis, open the Azure portal then navigate to **Cost Management + Billing** &gt; **Billing accounts** &gt; select your EA billing account &gt; under Cost Management, select **Cost analysis**.
+To review your costs with cost analysis, in the Azure portal, navigate to **Cost Management + Billing** &gt; **Cost Management** &gt; **Change scope**, choose a scope, and then click **Select**.
+
+The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll-up to and then you filter-down to what you want. This is important to understand because some people should not have access to a parent scope that child scopes roll up to.
+
+Click **Open Cost analysis**.
 
 The initial cost analysis view includes the following areas:
 
@@ -80,6 +96,11 @@ Pivot charts under the top Total view show views for different grouping and filt
 ![Full data for current view](./media/quick-acm-cost-analysis/full-data-set.png)
 
 The preceding image shows resource group names. Viewing tags for resources aren't available in any of the cost analysis views, filters, or groupings.
+
+When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown as well as an **Others** group, which covers all remaining groups together.
+
+*Classic* (Azure Service Management or ASM) virtual machines, networking, and storage resources do not share detailed billing data. They are merged as **Classic services** when grouping costs.
+
 
 ## Download cost analysis data
 

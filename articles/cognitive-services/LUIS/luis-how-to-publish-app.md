@@ -5,10 +5,10 @@ description: When you finish building and testing your active LUIS app, make it 
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
 ---

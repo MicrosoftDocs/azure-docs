@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Add entities (key data in your application's domain) in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -87,7 +87,7 @@ LUIS offers many types of entities; prebuilt entities, custom machine learned en
 Review [limits](luis-boundaries.md#model-boundaries) to understand how many of each type of entity you can add to a model.
 
 ## Entity roles
-Entity [roles](luis-concept-roles.md) are used in patterns only. 
+Entity [roles](luis-concept-roles.md) apply to custom and prebuilt entities and are used in patterns only. 
 
 ## Composite vs hierarchical entities
 Composite entities and hierarchical entities both have parent-child relationships and are machine learned. The machine-learning allows LUIS to understand the entities based on different contexts (arrangement of words). Composite entities are more flexible because they allow different entity types as children. A hierarchical entity's children are only simple entities. 

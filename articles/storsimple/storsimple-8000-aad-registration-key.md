@@ -24,7 +24,7 @@ ms.author: alkohli
 The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. To date, StorSimple Device Manager service has used an Access Control service (ACS) to authenticate the service to your StorSimple device. The ACS mechanism will be deprecated soon and replaced by an Azure Active Directory (AAD) authentication. For more information, go to the following announcements for ACS deprecation and use of AAD authentication.
 
 - [The future of Azure ACS is Azure Active Directory](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/)
-- [Upcoming changes to the Microsoft Access Control Service](https://azure.microsoft.com/en-in/blog/acs-access-control-service-namespace-creation-restriction/)
+- [Upcoming changes to the Microsoft Access Control Service](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/)
 
 This article describes the details of the AAD authentication and the associated new service registration key and modifications to the firewall rules as applicable to the StorSimple devices. The information contained in this article is applicable to StorSimple 8000 series devices only.
 

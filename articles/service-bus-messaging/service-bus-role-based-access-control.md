@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 09/19/2018
 ms.author: spelluru
 
 ---
@@ -77,7 +77,6 @@ When you run the console application, you are prompted to select a scenario; cli
 
 To learn more about Service Bus messaging, see the following topics.
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

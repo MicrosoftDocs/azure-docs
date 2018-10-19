@@ -7,9 +7,8 @@ ms.author: mtillman
 manager: angrobe
 ms.date: 03/01/2018
 ms.topic: article
-ms.prod:
+ms.component: develop
 ms.service: active-directory
-ms.technology: techgroup-identity
 
 # optional metadata
 

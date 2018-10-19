@@ -20,7 +20,7 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum number of device identities<br/> returned in a single call |1000 |
 | IoT Hub message maximum retention for device-to-cloud messages |7 days |
 | Maximum size of device-to-cloud message |256 KB |
-| Maximum size of device-to-cloud batch |256 KB |
+| Maximum size of device-to-cloud batch |AMQP and HTTP: 256 KB for the entire batch <br/>MQTT: 256 KB for each message |
 | Maximum messages in device-to-cloud batch |500 |
 | Maximum size of cloud-to-device message |64 KB |
 | Maximum TTL for cloud-to-device messages |2 days |

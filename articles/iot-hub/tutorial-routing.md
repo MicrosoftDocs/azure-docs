@@ -41,31 +41,6 @@ In this tutorial, you perform the following tasks:
 
 - An Office 365 account to send notification e-mails. 
 
-You need either Azure CLI or Azure PowerShell to do the setup steps for this tutorial. 
-
-To use Azure CLI, while you can install Azure CLI locally, we recommend you use the Azure Cloud Shell. Azure Cloud Shell is a free, interactive shell that you can use to run Azure CLI scripts. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account, so you don't have to install them locally. 
-
-To use PowerShell, install it locally using the instructions below. 
-
-### Azure Cloud Shell
-
-There are a few ways to open Cloud Shell:
-
-|  |   |
-|-----------------------------------------------|---|
-| Select **Try It** in the upper-right corner of a code block. | ![Cloud Shell in this article](./media/tutorial-routing/cli-try-it.png) |
-| Open Cloud Shell in your browser. | [![https://shell.azure.com/bash](./media/tutorial-routing/launchcloudshell.png)](https://shell.azure.com) |
-| Select the **Cloud Shell** button on the menu in the upper-right corner of the [Azure portal](https://portal.azure.com). |	![Cloud Shell in the portal](./media/tutorial-routing/cloud-shell-menu.png) |
-|  |  |
-
-### Using Azure CLI locally
-
-If you would rather use CLI locally than use Cloud Shell, you must have Azure CLI module version 2.0.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-### Using PowerShell locally
-
-This tutorial requires Azure PowerShell module version 5.7 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Set up resources

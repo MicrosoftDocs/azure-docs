@@ -73,7 +73,7 @@ To decide on the best access tier for your needs, it can be helpful to determine
 
 To gather usage data for your storage account prior to migration, you can monitor the storage account using [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor performs logging and provides metrics data for Azure services, including Azure Storage. 
 
-To monitor consumption data for blobs in your storage account, enable capacity metrics in Azure Monitor. Capacity metrics record data about how much storage the blobs in your account are using on a daily basis. Capacity metrics can be used to estimate the cost of storing data in the storage account. To learn how Blob storage capacity is priced for for each type of account, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+To monitor consumption data for blobs in your storage account, enable capacity metrics in Azure Monitor. Capacity metrics record data about how much storage the blobs in your account are using on a daily basis. Capacity metrics can be used to estimate the cost of storing data in the storage account. To learn how Blob storage capacity is priced for each type of account, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 To monitor data access patterns for Blob storage, enable transaction metrics in Azure Monitor. You can filter on different Azure Storage operations to estimate how frequently each is called. To learn how different types of transactions are priced for block and append blobs for each type of account, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).  
 
