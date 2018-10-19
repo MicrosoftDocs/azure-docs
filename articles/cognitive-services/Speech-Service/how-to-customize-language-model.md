@@ -1,8 +1,11 @@
 ---
-title: How to create a language model with Speech Services - Microsoft Cognitive Services
-description: Learn how to create a language model with Speech Services in Microsoft Cognitive Services.
+title: "Tutorial: How to create a language model with Speech Service"
+titlesuffix: Azure Cognitive Services
+description: Learn how to create a language model with Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial

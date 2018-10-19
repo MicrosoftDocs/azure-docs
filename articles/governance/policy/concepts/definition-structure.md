@@ -227,7 +227,7 @@ When using the **like** and **notLike** conditions, you can provide a wildcard `
 The value should not contain more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a
-letter, and any other character to represent that actual character. For examples, see [Allow
+letter, `.` to match all characters, and any other character to represent that actual character. For examples, see [Allow
 multiple name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
