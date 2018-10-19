@@ -169,5 +169,5 @@ Yes, the web endpoint is case-sensitive just like the blob endpoint.
 * [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure Web Apps](/azure/app-service/app-service-web-overview)
-* [Build your first serverless web app](../functions/tutorial-static-website-serverless-api-with-database.md)
+* [Build your first serverless web app](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
