@@ -30,7 +30,7 @@ In this quickstart, you'll learn how to configure an application to expose a new
 
 To get started, make sure you complete these prerequisites:
 
-* Read the overview of the [Azure AD consent framework](consent-framework.md), which is important to understand when building applications that need to be used by other users or applications.
+* Learn about the supported [permissions and consent](v2-permissions-and-consent.md), which is important to understand when building applications that need to be used by other users or applications.
 * Have a tenant that has applications registered to it.
   * If you don't have apps registered, [learn how to register applications with the Microsoft identity platform](quickstart-register-app.md).
 * Opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience.
