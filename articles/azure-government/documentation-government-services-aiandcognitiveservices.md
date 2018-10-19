@@ -30,9 +30,9 @@ The following Cognitive Services are generally available in Azure Government:
 > [!IMPORTANT]
 > Billing for Computer Vision, Face, Translator Text, Content Moderator, and Language Understanding will begin on 11/1/2018.
 
-#### Vision
+### Vision
 
-##### Computer Vision
+#### Computer Vision
 The following variations exist for Computer Vision from global Azure:
 
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/vision/v2.0/
@@ -40,7 +40,7 @@ The following variations exist for Computer Vision from global Azure:
 
 For more information, see the [global Azure documentation](../cognitive-services/computer-vision/index.yml) and [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
  
-##### Face
+#### Face
 
 The following variations exist for Face from global Azure:
 
@@ -49,7 +49,7 @@ The following variations exist for Face from global Azure:
 
 For more information, see the [global Azure documentation](../cognitive-services/face/index.yml) and [Face API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-##### Content Moderator
+#### Content Moderator
 
 The following variations exist for Content Moderator from global Azure:
 
@@ -59,9 +59,9 @@ The following variations exist for Content Moderator from global Azure:
  
 For more information, see the [global Azure documentation](../cognitive-services/content-moderator/overview.md) and [Content Moderator API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-#### Language
+### Language
  
-##### Translator Text (Text Translation): 
+#### Translator Text (Text Translation): 
 
 The following variations exist for Translator Text API from global Azure:
 
@@ -72,7 +72,7 @@ The following variations exist for Translator Text API from global Azure:
  
 For more information, see the [global Azure documentation](../cognitive-services/translator/translator-info-overview.md) and [Translator Text API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference).
 
-##### Language Understanding (LUIS)
+#### Language Understanding (LUIS)
 
 The following variations exist for Language Understanding from global Azure:
 
@@ -83,9 +83,9 @@ The following variations exist for Language Understanding from global Azure:
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
-#### Speech (currently in Public Preview)
+### Speech (currently in Public Preview)
 
-##### Translator Speech (Speech Translation)
+#### Translator Speech (Speech Translation)
 
 The following variations exist for Translator Speech from global Azure:
 
