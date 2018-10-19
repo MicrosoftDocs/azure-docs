@@ -85,7 +85,8 @@ Operations can be called directly from the Azure portal, which provides a conven
 Operations can also be called from the **Developer portal** to test APIs.
 
 1. Navigate to the **Developer portal**.
-![Developer portal](./media/api-management-get-started/developer-portal.png)
+
+ ![Developer portal](./media/api-management-get-started/developer-portal.png)
 
 2. Select **APIS**, click on **Demo Conference API** and then **GetSpeakers**.
     
