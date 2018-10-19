@@ -29,8 +29,8 @@ This article teaches you how to configure a development environment to work with
 - Install either the [Continuum Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
 - If you're using Visual Studio Code, get the [Python Extension](https://code.visualstudio.com/docs/python/python-tutorial).
 
-[!NOTE]
-You can test the shell commands shown in this article by using bash (in Linux and Mac OS) or Command Prompt (in Windows).
+> [!NOTE]
+> You can test the shell commands shown in this article by using bash (in Linux and Mac OS) or command prompt (in Windows).
 
 ## Create a workspace configuration file
 
@@ -45,7 +45,7 @@ The Azure Machine Learning SDK uses the workspace configuration file to communic
     1. Open your workspace in the [Azure portal](https://portal.azure.com). Copy the __Workspace name__, __Resource group__, and __Subscription ID__. These values are used to create the configuration file.
         ![Azure portal](./media/how-to-configure-environment/configure.png)
 
-    1. Create the file with the following Python code, making sure to run the code in the same directory as the scripts or notebooks that reference the workspace:
+    1. Create the file with the following Python code and make sure to run the code in the same directory as the scripts or notebooks that reference the workspace:
 
         ```python
         from azureml.core import Workspace
@@ -72,17 +72,17 @@ The Azure Machine Learning SDK uses the workspace configuration file to communic
         ```
         You can copy the `aml_config` directory or just the `config.json` file into any other directory that references the workspace.
 
-        [!NOTE]
-        Other scripts or notebooks in the same directory or below load the workspace with `ws=Workspace.from_config()`.
+       > [!NOTE]
+       > Other scripts or notebooks in the same directory or below load the workspace with `ws=Workspace.from_config()`.
 
 ## Azure Notebooks and Data Science Virtual Machines
 
-Azure Notebooks and Azure Data Science Virtual Machines (DSVM) come configured to work with the Azure Machine Learning service. These environments include required components such as the Azure Machine Learning SDK.
+Azure Notebooks and Azure Data Science Virtual Machines (DSVMs) come configured to work with the Azure Machine Learning service. These environments include required components such as the Azure Machine Learning SDK.
 
 - Azure Notebooks is a Jupyter Notebook service in the Azure cloud.
 - The Data Science Virtual Machine is a customized virtual machine (VM) image designed for data science work. It includes:
   - Popular tools
-  - Integrated development environments (IDE)
+  - Integrated development environments (IDEs)
   - Packages such as Jupyter Notebooks, PyCharm, and Tensorflow
 - You'll still need a workspace configuration file to use these environments.
 
@@ -115,14 +115,14 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
     pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
-    [!NOTE]
-    If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
-
-    `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+    > [!NOTE]
+    > If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
+    >
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
     It might take several minutes to install the SDK.
 
-1. Install packages for your machine learning experimentation. Use the following command, replacing `<new package>` with the package you want to install:
+1. Install packages for your machine learning experimentation. Use the following command and replace `<new package>` with the package you want to install:
 
     ```shell
     conda install <new package>
@@ -141,7 +141,7 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
     jupyter nbextension enable --py --user azureml.train.widgets
     ```
 
-1. Launch Jupyter Notebook with the following command:
+1. Open Jupyter Notebook with the following command:
 
     ```shell
     jupyter notebook
@@ -156,7 +156,7 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
 
 ## Configure Visual Studio Code
 
-1. Open a command-prompt or shell.
+1. Open a command prompt or shell.
 
 1. Create a conda environment with the following commands:
 
@@ -185,10 +185,10 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
     conda install <new package>
     ```
 
-1. Launch Visual Studio Code, and then use **CTRL-SHIFT-P** (in Windows) or **COMMAND-SHIFT-P** (in Mac OS) to get the **Command Palette**. Enter _Python: Select Interpreter_ and select the conda environment you created.
+1. Open Visual Studio Code, and then use **CTRL-SHIFT-P** (in Windows) or **COMMAND-SHIFT-P** (in Mac OS) to get the **Command Palette**. Enter _Python: Select Interpreter_ and select the conda environment you created.
 
-    [!NOTE]
-    Visual Studio Code is automatically aware of conda environments on your computer. For more information, see [Visual Studio code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).
+   > [!NOTE]
+   > Visual Studio Code is automatically aware of conda environments on your computer. For more information, see [Visual Studio code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).
 
 1. Validate the configuration by using Visual Studio Code to create a new Python script file with the following code, and then run it:
 
