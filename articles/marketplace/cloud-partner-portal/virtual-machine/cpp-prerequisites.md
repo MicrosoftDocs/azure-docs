@@ -36,8 +36,8 @@ The technical prerequisites for publishing a virtual machine (VM) solution are s
 
 The business requirements include procedural, contractual, and legal obligations: 
 
-<!-- TODO: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
-<!-- TODO: Need references for remaining docs/business reqs!-->
+<!-- TD: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
+<!-- TD: Need references for remaining docs/business reqs!-->
 
 - You must be a registered Cloud Marketplace Publisher.  If you are not registered yet, follow the steps in the article [Become a Cloud Marketplace Publisher](../../become-publisher.md).
 
@@ -49,7 +49,7 @@ The business requirements include procedural, contractual, and legal obligations
 * Your product must be licensed in a way that is compatible with billing models supported ​by the Azure Marketplace.  For more information, see [Billing options in the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
 * You are responsible for making technical support available to customers in a commercially reasonable manner. This support can be free, paid, or through community approaches.
 * You are responsible for licensing your software and any third-party software dependencies.
-* You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal. <!-- TODO: Meaning/links? -->
+* You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal. <!-- TD: Meaning/links? -->
 * You must agree to the terms of the [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) and Publisher Agreement.​
 * You must comply with the [Microsoft Azure Website Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement) and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 

@@ -20,7 +20,7 @@ ms.author: hascipio; v-divte; v-miclar
 
 # Common issues during VHD creation (FAQ)
 
-The following frequently asked questions (FAQ) cover common issues encountered during virtual hard disk (VHD) and virtual machine (VM) creation for VM offers.
+The following frequently asked questions (FAQ) cover common issues encountered during virtual hard disk (VHD) and virtual machine (VM) creation for VM offers. 
 
 ## How do you create a VM from the Azure portal using the VHD that is uploaded to premium storage?
 

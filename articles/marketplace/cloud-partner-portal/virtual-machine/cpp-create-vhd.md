@@ -20,7 +20,7 @@ ms.author: pbutlerm
 # Create an Azure-compatible VHD
 
 This article details the steps required to create a virtual hard disk (VHD) for a virtual machine (VM) offer in the Azure Marketplace.  It also includes best practices for various aspects, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.  The following sections mainly focus on windows-based VHDs; for more information about creating Linux-based VHDs, see 
-[Linux on distributions endorsed by Azure](../../../virtual-machines/linux/endorsed-distros.md).
+[Linux on distributions endorsed by Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
 > It is strongly recommended that you follow the guidance in this topic to use Azure to create a VM containing an pre-configured, endorsed operating system.  If this is not compatible with your solution, then it is possible to create and configure an on-premise VM using an approved operating system.  You can then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).

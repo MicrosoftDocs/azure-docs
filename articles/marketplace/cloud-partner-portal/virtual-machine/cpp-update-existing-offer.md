@@ -19,7 +19,7 @@ ms.author: Ankit.Sud
 
 # Update an existing VM offer on Azure Marketplace
 
-This article walks you through the different aspects of updating your virtual machine (VM) offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and then republishing the offer.
+This article walks you through the different aspects of updating your virtual machine (VM) offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and then republishing the offer. 
 
 There are a number of commonplace reasons for you to update your offer, including:
 
@@ -151,7 +151,7 @@ occurred, they will receive a refund during their next billing cycle to cover
 the decreased price.
 
 
-<!-- TODO: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
+<!-- TD: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
 ### Simplified Currency Pricing
 
 Starting September 1 2018, a new section called **Simplified Currency Pricing** will be added to the portal. Microsoft is streamlining the Azure Marketplace business by enabling more predictable pricing and collections from your customers across the world. This streamlining will include reducing the number of
@@ -188,5 +188,5 @@ When you make changes on an already published offer, you can leverage the **Comp
 ## History of Publishing Actions
 
 To view any historical publishing activity, click on the **History** item in the left navigation menubar of Cloud Partner Portal. Here you will be able to view timestamped actions that have been taken during the lifetime of your Azure Marketplace offers.  
-<!-- TODO: Add after section authored: For more information, see [History page](../portal-tour/cpp-history-page.md). -->
+<!-- TD: Add after section authored: For more information, see [History page](../portal-tour/cpp-history-page.md). -->
 

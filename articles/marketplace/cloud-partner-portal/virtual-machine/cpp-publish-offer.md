@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Publish a virtual machine offer
 
- The last step, after you have defined the offer in the portal and created the associated technical assets, is to submit the offer for publishing. The following diagram depicts the main steps in the publishing process to "go live": 
+ The last step, after you have defined the offer in the portal and created the associated technical assets, is to submit the offer for publishing. The following diagram depicts the main steps in the publishing process to "go live":
 
 ![Publishing steps for virtual machine offer](./media/publishvm_013.png)
 

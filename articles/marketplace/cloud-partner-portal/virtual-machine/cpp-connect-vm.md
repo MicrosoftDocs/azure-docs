@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Connect to your Azure-based virtual machine
 
-This article explains how to connect to and sign into the virtual machines (VMs) you created on Azure.  Once you have successfully connected, you can work with the VM as if you were locally logged on to its host server. 
+This article explains how to connect to and sign into the virtual machines (VMs) you created on Azure.  Once you have successfully connected, you can work with the VM as if you were locally logged on to its host server.
 
 ## Connect to a Windows-based VM
 

@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Virtual machine Support tab
 
-The **Support** tab of the **New Offer** page enables you to provide technical and user support resources for your offer.  It is divided into three areas: **Engineering**, **Customer Support**, and **Support URLs**.
+The **Support** tab of the **New Offer** page enables you to provide technical and user support resources for your offer.  It is divided into three areas: **Engineering**, **Customer Support**, and **Support URLs**. 
 
 ![Support tab on the New Offer form for virtual machines](./media/publishvm_012.png)
 

@@ -28,7 +28,7 @@ A VM image contains one operating system disk and zero or more data disks. One V
 You must configure the VM OS, the VM size, ports to open, and up to 15 attached data disks.
 
 > [!TIP] 
-> Regardless of which operating system you use, add only the minimum number of data disks needed by the SKU. Customers cannot remove disks that are part of an image at the time of deployment but they can always add disks during or after deployment.
+> Regardless of which operating system you use, add only the minimum number of data disks needed by the SKU. Customers cannot remove disks that are part of an image at the time of deployment but they can always add disks during or after deployment. 
 
 > [!IMPORTANT]
 > *Do not change disk count in a new image version.* If you must reconfigure Data disks in the image, define a new SKU. Publishing a new image version with different disk counts will have the potential of breaking new deployment based on the new image version in cases of auto-scaling, automatic deployments of solutions through Azure Resource Manager templates and other scenarios.

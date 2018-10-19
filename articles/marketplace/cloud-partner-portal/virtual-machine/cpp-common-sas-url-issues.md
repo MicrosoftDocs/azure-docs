@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Common SAS URL issues and fixes
 
-The following table lists some of the common issues encountered when working with shared access signatures (which are used to identify and share the uploaded VHDs for your solution), along with suggested resolutions. 
+The following table lists some of the common issues encountered when working with shared access signatures (which are used to identify and share the uploaded VHDs for your solution), along with suggested resolutions.
 
 | **Issue** | **Failure Message** | **Fix** | 
 | --------- | ------------------- | ------- | 

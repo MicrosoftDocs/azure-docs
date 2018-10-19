@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # VHD Deployment Template (JSON) 
 
-The following JSON code represents a deployment template that enables you to deploy a virtual machine (VM) image to Microsoft Azure.  A VM resource  is required to create a VM offer in the Azure Marketplace.
+The following JSON code represents a deployment template that enables you to deploy a virtual machine (VM) image to Microsoft Azure.  A VM resource  is required to create a VM offer in the Azure Marketplace. 
 
 
 ``` json

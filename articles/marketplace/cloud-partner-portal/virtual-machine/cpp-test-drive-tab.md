@@ -19,9 +19,9 @@ ms.author: pbutlerm
 
 # Virtual machine Test Drive tab
 
-<!-- TODO: The AMP tree needs a conceptual/business overview of Test Drive. I've deleted all the marketing fluff and most of overview from this topic.   See also https://azure.microsoft.com/blog/azure-marketplace-test-drive/ and https://github.com/Azure/AzureTestDrive/wiki/What-is-a-Test-Drive. -->
+<!-- TD: The AMP tree needs a conceptual/business overview of Test Drive. I've deleted all the marketing fluff and most of overview from this topic.   See also https://azure.microsoft.com/blog/azure-marketplace-test-drive/ and https://github.com/Azure/AzureTestDrive/wiki/What-is-a-Test-Drive. -->
 
-The **Test Drive** tab of the **New Offer** page enables you to provide your prospective customers with a hands-on, self-guided demonstration of your product's key features and benefits, demonstrated in a standardized scenario.  Test Drive is an optional feature for the offer types that support Test Drive.  Test Drive requires supporting assets to be properly implemented.  For more information, see the article [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TODO: Replace with migrated version of Test Drive article! -->
+The **Test Drive** tab of the **New Offer** page enables you to provide your prospective customers with a hands-on, self-guided demonstration of your product's key features and benefits, demonstrated in a standardized scenario.  Test Drive is an optional feature for the offer types that support Test Drive.  Test Drive requires supporting assets to be properly implemented.  For more information, see the article [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
 
 To enable this feature, on the **Test Drive** tab, click the **Yes** option on **Enable a Test Drive**.  The **Test Drive** tab displays the fields available for editing.  An appended asterisk (*) on the field name indicates that it is required.
 

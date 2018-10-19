@@ -20,7 +20,7 @@ ms.author: pbutlerm
 
 # Get shared access signature URI for your VM image
 
-During the publishing process, you must provide a uniform resource identifier (URI) for each virtual hard disk (VHD) associated with your SKUs. Microsoft needs access to these VHDs during the certification process. This article explains how to generate a shared access signature (SAS) URI for each VHD. You will enter this URI in the **SKUs** tab in the Cloud Partner Portal.
+During the publishing process, you must provide a uniform resource identifier (URI) for each virtual hard disk (VHD) associated with your SKUs. Microsoft needs access to these VHDs during the certification process. This article explains how to generate a shared access signature (SAS) URI for each VHD. You will enter this URI in the **SKUs** tab in the Cloud Partner Portal. 
 
 When generating SAS URIs for your VHDs, adhere to the following requirements:
 

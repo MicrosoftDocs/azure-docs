@@ -33,7 +33,7 @@ To learn more about VM images, see the following blog posts:
 
 If you have not already done so, install Azure PowerShell and the Azure CLI, using the following instructions:
 
-<!-- TODO: Change the following URLs (in this entire topic) to relative paths.-->
+<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
 
 - [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 - [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
@@ -64,7 +64,7 @@ Because you have generated the user image from a previously generalized VHD, it 
 
 Next, you will deploy a VM from a user VM image, using either Azure portal or PowerShell.
 
-<!-- TODO: Recapture following hilited images and replace with red-box. -->
+<!-- TD: Recapture following hilited images and replace with red-box. -->
 
 ### Deploy a VM from Azure portal
 
@@ -124,7 +124,7 @@ To deploy a large VM from the generalized VM image just created, use the followi
     New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 ```
 
-<!-- TODO: The following is a marketplace-publishing article and may be out-of-date.  TODO: update and move topic.
+<!-- TD: The following is a marketplace-publishing article and may be out-of-date.  TD: update and move topic.
 For help with issues, see [Troubleshooting common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting) for additional assistance.
 -->
 

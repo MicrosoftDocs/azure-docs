@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Certify your VM image
 
-After you create and deploy your virtual machine (VM), you must test and submit the VM image for Azure Marketplace certification. This article explains where to get the *Certification Test Tool for Azure Certified*, how to use this tool to certify your VM image, and how to upload the verification results to the Azure container where your VHDs reside.
+After you create and deploy your virtual machine (VM), you must test and submit the VM image for Azure Marketplace certification. This article explains where to get the *Certification Test Tool for Azure Certified*, how to use this tool to certify your VM image, and how to upload the verification results to the Azure container where your VHDs reside. 
 
 
 ## Download and run the certification test tool

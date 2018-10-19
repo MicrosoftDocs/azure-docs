@@ -66,7 +66,7 @@ This second section is divided in three subsections: **Logos**, **Screenshot**, 
 
 ### Logo guidelines
 
-<!-- TODO: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- TD: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 All the logos uploaded to the Cloud Partner Portal should follow the guidelines:
@@ -86,7 +86,7 @@ The Hero logo is optional; however once uploaded, the hero icon cannot be delete
 *  Avoid using most text while you are designing the hero logo.  The publisher name, plan title, the offer long summary and a create button are embedded programmatically inside the hero icon when the offer lists. 
 * Include an unused rectangle on the right-side of your hero icon, of size 415x100 pixel and offset 370 px from the left.  
 
-As an example, the following hero icon is for the Azure Container Service.  <!-- TODO: It would be nice to have the raw bitmap, e.g.before and after embedding. -->
+As an example, the following hero icon is for the Azure Container Service.  <!-- TD: It would be nice to have the raw bitmap, e.g.before and after embedding. -->
 
 ![Example hero icon for Azure Container Service](./media/publishvm_010.png)
 
@@ -112,7 +112,7 @@ The third section enables you to collect customers leads generated from your Azu
 
 After you successfully publish your offer, the lead connection is validated and a test lead is automatically sent to the configured destination. Lead information should be continuously managed and these settings should be promptly updated whenever changes are made to your customer management architecture.
 
-<!-- TODO: For more info, see [Need a topic on lead information and processing that mimics the Appendix of the VM Pub Guide]. -->
+<!-- TD: For more info, see [Need a topic on lead information and processing that mimics the Appendix of the VM Pub Guide]. -->
 
 ## Legal section
 

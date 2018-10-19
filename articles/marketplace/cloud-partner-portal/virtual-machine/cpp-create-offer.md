@@ -34,7 +34,7 @@ where:
 |  |  |
 
 
-## New Offer form 
+## New Offer form
 
 Once your sign into the [Cloud Partner Portal](http://cloudpartner.azure.com/), click the **+ New Offer** item on the left menubar. In the resulting menu, click on **Virtual Machines** to display the **New Offer** form and start the process of defining assets for a new VM offer. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->

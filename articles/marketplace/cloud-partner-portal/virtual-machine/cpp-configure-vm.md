@@ -24,7 +24,7 @@ This article explains how to size, update, and generalize a virtual machine (VM)
 
 ## Sizing the VHDs
 
-<!--TODO: Check if the following assertion is true. I didn't understand the original content. -->
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
 If you have selected one of the VMs pre-configured with an operating system (and optionally additional services), then you have already picked a standard Azure VM size, as described in [Virtual machine SKUs tab](./cpp-skus-tab.md).  This is the recommended approach.  However, if you are installing an OS manually, then you must size your primary VHD in your VM image:
 
 - For Windows, the operating system VHD should be created as a 127-128 GB fixed-format VHD. 
@@ -82,7 +82,7 @@ Following two-step process will generalize a Linux VM and redeploy it as a separ
 3.	Type `y` to continue. (You can add the `-force` parameter to the previous command avoid this confirmation step.)
 4.	After the command completes, type `exit` to close the SSH client.
 
-<!-- TODO: I need to add meat and/or references to the following steps -->
+<!-- TD: I need to add meat and/or references to the following steps -->
 #### Capture the Image
 1.  Go to the Azure portal, select your resource group (RG) and de-allocate the VM.
 2.	Your VHD is generalized now and you can create a new VM by using this VHD.

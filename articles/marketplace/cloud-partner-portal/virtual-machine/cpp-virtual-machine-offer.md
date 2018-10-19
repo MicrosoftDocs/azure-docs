@@ -29,7 +29,7 @@ This section outlines the elements of publishing a Virtual Machine (VM), and is 
 
 ## VM Publishing process flow
 
-The following diagram illustrates the high-level steps in publishing a VM offer.
+The following diagram illustrates the high-level steps in publishing a VM offer. 
 
 ![VM publishing process](./media/publishvm_001.png)
 

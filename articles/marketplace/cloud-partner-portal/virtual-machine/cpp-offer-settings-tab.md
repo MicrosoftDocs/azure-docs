@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Virtual machine Offer Settings tab
 
-The **New Offer** page for virtual machines opens in the first tab named **Offer Settings**.  An appended asterisk (*) on the field name indicates that it is required. 
+The **New Offer** page for virtual machines opens in the first tab named **Offer Settings**.  An appended asterisk (*) on the field name indicates that it is required.
 
 ![New Offer page for virtual machines](./media/publishvm_004.png)
 
