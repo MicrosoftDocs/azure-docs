@@ -37,7 +37,24 @@ Follow these steps to view deny assignments at the subscription or management gr
 
     If there are any deny assignments at this scope, they will be listed.
 
-    ![Access control - Deny assignments blade for a subscription](./media/deny-assignments-portal/access-control-deny-assignments.png)
+    ![Access control - Deny assignments tab](./media/deny-assignments-portal/access-control-deny-assignments.png)
+
+1. To display additional columns, click **Edit Columns**.
+
+    ![Deny assignments - Columns](./media/deny-assignments-portal/deny-assignments-columns.png)
+
+    |  |  |
+    | --- | --- |
+    | **Name** | Name of the deny assignment. |
+    | **Principal type** | User, group, system-defined group, or service principal. |
+    | **Denied**  | Name of the security principal that is included in the deny assignment. |
+    | **Id** | Unique identifier for the deny assignment. |
+    | **Excluded principals** | Whether there are security principals that are excluded from the deny assignment. |
+    | **Does not apply to children** | Whether the deny assignment is inherited to subscopes. |
+    | **System protected** | Whether the deny assignment is managed by Azure. Currently, always Yes. |
+    | **Scope** | Management group, subscription, resource group, or resource. |
+
+1. Add a checkmark to any of the enabled items and then click **OK** to display the selected columns.
 
 ## View details about a deny assignment
 
