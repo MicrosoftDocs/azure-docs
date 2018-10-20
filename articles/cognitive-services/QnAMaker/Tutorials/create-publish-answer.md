@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create, publish, answer from knowledge base - REST, C# - QnA Maker"
 titlesuffix: Azure Cognitive Services 
-description: This tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
+description: This REST-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,12 +9,12 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/11/2018
+ms.date: 10/19/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to understand all the programming requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
 
-# Quickstart: Create a QnA Maker knowledge base in C#
+# Quickstart: Create, publish, and answer a question with a QnA Maker knowledge base in C#
 
 This tutorial walks you through programmatically creating and publishing a knowledge base (KB), then answering a customer question with the knowledge base. 
 
