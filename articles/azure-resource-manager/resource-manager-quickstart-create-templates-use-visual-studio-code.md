@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
 
@@ -122,7 +122,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
 7. From the Cloud shell, run the following commands. Select the tab to show the PowerShell code or the CLI code.
 
     # [CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the name for this deployment:" &&
@@ -135,7 +135,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
    
     # [PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -165,7 +165,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
 7. Run the following CLI or PowerShell command to list the newly created storage account:
 
     # [CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the Storage Account name:" &&
@@ -175,7 +175,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
    
     # [PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
     Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
