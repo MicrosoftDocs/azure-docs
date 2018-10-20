@@ -23,11 +23,11 @@ ms.reviewer: bagovind
 
 ## Open Access control (IAM) at a scope
 
-The **Access control (IAM)** blade, also known as identity and access management, appears throughout the portal. To view or manage access in the portal, the first thing you typically do is open the Access control (IAM) blade at the scope where you want view or make a change.
+The **Access control (IAM)** blade, also known as identity and access management, appears throughout the portal. To view or manage access in the portal, the first thing you typically do is open the Access control (IAM) blade at the scope where you want to view or make a change.
 
 1. In the Azure portal, click **All services** and then select the scope or resource you want to view or manage. For example, **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Click the specific resource.
+1. Click the scope or resource you want to use.
 
 1. Click **Access control (IAM)**.
 
@@ -41,13 +41,13 @@ A role definition is a collection of permissions that you use for role assignmen
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view roles and permissions.
 
-1. Click the **View** button on the View roles and permissions tile or click **Roles** tab to see a list of all the built-in and custom roles.
+1. Click the **Roles** tab (or click the **View** button on the View roles and permissions tile) to see a list of all the built-in and custom roles.
 
    You can see the number of users and groups that are assigned to each role at this scope.
 
    ![Roles list](./media/role-assignments-portal/roles-list.png)
 
-1. If you click an individual role, you can see who has been assigned this role and also view the permissions for the role.
+1. Click an individual role to see who has been assigned this role and also view the permissions for the role.
 
    ![Roles assignments](./media/role-assignments-portal/role-assignments.png)
 
