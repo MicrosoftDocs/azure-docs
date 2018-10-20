@@ -28,7 +28,7 @@ The following video provides a quick overview of Terms of use.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-For additional overview videos, see:
+For additional videos, see:
 - [How to deploy Terms of use in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
 - [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
