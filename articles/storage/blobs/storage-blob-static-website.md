@@ -142,17 +142,6 @@ Finally, check the box next to **GetWebContent** in the *Values* selector to pop
 
 One enabled, traffic statistics on files in the *$web* container reported in the metrics dashboard.
 
-## Unsupported features
-
-The following features are not supported at this time:
-
-- Item 1
-- Item 2
-- Item 3
-
-**TODO: @MichaelHauss to add list of unsupported features**
-
-
 ## FAQ
 
 **Is the static websites feature available for all storage account types?**  
