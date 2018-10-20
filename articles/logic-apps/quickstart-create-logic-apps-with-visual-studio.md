@@ -203,6 +203,12 @@ then save your settings, for example:
 
    ![Deployment status output](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   If the connectors you selected require any input from you,
+   a powershell window may pop-up in the backgroud to prompt
+   for passwords or other secret keys as required.
+   
+   ![Deployment powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-powershell-window.png)
+   
    After deployment finishes, your logic app is 
    live in the Azure portal and checks the RSS 
    feed based on your specified schedule (every minute). 
