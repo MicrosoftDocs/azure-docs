@@ -1,4 +1,4 @@
----
+.---
 title: Azure SQL Database Security Overview | Microsoft Docs
 description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises.
 services: sql-database
@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
-ms.reviewer: vanto, carlrab, ronitr
+ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 10/11/2018
 ---
@@ -28,7 +28,7 @@ SQL Database secures your data by providing encryption for data in motion with [
 > [!IMPORTANT]
 > Azure SQL Database enforces encryption (SSL/TLS) at all times for all conections, which ensures all data is encrypted "in transit" between the database and the client. This will happen irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
 >
-> If in your application's connection string you do **not** specify an encrypted connection and to *not* trust the server certificate (For the ADO.NET driver this is **Encrypt=True** and **TrustServerCertificate=False**), your application can be susceptible to a man in the middle attack, due to the application not verifing the server or enforcing encryption. If you obtain your connection string from the Azure portal it will have the correct settings
+> In your application's connection string do specify an encrypted connection and *not* to trust the server certificate (For the ADO.NET driver this is **Encrypt=True** and **TrustServerCertificate=False**), this helps to prevent your application from a man in the middle attack, by forcing the application to verify the server and enforcing encryption. If you obtain your connection string from the Azure portal it will have the correct settings.
 >
 > For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
