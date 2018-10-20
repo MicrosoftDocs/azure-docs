@@ -228,7 +228,7 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Since the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Since the backup job is a long running operation, it should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 Once the long running job is complete, the disks and the configuration of the backed up virtual machine ("VMConfig.json") will be present in the given storage account.
 

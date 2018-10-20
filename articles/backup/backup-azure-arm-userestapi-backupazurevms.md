@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Backup Azure VMs using REST API'
-description: manage backup operations of Azure VM Backup using REST API
+description: Manage backup operations of Azure VM Backup using REST API
 services: backup
 author: pvrk
 manager: shivamg
@@ -24,13 +24,17 @@ Let's assume you want to protect a VM "testVM" under a resource group "testRG" t
 
 ### Discover unprotected Azure VMs
 
-First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). It is a *POST* asynchronous operation that makes sure the vault gets the latest list of all unprotected VMs.
+First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). It is an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parameters. The `{fabricName}` is "Azure". As all the required parameters are given in the URI, there is no need for a separate request body.
+The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parameters. The `{fabricName}` is "Azure". As per our example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there is no need for a separate request body.
+
+```http
+POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
+```
 
 #### Responses
 
@@ -45,7 +49,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 ##### Example responses
 
-Once the *POST* URI is submitted, a 202 (Accepted) response is returned.
+Once the *POST* request is submitted, a 202 (Accepted) response is returned.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -89,7 +93,9 @@ X-Powered-By: ASP.NET
 
 ### Selecting the relevant Azure VM
 
-Once all Azure VMs under the subscription are discovered, they need to be 'tagged' to the Azure Recovery Service as a 'protectable item'. It will enable Azure Recovery Service to later configure backup on the relevant VM. You can confirm that "tagging" is done by [listing all protectable items](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) under the subscription. This operation is a *GET* operation.
+ You can confirm that "caching" is done by [listing all protectable items](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-1) also gives you information on how Recovery services identifies a VM.  Once you are familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
+
+This operation is a *GET* operation.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter=backupManagementType eq 'AzureIaasVM'
@@ -105,7 +111,7 @@ The *GET* URI has all the required parameters. No additional request body is nee
 
 ##### Example responses
 
-Once the *GET* URI is submitted, a 200 (OK) response is returned.
+Once the *GET* request is submitted, a 200 (OK) response is returned.
 
 ```http
 HTTP/1.1 200 OK
@@ -141,7 +147,7 @@ X-Powered-By: ASP.NET
 
 ```
 
-The response contains the list of all unprotected Azure VMs and each `{value}` contains all the information required by Azure Recovery Service to configure backup. To configure backup, note the `{name}` field and the `{virtualMachineId}` field in `{properties}`section. Construct two variables from these field values as mentioned below.
+The response contains the list of all unprotected Azure VMs and each `{value}` contains all the information required by Azure Recovery Service to configure backup. To configure backup, note the `{name}` field and the `{virtualMachineId}` field in `{properties}` section. Construct two variables from these field values as mentioned below.
 
 - containerName = "iaasvmcontainer;"+`{name}`
 - protectedItemName = "vm;"+ `{name}`
@@ -154,15 +160,19 @@ In the example, the above values translate to:
 
 ### Enabling protection for the Azure VM
 
-After the relevant VM is "tagged" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Then select the [relevant policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the below example.
+After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Then select the [relevant policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the below example.
 
-Enabling protection is a *PUT* asynchronous operation that creates a 'protected item'.
+Enabling protection is an asynchronous *PUT* operation that creates a 'protected item'.
 
 ```http
-PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2016-12-01
+https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2016-12-01
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed above. `{fabricName}` is "Azure".
+The `{containerName}` and `{protectedItemName}` are as constructed above. The `{fabricName}` is "Azure". For our example, this translates to:
+
+```http
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+```
 
 #### Create the request body
 
@@ -192,7 +202,7 @@ The `{sourceResourceId}` is the `{virtualMachineId}` mentioned above from the [r
 
 #### Responses
 
-The creation of a protected item is a [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
+The creation of a protected item is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
 
@@ -203,7 +213,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 ##### Example responses
 
-Once you submit the *PUT* URI for protected item creation or update, the initial response is 202 (Accepted) with a location header or Azure-async-header.
+Once you submit the *PUT* request for protected item creation or update, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -260,6 +270,8 @@ Once the operation completes, it returns 200 (OK) with the protected item conten
 }
 ```
 
+This confirms that protection is enabled for the VM and the first backup will be triggered as per the policy schedule.
+
 ## Trigger an on-demand backup for a protected Azure VM
 
 Once an Azure VM is configured for backup, backups happen as per the policy schedule. You can wait for the first scheduled backup or trigger an on-demand backup anytime. Retention for on-demand backups is separate from backup policy's retention and can be specified to a particular date-time. If not specified, it's assumed to be 30 days from the day of the trigger of on-demand backup.
@@ -270,11 +282,15 @@ Triggering an on-demand backup is a *POST* operation.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [above](#responses-1). `{fabricName}` is "Azure".
+The `{containerName}` and `{protectedItemName}` are as constructed [above](#responses-1). The `{fabricName}` is "Azure". For our example, this translates to:
+
+```http
+POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
+```
 
 ### Create the request body
 
-To create a protected item, following are the components of the request body.
+To trigger an on-demand backup, following are the components of the request body.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -307,7 +323,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 #### Example responses
 
-Once you submit the *POST* URI for an on-demand backup, the initial response is 202 (Accepted) with a location header or Azure-async-header.
+Once you submit the *POST* request for an on-demand backup, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -369,7 +385,7 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 ### Changing the policy of protection
 
-To change the policy with which VM is protected just provide the new policy ID in [the request body](#example-request-body) and submit the request. For eg: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' id in the request body.
+To change the policy with which VM is protected, you can use the same format as [enabling protection](#enabling-protection-for-the-azure-vm). Just provide the new policy ID in [the request body](#example-request-body) and submit the request. For eg: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' id in the request body.
 
 ```http
 {
@@ -397,19 +413,23 @@ To remove protection on a protected VM but retain the data already backed up, re
 }
 ```
 
-The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-3). The resultant job should needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-3). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ### Stop protection and delete data
 
 To remove the protection on a protected VM and delete the backup data as well, perform a delete operation as detailed [here](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
 
-Stopping protection and deleting data is a *PUT* operation.
+Stopping protection and deleting data is a *DELETE* operation.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2016-12-01
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [above](#responses-1). `{fabricName}` is "Azure".
+The `{containerName}` and `{protectedItemName}` are as constructed [above](#responses-1). `{fabricName}` is "Azure". For our example, this translates to:
+
+```http
+DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+```
 
 ### Responses
 
@@ -426,7 +446,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 [Restore data from an Azure Virtual machine backup](backup-azure-arm-userestapi-restoreazurevms.md).
 
-For more information on the Azure Backup REST APIs, see the following documents:
+For more information on the Azure Backup REST APIs, refer to the following documents:
 
 - [Azure Recovery Services provider REST API](/rest/api/recoveryservices/)
 - [Get started with Azure REST API](/rest/api/azure/)

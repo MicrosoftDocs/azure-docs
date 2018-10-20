@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Create backup policies using REST API'
-description: manage backup policies (schedule and retention) using REST API
+description: Manage backup policies (schedule and retention) using REST API
 services: backup
 author: pvrk
 manager: shivamg
@@ -26,7 +26,7 @@ The steps to create a backup policy for an Azure Recovery Services vault are out
 - A policy consists of two components
   - Schedule: When to take the backup
   - Retention: For how long each backup should be retained.
-- Schedule can be defined as "daily" or "weekly" at a specific point of time.
+- Schedule can be defined as "daily" or "weekly" with a specific point of time.
 - Retention can be defined for "daily", "weekly", "monthly", "yearly" backup points.
 - "weekly" refers to a backup on a certain day of the week, "monthly" means a backup on a certain day of the month and "yearly" refers to a backup on a certain day of the year.
 - Retention for "monthly", "yearly" backup points is referred to as "LongTermRetention".
@@ -156,7 +156,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 ### Example responses
 
-Once you submit the *PUT* URI for policy creation or updating, the initial response is 202 (Accepted) with a location header or Azure-async-header.
+Once you submit the *PUT* request for policy creation or updating, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -270,11 +270,13 @@ Once the operation completes, it returns 200 (OK) with the policy content in the
 }
 ```
 
+If a policy is already being used to protect an item, any update in the policy will result in [modifying protection](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) for all such associated items.
+
 ## Next steps
 
 [Enable protection for an unprotected Azure VM](backup-azure-arm-userestapi-backupazurevms.md).
 
-For more information on the Azure Backup REST APIs, see the following documents:
+For more information on the Azure Backup REST APIs, refer to the following documents:
 
 - [Azure Recovery Services provider REST API](/rest/api/recoveryservices/)
 - [Get started with Azure REST API](/rest/api/azure/)
