@@ -122,18 +122,18 @@ The Azure SignalR service allows third-party services to integrate with the syst
 The following table shows all the versions of the REST APIs supported to date. You can also find the definition file for each specific version
 Version | API State | Door | Specific
 --- | --- | --- | ---
-`1.0-preview` | Available | 5002 | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
-`1.0` | Available | Standard | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+`1.0-preview` | Available | 5002 | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
+`1.0` | Available | Standard | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
 The list of available APIs for each specific version is available in the following list.
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[Broadcast to all] (# broadcast) | : heavy_check_mark: | : Heavy_check_mark:
-[Broadcast to a group] (# broadcast-group) | : heavy_check_mark: | : Heavy_check_mark:
-Broadcast to some groups | : heavy_check_mark: (Deprecated) | `N / A`
-[Send to specific users] (# send-user) | : heavy_check_mark: | : Heavy_check_mark:
-Send to some users | : heavy_check_mark: (Deprecated) | `N / A`
-[Adding a user to a group] (# add-user-to-group) | `N / A` | : Heavy_check_mark:
-[Removing a user from a group] (# remove-user-from-group) | `N / A` | : Heavy_check_mark:
+[Broadcast to all](#broadcast) | **&#x2713;** | **&#x2713;**
+[Broadcast to a group](#broadcast-group) | **&#x2713;** | **&#x2713;**
+Broadcast to some groups | **&#x2713;** (Deprecated) | `N / A`
+[Send to specific users](#send-user) | **&#x2713;** | **&#x2713;**
+Send to some users | **&#x2713;** (Deprecated) | `N / A`
+[Adding a user to a group](#add-user-to-group) | `N / A` | **&#x2713;**
+[Removing a user from a group](#remove-user-from-group) | `N / A` | **&#x2713;**
 <a name="broadcast"> </a>
 ### Broadcast to everyone
 Version | API HTTP Method | Request URL | Request body
