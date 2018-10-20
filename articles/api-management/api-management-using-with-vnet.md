@@ -106,7 +106,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | Source / Destination Port(s) | Direction          | Transport protocol | Source / Destination                  | Purpose (*)                                                 | Virtual Network type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
-| * / 3443                     | Inbound            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Management endpoint for Azure portal and Powershell         | External & Internal  |
+| * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and Powershell         | External & Internal  |
 | * / 80, 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
 | * / 80, 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (where applicable)                   | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
@@ -121,6 +121,8 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 >[!IMPORTANT]
 > The Ports for which the *Purpose* is **bold** are required for API Management service to be deployed successfully. Blocking the other ports however will cause degradation in the ability to use and monitor the running service.
+
+> In the **Source** and **Destination** columns, *VirtualNetwork*, *AzureLoadBalancer*, *SQL*, *ApiManagement* and *Internet* are [service tags](../virtual-network/security-overview.md#service-tags)
 
 * **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com. This dependency is not required, if any certificate you upload to API Management contain the full chain to the CA root.
 
