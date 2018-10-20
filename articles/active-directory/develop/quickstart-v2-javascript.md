@@ -31,15 +31,18 @@ In this quickstart, you'll learn how to use a code sample that demonstrates how 
 > [!div renderon="docs"]
 > ## Register your application and download your quickstart app
 >
-> ### Step 1: Register your application
+> #### Step 1: Register your application
 >
-> 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application.
-> 1. In the **Application Name** box, enter a name for your application.
-> 1. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
-> 1. Click **Add Platform**, then select **Web**.
-> 1. Make sure **Allow Implicit Flow** is *checked*.
-> 1. Under **Redirect URLs** add `http://localhost:30662/`.
-> 1. Click **Save**.
+> 1. Sign in to the [Azure Portal](https://portal.azure.com/) to register an application.
+> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+> 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
+> 1. When the **Register an application** page appears, enter a name for your application.
+> 1. Under **Supported Microsoft accounts**, select **Accounts in any Azure AD directory and personal Microsoft accounts**
+> 1. Select the **Web** platform under the **Redirect URI** section and set the value to `http://localhost:30662/`.
+> 1. When finished, select **Register**.  On the app **Overview** page, note down the **Application ID** value.
+> 1. This quickstart requires the [Implicit grant flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
+> 1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes.
+> 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
