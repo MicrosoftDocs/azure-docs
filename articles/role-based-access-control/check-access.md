@@ -1,6 +1,6 @@
 ---
-title: Quickstart - View the roles and permissions for a user using the Azure portal | Microsoft Docs
-description: Learn how to view the role-based access control (RBAC) permissions for a user, group, or application using the Azure portal.
+title: Quickstart - View the roles assigned to a user using the Azure portal | Microsoft Docs
+description: Learn how to view the role-based access control (RBAC) permissions assigned to a user, group, or application using the Azure portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -20,13 +20,13 @@ ms.reviewer: bagovind
 
 ---
 
-# Quickstart: View the roles and permissions for a user using the Azure portal
+# Quickstart: View the roles assigned to a user using the Azure portal
 
-You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to list access details for several users, groups, and applications, but sometimes you just need to quickly view the access for a single user, group, or application. The easiest way to do this is to use the **Check access** feature in the Azure portal.
+You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to view the role assignments for multiple users, groups, and applications, but sometimes you just need to quickly view role assignments for a single user, group, or application. The easiest way to do this is to use the **Check access** feature in the Azure portal.
 
-## View the roles and permissions
+## View the role assignments
 
-Follow these steps to view the access for a single user, group, or application at the subscription scope.
+Follow these steps to view the role assignments for a single user, group, or application at the subscription scope.
 
 1. In the Azure portal, click **All services** and then **Subscriptions**.
 
