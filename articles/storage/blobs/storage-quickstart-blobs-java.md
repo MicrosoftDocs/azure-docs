@@ -48,7 +48,7 @@ Once the project finishes importing, open **AzureApp.java** (located in **blobQu
 
 ## Configure your storage connection string
     
-In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the `storageConnectionString` variable and paste the connection string value that you copied in the previous section. Your `storageConnectionString` variable should look similar to the following:
+In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the `storageConnectionString` variable and paste the connection string value that you copied in the previous section. Your `storageConnectionString` variable should look similar to the following code example:
 
 ```java
 public static final String storageConnectionString =
@@ -59,11 +59,11 @@ public static final String storageConnectionString =
 
 ## Run the sample
 
-This sample application creates a test file in your default directory (My Documents, for windows users), uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
+This sample application creates a test file in your default directory (*C:\Users\<user>\AppData\Local\Temp*, for Windows users), uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
 
-Run the sample using Maven at the commandline. Open a shell and navigate to **blobAzureApp** inside of your cloned directory. Then enter `mvn compile exec:java`. 
+Run the sample using Maven at the command line. Open a shell and navigate to **blobAzureApp** inside of your cloned directory. Then enter `mvn compile exec:java`. 
 
-The following is an example of output if you were to run the application on Windows.
+The following example shows the output if you were to run the application on Windows.
 
 ```
 Azure Blob storage quick start sample
@@ -78,7 +78,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Before you continue, check your default directory (C:\Users\<user>\AppData\Local\Temp, for Windows users) for the sample file. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. If you compare sample file in your directory with the contents stored in Blob storage, you will see that they are the same. 
+Before you continue, check your default directory (*C:\Users\<user>\AppData\Local\Temp*, for Windows users) for the sample file. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. If you compare sample file in your directory with the contents stored in Blob storage, you will see that they are the same. 
 
   >[!NOTE]
   >You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information.
@@ -106,7 +106,7 @@ The first thing to do is create the references to the objects used to access and
     Once you have the **CloudBlobContainer**, you can create an instance of the [CloudBlockBlob](http://azure.github.io/azure-storage-java/com/microsoft/azure/storage/blob/CloudBlockBlob.html) object that points to the specific blob in which you are interested, and perform an upload, download, copy, etc. operation.
 
 > [!IMPORTANT]
-> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+> Container names must be lowercase. For more information about containers, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### Create a container
 
@@ -181,7 +181,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### Clean up resources
 
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [Cloud​Blob​Container.​DeleteIfExists](https://azure.github.io/azure-sdk-for-java/com/microsoft/azure/storage/blob/CloudBlobContainer.html#deleteIfExists--). This also deletes the files in the container.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [Cloud​Blob​Container.​DeleteIfExists](https://azure.github.io/azure-sdk-for-java/com/microsoft/azure/storage/blob/CloudBlobContainer.html#deleteIfExists--). This method also deletes the files in the container.
 
 ```java
 try {
