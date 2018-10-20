@@ -33,7 +33,7 @@ Follow these steps to view deny assignments at the subscription or management gr
 
 1. Click **Access control (IAM)**.
 
-1. Click the **View deny assignments** tile or click the **Deny assignments** tab.
+1. Click the **View** button on the View deny assignments tile or click the **Deny assignments** tab.
 
     If there are any deny assignments at this scope, they will be listed.
 

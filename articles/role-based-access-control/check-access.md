@@ -34,7 +34,7 @@ Follow these steps to view the access for a single user, group, or application a
 
 1. Click **Access control (IAM)**.
 
-    On the **Tasks** tab, you see **Check access**.
+    On the **Tasks** tab, you see a section named **Check access**.
 
     ![Access control - Tasks tab](./media/check-access/access-control-tasks.png)
 
