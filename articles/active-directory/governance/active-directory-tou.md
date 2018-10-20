@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
 
 ---
@@ -22,15 +22,15 @@ Azure AD Terms of use provides a simple method that organizations can use to pre
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## Terms of use videos
+## Overview videos
 
 The following video provides a quick overview of Terms of use.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
 For additional overview videos, see:
-- [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 - [How to deploy Terms of use in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## What can I do with Terms of use?
 Azure AD Terms of use enables you to do the following:
@@ -39,8 +39,9 @@ Azure AD Terms of use enables you to do the following:
 - Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../users-groups-roles/groups-dynamic-membership.md)).
 - Present specific Terms of use when accessing high business impact applications, like Salesforce.
 - Present Terms of use in different languages.
+- Assist in meeting privacy regulations.
 - List who has or hasn't agreed to your Terms of use.
-- Display an audit log of Terms of use activity.
+- Display a log of Terms of use activity for compliance and audit.
 
 ## Prerequisites
 To use and configure Azure AD Terms of use, you must have:
