@@ -204,8 +204,9 @@ then save your settings, for example:
    ![Deployment status output](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
    If the connectors you selected require any input from you,
-   a powershell window may pop-up in the backgroud to prompt
-   for passwords or other secret keys as required.
+   a **PowerShell window may pop-up** in the backgroud to prompt
+   for passwords or other secret keys as required. The deployment will
+   continue after you have entered these details.
    
    ![Deployment powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-powershell-window.png)
    
