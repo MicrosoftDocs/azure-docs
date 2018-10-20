@@ -1,14 +1,14 @@
 ﻿---
-title: Developer guide for Azure China 21Vianet | Microsoft Docs
-description: Microsoft provides tools to help developers create and deploy cloud applications to global Azure and to Azure China 21Vianet. Learn which services and features are available on both global Azure and Azure china, and also which features may not be available in China.
-services: china
-cloud: na
-documentationcenter: na
-author: v-wimarc
-manager: edprice
+Title: Developer guide for Azure China 21Vianet | Microsoft Docs
+Description: Microsoft provides tools to help developers create and deploy cloud applications to global Azure and to Azure China 21Vianet. Learn which services and features are available on both global Azure and Azure china, and also which features may not be available in China.
+Services: china
+Cloud: na
+Documentationcenter: na
+Author: v-wimarc
+Manager: edprice
 
 ms.assetid: na
-ms.service: china
+ms.service: China
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
