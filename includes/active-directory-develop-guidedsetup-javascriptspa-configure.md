@@ -23,25 +23,32 @@ ms.custom: include file
 There are multiple ways to create an application, please select one of them:
 
 ### Option 1: Register your application (Express mode)
-Now you need to register your application in the *Microsoft Application Registration Portal*:
 
-1.	Register your application through the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure).
-2.	Enter a name for your application and your email.
-3.	Make sure the option for **Guided Setup** is checked.
-4.	Follow the instructions to obtain the application ID and paste it into your code.
+1. Sign in to the [Azure Portal](https://portal.azure.com/) to register an application.
+1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
+1. When the **Register an application** page appears, enter a name for your application.
+1. Under **Supported Microsoft accounts**, select **Accounts in any Azure AD directory and personal Microsoft accounts**
+1. When finished, select **Register**.
+1. In the left-hand navigation pane of the registered application, select **Quickstart**. Under **Single page applications**, select **JavaScript**.
+1. Follow the instructions to configure the application, obtain the Application ID and paste it into your code.
 
 ### Option 2: Register your application (Advanced mode)
 
-1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application.
-2. Enter a name for your application and your email.
-3. Make sure the option for **Guided Setup** is unchecked.
-4.	Click **Add Platform**, then select **Web**.
-5. Add the **Redirect URL** that corresponds to the application's URL based on your web server. See the sections below for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
-6. Select **Save**.
+1. Sign in to the [Azure Portal](https://portal.azure.com/) to register an application.
+1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
+1. When the **Register an application** page appears, enter a name for your application.
+1. Under **Supported Microsoft accounts**, select **Accounts in any Azure AD directory and personal Microsoft accounts**
+1. Select the **Web** platform under the **Redirect URI** section and set the value to the application's URL based on your web server. See the sections below for instructions on how to set and obtain the redirect URL in Visual Studio and Node..
+1. When finished, select **Register**.  On the app **Overview** page, note down the **Application ID** value.
+1. This quickstart requires the [Implicit grant flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
+1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and Access tokens are required since this app needs to sign in users and call an API.
+1. Select **Save**.
 
 > #### Setting Redirect URL for Node
 > For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
-> - Switch back to the *Application Registration Portal* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
+> - Switch back to the *Application Registration* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number).
 
 <p/>
 
@@ -49,7 +56,7 @@ Now you need to register your application in the *Microsoft Application Registra
 > Follow these steps to obtain the redirect URL:
 > 1.	In **Solution Explorer**, select the project and look at the **Properties** window. If you don’t see a **Properties** window, press **F4**.
 > 2.	Copy the value from **URL** to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.	Switch back to the *Application Registration Portal* and paste the value as a **Redirect URL** and select **Save**
+> 3.	Switch back to the *Application Registration* and set the value as a **Redirect URL**.
 
 
 #### Configure your JavaScript SPA
@@ -65,6 +72,6 @@ var applicationConfig = {
 ```
 <ol start="3">
 <li>
-Replace <code>Enter the application Id here</code> with the Application Id you just registered.
+Replace <code>Enter the application Id here</code> with the Application ID you just registered.
 </li>
 </ol>

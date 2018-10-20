@@ -41,7 +41,7 @@ In this quickstart, you'll learn how to use a code sample that demonstrates how 
 > 1. Select the **Web** platform under the **Redirect URI** section and set the value to `http://localhost:30662/`.
 > 1. When finished, select **Register**.  On the app **Overview** page, note down the **Application ID** value.
 > 1. This quickstart requires the [Implicit grant flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
-> 1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes.
+> 1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and Access tokens are required since this app needs to sign in users and call an API.
 > 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
