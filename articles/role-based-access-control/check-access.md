@@ -20,7 +20,7 @@ ms.reviewer: bagovind
 
 ---
 
-# Quickstart: View the roles and permissions for a user, group, or application using the Azure portal
+# Quickstart: View the roles and permissions for a user using the Azure portal
 
 You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to list access details for several users, groups, and applications, but sometimes you just need to quickly view the access for a single user, group, or application. The easiest way to do this is to use the **Check access** feature in the Azure portal.
 
