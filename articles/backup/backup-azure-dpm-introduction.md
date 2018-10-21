@@ -99,7 +99,7 @@ To obtain the credentials you download the vault credential file through a secur
 - Vault credentials expire after 48 hrs. You can download new vault credentials as many times as needed. However, only the latest vault credential file can be used during the registration workflow.
 - The Azure Backup service isn't aware of the certificate's private key, and the private key isn't available in the portal or the service. 
 
-Download the vault credentials file to a local machine as following:
+Download the vault credentials file to a local machine as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Open the vault in which you want to register the DPM server.
@@ -131,7 +131,7 @@ Every machines that's backed up by Azure Backup must have the Backup agent (also
 5. Select an installation folder and cache folder for the agent. The cache location free space must be at least 5% of the backup data.
 6. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
 7. The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if they're not installed) to complete the installation.
-8. After the gent is installed, **Close** the window.
+8. After the agent is installed, **Close** the window.
 
    ![Close](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
@@ -164,7 +164,7 @@ Every machines that's backed up by Azure Backup must have the Backup agent (also
     - Specify a minimum of 16 characters.
     - Save the file in a secure location, it's needed for recovery.
 
-> [!WARNING]
+    > [!WARNING]
     > You own the encryption passphrase and Microsoft does not have visibility into it.
     > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. 
 
