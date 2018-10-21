@@ -19,6 +19,8 @@
       href: event-hubs-quickstart-cli.md
     - name: Azure PowerShell
       href: event-hubs-quickstart-powershell.md
+    - name: Azure Resource Manager template
+      href: event-hubs-resource-manager-namespace-event-hub.md
   - name: Send events to event hub 
     items:
     - name: .NET Standard
@@ -99,8 +101,6 @@
     maintainContext: true
 - name: How-to guides
   items:
-  - name: Create an event hub using Resource Manager template
-    href: event-hubs-resource-manager-namespace-event-hub.md
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Create Apache Kafka-enabled event hubs

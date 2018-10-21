@@ -351,7 +351,7 @@
     href: luis-glossary.md
   - name: FAQ
     href: luis-resources-faq.md
-  - name: Pricing
+  - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS
