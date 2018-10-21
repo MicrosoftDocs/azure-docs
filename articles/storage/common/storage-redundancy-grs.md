@@ -5,7 +5,7 @@ services: storage
 author: tolandmike
 ms.service: storage
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 10/20/2018
 ms.author: jeking
 ms.component: common
 ---
@@ -23,7 +23,7 @@ Some considerations to keep in mind when using RA-GRS:
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
 * Since asynchronous replication involves a delay, changes that have not yet been replicated to the secondary region may be lost if data cannot be recovered from the primary region, for example in the event of a regional disaster.
 * You can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value. All primary writes before the Last Sync Time have been successfully written to the secondary location, meaning that they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), or from one of the Azure Storage client libraries.
-* If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md).
+* If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, see [Disaster recovery guidance](storage-disaster-recovery-guidance.md).
 * For information on how to switch to the secondary region, see [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md).
 * RA-GRS is intended for high-availability purposes. For scalability guidance, review the [performance checklist](storage-performance-checklist.md).
 * For suggestions on how to design for high availability with RA-GRS, see [Designing Highly Available Applications using RA-GRS storage](storage-designing-ha-apps-with-ragrs.md).
@@ -39,7 +39,7 @@ Some considerations to keep in mind when using RA-GRS:
    Microsoft takes the responsibility of preserving your data seriously. If there is any chance of recovering the data in the primary region, Microsoft will delay the failover and focus on recovering your data. 
 
 ## Paired regions 
-When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and cannot be changed. For up-to-date information about regions supported by Azure, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../../best-practices-availability-paired-regions.md).
+When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and cannot be changed. For up-to-date information about regions supported by Azure, see [Business continuity and disaster recovery (BCDR): Azure paired regions](../../best-practices-availability-paired-regions.md).
 
 ## See also
 - [Azure Storage replication](storage-redundancy.md)
