@@ -54,7 +54,7 @@ Ensure that the following prerequisites are in place:
 Enable Seamless SSO through [Azure AD Connect](whatis-hybrid-identity.md).
 
 >[!NOTE]
-> You can also [enable Seamless SSO using PowerShell](tshoot-connect-sso.md?#manual-reset-of-the-feature) if Azure AD Connect doesn't meet your requirements. Use this option if you have more than one domain per Active Directory forest, and you want to be more targeted about the domain you want to enable Seamless SSO for.
+> You can also [enable Seamless SSO using PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) if Azure AD Connect doesn't meet your requirements. Use this option if you have more than one domain per Active Directory forest, and you want to be more targeted about the domain you want to enable Seamless SSO for.
 
 If you're doing a fresh installation of Azure AD Connect, choose the [custom installation path](how-to-connect-install-custom.md). At the **User sign-in** page, select the **Enable single sign on** option.
 
