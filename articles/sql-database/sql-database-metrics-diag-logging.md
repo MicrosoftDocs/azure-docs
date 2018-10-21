@@ -72,7 +72,7 @@ To understand the metrics and log categories that are supported by the various A
 
 ### Azure portal
 
-- To enable metrics and diagnostics logs collection fir SQL Databases or Managed Instance databases, go to your database, and then select **Diagnostics settings**. Select **+Add diagnostic setting** to configure a new setting, or **Edit setting** to edit an existing setting.
+- To enable metrics and diagnostics logs collection for SQL Databases or Managed Instance databases, go to your database, and then select **Diagnostics settings**. Select **+Add diagnostic setting** to configure a new setting, or **Edit setting** to edit an existing setting.
 
    ![Enable in the Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
