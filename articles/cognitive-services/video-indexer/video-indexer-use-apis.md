@@ -49,7 +49,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
-> You can use a single domain in your Azure AD and a subscription key for multiple Video Indexer accounts. You can then link these Video Indexer accounts to different Media Services accounts.
+> Video Indexer user can use a single subscription key to connect to multiple Video Indexer accounts. You can then link these Video Indexer accounts to different Media Services accounts.
 
 ## Obtain access token using the Authorization API
 
