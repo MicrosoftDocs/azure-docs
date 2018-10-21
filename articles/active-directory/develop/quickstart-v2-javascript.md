@@ -37,7 +37,7 @@ In this quickstart, you'll learn how to use a code sample that demonstrates how 
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 > 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
 > 1. When the **Register an application** page appears, enter a name for your application.
-> 1. Under **Supported Microsoft accounts**, select **Accounts in any Azure AD directory and personal Microsoft accounts**
+> 1. Under **Supported Microsoft accounts**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select the **Web** platform under the **Redirect URI** section and set the value to `http://localhost:30662/`.
 > 1. When finished, select **Register**.  On the app **Overview** page, note down the **Application ID** value.
 > 1. This quickstart requires the [Implicit grant flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
