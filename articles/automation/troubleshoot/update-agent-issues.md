@@ -1,5 +1,5 @@
 ---
-title: Understand the agent check results in Update Management
+title: Understand the agent check results in Azure Update Management
 description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: georgewallace
@@ -32,7 +32,7 @@ When complete, the results are returned in the window. The [check sections](#pre
 
 ![Update agent checks page](../media/update-agent-issues/update-agent-checks.png)
 
-## Pre-requisite checks
+## Prerequisite checks
 
 ### Operating system
 
@@ -59,7 +59,7 @@ The WMF check, verifies if the system has the required version of the Windows Ma
 
 This check, determines if you're using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform and it's recommended that clients use TLS 1.2 to communicate with Update Management.
 
-## Connectivity Checks
+## Connectivity checks
 
 ### Registration endpoint
 
@@ -73,9 +73,9 @@ This check determines if the agent can properly communicate with the Job Runtime
 
 Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
 
-## VM Service Health Checks
+## VM service health checks
 
-### Monitoring Agent service status
+### Monitoring agent service status
 
 This check determines if the Microsoft Monitoring Agent, `HealthService` is running on the machine.
 
@@ -83,13 +83,13 @@ To learn more about troubleshooting the service, see [The Microsoft Monitoring A
 
 To reinstall the Microsoft Monitoring Agent, see [Install and configure the Microsoft Monitoring Agent](/log-analytics/log-analytics-concept-hybrid.md#install-and-configure-agent)
 
-### Monitoring Agent service events
+### Monitoring agent service events
 
 This check determines if there have been any `4502` events in the Operations Manager log on the machine in the last 24 hours.
 
 To learn more about this event, see the [troubleshooting guide](hybrid-runbook-worker.md#event-4502) for this event.
 
-## Access Permissions Checks
+## Access permissions checks
 
 ### MachineKeys folder access
 
