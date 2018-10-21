@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -57,7 +57,7 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 2. Select **Entities** from the left menu.
 
-3. Select the ellipsis ***(...)*** button to the right of the number entity in the list. Select **Delete**. 
+3. Select the checkbox to the left of the number entity in the list. Select **Delete**. 
 
 ## Add utterances to MoveEmployee intent
 

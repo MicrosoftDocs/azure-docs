@@ -12,46 +12,35 @@ ms.component: metrics
 
 # Azure Monitor Metrics Explorer
 
-This how-to describes the next generation Azure Monitor Metrics charting experience that is currently in public preview. The new experience supports rendering charts for both multi-dimensional metrics, and basic metrics with no dimensions. You can plot charts that overlay metrics from different resource types, multiple resource groups, and subscriptions. The multi-dimensional metrics charts can be customized by applying dimension filters as well as grouping. Any chart, including customized charts can be pinned to dashboards.
-
-If you are looking for information about the old experience which only supports basic metrics with no dimensions, please see the section entitled “Access metrics via the portal” in the [Microsoft Azure Metrics Overview guide](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
-
-## What is Azure Monitor Metrics Explorer?
-
 Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services. 
 
 ## What are metrics in Azure?
 
 Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
 
-
-
 ## How do I create a new chart?
 
-   > [!NOTE]
-   > Some of the features of the old Metrics experience are not yet available in the new Metrics Explorer. While the new experience is in preview, you can continue using the old (non-dimensional) Metrics view of Azure Monitor. 
-
 1. Open the Azure portal
-2. Navigate to the new **Monitor** tab, and then select **Metrics (preview)**.
+2. Navigate to the new **Monitor** tab, and then select **Metrics**.
 
-   ![Metrics Preview Image](./media/monitoring-metric-charts/0001.png)
+   ![Metrics Image](./media/monitoring-metric-charts/0001.png)
 
 3. The **metric selector** will automatically be open for you. Choose a resource from the list to view its associated metrics. Only resources with metrics are shown in the list.
 
-   ![Metrics Preview Image](./media/monitoring-metric-charts/0002.png)
+   ![Metrics Image](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >If you have more than one Azure subscription, Metrics Explorer pulls out the resources across all subscriptions that are selected in the Portal Settings -> Filter by subscriptions list. To change it, click on the Portal settings gear icon on top of the screen and select which subscriptions you want to use.
 
-4. For some resources types (i.e. Storage Accounts and Virtual Machines), before selecting a metric you must choose a **Namespace**. Each namespace carries its own set of metrics that are relevant to this namespace only, and not to other namespaces.
+4. For some resources types (Storage Accounts and Virtual Machines), before selecting a metric you must choose a **Namespace**. Each namespace carries its own set of metrics that are relevant to this namespace only, and not to other namespaces.
 
    For example, each Azure Storage has metrics for subservices “Blobs”, “Files”, “Queues” and “Tables”, which are all parts of the storage account. However, the metric “Queue Message Count” is naturally applicable to the subservice “Queue” and not to any other storage account subservices.
 
-   ![Metrics Preview Image](./media/monitoring-metric-charts/0003.png)
+   ![Metrics Image](./media/monitoring-metric-charts/0003.png)
 
 5. Select a metric from the list. If you know a partial name of the metric you want, you can start typing it in to see a filtered list of available metrics:
 
-   ![Metrics Preview Image](./media/monitoring-metric-charts/0004.png)
+   ![Metrics Image](./media/monitoring-metric-charts/0004.png)
 
 6. After selecting a metric, the chart will render with the default aggregation for the selected metric. At this point you can just click away from the **metrics selector** to close it. You can also optionally switch the chart to a different aggregation. For some metrics, switching aggregation allows you to choose which value you want to see on the chart. For example, you can switch between the average, minimum and maximum values. 
 

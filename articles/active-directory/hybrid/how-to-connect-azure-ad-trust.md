@@ -35,7 +35,7 @@ Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD C
 | Setting | Description |
 | :--- | :--- |
 | Token signing certificate | Azure AD Connect can be used to reset and recreate the trust with Azure AD. Azure AD Connect does a one-time immediate rollover of token signing certificates for AD FS and updates the Azure AD domain federation settings.|
-| Token signing algorithm | Microsoft recommends using SHA-256 as the token signing algorithm. Azure AD Connect can detect if the token signing algorithm is set to a value less secure than SHA-256. It will update the setting to SHA-256 in the next possible configuration operation. |
+| Token signing algorithm | Microsoft recommends using SHA-256 as the token signing algorithm. Azure AD Connect can detect if the token signing algorithm is set to a value less secure than SHA-256. It will update the setting to SHA-256 in the next possible configuration operation. Other relying party trust must be updated to use the new token signing certificate. |
 | Azure AD trust identifier | Azure AD Connect sets the correct identifier value for the Azure AD trust. AD FS uniquely identifies the Azure AD trust using the identifier value. |
 | Azure AD endpoints | Azure AD Connect makes sure that the endpoints configured for the Azure AD trust are always as per the latest recommended values for resiliency and performance. |
 | Issuance transform rules | There are numbers of claim rules which are needed for optimal performance of features of Azure AD in a federated setting. Azure AD Connect makes sure that the Azure AD trust is always configured with the right set of recommended claim rules. |

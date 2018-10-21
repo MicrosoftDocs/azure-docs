@@ -141,7 +141,7 @@ Currently, there are no tier considerations for Event Grid.
 ### Use PeekLock to consume Service Bus messages
 
 When you create a logic app to consume Service Bus messages, have your logic app use 
-[PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) 
+[PeekLock](../service-bus-messaging/service-bus-messaging-overview.md#queues) 
 for accessing a group of messages. When you use PeekLock, the logic app can perform steps 
 to validate each message before completing or abandoning the message. 
 This approach protects against accidental message loss.

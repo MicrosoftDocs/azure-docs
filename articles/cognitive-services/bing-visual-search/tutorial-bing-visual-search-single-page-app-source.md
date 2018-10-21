@@ -1,13 +1,14 @@
 ---
-title: Bing Visual Search single-page Web app (source code) | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: "Tutorial: Build a single-page Web app (source code) - Bing Visual Search"
+titleSuffix: Azure Cognitive Services
 description: Source code for tutorial showing how to use the Bing Visual Search API in a single-page Web application.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
 ---

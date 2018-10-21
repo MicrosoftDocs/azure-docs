@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 09/21/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Azure Migrate**, and select the service **Azure Migrate** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the location in which to create the project, then click **Create**. You can only create an Azure Migrate project in the West Central US or East US region. However, you can still plan your migration for any target Azure location. The location specified for the project is only used to store the metadata gathered from on-premises VMs.
+5. Specify the geography in which you want to create the project, then click **Create**. You can only create an Azure Migrate project in the United States geography. However, you can still plan your migration for any target Azure location. The geography specified for the project is only used to store the metadata gathered from on-premises VMs.
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 

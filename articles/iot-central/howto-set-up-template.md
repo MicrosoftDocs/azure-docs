@@ -69,6 +69,9 @@ For example, you can add a new temperature telemetry measurement:
 
 After you select **Done**, the **Temperature** measurement appears in the list of measurements. An operator can see the visualization of the temperature data that the device is collecting.
 
+> [!NOTE]
+  The datatype of the telemetry measurement is double.
+
 ### Create an event measurement
 To add a new event measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **Event** as the measurement type, and enter the details on the **Create Event** form.
 
@@ -86,6 +89,8 @@ To view more details about the event, select the event icon on the chart.
 
 ![Details for the "Fan Motor Error" event](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  The datatype of the Event measurement is string.
 
 ### Create a state measurement
 To add a new state measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **State** as the measurement type, and enter the details on the **Create State** form.
@@ -101,6 +106,9 @@ After you select **Done**, the **Fan Mode** state measurement appears in the lis
 ![State measurement chart](./media/howto-set-up-template/statemeasurementschart.png)
 
 If the device sends too many data points in a small duration, the state measurement appears with a different visual, as shown in the following screenshot. If you click on the chart, all the data points within that time period are displayed in a chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
+
+> [!NOTE]
+  The datatype of the State measurement is string.
 
 ## Settings
 

@@ -1,21 +1,14 @@
 ---
 title: Tutorial on provision Azure Data Box Gateway in VMware | Microsoft Docs
 description: Second tutorial to deploy Azure Data Box Gateway involves provisioning a virtual device in VMware.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/01/2018
 ms.author: alkohli
-ms.custom: 
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Provision Azure Data Box Gateway in VMware (Preview)
@@ -30,7 +23,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Ensure host meets minimum device requirements
-> * Provision a virtual device in hypervisor
+> * Provision a virtual device in VMware
 > * Start the virtual device and get the IP address
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -70,7 +63,7 @@ Before you deploy a virtual device, make sure that:
 Before you begin:
 
 - Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-requirements).
-- Make sure that the the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
+- Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
 
 ## Check the host system
 
@@ -92,7 +85,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
 
-2. Log in to the ESXi server using the vSphere client. You need to have administrator privileges to create a virtual machine.
+2. Log in to the ESXi server using the vSphere web client. You need to have administrator privileges to create a virtual machine.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -100,7 +93,10 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. The datastore must be type VMFS 5. The datastore must also have enough free space for the OS and data disks.
+4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. 
+
+    - The datastore must be type VMFS5. 
+    - The datastore must also have enough free space for the OS and data disks.
    
 5. Right-click and select **Browse Datastore**.
 
@@ -141,11 +137,11 @@ Perform the following steps to provision a virtual device in your hypervisor.
 15. On the **Select storage** page, select a datastore you want to use to provision your VM. Click **Next**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose the type of **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned.
+16. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    On the same page, click **Add hard disk** and then select **Existing hard disk**. This adds an OS disk. 
+    On the same page, click **Add hard disk** and then select **Existing hard disk**. Select the VMDK file in the datastore. This will add an OS disk. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
@@ -194,7 +190,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 6. Steps 5-7 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 8. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**. 
    
-7. To configure the network, at the command prompt, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `DATA1`.
+7. To configure the network, at the command prompt, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
 8. Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
@@ -204,7 +200,7 @@ Perform the following steps to start your virtual device and connect to it.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [check the host system meets minimum virtual device requirements](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -217,7 +213,7 @@ In this tutorial, you learned about Data Box Gateway topics such as:
 
 > [!div class="checklist"]
 > * Ensure host meets minimum device requirements
-> * Provision a virtual device in hypervisor
+> * Provision a virtual device in VMware
 > * Start the virtual device and get the IP address
 
 Advance to the next tutorial to learn how to connect, set up, and activate your virtual device.

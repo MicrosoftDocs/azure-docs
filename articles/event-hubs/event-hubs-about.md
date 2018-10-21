@@ -68,7 +68,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 - **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
 - **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
 - **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
-- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session, and events are delivered through the session as they become available.
+- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session, and events are delivered through the session as they become available. All Kafka consumers connect via the Kafka protocol 1.0 and later.
 
 The following figure shows the Event Hubs stream processing architecture:
 
@@ -79,8 +79,13 @@ The following figure shows the Event Hubs stream processing architecture:
 
 To get started using Event Hubs, see the following articles:
 
-* [Ingest into Event Hubs](event-hubs-quickstart-portal.md)
-* [Event Hubs features overview](event-hubs-features.md)
-* [Frequently asked questions](event-hubs-faq.md)
+1. **Create an event hub**: [Azure portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
+2. **Send events to an event hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+3. **Receive events from an event hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+
+To learn more about Event Hubs, see the following articles:
+
+- [Event Hubs features overview](event-hubs-features.md)
+- [Frequently asked questions](event-hubs-faq.md).
 
 

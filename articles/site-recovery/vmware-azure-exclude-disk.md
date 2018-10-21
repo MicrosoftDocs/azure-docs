@@ -4,7 +4,7 @@ description: Describes why and how to exclude VM disks from replication for VMwa
 author: nsoneji
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
 
 ---

@@ -2,20 +2,13 @@
 title: Tutorial on prepare Azure portal to deploy Data Box Gateway | Microsoft Docs
 description: First tutorial to deploy Azure Data Box Gateway involves preparing the Azure portal.
 services: databox-edge-gateway
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.custom: 
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Prepare to deploy Azure Data Box Gateway (Preview)
@@ -85,7 +78,7 @@ Before you begin, make sure that:
 
 ## Create a new resource
 
-A single instance of the Data Box Gateway resource can manage multiple Data Box Gateway virtual devices. Perform the following steps to create a new Data Box Gateway resource. 
+Perform the following steps to create a new Data Box Gateway resource. 
 
 If you have an existing Data Box Gateway resource to manage your virtual devices, skip this step and go to [Get the activation key](#get-the-activation-key).
 

@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: byvinyal
 
 ---
@@ -84,6 +84,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
+* [SignalR Service](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -96,13 +97,13 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 ### Subscription limits
-#### Subscription limits
+#### Subscription limits - Azure Service Management (Classic Resources)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### Subscription limits - Azure Resource Manager
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
-For information about handling limits on Resource Manager requests, see [Throttling Resource Manager requests](resource-manager-request-limits.md).
+For information about Resource Manager API read and write limits, see [Throttling Resource Manager requests](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
@@ -159,8 +160,6 @@ The following table details the features and limits of the Basic, Standard, and 
 ### Storage limits
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
-
-[!INCLUDE [storage-limits-increase-include](../includes/storage-limits-increase-include.md)]
 
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 
@@ -231,9 +230,6 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 
 ### Azure Database for PostgreSQL
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
-
-### Mobile Engagement limits
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### Search limits
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
@@ -314,6 +310,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Backup limits
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### SignalR Service limits
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### Site Recovery limits
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

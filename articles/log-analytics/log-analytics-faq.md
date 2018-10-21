@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Log Analytics FAQ
@@ -64,6 +64,10 @@ A: To access a workspace in Azure, you must have Azure permissions assigned. The
 
 ### Q. Why can't I can’t see View Designer entry in Logs? 
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
+
+### Q. Can I still use the Analytics portal outside of Azure?
+A. Yes, the Logs page in Azure and the [Advanced Analytics portal](https://portal.loganalytics.io) are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+
 
 
 ## General

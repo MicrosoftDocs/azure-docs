@@ -73,17 +73,10 @@ Azure Database for PostgreSQL creates a firewall at the server level. It prevent
 
 3. Under the **Firewall rules**, in the **Rule Name** column, select the blank text box to begin creating the firewall rule. 
 
-    For this Quickstart, let's allow all IP addresses into the server. Fill in the text box in each column with the following values:
+   Fill in the text boxes with a name, and the start and end IP range of the clients that will be accessing your server. If it is a single IP, use the same value for the start IP and end IP.
 
-    Rule name | Start IP | End IP 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![Set Firewall Rules](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![Set Firewall Rules](./media/quickstart-create-database-portal/5-firewall-2.png)
      
-      > [!NOTE]
-      > For production instances you should only set your firewall rules to accept incoming requests from known IP addresses.  These settings are for example purposes only.
-      >
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the connection security update has finished successfully before you continue.
 

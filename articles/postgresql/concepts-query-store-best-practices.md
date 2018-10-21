@@ -6,7 +6,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ---
 
 # Best practices for Query Store

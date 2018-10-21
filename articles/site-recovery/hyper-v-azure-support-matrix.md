@@ -5,8 +5,8 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
 ---
 
@@ -55,16 +55,16 @@ Add disk on replicated Hyper-V VM | Not supported. Disable replication, make the
 
 **Component** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
 --- | --- | ---
-Host network: NIC Teaming | Yes
-Host network: VLAN | Yes
-Host network: IPv4 | Yes
-Host network: IPv6 | No
-Guest VM network: NIC Teaming | No
-Guest VM network: IPv4 | Yes
-Guest VM network: IPv6 | No
-Guest VM network: Static IP (Windows) | Yes
-Guest VM network: Static IP (Linux) | No
-Guest VM network: Multi-NIC | Yes
+Host network: NIC Teaming | Yes | Yes
+Host network: VLAN | Yes | Yes
+Host network: IPv4 | Yes | Yes
+Host network: IPv6 | No | No
+Guest VM network: NIC Teaming | No | No
+Guest VM network: IPv4 | Yes | Yes
+Guest VM network: IPv6 | No | Yes
+Guest VM network: Static IP (Windows) | Yes | Yes
+Guest VM network: Static IP (Linux) | No | No
+Guest VM network: Multi-NIC | Yes | Yes
 
 
 
