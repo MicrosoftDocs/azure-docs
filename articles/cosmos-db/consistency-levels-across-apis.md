@@ -3,13 +3,12 @@ title: Consistency levels and Azure Cosmos DB APIs | Microsoft Docs
 description: Understanding the consistency levels across APIs in Azure Cosmos DB.
 keywords: consistency, azure cosmos db, azure, models, mongodb, cassandra, graph, table, Microsoft azure
 services: cosmos-db
-author: sngun
-manager: kfile
+author: markjbrown
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 10/23/2018
 ms.author: mjbrown
 
 ---
@@ -42,5 +41,5 @@ The table below shows the mapping for "read concerns" of MongoDB 3.4 and Cosmos 
 
 ## Next Steps
 
-- [MongoDB Read Concern (applicable to only version 3.4)](tbd.md)
-- [Apache Cassandra Read Consistency Levels](tbd.md)
+- [MongoDB Read Concern (applicable to only version 3.4)](how-to-manage-consistency.md#mongodb)
+- [Apache Cassandra Read Consistency Levels](how-to-manage-consistency.md#cassandra)
