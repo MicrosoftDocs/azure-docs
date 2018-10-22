@@ -72,7 +72,7 @@ At this point, you've created an Azure Storage account and a file share with one
 
 1. Next, expand the menu on the left side of the portal and choose **Create a resource** in the upper left-hand corner of the Azure portal.
 1. In the search box above the list of **Azure Marketplace** resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
-1. In the **Basics** tab, under **Project details**, select the resource group you created for at the beginning of this tutorial.
+1. In the **Basics** tab, under **Project details**, select the resource group you created for this tutorial.
 
    ![Enter basic information about your VM in the portal blade](./media/storage-sync-files-extend-servers/vm-resource-group-and-subscription.png)
 
