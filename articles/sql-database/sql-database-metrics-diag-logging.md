@@ -46,7 +46,7 @@ You can provision a new Azure resource or select an existing resource. After sel
 
 ## Enable logging for elastic pools, or Managed Instance
 
-Elastic pools and Managed Instances as resource containers of databases have its own diagnostics telemetry. Please note this telemetry is separate from database diagnostics telemetry. Diagnostics telemetry for elastic pools and Managed Instances is not enabled by default.
+Elastic pools and Managed Instances as database containers have its own diagnostics telemetry that is not enabled by default. Please note this telemetry is separate from database diagnostics telemetry. This is why streaming of diagnostics telemetry for elastic pools, and Managed Instance needs to be configured in addition with configuring database diagnostics telemetry, as explained further below. 
 
 ### Configure streaming of diagnostics telemetry for elastic pools
 
@@ -92,7 +92,7 @@ Repeat the above steps for each Managed Instance you wish to monitor.
 
 ## Enable logging for Azure SQL Database, or databases in Managed Instance
 
-Metrics and diagnostics logging on SQL Database, or Managed Instance database is not enabled by default.
+Metrics and diagnostics logging on SQL Database, and databases in Managed Instance is not enabled by default.
 
 The following diagnostics telemetry is available for collection for Azure SQL Databases, and databases in Managed Instance:
 
