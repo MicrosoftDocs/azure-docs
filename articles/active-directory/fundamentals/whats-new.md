@@ -127,7 +127,7 @@ For more information about using custom extension properties for dynamic members
 **Service category:** Conditional access  
 **Product capability:** Identity security and protection
 
-The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference.md#approved-client-app-requirement):
+The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
 
 - Microsoft To-Do
 
