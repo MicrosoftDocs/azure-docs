@@ -114,7 +114,7 @@ Manager template and role assignment on the new resource group.
 
    ![Artifact - Resource Manager template](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. Your completed blueprint should look similar to the following. Notice that each artifact has '_0_ out of _y_ parameters populated' under the _Parameters_ column. The **dynamic parameters** will be set during each assignment of the blueprint.
+1. Your completed blueprint should look similar to the following. Notice that each artifact has '_x_ out of _y_ parameters populated' under the _Parameters_ column. The **dynamic parameters** will be set during each assignment of the blueprint.
 
    ![Completed blueprint](./media/create-blueprint-portal/completed-blueprint.png)
 
