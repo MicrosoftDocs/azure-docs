@@ -208,7 +208,7 @@ then save your settings, for example:
    for necessary passwords or secret keys. After you enter this information, 
    deployment continues.
    
-   ![Deployment powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-powershell-window.png)
+   ![Deployment powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-power-shell-window.png)
    
    After deployment finishes, your logic app is 
    live in the Azure portal and checks the RSS 
