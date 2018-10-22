@@ -1,6 +1,6 @@
 ---
 title: Monitor logic apps with Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Get insights and debugging data about your logic app runs with Azure Log Analytics for troubleshooting and diagnostics
+description: Get insights and debugging data for troubleshooting and diagnosing your logic app runs with Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,26 +8,29 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/19/2018
 ---
 
 # Monitor logic apps with Azure Log Analytics
 
-For monitoring and richer debugging information, you can turn on 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
+To monitor and get richer debugging details about your logic apps, 
+turn on [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
 when you create your logic app. Log Analytics provides diagnostics 
 logging and monitoring for your logic apps when you install the 
-Logic Apps Management solution in the Azure portal. After you install the solution, 
-When you add the Logic Apps Management solution, you get aggregated 
-status for your logic app runs and specific details like status, 
-execution time, resubmission status, and correlation IDs.
+Logic Apps Management solution in the Azure portal. This solution 
+also provides aggregated information for your logic app runs with 
+specific details such as status, execution time, resubmission status, 
+and correlation IDs. This article shows how to turn on Log Analytics 
+so you can view runtime events and data for your logic app runs.
 
-This article shows how to turn on Log Analytics so you can 
-view runtime events and data for your logic app run.
+To turn on Azure Log Analytics for existing logic apps, follow these steps to 
+[turn on diagnostic logging and send logic app runtime data to Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > To monitor your existing logic apps, follow these steps to 
- > [turn on diagnostic logging and send logic app runtime data to Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> This page previously described steps for how to perform these tasks 
+> with the Microsoft Operations Management Suite (OMS), which is 
+> [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> replaces those steps with Azure Log Analytics instead. 
 
 ## Prerequisites
 

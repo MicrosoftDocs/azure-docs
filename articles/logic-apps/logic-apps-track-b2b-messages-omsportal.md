@@ -29,6 +29,12 @@ capabilities for tracking messages:
 * Detailed error descriptions for failures
 * Search capabilities
 
+> [!NOTE]
+> This page previously described steps for how to perform these tasks 
+> with the Microsoft Operations Management Suite (OMS), which is 
+> [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> replaces those steps with Azure Log Analytics instead. 
+
 ## Prerequisites
 
 * A logic app that's set up with diagnostics logging. Learn 
