@@ -100,16 +100,28 @@ choose **Add** again.
 
 <a name="save-oms-query"></a>
 
-## Save your query for future use
+## Save query
 
-1. From your query on the **Log Search** page, choose **Save**. 
-Give your query a name, select a category, and choose **Save**.
+To save your query in **Logs (classic)** view, follow these steps:
 
-   ![Give your query a name and category](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
+1. From your query on the **Logs (classic)** page, choose **Analytics**. 
 
-2. To view your query, choose **Favorites**.
+   ![Choose "Analytics"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-analytics.png)
 
-   ![Choose "Favorites"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-favorites.png)
+1. On the query toolbar, choose **Save**.
+
+   ![Choose "Save"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/save-query.png)
+
+1. Provide the details about your query, 
+for example, give your query a name, select **Query**, 
+and provide a category name. When you're done, choose **Save**.
+
+   ![Choose "Save"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query-details.png)
+
+1. To view saved queries, go back to the query page. 
+On the query toolbar, choose **Saved Searches**.
+
+   ![Choose "Saved Searches"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
 
 3. Under **Saved Searches**, 
 select your query so that you can view the results. 
