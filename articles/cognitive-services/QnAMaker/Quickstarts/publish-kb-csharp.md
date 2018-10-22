@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Publish Knowledge Base - REST, C# -  QnA Maker"
+title: "Quickstart: Publish knowledge base - REST, C# -  QnA Maker"
 titleSuffix: Azure Cognitive Services 
-description: This quickstart walks you through publishing your KB which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+description: This REST-based quickstart walks you through publishing your KB which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,12 +9,12 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically publish a knowledge base using C#. 
 ---
 
-# Quickstart: Publish a QnA Maker knowledge base in C#
+# Quickstart: Publish a knowledge base in QnA Maker using C#
 
 This quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
 
