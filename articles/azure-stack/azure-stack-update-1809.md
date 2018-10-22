@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -30,7 +30,7 @@ This article describes the contents of the 1809 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1809 update build number is **1.1809.0.70**.  
+The Azure Stack 1809 update build number is **1.1809.0.88**.  
 
 ### New features
 
