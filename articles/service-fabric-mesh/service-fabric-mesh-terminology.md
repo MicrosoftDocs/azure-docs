@@ -18,16 +18,29 @@ Azure Service Fabric Mesh is a fully managed service that enables developers to 
 
 [Service Fabric](/azure/service-fabric/) is an open source distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is the orchestrator that powers Service Fabric Mesh. Service Fabric provides options for how you can build and run your microservices applications. You can use any framework to write your services and choose where to run the application from multiple environment choices.
 
+## Application and service concepts
+
+**Service Fabric Mesh Application**: Service Fabric Mesh Applications are described by the [Resource Model](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources) (YAML and JSON resource files) and can be deployed to any environment where Service Fabric runs.
+
+**Service Fabric Native Application**: Service Fabric Native Applications are described by the [Native Application Model](/azure/service-fabric/service-fabric-application-model) (XML-based application and service manifests).  Service Fabric Native Applications cannot run in Service Fabric Mesh.
+
+**Application**: A Service Fabric Mesh application is the unit of deployment, versioning, and lifetime of a Mesh application. The lifecycle of each application instance can be managed independently.  Applications are composed of one or more service code packages and settings. An application is defined using the Azure Resource Model (RM) schema.  Services are described as properties of the application resource in a RM template.  Networks and volumes used by the application are referenced by the application.  When creating an application, the application, service(s), network, and volume(s) are modeled using the Service Fabric Resource Model.
+
+**Service**: A service in an application represents a microservice and performs a complete and standalone function. Each service is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.  The number of services in an application can be scaled up and down.
+
+**Code package**: Code packages describe everything needed to run the container image associated with the code package, including the following:
+
+* Container name, version, and registry
+* CPU and memory resources required for each container
+* Network endpoints
+* Volumes to mount in the container, referencing a separate volume resource.
+
 ## Deployment and application models 
 
 To deploy your services, you need to describe how they should run. Service Fabric supports three different deployment models:
 
 ### Resource model
-Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using a YAML file or JSON file using the Azure Resource Model schema.
-
-The resource model is the simplest way to describe your Service Fabric applications. Its main focus is on simple deployment and management of containerized services.
-
-Resources can be deployed anywhere Service Fabric runs.
+Service Fabric Resources are anything that can be deployed individually to Service Fabric; including applications, services, networks, and volumes. Resources are defined using a JSON file, which can be deployed to a cluster endpoint.  For Service Fabric Mesh, the Azure Resource Model schema is used. A YAML file schema can also be used to more easily author definition files. Resources can be deployed anywhere Service Fabric runs. The resource model is the simplest way to describe your Service Fabric applications. Its main focus is on simple deployment and management of containerized services. To learn more, read [Introduction to the Service Fabric Resource Model](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
 
 ### Native model
 The native application model provides your applications with full low-level access to Service Fabric. Applications and services are defined as registered types in XML manifest files.
