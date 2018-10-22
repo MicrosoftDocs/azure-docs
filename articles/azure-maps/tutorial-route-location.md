@@ -3,7 +3,7 @@ title: Find route with Azure Maps | Microsoft Docs
 description: Route to a point of interest using Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -121,14 +121,16 @@ For this tutorial, set the start point as Microsoft, and the destination point a
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    The **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The API **map.addPins** adds the points to the Map control as visual components.
+    The **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The **map.addEventListener** ensures that all maps functions added to the map are loaded after the map is loaded fully. The API **map.addPins** within the event listener adds the points to the Map control as visual components.
 
 3. Save the **MapRoute.html** file and refresh your browser. Now the map is centered over Seattle, and you can see the round blue pin marking the start point and the blue pin marking the finish point.
 
@@ -138,7 +140,7 @@ For this tutorial, set the start point as Microsoft, and the destination point a
 
 ## Get directions
 
-This section shows how to use the Maps route service API to find the route from a given start point to a destination. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+This section shows how to use the Maps route service API to find the route from a given start point to a destination. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following functionalities should be added **within the eventListener** to ensure that they load after the map loads fully.
 
 1. First, add a new layer on the map to display the route path, or *linestring*. Add the following JavaScript code to the *script* block.
 

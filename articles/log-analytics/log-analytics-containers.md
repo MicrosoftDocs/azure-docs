@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Container Monitoring solution in Log Analytics

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Troubleshooting the Log Analytics VM extension

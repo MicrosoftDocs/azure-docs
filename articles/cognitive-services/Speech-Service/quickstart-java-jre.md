@@ -65,11 +65,11 @@ If you are using Ubuntu 16.04, before starting Eclipse, run the following comman
 
 1. Open the **pom.xml** file and edit it.
 
-   * At the end of the file, before the closing tag `</project>`, create a repositories section with a reference to the Maven repository for the Speech SDK, as shown here:
+   * At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK, as shown here:
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Also, add afterwards a dependencies section, with the Speech SDK version 1.0.0 as a dependency:
+  * Also add a `dependencies` element, with the Speech SDK version 1.0.0 as a dependency:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

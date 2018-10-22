@@ -53,7 +53,7 @@
   - name: Integrate with Event Grid
     href: ../event-grid/event-grid-event-hubs-integration.md
     maintainContext: true
-  - name: Managed Service Identity (preview)
+  - name: Managed identity for Azure resources
     href: event-hubs-managed-service-identity.md
   - name: Role-Based Access Control (preview)
     href: event-hubs-role-based-access-control.md

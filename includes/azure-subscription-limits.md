@@ -17,7 +17,6 @@
 | [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription <sup>2</sup> |100 |100 |
 | [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |20 |200 |
 | [Local networks](http://msdn.microsoft.com/library/jj157100.aspx) per subscription |10 |500 |
-| SQL Database servers per subscription |6 |200 |
 | DNS servers per subscription |9 |100 |
 | Reserved IPs per subscription |20 |100 |
 | Hosted service certificates per subscription |199 |199 |

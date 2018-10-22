@@ -283,7 +283,7 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> Set usage quota by key  
- The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota.  
+ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. When this policy is triggered the caller receives a `403 Forbidden` response status code.
   
  For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   

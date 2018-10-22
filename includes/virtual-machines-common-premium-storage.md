@@ -280,7 +280,7 @@ sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
 ```
 
-To activate the new drivers, restart the computer.
+To activate the new drivers, restart the VM.
 
 ## Pricing and billing
 

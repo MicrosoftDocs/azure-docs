@@ -17,6 +17,6 @@
 | URL Maps per listener |1 | |
 |Maximum URL length|8000|
 | Maximum file upload size Standard |2 GB | |
-| Maximum file upload size WAF |100 MB| |
+| Maximum file upload size WAF |Medium WAF Gateways - 100 MB<br>Large WAF Gateways - 500 MB| |
 |WAF body size limit (without files)|128 KB|
 

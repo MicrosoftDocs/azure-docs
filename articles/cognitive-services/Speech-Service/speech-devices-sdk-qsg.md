@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 # Get started with the Speech Devices SDK
 
-This article describes how to configure your development PC and Speech device development kit for developing speech-enabled devices by using the Speech Devices SDK. Then, you build and deploy a sample application to the device. 
+This article describes how to configure your development PC and Speech device development kit for developing speech-enabled devices by using the Speech Devices SDK. Then you build and deploy a sample application to the device. 
 
 The source code for the sample application is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -41,7 +41,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 ## Set up the development kit
 
-1. Connect the dev kit to a PC or power adapter by using a mini USB cable. When the dev kit is connected, a green power indicator lights up under the top board.
+1. Connect the development kit to a PC or power adapter by using a mini USB cable. When the kit is connected, a green power indicator lights up under the top board.
 
 1. Connect the development kit to a computer by using a second mini USB cable.
 
@@ -68,7 +68,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
    ```
 
     > [!NOTE]
-    > These commands use the Android Debug Bridge, adb.exe, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
+    > These commands use the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
 
     > [!TIP]
     > Mute your PC's microphone and speaker to be sure you are working with the development kit's microphones. This way, you won't accidentally trigger the device with audio from the PC.

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Collect data from CollectD on Linux agents in Log Analytics

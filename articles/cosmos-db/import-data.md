@@ -37,7 +37,9 @@ Before following the instructions in this article, ensure that you have the foll
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
-* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+* **Increase throughput:** The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+
+* **Create Azure Cosmos DB resources:** Before you start the migrating data, pre-create all your collections from the Azure portal. If you are migrating to an Azure Cosmos DB account that has database level throughput, make sure to provide a partition key when creating the Azure Cosmos DB collections.
 
 ## <a id="Overviewl"></a>Overview
 The Data Migration tool is an open-source solution that imports data to Azure Cosmos DB from a variety of sources, including:

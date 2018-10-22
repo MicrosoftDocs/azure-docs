@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Collect data in a hybrid environment with Log Analytics agent

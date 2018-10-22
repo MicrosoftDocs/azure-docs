@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/01/2018
 ms.author: douglasl
 
 ---
@@ -101,7 +101,7 @@ The following table describes names and descriptions of properties that are spec
 | linkedServiceName     | Linked Service to Azure Batch. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.  | Yes      |
 | command               | Command of the custom application to be executed. If the application is already available on the Azure Batch Pool Node, the resourceLinkedService and folderPath can be skipped. For example, you can specify the command to be `cmd /c dir`, which is natively supported by the Windows Batch Pool node. | Yes      |
 | resourceLinkedService | Azure Storage Linked Service to the Storage account where the custom application is stored | No       |
-| folderPath            | Path to the folder of the custom application and all its dependencies | No       |
+| folderPath            | Path to the folder of the custom application and all its dependencies<br/><br/>If you have dependencies stored in subfolders - that is, in a hierarchical folder structure under *folderPath* - the folder structure is currently flattened when the files are copied to Azure Batch. That is, all files are copied into a single folder with no subfolders. To work around this behavior, consider compressing the files, copying the compressed file, and then unzipping it with custom code in the desired location. | No       |
 | referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
 | extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
 

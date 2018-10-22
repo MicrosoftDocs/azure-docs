@@ -228,6 +228,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
 Modify the *Setup.bat* file properties to set **Copy to Output Directory** to "Copy if newer".
+
 ![Set file properties][image1]
 
 In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "SetCertAccess.ps1".  Edit the *SetCertAccess.ps1* file and add the following script:
@@ -277,8 +278,9 @@ if ($cert -eq $null)
     }
 }
 
-#Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 
 ### Run the setup script as a local administrator
 

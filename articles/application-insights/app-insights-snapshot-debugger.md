@@ -187,9 +187,12 @@ The following environments are supported:
 
 ## Grant permissions
 
-Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
+Access to snapshots is protected by role-based access control (RBAC). To inspect a snapshot, you must first be added to the necessary role by a subscription owner.
 
-To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
+> [!NOTE]
+> Owners and contributors do not automatically have this role. If they want to view snapshots, they must add themselves to the role.
+
+Subscription owners should assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
 1. Navigate to the Application Insights resource in the Azure portal.
 1. Click **Access Control (IAM)**.

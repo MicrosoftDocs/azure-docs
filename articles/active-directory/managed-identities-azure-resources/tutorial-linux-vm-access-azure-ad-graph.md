@@ -21,7 +21,7 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access the Azure AD Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access the Azure AD Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  
 
 For this tutorial, you will query your VM identity's membership in Azure AD groups. Group information is often used in authorization decisions. Under the covers, your VM's managed identity is represented by a **Service Principal** in Azure AD. 
 
@@ -57,7 +57,7 @@ az login
 
 ## Add your VM's identity to a group in Azure AD
 
-When you enabled system-assigned managed identity on the Linux VM, it created a service principal in Azure AD.  You need to add the the VM to a group. Refer to the following article for instructions on how to add your VM to a group in Azure AD:
+When you enabled system-assigned managed identity on the Linux VM, it created a service principal in Azure AD.  You need to add the VM to a group. Refer to the following article for instructions on how to add your VM to a group in Azure AD:
 
 - [Add group members](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add)
 

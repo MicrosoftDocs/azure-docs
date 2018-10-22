@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # How to troubleshoot issues with the Linux agent for Log Analytics

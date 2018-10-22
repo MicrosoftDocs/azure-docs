@@ -14,6 +14,8 @@ ms.author: wenya
 
 # Anomaly Detection Java application
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 This article demonstrates using a simple Java application to invoke the Anomaly Detection API.  
 The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and expected value for each data point from the API.
 

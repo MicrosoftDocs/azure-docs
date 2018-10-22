@@ -2,8 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure identity management
-    href: /azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Users, groups, licensing, and roles
+    href: directory-overview-user-model.md
 - name: Quickstarts
   items:
   - name: Add users to Azure AD

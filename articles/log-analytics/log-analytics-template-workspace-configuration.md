@@ -15,7 +15,7 @@ ms.devlang: json
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Manage Log Analytics using Azure Resource Manager templates

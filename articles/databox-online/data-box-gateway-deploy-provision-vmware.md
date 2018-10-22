@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: 
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
@@ -92,7 +92,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
 
-2. Log in to the ESXi server using the vSphere client. You need to have administrator privileges to create a virtual machine.
+2. Log in to the ESXi server using the vSphere web client. You need to have administrator privileges to create a virtual machine.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -100,7 +100,10 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. The datastore must be type VMFS 5. The datastore must also have enough free space for the OS and data disks.
+4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. 
+
+    - The datastore must be type VMFS5. 
+    - The datastore must also have enough free space for the OS and data disks.
    
 5. Right-click and select **Browse Datastore**.
 
@@ -141,11 +144,11 @@ Perform the following steps to provision a virtual device in your hypervisor.
 15. On the **Select storage** page, select a datastore you want to use to provision your VM. Click **Next**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose the type of **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned.
+16. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    On the same page, click **Add hard disk** and then select **Existing hard disk**. This adds an OS disk. 
+    On the same page, click **Add hard disk** and then select **Existing hard disk**. Select the VMDK file in the datastore. This will add an OS disk. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

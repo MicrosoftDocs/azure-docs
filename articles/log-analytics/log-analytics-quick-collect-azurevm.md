@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
+ms.component: 
 ---
 
 # Collect data about Azure Virtual Machines

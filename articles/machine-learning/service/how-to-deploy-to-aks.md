@@ -22,7 +22,7 @@ Deploying to AKS provides auto-scaling, logging, model data collection, and fast
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
+- An Azure Machine Learning service workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
 - A trained machine learning model. If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
@@ -119,7 +119,7 @@ print(aks_target.provisioning_errors)
 If you have existing AKS cluster in your Azure subscription, you can use it to deploy your image. The following code snippet demonstrates how to attach a cluster to your workspace. 
 
 > [!IMPORTANT]
-> Only AKS version 1.8.7 is supported.
+> Only AKS version 1.11.2 is supported.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties

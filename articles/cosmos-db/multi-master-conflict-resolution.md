@@ -154,7 +154,7 @@ The procedure has four parameters:
 
 * **conflictingDocuments:** specifies a collection of the committed version of all documents in the database, which are conflicting with incomingDocument on ID column or any other unique index fields. These documents will have different "rid" value when compared to the incomingDocument.
 
-The user-defined procedure has full access to the Cosmos DB partition key and can perform any store operations to resolve conflicts. If the user-defined procedure does not commit the conflict version, the system will drop the conflict and the existingDocument will remain committed. If the user-defined procedure fails or does not exist, Azure Cosmos DB will all add the conflict into the read-only conflicts feed where it can be processed asynchronously as shown in the [Asynchronous conflict resolution mode](). 
+The user-defined procedure has full access to the Cosmos DB partition key and can perform any store operations to resolve conflicts. If the user-defined procedure does not commit the conflict version, the system will drop the conflict and the existingDocument will remain committed. If the user-defined procedure fails or does not exist, Azure Cosmos DB will all add the conflict into the read-only conflicts feed where it can be processed asynchronously as shown in the [Asynchronous conflict resolution mode](#custom--asynchronous). 
 
 ### Custom – Asynchronous  
 

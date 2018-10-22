@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
+ms.component: 
 ---
 
 # Create and share dashboards of Log Analytics data

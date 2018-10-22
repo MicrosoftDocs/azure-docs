@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 09/24/2018
+ms.date: 10/01/2018
 ---
 
 # Deploy a model as a web service on an FPGA with Azure Machine Learning
@@ -20,7 +20,9 @@ You can deploy a model as a web service on [field programmable gate arrays (FPGA
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
+- You must request and be approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
+
+- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
  
   - Your workspace needs to be in the *East US 2* region.
 
@@ -43,11 +45,7 @@ Follow the instructions to:
 > [!IMPORTANT]
 > To optimize latency and throughput, your client should be in the same Azure region as the endpoint.  Currently the APIs are created in the East US Azure region.
 
-### Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `project-brainwave/project-brainwave-quickstart.ipynb` notebook:
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ### Preprocess image
 The first stage of the pipeline is to preprocess the images.
@@ -62,6 +60,7 @@ in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
 ```
+
 ### Add Featurizer
 Initialize the model and download a TensorFlow checkpoint of the quantized version of ResNet50 to be used as a featurizer.
 
@@ -313,3 +312,11 @@ Using either method causes gRPC to use the certificate as the root cert.
 
 > [!IMPORTANT]
 > gRPC does not accept untrusted certificates. Using an untrusted certificate will fail with an `Unavailable` status code. The details of the failure contain `Connection Failed`.
+
+## Sample notebook
+
+Concepts in this article are demonstrated in the `project-brainwave/project-brainwave-quickstart.ipynb` notebook.
+
+Get this notebook:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

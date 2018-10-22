@@ -11,20 +11,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 10/01/2018
 ---
 # Recover an Azure SQL database using automated database backups
-SQL Database provides these options for database recovery using [automated database backups](sql-database-automated-backups.md) and [backups in long-term retention](sql-database-long-term-retention.md). You can restore from a database backup to:
+By default, SQL Database backups are stored in geo-replicated blob storage (RA-GRS). The following options are available for database recovery using [automated database backups](sql-database-automated-backups.md):
 
-* A new database on the same logical server recovered to a specified point in time within the retention period. 
-* A database on the same logical server recovered to the deletion time for a deleted database.
-* A new database on any logical server in any region recovered to the point of the most recent daily backups in geo-replicated blob storage (RA-GRS).
+* Create a new database on the same logical server recovered to a specified point in time within the retention period. 
+* Create a database on the same logical server recovered to the deletion time for a deleted database.
+* Create a new database on any logical server in any region recovered to the point of the most recent backups.
+
+If you configured [backup long-term retention](sql-database-long-term-retention.md) you can also create a new database from any LTR backup on any logical server in any region.  
 
 > [!IMPORTANT]
 > You cannot overwrite an existing database during restore.
 >
 
-A restored database incurs an extra storage cost under the following conditions: 
+When using Standard or Premium service tier, a restored database incurs an extra storage cost under the following conditions: 
 - Restore of P11–P15 to S4-S12 or P1–P6 if the database max size is greater than 500 GB.
 - Restore of P1–P6 to S4-S12 if the database max size is greater than 250 GB.
 
@@ -84,6 +86,9 @@ To recover to a point in time using the Azure portal, open the page for your dat
 ## Deleted database restore
 You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). You can restore a deleted database to an earlier point in time during the retention using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
+> [!Note]
+> Restoring deleted database is not available in Managed Instance.
+
 > [!TIP]
 > For a sample PowerShell script showing how to restore a deleted database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
 >
@@ -103,6 +108,9 @@ To recover a deleted database during its [DTU-based model retention period](sql-
 
 ## Geo-restore
 You can restore a SQL database on any server in any Azure region from the most recent geo-replicated full and differential backups. Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. 
+
+> [!Note]
+> Geo-restoring is not available in Managed Instance.
 
 Geo-restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a differential backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. The following illustration shows restore of the database from the last available backup in another region.
 

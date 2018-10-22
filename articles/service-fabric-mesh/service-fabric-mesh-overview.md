@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords: 
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt 
@@ -13,6 +13,9 @@ manager: timlt
 ---
 
 # What is Service Fabric Mesh?
+
+This video provides a quick overview of Service Fabric Mesh.
+> [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. Applications hosted on Service Fabric Mesh run and scale without you worrying about the infrastructure powering it.  Service Fabric Mesh consists of clusters of thousands of machines.  All cluster operations are hidden from the developer. Simply upload your code and specify resources you need, availability requirements, and resource limits.  Service Fabric Mesh automatically allocates the infrastructure requested by your application deployment and also handles infrastructure failures, making sure your applications are highly available. You only need to care about the health and responsiveness of your application, not the infrastructure.  
 

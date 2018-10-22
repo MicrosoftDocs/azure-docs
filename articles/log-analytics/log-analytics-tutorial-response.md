@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
+ms.component: 
 ---
 
 # Respond to events with Azure Monitor Alerts

@@ -29,7 +29,7 @@ You can copy data from or to Azure SQL Database to any supported sink data store
 
 Specifically, this Azure SQL Database connector supports these functions:
 
-- Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or Managed Service Identity (MSI).
+- Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
 - As a sink, append data to a destination table or invoke a stored procedure with custom logic during the copy.
 
@@ -60,7 +60,7 @@ For different authentication types, refer to the following sections on prerequis
 
 - [SQL authentication](#sql-authentication)
 - [Azure AD application token authentication: Service principal](#service-principal-authentication)
-- [Azure AD application token authentication: Managed Service Identity](#managed-service-identity-authentication)
+- [Azure AD application token authentication: Managed identities for Azure resources](#managed-service-identity-authentication)
 
 >[!TIP]
 >If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
@@ -142,9 +142,9 @@ To use a service principal-based Azure AD application token authentication, foll
 }
 ```
 
-### Managed Service Identity authentication
+### Managed identities for Azure resources authentication
 
-A data factory can be associated with a [Managed Service Identity](data-factory-service-identity.md) that represents the specific data factory. You can use this service identity for Azure SQL Database authentication. The designated factory can access and copy data from or to your database by using this identity.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this service identity for Azure SQL Database authentication. The designated factory can access and copy data from or to your database by using this identity.
 
 To use MSI-based Azure AD application token authentication, follow these steps:
 

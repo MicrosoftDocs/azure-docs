@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Analyze Log Analytics data in Azure Monitor

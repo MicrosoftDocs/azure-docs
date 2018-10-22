@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/01/2018
 ms.author: douglasl
 ---
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
@@ -111,7 +111,7 @@ Here are the steps to set up an Azure Pipelines release so you can automate the 
     g. Select the **Incremental** Deployment Mode.
 
     > [!WARNING]
-    > If you select a deployment mode other than **Incremental**, existing resources may be deleted.
+    > If you select **Complete** deployment mode, existing resources may be deleted, including the target resource group.
 
 1.  Save the release pipeline.
 

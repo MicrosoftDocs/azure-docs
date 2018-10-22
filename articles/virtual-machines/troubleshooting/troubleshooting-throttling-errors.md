@@ -18,7 +18,7 @@ ms.author: vashan, rajraj, changov
 
 # Troubleshooting API throttling errors 
 
-Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure all the calls to the Azure Compute Resource Provider (CRP) that manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
+Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure all the calls to the Azure Compute Resource Provider (CRP), which manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
 
 ## Throttling by Azure Resource Manager vs Resource Providers  
 
@@ -36,7 +36,7 @@ When an Azure API client gets a throttling error, the HTTP status is 429 Too Man
 
 Note that an API request can be subjected to multiple throttling policies. There will be a separate `x-ms-ratelimit-remaining-resource` header for each policy. 
 
-Here is a sample response to delete a VM in a virtual machine scale set request.
+Here is a sample response to delete virtual machine scale set request.
 
 ```
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet3Min;107 
@@ -69,18 +69,18 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-The policy with remaining call count of 0 is the one due to which the throttling error is returned. In this case that is `HighCostGet30Min`. The overall format of the response body is the general Azure Resource Manager API error format (conformant with OData). The main error code, `OperationNotAllowed`, is the one Compute Resource Provider uses to report throttling errors (among other types of client errors). 
+The policy with remaining call count of 0 is the one due to which the throttling error is returned. In this case that is `HighCostGet30Min`. The overall format of the response body is the general Azure Resource Manager API error format (conformant with OData). The main error code, `OperationNotAllowed`, is the one Compute Resource Provider uses to report throttling errors (among other types of client errors). The `message` property of the inner error(s) contains a serialized JSON structure with the details of the throttling violation.
 
 As illustrated above, every throttling error includes the `Retry-After` header, which provides the minimum number of seconds the client should wait before retrying the request. 
 
 ## Best practices 
 
-- Do not retry Azure service API errors unconditionally. A common occurrence is for client code to get into a rapid retry loop when encountering an error that’s not retry-able. Retries will eventually exhaust the allowed call limit for the target operation’s group and impact other clients of the subscription. 
+- Do not retry Azure service API errors unconditionally and/or immediately. A common occurrence is for client code to get into a rapid retry loop when encountering an error that’s not retry-able. Retries will eventually exhaust the allowed call limit for the target operation’s group and impact other clients of the subscription. 
 - In high-volume API automation cases, consider implementing proactive client-side self-throttling when the available call count for a target operation group drops below some low threshold. 
 - When tracking async operations, respect the Retry-After header hints. 
-- If the client code needs information about a particular Virtual Machine, a query that VM directly instead of listing all VMs in the containing resource group or the entire subscription and then picking the needed VM on the client side. 
-- If client code needs VMs, disks and snapshots from a specific Azure location, use location-based form of the query instead of querying all subscription VMs and then filtering by location on the client side: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` and `/subscriptions/<subId>/providers/Microsoft.Compute/virtualMachines`  query to Compute Resource Provider regional endpoints. 
-•	When creating or updating API resources in particular, VMs and virtual machine scale sets, it is far more efficient to track the returned async operation to completion than do polling on the resource URL itself (based on the `provisioningState`).
+- If the client code needs information about a particular Virtual Machine, query that VM directly instead of listing all VMs in the containing resource group or the entire subscription and then picking the needed VM on the client side. 
+- If client code needs VMs, disks and snapshots from a specific Azure location, use location-based form of the query instead of querying all subscription VMs and then filtering by location on the client side: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` query to Compute Resource Provider regional endpoints. 
+-	When creating or updating API resources in particular, VMs and virtual machine scale sets, it is far more efficient to track the returned async operation to completion than do polling on the resource URL itself (based on the `provisioningState`).
 
 ## Next steps
 

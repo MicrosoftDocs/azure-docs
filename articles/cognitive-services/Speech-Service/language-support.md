@@ -26,16 +26,16 @@ The Microsoft speech recognition API supports the following languages. Different
  ca-ES | Catalan (Spain) | No | No | No
  da-DK | Danish (Denmark) | No | No | No
  de-DE | German (Germany) | Yes | Yes | No
- en-AU | English (Australia) | Yes | Yes | Yes
- en-CA | English (Canada) | Yes | Yes | Yes
- en-GB | English (United Kingdom) | Yes | Yes | Yes
- en-IN | English (India) | No | Yes | Yes
- en-NZ | English (New Zealand) | Yes | Yes | Yes  
+ en-AU | English (Australia) | No | Yes | Yes
+ en-CA | English (Canada) | No | Yes | Yes
+ en-GB | English (United Kingdom) | No | Yes | Yes
+ en-IN | English (India) | Yes | Yes | Yes
+ en-NZ | English (New Zealand) | No | Yes | Yes  
  en-US | English (United States) | Yes | Yes | Yes
- es-ES | Spanish (Spain) | Yes | Yes | No
- es-MX | Spanish (Mexico) | Yes | Yes | No
+ es-ES | Spanish (Spain) | No | Yes | No
+ es-MX | Spanish (Mexico) | No | Yes | No
  fi-FI | Finnish (Finland) | No | No | No
- fr-CA | French (Canada) | Yes | Yes | No
+ fr-CA | French (Canada) | No | Yes | No
  fr-FR | French (France) | Yes | Yes | No
  hi-IN | Hindi (India) | No | Yes | No
  it-IT | Italian (Italy) | Yes | Yes | No
@@ -46,7 +46,7 @@ The Microsoft speech recognition API supports the following languages. Different
  pl-PL | Polish (Poland) | No | No | No
  pt-BR | Portuguese (Brazil) | No | Yes | No
  pt-PT | Portuguese (Portugal) | No | Yes | No
- ru-RU | Russian (Russia) | No | Yes | No
+ ru-RU | Russian (Russia) | Yes | Yes | No
  sv-SE | Swedish (Sweden) | No | No | No
  zh-CN | Chinese (Mandarin, simplified) | Yes | Yes | No
  zh-HK | Chinese (Mandarin, Traditional) | No | Yes | No
@@ -156,8 +156,6 @@ Voice customization is available for US English (en-US), mainland Chinese (zh-CN
 ## Speech Translation
 
 The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the following Speech language table. The available target languages depend on whether the translation target is speech or text.
-
-You can obtain the list of languages programmatically by using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English, or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
 
 ### Speech languages
 

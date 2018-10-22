@@ -155,6 +155,7 @@ For the local cluster, `Fabric_NodeIPOrFQDN` is set to "localhost" by default. S
 ## Next steps
 * [Set up and configure reverse proxy on a cluster](service-fabric-reverseproxy-setup.md).
 * [Set up forwarding to secure HTTP service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)
+* [Diagose reverse proxy events](service-fabric-reverse-proxy-diagnostics.md)
 * See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)

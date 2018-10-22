@@ -21,7 +21,7 @@ ms.reviewer: jerskine
 
 # Validate ADFS integration for Azure Stack
 
-Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your environment is ready for ADFS integration with Azure Stack. It is recommended to validate ADFS integration before you begin data center integration or before an Azure Stack deployment.
+Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your environment is ready for ADFS integration with Azure Stack. You should validate ADFS integration before you begin data center integration or before an Azure Stack deployment.
 
 The readiness checker validates:
 
@@ -48,7 +48,7 @@ The following prerequisites must be in place.
 
 **Active Directory Federation Services environment:**
 
-You need one of the following:
+You need at least one of the following forms of metadata:
 
 * The URL for ADFS federation metadata. For example, `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 * The federation metadata XML file. For example, FederationMetadata.xml
@@ -102,8 +102,7 @@ By default, both files are written to
 Use:
 
 * **-OutputPath** *path* parameter at the end of the run command line to specify a different report location.
-* **-CleanReport** parameter at the end of the run command to clear *AzsReadinessCheckerReport.json* of previous report information. For more information, see [Azure Stack validation
-    report](azure-stack-validation-report).
+* **-CleanReport** parameter at the end of the run command to clear *AzsReadinessCheckerReport.json* of previous report information. For more information, see [Azure Stack validation report](azure-stack-validation-report.md).
 
 ## Validation failures
 

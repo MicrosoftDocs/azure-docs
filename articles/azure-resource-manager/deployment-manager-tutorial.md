@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ms.topic: tutorial
 ms.author: jgao
 
@@ -256,7 +256,7 @@ The following screenshot only shows some parts of the rollout definition:
 - **targetServiceTopologyId**: used to associate the service topology resource to the rollout resource.
 - **deploymentTargetId**: It is the service unit resource ID of the service topology resource.
 - **preDeploymentSteps** and **postDeploymentSteps**: contains the rollout steps. In the template, a wait step is called.
-- **dependsOnStepGroup**: configure the dependencies between the step groups.
+- **dependsOnStepGroups**: configure the dependencies between the step groups.
 
 ### Rollout parameters file
 
