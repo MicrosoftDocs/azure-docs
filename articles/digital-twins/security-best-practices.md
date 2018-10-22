@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/22/2018
 ms.author: adgera
 ---
 
@@ -21,7 +21,7 @@ This article summarizes key best practices to follow.
 > [!IMPORTANT]
 > Review additional security resources (including your device vendors) to ensure maximal security for your IoT space.
 
-## IoT Security best practices
+## IoT security best practices
 
 Some key practices to safely secure your IoT devices include:
 
@@ -50,7 +50,7 @@ Azure Digital Twins uses Azure Active Directory to authenticate users and protec
 
 > [!div class="checklist"]
 > * Store Azure Active Directory app secrets and keys in a secure location such as [Key Vault](https://azure.microsoft.com/services/key-vault/).
-> * Use a certificate issued by a trusted [Certificate Authorities](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) rather than app secrets to authenticate.
+> * Use a certificate issued by a trusted [Certificate Authority](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) rather than app secrets to authenticate.
 > * Limit OAuth 2.0 scope of access for a token.
 > * Verify the length of time a token is valid and whether a token remains valid.
 > * Set appropriate lengths of time that tokens are valid for.
