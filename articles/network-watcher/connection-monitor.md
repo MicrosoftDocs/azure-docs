@@ -160,10 +160,12 @@ The list of available signals is automatically filtered based on the resource th
 
 1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
 2. Click **Select target**, and then select the resources that you want to target. Use **Subscription** and **Resource type** to generate a list of resources to monitor. You can also filter the results to find your resource.
-3. If the selected resource has metrics you can create alerts on, [**Available signals** on the bottom right displays metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported).
+  
+    ![alert screen with target selected]((../log-analytics/media/log-analytics-tutorial-response/alert-rule-03.png))
+3. If the selected resource has metrics on which you can create alerts, [**Available signals** on the bottom right displays metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported).
 4. Once you have selected a target resource, select **Add criteria**. You see a list of signals supported for the resource. Select the metric on which you want to create an alert.
 5. When you select a metric, you see a chart for the metric for the last 6 hours. Define **Period**, **Frequency**, **Operator** and **Threshold** to detrrmine the logic that the metric alert rule evaluates.
-6. If the metric has dimensions, you see **Dimensions** table presented. Select one or more values per dimension. The metric alert evaluates the condition for [all combinations of values selected](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric-overview)). Select \* to dynamically scale the selection to all current and future values for a dimension.
+6. If the metric has dimensions, you see **Dimensions** table presented. Select [one or more values per dimension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric-overview). Select \* to dynamically scale the selection to all current and future values for a dimension.
 7. Fill in alert details like alert rule name, description and severity, or add an action group to the alert to automate and customize the alert response, and then select **Done** to save the metric alert rule.
 
 ## Clean up resources
