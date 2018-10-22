@@ -189,7 +189,7 @@ To enable metrics and diagnostics logging by using PowerShell, use the following
 
 You can combine these parameters to enable multiple output options.
 
-### To configure multiple Azure resources
+### To configure multiple Azure subscriptions
 
 To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
