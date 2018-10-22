@@ -3,13 +3,12 @@ title: Choosing the right consistency level for your application | Microsoft Doc
 description: Choosing the right consistency level for your application in Azure Cosmos DB.
 keywords: consistency, performance, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: sngun
-manager: kfile
+author: markjbrown
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 10/23/2018
 ms.author: mjbrown
 
 ---
@@ -39,12 +38,12 @@ When the consistency level is set to **strong**, the staleness window is equival
 
 For the remaining three consistency levels, the staleness window is largely dependent on your workload. For example, if there are no writes happening on the database, a read operation with **eventual**, **session**, or **consistent prefix** consistency levels is likely to yield the same results as a read operation with strong consistency level.
 
-If your Cosmos DB account is configured with any consistency level other than the strong consistency, you can find out the probability of your clients to get strongly consistent (linearizable) reads for your workload(s) by looking at the Probabilistic Bounded Staleness (PBS) metric exposed in the Azure portal [See here for how to use the PBS metric](tbd.md). Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you get a stronger consistency than the consistency level that you have configured on your Cosmos DB account. In other words, you can see the probability of (depicted in milliseconds) getting strongly consistent reads for a combination of a write and read regions.
+If your Cosmos DB account is configured with any consistency level other than the strong consistency, you can find out the probability of your clients to get strongly consistent (linearizable) reads for your workload(s) by looking at the Probabilistic Bounded Staleness (PBS) metric exposed in the Azure portal [See here for how to use the PBS metric](how-to-manage-consistency.md#pbs-metric). Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you get a stronger consistency than the consistency level that you have configured on your Cosmos DB account. In other words, you can see the probability of (depicted in milliseconds) getting strongly consistent reads for a combination of a write and read regions.
 
 ## Next Steps
 
 Read more about the topic in the following articles:
 
 - [How to manage the session token for your application](how-to-manage-consistency.md#Utilize-session-tokens)
-- [How to use the PBS metric](tbd.md)
+- [How to use the PBS metric](how-to-manage-consistency.md#pbs-metric)
 - [Consistency Levels and choice of Cosmos DB API](consistency-levels-across-apis.md)
