@@ -32,5 +32,5 @@ A script uses the following commands. Each command in the table links to command
 |---|---|
 | [az group create](overview-what-is-azure-ml.md) | Creates a resource group in which all resources are stored. |
 
-## Next steps
+## Next steps 
 - Read more information on the Azure CLI: [Azure CLI documentation](overview-what-is-azure-ml.md)
