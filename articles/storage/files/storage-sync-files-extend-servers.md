@@ -46,9 +46,6 @@ On your local computer, create a new folder named *FilesToSync* and add a text f
 Next, you create a file share.
 
 1. When the Azure storage account deployment is complete, click **Go to resource**.
-
-    ![Storage Account blade](./media/storage-sync-files-extend-servers/storage-acct-complete-go-to-resource.png)
-
 1. Click **Files** from the storage account pane.
 
     ![Click Files](./media/storage-sync-files-extend-servers/click-files.png)
