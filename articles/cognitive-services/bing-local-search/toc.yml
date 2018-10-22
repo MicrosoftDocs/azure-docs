@@ -11,6 +11,8 @@
     href: local-search-query-response.md
   - name: Geographic search boundaries
     href: specify-geographic-search.md
+  - name: Local categories search
+    href: local-categories.md
 - name: Quickstarts  
   expanded: true
   items:
