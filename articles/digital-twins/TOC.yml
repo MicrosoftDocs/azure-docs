@@ -56,6 +56,8 @@
     href: how-to-use-swagger.md
   - name: How to debug user-defined functions
     href: how-to-diagnose-user-defined-functions.md
+  - name: How to configure monitoring
+    href: how-to-configure-monitoring.md
 #- name: Reference
 #  items:
 - name: Related
