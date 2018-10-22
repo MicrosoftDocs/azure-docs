@@ -70,7 +70,7 @@ ms.author: mtillman
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
+                                                                    <h3><a href="/learn/">Build your skills with Microsoft Learn</a></h3> 
 																	<p>
 																	    <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Secure your Azure resources with conditional access</a><br>
                                                                         <a href="/learn/browse/?products=azure-active-directory">More interactive learning...</a><br>
@@ -102,14 +102,14 @@ ms.author: mtillman
                                                             <a href="authentication/concept-registration-mfa-sspr-converged.md">Converged registration for MFA and SSPR</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="b2b/index.yml">Business to business (B2B)</a></h3>
+                                                        <h3><a href="b2b/index.yml">Business-to-Business (B2B)</a></h3>
                                                         <p>
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Add guest users in the portal</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">Bulk invite guest users</a><br>
                                                             <a href="b2b/b2b-tutorial-require-mfa.md">Require MFA for guest users</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="/azure/active-directory-b2c/index">Business to consumer (B2C)</a></h3>
+                                                        <h3><a href="/azure/active-directory-b2c/index">Business-to-Customer (B2C)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create an Azure AD B2C tenant</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Enable a web app to authenticate</a><br>

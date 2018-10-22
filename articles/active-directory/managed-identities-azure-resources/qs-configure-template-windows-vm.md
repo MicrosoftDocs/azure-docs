@@ -68,7 +68,7 @@ In this section, you will enable and disable a system-assigned managed identity 
 3. (Optional) Add the VM managed identities for Azure resources extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
-   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements. The VM extension is planned for deprecation in January 2019.
+   > The following examples assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements. The VM extension is planned for deprecation in January 2019.
    >
 
    ```JSON
@@ -109,7 +109,7 @@ In this section, you will enable and disable a system-assigned managed identity 
             },
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -294,7 +294,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -331,7 +331,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [

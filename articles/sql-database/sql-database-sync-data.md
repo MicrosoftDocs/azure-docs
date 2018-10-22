@@ -146,7 +146,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | **Dimensions**                                                      | **Limit**              | **Workaround**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximum number of sync groups any database can belong to.       | 5                      |                             |
-| Maximum number of endpoints in a single sync group              | 30                     | Create multiple sync groups |
+| Maximum number of endpoints in a single sync group              | 30                     |                             |
 | Maximum number of on-premises endpoints in a single sync group. | 5                      | Create multiple sync groups |
 | Database, table, schema, and column names                       | 50 characters per name |                             |
 | Tables in a sync group                                          | 500                    | Create multiple sync groups |
@@ -154,6 +154,8 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | Data row size on a table                                        | 24 Mb                  |                             |
 | Minimum sync interval                                           | 5 Minutes              |                             |
 |||
+> [!NOTE]
+> There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.
 
 ## FAQ about SQL Data Sync
 
