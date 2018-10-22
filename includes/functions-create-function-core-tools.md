@@ -6,7 +6,7 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/16/2018
+ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
 ---
@@ -19,10 +19,8 @@ The following command creates an HTTP-triggered function named `MyHtpTrigger`.
 func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 
-When the command executes, you see something like the following output, which in this case is for a JavaScript function:
+When the command executes, you see something like the following output:
 
 ```output
-Writing MyFunctionProj/MyHttpTrigger/index.js
-Writing MyFunctionProj/MyHttpTrigger/sample.dat
-Writing MyFunctionProj/MyHttpTrigger/function.json
+The function "MyHttpTrigger" was created successfully from the "HttpTrigger" template.
 ```

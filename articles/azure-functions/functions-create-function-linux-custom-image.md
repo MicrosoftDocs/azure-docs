@@ -5,7 +5,7 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 11/15/2017
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
@@ -97,7 +97,7 @@ COPY . /home/site/wwwroot
 > [!NOTE]
 > When hosting an image in a private container registry, you should add the connection settings to the function app by using **ENV** variables in the Dockerfile. Because this tutorial cannot guarantee that you use a private registry, the connection settings are [added after the deployment by using the Azure CLI](#configure-the-function-app) as a security best practice.
 
-### Run the Build command
+### Run the `build` command
 In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `mydockerimage`, and tag, `v1.0.0`. Replace `<docker-id>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```bash
