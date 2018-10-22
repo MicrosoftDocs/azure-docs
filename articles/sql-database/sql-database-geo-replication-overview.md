@@ -1,6 +1,6 @@
 ---
 title: Failover groups and active geo-replication - Azure SQL Database | Microsoft Docs
-description: Use auto-failover groups with active geo-replication and enable autoomatic failover in the event of an outage.
+description: Use auto-failover groups with active geo-replication and enable automatic failover in the event of an outage.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/19/2018
 ---
 # Overview: Active geo-replication and auto-failover groups
 
@@ -273,8 +273,8 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | API | Description |
 | --- | --- |
-| [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Creates, updates, or restores a primary or a secondary database. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Returns the status during a create operation. |
+| [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Creates, updates, or restores a primary or a secondary database. |
+| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Returns the status during a create operation. |
 | [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Sets which replica database is primary by failing over from the current primary replica database. |
 | [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
 | [Get Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
