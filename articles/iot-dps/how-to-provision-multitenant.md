@@ -216,7 +216,7 @@ In this section, you will clone the Azure IoT C SDK on each VM. The SDK contains
 1. For both VMs, run the following command, which builds a version of the SDK specific to your development client platform. 
 
     ```bash
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
 
     Once the build succeeds, the last few output lines will look similar to the following output:
