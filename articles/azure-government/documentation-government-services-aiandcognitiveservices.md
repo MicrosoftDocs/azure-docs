@@ -34,7 +34,7 @@ The following Cognitive Services are generally available in Azure Government:
 
 #### Computer Vision
 
-**Computer Vision** variations in Azure Government:
+Variations in Azure Government:
 
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/vision/v2.0/
 - Available SKUs: S1
@@ -43,7 +43,7 @@ For more information, see the [global Azure documentation](../cognitive-services
  
 #### Face
 
-**Face** variations in Azure Government:
+Variations in Azure Government:
 
 - Endpoint: https://virginia.api.cognitive.microsoft.us/face/v1.0/
 - Available SKUs: S0
@@ -52,7 +52,7 @@ For more information, see the [global Azure documentation](../cognitive-services
 
 #### Content Moderator
 
-**Content Moderator** variations in Azure Government:
+Variations in Azure Government:
 
 - Endpoint: https://virginia.api.cognitive.microsoft.us/contentmoderator
 - The Review UI and Review APIs are not available at this time
@@ -64,7 +64,7 @@ For more information, see the [global Azure documentation](../cognitive-services
  
 #### Translator Text (Text Translation): 
 
-**Translator** variations in Azure Government:
+Variations in Azure Government:
 
 - Endpoint:  https://api.cognitive.microsofttranslator.us
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
@@ -75,7 +75,7 @@ For more information, see the [global Azure documentation](../cognitive-services
 
 #### Language Understanding (LUIS)
 
-**Language Understanding** variations in Azure Government:
+Variations in Azure Government:
 
 - Endpoint: https://virginia.api.cognitive.microsoft.us/luis/v2.0
 - LUIS portal: https://luis.azure.us
@@ -88,7 +88,7 @@ For more information, see [global Azure documentation](../cognitive-services/lui
 
 #### Translator Speech (Speech Translation)
 
-**Translator Speech** variations in Azure Government:
+Variations in Azure Government:
 
 - Endpoint: https://docs.microsoft.com/azure/cognitive-services/translator-speech/
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
