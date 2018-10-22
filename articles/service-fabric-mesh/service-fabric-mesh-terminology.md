@@ -16,7 +16,7 @@ Azure Service Fabric Mesh is a fully managed service that enables developers to 
 
 ## Service Fabric
 
-Service Fabric is an open source distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is the orchestrator that powers Service Fabric Mesh. Service Fabric provides options for how you can build and run your microservices applications. You can use any framework to write your services and choose where to run the application from multiple environment choices.
+[Service Fabric](/azure/service-fabric/) is an open source distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is the orchestrator that powers Service Fabric Mesh. Service Fabric provides options for how you can build and run your microservices applications. You can use any framework to write your services and choose where to run the application from multiple environment choices.
 
 ## Deployment and application models 
 
@@ -34,7 +34,7 @@ The native application model provides your applications with full low-level acce
 
 The native model supports the Reliable Services framework, which provides access to the Service Fabric runtime APIs and cluster management APIs in C# and Java. The native model also supports arbitrary containers and executables.
 
-The native model is not supported in the Service Fabric Mesh environment.
+The native model is not supported in the Service Fabric Mesh environment.  For more information, see [programming model overview](/azure/service-fabric/service-fabric-choose-framework).
 
 ### Docker Compose 
 [Docker Compose](https://docs.docker.com/compose/) is part of the Docker project. Service Fabric provides limited support for deploying applications using the Docker Compose model.
