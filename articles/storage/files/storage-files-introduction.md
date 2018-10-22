@@ -10,7 +10,7 @@ ms.author: renash
 ms.component: files
 ---
 
-# Introduction to Azure Files
+# What is Azure Files?
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
 
 ## Videos
