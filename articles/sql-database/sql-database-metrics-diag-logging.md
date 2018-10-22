@@ -48,7 +48,7 @@ You can provision a new Azure resource or select an existing resource. After sel
 
 Elastic pools and Managed Instances as resource containers of databases have its own diagnostics telemetry. Please note this telemetry is separate from database diagnostics telemetry. Diagnostics telemetry for elastic pools and Managed Instances is not enabled by default.
 
-### Configure diagnostics telemetry for elastic pools
+### Configure streaming of diagnostics telemetry for elastic pools
 
 The following diagnostics telemetry is available for collection for elastic pools resource:
 
@@ -56,7 +56,7 @@ The following diagnostics telemetry is available for collection for elastic pool
 | :------------------- | ------------------- |
 | **Elastic pool** | [All metrics](sql-database-metrics-diag-logging.md#all-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
 
-To enable diagnostics telemetry for **elastic pool resource**, follow these steps:
+To enable streaming of diagnostics telemetry for **elastic pool resource**, follow these steps:
 
 - Go to the elastic pool resource in Azure portal
 - Select **Diagnostics settings**
@@ -69,7 +69,7 @@ To enable diagnostics telemetry for **elastic pool resource**, follow these step
 
 Repeat the above steps for each elastic pool you wish to monitor.
 
-### Configure diagnostics telemetry for Managed Instance
+### Configure streaming of diagnostics telemetry for Managed Instance
 
 The following diagnostics telemetry is available for collection for Managed Instance resource:
 
@@ -77,7 +77,7 @@ The following diagnostics telemetry is available for collection for Managed Inst
 | :------------------- | ------------------- |
 | **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. |
 
-To enable diagnostics telemetry for **Managed Instance resource**, follow these steps:
+To enable streaming of diagnostics telemetry for **Managed Instance resource**, follow these steps:
 
 - Go to the Managed Instance resource in Azure portal
 - Select **Diagnostics settings**
@@ -94,7 +94,7 @@ Repeat the above steps for each Managed Instance you wish to monitor.
 
 Metrics and diagnostics logging on SQL Database, or Managed Instance database is not enabled by default.
 
-The following diagnostics telemetry is available for collection for Azure SQL Databases and databases in Managed Instance:
+The following diagnostics telemetry is available for collection for Azure SQL Databases, and databases in Managed Instance:
 
 | Monitoring telemetry for databases | Azure SQL Database support | Database in Managed Instance support |
 | :------------------- | ------------------- | ------------------- |
@@ -109,11 +109,11 @@ The following diagnostics telemetry is available for collection for Azure SQL Da
 
 ### Azure portal
 
-Streaming of diagnostics telemetry for Azure SQL Database, and databases in Managed Instance to Azure storage, event hubs, or Log Analytics is configured through Diagnostics settings menu for each of databases in Azure portal.
+Streaming of diagnostics telemetry for Azure SQL Database, and databases in Managed Instance to destinations Azure storage, event hubs, or Log Analytics is configured through Diagnostics settings menu for each of databases in Azure portal.
 
-### Configure diagnostics telemetry for Azure SQL Database
+### Configure streaming of diagnostics telemetry for Azure SQL Database
 
-To enable diagnostics telemetry for **Azure SQL Database**, follow these steps:
+To enable streaming of diagnostics telemetry for **Azure SQL Database**, follow these steps:
 
 - Go to your Azure SQL Database resource
 - Select **Diagnostics settings**
@@ -136,9 +136,9 @@ Repeat the above steps for each Azure SQL Database you wish to monitor.
 > Audit log cannot be enabled from database Diagnostics settings, even though the option is shown. To enable Audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2)
 >
 
-### Configure diagnostics telemetry for databases in Managed Instance
+### Configure streaming of diagnostics telemetry for databases in Managed Instance
 
-To enable diagnostics telemetry for **databases in Managed Instance**, follow these steps:
+To enable streaming of diagnostics telemetry for **databases in Managed Instance**, follow these steps:
 
 - Go to your database in Managed Instance
 - Select **Diagnostics settings**
