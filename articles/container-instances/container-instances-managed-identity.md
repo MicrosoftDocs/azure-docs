@@ -343,6 +343,7 @@ identity:
   userAssignedIdentities:
    {'myResourceID1':{}}
 ```
+
 ## Next steps
 
 In this article, you learned about managed identities in Azure Container Instances and how to:
@@ -354,4 +355,4 @@ In this article, you learned about managed identities in Azure Container Instanc
 
 * Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
 
-* Try other ways to use a managed identity to authenticate to Azure services using a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
+* See an [Azure Go SDK example](https://medium.com/@samkreter/c98911206328) of using a managed identity to access a Key Vault from Azure Container Instances.
