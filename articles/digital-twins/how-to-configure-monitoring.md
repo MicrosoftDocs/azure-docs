@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 10/22/2018
 ms.author: adgera
 ---
 
@@ -102,6 +102,9 @@ Once your **Log Analytics** instance is provisioned, you may use powerful querie
    ![Log management][8]
 
 For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+
+> [!NOTE]
+> You may experience a 5 minute delay when sending events to **Log Analytics** for the first time.
 
 Azure Log Analytics also provides powerful error and alert notification services, which can be viewed by clicking **Diagnose and solve problems**:
 
