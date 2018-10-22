@@ -20,34 +20,38 @@ ms.custom: include file
 
 ## Register your application
 
-There are multiple ways to create an application, please select one of them:
+There are multiple ways to register an application. Select the option that best fits your needs:
+* [Express mode - Use the SPA quickstart to configure the app](#option-1-register-your-application-express-mode)
+* [Advanced mode - Manually configure the app settings](#option-2-register-your-application-advanced-mode)
 
 ### Option 1: Register your application (Express mode)
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) to register an application.
+1. Sign in to the [Azure portal](https://portal.azure.com/) to register an application.
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
 1. When the **Register an application** page appears, enter a name for your application.
 1. Under **Supported Microsoft accounts**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. When finished, select **Register**.
-1. In the left-hand navigation pane of the registered application, select **Quickstart**. Under **Single page applications**, select **JavaScript**.
-1. Follow the instructions to configure the application, obtain the Application ID and paste it into your code.
+1. In the left-hand navigation pane of the registered application, select **Quickstart**. 
+1. Under **Single page applications**, select **JavaScript**.
+1. Follow the instructions to configure the application. Copy the Application ID and paste it into your code.
 
 ### Option 2: Register your application (Advanced mode)
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) to register an application.
+1. Sign in to the [Azure portal](https://portal.azure.com/) to register an application.
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
 1. When the **Register an application** page appears, enter a name for your application.
 1. Under **Supported Microsoft accounts**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. Select the **Web** platform under the **Redirect URI** section and set the value to the application's URL based on your web server. See the sections below for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
-1. When finished, select **Register**.  On the app **Overview** page, note down the **Application ID** value.
-1. This quickstart requires the [Implicit grant flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
-1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and Access tokens are required since this app needs to sign in users and call an API.
+1. Under the **Redirect URI** section, select the **Web** platform and set the value to the application's URL based on your web server. See the sections below for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
+1. When finished, select **Register**. 
+1. On the app **Overview** page, note down the **Application ID** value.
+1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
+1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and access tokens are required since this app needs to sign in users and call an API.
 1. Select **Save**.
 
-> #### Setting Redirect URL for Node
-> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
+> #### Setting the redirect URL for Node
+> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but you can use any other available port. Follow the instructions below to set up a redirect URL in the application registration information:<br/>
 > - Switch back to the *Application Registration* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number).
 
 <p/>
@@ -72,6 +76,6 @@ var applicationConfig = {
 ```
 <ol start="3">
 <li>
-Replace <code>Enter the application Id here</code> with the Application ID you just registered.
+Replace <code>Enter the application Id here</code> with the application ID you just registered.
 </li>
 </ol>
