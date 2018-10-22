@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/21/2018
 ms.author: jeedes
 
 ---
@@ -108,15 +108,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| |
 	| -- |
 	| `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-	| `https://dmarcian.com-eu/sso/saml/<ACCOUNT_ID>/sp.xml ` |
-	| `https://dmarcian.com-ap/sso/saml/<ACCOUNT_ID>/sp.xml` |
+	| `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+	| `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
 	| |
 	|--|
 	| `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-	| `https://dmarcian.com-eu/login/<ACCOUNT_ID>/handle/ `|
-	| `https://dmarcian.com-ap/login/<ACCOUNT_ID>/handle/`|
+	| `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
+	| `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -126,8 +126,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| |
 	|--|
 	| `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
-	| `https://dmarcian.com-eu/login/<ACCOUNT_ID>` |
-	| `https://dmarcian.com-ap/login/<ACCOUNT_ID>` |
+	| `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
+	| `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
 	 
 	> [!NOTE] 
 	> These values are not real. You will update these values with the actual Identifier, Reply URL and Sign-On URL which is explained later in the tutorial. 

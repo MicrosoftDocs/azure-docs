@@ -11,8 +11,7 @@
 # Get started
 ## [Using Azure Portal](data-lake-store-get-started-portal.md)
 ## [Using Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-
+## [Using Azure CLI](data-lake-store-get-started-cli-2.0.md)
 
 # How to
 ## Load and move data
@@ -29,6 +28,7 @@
 ### [Access control](data-lake-store-access-control.md)
 ### [Securing stored data](data-lake-store-secure-data.md)
 ### [Encryption](data-lake-store-encryption.md)
+### [Virtual network integration (preview)](data-lake-store-network-security.md)
 
 ## Authenticate with Data Lake Storage Gen1
 ### [Authentication options](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -59,7 +59,7 @@
 ### [Using Azure PowerShell](data-lake-store-performance-tuning-powershell.md)
 ### [Using Spark on HDInsight](data-lake-store-performance-tuning-spark.md)
 ### [Using Hive on HDInsight](data-lake-store-performance-tuning-hive.md)
-### [Using on HDInsight](data-lake-store-performance-tuning-mapreduce.md)
+### [Using MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)
 ### [Using Storm on HDInsight](data-lake-store-performance-tuning-storm.md)
 
 ## Integrate with Azure services

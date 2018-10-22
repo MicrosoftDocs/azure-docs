@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
 
 ---
 
-## What is Azure Monitor for VMs?
+# What is Azure Monitor for VMs?
 
 Azure Monitor for VMs monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  It includes three key features to deliver this in-depth insight:
 
@@ -54,4 +54,4 @@ As soon as you onboard Azure Monitor for VMs, data collected by your VMs is inge
 The log size varies based on string lengths of counters and can increase with the number of logical disks and network adapters.  If you already have a workspace and are collecting these counters, there will not be any duplicate charges applied.  If you are already using Service Map, the only change you’ll see is the additional connection data being sent to Azure Monitor.​
 
 ## Next steps
-[Onboard Azure Monitor for VMs](monitoring-vminsights-onboard.md) to begin monitoring your Azure virtual machines.
+Review [Onboard Azure Monitor for VMs](monitoring-vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.

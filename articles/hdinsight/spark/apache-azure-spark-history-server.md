@@ -291,7 +291,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 **Example**:
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar` 
 
 **To use the bash file from Azure portal**
 

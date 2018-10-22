@@ -2,12 +2,16 @@
 title: Azure SQL Elastic Database Jobs | Microsoft Docs
 description: 'Use Elastic Database Jobs to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: overview
-ms.date: 07/26/2018
+author: srinia
 ms.author: srinia
+ms.reviewer: 
+manager: craigg
+ms.date: 07/26/2018
 ---
 # Manage groups of databases with Elastic Database Jobs
 

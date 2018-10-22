@@ -106,11 +106,6 @@ A super-user has the most rights of all the users in the Data Lake Storage Gen1 
 
 All users that are part of the **Owners** role for a Data Lake Storage Gen1 account are automatically a super-user.
 
-If you want to create a custom role-based-access control (RBAC) role that has super-user permissions, it needs to have the following permissions:
-- Microsoft.DataLakeStore/accounts/Superuser/action
-- Microsoft.Authorization/roleAssignments/write
-
-
 ### The owning user
 
 The user who created the item is automatically the owning user of the item. An owning user can:

@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
@@ -141,14 +141,6 @@ if($s)
  |Cloud|IdentityProvider|OnboardRP|     |	
  |Cluster|iDns|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Collect logs using a graphical user interface
-Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub tools repository at http://aka.ms/AzureStackTools.
-
-The **ERCS_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. To ensure that you have the latest version available, you should download it directly from http://aka.ms/ERCS. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script defaults to prompting for parameters via a graphical user interface.
-
-To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script, you can watch [a short video](https://www.youtube.com/watch?v=Utt7pLsXEBc) or view the script’s [readme file](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) located in the Azure Stack tools GitHub repository. 
 
 ### Additional considerations
 

@@ -33,7 +33,7 @@ If you are creating a production cluster to run production workloads, we recomme
 In this article, use the Service Fabric RM powershell or Azure CLI modules to deploy a cluster:
 
 * [Azure PowerShell 4.1 and above][azure-powershell]
-* [Azure CLI 2.0 and above][azure-CLI]
+* [Azure CLI version 2.0 and above][azure-CLI]
 
 You can find the reference documentation for the Service Fabric modules here:
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)

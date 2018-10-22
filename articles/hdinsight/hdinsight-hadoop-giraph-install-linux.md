@@ -54,7 +54,7 @@ This section provides instructions on how to use the sample script while creatin
 > [!NOTE]
 > A script action can be applied using any of the following methods:
 > * Azure PowerShell
-> * The Azure CLI
+> * The Azure Classic CLI
 > * The HDInsight .NET SDK
 > * Azure Resource Manager templates
 > 

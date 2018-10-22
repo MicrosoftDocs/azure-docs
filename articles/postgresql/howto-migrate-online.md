@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/11/2018
 ---
 
 # Minimal-downtime migration to Azure Database for PostgreSQL
@@ -23,4 +23,4 @@ DMS migration of PostgreSQL sources is currently in preview. If you would like t
 
 ## Next steps
 - View the video [App Modernization with Microsoft Azure](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102), which contains a demo showing how to migrate PostgreSQL apps to Azure Database for PostgreSQL.
-- Sign up for limited preview of minimal-downtime migrations of PostgreSQL to Azure Database for PostgreSQL via the Azure DMS [preview page](https://aka.ms/dms-preview).
+- See the tutorial [Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).

@@ -132,13 +132,16 @@ No, when the new disk is created it is a full standalone copy of that blob at th
 
 For managed disks you cannot rename them. However, you may rename an unmanaged disk as long as it is not currently attached to a VHD or VM.
 
-## Standard SSD disks (Preview)
+## Standard SSD disks
 
 **What are Azure Standard SSD disks?**
-Standard SSD disks are standard disks backed by solid-state media, optimized as cost effective storage for workloads that need consistent performance at lower IOPS levels. In preview, they are available in a limited number of regions, with limited manageability (available through Resource Manager templates).
+Standard SSD disks are standard disks backed by solid-state media, optimized as cost effective storage for workloads that need consistent performance at lower IOPS levels.
 
 <a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks?**
 All Azure regions now support Standard SSD disks.
+
+**Is Azure Backup available when using Standard SSDs?**
+Yes, Azure Backup is now available.
 
 **How do I create Standard SSD disks?**
 You can create Standard SSD disks using Azure Resource Manager templates, SDK, PowerShell or CLI. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
@@ -163,7 +166,7 @@ The following example shows the *properties.storageProfile.osDisk* section for a
 For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Can I convert my existing disks to Standard SSD?**
-Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
+Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
     -AccountType StandardSSD_LRS
 
 **What is the benefit of using Standard SSD disks instead of HDD?**

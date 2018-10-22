@@ -9,7 +9,7 @@ ms.date: 08/23/2018
 ms.author: robinsh
 ---
 
-# Create an IoT hub using Azure CLI
+# Create an IoT hub using the Azure CLI
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 

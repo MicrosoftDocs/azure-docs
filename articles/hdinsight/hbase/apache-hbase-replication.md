@@ -103,6 +103,7 @@ To install Bind, yon need to find the public IP address of the two DNS virtual m
 2. Open the DNS virtual machine by selecting **Resources groups > [resource group name] > [vnet1DNS]**.  The resource group name is the one you create in the last procedure. The default DNS virtual machine names are *vnet1DNS* and *vnet2NDS*.
 3. Select **Properties** to open the properties page of the virtual network.
 4. Write down the **Public IP address**, and also verify the **Private IP address**.  The private IP address shall be **10.1.0.4** for vnet1DNS and **10.2.0.4** for vnet2DNS.  
+5. Change the DNS Servers for both virtual networks to use Default (Azure-Provided) DNS servers to allow inbound and outbound access to download packages to install Bind in the following steps.
 
 To install Bind, use the following procedure:
 
@@ -211,7 +212,7 @@ To install Bind, use the following procedure:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]
@@ -271,7 +272,7 @@ To create a **Contacts** table and insert some data in the table, follow the ins
 
 ## Enable replication
 
-The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure command-line tool (Azure CLI), see [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md).
+The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure Classic CLI, see [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **To enable HBase replication from the Azure portal**
 

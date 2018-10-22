@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to add pattern templates in Language Understanding (LUIS) applications to improve prediction accuracy.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
+ms.component: language-understanding
+ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
 ---

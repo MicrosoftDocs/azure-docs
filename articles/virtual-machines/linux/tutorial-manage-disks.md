@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Manage Azure disks with the Azure CLI | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to create and manage Azure disks for virtual machines
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure disks for virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Linux VMs in Azure.
 ---
 
-# Tutorial - Manage Azure disks with the Azure CLI 2.0
+# Tutorial - Manage Azure disks with the Azure CLI
 
 Azure virtual machines (VMs) use disks to store the operating system, applications, and data. When you create VM, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial shows you how to deploy and manage VM disks. You learn about:
 
@@ -36,7 +36,7 @@ Azure virtual machines (VMs) use disks to store the operating system, applicatio
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Default Azure disks
 

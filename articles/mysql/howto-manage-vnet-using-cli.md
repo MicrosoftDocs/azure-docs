@@ -16,7 +16,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) command-line utility or use the Azure Cloud Shell in the browser.
+- Install [the Azure CLI](/cli/azure/install-azure-cli) or use the Azure Cloud Shell in the browser.
 - An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 > [!NOTE]
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 If you are running the CLI locally, you need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) command. Note the **id** property from the command output for the corresponding subscription name.
 ```azurecli-interactive

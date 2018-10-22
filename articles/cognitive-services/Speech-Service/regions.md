@@ -1,19 +1,21 @@
 ---
-title: Speech service regions
-description: Reference for regions of the Speech service.
+title: Speech Service regions
+titlesuffix: Azure Cognitive Services
+description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
 ---
 
-# Regions of the Speech service
+# Regions of the Speech Service
 
-The Speech service is available in different regions.
+The Speech Service is available in different regions.
 When you create a subscription, you can select an available region based on your needs.
 
 When you use your subscription, you have to account for the region you selected.
@@ -25,7 +27,7 @@ See [REST APIs](rest-apis.md) for details.
 
 ## Speech SDK
 
-In the [Speech SDK](speech-sdk.md), regions are specified as a string
+In the [Speech Service SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
 ### Regions for speech recognition and translation

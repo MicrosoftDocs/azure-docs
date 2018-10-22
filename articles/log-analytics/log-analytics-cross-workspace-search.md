@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Perform cross-resource log searches in Log Analytics  
@@ -89,12 +89,13 @@ Identifying an application in Application Insights can be accomplished with the 
 You can query multiple resorces from any of your resource instances, these can be workspaces and apps combined.
     
 Example for query across two workspaces:    
-    ```
-    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
-    | where TimeGenerated >= ago(1h)
-    | where UpdateState == "Needed"
-    | summarize dcount(Computer) by Classification
-    ```
+
+```
+union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+| where TimeGenerated >= ago(1h)
+| where UpdateState == "Needed"
+| summarize dcount(Computer) by Classification
+```
 
 ## Next steps
 

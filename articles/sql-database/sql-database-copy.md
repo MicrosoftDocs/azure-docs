@@ -2,16 +2,18 @@
 title: Copy an Azure SQL database | Microsoft Docs
 description: Create transactionally consistent copy of an existing Azure SQL database on either the same server or a different server.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 09/14/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 10/05/2018
 ---
-# Copy an Azure SQL database
+# Copy an transactionally consistent copy of an Azure SQL database
 
 Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL. 
 
@@ -63,7 +65,7 @@ This command copies Database1 to a new database named Database2 on the same serv
 
     -- Execute on the master database.
     -- Start copying.
-    CREATE DATABASE Database1_copy AS COPY OF Database1;
+    CREATE DATABASE Database2 AS COPY OF Database1;
 
 ### Copy a SQL database to a different server
 
@@ -73,7 +75,7 @@ This command copies Database1 on server1 to a new database named Database2 on se
 
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
-    CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
+    CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 
 ### Monitor the progress of the copying operation

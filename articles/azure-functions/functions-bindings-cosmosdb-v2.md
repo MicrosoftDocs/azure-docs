@@ -17,8 +17,8 @@ ms.author: glenga
 # Azure Cosmos DB bindings for Azure Functions 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [Version 1 - GA](functions-bindings-cosmosdb.md)
-> * [Version 2 - Preview](functions-bindings-cosmosdb-v2.md)
+> * [Version 1](functions-bindings-cosmosdb.md)
+> * [Version 2](functions-bindings-cosmosdb-v2.md)
 
 This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindings in Azure Functions 2.x. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
@@ -1692,11 +1692,10 @@ By default, when you write to the output parameter in your function, a document 
 
 ## Next steps
 
+* [Learn more about serverless database computing with Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+
+<!---
 > [!div class="nextstepaction"]
 > [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about serverless database computing with Cosmos DB](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+--->

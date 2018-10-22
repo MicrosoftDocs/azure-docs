@@ -8,13 +8,13 @@ manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/24/2018
 ms.author: spelluru
 
 ---
 # Azure Service Bus metrics in Azure Monitor (preview)
 
-Service Bus metrics gives you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Service Bus resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Service Bus. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
+Service Bus metrics give you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Service Bus resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Service Bus. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
 
@@ -33,7 +33,7 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Peview)**. To display metrics filtered to the scope of the entity, select the entity and then click **Metrics (preview)**.
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Preview)**. To display metrics filtered to the scope of the entity, select the entity and then click **Metrics (preview)**.
 
 ![][2]
 
@@ -66,7 +66,7 @@ Counts the number of data and management operations requests.
 
 The following two types of errors are classified as user errors:
 
-1. Client side errors (In HTTP that would be 400 errors).
+1. Client-side errors (In HTTP that would be 400 errors).
 2. Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
 
 
@@ -86,6 +86,9 @@ The following two types of errors are classified as user errors:
 |Connections Closed (preview)|The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
 
 ## Resource usage metrics
+
+> [!NOTE] 
+> The following metrics are available only with the **premium** tier. 
 
 | Metric Name | Description |
 | ------------------- | ----------------- |

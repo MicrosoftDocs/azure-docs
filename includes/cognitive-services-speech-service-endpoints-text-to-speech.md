@@ -18,4 +18,4 @@ North Europe|	`https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
 West Europe|	`https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
-> If you have created a custom voice font, use the endpoint you created for it instead of the ones above.
+> If you created a custom voice font, use the endpoint you created for it instead of the endpoints here.

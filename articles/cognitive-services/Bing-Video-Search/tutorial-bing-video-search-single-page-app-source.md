@@ -1,16 +1,17 @@
 ---
-title: Bing Video Search single-page Web app (source code) | Microsoft Docs
+title:  "Tutorial: Build a single-page Web app - Bing Video Search"
+titlesuffix: Azure Cognitive Services
 description: Source code for tutorial showing how to use the Bing Video Search API in a single-page Web application.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
+ms.author: rosh
 ---
-# Tutorial: Single-page Video Search app
+# Tutorial: Single-page Bing Video Search app
 
 This is the complete source code discussed in the [single-page app tutorial](tutorial-bing-video-search-single-page-app.md) for Bing Video Search. To run the app, copy the source code into Notepad or another text editor and save it as `bing.html`. Then open the saved file in Microsoft Edge or another popular browser.
 

@@ -4,7 +4,7 @@ description: Examples of the Team Data Science Process that walk through the use
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid:

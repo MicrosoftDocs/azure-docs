@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Guidance for personal data stored in Log Analytics and Application Insights

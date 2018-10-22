@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ---
 
-# Tutorial: Configure Kafka policies in HDInsight with Enterprise Security Package
+# Tutorial: Configure Kafka policies in HDInsight with Enterprise Security Package (Preview)
 
 Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
 

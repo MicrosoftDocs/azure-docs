@@ -2,15 +2,16 @@
 title: Threat Detection - Azure SQL Database Managed Instance | Microsoft Docs
 description: Threat Detection detects anomalous database activities indicating potential security threats to the database in a Managed Instance. 
 services: sql-database
-author: rmatchoro
-manager: craigg
 ms.service: sql-database
-ms.custom: security, managed instance
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-
+manager: craigg
+ms.date: 09/19/2018
 ---
 # Azure SQL Database Managed Instance Threat Detection
 

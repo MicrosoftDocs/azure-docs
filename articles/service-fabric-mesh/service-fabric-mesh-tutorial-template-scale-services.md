@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Scale an application running in Service Fabric Mesh
 
-This tutorial is part two of a series. Learn how to manually scale the number service instances of an application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md).  When you're finished, you'll have .
+This tutorial is part two of a series. Learn how to manually scale the number service instances of an application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). When you're finished, you'll have a front-end service running three instances and a data service running two instances.
 
 In part two of the series, you learn how to:
 
@@ -135,36 +135,6 @@ The WebFrontEnd service *replicaCount* property references the *frontEndReplicaC
     }
 ],
 ```
-
-When you have values in your template that you anticipate changing once the application is deployed, or would like to have the option to change on a per deployment basis (if you plan on reusing this template for other deployments), the best practice is to parameterize the values. The right way to do this is to create a "parameters" section at the top of your deployment template, where you specify parameter names and properties, which are then referenced later in the deployment template. Here are steps you can follow to add a parameter for `replicaCount` to your template:
-
-1. Add a parameters section to the top of your deployment template, right before the "resources" section. Here is what the first few lines of your template will look like:
-   
-    ```json
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-
-        },
-        "resources": [
-    ```
-
-2. Add a parameter for `replicaCount`, which includes "type", "defaultValue", and an optional "metadata" section with a "description". Set the "defaultValue" to the value you'd like, which then gives you the option of setting a "value" at deployment time via the CLI or through a parameters.json file. 
-    
-    ```json
-    "parameters": {
-        "replicaCount": {
-            "type": "string",
-            "defaultValue": "1",
-            "metadata": {
-                "description": "number of service replicas to be deployed"
-            }
-        }
-    },
-    ```
-
-3. Modify the `replicaCount` property in the service description to reference the parameter value. Look under "resources" > application description > "properties" > "services" for "replicaCount". Change it from `"replicaCount": "1",` to `"replicaCount": "[parameters('replicaCount')]",`
 
 Once your template has been modified, upgrade your application.
 

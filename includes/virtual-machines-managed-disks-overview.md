@@ -11,7 +11,7 @@
 ---
 # Azure Managed Disks Overview
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Standard HDD](../articles/virtual-machines/windows/standard-storage.md), Standard SSD, or [Premium SSD](../articles/virtual-machines/windows/premium-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), or [Premium SSD](../articles/virtual-machines/windows/premium-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
 
 ## Benefits of managed disks
 
@@ -57,7 +57,7 @@ When using Managed Disks, the following billing considerations apply:
 
 Let's take a closer look at these options.
 
-**Storage Type:** Managed Disks offers 3 performance tiers: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), Standard SSD, and [Premium](../articles/virtual-machines/windows/premium-storage.md). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Storage Type:** Managed Disks offers 3 performance tiers: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), and [Premium](../articles/virtual-machines/windows/premium-storage.md). The billing of a managed disk depends on which type of storage you have selected for the disk.
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
 create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S15 Disk type.
@@ -109,7 +109,7 @@ Managed Disks also support creating a managed custom image. You can create an im
 For information on creating images, see the following articles:
 
 * [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
 ## Images versus snapshots
 
@@ -139,7 +139,7 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)
 
 * [Attach a managed data disk to a Windows VM using PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
 

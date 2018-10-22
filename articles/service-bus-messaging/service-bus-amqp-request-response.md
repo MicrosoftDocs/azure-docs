@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
 
 ---
@@ -366,7 +366,7 @@ The request message must include the following application properties:
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
-|operation|string|Yes|`com.microsoft:peek-message`|  
+|operation|string|Yes|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
 The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
