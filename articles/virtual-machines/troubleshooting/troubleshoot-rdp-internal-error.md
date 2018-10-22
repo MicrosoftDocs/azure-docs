@@ -3,7 +3,7 @@ title: An internal error has occurred when you remote desktop to Azure VM | Micr
 description: Learn how to troubleshoot the RDP internal errors that occurs| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/08/2018
+ms.date: 10/22/2018
 ms.author: genli
 ---
 
@@ -113,9 +113,9 @@ To troubleshoot this issue, use Serial control or attach the OS disk of the VM t
 
 ### Repair the VM by using a recovery VM
 
-1. Attach the OS disk to a recovery VM. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is asssgined to the attached OS disk.
+1. Attach the OS disk to a recovery VM. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 2. Enable dump logs and Serial Console.
-3. Reset the premission for Machinkeys folder. In this script, we assume that the drive letter that's assigned to the attached OS disk is F. You should replace it with the appropriate value.
+3. Reset the permission for Machinkeys folder. In this script, we assume that the drive letter that's assigned to the attached OS disk is F. You should replace it with the appropriate value.
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
