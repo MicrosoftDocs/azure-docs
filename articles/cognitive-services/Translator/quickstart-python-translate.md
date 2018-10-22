@@ -16,7 +16,7 @@ ms.author: erhopf
 
 In this quickstart, you'll learn how to translate a text string from English to Italian and German using Python and the Translator Text REST API.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Translator Text enabled. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ That's it, you've put together a simple program that will call the Translator Te
 python translate-text.py
 ```
 
-If you'd like to compare your code against ours, the complete sample is available on [GitHub](#).
+If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Sample response
 
@@ -153,14 +153,14 @@ If you've hardcoded your subscription key into your program, make sure to remove
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore Python examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=python)
+> [Explore Python examples on GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
 
 ## See also
 
 In addition to text translation, learn how to use the Translator Text API to:
 
-* [Transliterate text](#)
-* [Identify the language by input](#)
-* [Get alternate translations](#)
-* [Get a list of supported languages](#)
-* [Determine sentence lengths from an input](#)
+* [Transliterate text](quickstart-python-transliterate.md)
+* [Identify the language by input](quickstart-python-detect.md)
+* [Get alternate translations](quickstart-python-dictionary.md)
+* [Get a list of supported languages](quickstart-python-languages.md)
+* [Determine sentence lengths from an input](quickstart-python-sentences.md)
