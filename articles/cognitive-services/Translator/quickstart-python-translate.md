@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Translate text - Translator Text, Python"
+title: "Quickstart: Translate text, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you translate text from one language to another using the Translator Text API with Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Translate text with Python
+# Quickstart: Translate text with the Translator Text REST API (Python)
 
 In this quickstart, you translate text from one language to another using the Translator Text API.
 
