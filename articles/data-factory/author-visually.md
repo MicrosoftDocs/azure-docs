@@ -83,7 +83,7 @@ To use a personal Microsoft account for Git integration, you can link your perso
 
 1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see the following articles:
 
-    - [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad)
+    - [Connect your Azure DevOps organization to Azure Active Directory](/vsts-docs/devops/organizations/accounts/connect-organization-to-azure-ad)
 
     - [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md)
 
