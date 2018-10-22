@@ -1,17 +1,18 @@
 ---
-title: Migrate from Custom Speech Service to Speech service
+title: Migrate from Custom Speech Service to Speech Service
 titlesuffix: Azure Cognitive Services 
 description: Learn how to migration from the Custom Speech service to the Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ---
-# Migrate from the Custom Speech service to the Speech service
+# Migrate from the Custom Speech service to the Speech Service
 
 Use this article to migrate your applications from the Custom Speech service to the Speech Service.
 
@@ -52,8 +53,6 @@ Existing customers are required to migrate their existing resource keys to the S
 2. Select **Migrate selected subscription**.
 
 3. Enter the subscription key in the text box and select **Migrate**.
-
-    ![Enter subscription to migrate](./media/migrate-from-custom-speech-service/migrate-dialog.png)
 
 ## Next steps
 

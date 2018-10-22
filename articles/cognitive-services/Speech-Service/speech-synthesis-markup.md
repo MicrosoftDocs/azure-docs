@@ -1,13 +1,14 @@
 ---
 title: Speech Synthesis Markup Language
-description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 titleSuffix: Azure Cognitive Services
+description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
 ---

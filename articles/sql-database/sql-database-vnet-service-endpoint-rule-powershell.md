@@ -7,8 +7,8 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dmalik
+author: oslake
+ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
 ms.service: sql-database
