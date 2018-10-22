@@ -4,7 +4,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: What is the Speech Service?
     href: overview.md
 - name: Quickstarts
   items:
