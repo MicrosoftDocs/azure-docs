@@ -28348,6 +28348,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-whats-new-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/whats-new",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-prompt.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt",
             "redirect_document_id": true
