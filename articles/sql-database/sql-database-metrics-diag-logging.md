@@ -109,7 +109,7 @@ The following diagnostics telemetry is available for collection for Azure SQL Da
 
 ### Azure portal
 
-Streaming of diagnostics telemetry for Azure SQL Database, and databases in Managed Instance to destinations Azure storage, event hubs, or Log Analytics is configured through Diagnostics settings menu for each of databases in Azure portal.
+Streaming of diagnostics telemetry for Azure SQL Database, and databases in Managed Instance to destinations of Azure storage, event hubs, or Log Analytics is configured through Diagnostics settings menu for each of databases in Azure portal.
 
 ### Configure streaming of diagnostics telemetry for Azure SQL Database
 
