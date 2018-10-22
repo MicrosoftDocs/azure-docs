@@ -10,7 +10,7 @@ ms.date: 10/17/2018
 ms.author: chrande
 ---
 
-# Manage conflicts
+# Manage multi-master conflicts
 
 ## Create a custom conflict resolution policy 
 
@@ -18,9 +18,9 @@ ms.author: chrande
 
 ### <a id="create-custom-conflict-resolution-policy-java-async">Java Async</a>
 
-### <a id="create-custom-conflict-resolution-policy-java-sync">Java Sync</a>Java Sync
+### <a id="create-custom-conflict-resolution-policy-java-sync">Java Sync</a>
 
-### <a id="create-custom-conflict-resolution-policy-javascript">Node/JavaScript/TypeScript</a>
+### <a id="create-custom-conflict-resolution-policy-javascript">Node.js/JavaScript/TypeScript</a>
 
 ### <a id="create-custom-conflict-resolution-policy-python"></a>
 
@@ -32,7 +32,7 @@ ms.author: chrande
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync">Java Sync</a>
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript">Node/JavaScript/TypeScript</a>
+### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript">Node.js/JavaScript/TypeScript</a>
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python">Python</a>
 
@@ -44,7 +44,7 @@ ms.author: chrande
 
 ### <a id="create-custom-conflict-resolution-policy-lww-java-sync">Java Sync</a>
 
-### <a id="create-custom-conflict-resolution-policy-lww-javascript">Node/JavaScript/TypeScript</a>
+### <a id="create-custom-conflict-resolution-policy-lww-javascript">Node.js/JavaScript/TypeScript</a>
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python">Python</a>
 
@@ -56,6 +56,6 @@ ms.author: chrande
 
 ### <a id="read-from-conflict-feed-java-sync">Java Sync</a>
 
-### <a id="read-from-conflict-feed-javascript">Node/JavaScript/TypeScript</a>
+### <a id="read-from-conflict-feed-javascript">Node.js/JavaScript/TypeScript</a>
 
 ### <a id="read-from-conflict-feed-python">Python</a>

@@ -26,7 +26,7 @@ ms.author: chrande
 
 ### <a id="override-default-consistency-">Java Sync</a>
 
-### <a id="override-default-consistency-javascript">Node/JavaScript/TypeScript</a>
+### <a id="override-default-consistency-javascript">Node.js/JavaScript/TypeScript</a>
 
 ### <a id="override-default-consistency-python">Python</a>
 
@@ -38,6 +38,6 @@ ms.author: chrande
 
 ### <a id="utilize-session-tokens-java-sync">Java Sync</a>
 
-### <a id="utilize-session-tokens-javascript">Node/JavaScript/TypeScript</a>
+### <a id="utilize-session-tokens-javascript">Node.js/JavaScript/TypeScript</a>
 
 ### <a id="utilize-session-tokens-python">Python</a>

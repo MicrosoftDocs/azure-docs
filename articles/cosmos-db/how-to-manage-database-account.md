@@ -32,7 +32,7 @@ ms.author: chrande
 
 ### <a id="configure-clients-multi-homing-java-sync">Java Sync</a>
 
-### <a id="configure-clients-multi-homing-javascript">Node/JavaScript/TypeScript</a>
+### <a id="configure-clients-multi-homing-javascript">Node.js/JavaScript/TypeScript</a>
 
 ### <a id="configure-clients-multi-homing-python">Python</a> 
 
