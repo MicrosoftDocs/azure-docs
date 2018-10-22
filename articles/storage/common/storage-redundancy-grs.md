@@ -29,14 +29,14 @@ Some considerations to keep in mind when using RA-GRS:
 * For suggestions on how to design for high availability with RA-GRS, see [Designing Highly Available Applications using RA-GRS storage](storage-designing-ha-apps-with-ragrs.md).
 
 ## What is the RPO and RTO with GRS?
-**Recovery Point Objective (RPO):** In GRS and RA-GRS, the storage service asynchronously geo-replicates the data from the primary to the secondary location. In the event of a major regional disaster in the primary region, Microsoft performs a failover to the secondary region. If a failover happens, recent changes that have not yet been geo-replicated may be lost. The number of minutes of potential data lost is referred to as the RPO, and it indicates the point in time to which data can be recovered. Azure Storage typically has an RPO of less than 15 minutes, although there is currently no SLA on how long geo-replication takes.
+**Recovery Point Objective (RPO):** In GRS and RA-GRS, the storage service asynchronously geo-replicates the data from the primary to the secondary location. In the event of a major regional disaster in the primary region, Microsoft performs a failover to the secondary region. If a failover happens, recent changes that have not yet been geo-replicated may be lost. The number of minutes of potential data that is lost is known as the RPO. The RPO indicates the point in time to which data can be recovered. Azure Storage typically has an RPO of less than 15 minutes, although there is currently no SLA on how long geo-replication takes.
 
 **Recovery Time Objective (RTO):** The RTO is a measure of how long it takes to perform the failover and get the storage account back online. The time to perform the failover includes the following actions:
 
-   * The time Microsoft requires to determine whether the data can be recovered at the primary location, or if a failover is necessary.
-   * The time to perform the failover of the storage account by changing the primary DNS entries to point to the secondary location.
+   * The time Microsoft requires to determine whether the data can be recovered at the primary location or if a failover is necessary
+   * The time to perform the failover of the storage account by changing the primary DNS entries to point to the secondary location
 
-   Microsoft takes the responsibility of preserving your data seriously. If there is any chance of recovering the data in the primary region, Microsoft will delay the failover and focus on recovering your data. 
+Microsoft takes the responsibility of preserving your data seriously. If there is any chance of recovering the data in the primary region, Microsoft will delay the failover and focus on recovering your data. 
 
 ## Paired regions 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and cannot be changed. For up-to-date information about regions supported by Azure, see [Business continuity and disaster recovery (BCDR): Azure paired regions](../../best-practices-availability-paired-regions.md).
