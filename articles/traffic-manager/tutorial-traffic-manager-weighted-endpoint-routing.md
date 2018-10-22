@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create websites
 
-In this section, you create two website instances that provide the two service endpoints for the Traffic Manager profile in two Azure regions. Creating the two websites includes the following steps:
+In this section, you create two website instances that provide the two service endpoints for the Traffic Manager profile in two Azure regions. To create the two websites, complete the following steps:
 1. Create two VMs for running a basic website: one in East US, and the other in West Europe.
 2. Install an IIS server on each VM. Update the default webpage that describes the VM name that a user is connected to when visiting the website.
 
@@ -45,7 +45,7 @@ In this section, you create two website instances that provide the two service e
 In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in the East US and West Europe Azure regions.
 
 1. In the upper-left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 VM**.
-2. Enter or select the following information for **Basics**. Accept the defaults for the remaining settings, and then select **Create**.
+2. Enter or select the following information for **Basics**. Accept the defaults for the other settings, and then select **Create**.
 
     |Setting|Value|
     |---|---|
@@ -75,7 +75,7 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in th
     |VM Name | Enter **myIISVMWEurope**.|
     |Virtual network | Select **Virtual network**. In **Create virtual network**, for **Name**, enter **myVNet2**. For **Subnet**, enter **mySubnet**.|
     |||
-8. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
+8. The VMs take a few minutes to create. Don't continue with other steps until both VMs are created.
 
 ![Create a VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
@@ -120,7 +120,7 @@ Traffic Manager routes user traffic based on the DNS name of the service endpoin
 In this section, you create the VM *mVMEastUS*. You'll use this VM to test how Traffic Manager routes traffic to the website endpoint that has the higher weight value.
 
 1. In the upper-left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 VM**.
-2. Enter or select the following information for **Basics**. Accept the defaults for the remaining settings, and then select **Create**:
+2. Enter or select the following information for **Basics**. Accept the defaults for the other settings, and then select **Create**:
 
     |Setting|Value|
     |---|---|
@@ -140,13 +140,13 @@ In this section, you create the VM *mVMEastUS*. You'll use this VM to test how T
     |||
 
 6. Under **Create** in **Summary**, select **Create** to start the VM deployment.
-8. The VM takes a few minutes to create. Do not continue with the remaining steps until the VM is created.
+8. The VM takes a few minutes to create. Don't continue with other steps until the VM is created.
 
 ## Create a Traffic Manager profile
 Create a Traffic Manager profile based on the **Weighted** routing method.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
-2. In **Create Traffic Manager profile**, enter or select the following information. Accept the defaults for the remaining settings, and then select **Create**.
+2. In **Create Traffic Manager profile**, enter or select the following information. Accept the defaults for the other settings, and then select **Create**.
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -164,7 +164,7 @@ Add the two VMs running the IIS servers myIISVMEastUS  and myIISVMWEurope, to ro
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section. Select the profile in the results that are displayed.
 2. In **Traffic Manager profile**, in the **Settings** section, select **Endpoints** > **Add**.
-3. Enter or select the following information. Accept the defaults for the remaining settings, and then select **OK**.
+3. Enter or select the following information. Accept the defaults for the other settings, and then select **OK**.
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -176,7 +176,7 @@ Add the two VMs running the IIS servers myIISVMEastUS  and myIISVMWEurope, to ro
     |        |           |
 
 4. Repeat steps 2 and 3 to add another endpoint named **myWestEuropeEndpoint** for the public IP address **myIISVMWEurope-ip**. This address is associated with the IIS server VM named myIISVMWEurope. For **Weight**, enter **25**. 
-5.	When the addition of both endpoints is complete, they are displayed in the Traffic Manager profile along with their monitoring status as **Online**.
+5.	When the addition of both endpoints is complete, they're displayed in the Traffic Manager profile along with their monitoring status as **Online**.
 
 ## Test the Traffic Manager profile
 To view Traffic Manager in action, complete the following steps:
@@ -202,7 +202,7 @@ In this section, you can see Traffic Manager in action.
 3. Open the downloaded .rdp file. If you're prompted, select **Connect**. Enter the user name and password that you specified when creating the VM. You might need to select **More choices** > **Use a different account**, to specify the credentials that you entered when you created the VM. 
 4. Select **OK**.
 5. You might receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue** to proceed with the connection. 
-6. In a web browser on the VM myVMEastUS, enter the DNS name of your Traffic Manager profile to view your website. You are routed to website hosted on the IIS server myIISVMEastUS because it's assigned a higher weight of **100**. The IIS server myIISVMWEurope is assigned a lower endpoint weight value of **25**.
+6. In a web browser on the VM myVMEastUS, enter the DNS name of your Traffic Manager profile to view your website. You're routed to website hosted on the IIS server myIISVMEastUS because it's assigned a higher weight of **100**. The IIS server myIISVMWEurope is assigned a lower endpoint weight value of **25**.
 
    ![Test Traffic Manager profile](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
    

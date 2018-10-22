@@ -1,13 +1,14 @@
 ---
-title: Cognitive Services Speech Devices SDK documentation
+title: Speech Devices SDK documentation
+titleSuffix: Azure Cognitive Services
 description: Release notes - what has changed in the most recent releases
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wsturman
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
 ---
