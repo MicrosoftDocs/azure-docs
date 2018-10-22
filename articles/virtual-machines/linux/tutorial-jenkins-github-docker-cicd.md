@@ -3,7 +3,7 @@ title: Tutorial - Create a development pipeline in Azure with Jenkins | Microsof
 description: Tutorial - In this tutorial, you learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
 
 #Customer intent: As an IT administrator or developer, I want to learn about CI/CD options in Azure so that I can automatically deploy my apps based on code commits to GitHub.

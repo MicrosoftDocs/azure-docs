@@ -165,7 +165,7 @@ featureFlags:
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
                                                             Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -3307,7 +3307,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_azure.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -5876,7 +5876,7 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
