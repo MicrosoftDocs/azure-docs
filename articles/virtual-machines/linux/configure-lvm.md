@@ -24,7 +24,7 @@ This document will discuss how to configure Logical Volume Manager (LVM) in your
 ## Linear vs. striped logical volumes
 LVM can be used to combine a number of physical disks into a single storage volume. By default LVM will usually create linear logical volumes, which means that the physical storage is concatenated together. In this case read/write operations will typically only be sent to a single disk. In contrast, we can also create striped logical volumes where reads and writes are distributed to multiple disks contained in the volume group (similar to RAID0). For performance reasons, it is likely you will want to stripe your logical volumes so that reads and writes utilize all your attached data disks.
 
-This document will describe how to combine several data disks into a single volume group, and then create a striped logical volume. The steps below are somewhat generalized to work with most distributions. In most cases the utilities and workflows for managing LVM on Azure are not fundamentally different than other environments. As usual, also consult your Linux vendor for documentation and best practices for using LVM with your particular distribution.
+This document will describe how to combine several data disks into a single volume group, and then create a striped logical volume. The steps below are generalized to work with most distributions. In most cases the utilities and workflows for managing LVM on Azure are not fundamentally different than other environments. As usual, also consult your Linux vendor for documentation and best practices for using LVM with your particular distribution.
 
 ## Attaching data disks
 One will usually want to start with two or more empty data disks when using LVM. Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article will not go into detail on how to provision and attach data disks to a Linux virtual machine. See the Microsoft Azure article [attach a disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
@@ -55,14 +55,14 @@ One will usually want to start with two or more empty data disks when using LVM.
     sudo zypper install lvm2
     ```
 
-    On SLES11 you must also edit `/etc/sysconfig/lvm` and set `LVM_ACTIVATED_ON_DISCOVERED` to "enable":
+    On SLES11, you must also edit `/etc/sysconfig/lvm` and set `LVM_ACTIVATED_ON_DISCOVERED` to "enable":
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## Configure LVM
-In this guide we will assume you have attached three data disks, which we'll refer to as `/dev/sdc`, `/dev/sdd` and `/dev/sde`. These may not always be the same path names in your VM. You can run '`sudo fdisk -l`' or similar command to list your available disks.
+In this guide we will assume you have attached three data disks, which we'll refer to as `/dev/sdc`, `/dev/sdd` and `/dev/sde`. These paths may not match the disk path names in your VM. You can run '`sudo fdisk -l`' or similar command to list your available disks.
 
 1. Prepare the physical volumes:
 
