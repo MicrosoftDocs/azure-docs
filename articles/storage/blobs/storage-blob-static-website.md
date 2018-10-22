@@ -55,13 +55,8 @@ You can [configure a custom domain name for your Azure Storage account](storage-
 ## Pricing
 Static website hosting is provided at no additional cost. For more details on prices for Azure Blob Storage, check out the [Azure Blob Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-### Pricing example
-
-Static website hosting is often paired with CDN and DNS support. The following scenario illustrates how billing is calculated for static websites.
-
-**TODO: @MichaelHauss to add pricing example**
-
 ## Quickstart
+
 ### Azure portal
 Begin by opening the Azure portal at https://portal.azure.com and run through the following steps:
 
