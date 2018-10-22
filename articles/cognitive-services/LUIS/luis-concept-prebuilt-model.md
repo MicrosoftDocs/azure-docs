@@ -12,11 +12,11 @@ ms.date: 10/18/2018
 ms.author: diberry
 ---
 
-# Prebuilt models
+# Prebuilt domain, intent, and entity models
 
 Prebuilt models provide domains, intents, utterances, and entities. You can start your app with a prebuilt domain or add a relevant domain to your app later. 
 
-## Prebuilt models
+## Types of prebuilt models
 
 There are 3 types of prebuilt models LUIS provides. Each model can be added to your app at any time. 
 
