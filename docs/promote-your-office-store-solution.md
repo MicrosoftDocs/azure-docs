@@ -34,20 +34,6 @@ The following guidelines apply to using the AppSource badge on your webpage:
 
 If you need a localized version of the badge, [contact us](http://officespdev.uservoice.com/).
 
-## Link to AppSource from your site
-
-When you link from the AppSource badge on your site to your listing in AppSource, include the following query parameters at the end of the URL:
-
-- **mktcmpid** - Your marketing campaign ID, which can include up to 16 characters (any letter, number, \_, and -). For example, blogpost_12.
-- **mktvid** - Your Store Provider ID, which is included in the URL of your Store Provider page. For example, PN102957641.
-    
-The following example shows a URL that includes the two query parameters:
-
-``` 
-https://appsource.microsoft.com/product/office/WA102957661?src=website&mktcmpid=blogpost_12
-``` 
-
-Adding these parameters to your AppSource URL enables us to provide more information about where your customers are coming from. In the future, when you include your Store Provider ID, we can provide you counts of the number of customers who go to AppSource from your webpage.
 
 ## Track your campaign performance and customize your add-in for targeted audiences
 
@@ -56,8 +42,8 @@ Adding these parameters to your AppSource URL enables us to provide more informa
 
 When you link from your promotional campaigns to your free Word, Excel, or PowerPoint add-in page in AppSource, include the following query parameters at the end of the URL: 
 
-- **mktcmpid** - Your marketing campaign ID, which can include up to 16 characters (any letter, number, \_, and -). For example, blogpost_12. 
-- **mktvid** - Your Store Provider ID, which is included in the URL of your Store Provider page. For example, PN102957641. 
+- **mktcmpid** - Your marketing campaign ID, which can include up to 16 characters (any letter, number, \_, and -). For example, blogpost_12. This value will be used to provide a breakdown in the Acquisitions report.
+- **src** - This is an optional parameter that declares the source of the user traffic.
  
 The following example shows a URL that includes the two query parameters: 
 
