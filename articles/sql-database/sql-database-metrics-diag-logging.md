@@ -59,7 +59,7 @@ To enable diagnostics telemetry for **elastic pool resource**, follow these step
 - Go to the elastic pool resource in Azure portal
 - Select **Diagnostics settings**
 - Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
-- Type in the name for the setting (for your own reference)
+- Type in the name for the setting - for your own reference
 - Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 - In case Log Analytics is selected, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace.
 - Select the checkbox for elastic pool diagnostics telemetry **AllMetrics**
@@ -76,7 +76,7 @@ To enable diagnostics telemetry for **Managed Instance resource**, follow these 
 - Go to the Managed Instance resource in Azure portal
 - Select **Diagnostics settings**
 - Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
-- Type in the setting name
+- Type in the name for the setting - for your own reference
 - Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 - In case Log Analytics is selected, create or use an existing workspace.
 - Select the checkbox for instance diagnostics telemetry **ResourceUsageStats**
@@ -107,9 +107,11 @@ To enable diagnostics telemetry for **Azure SQL Database**, follow these steps:
 - Select **Diagnostics settings**
 - Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
 - Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
+- Type in the name for the setting - for your own reference
 
    ![Enable in the Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
+- Type in the name for the setting - for your own reference
 - Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 - For standard monitoring experience, select checkboxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, **Deadlocks**. This telemetry is event based and provides the standard monitoring experience.
 - For advanced monitoring experience, select checkbox for **AllMetrics**. This is a 1-minute based telemetry for the database diagnostics telemetry as described above. 
@@ -126,6 +128,7 @@ To enable diagnostics telemetry for **databases in Managed Instance**, follow th
 - Select **Diagnostics settings**
 - Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
 - Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
+- Type in the name for the setting - for your own reference
 - Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 - Select checkboxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**.
 
