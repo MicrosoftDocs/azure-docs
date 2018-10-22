@@ -4,7 +4,7 @@ description: Learn to use the Resource Graph query language to explore your reso
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
@@ -17,7 +17,7 @@ about the properties that make up your Azure resources.
 
 ## Explore virtual machines
 
-A common resource in Azure is a virtual machine. As a resource type, virtual machines have numerous
+A common resource in Azure is a virtual machine. As a resource type, virtual machines have many
 properties that can be queried. Each property provides an option for filtering or finding exactly
 the resource you're looking for.
 
@@ -222,10 +222,10 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and propert
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-### Virtual machines connected to premium managed disks
+### Virtual machines connected to premium-managed disks
 
-If we wanted to get the details of premium managed disks that are attached to these
-**Standard_B2s** virtual machines, we can expand the query to give us the resource id of those
+If we wanted to get the details of premium-managed disks that are attached to these
+**Standard_B2s** virtual machines, we can expand the query to give us the resource ID of those
 managed disks.
 
 ```Query
@@ -247,13 +247,13 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and propert
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-The result is a list of disk ID's.
+The result is a list of disk IDs.
 
 ### Managed disk discovery
 
-Taking the first record from the previous query, we'll explore the properties that exist on the
-managed disk that was attached to the first virtual machine. The updated query uses the disk id and
-change the type.
+With the first record from the previous query, we'll explore the properties that exist on the
+managed disk that was attached to the first virtual machine. The updated query uses the disk ID and
+changes the type.
 
 Example output from the previous query for example:
 
@@ -330,10 +330,10 @@ The JSON results are structured similar to the following example:
 
 ## Explore virtual machines to find public IP addresses
 
-This Azure CLI multi-step set of queries first finds and stores all the network interfaces (NIC)
-resources connected to virtual machines, uses the list of NICs to find each IP address resource
-that is a public IP address and store those values, and finally provides a list of the actual
-public IP addresses.
+This Azure CLI set of queries first finds and stores all the network interfaces (NIC) resources
+connected to virtual machines. Then it uses the list of NICs to find each IP address resource that
+is a public IP address and store those values. Finally, it provides a list of the public IP
+addresses.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -343,8 +343,8 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-Once we have the `nics.txt` file, we'll use it in the next query to get the related network
-interface resources details where there's a public IP address attached to the NIC.
+Use the `nics.txt` file in the next query to get the related network interface resources details
+where there's a public IP address attached to the NIC.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
