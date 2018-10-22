@@ -14,11 +14,11 @@ ms.date: 10/19/2018
 
 # Track B2B messages with Azure Log Analytics
 
-After you set up B2B communication betwen trading partners 
+After you set up B2B communication between trading partners 
 in your integration account, those partners can exchange 
 messages with protocols such as AS2, X12, and EDIFACT. 
 To check that these messages are processed correctly, 
-you can use track these messages with 
+you can track these messages with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
 For example, you can use these web-based tracking 
 capabilities for tracking messages:
@@ -47,10 +47,8 @@ and [how to set up monitoring and logging for that account](../logic-apps/logic-
 
 * If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-* After you've met the previous requirements, 
-you also need a Log Analytics workspace. 
-You should use this same workspace for 
-tracking your B2B communication with Log Analytics. 
+* After you meet the previous requirements, you also need a Log Analytics workspace, 
+which you use for tracking B2B communication through Log Analytics. 
 If you don't have a Log Analytics workspace, learn 
 [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
@@ -94,7 +92,7 @@ and then choose **Create** again.
    If you don't want to use an existing workspace, 
    you can also create a new workspace at this time.
 
-1. When you're done, go back to your workspace's Overeview page. 
+1. When you're done, go back to your workspace's **Overview** page. 
 
    The Logic Apps B2B solution now appears on the Overview page. 
    When B2B messages are processed, the message count on this page is updated.
