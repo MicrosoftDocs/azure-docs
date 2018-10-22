@@ -24,7 +24,7 @@ https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&lo
 https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Hospitals
 ````
 
-The following query limits the number of results to 3 beginning with the 0th index item:
+The following query limits the number of 'hospital' results to 3 beginning with the 0th index item:
 
 ````
 https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localCategories=Hospitals&count=3&offset=0
@@ -164,7 +164,7 @@ The following define major categories of search: 
 
 ## Sub Categories
 
-### EatDrink 
+### Eat Drink 
 - BreweriesAndBrewPubs
 - CocktailLounges
 - AfricanRestaurants
