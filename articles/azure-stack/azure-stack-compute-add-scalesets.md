@@ -36,7 +36,7 @@ On Azure Stack, virtual machine scale sets do not support auto-scale. You can ad
 ## Use the Azure Stack portal 
 
 >[!IMPORTANT]  
-> The information in this section applies when you use  Azure Stack version 1808 or later. If your version is 1807 or earlier, see [Add the Virtual Machine Scale Set (Prior to 1808)](#add-the-virtual-machine-scale-set-(prior-to-version-1808)).
+> The information in this section applies when you use  Azure Stack version 1808 or later. If your version is 1807 or earlier, see [Add the Virtual Machine Scale Set (Prior to 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808).
 
 1. Sign in to the Azure Stack portal. Then, go to **All services**, then **Virtual machine scale sets**, and then under **COMPUTE**, select **Virtual machine scale sets**. 
    ![Select virtual machine scale sets](media/azure-stack-compute-add-scalesets/all-services.png)
