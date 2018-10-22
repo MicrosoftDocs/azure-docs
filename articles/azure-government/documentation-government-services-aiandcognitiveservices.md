@@ -90,7 +90,7 @@ Language Understanding in Azure Government:
 - Endpoint: https://virginia.api.cognitive.microsoft.us/luis/v2.0
 - LUIS portal: https://luis.azure.us
 - Available SKUs: S0
-- Speech Requests are not currently available
+- Speech Requests, Speech Priming, Spell Check, and Prebuilt Domains are not currently available
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
