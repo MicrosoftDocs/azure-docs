@@ -83,7 +83,7 @@ provisioned into your Azure subscription at cost:
 The standard deployment is a production-ready deployment a developer can
 customize and extend to meet their needs. The standard deployment option should be used when
 ready to customize a production-ready architecture, built for scale and
-extensibility. Application microservices are built as Docker containers and deployed using AKS. The orchestrator is
+extensibility. Application microservices are built as Docker containers and deployed using Azure Kubernetes Service (AKS). The orchestrator is
 responsible for deployment, scaling, and management of the application.
 
 
