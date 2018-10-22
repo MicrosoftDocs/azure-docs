@@ -71,13 +71,9 @@ You need at least one of the following forms of metadata:
     Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
             Read Metadata:                         OK
-
             Test Metadata Elements:                OK
-
             Test SSL ADFS Certificate:             OK
-
             Test Certificate Chain:                OK
-
             Test Certificate Expiry:               OK
 
     Details:
@@ -114,8 +110,7 @@ The following examples provide guidance on common validation failures.
 
 ### Command Not Found
 
-`Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is
-correct and try again.`
+`Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
 
 **Cause** - PowerShell Autoload failed to load Readiness Checker module correctly.
 

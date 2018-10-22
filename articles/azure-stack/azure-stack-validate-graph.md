@@ -34,7 +34,7 @@ For more information about Azure Stack data center integration, see [Azure Stack
 
 ## Get the readiness checker tool
 
-Download the latest version of the Azure Stack Readiness Checker tool (AzsReadinessChecker) from the [PSGallery](https://aka.ms/AzsReadinessChecker).  
+Download the latest version of the Azure Stack Readiness Checker tool (AzsReadinessChecker) from the [PSGallery](https://aka.ms/AzsReadinessChecker).
 
 ## Prerequisites
 
@@ -77,17 +77,17 @@ The following prerequisites must be in place.
             Test KDC:                    OK
             Test LDAP Search:            OK
             Test Network Connectivity:   OK
-    
+
     Details:
-    
+
     [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.
-    
+
     Additional help URL: https://aka.ms/AzsGraphIntegration
-    
+
     AzsReadinessChecker Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-    
+
     AzsReadinessChecker Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
-    
+
     Invoke-AzsGraphValidation Completed
     ```
 
