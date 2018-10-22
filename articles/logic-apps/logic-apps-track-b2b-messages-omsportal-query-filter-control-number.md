@@ -67,26 +67,28 @@ select your Log Analytics workspace.
 
    ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 
-1. In the left pane, select the timeframe you want to view. 
-To add a filter to your query, choose **Add**.
+1. In the left pane, to change the timeframe you want to view, 
+select from the duration list or drag the slider. 
 
-   ![Add filter to query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
+   ![Change timeframe](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/change-timeframe.png)
 
-6. Under **Add Filters**, enter the filter name so you can find the filter you want. 
+1. To add a filter to your query, choose **Add**. 
+
+   ![Add filter to query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/add-filter.png)
+
+1. Under **Add Filters**, enter the name for the filter you want. 
 Select the filter, and choose **Add**.
 
-   To find the interchange control number, this example searches for the word "interchange", 
-   and selects **event_record_messageProperties_interchangeControlNumber_s** as the filter.
+   For example, to find the interchange control number, 
+   search for the word "interchange", and select **event_record_messageProperties_interchangeControlNumber_s** 
+   as the filter.
 
-   ![Select filter](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
+1. In the left pane, select the filter value 
+you want to use, and choose **Apply**.
 
-7. In the left pane, select the filter value that you want to use, and choose **Apply**.
+   ![Select filter value](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-filter-value.png)
 
-   This example selects the interchange control number for the messages we want.
-
-   ![Select filter value](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
-
-8. Now return to the query that you're building. 
+1. Now return to the query that you're building. 
 Your query has been updated with your selected filter event and value. 
 Your previous results are now filtered too.
 
