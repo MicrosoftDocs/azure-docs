@@ -51,17 +51,17 @@ Service Fabric is an open-source platform technology that several different serv
 ## Environment, framework, and deployment model support matrix
 Different environments have different level of support for frameworks and deployment models. The following table describes the supported framework and deployment model combinations.
 
-| Type of Application | Described By | Azure Service Fabric Mesh | Azure Service Clusters (Any OS)| Local cluster - Windows | Local cluster - Linux | Local cluster - Mac | Standalone cluster (Windows)
+| Type of Application | Described By | Azure Service Fabric Mesh | Azure Service Fabric Clusters (any OS)| Local cluster | Standalone cluster |
 |---|---|---|---|---|---|---|---|---|---|
-| Service Fabric Mesh Applications | Resource Model (YAML & JSON) | Supported |Not supported | Supported |Not supported | Not supported | Not supported |
-|Service Fabric Native Applications | Native Application Model (XML) | Not Supported| Supported|Supported|Supported|Supported|Supported|
+| Service Fabric Mesh Applications | Resource Model (YAML & JSON) | Supported |Not supported | Windows- supported, Linux and Mac- not supported | Windows- not supported |
+|Service Fabric Native Applications | Native Application Model (XML) | Not Supported| Supported|Supported|Windows- supported|
 
 The following table describes the different application models and the tooling that exists for them against Service Fabric.
 
-| Type of Application | Described By | Visual Studio 2017 | Visual Studio 2015 | Eclipse | VS Code | SFCTL | AZ CLI | Powershell
+| Type of Application | Described By | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
 |---|---|---|---|---|---|---|---|---|---|
-| Service Fabric Mesh Applications | Resource Model (YAML & JSON) | Supported |Not supported |Not supported |Not supported |Not supported | Supported - Mesh environment only | Not Supported
-|Service Fabric Native Applications | Native Application Model (XML) | Supported| Supported|Supported|Supported|Supported|Supported|Supported|
+| Service Fabric Mesh Applications | Resource Model (YAML & JSON) | VS 2017 |Not supported |Not supported | Supported - Mesh environment only | Not Supported|
+|Service Fabric Native Applications | Native Application Model (XML) | VS 2017 and VS 2015| Supported|Supported|Supported|Supported|
 
 ## Next steps
 
