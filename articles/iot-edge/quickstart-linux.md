@@ -237,8 +237,6 @@ View the messages being sent from the tempSensor module:
    sudo iotedge logs tempSensor -f
    ```
 
-After a logoff and login, *sudo* is not required for the above command.
-
 ![View the data from your module](./media/quickstart-linux/iotedge-logs.png)
 
 The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
