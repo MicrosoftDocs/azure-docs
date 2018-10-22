@@ -1,7 +1,7 @@
 ---
 title: Multiple routes with Azure Maps | Microsoft Docs
 description: Find routes for different modes of travel using Azure Maps
-author: walsehg
+author: walsehgal
 ms.author: v-musehg
 ms.date: 10/22/2018
 ms.topic: tutorial
