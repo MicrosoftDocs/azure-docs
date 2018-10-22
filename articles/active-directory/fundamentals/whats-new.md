@@ -32,6 +32,74 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 This page is updated monthly, so revisit it regularly.
 
 ---
+## October 2018
+ 
+[567470](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=567470&triage=true&fullScreen=false&_a=edit)
+
+### New Federated Apps available in Azure AD App gallery - October 2018
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In October 2018 we have added following 14 new apps in our App gallery with Federation support:
+
+My Award Points, Vibe HCM, ambyint, MyWorkDrive, BorrowBox, Dialpad, ON24 Virtual Environment, RingCentral, Zscaler Three, Phraseanet, Appraisd, Workspot Control, Shuccho Navi, Glassfrog
+
+You can also find the documentation of all the applications from here https://aka.ms/appstutorial
+
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/azureadapprequest 
+
+---
+ 
+
+[456621](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=456621&triage=true&fullScreen=false&_a=edit)
+
+### Availability of Azure AD Logs using Log Analytics
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+
+We are excited to announce the availability of one of our top-requested features: the ability to forward your Azure AD logs to Azure Log Analytics!  With Azure AD having tremendous adoption and tons of data, customers asked us to enable the free flow of this data to do even greater analytics for business, operations, and security, as well as monitor infrastructure. Check out the blog announcement on this
+
+ 
+
+---
+ 
+
+[318801](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=318801&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD Domain Services Email Notifications
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azue AD Domain Services
+ 
+
+Azure AD Domain Services has alerts available on the Azure portal that identifies misconfigurations or problems on your managed domain. These alerts have step-by-step guides for you to be able to remediate issues on your managed domain without having to contact support. 
+
+Starting in October, you will be able to customize notification settings for your managed domain so that a select list of email addresses will be emailed as soon as a new alert is found on your managed domain. This eliminates the need to constantly check the Azure portal for updates, as you will receive email notifications alerting you of any problems found.
+
+For more information, please visit Azure AD Domain Services email notifications
+ 
+
+---
+ 
+
+[103097](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=103097&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD portal now supports the force delete domain name experience 
+
+**Type:** Changed feature  
+**Service category:** Directory Management  
+**Product capability:** Directory
+ 
+
+We are pleased to announce that you can now force delete a domain name in the Azure AD portal. The ForceDelete domain API will asynchronously rename references like users, groups and apps to the custom domain name to the initial default domain name, and then remove the domain. This provides an easier method of deleting domain names and enables greater efficiency in directory management.
+
+---
 ## September 2018
  
 ### Updated administrator role permissions for dynamic groups
