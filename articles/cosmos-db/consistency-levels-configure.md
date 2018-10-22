@@ -3,8 +3,7 @@ title: Configure default consistency levels in Azure Cosmos DB | Microsoft Docs
 description: How to configure the default consistency level in Azure Cosmos DB.
 keywords: consistency, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: sngun
-manager: kfile
+author: markjbrown
 
 ms.service: cosmos-db
 ms.devlang: na
