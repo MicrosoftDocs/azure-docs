@@ -163,15 +163,12 @@ Every machines that's backed up by Azure Backup must have the Backup agent (also
     - The passphrase is used to encrypt the backups to cloud.
     - Specify a minimum of 16 characters.
     - Save the file in a secure location, it's needed for recovery.
+    
+    ![Encryption](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
     > You own the encryption passphrase and Microsoft does not have visibility into it.
     > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. 
-
-
-    ![Encryption](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
-
-    
 
 13. Click **Register** to register the DPM server to the vault.  
 
