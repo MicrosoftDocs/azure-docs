@@ -21,7 +21,7 @@ When you enable read-only access to your data in the secondary region, your data
 Some considerations to keep in mind when using RA-GRS:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
-* Since asynchronous replication involves a delay, changes that have not yet been replicated to the secondary region may be lost if data cannot be recovered from the primary region, for example in the event of a regional disaster.
+* Since asynchronous replication involves a delay, changes that have not yet been replicated to the secondary region may be lost if data cannot be recovered from the primary region, for example if a regional disaster occurs.
 * You can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value. All primary writes before the Last Sync Time have been successfully written to the secondary location, meaning that they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), or from one of the Azure Storage client libraries.
 * If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, see [Disaster recovery guidance](storage-disaster-recovery-guidance.md).
 * For information on how to switch to the secondary region, see [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md).
