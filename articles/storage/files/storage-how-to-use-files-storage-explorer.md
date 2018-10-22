@@ -1,30 +1,22 @@
 ---
 title: Quickstart for managing Azure file shares using Azure Storage Explorer 
-description: Learn how to use Azure Storage Explorer to manage Azure Files.
+description: Use this quickstart to learn how to use Azure Storage Explorer to manage Azure Files.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
 ---
 
-# Quickstart: Craete and manage Azure file shares with Azure Storage Explorer 
+# Quickstart: Create and manage Azure file shares with Azure Storage Explorer
 This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with the Azure Storage Explorer. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
 
 The Azure Storage Explorer is a popular client tool that's available for Windows, macOS, and Linux. You can use Storage Explorer to manage Azure file shares and other storage resources.
 
+## Prerequisites
 This quickstart requires Storage Explorer to be installed. To download and install it, go to [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Create a resource group and a storage account
-> * Create an Azure file share 
-> * Create a directory
-> * Upload a file
-> * Download a file
 
 If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

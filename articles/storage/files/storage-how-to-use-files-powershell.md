@@ -1,10 +1,10 @@
 ---
 title: Quickstart for managing Azure file shares with Azure PowerShell
-description: Learn to manage Azure file shares using Azure PowerShell.
+description: Use this quickstart to learn to manage Azure file shares using Azure PowerShell.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
@@ -12,16 +12,6 @@ ms.component: files
 
 # Quickstart: Create and manage an Azure file share with Azure PowerShell 
 This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with PowerShell. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
-
-In this article you learn how to:
-
-> [!div class="checklist"]
-> * Create a resource group and a storage account
-> * Create an Azure file share 
-> * Mount an Azure file share with SMB
-> * Create a directory
-> * Upload a file 
-> * Download a file
 
 If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

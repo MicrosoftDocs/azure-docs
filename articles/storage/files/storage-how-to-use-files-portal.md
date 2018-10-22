@@ -1,25 +1,17 @@
 ---
 title: Quickstart for managing Azure file shares with Azure portal
-description: Learn to use the Azure portal to manage Azure Files.
+description: Use this quickstart to learn to use the Azure portal to manage Azure Files.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
 ---
 
 # Quickstart: Create and manage Azure file shares with the Azure portal 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com/). Learn how to:
-
-> [!div class="checklist"]
-> * Create a resource group and a storage account
-> * Create an Azure file share 
-> * Mount an Azure file share with SMB
-> * Create a directory
-> * Upload a file 
-> * Download a file
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com/).
 
 If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
