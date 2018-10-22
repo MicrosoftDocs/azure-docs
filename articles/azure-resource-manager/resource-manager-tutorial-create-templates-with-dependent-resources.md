@@ -39,11 +39,12 @@ To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension.  See [Install the extension
 ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* To prevent password spray attack, generate a password for the virtual machine administrator account. Here is some samples
+* To prevent password spray attack, generate a password for the virtual machine administrator account. Here is a sample:
 
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md).
 
 ## Open a Quickstart template
 
@@ -125,7 +126,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ```bash
     cat azuredeploy.json
     ```
-7. From the Cloud shell, run the following PowerShell commands. To improve security, use a generated password for the virtual machine administrator account.
+7. From the Cloud shell, run the following PowerShell commands. To improve security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
     ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
