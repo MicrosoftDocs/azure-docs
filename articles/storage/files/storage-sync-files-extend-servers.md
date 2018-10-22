@@ -26,8 +26,6 @@ In this tutorial, we'll show the basic steps for extending the storage capacity 
 > * Create a sync group and a cloud endpoint
 > * Create a server endpoint
 
-![Deploy Azure File Sync process](./media/storage-sync-files-extend-servers/storage-tutorial-process-diagram.png)
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
