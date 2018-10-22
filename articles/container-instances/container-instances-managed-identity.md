@@ -13,7 +13,7 @@ ms.custom:
 
 # How to use managed identities with Azure Container Instances
 
-Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to run code in Azure Container Instances that interacts with other Azure services - without having to access secrets or credentials in code. The feature provides an Azure Container Instances deployment with an automatically managed identity in Azure Active Directory.
+Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to run code in Azure Container Instances that interacts with other Azure services - without maintaining any secrets or credentials in code. The feature provides an Azure Container Instances deployment with an automatically managed identity in Azure Active Directory.
 
 In this article, you learn more about managed identities in Azure Container Instances and:
 
