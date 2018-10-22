@@ -83,7 +83,7 @@ Continue with the following examples to access the Key Vault using either a user
 First create an identity in your subscription using the [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) command. You can use the same resource group used to create the Key Vault, or use a different one.
 
 ```azurecli-interactive
-az identity create --resource-group danlep1018 --name myACIId
+az identity create --resource-group myResourceGroup --name myACIId
 ```
 
 To use the identity in the following steps, use the [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) command to store the service principal ID and resource ID of the identity in variables.
@@ -93,7 +93,7 @@ To use the identity in the following steps, use the [az identity show](/cli/azur
 spID=$(az identity show --resource-group danlep1018 --name myACIId --query principalId --output tsv)
 
 # Get resource ID of the user-assigned identity
-resourceID=$(az identity show --resource-group danlep1018 --name myACIId --query id --output tsv)
+resourceID=$(az identity show --resource-group myResourceGroup --name myACIId --query id --output tsv)
 ```
 
 ### Enable a user-assigned identity on a container group
@@ -304,7 +304,7 @@ On a container group, you can enable both a system-assigned identity and one or 
 ...
 ```
 
-# Enable managed identity using YAML file
+## Enable managed identity using YAML file
 
 To enable a managed identity in a container group deployed using a [YAML file](container-instances-multi-container-yaml.md), include the following YAML.
 Specify an `apiVersion` of `2018-10-01`.
@@ -316,9 +316,9 @@ A user-assigned identity is a resource ID of the form `'/subscriptions/{subscrip
 ```YAML
 identity: 
   type: UserAssigned
-  userAssignedIdentities: 
-  - 'myResourceID1'
-  - 'myResourceID2'
+  userAssignedIdentities:
+    {'myResourceID1':{}},
+    {'myResourceID2':{}}
 ```
 
 ### System-assigned managed identity
@@ -335,9 +335,9 @@ On a container group, you can enable both a system-assigned identity and one or 
 ```YAML
 identity: 
   type: SystemAssigned, UserAssigned
-  userAssignedIdentities: 
-  - 'myResourceID1'
-  - 'myResourceID2'
+  userAssignedIdentities:
+   {'myResourceID1':{}},
+   {'myResourceID2':{}}
 ```
 ## Next steps
 
