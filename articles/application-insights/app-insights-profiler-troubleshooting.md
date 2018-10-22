@@ -21,7 +21,7 @@ ms.author: mbullwin
 ## <a id="troubleshooting"></a>General Troubleshooting
 
 ### **Profiles are only uploaded if there are requests to your application while the profiler is running.**
-Application Insights Profiler collects profiler data for two minutes each hour, or when the [**Profile Now**](app-insights-profiler-settings.md) button is pressed on the **Configure Application Insights Profiler** blade. But the profiling data is only uploaded when it can be attached to a request that happened while the profiler was running. 
+Application Insights Profiler collects profiler data for two minutes each hour, or when the [**Profile Now**](app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json) button is pressed on the **Configure Application Insights Profiler** blade. But the profiling data is only uploaded when it can be attached to a request that happened while the profiler was running. 
 
 The profiler writes trace messages and custom events to your application insights resource, so you can use those events to see how the profiler is running. If you think the profiler should be running and capturing traces but you aren't seeing them in the Performance blade, you can check the following:
 
