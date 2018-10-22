@@ -119,7 +119,7 @@ The reliability tier is used to set the number of replicas of the system service
 
 The reliability tier can take the following values:
 
-* Platinum - Run the System services with a target replica set count of nine
+* Platinum - Run the System services with a target replica set count of seven
 * Gold - Run the System services with a target replica set count of seven
 * Silver - Run the System services with a target replica set count of five 
 * Bronze - Run the System services with a target replica set count of three
