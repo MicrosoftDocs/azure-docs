@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/22/2018
 ms.author: patricka
 ms.reviewer: jerskine
 
@@ -59,35 +59,37 @@ You need at least one of the following forms of metadata:
 
      `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-1. From the PowerShell prompt, run the following to start validation for !!!!graph!!!!. Specify the value for **-CustomADFSFederationMetadataEndpointUri** as the URI for the federation metadata:
+1. From the PowerShell prompt, run the following to start validation. Specify the value for **-CustomADFSFederationMetadataEndpointUri** as the URI for the federation metadata:
 
      `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
 1. After the tool runs, review the output. Confirm the status is OK for ADFS integration requirements. A successful validation appears similar to the following.
 
-`     Invoke-AzsADFSValidation v1.1809.1001.1 started. `
+    ```
+    Invoke-AzsADFSValidation v1.1809.1001.1 started.
 
-`Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml `
+    Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
-`        Read Metadata:                         OK `
+            Read Metadata:                         OK
 
-`        Test Metadata Elements:                OK `
+            Test Metadata Elements:                OK
 
-`        Test SSL ADFS Certificate:             OK `
+            Test SSL ADFS Certificate:             OK
 
-`        Test Certificate Chain:                OK `
+            Test Certificate Chain:                OK
 
-`        Test Certificate Expiry:               OK `
+            Test Certificate Expiry:               OK
 
-`Details: `
-`[-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration. `
-`Additional help URL: https://aka.ms/AzsADFSIntegration`
+    Details:
+    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.
+    Additional help URL: https://aka.ms/AzsADFSIntegration
 
-`Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log `
-`Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json `
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 
-`Invoke-AzsADFSValidation Completed `
-     
+    Invoke-AzsADFSValidation Completed
+    ```
+
 In production environments, testing certificate chains of trust from an operators workstation cannot be considered fully indicative of the PKI trust posture in the Azure Stack infrastructure. The Azure Stack stamp’s Public VIP network needs the connectivity to the CRL for the PKI infrastructure.
 
 ## Report and log file
@@ -110,14 +112,15 @@ If a validation check fails, details about the failure display in the PowerShell
 
 The following examples provide guidance on common validation failures.
 
-Command Not Found
+### Command Not Found
 
 `Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is
 correct and try again.`
 
-Cause - PowerShell Autoload failed to load Readiness Checker module correctly.
+**Cause** - PowerShell Autoload failed to load Readiness Checker module correctly.
 
-Resolution – Import Readiness Checker module explicitly. Copy and paste the code below into PowerShell and update the <version> with the version number for the currently installed version. 
+**Resolution** – Import Readiness Checker module explicitly. Copy and paste the code below into PowerShell and update the \<version\> with the version number for the currently installed version.
+
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 
 ## Next Steps

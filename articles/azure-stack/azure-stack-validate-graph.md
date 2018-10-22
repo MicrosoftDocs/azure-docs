@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/22/2018
 ms.author: patricka
 ms.reviewer: jerskine
 
@@ -59,7 +59,7 @@ The following prerequisites must be in place.
 
      `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-1. From the PowerShell prompt, run the following to to set *$graphCredential* variable to the graph account. Replace `contoso\graphservice` with your account using the `domain\username` format.
+1. From the PowerShell prompt, run the following to set *$graphCredential* variable to the graph account. Replace `contoso\graphservice` with your account using the `domain\username` format.
 
     `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
 
@@ -69,31 +69,27 @@ The following prerequisites must be in place.
 
 1. After the tool runs, review the output. Confirm the status is OK for graph integration requirements. A successful validation appears similar to the following.
 
-`Testing Graph Integration (v1.0)`
-
-`        Test Forest Root:            OK`
-
-`        Test Graph Credential:       OK`
-
-`        Test Global Catalog:         OK`
-
-`        Test KDC:                    OK`
-
-`        Test LDAP Search:            OK`
-
-`        Test Network Connectivity:   OK`
-
-`Details:`
-
-`[-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.`
-
-`Additional help URL: https://aka.ms/AzsGraphIntegration`
-
-`AzsReadinessChecker Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log`
-
-`AzsReadinessChecker Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`
-
-`Invoke-AzsGraphValidation Completed`
+    ```
+    Testing Graph Integration (v1.0)
+            Test Forest Root:            OK
+            Test Graph Credential:       OK
+            Test Global Catalog:         OK
+            Test KDC:                    OK
+            Test LDAP Search:            OK
+            Test Network Connectivity:   OK
+    
+    Details:
+    
+    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.
+    
+    Additional help URL: https://aka.ms/AzsGraphIntegration
+    
+    AzsReadinessChecker Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    
+    AzsReadinessChecker Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+    
+    Invoke-AzsGraphValidation Completed
+    ```
 
 In production environments, testing network connectivity from an operators workstation cannot be considered fully indicative of the connectivity available to Azure Stack. The Azure Stack stamp’s public VIP network will need the connectivity for LDAP traffic to perform identity integration.
 
