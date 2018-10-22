@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvinh
 
@@ -18,7 +18,7 @@ ms.reviewer: arvinh
 
 Azure Active Directory (Azure AD) provides secure and seamless access to cloud and on-premises applications. Users can sign in once to access Office 365 and other business applications from Microsoft, thousands of software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps. Reduce administrative costs by automating user provisioning. Use multi-factor authentication and conditional access policies to provide secure application access.
 
-![Apps federated via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Apps federated via Azure AD](media/what-is-application-management/app-management-overview.png)
 
 ## Why manage applications with a cloud solution?
 
