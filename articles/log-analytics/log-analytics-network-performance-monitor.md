@@ -139,7 +139,7 @@ All subnets with at least one agent installed are listed on the **Subnetworks*
 
 To enable or disable monitoring of particular subnetworks:
 
-1. Select or clear the check box next to the **subnetwork ID**. Then make sure that **Use for Monitoring** is selected or cleared, as appropriate. You can select or clear multiple subnets. When disabled, subnetworks aren't monitored, and the agents are updated to stop pinging other agents. 
+1. Select or clear the check box next to the **subnetwork ID**. Then make sure that **Use for Monitoring** is selected or cleared, as appropriate. You can select or clear multiple subnets. When disabled, subnetworks aren't monitored, and the agents are updated to stop pinging other agents. 
 2. Choose the nodes that you want to monitor in a particular subnetwork. Select the subnetwork from the list, and move the required nodes between the lists that contain unmonitored and monitored nodes. You can add a custom description to the subnetwork.
 3. Select **Save** to save the configuration. 
 
