@@ -61,16 +61,11 @@ To enable streaming of diagnostics telemetry for **elastic pool resource**, foll
 - Go to the elastic pool resource in Azure portal
 - Select **Diagnostics settings**
 - Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
-
-![Elastic pool enable in Azure portal](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
-
 - Type in the name for the setting - for your own reference
 - Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
 - In case Log Analytics is selected, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace
 - Select the checkbox for elastic pool diagnostics telemetry **AllMetrics**
 - Click **Save**
-
-![Elastic pool selection in Azure portal](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
 Repeat the above steps for each elastic pool you wish to monitor.
 
@@ -87,16 +82,11 @@ To enable streaming of diagnostics telemetry for **Managed Instance resource**, 
 - Go to the Managed Instance resource in Azure portal
 - Select **Diagnostics settings**
 - Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
-
-![Elastic pool enable in Azure portal](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
-
 - Type in the name for the setting - for your own reference
 - Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
 - In case Log Analytics is selected, create or use an existing workspace
 - Select the checkbox for instance diagnostics telemetry **ResourceUsageStats**
 - Click **Save**
-
-![Elastic pool selection in Azure portal](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 Repeat the above steps for each Managed Instance you wish to monitor.
 
