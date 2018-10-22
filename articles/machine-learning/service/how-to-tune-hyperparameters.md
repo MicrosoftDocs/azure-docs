@@ -31,6 +31,8 @@ In deep learning / machine learning scenarios, model performance depends heavily
 
 Azure Machine Learning allows you to automate hyperparameter exploration in an efficient manner, saving you significant time and resources. You specify the range of hyperparameter values and a maximum number of training runs. The system then automatically launches multiple simultaneous runs with different parameter configurations and finds the configuration that results in the best performance, measured by the metric you choose. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
 
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.168 
 
 ## Define search space
 
@@ -134,8 +136,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian sampling does not support any early termination policy (See [Specify an early termination policy](#specify-an-early-termination-policy)). When using Bayesian parameter sampling, set `early_termination_policy = None`, or leave off the `early_termination_policy` parameter.
-`
+> Bayesian sampling does not support any early termination policy (See [Specify an early termination policy](#specify-early-termination-policy)). When using Bayesian parameter sampling, set `early_termination_policy = None`, or leave off the `early_termination_policy` parameter.
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## Specify primary metric
 
@@ -151,19 +154,23 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Optimize the runs to maximize "accuracy".  Make sure to log this value in your training script.
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### Log metrics for hyperparameter tuning
 
-The training script for your model must log the relevant metrics during model training. When you configure the hyperparameter tuning, you specify the primary metric to use for evaluating run performance. (See [Specify a primary metric to optimize](#specify-a-primary-metric-to-optimize).)  In your  training script, you must log this metric so it is available to the hyperparameter tuning process.
+The training script for your model must log the relevant metrics during model training. When you configure the hyperparameter tuning, you specify the primary metric to use for evaluating run performance. (See [Specify a primary metric to optimize](#specify-primary-metric-to-optimize).)  In your  training script, you must log this metric so it is available to the hyperparameter tuning process.
 
 Log this metric in your training script with the following sample snippet:
 
 ```Python
 from azureml.core.run import Run
-run_logger = Run.get_submitted_run()
+run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 
 The training script calculates the `val_accuracy` and logs it as "accuracy", which is used as the primary metric. Each time the metric is logged it is received by the hyperparameter tuning service. It is up to the model developer to determine how frequently to report this metric.
+
+<a name='specify-early-termination-policy'/>
 
 ## Specify early termination policy
 
@@ -290,7 +297,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning service work?](/concept-azure-machine-learning-architecture.md))
+`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning service work?](concept-azure-machine-learning-architecture.md))
 
 ## Visualize experiment
 
@@ -313,7 +320,7 @@ Additionally, you can visually identify the correlation between performance and 
 
 ![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track expirements](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal).
+You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ![hyperparameter tuning portal](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 
@@ -335,7 +342,7 @@ print('\n batch size:',parameter_values[7])
 
 ## Sample notebook
 Refer to 
-* `training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
+* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow) for a tutorial on tuning hyperparameters for a Tensorflow model. 
 
 Get this notebook:
 

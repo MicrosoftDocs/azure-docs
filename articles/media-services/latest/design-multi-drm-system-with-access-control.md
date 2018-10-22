@@ -4,7 +4,7 @@ description: Learn about how to license the Microsoft Smooth Streaming Client Po
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2018
-ms.author: willzhan;juliako
+ms.date: 10/15/2018
+ms.author: willzhan
 
 ---
 # Design of a multi-DRM content protection system with access control 

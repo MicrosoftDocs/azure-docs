@@ -1,4 +1,4 @@
----
+.---
 title: Azure SQL Database Security Overview | Microsoft Docs
 description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises.
 services: sql-database
@@ -7,11 +7,11 @@ ms.subservice: security
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
-ms.reviewer: vanto, carlrab
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 10/11/2018
 ---
 # An overview of Azure SQL Database security capabilities
 
@@ -26,12 +26,16 @@ For a complete overview of security features available on all flavors of SQL, se
 SQL Database secures your data by providing encryption for data in motion with [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest with [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), and for data in use with [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 > [!IMPORTANT]
-> All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure portal), otherwise the connection does not verify the identity of the server and is susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Azure SQL Database enforces encryption (SSL/TLS) at all times for all conections, which ensures all data is encrypted "in transit" between the database and the client. This will happen irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
+>
+> In your application's connection string do specify an encrypted connection and *not* to trust the server certificate (For the ADO.NET driver this is **Encrypt=True** and **TrustServerCertificate=False**), this helps to prevent your application from a man in the middle attack, by forcing the application to verify the server and enforcing encryption. If you obtain your connection string from the Azure portal it will have the correct settings.
+>
+> For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 For other ways to encrypt your data, consider:
 
 - [Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
-- If you need a Hardware Security Module or central management of your encryption key hierarchy, consider using [Azure Key Vault with SQL Server in an Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
+-  If you need a Hardware Security Module or Bring Your Own Key (BYOK) technology for Transparent Data Encryption, consider using [Azure SQL Transparent Data Encryption: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).
 
 ### Data Discovery & Classification
 

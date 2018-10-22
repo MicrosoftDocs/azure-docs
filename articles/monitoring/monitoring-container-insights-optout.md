@@ -26,7 +26,7 @@ If, after you enable monitoring of your AKS cluster, you decide you no longer wa
 Use the [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) command to disable Azure Monitor for containers. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Log Analytics resource.  
 
 ```azurecli
-az aks disable -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
+az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
 To re-enable monitoring for your cluster, see [Enable monitoring using Azure CLI](monitoring-container-insights-onboard.md#enable-monitoring-using-azure-cli).

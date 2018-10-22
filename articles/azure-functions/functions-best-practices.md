@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 # Optimize the performance and reliability of Azure Functions
 
-This article provides guidance to improve the performance and reliability of your [serverless](https://azure.microsoft.com/overview/serverless-computing/) function apps. 
+This article provides guidance to improve the performance and reliability of your [serverless](https://azure.microsoft.com/solutions/serverless/) function apps. 
 
 ## General best practices
 

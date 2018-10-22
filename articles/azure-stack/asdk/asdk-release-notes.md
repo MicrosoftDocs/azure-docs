@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018 
+ms.date: 10/18/2018 
 ms.author: sethm
 ms.reviewer: misainat
 
@@ -105,7 +105,7 @@ Fixed issue in which public IPs that were deployed by using the Dynamic allocati
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
-      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920).
       2. Follow the steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 <!-- 2869209 – IS, ASDK --> 
