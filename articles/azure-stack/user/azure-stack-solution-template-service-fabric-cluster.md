@@ -3,7 +3,7 @@ title: Deploy a secured Service Fabric cluster in Azure Stack | Microsoft Docs
 description: Learn how to deploy a secured Service Fabric cluster in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: mabrigg
 manager: femila
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 10/22/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
 ---
@@ -45,7 +45,7 @@ The following are required to deploy the Service Fabric cluster:
 
 
 ## Add a secret to Key Vault
-To deploy a Service Fabric cluster, you must specify the correct KeyVault *Secret Identifier* or URL for the Service Fabric cluster. The Azure Resource Manager template takes a KeyVault as input and then retrieves the Cluster certificate during installation of the Service Fabric cluster. 
+To deploy a Service Fabric cluster, you must specify the correct KeyVault *Secret Identifier* or URL for the Service Fabric cluster. The Azure Resource Manager template takes a KeyVault as input. Then the template retrieves the Cluster certificate when installing the Service Fabric cluster.
 
 > [!IMPORTANT]  
 > You must use PowerShell to add a secret to KeyVault for use with Service Fabric. Do not use the portal.  
@@ -137,7 +137,7 @@ PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-man
    - Source Key Vault:  Specify entire *keyVault id* string from the script results. 
    - Cluster Certificate URL: Specify the entire URL from the *Secret Id* from the script results. 
    - Cluster Certificate thumbprint: Specify the *Cluster Certificate Thumbprint* from the script results.
-   - Admin Client Certificate Thumbprints: Specify the *Admin Client Certificate Thumbprint* you have created in the prerequisites. 
+   - Admin Client Certificate Thumbprints: Specify the *Admin Client Certificate Thumbprint* created in the prerequisites. 
 
    ![Script output](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -180,9 +180,9 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 1. To find the URL for the Service Fabric Explorer, and the Client connection endpoint, review the results of the Template deployment.
 
 1. In your browser, go to https://*FQDN*:19080. Replace *FQDN* with the FQDN of your Service Fabric cluster from step 2.   
-   If you’ve used a self signed certificate, you’ll get a warning that the connection is not secure. To proceed to the web site, select **More Information**, and then **Go on to the webpage**. 
+   If you’ve used a self-signed certificate, you’ll get a warning that the connection is not secure. To proceed to the web site, select **More Information**, and then **Go on to the webpage**. 
 
-1. To authenticate to the site you must select a certificate to use. Select **More choices**, pick the appropriate certificate, and then click **OK** to connect to the Service Fabric Explorer. 
+1. To authenticate to the site, you must select a certificate to use. Select **More choices**, pick the appropriate certificate, and then click **OK** to connect to the Service Fabric Explorer. 
 
    ![Authenticate](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
