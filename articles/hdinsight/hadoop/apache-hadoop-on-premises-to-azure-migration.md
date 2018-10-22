@@ -48,7 +48,7 @@ HDInsight also meets the most popular industry and government [compliance stand
 - **Integration with other Azure services** - HDInsight can easily be integrated with other popular Azure services such as Azure Data Factory (ADF), Azure Blob, Azure Data Lake Storage Gen2, Azure Cosmos DB, Azure SQL Database, and Azure Analysis Services.
 - **Self-healing processes and components** - HDInsight constantly checks the infrastructure and open-source components using its own monitoring infrastructure. It also automatically recovers critical failures such as unavailability of open-source components and nodes. Alerts are triggered in Ambari if any OSS component is failed.
 
-For more information, see the article [What is Azure HDInsight and the Hadoop technology stack](../hadoop/apache-hadoop-introduction).
+For more information, see the article [What is Azure HDInsight and the Hadoop technology stack](../hadoop/apache-hadoop-introduction.md).
 
 ## Proposed Azure HDInsight architecture and migration best practices
 
@@ -208,7 +208,7 @@ A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchi
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. The Key features of Azure Data Lake Storage (ADLS) Gen2 are as follows:
 
-- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](../index.md) to access data stored in Data Lake Storage Gen2.
+- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
 
 - **A superset of POSIX permissions**: The security model for Data Lake Gen2 fully supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through admin tools or through frameworks like Hive and Spark.
 
@@ -299,7 +299,7 @@ All data written to Azure Storage is automatically encrypted using [Storage Ser
 - [Locally redundant storage (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy-grs#read-access-geo-redundant-storage.md)
+- [Read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 Azure Data Lake Storage provides locally redundant storage (LRS) but you should also copy critical data to another Data Lake Store account in another region with a frequency aligned to the needs of the disaster recovery plan. There are a variety of methods to copy data including [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), or [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). It is also recommended to enforce access policies for Data Lake Store account to prevent accidental deletion.
 
 For more information, see the following articles:
@@ -336,7 +336,7 @@ For more information, see the article [Capacity planning for HDInsight clusters]
 
 ### Use the recommended virtual machine types for cluster nodes
 
-See [Default node configuration and virtual machine sizes for clusters](../hdinsight-component-versioning#default-node-configuration-and-virtual-machine-sizes-for-clusters.md) for recommended virtual machine types for each type of HDInsight cluster.
+See [Default node configuration and virtual machine sizes for clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) for recommended virtual machine types for each type of HDInsight cluster.
 
 ### Check the availability of Hadoop components in HDInsight
 
@@ -373,7 +373,7 @@ Applications or components that were available in On-premises clusters but are n
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-For more information, see the article [Hadoop components available with different HDInsight versions](../hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions)
+For more information, see the article [Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions)
 
 ### Customize HDInsight clusters using script actions
 
@@ -719,7 +719,7 @@ The hive metastore can be migrated either by using the scripts or by using the D
 
 For more information, see the article:
 
-[Log Analytics Overview](../../log-analytics/log-analy%20tics-overview.md)
+[Azure Monitor Overview](../../azure-monitor/overview.md)
 
 ### Upgrade clusters
 
