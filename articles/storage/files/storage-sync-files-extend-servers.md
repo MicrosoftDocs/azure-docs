@@ -135,15 +135,15 @@ In the **Windows Server 2016 Datacenter** VM, **Server Manager** will open autom
 
 1. In **Server Manager** Click **Local Server**.
 
-   !["Local Server" on the left side of the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-IEESC-1.png)
+   !["Local Server" on the left side of the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-1.png)
 
 1. On the **Properties** subpane, select the link for **IE Enhanced Security Configuration**.  
 
-    ![The "IE Enhanced Security Configuration" pane in the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-IEESC-2.png)
+    ![The "IE Enhanced Security Configuration" pane in the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png)
 
 1. In the **Internet Explorer Enhanced Security Configuration** dialog box, select **Off** for **Administrators** and **Users**:  
 
-    ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-extend-servers/prepare-server-disable-IEESC-3.png)
+    ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-3.png)
 
    Now you can add the data disk to the VM.
 
