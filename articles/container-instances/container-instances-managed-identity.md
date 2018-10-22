@@ -101,7 +101,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myACIId --
 Run the following [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) command to create a container instance based on Ubuntu Server. This example provides a single-container group that you can use to interactively access other Azure services. The `--assign-identity` parameter passes your user-assigned managed identity to the group. The long-running command keeps the container running. This example uses the same resource group used to create the Key Vault, but you could specify a different one.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image devorbitus/ubuntu-bash-jq-curl --assign-identity $resourceID --command-line "tail -f /dev/null"
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/azure-cli --assign-identity $resourceID --command-line "tail -f /dev/null"
 ```
 
 Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show](/cli/azure/container?view=azure-cli-latest#az-container-show) command.
@@ -182,7 +182,7 @@ The response looks similar to the following, showing the secret. In your code, y
 Run the following [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) command to create a container instance based on Ubuntu Server. This example provides a single-container group that you can use to interactively access other Azure services. The `--assign-identity` parameter with no additional value enables a system-assigned managed identity on the group. The long-running command keeps the container running. This example uses the same resource group used to create the Key Vault, but you could specify a different one.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image devorbitus/ubuntu-bash-jq-curl --assign-identity --command-line "tail -f /dev/null"
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/azure-cli --assign-identity --command-line "tail -f /dev/null"
 ```
 
 Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show](/cli/azure/container?view=azure-cli-latest#az-container-show) command.
