@@ -148,25 +148,19 @@ By default, Azure allows communication over all ports between VMs in the same vi
 
 ## Set up alerts
 
-Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. If the results of the log search match the specified criteria, then an alert is created. The rule can then automatically run one or more actions, such as notify you of the alert or invoke another process. For more detailed instructions, see [](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric)
+Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. A generated alert can automatically run one or more actions, such as to notify someone or start another process.
 
-In simple terms, you create a new alert rule with the following three steps:
-
-* Select the targeted resource for the alert
-* Select the signal from the available signals for the targeted resource
-* Specify the logic to be applied to data from the signal
-
- The resource that you target determines the list of available signals. and it guides you through defining the logic of the alert rule.
+When setting an alert rule, the resource that you target determines the list of available signals that you can use to generate alerts.
 
 1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
 2. Click **Select target**, and then select the resources that you want to target. Use **Subscription** and **Resource type** to generate a list of resources to monitor. You can also filter the results to find your resource.
   
-    ![alert screen with target selected]((../log-analytics/media/log-analytics-tutorial-response/alert-rule-03.png))
+    ![alert screen with target selected]((./media/connection-monitor/set-alert-rule.png))
 3. If the selected resource has metrics on which you can create alerts, [**Available signals** on the bottom right displays metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported).
 4. Once you have selected a target resource, select **Add criteria**. You see a list of signals supported for the resource. Select the metric on which you want to create an alert.
-5. When you select a metric, you see a chart for the metric for the last 6 hours. Define **Period**, **Frequency**, **Operator** and **Threshold** to detrrmine the logic that the metric alert rule evaluates.
-6. If the metric has dimensions, you see **Dimensions** table presented. Select [one or more values per dimension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric-overview). Select \* to dynamically scale the selection to all current and future values for a dimension.
-7. Fill in alert details like alert rule name, description and severity, or add an action group to the alert to automate and customize the alert response, and then select **Done** to save the metric alert rule.
+5. When you select a metric, you see a chart for the metric for the last 6 hours. Define **Period**, **Frequency**, **Operator** and **Threshold** to determine the logic that the metric alert rule evaluates.
+6. If the metric has dimensions, you can select [one or more values per dimension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric-overview). Select \* to dynamically scale the selection to all current and future values for a dimension.
+7. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response, and then select **Done** to save the metric alert rule.
 
 ## Clean up resources
 
