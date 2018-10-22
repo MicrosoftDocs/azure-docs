@@ -18,7 +18,7 @@ ms.author: glenga
 # Azure Functions JavaScript developer guide
 This guide contains information about the intricacies of writing Azure Functions with JavaScript.
 
-A JavaScript function is an exported `function` that will execute when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The first argument every function is passed is a `context` object which is used for receiving and sending binding data, logging, and communicating with the runtime.
+A JavaScript function is an exported `function` that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The first argument every function is passed is a `context` object which is used for receiving and sending binding data, logging, and communicating with the runtime.
 
 This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). It is also recommended that you have followed a tutorial under "Quickstarts" to [create your first function](functions-create-first-function-vs-code.md).
 
@@ -50,7 +50,7 @@ The binding extensions required in [version 2.x](functions-versions.md) of the F
 
 ## Exporting a function
 
-JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). Your exported function should be a JavaScript function that will execute when triggered.
+JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). Your exported function should be a JavaScript function that executes when triggered.
 
 By default, the Functions runtime looks for your function in `index.js`, where `index.js` shares the same parent directory as its corresponding `function.json`. In the default case, your exported function should be the only export from its file or the export named `run` or `index`. To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
 
@@ -65,7 +65,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### Exporting an async function
-When using the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or otherwise returning a JavaScript [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (not available with Functions v1.x), you do not explicitly need to call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function will complete when the exported async function/Promise completes.
+When using the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or otherwise returning a JavaScript [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (not available with Functions v1.x), you do not explicitly need to call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function completes when the exported async function/Promise completes.
 
 For example, this is a simple function that logs that it was triggered and immediately completes execution.
 ``` javascript
@@ -226,9 +226,9 @@ context.done([err],[propertyBag])
 
 Informs the runtime that your code has finished. If your function uses the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration (available using Node 8+ in Functions version 2.x), you do not need to use `context.done()`. The `context.done` callback is implicitly called.
 
-If your function is not an async function, **you must call** `context.done` to inform the runtime that your function is complete. The execution will time out if it is missing.
+If your function is not an async function, **you must call** `context.done` to inform the runtime that your function is complete. The execution times out if it is missing.
 
-The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` will overwrite anything set on the `context.bindings` object.
+The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` overwrite anything set on the `context.bindings` object.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -236,7 +236,7 @@ The `context.done` method allows you to pass back both a user-defined error to t
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
-// the done method will overwrite the myOutput binding to be: 
+// the done method overwrites the myOutput binding to be: 
 //  -> text: 'hello there, world', noNumber: true
 ```
 
@@ -266,7 +266,7 @@ Read [monitoring Azure Functions](functions-monitoring.md) to learn more about v
 
 ## Writing trace output to the console 
 
-In Functions, you use the `context.log` methods to write trace output to the console. In Functions v2.x, trace ouputs via `console.log` are captured at the Function App level. This means that outputs from `console.log` are not tied to a specific function invocation, and hence aren't displayed in a specific function's logs. They will, however, propagate to Application Insights. In Functions v1.x, you cannot use `console.log` to write to the console. 
+In Functions, you use the `context.log` methods to write trace output to the console. In Functions v2.x, trace ouputs via `console.log` are captured at the Function App level. This means that outputs from `console.log` are not tied to a specific function invocation, and hence aren't displayed in a specific function's logs. They do, however, propagate to Application Insights. In Functions v1.x, you cannot use `console.log` to write to the console. 
 
 When you call `context.log()`, your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
 
@@ -530,7 +530,7 @@ When you create a function app that uses the App Service plan, we recommend that
 Because direct support does not yet exist for auto-compiling TypeScript or CoffeeScript via the runtime, such support needs to be handled outside the runtime, at deployment time. 
 
 ### Cold Start
-When developing Azure Functions in the serverless hosting model, cold starts are a reality. "Cold start" refers to the fact that when your Function App starts for the first time after a period of inactivity, it will take longer to start up. For JavaScript functions with large dependency trees in particular, this can cause major slowdown. In order to hasten the process, if possible, [run your functions as a package file](run-functions-from-deployment-package.md). Many deployment methods opt into this model by default, but if you're experiencing large cold starts and are not running from a package file, this can be a massive improvement.
+When developing Azure Functions in the serverless hosting model, cold starts are a reality. "Cold start" refers to the fact that when your Function App starts for the first time after a period of inactivity, it takes longer to start up. For JavaScript functions with large dependency trees in particular, this can cause major slowdown. In order to hasten the process, if possible, [run your functions as a package file](run-functions-from-deployment-package.md). Many deployment methods opt into this model by default, but if you're experiencing large cold starts and are not running from a package file, this can be a massive improvement.
 
 ## Next steps
 For more information, see the following resources:
