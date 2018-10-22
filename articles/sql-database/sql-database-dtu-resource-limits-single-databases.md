@@ -75,7 +75,7 @@ For single databases, the following tables show the resources available for a si
 |||||||
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in the following regions: Australia Central, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, China East, China North, East Asia, East US, France Central, France South, Germany Central, Germany Northeast, India Central, India South, India West, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, West Europe, West US, USDoDEast, US Gov Southwest, and USGovIowa. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all following regions except the following China East, China North, Germany Central, Germany Northeast, UK North, UK South, US DOD Central, US DOD East, US Goverment Central, and West Central US:  In these regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## Single database: Change storage size
 
