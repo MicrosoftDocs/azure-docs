@@ -3,7 +3,7 @@ title: Deploy a secured Service Fabric cluster in Azure Stack | Microsoft Docs
 description: Learn how to deploy a secured Service Fabric cluster in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mabrigg
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2018
-ms.author: mattbriggs
+ms.author: mabrigg
 ms.reviewer: shnatara
 ---
 
