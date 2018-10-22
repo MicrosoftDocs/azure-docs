@@ -156,7 +156,7 @@ In simple terms, you create a new alert rule with the following three steps:
 * Select the signal from the available signals for the targeted resource
 * Specify the logic to be applied to data from the signal
 
-The list of available signals is automatically filtered based on the resource that you target, and it guides you through defining the logic of the alert rule.
+ The resource that you target determines the list of available signals. and it guides you through defining the logic of the alert rule.
 
 1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
 2. Click **Select target**, and then select the resources that you want to target. Use **Subscription** and **Resource type** to generate a list of resources to monitor. You can also filter the results to find your resource.
