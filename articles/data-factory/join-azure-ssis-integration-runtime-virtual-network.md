@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/1022/2018
+ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
