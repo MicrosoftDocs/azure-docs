@@ -32,7 +32,6 @@ This is done by exposing Service Fabric events through the Service Fabric Explor
 * Confirm that management actions you are taking on your cluster are being processed correctly by your cluster
 * Get a "snapshot" of how Service Fabric is interacting with a particular entity
 
-<!--INSERT SCREENSHOT OF SFX-->
 
 To see a full list of events available in the EventStore, see [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -49,6 +48,17 @@ The EventStore service can be queried for events that are available for each ent
 * Replicas: events from all replicas / instances
 * Replica: events from a specific replica / instance
 
+## Enable EventStore on your cluster
+
+### Local Cluster
+
+In your fabricSettings.json, add EventStoreService as an addOn feature
+
+```json
+    "addOnFeatures": [
+        "EventStoreService"
+    ],
+```
 
 The EventStore service also has the ability to correlate events in your cluster. By looking at events that were written at the same time from different entities that may have impacted each other, the EventStore service is able to link these events to help with identifying causes for activities in your cluster. For example, if one of your applications happens to become unhealthy without any induced changes, the EventStore will also look at other events exposed by the platform and could correlate this with a `NodeDown` event. This helps with faster failure detection and root causes analysis.
 
