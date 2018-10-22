@@ -13,7 +13,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/24/2018
 ---
-# Azure SQL Database Connectivity Architecture
+# Azure SQL Database Connectivity Architecture Test
 
 This article explains the Azure SQL Database connectivity architecture and explains how the different components function to direct traffic to your instance of Azure SQL Database. These Azure SQL Database connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
 
