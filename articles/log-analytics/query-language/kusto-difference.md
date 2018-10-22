@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Log Analytics language reference | Microsoft Docs
-description: Reference information for Kusto language used by Log Analytics. Includes additional elements specific to Log Analytics and elements not supported in Log Analytics queries.
+description: Reference information for Data Explorer query language used by Log Analytics. Includes additional elements specific to Log Analytics and elements not supported in Log Analytics queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -19,9 +19,9 @@ ms.component: na
 
 # Log Analytics query language differences
 
-While [Log Analytics](../log-analytics-queries.md) is built on [Azure Data Explorer](/azure//data-explorer) and uses the [same query language](/azure/kusto/query), the version of the language does have some differences. This articles identifies elements that are different between the version of the language used for Data Explorer and the version used for Log Analytics queries.
+While [Log Analytics](../log-analytics-queries.md) is built on [Azure Data Explorer](/azure//data-explorer) and uses the [same query language](/azure/kusto/query), the version of the language does have some differences. This article identifies elements that are different between the version of the language used for Data Explorer and the version used for Log Analytics queries.
 
-## Data Explorer elements not support in Log Analytics
+## Data Explorer elements not supported in Log Analytics
 The following sections describe elements of the Data Explorer query language that aren't supported by Log Analytics.
 
 ### Statements not supported in Log Analytics
@@ -51,7 +51,7 @@ The following sections describe elements of the Data Explorer query language tha
 
 
 ## Additional operators in Log Analytics
-In order to support specific Log Analytics features, the following additional Kusto operators are provided that are not available outside of Log Analytics. 
+The following operators support specific Log Analytics features and are not available outside of Log Analytics.
 
 * [app()](app-expression.md)
 * [workspace()](workspace-expression.md)
@@ -59,4 +59,4 @@ In order to support specific Log Analytics features, the following additional Ku
 ## Next steps
 
 - Get references to different [resources for writing Log Analytics queries](kusto.md).
-- Access the complete [reference documentation for Kusto](/azure/kusto/query/).
+- Access the complete [reference documentation for Data Explorer query language](/azure/kusto/query/).

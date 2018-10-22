@@ -18,10 +18,7 @@ ms.component: na
 ---
 
 # Log Analytics query language
-
-[Log Analytics](../log-analytics-queries.md) provides log collection and analysis for [Azure Monitor](/azure-monitor/overview.md). It's built on [Azure Data Explorer](/azure/data-explorer/) and uses a version of the same [query language](/azure/kusto).
-
-The [Azure Data Explorer query language documentation](/azure/kusto/query) has all of the details for the language and should be your primary resource for writing Log Analytics queries. This page provides links to other resources for learning how to write queries and on differences with the Log Analytics implementation of the language.
+Log Analytics provides log collection and analysis for Azure Monitor. It's built on Azure Data Explorer and uses a version of the same query language. The [Azure Data Explorer query language documentation](/azure/kusto/query) has all of the details for the language and should be your primary resource for writing Log Analytics queries. This page provides links to other resources for learning how to write queries and on differences with the Log Analytics implementation of the language.
 
 ## Getting started
 
@@ -61,8 +58,6 @@ The [Azure Data Explorer query language documentation](/azure/kusto/query) has a
 -  [SQL to Log Analytics query language cheat sheet](sql-cheatsheet.md) assists users who are already familiar with SQL.
 -  [Splunk to Log Analytics query language cheat sheet](sql-cheatsheet.md) assists users who are already familiar with Splunk.
  
-##  
-
 ## Next steps
 
 - Access the complete [reference documentation for the Data Explorer query language](/azure/kusto/query/).
