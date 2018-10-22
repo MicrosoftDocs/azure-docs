@@ -52,12 +52,55 @@ The EventStore service can be queried for events that are available for each ent
 
 ### Local Cluster
 
-In your fabricSettings.json, add EventStoreService as an addOn feature
+In fabricSettings.json, add EventStoreService as an addOn feature and perform a cluster upgrade.
 
 ```json
     "addOnFeatures": [
         "EventStoreService"
     ],
+```
+
+### Azure cluster
+
+In fabricSettings.json, you can turn on the EventStore service by performing a cluster config upgrade and adding the following code. The `upgradeDescription` section is needed in order to trigger a restart on the nodes during this cluster config upgrade. You can remove that section after in another update.
+
+```json
+    "fabricSettings": [
+          …
+          …
+          …,
+         {
+            "name": "EventStoreService",
+            "parameters": [
+              {
+                "name": "TargetReplicaSetSize",
+                "value": "3"
+              },
+              {
+                "name": "MinReplicaSetSize",
+                "value": "1"
+              }
+            ]
+          }
+        ],
+        "upgradeDescription": {
+          "forceRestart": true,
+          "upgradeReplicaSetCheckTimeout": "10675199.02:48:05.4775807",
+          "healthCheckWaitDuration": "00:01:00",
+          "healthCheckStableDuration": "00:01:00",
+          "healthCheckRetryTimeout": "00:5:00",
+          "upgradeTimeout": "1:00:00",
+          "upgradeDomainTimeout": "00:10:00",
+          "healthPolicy": {
+            "maxPercentUnhealthyNodes": 100,
+            "maxPercentUnhealthyApplications": 100
+          },
+          "deltaHealthPolicy": {
+            "maxPercentDeltaUnhealthyNodes": 0,
+            "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0,
+            "maxPercentDeltaUnhealthyApplications": 0
+          }
+        }
 ```
 
 The EventStore service also has the ability to correlate events in your cluster. By looking at events that were written at the same time from different entities that may have impacted each other, the EventStore service is able to link these events to help with identifying causes for activities in your cluster. For example, if one of your applications happens to become unhealthy without any induced changes, the EventStore will also look at other events exposed by the platform and could correlate this with a `NodeDown` event. This helps with faster failure detection and root causes analysis.

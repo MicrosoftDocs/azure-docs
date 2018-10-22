@@ -238,6 +238,7 @@ Here is a comprehensive list of events provided by Service Fabric prior to versi
 
 ## Next steps
 
-* Learn more about overall [event generation at the platform level](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
+* Get an overview of [diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
+* Learn more about the EventStore in [Service Fabric Eventstore Overview](service-fabric-diagnostics-eventstore.md)
 * Modifying your [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) configuration to collect more logs
 * [Setting up Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) to see your Operational channel logs
