@@ -133,9 +133,9 @@ The reliability tier can take the following values:
 
 When you increase or decrease the size of your cluster (the sum of VM instances in all node types), you must update the reliability of your cluster from one tier to another. Doing this triggers the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
-Here is the recommendation on choosing the reliability tier.
+Here is the recommendation on choosing the reliability tier.  The number of seed nodes is also set to the minium number of nodes for a reliability tier.  For example, for a cluster with Gold reliability there is 7 seed nodes.
 
-| **Cluster Size** | **Reliability Tier** |
+| **Number of cluster nodes** | **Reliability Tier** |
 | --- | --- |
 | 1 |Do not specify the Reliability Tier parameter, the system calculates it |
 | 3 |Bronze |
