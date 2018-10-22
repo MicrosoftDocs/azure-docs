@@ -324,7 +324,7 @@ The Service Bus trigger provides several [metadata properties](functions-trigger
 |`To`|`string`|The send to address.|
 |`Label`|`string`|The application specific label.|
 |`CorrelationId`|`string`|The correlation ID.|
-|`Properties`|`IDictionary<String,Object>`|The application specific message properties.|
+|`UserProperties`|`IDictionary<String,Object>`|The application specific message properties.|
 
 See [code examples](#trigger---example) that use these properties earlier in this article.
 
