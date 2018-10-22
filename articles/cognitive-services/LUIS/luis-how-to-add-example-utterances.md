@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
 ---
 
@@ -154,6 +154,36 @@ In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin l
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
 
     See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
+
+## Entity status predictions
+
+When you enter a new utterance in the LUIS portal, the utterance may have entity prediction errors. The prediction error is a difference between how an entity is labeled compared with how LUIS has predicted the entity. 
+
+This difference is visually represented in the LUIS portal with a red underline in the utterance. The red underline may appear in entity brackets or outside of brackets. 
+
+![Screenshot of Entity status prediction discrepancy](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+Select the words that are underlined in red in the utterance. 
+
+The entity box displays the **Entity status** with a red exclamation mark if there is a prediction discrepancy. To see the Entity status with information about the difference between labeled and predicted entities, select **Entity status** then select the item to the right.
+
+![Screenshot of Entity status prediction discrepancy](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+The red-line can appear at any of the following times:
+
+    * When an utterance is entered but before the entity is labeled
+    * When the entity label is applied
+    * When the entity label is removed
+    * When more than one entity label is predicted for that text 
+
+The following solutions help resolve the entity prediction discrepancy:
+
+|Entity|Visual indicator|Prediction|Solution|
+|--|--|--|--|
+|Utterance entered, entity isn't labeled yet.|red underline|Prediction is correct.|Label the entity with the predicted value.|
+|Unlabeled text|red underline|Incorrect prediction|The current utterances using this incorrect entity need to be reviewed across all intents. The current utterances have mistaught LUIS that this text is the predicted entity.
+|Correctly labeled text|blue entity highlight, red underline|Incorrect prediction|Provide more utterances with the correctly labeled entity in a variety of places and usages. The current utterances are either not sufficient to teach LUIS that this is the entity is or similar entities appear in the same context. Similar entity should be combined into a single entity so LUIS isn't confused. Another solution is to add a phrase list to boost the significance of the words. |
+|Incorrectly labeled text|blue entity highlight, red underline|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages. 
 
 
 ## Remove entity labels from utterances
