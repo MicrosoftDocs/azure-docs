@@ -24,12 +24,12 @@ The Text Analytics' `entities` endpoint supprts both named entity recognition (N
 ### Entity Linking
 Entity linking is the ability to identify and disambiguate the identity of an entity found in text (e.g. determining whether the "Mars" is being used as the planet or as the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked - Wikipedia is used as the knowledge base for the `entities` endpoint Text Analytics.
 
-In Text Analytics [Version 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), only entity linking is available.
+In Text Analytics [Version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), only entity linking is available.
 
 ### Named Entity Recognition (NER)
 Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes. The supported classes of entities are listed below.
 
-In Text Analytics Version 2.1 preview (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), both entity linking and named entity recognition (NER) are available.
+In Text Analytics [Version 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available.
 
 ### Language support
 
