@@ -11,9 +11,11 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/16/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.author: jgao
+
+#Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 
 ---
 

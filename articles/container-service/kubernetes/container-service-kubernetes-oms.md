@@ -75,8 +75,7 @@ Analytics](../../log-analytics/log-analytics-containers.md).
 For the Log Analytics agent to talk to the service it needs to be configured with a workspace ID and
 a workspace key. To get the workspace ID and key you need to create an account at <https://mms.microsoft.com>.
 Please follow the steps to create an account. Once you are done creating
-the account, you need to obtain your ID and key by clicking
-**Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
+the account, you can obtain your ID and key by clicking on the **Log Analytics** blade, then the name of your workspace. Then, under **Advanced Settings**, **Connected Sources**, and then **Linux Servers**, you will find the information you need, as shown below.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
