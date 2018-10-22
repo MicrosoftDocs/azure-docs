@@ -48,7 +48,7 @@ select your Log Analytics workspace.
    ![Select Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
 1. On your workspace menu, under **General**, 
-choose either **Logs (classic)** or **Logs**. 
+select either **Logs (classic)** or **Logs**. 
 
    This example shows how to use the classic Logs view. 
    If you choose **View logs** in the 
@@ -123,32 +123,41 @@ On the query toolbar, choose **Saved Searches**.
 
    ![Choose "Saved Searches"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
 
-3. Under **Saved Searches**, 
-select your query so that you can view the results. 
-To update the query so you can find different results, edit the query.
+1. Under **Saved Searches**, select your query so you can view the results. 
 
-   ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+   ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/saved-query-results.png)
 
-## Find and run saved queries in Log Analytics
+   To update the query so you can find different results, edit the query.
 
-1. Open your Log Analytics workspace home page (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
-and choose **Log Search**.
+## Find and run saved queries
 
-   ![On your Log Analytics home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+1. In the [Azure portal](https://portal.azure.com), 
+select **All services**. In the search box, 
+find "log analytics", and select **Log Analytics**.
 
-   -or-
+   ![Select Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-   ![On the menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+1. Under **Log Analytics**, find and 
+select your Log Analytics workspace. 
 
-2. On the **Log Search** home page, choose **Favorites**.
+   ![Select Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-   ![Choose "Favorites"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-favorites.png)
+1. On your workspace menu, under **General**, 
+select either **Logs (classic)** or **Logs**. 
 
-3. Under **Saved Searches**, 
-select your query so that you can view the results. 
-To update the query so you can find different results, edit the query.
+   This example shows how to use the classic Logs view. 
 
-   ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+1. After the query page opens, on the query toolbar, 
+choose **Saved Searches**.
+
+   ![Choose "Saved Searches"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
+
+1. Under **Saved Searches**, select your query so you can view the results. 
+
+   ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/saved-query-results.png) 
+
+   The query runs automatically, but if the query doesn't run for any reason,
+   in the query editor, choose **Run**.
 
 ## Next steps
 
