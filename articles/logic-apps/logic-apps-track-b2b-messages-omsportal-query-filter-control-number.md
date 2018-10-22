@@ -33,8 +33,8 @@ and [set up message tracking in Log Analytics](../logic-apps/logic-apps-track-b2
 
 ## Create queries with filters
 
-This example shows how you can find messages 
-based on their interchange control number.
+To find messages based on specific properties or values, 
+you can create queries that use filters. 
 
 1. In the [Azure portal](https://portal.azure.com), 
 select **All services**. In the search box, 
@@ -47,27 +47,28 @@ select your Log Analytics workspace.
 
    ![Select Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-1. To start creating your query: 
+1. On your workspace menu, under **General**, 
+choose either **Logs (classic)** or **Logs**. 
 
-   * If you're familiar with the classic Logs view, on your log analytics workspace menu, under **General**, 
-   select **Logs (classic)**. Or, in the **Maximize your Log Analytics experience** section, 
-   under **Search and analyze logs**, choose **View logs**.
-
-   * To use the current Logs view, on your log analytics workspace menu, select **Logs**.
-
-   This example shows how to use the classic Logs view. Learn more about 
-   [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   This example shows how to use the classic Logs view. 
+   If you choose **View logs** in the 
+   **Maximize your Log Analytics experience** section, 
+   under **Search and analyze logs**, 
+   you get the **Logs (classic view)**. 
 
    ![View classic logs](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 
-1. In the query edit box, start typing the field name you want to find, and press **Enter**. 
+1. In the query edit box, start typing the field name you want to find. 
+When you start typing, the query editor shows the possible matches 
+and operations you can use. After you create your query, choose **Run** 
+or press the Enter key.
 
-   When you start typing, the query editor shows the possible matches and operations you can use. 
-   This example searches for matches on **LogicAppB2B**.
+   This example searches for matches on **LogicAppB2B**. 
+   Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
    ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 
-1. In the left pane, to change the timeframe you want to view, 
+1. To change the timeframe you want to view, in the left pane, 
 select from the duration list or drag the slider. 
 
    ![Change timeframe](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/change-timeframe.png)
@@ -76,23 +77,26 @@ select from the duration list or drag the slider.
 
    ![Add filter to query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/add-filter.png)
 
-1. Under **Add Filters**, enter the name for the filter you want. 
-Select the filter, and choose **Add**.
+1. Under **Add Filters**, enter filter name you want to find. 
+If you find the filter, select that filter. In the left pane, 
+choose **Add** again.
 
-   For example, to find the interchange control number, 
-   search for the word "interchange", and select **event_record_messageProperties_interchangeControlNumber_s** 
-   as the filter.
+   For example, here is a different query that searches on 
+   **Type=="AzureDiagnostics"** events and finds results 
+   based on the interchange control number by selecting the 
+   **event_record_messageProperties_interchangeControlNumber_s** filter.
 
-1. In the left pane, select the filter value 
-you want to use, and choose **Apply**.
+   ![Select filter value](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filter-example.png)
 
-   ![Select filter value](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-filter-value.png)
+   After you choose **Add**, your query is updated with 
+   your selected filter event and value. 
+   Your previous results are now filtered too. 
 
-1. Now return to the query that you're building. 
-Your query has been updated with your selected filter event and value. 
-Your previous results are now filtered too.
+   For example, this query searches for **Type=="AzureDiagnostics"** 
+   and finds results based on an interchange control number by using the 
+   **event_record_messageProperties_interchangeControlNumber_s** filter.
 
-    ![Return to your query with filtered results](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
+   ![Filtered results](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filtered-results.png)
 
 <a name="save-oms-query"></a>
 
