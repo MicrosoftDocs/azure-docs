@@ -47,33 +47,40 @@ select your Log Analytics workspace.
 
    ![Select Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-1. Under **Maximize your Log Analytics experience** > **Search and analyze logs**, 
-choose **View logs**.
+1. To start creating your query: 
 
-   ![Choose "View logs"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-logs.png)
+   * If you're familiar with the classic Logs view, on your log analytics workspace menu, under **General**, 
+   select **Logs (classic)**. Or, in the **Maximize your Log Analytics experience** section, 
+   under **Search and analyze logs**, choose **View logs**.
 
-1. In the search box, enter a field that you want to find, and press **Enter**. 
-When you start typing, Log Analytics shows you possible matches and operations that you can use. 
-Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   * To use the current Logs view, on your log analytics workspace menu, select **Logs**.
 
-   This example searches for events with **Type=AzureDiagnostics**.
+   This example shows how to use the classic Logs view. Learn more about 
+   [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
-   ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
+   ![View classic logs](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 
-5. In the left bar, choose the timeframe that you want to view. 
-To add a filter to your query, choose **+Add**.
+1. In the query edit box, start typing the field name you want to find, and press **Enter**. 
+
+   When you start typing, the query editor shows the possible matches and operations you can use. 
+   This example searches for matches on **LogicAppB2B**.
+
+   ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
+
+1. In the left pane, select the timeframe you want to view. 
+To add a filter to your query, choose **Add**.
 
    ![Add filter to query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
 6. Under **Add Filters**, enter the filter name so you can find the filter you want. 
-Select the filter, and choose **+Add**.
+Select the filter, and choose **Add**.
 
    To find the interchange control number, this example searches for the word "interchange", 
    and selects **event_record_messageProperties_interchangeControlNumber_s** as the filter.
 
    ![Select filter](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-7. In the left bar, select the filter value that you want to use, and choose **Apply**.
+7. In the left pane, select the filter value that you want to use, and choose **Apply**.
 
    This example selects the interchange control number for the messages we want.
 
