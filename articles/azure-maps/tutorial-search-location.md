@@ -1,8 +1,8 @@
 ---
 title: Search with Azure Maps | Microsoft Docs
 description: Search nearby point of interest using Azure Maps
-author: dsk-2015
-ms.author: dkshir
+author: walsehgal
+ms.author: v-musehg
 ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
