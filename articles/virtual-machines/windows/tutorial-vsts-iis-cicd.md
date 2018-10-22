@@ -3,7 +3,7 @@ title: Tutorial - Create a CI/CD pipeline in Azure with Azure DevOps Services | 
 description: In this tutorial, you learn how to create a Azure DevOps Services pipeline for continuous integration and delivery that deploys a web app to IIS on a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use services like Azure DevOps Services to build and deploy my applications automatically.

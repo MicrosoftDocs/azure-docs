@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -43,8 +43,9 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
   - No management overhead. The agent automatically receives improvements and bug fixes.
 - *Secure*
   - On-premises passwords are never stored in the cloud in any form.
-  - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
   - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), [blocking legacy authentication](../conditional-access/conditions.md) and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
+  - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
+  - The communication between an agent and Azure AD is secured using certificate-based authentication. These certificates are automatically renewed every few months by Azure AD.
 - *Highly available*
   - Additional agents can be installed on multiple on-premises servers to provide high availability of sign-in requests.
 

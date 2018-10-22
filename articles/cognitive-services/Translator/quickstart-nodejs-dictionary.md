@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Find alternate translations - Translator Text, Node.js"
+title: "Quickstart: Find alternate translations, Node.js - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Find alternate translations and usage with Node.js
+# Quickstart: Find alternate translations with the Translator Text REST API (Node.js)
 
 In this quickstart, you find details of possible alternate translations for a term, and also usage examples of those alternate translations, using the Translator Text API.
 

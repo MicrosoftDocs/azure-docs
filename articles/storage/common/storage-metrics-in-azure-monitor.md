@@ -24,7 +24,7 @@ Metrics are enabled by default, and you can access the past 93 days of data. If 
 
 ### Access metrics in the Azure portal
 
-You can monitor metrics over time in the Azure portal. The following example shows how to view **UsedCapacity** at account level.
+You can monitor metrics over time in the Azure portal. The following example shows how to view **Transactions** at account level.
 
 ![screenshot of accessing metrics in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
