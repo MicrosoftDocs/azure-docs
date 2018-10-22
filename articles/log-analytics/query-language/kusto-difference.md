@@ -58,6 +58,5 @@ In order to support specific Log Analytics features, the following additional Ku
 
 ## Next steps
 
-- Read about queries in [Log Analytics](../log-analytics-queries.md).
-- Walk through a lesson on writing on a [Log Analytics query](/log-analytics/query-language/get-started-queries.md).
+- Get references to different [resources for writing Log Analytics queries](kusto.md).
 - Access the complete [reference documentation for Kusto](/azure/kusto/query/).

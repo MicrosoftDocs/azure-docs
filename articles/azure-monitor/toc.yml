@@ -640,6 +640,8 @@
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query log data
       items:
+      - name: Query language Documentation
+        href: ../log-analytics/query-language/kusto.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -676,8 +678,8 @@
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
       - name: Query language
         items:
-        - name: Language reference
-          href: ../log-analytics/query-language/kusto.md?toc=/azure/azure-monitor/toc.json
+        - name: Language differences
+          href: ../log-analytics/query-language/kusto-difference.md?toc=/azure/azure-monitor/toc.json
         - name: Examples
           href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
         - name: app expression
