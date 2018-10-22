@@ -109,9 +109,6 @@ For this procedure, use a computer in your datacenter network that can communica
    > [!IMPORTANT]
    > Wait for the credentials pop-up (Get-Credential is not supported in the privileged endpoint) and enter the Graph Service Account credentials.
 
-   > [!Note]  
-   > When you rotate the certificate on the existing AD FS (account STS) you must set up the AD FS integration again. You must set up the integration even if the metadata endpoint is reachable or it was configured by providing the metadata file.
-
 #### Graph protocols and ports
 
 Graph service in Azure Stack uses the following protocols and ports to communicate with a writeable Global Catalog Server (GC) and Key Distribution Center (KDC) that can process login requests in the target Active Directory forest.
@@ -157,6 +154,10 @@ For this procedure, use a computer that can communicate with the privileged endp
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
+
+   > [!Note]  
+   > When you rotate the certificate on the existing AD FS (account STS) you must set up the AD FS integration again. You must set up the integration even if the metadata endpoint is reachable or it was configured by providing the metadata file.
+S
 
 ## Setting up AD FS integration by providing federation metadata file
 
