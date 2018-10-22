@@ -52,16 +52,16 @@ The following diagnostics telemetry is available for collection for elastic pool
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
-| Elastic pool | [All metrics](sql-database-metrics-diag-logging.md#all-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
+| **Elastic pool** | [All metrics](sql-database-metrics-diag-logging.md#all-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
 
 To enable diagnostics telemetry for **elastic pool resource**, follow these steps:
 
 - Go to the elastic pool resource in Azure portal
 - Select **Diagnostics settings**
-- Select **+Add diagnostic setting**, or Edit an existing setting
-- Type in the setting name
-- Select to which resource to stream diagnostics data from the elastic pool: Azure storage, event hub, or Log Analytics.
-- In case Log Analytics is selected, create or use an existing workspace.
+- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
+- Type in the name for the setting (for your own reference)
+- Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
+- In case Log Analytics is selected, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace.
 - Select the checkbox for elastic pool diagnostics telemetry **AllMetrics**
 - Click **Save**
 
@@ -69,15 +69,15 @@ The following diagnostics telemetry is available for collection for Managed Inst
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
-| Managed Instance | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. |
+| **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. |
 
 To enable diagnostics telemetry for **Managed Instance resource**, follow these steps:
 
 - Go to the Managed Instance resource in Azure portal
 - Select **Diagnostics settings**
-- Select **+Add diagnostic setting**, or Edit an existing setting
+- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
 - Type in the setting name
-- Select to which resource to stream diagnostics data from the elastic pool: Azure storage, event hub, or Log Analytics.
+- Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 - In case Log Analytics is selected, create or use an existing workspace.
 - Select the checkbox for instance diagnostics telemetry **ResourceUsageStats**
 - Click **Save**
@@ -105,11 +105,12 @@ To enable diagnostics telemetry for **Azure SQL Database**, follow these steps:
 
 - Go to your Azure SQL Database resource
 - Select **Diagnostics settings**
-- Select **+Add diagnostic setting** to configure a new setting, or **Edit setting** to edit an existing setting.
+- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
+- Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
 
    ![Enable in the Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
-- Create new or edit existing diagnostics settings by selecting the target: Azure storage, event hub, or Log Analytics
+- Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 - For standard monitoring experience, select checkboxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, **Deadlocks**. This telemetry is event based and provides the standard monitoring experience.
 - For advanced monitoring experience, select checkbox for **AllMetrics**. This is a 1-minute based telemetry for the database diagnostics telemetry as described above. 
 
@@ -123,9 +124,10 @@ To enable diagnostics telemetry for **databases in Managed Instance**, follow th
 
 - Go to your database in Managed Instance
 - Select **Diagnostics settings**
-- Select **+Add diagnostic setting** to configure a new setting, or **Edit setting** to edit an existing setting
-- Create new or edit existing diagnostics settings by selecting the target: Azure storage, event hub, or Log Analytics.
-- Select checkboxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**
+- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
+- Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
+- Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
+- Select checkboxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**.
 
    ![Diagnostics settings](./media/sql-database-metrics-diag-logging/diagnostics-portal-mi.png)
 
