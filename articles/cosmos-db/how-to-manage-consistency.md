@@ -41,3 +41,9 @@ ms.author: chrande
 ### <a id="utilize-session-tokens-javascript">Node.js/JavaScript/TypeScript</a>
 
 ### <a id="utilize-session-tokens-python">Python</a>
+
+## Monitor Probabilistically Bounded Staleness (PBS) metric
+
+To view the PBS metric, go to your Cosmos DB Account in the Azure portal, and then open the metrics menu. From there, click the "Consistency" tab and look at the graph named "Probability of strongly consistent reads based on your workload (see PBS)".
+
+![Picture of the PBS graph in the Azure Portal](./media/how-to-manage-consistency/pbs-metric.png)
