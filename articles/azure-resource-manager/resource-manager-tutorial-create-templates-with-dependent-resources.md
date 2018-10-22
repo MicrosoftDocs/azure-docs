@@ -39,12 +39,12 @@ To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension.  See [Install the extension
 ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* To prevent password spray attack, generate a password for the virtual machine administrator account. Here is a sample:
+* To prevent the password spray attacks, generate a password for the virtual machine administrator account. Here is a sample:
 
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md).
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Open a Quickstart template
 
