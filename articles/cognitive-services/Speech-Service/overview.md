@@ -1,18 +1,19 @@
 ---
-title: What is the Speech service?
-description: "The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation."
-titleSuffix: "Azure Cognitive Services"
+title: What is the Speech Service?
+titleSuffix: Azure Cognitive Services
+description: "The Speech Service, part of Azure Cognitive Services, unites several speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation."
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
-# What is the Speech service?
+# What is the Speech Service?
 
 
 Like the other Azure speech services, the Speech service is powered by the speech technologies used in products like Cortana and Microsoft Office.
@@ -25,11 +26,10 @@ The primary functions of the Speech service are Speech to Text (also called spee
 
 |Function|Features|
 |-|-|
-|[Speech to Text](speech-to-text.md)| <ul><li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
-|[Text to Speech](text-to-speech.md)| <ul><li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
-|[Speech Translation](speech-translation.md)| <ul><li>Translates streaming audio in near-real-time.<li> Can also process recorded speech.<li>Provides results as text or synthesized speech. |
+|[Speech to Text](speech-to-text.md)| <li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
+|[Text to Speech](text-to-speech.md)| <li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
+|[Speech Translation](speech-translation.md)| <li>Translates streaming audio in near-real-time.<li> Can also process recorded speech.<li>Provides results as text or synthesized speech. |
 
-\* *Intent recognition requires a LUIS subscription.*
 
 ## Customize speech features
 
@@ -46,7 +46,7 @@ You can use your custom models anywhere you use the standard models in your app'
 
 ## Use the Speech service
 
-To simplify the development of speech-enabled applications, Microsoft provides the [Speech SDK](speech-sdk.md) for use with the new Speech service. The Speech SDK provides consistent native Speech-to-Text and Speech Translation APIs for C#, C++, and Java. If you develop with one of these languages, the Speech SDK makes development easier by handling the network details for you.
+To simplify the development of speech-enabled applications, Microsoft provides the [Speech SDK](speech-sdk.md) for use with the Speech service. The Speech SDK provides consistent native Speech-to-Text and Speech Translation APIs for C#, C++, and Java. If you develop with one of these languages, the Speech SDK makes development easier by handling the network details for you.
 
 The Speech service also has a [REST API](rest-apis.md) that works with any programming language that can make HTTP requests. The REST interface does not offer the streaming, real-time functionality of the SDK.
 
@@ -65,41 +65,6 @@ If you already have code that uses Bing Speech or Translator Speech via WebSocke
 
 The [Speech Devices SDK](speech-devices-sdk.md) is an integrated hardware and software platform for developers of speech-enabled devices. Our hardware partner provides reference designs and development units. Microsoft provides a device-optimized SDK that takes full advantage of the hardware's capabilities.
 
-## Why move to the Speech service?
-
-The Speech service provides all the functionality and more of the Bing Speech API and three other Azure speech services: Custom Speech, Custom Voice, and Translator Speech. We encourage users of these services to migrate to the Speech service.
-
-The Speech service incorporates many upgrades to these other services, including:
-
-* Higher speech recognition accuracy. We regularly improve the models used in the service.
-
-* More scalable. The service is more capable of handling multiple simultaneous requests, reducing latency.
-
-* The Speech Service uses a time-based pricing model. See [Speech Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details.
-
-* The Speech Service is available in [multiple regions](regions.md) to suit the needs of customers worldwide. You need an [Azure subscription](https://docs.microsoft.com/azure/cognitive-services/welcome) for each region used by your application.
-
-* A single Speech Service subscription key grants access to the following features. Each is metered separately, so you're charged only for the features you use.
-
-    * [Speech-to-text](speech-to-text.md)
-    * [Custom speech-to-text](https://cris.ai/CustomSpeech)
-    * [Text-to-speech](text-to-speech.md)
-    * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
-    * [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
-
-* The Speech Service speech-to-text function integrates with the [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to recognize speaker intent. A LUIS endpoint key can also be used with the Speech Service. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
-
-* Speech-to-text no longer requires that you specify a recognition mode.
-
-* The Speech Service supports 24-KHz voices for text-to-speech, improving audio quality. At this writing, there are two such voices (US English only): `Jessa24kRUS` and `Guy24kRUS`.
-
-* THe Speech Service's [batch transcription](batch-transcription.md) allows high volumes of recorded speech, such as call center recordings, to be transcribed to text efficiently, so they can be easily analyzed and searched.
-
-* When using the Speech SDK, there is no time limit on streaming speech-to-text transcription.
-
-* The [Speech SDK](speech-sdk.md) provides a consistent API to the Speech service across several programming languages and execution environments (including Windows 10, UWP, and .NET Core), making development easier, especially on multiple platforms.
-
-* The Speech Service is compatible with the REST APIs and WebSockets protocol used by other Azure speech services, making it easy to migrate existing client applications to the Speech service.
 
 ## Speech scenarios
 
@@ -119,8 +84,6 @@ If your app is intended for use by the general public, you can use the default s
 If your app is used in a specific domain, for example, medicine or IT, you can create a [language model](how-to-customize-language-model.md). You can use this model to teach the Speech service about the special terminology used by your app.
 
 If your app is used in a noisy environment, such as a factory, you can create a custom [acoustic model](how-to-customize-acoustic-models.md). This model helps the Speech service to distinguish speech from noise.
-
-Getting started is easy. Just download the [Speech SDK](speech-sdk.md) and follow the relevant [Quickstart](quickstart-csharp-dotnet-windows.md) article.
 
 ### Call center transcription
 

@@ -82,7 +82,7 @@ To create a resource group in the Azure portal, follow these steps:
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in US East, US East 2, West US, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
+> The hierarchical namespace is currently available in all public regions but none of the private regions. It is currently unavailable in sovereign clouds.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
@@ -130,7 +130,7 @@ Then restart your shell.
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in US East, US East 2, West US, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
+> > The hierarchical namespace is currently available in all public regions but none of the private regions. It is currently unavailable in sovereign clouds.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -191,7 +191,7 @@ az group create \
 ```
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in US East, US East 2, West US, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
+> > The hierarchical namespace is currently available in all public regions but none of the private regions. It is currently unavailable in sovereign clouds.
 
 ### Create a general-purpose v2 storage account
 
@@ -219,4 +219,4 @@ az group delete --name myResourceGroup
 
 In this quick start, you've created a Data Lake Storage Gen2 storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
 
-* [Move data to and from Azure Blob Storage using AzCopy](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)
+* [Move data to and from Azure Blob Storage using AzCopy](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

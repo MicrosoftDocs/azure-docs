@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 09/11/2018
+ms.date: 10/05/2018
 ms.author: robreed
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
@@ -53,13 +53,13 @@ For more information, see
             "configurationArguments": {
                 "RegistrationUrl" : "registrationUrl",
                 "NodeConfigurationName" : "nodeConfigurationName"
-            },
-            "protectedSettings": {
-                "configurationArguments": {
-                    "RegistrationKey": {
-                        "userName": "NOT_USED",
-                        "Password": "registrationKey"
-                    }
+            }
+        },
+        "protectedSettings": {
+            "configurationArguments": {
+                "RegistrationKey": {
+                    "userName": "NOT_USED",
+                    "Password": "registrationKey"
                 }
             }
         }

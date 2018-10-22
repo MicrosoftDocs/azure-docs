@@ -20,7 +20,7 @@ The SDK is already installed and configured for you on Azure Notebooks.
 1. Open the notebook.
 
 ### **Your own Jupyter notebook server**
-1. Complete the [getting started with Python SDK quickstart]() to install the SDK and create a workspace.
+1. Complete the [getting started with Python SDK quickstart](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) to install the SDK and create a workspace.
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 1. Copy the `aml_config` directory you created during the quickstart into your cloned directory.
 1. Start the notebook server from your cloned directory.

@@ -2,12 +2,12 @@
 title: Azure Container Registry Tasks reference - YAML
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
+ms.author: danlep
 ---
 
 # ACR Tasks reference: YAML

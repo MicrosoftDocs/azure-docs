@@ -7,7 +7,7 @@ manager: jpconnock
 
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall so that I can control outbound access from resources located in a subnet.
@@ -182,6 +182,10 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 10. Click **Subnets**, and then click **Associate**.
 11. Click **Virtual network**, and then select **Test-FW-VN**.
 12. For **Subnet**, click **Workload-SN**.
+
+    > [!IMPORTANT]
+    > Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall will not work correctly.
+
 13. Click **OK**.
 14. Click **Routes**, and then click **Add**.
 15. For **Route name**, type **FW-DG**.
@@ -189,8 +193,8 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 17. For **Next hop type**, select **Virtual appliance**.
 
     Azure Firewall is actually a managed service, but virtual appliance works in this situation.
-1. For **Next hop address**, type the private IP address for the firewall that you noted previously.
-2. Click **OK**.
+18. For **Next hop address**, type the private IP address for the firewall that you noted previously.
+19. Click **OK**.
 
 
 ## Configure application rules

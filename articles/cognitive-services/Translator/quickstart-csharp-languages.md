@@ -16,8 +16,6 @@ ms.author: nolachar
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API.
 
-The source code for this sample is available on [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
-
 ## Prerequisites
 
 You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
@@ -25,6 +23,9 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
 ## Languages request
+
+> [!TIP]
+> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 The following code gets a list of supported languages for translation, transliteration, and dictionary lookup and examples, using the [Languages](./reference/v3-0-languages.md) method.
 

@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
 ---
 # Deploy resources to an Azure subscription
@@ -39,7 +39,7 @@ The following example assigns an existing policy definition to the subscription.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "policyDefinitionID": {
@@ -131,7 +131,7 @@ You can [define](../azure-policy/policy-definition.md) and assign a policy in th
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {},
@@ -139,7 +139,7 @@ You can [define](../azure-policy/policy-definition.md) and assign a policy in th
         {
             "type": "Microsoft.Authorization/policyDefinitions",
             "name": "locationpolicy",
-            "apiVersion": "2018-03-01",
+            "apiVersion": "2018-05-01",
             "properties": {
                 "policyType": "Custom",
                 "parameters": {},
@@ -157,7 +157,7 @@ You can [define](../azure-policy/policy-definition.md) and assign a policy in th
         {
             "type": "Microsoft.Authorization/policyAssignments",
             "name": "location-lock",
-            "apiVersion": "2018-03-01",
+            "apiVersion": "2018-05-01",
             "dependsOn": [
                 "locationpolicy"
             ],
@@ -194,7 +194,7 @@ The following example assigns a role to a user or group.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -209,7 +209,7 @@ The following example assigns a role to a user or group.
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "name": "[guid(parameters('principalId'), deployment().name)]",
-            "apiVersion": "2017-05-01",
+            "apiVersion": "2017-09-01",
             "properties": {
                 "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
                 "principalId": "[parameters('principalId')]"
