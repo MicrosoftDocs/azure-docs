@@ -35,16 +35,10 @@
       items:
       - name: Using the .NET SDK
         items:
-        - name: Check image content
-          href: image-moderation-quickstart-dotnet.md
         - name: Check images against custom lists
           href: image-lists-quickstart-dotnet.md
-        - name: Check text content
-          href: text-moderation-quickstart-dotnet.md
         - name: Check text against custom terms
           href: term-lists-quickstart-dotnet.md
-        - name: Check video content
-          href: video-moderation-api.md
       - name: Using REST APIs
         items:
         - name: Images - API console
