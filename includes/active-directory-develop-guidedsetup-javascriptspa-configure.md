@@ -26,13 +26,11 @@ There are multiple ways to register an application. Select the option that best 
 
 ### Option 1: Register your application (Express mode)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) to register an application.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
-1. When the **Register an application** page appears, enter a name for your application.
+1. Sign in to the [Azure portal app registration (preview)](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) to register an application.
+1. On the **Register an application** page, enter a name for your application.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. When finished, select **Register**.
-1. In the left-hand navigation pane of the registered application, select **Quickstart**. 
+1. In the left-hand navigation pane of the registered application, select **Quickstart**.
 1. Under **Single page applications**, select **JavaScript**.
 1. Follow the instructions to configure the application. Copy the Application ID and paste it into your code.
 
@@ -42,11 +40,11 @@ There are multiple ways to register an application. Select the option that best 
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
 1. When the **Register an application** page appears, enter a name for your application.
-1. Under **Supported Microsoft accounts**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. Under the **Redirect URI** section, select the **Web** platform and set the value to the application's URL based on your web server. See the sections below for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
-1. When finished, select **Register**. 
-1. On the app **Overview** page, note down the **Application ID** value.
-1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
+1. When finished, select **Register**.
+1. On the app **Overview** page, note down the **Application (client) ID** value.
+1. This quickstart requires the [Implicit grant flow](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
 1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and access tokens are required since this app needs to sign in users and call an API.
 1. Select **Save**.
 

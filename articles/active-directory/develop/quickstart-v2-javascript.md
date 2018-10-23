@@ -40,7 +40,7 @@ In this quickstart, you'll learn how to use a code sample that demonstrates how 
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select the **Web** platform under the **Redirect URI** section and set the value to `http://localhost:30662/`.
 > 1. When finished, select **Register**.  On the app **Overview** page, note down the **Application (client) ID** value.
-> 1. This quickstart requires the [Implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
+> 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
 > 1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and access tokens are required since this app needs to sign in users and call an API.
 > 1. Select **Save**.
 
@@ -84,16 +84,17 @@ var applicationConfig = {
 #### Step 4: Run the project
 
 * If you're using Node.js:
-    
+
     1. Run the following command from the project's directory to start the server:
 
         ```batch
         npm install
         node server.js
         ```
- 
-    1. Open a web browser and navigate to `http://localhost:30662/`. 
+
+    1. Open a web browser and navigate to `http://localhost:30662/`.
     1. Click **Sign In** button to start sign-in and then call Microsoft Graph API.
+
 
 * If using Visual Studio, make sure to select the project solution and then press **F5** to run your project.
 
@@ -196,4 +197,3 @@ For a more detailed step-by-step guide on how to build the application for this 
 
 > [!div class="nextstepaction"]
 > [msal.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-
