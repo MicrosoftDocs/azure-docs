@@ -5,12 +5,13 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/23/2018
 ms.author: rogarana
 ms.component: common
 ---
+
 # Azure Storage Scalability and Performance Targets
-## Overview
+
 This article describes the scalability and performance topics for Azure Storage. For a summary of other Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
