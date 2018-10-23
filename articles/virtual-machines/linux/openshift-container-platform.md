@@ -260,15 +260,15 @@ The simplest way to deploy OpenShift Container Platform into Azure is to use the
 
 This is the simplest option, but it also has limited customization capabilities. The Marketplace offer includes the following configuration options:
 
-- **Master Nodes**: Three (3) Master Nodes with configurable instance type, a 64 GB OS disk and 128 GB data disk for Docker volume.
-- **Infra Nodes**: Three (3) Infra Nodes with configurable instance type, a 64 GB OS disk and 128 GB data disk for Docker volume.
-- **Nodes**: The number of Nodes is configurable (between 2 and 9) as well as the instance type. The Nodes will also have a 64 GB OS disk and 128 GB data disk for Docker volume.
+- **Master Nodes**: Three (3) Master Nodes with configurable instance type.
+- **Infra Nodes**: Three (3) Infra Nodes with configurable instance type.
+- **Nodes**: The number of Nodes is configurable (between 2 and 9) as well as the instance type.
 - **Disk Type**: Managed Disks are used.
 - **Networking**: Support for new or existing Network as well as custom CIDR range.
 - **CNS**: CNS can be enabled.
 - **Metrics**: Metrics can be enabled.
 - **Logging**: Logging can be enabled.
-- **Azure Cloud Provider**: Can be enabled. It is set to enabled by default.
+- **Azure Cloud Provider**: Can be enabled.
 
 ## Connect to the OpenShift cluster
 
