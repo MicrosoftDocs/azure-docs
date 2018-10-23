@@ -65,7 +65,7 @@ ConnectionName          = VNet1toSite2
 
 ## <a name="Login"></a>1. Connect to your subscription
 
-If you choose to run CLI locally, connect to your subscription. If you are using Azure Cloud Shell in the browser, you don't need to do this step.
+If you choose to run CLI locally, connect to your subscription. If you are using Azure Cloud Shell in the browser, you don't need to connect to your subscription. You will connect automatically in Azure Cloud Shell. However, you may want to verify that you are using the correct subscription after you connect.
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
