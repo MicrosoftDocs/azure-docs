@@ -178,3 +178,13 @@ In this example you will use an address in the 192.168.0.0/24 range.
 
 In the guest virtual machine, open your browser and navigate to a web page.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
+    
+## Share Network/Internet from Hyper-V host to your Nested VM
+
+1. Install Routing and Remote Access (RRAS) onto Hyper-V host.
+2. Make custom RRAS config, enabling only NAT and LAN Routing.
+3. Create Internal Hyper-V Switch. Configure its IPv4 settings filling IPv4 and Network Mask, and some DNS servers (8.8.8.8, 8.8.4.4). It will be used as Network Gateway for nested VMs.
+4. Setup NAT onto the network interface that has an access to the Internet (External facing one).
+5. Connect to VM and assign IPv4, Mask and Network Gateway (which is the Hyper-V vSwitch).
+6. Flush DNS running ipconfig /flushdns command on both Hyper-V and VM hosts.
+7. ping bing.com from VM.
