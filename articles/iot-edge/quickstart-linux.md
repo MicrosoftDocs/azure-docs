@@ -48,7 +48,7 @@ Cloud resources:
 * A resource group to manage all the resources you use in this quickstart. 
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 IoT Edge device:
@@ -56,7 +56,7 @@ IoT Edge device:
 * A Linux device or virtual machine to act as your IoT Edge device. If you want to create a virtual machine in Azure, use the following command to get started quickly:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --location westus2 --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
    ```
 
 ## Create an IoT hub
@@ -73,7 +73,7 @@ The following code creates a free **F1** hub in the resource group **IoTEdgeReso
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
-   If you get an error because there's already one free hub in your subscription, change the SKU to **S1**. 
+   If you get an error because there's already one free hub in your subscription, change the SKU to **S1**.
 
 ## Register an IoT Edge device
 
@@ -97,7 +97,6 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    ```
 
 1. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
-
 
 ## Install and start the IoT Edge runtime
 
