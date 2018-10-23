@@ -103,4 +103,4 @@ Use the application ID and key in your application to authenticate with Azure Ti
 - For API reference information, see [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 
 > [!div class="nextstepaction"]
-> [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+> [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md)
