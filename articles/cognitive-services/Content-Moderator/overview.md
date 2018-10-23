@@ -30,7 +30,10 @@ The following are a few example scenarios where Content Moderator can be used:
 
 ## What it includes
 
-Content Moderator consists of several web service APIs available through both REST calls and native SDKs. It also includes the human review tool, which allows human reviewers to aid the service and improve or fine-tune its moderation function.
+Content Moderator consists of several web service APIs available through both REST calls and a .NET SDK*. It also includes the human review tool, which allows human reviewers to aid the service and improve or fine-tune its moderation function.
+
+> [!NOTE]
+> The [Workflow API](try-review-api-workflow.md) is not yet available with the .NET SDK.
 
 ![Content Moderator block diagram](images/content-moderator-block-diagram.png)
 
