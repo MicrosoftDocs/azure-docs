@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: 05/09/2018
 ms.author: haroldw
 ---
 
@@ -78,7 +78,7 @@ In the Azure portal:
 
   ![App Registration](media/openshift-post-deployment/app-registration.png)
 
-6.  Click Step 1: Select API, and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Click **Select** at the bottom.
+6.  Click Step 1: Select API, and then click **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Click **Select** at the bottom.
 
   ![App Registration Select API](media/openshift-post-deployment/app-registration-select-api.png)
 

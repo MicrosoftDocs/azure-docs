@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2018
+ms.date: 10/18/2018
 ms.author: barclayn
 
 ---
@@ -277,6 +277,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | IoT Hub                          | -                  | -                  | -                  | Yes                |
 | Service Bus                      | Yes                | -                  | -                  | Yes                |
 | Event Hubs                       | Yes                | -                  | -                  | -                  |
+| Event Grid                       | Yes                | -                  | -                  | -                  |
 
 
 ## Conclusion

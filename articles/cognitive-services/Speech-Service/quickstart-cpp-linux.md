@@ -1,12 +1,13 @@
 ---
-title: 'Quickstart: Recognize speech in C++ on Linux by using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in C++ on Linux by using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech in C++ on Linux by using the Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize speech in C++ on Linux by using the Speech Service SDK
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
