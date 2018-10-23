@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2018
+ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter 
 
@@ -89,9 +89,9 @@ Service resource only requires a container image to run, which is referenced in 
 
 Your application code remains portable even outside of Service Fabric Mesh and your application deployments remain consistent regardless of the language or framework used to implement your services. Whether your application is ASP.NET Core, Go, or just a set of processes and scripts, the Service Fabric Mesh Resource deployment model remains the same. 
 
-## Deployment
+## Packaging and deployment
 
-When deploying to Service Fabric Mesh, Resources are deployed as Azure Resource Manager templates to Azure through HTTP or the Azure CLI. 
+Service Fabric Mesh applications based on the resource model are packaged as Docker containers.  These applications are described using a JSON format or a YAML format (which is then converted to JSON). When deploying a Mesh application to Azure Service Fabric Mesh, the JSON used to describe the applicatoin is a Azure Resource Manager template. Resources are mapped to Azure resources.  When deploying a Mesh application to a Service Fabric cluster (standalone or Azure-hosted), the JSON used to describe the application is a format similar to a Azure Resource Manager template.  Once deployed, Mesh applications can be managed through HTTP interfaces or the Azure CLI. 
 
 
 ## Next steps 
