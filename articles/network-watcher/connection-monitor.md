@@ -155,7 +155,7 @@ When setting an alert rule, the resource that you target determines the list of 
 1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
 2. Click **Select target**, and then select the resources that you want to target. Use **Subscription** and **Resource type** to generate a list of resources to monitor. You can also filter the results to find your resource.
   
-    ![alert screen with target selected]((./media/connection-monitor/set-alert-rule.png))
+    ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
 3. If the selected resource has metrics on which you can create alerts, [**Available signals** on the bottom right displays metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported).
 4. Once you have selected a target resource, select **Add criteria**. You see a list of signals supported for the resource. Select the metric on which you want to create an alert.
 5. When you select a metric, you see a chart for the metric for the last 6 hours. Define **Period**, **Frequency**, **Operator** and **Threshold** to determine the logic that the metric alert rule evaluates.
