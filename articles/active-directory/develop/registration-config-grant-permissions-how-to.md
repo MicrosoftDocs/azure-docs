@@ -1,27 +1,23 @@
 ---
 title: Manage user consent to an application - Azure Active Directory | Microsoft Docs
-description: How to grant permissions to your custom-developed application using the Azure Active Directory (Azure AD )portal or a URL parameter.
+description: Learn how to manage the way end-users consent to an application with Azure Active Directory (Azure AD). 
 services: active-directory
-documentationcenter: ''
-author: CelesteDG
+author: barbkess
 manager: mtillman
 
-ms.assetid: 
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: celested
-
+ms.author: barbkess
+ms.reviewer: arvindh
 ---
 
-# Manage the way users consent to an application in Azure Active Directory
-Learn how to manage the way end-users consent to an application with Azure Active Directory (Azure Ad). 
+# Manage the way end-users consent to an application in Azure Active Directory
+Learn how to manage the way end-users consent to an application with Azure Active Directory (Azure AD). 
 
-## Concepts 
+## What is user consent and admin consent? 
 
 When a user accesses an application for the first time, the application prompts the user with the terms of use. The user consents to these terms. For an organization that is managing many applications, the administrators have already reviewed the terms of use as part of their process of approving the application. 
 
@@ -68,11 +64,11 @@ To grant admin consent through a URL request:
 
 ## Force user consent through a URL request
 
-* Append onto auth requests *&prompt=consent* which require end users to consent each time they authenticate.
+To require end-users to consent to an application each time they authenticate, append *&prompt=consent* to the authentication request URL.
 
 ## Next steps
 
-[Consent and Integrating Apps to AzureAD](active-directory-integrating-applications.md)
+[Consent and Integrating Apps to AzureAD](quickstart-v1-integrate-apps-with-azure-ad.md)
 
 [Consent and Permissioning for AzureAD v2.0 converged Apps](active-directory-v2-scopes.md)
 
