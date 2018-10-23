@@ -8,12 +8,13 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Quickstart: Create and manage an Azure file share with Azure PowerShell 
 This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with PowerShell. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
 
-If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -183,7 +184,6 @@ Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -
 ```
 
 ## Next steps
-- [Managing file shares with the Azure portal](storage-how-to-use-files-portal.md)
-- [Managing file shares with Azure CLI](storage-how-to-use-files-cli.md)
-- [Managing file shares with Storage Explorer](storage-how-to-use-files-storage-explorer.md)
-- [Planning for an Azure Files deployment](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Extend Windows file servers with Azure File Sync](storage-sync-files-extend-servers.md)

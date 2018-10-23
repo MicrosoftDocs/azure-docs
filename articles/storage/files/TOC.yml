@@ -7,13 +7,13 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create Azure file shares - Portal
+  - name: Create file shares - Portal
     href: storage-how-to-use-files-portal.md
-  - name: Create Azure file shares - PowerShell
+  - name: Create file shares - PowerShell
     href: storage-how-to-use-files-powershell.md
-  - name: Create Azure file shares - CLI
+  - name: Create file shares - CLI
     href: storage-how-to-use-files-cli.md
-  - name: Create Azure file shares - Storage Explorer
+  - name: Create file shares - Storage Explorer
     href: storage-how-to-use-files-storage-explorer.md
 - name: Tutorials
   items:

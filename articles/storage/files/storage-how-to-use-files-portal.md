@@ -8,12 +8,13 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Quickstart: Create and manage Azure file shares with the Azure portal 
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com/).
 
-If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a storage account
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
@@ -78,7 +79,6 @@ You can download a copy of the file you uploaded by right-clicking on the file. 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next steps
-- [Managing file shares with the Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Managing file shares with Azure CLI](storage-how-to-use-files-cli.md)
-- [Managing file shares with Azure Storage Explorer](storage-how-to-use-files-storage-explorer.md)
-- [Planning for an Azure Files deployment](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Extend Windows file servers with Azure File Sync](storage-sync-files-extend-servers.md)

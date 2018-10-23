@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Quickstart: Create and manage Azure file shares using Azure CLI
@@ -215,7 +216,6 @@ Alternatively, you can remove resources individually.
     ```
 
 ## Next steps
-- [Manage file shares with the Azure portal](storage-how-to-use-files-portal.md)
-- [Manage file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Manage file shares with Storage Explorer](storage-how-to-use-files-storage-explorer.md)
-- [Plan for an Azure Files deployment](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Extend Windows file servers with Azure File Sync](storage-sync-files-extend-servers.md)

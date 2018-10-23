@@ -8,12 +8,15 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Quickstart: Create and manage Azure file shares with Azure Storage Explorer
 This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with the Azure Storage Explorer. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
 
 The Azure Storage Explorer is a popular client tool that's available for Windows, macOS, and Linux. You can use Storage Explorer to manage Azure file shares and other storage resources.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 This quickstart requires Storage Explorer to be installed. To download and install it, go to [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
@@ -82,7 +85,6 @@ You can't use Storage Explorer to remove resources. To clean up from this quicks
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next steps
-- [Manage file shares with the Azure portal](storage-how-to-use-files-portal.md)
-- [Manage file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Manage file shares with Azure CLI](storage-how-to-use-files-cli.md)
-- [Plan for an Azure Files deployment](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Extend Windows file servers with Azure File Sync](storage-sync-files-extend-servers.md)
