@@ -67,7 +67,7 @@ The following prerequisites must be in place.
 
      `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
 
-1. After the tool runs, review the output. Confirm the status is OK for graph integration requirements. A successful validation appears similar to the following.
+1. After the tool runs, review the output. Confirm the status is OK for graph integration requirements. A successful validation appears similar to the following:
 
     ```
     Testing Graph Integration (v1.0)
