@@ -122,8 +122,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Prerequisites
 
-- Install the Azure Stack [1808 Update](azure-stack-update-1808.md) before you apply the Azure Stack 1809 update. 
-- Install the latest available [update or hotfix for version 1808](azure-stack-update-1808.md#post-update-steps).
+- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
