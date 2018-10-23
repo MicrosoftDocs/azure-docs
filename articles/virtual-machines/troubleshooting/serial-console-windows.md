@@ -99,7 +99,7 @@ The serial console can be used to send an NMI to an Azure virtual machine by usi
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
-For information on configuring Windows to create a crash dump file when it receives an NMI, see [How to generate a crash dump file by using an NMI](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
+For information on configuring Windows to create a crash dump file when it receives an NMI, see [How to generate a crash dump file by using an NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ## Disable the serial console
 By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or VM level.
