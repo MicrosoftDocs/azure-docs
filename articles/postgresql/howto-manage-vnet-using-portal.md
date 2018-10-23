@@ -7,7 +7,7 @@ ms.author: mbolz
 ms.reviewer: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 10/22/2018
 ---
 # Create and manage Azure Database for PostgreSQL VNet service endpoints and VNet rules by using the Azure portal
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for PostgreSQL server. For an overview of Azure Database for PostgreSQL VNet service endpoints, including limitations, see [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for PostgreSQL.
@@ -22,6 +22,16 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
    ![Azure portal - click Connection security](./media/howto-manage-vnet-using-portal/1-connection-security.png)
 
 2. Enter a VNet rule name, select the subscription, Virtual network and Subnet name and then click **Enable**. This automatically enables VNet service endpoints on the subnet using the **Microsoft.SQL** service tag.
+
+   The account must have the necessary permissions to create a virtual network and service endpoint.
+
+    Service endpoints can be configured on virtual networks independently, by a user with write access to the virtual network.
+    
+    To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
+    
+    Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+    
+    VNets and Azure service resources can be in the same or different subscriptions. If the VNet and Azure service resources are in different subscriptions, the resources should be under the same Active Directory (AD) tenant.
 
    ![Azure portal - configure VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
 
