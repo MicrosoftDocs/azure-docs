@@ -360,7 +360,7 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Go to Enterprise Applications blade in Azure AD Management Portal | [Azure AD Management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
-| Configure Application from Pre-requisites with self service | [Configure self-service application access](manage-apps/manage-self-service-access) |
+| Configure Application from Pre-requisites with self service | [Configure self-service application access](manage-apps/manage-self-service-access.md) |
 | Log in as the information worker to my apps portal | http://myapps.microsoft.com |
 | Notice "+Add app" button on op of the page. Use it to get access to the app |  |
 
