@@ -28,15 +28,15 @@ The profiler works with .Net applications deployed on the following Azure servic
 * [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines and VM Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-If you have enabled Profiler, but aren't seeing traces, please check our [Troubleshooting Guide.](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)
+If you have enabled Profiler, but aren't seeing traces, check our [Troubleshooting Guide.](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)
 
-Running Profiler on premises is not officially supported, but we do have some [instructions you can try.](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers)
+Running Profiler on premises isn't officially supported, but we do have some [instructions you can try.](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers)
 
 ## View profiler data
 
-In order for the profiler to upload traces, your application actively handling requests. If you are doing an experiment, you can generate requests to your web app using [Application Insights Performance Testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you have newly enabled Profiler, you can run start a short load test for about 5 minutes, then press the **Profile Now** button in the [**Profiler Settings page**]() right after you start the load test. If you have had Profiler enabled for a while already, keep in mind that Profiler runs randomly about once every hour and for a duration of two minutes each time it runs. If your application is handling a steady stream of requests, Profiler will upload traces every hour.
+In order for the profiler to upload traces, your application actively handling requests. If you're doing an experiment, you can generate requests to your web app using [Application Insights Performance Testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, press the **Profile Now** button in the [**Profiler Settings page**](). Once profiler is running, it will profile randomly about once every hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler will upload traces every hour.
 
-After your application receives some traffic and the profiler has had time to upload the trances (this can take 5 to 10 minutes), go to the **Performance** pane, select **Take Actions** to view profiler traces, and then select the **Profiler Traces** button.
+After your application receives some traffic and the profiler has had time to upload the trances, you should have traces to view. This process can take 5 to 10 minutes. To view traces, go to the **Performance** pane, select **Take Actions** to view profiler traces, and then select the **Profiler Traces** button.
 
 ![Application Insights Performance pane preview Profiler traces][performance-blade]
 
@@ -46,7 +46,7 @@ Select a sample to display a code-level breakdown of time spent executing the re
 
 The trace explorer displays the following information:
 
-* **Show Hot Path**: Opens the biggest leaf node, or at least something close. In most cases, this node is adjacent to a performance bottleneck.
+* **Show Hot Path**: Opens the biggest leaf node, or at least something close. In most cases, this node is near a performance bottleneck.
 * **Label**: The name of the function or event. The tree displays a mix of code and events that occurred (like SQL and HTTP events). The top event represents the overall request duration.
 * **Elapsed**: The time interval between the start of the operation and the end of the operation.
 * **When**: The time when the function or event was running in relation to other functions.
@@ -63,9 +63,9 @@ The call stack that's displayed in the timeline view is the result of the sampli
 
 ### <a id="theprestub"></a>Loading code (clr!ThePreStub)
 
-**clr!ThePreStub** is a helper function in the .NET Framework that prepares the code to execute for the first time. This usually includes, but is not limited to, just-in-time (JIT) compilation. For each C# method, **clr!ThePreStub** should be invoked at most once during the lifetime of a process.
+**clr!ThePreStub** is a helper function in the .NET Framework that prepares the code to execute for the first time. This usually includes, but isn't limited to, just-in-time (JIT) compilation. For each C# method, **clr!ThePreStub** should be invoked at most once during the lifetime of a process.
 
-If **clr!ThePreStub** takes a substantial amount of time for a request, this indicates that the request is the first one that executes that method. The time for the .NET Framework runtime to load the first method is significant. You might consider using a warmup process that executes that portion of the code before your users access it, or consider running Native Image Generator (ngen.exe) on your assemblies.
+If **clr!ThePreStub** takes a large amount of time for a request, this indicates the request is the first one that executes that method. The time for the .NET Framework runtime to load the first method is significant. You might consider using a warmup process that executes that portion of the code before your users access it, or consider running Native Image Generator (ngen.exe) on your assemblies.
 
 ### <a id="lockcontention"></a>Lock contention (clr!JITutil\_MonContention or clr!JITutil\_MonEnterWorker)
 

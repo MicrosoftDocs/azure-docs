@@ -18,24 +18,24 @@ ms.author: mbullwin
 ---
 
 
-# Profiler web apps running on an Azure Virtual Machine or Virtual Machine Scaleset with Application Insights Profiler
+# Profiler web apps running on an Azure virtual machine or virtual machine scale set with Application Insights Profiler
 You can also deploy Application Insights profiler on these services:
 * [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-## Deploy Application Insights Profiler on an Azure Virtual Machine or Scaleset
-This page will guide you through the steps needed to get Application Insights profiler running on your Azure VM or Azure VM Scaleset. Application Insights Profiler is installed with the Windows Azure Diagnostics extension for VMs. You need to configure the extension to run the profiler and have the App Insights SDK built into your application to get profiles for you web apps running on a VM.
+## Deploy Application Insights Profiler on an Azure Virtual Machine or Scale set
+This page will guide you through the steps needed to get Application Insights profiler running on your Azure VM or Azure VM Scale set. Application Insights Profiler is installed with the Windows Azure Diagnostics extension for VMs. You need to configure the extension to run the profiler and have the App Insights SDK built into your application to get profiles for your web apps running on a VM.
 
-1. Add application Insights SDK to your [ASP.Net application](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net) or regular [.NET Application.](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-windows-services?toc=/azure/azure-monitor/toc.json) You must be sending request telemetry to Application Insights in order to see profiles your requests.
-1. Install Windows Azure Diagnostics extension on your VM. For full ARM template examples, see:  
+1. Add application Insights SDK to your [ASP.Net application](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net) or regular [.NET Application.](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-windows-services?toc=/azure/azure-monitor/toc.json) You must be sending request telemetry to Application Insights see profiles for your requests.
+1. Install Windows Azure Diagnostics extension on your VM. For full Resource Manager template examples, see:  
     * [Virtual machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
     * [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
 1. Deploy the modified environment deployment definition.  
 
-   To apply the modifications, usually involves a full template deployment or a cloud services based publish through PowerShell cmdlets or Visual Studio.  
+   To apply the modifications, usually involves a full template deployment or a cloud service based publish through PowerShell cmdlets or Visual Studio.  
 
-   The following is an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension:  
+   The following powershell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension:  
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -65,10 +65,10 @@ This page will guide you through the steps needed to get Application Insights pr
 
 Enabling Profiler on an on-premises server is also known as running Application Insights Profiler in standalone mode. It's not tied to Azure Diagnostics extension modifications.
 
-We have no plan to officially support Profiler for on-premises servers. If you are interested in experimenting with this scenario, you can [download support code](https://github.com/ramach-msft/AIProfiler-Standalone). We are *not* responsible for maintaining that code, or for responding to issues and feature requests that are related to the code.
+We have no plan to officially support Profiler for on-premises servers. If you're interested in experimenting with this scenario, you can [download support code](https://github.com/ramach-msft/AIProfiler-Standalone). We are *not* responsible for maintaining that code, or for responding to issues and feature requests that are related to the code.
 
 ## Next steps
 
 - Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
 - See [Profiler traces](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-- Get help with troubleshooting profiler issues in [Profiler troubleshooting](app-insights-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+- Get help with troubleshooting profiler issues in [Profiler troubleshooting](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
