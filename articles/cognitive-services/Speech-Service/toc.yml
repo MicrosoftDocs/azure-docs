@@ -129,7 +129,7 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Regions
     href: regions.md
