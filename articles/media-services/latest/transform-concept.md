@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 
@@ -19,7 +19,7 @@ ms.author: juliako
 
 ## Overview 
 
-The latest version of the Azure Media Services REST API (v3) introduces a new templated workflow resource for encoding and/or analyzing videos, called a **Transform**. **Transforms** can be used to configure common tasks for encoding or analying videos. Each **Transform** describes a simple workflow of tasks for processing your video or audio files. 
+Azure Media Services v3 introduces a new templated workflow resource for encoding and/or analyzing videos, called **Transform**s. **Transform**s can be used to configure common tasks for encoding or analying videos. Each **Transform** describes a simple workflow of tasks for processing your video or audio files. 
 
 The **Transform** object is the recipe and a **Job** is the actual request to Azure Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTP(s) URLs, SAS URLs, or a path to files located locally or in Azure Blob storage. You can have up to 100 Transforms in your Azure Media Services account, and submit Jobs under those Transforms. You can then subscribe to events such as Job state changes, using Notifications, which integrate directly with the Azure Event Grid notification system. 
 
@@ -40,24 +40,6 @@ The following table shows Transform's properties and gives their definitions.
 |type|string|The type of the resource.|
 
 For the full definition, see [Transforms](https://docs.microsoft.com/rest/api/media/transforms).
-
-## Job definition
-
-The following table shows Job's properties and gives their definitions.
-
-|Name|Type|Description|
-|---|---|---|
-|Id|string|Fully qualified resource ID for the resource.|
-|name|string|The name of the resource.|
-|properties.created |string|The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.description |string|An optional verbose description of the Job.|
-|properties.lastModified |string|The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.outputs |JobOutput[]:JobOutputAsset[] |The outputs for the Job.|
-|properties.priority |Priority |Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
-|properties.state |JobState |The current state of the job.
-|type|string|The type of the resource.|
-
-For the full definition, see [Jobs](https://docs.microsoft.com/rest/api/media/jobs).
 
 ## Typical workflow and example
 

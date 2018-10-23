@@ -47,6 +47,8 @@
       href: assets-concept.md
     - name: Content key policies
       href: content-key-policy-concept.md
+    - name: Jobs
+      href: jobs-concept.md
     - name: Streaming endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming locators
