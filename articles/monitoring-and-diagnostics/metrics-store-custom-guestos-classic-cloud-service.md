@@ -1,6 +1,6 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor metric store Cloud Services (classic)
-description: Send Guest OS metrics to the Azure Monitor metric store Cloud Services(classic)
+title: Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
+description: Send Guest OS metrics to the Azure Monitor metric store Cloud Services
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
 ---
-# Send Guest OS metrics to the Azure Monitor metric store Cloud Services (classic)
+# Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
 With the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-This article describes the process for sending Guest OS performance metrics for Azure Cloud Services (classic) to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
+This article describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
 Storing them in this location allows you to access the same actions that you can for platform metrics. Actions include near-real time alerting, charting, routing, access from a REST API, and more.  In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store.  
 
@@ -130,7 +130,7 @@ Finally, in the private configuration, add an *Azure Monitor Account* section. E
 </PrivateConfig> 
 ```
  
-Save this Diagnostics file locally.  
+Save this diagnostics file locally.  
 
 ## Deploy the Diagnostics extension to your cloud service 
 
@@ -147,13 +147,13 @@ $storage_account = <name of your storage account from step 3>
 $storage_keys = <storage account key from step 3> 
 ```
  
-Similarly, set the Diagnostics file path to a variable by using the following command:
+Similarly, set the diagnostics file path to a variable by using the following command:
 
 ```PowerShell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
  
-Deploy the Diagnostics extension to your cloud service with the Diagnostics file with the Azure Monitor sink configured using the following command:  
+Deploy the Diagnostics extension to your cloud service with the diagnostics file with the Azure Monitor sink configured using the following command:  
 
 ```PowerShell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
