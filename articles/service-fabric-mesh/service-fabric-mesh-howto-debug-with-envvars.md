@@ -14,7 +14,7 @@ manager: jeconnoc
 
 # Define environment variables in a Service Fabric Mesh app using Visual Studio | Microsoft Docs
 
-The 6.4 Service Fabric Mesh Tools extension for Visual Studio allows you to easily create and modify environment variables that you can check at runtime from your Service Fabric Mesh code.
+Visual Studio allows you to easily create and modify environment variables that you can check at runtime from your Service Fabric Mesh code.
 
 Among other scenarios, this allows you to write code that can differentiate between development and production, as well as define other variables that you want to consume at runtime in your service.
 
