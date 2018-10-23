@@ -1,4 +1,4 @@
----
+| China |China North |China East|---
 title: 'Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Docs'
 description: Learn about Azure regional pairing, to ensure that applications are resilient during data center failures.
 author: rayne-wiselman
@@ -28,6 +28,7 @@ Figure 1 – Azure regional pairs
 | Brazil |Brazil South 2 |South Central US |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
+| China |China North 2 |China East 2|
 | Europe |North Europe |West Europe |
 | France |France Central|France South|
 | Germany |Germany Central |Germany Northeast |
