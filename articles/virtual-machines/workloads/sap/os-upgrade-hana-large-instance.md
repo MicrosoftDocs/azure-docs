@@ -27,6 +27,14 @@ At the time of the HLI unit provisioning, the Microsoft operations team install 
 
 Before you do major changes to the operating system (for example, Upgrade SP1 to SP2), you must contact Microsoft Operations team by opening a support ticket to consult.
 
+Please insert on your ticket:
+1. Your HLI subscription ID
+2. Your Server Name
+3. The patch level which you are planning to apply
+4. The date you are planning this change 
+
+We would recommend you open this ticket at least one week before the desirable upgrade date due to having Operations team checking if a firmware upgrade will be necessary on your server blade.
+
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
