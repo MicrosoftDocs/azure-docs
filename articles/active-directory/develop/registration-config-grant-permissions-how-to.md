@@ -19,7 +19,7 @@ Learn ways an admin can consent to an application on behalf of all end-users, or
 
 ## Learn about consent
 
-When a user accesses an application for the first time, the application prompts the user to consent to permissions the application needs. To simplify the end-user experience, an admin can consent to an application on behalf of all end-users. Admin consent allows end-users in your tenant to access the application without being prompted to provide user consent. 
+When an end-user accesses an application for the first time, the application prompts the user to consent to permissions the application needs. To simplify the end-user experience, an admin can consent to an application on behalf of all end-users. Admin consent allows end-users in your tenant to access the application without being prompted to provide user consent. 
 
 For more information on application consent, see [Azure Active Directory consent framework](consent-framework.md).
 
