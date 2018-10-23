@@ -228,7 +228,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ```js
 const df = require("durable-functions");
-const df = require("moment");
+const moment = require("moment");
 
 module.exports = df.orchestrator(function*(ctx) {
     const jobId = ctx.df.getInput();
@@ -293,7 +293,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ```js
 const df = require("durable-functions");
-const df = require('moment');
+const moment = require('moment');
 
 module.exports = df.orchestrator(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");

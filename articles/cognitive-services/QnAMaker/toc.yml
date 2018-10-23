@@ -126,7 +126,7 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
+  - name: Pricing and limits
     href: https://aka.ms/qnamaker-pricing
   - name: Language and region support
     href: Overview/language-support.md
