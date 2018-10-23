@@ -6,7 +6,7 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: stefanmsft
 ---
 
@@ -193,3 +193,7 @@ If you enable diagnostic settings, you might encounter these common exceptions:
 1. **Data Not Found**: if your user-defined function attempts to access metadata that does not exist, the operation will fail.
 
 1. **Not Authorized**: if your user-defined function doesn't have a role assignment set or lacks enough permission to access certain metadata from the topology, the operation will fail.
+
+## Next steps
+
+Learn how to enable [monitoring and logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) in Azure Digital Twins.

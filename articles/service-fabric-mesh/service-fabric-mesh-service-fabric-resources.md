@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2018
+ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter 
 
@@ -32,12 +32,16 @@ Each resource is described declaratively in a resource file, which is a simple Y
 
 ## Applications and Services
 
-An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, of Service resources that represent a microservice. Each Service resource, in turn, is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package, including the following:
+An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, Service resources that represent a microservice. Each Service resource, in turn, is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.
+
+![Apps and services][Image1]
+
+A Service resource declares the following:
 
 - Container name, version, and registry
 - CPU and memory resources required for each container
 - Network endpoints
-- References to other resources such networks, volumes, and secrets 
+- References to other resources such as networks, volumes, and secrets 
 
 All the code packages defined as part of a Service resource are deployed and activated together as a group. The Service resource also describes how many instances of the service to run and also references other Resources (for example, Network resource) it depends upon.
 
@@ -85,11 +89,13 @@ Service resource only requires a container image to run, which is referenced in 
 
 Your application code remains portable even outside of Service Fabric Mesh and your application deployments remain consistent regardless of the language or framework used to implement your services. Whether your application is ASP.NET Core, Go, or just a set of processes and scripts, the Service Fabric Mesh Resource deployment model remains the same. 
 
-## Deployment
+## Packaging and deployment
 
-When deploying to Service Fabric Mesh, Resources are deployed as Azure Resource Manager templates to Azure through HTTP or the Azure CLI. 
+Service Fabric Mesh applications based on the resource model are packaged as Docker containers.  Service Fabric Mesh is a shared, multi-tenant environment and containers give you a high level of isolation.  These applications are described using a JSON format or a YAML format (which is then converted to JSON). When deploying a Mesh application to Azure Service Fabric Mesh, the JSON used to describe the applicatoin is a Azure Resource Manager template. Resources are mapped to Azure resources.  When deploying a Mesh application to a Service Fabric cluster (standalone or Azure-hosted), the JSON used to describe the application is a format similar to a Azure Resource Manager template.  Once deployed, Mesh applications can be managed through HTTP interfaces or the Azure CLI. 
 
 
 ## Next steps 
 To learn more about Service Fabric Mesh, read the overview:
 - [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
+
+[Image1]: media/service-fabric-mesh-service-fabric-resources/AppsAndServices.png

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create an object detection project - Custom Vision API, Python"
+title: "Tutorial: Create an object detection project with the Custom Vision SDK for Python - Custom Vision Service"
 titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 05/03/2018
 ms.author: areddish
 ---
 
-# Tutorial: Build an object detection project with Python
+# Tutorial: Create an object detection project with the Custom Vision SDK for Python
 
 Explore a basic Python script that uses the Computer Vision API to create an object detection project. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
 
