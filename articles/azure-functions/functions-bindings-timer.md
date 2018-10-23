@@ -108,7 +108,7 @@ Here's the binding data in the *function.json* file:
 Here's the F# script code:
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
+let Run(myTimer: TimerInfo, log: ILogger ) =
     if (myTimer.IsPastDue) then
         log.LogInformation("F# function is running late.")
     let now = DateTime.Now.ToLongTimeString()

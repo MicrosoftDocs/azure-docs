@@ -135,7 +135,7 @@ Here's the binding data in the *function.json* file:
 Here's the F# script code:
 
 ```fsharp
-let Run(myQueueItem: string, log: TraceWriter) =
+let Run(myQueueItem: string, log: ILogger) =
     log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
@@ -444,7 +444,7 @@ Here's the binding data in the *function.json* file:
 Here's F# script code that creates a single message:
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
     log.LogInformation(message)
     outputSbQueue = message

@@ -657,7 +657,7 @@ type Person = {
   Name: string
 }
 
-let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+let Run(input: string, tableBinding: ICollector<Person>, log: ILogger) =
     for i = 1 to 10 do
         log.LogInformation(sprintf "Adding Person entity %d" i)
         tableBinding.Add(

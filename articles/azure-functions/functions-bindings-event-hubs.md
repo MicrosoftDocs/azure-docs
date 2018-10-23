@@ -225,7 +225,7 @@ The following examples show Event Hubs binding data in the *function.json* file.
 Here's the F# code:
 
 ```fsharp
-let Run(myEventHubMessage: string, log: TraceWriter) =
+let Run(myEventHubMessage: string, log: ILogger) =
     log.LogInformation(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
@@ -499,9 +499,9 @@ The following examples show Event Hubs binding data in the *function.json* file.
 Here's the F# code:
 
 ```fsharp
-let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) =
     let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
-    log.Verbose(msg);
+    log.LogInformation(msg);
     outputEventHubMessage <- msg;
 ```
 

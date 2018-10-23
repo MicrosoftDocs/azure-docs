@@ -302,7 +302,7 @@ Here's the output binding in the *function.json* file:
 Here's the F# code:
 
 ```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
+let Run(input: WorkItem, log: ILogger) =
     let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
     log.LogInformation(sprintf "F# script processed queue message '%s'" json)
     json

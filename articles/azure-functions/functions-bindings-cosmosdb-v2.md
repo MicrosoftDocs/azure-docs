@@ -1595,7 +1595,7 @@ Here's the F# code:
       address: string
     }
 
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
       log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
       employeeDocument <-
