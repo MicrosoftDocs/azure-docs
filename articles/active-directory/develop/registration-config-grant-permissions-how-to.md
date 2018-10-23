@@ -1,6 +1,6 @@
 ---
 title: Manage user consent to an application - Azure Active Directory | Microsoft Docs
-description: Learn how to manage the way end-users consent to an application with Azure Active Directory (Azure AD). 
+description: Learn ways an admin can consent to an application on behalf of all end-users, or force users to consent upon authentication. These methods apply to all end-users in your Azure Active Directory (Azure AD) tenant. 
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -15,13 +15,13 @@ ms.reviewer: arvindh
 ---
 
 # Manage the way end-users consent to an application in Azure Active Directory
-Learn how to manage the way end-users consent to an application with Azure Active Directory (Azure AD). 
+Learn ways an admin can consent to an application on behalf of all end-users, or force users to consent upon authentication. These methods apply to all end-users in your Azure Active Directory (Azure AD) tenant. 
 
-## What is user consent and admin consent? 
+## Learn about consent
 
-When a user accesses an application for the first time, the application prompts the user with the terms of use. The user consents to these terms. For an organization that is managing many applications, the administrators have already reviewed the terms of use as part of their process of approving the application. 
+When a user accesses an application for the first time, the application prompts the user to consent to permissions the application needs. To simplify the end-user experience, an admin can consent to an application on behalf of all end-users. Admin consent allows end-users in your tenant to access the application without being prompted to provide user consent. 
 
-To simplify the end-user experience, an admin can consent to an application on behalf of all end-users. Admin consent allows end-users in your tenant to access the application without being prompted to provide user consent. This simplifies the end-user experience the first time users access the application.
+For more information on application consent, see [Azure Active Directory consent framework](consent-framework.md).
 
 
 ## Prerequisites
