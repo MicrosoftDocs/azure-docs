@@ -95,9 +95,9 @@ After the template has successfully deployed and configured the SQL AlwaysON ava
 
 When you create an availability group with automatic seeding, SQL Server automatically creates the secondary replicas for every database in the group without any other manual intervention necessary to ensure high availability of AlwaysOn databases.
 
-Use these SQL commands to configure automatic seeding for the AlwaysOn availability group.
+Use these SQL commands to configure automatic seeding for the AlwaysOn availability group. Replace \<InstanceName\> with the primary instance SQL Server name and <availability_group_name> with the AlwaysOn availability group name as necessary. 
 
-On the primary SQL instance (replace <InstanceName> with the primary instance SQL Server name):
+On the primary SQL instance:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -108,7 +108,7 @@ On the primary SQL instance (replace <InstanceName> with the primary instance SQ
 
 >  ![Primary SQL instance script](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-On secondary SQL instances (replace <availability_group_name> with the AlwaysOn availability group name):
+On secondary SQL instances:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
