@@ -35,7 +35,7 @@ This release of Microsoft Azure Machine Learning updates provides the following 
 
 
 ## August 2016 
-Trelease of Microsoft Azure Machine Learning updates provide the following features:
+This release of Microsoft Azure Machine Learning updates provide the following features:
 * Classic Web services can now be managed in the new [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal that provides one place to manage all aspects of your Web service.    
   * Which provides web service [usage statistics](manage-new-webservice.md).
   * Simplifies testing of Azure Machine Learning Remote-Request calls using sample data.
