@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Get sentence lengths - Translator Text API, C#"
+title: "Quickstart: Get sentence lengths, C# - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Get sentence lengths with C&#35;
+# Quickstart: Get sentence lengths with the Translator Text REST API (C#)
 
 In this quickstart, you find the lengths of sentences in text using the Translator Text API.
 

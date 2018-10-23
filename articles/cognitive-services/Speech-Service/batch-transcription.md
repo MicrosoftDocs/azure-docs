@@ -1,12 +1,14 @@
 ---
 title: Azure Batch transcription API
-description: Samples
+titlesuffix: Azure Cognitive Services
+description: Samples for transcribing large volumes of audio content.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
 ---
