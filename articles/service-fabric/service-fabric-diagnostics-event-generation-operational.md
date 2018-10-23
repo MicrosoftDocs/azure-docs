@@ -27,7 +27,7 @@ Here are some characteristics of these events
 * Each event contains a set of common fields: EventInstaceId, EventName, and Category
 * Each event contains fields that tie the event back to the entity its associated with. For instance, the ApplicationCreated event would have fields that identify the name of the application created 
 * Events are structured in such a way that they can be consumed in a variety of tools to do richer analysis and relevant details to an event are defined as separate properties versus a long String 
-* Events are written by different subsystems in Service Fabric identifyed by Source(Task) below. More information is available on these subsystems in [Service Fabric Architecture](service-fabric-architecture) and [Service Fabric Technical Overview](service-fabric-technical-overview.md)
+* Events are written by different subsystems in Service Fabric identifyed by Source(Task) below. More information is available on these subsystems in [Service Fabric Architecture](service-fabric-architecture.md) and [Service Fabric Technical Overview](service-fabric-technical-overview.md)
 
 Here is a list of these operational events organized by entity.
 
