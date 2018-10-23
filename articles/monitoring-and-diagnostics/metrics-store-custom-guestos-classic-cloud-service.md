@@ -10,7 +10,7 @@ ms.author: ancav
 ms.component: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
-With the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+With the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
 This article describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
@@ -23,16 +23,16 @@ The process that's outlined in this article works only for performance counters 
 
 - You must be a [service administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) installed.
+- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 
 
 ## Provision a cloud service and storage account 
 
 1. Create and deploy a classic cloud service. A sample classic Cloud Services application and deployment can be found at [Get started with Azure Cloud Services and ASP.NET](../cloud-services/cloud-services-dotnet-get-started.md). 
 
-2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource blade, and then select **Keys**. Take note of  the storage account name and the storage account key. You'll need this information in later steps.
+2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource blade, and then select **Keys**. Take note of the storage account name and the storage account key. You'll need this information in later steps.
 
    ![Storage account keys](./media/metrics-store-custom-guestos-classic-cloud-service/storage-keys.png)
 
@@ -40,7 +40,7 @@ The process that's outlined in this article works only for performance counters 
 
 ## Create a service principal 
 
-Create a service principle in your Azure Active Directory tenant by using the instructions at [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Note the following while you're going through this process: 
+Create a service principle in your Azure Active Directory tenant by using the instructions at [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Note the following while you're going through this process: 
 
   - You can put in any URL for the sign-in URL.  
   - Create new client secret for this app.  
@@ -53,7 +53,7 @@ Give the app created in the previous step *Monitoring Metrics Publisher* permiss
 
 ## Author Diagnostics extension configuration 
 
-Prepare your Diagnostics  extension configuration file. This file dictates which logs and performance counters the Diagnostics extension should collect for your cloud service. Following is a sample Diagnostics configuration file:  
+Prepare your Diagnostics extension configuration file. This file dictates which logs and performance counters the Diagnostics extension should collect for your cloud service. Following is a sample Diagnostics configuration file:  
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?> 
