@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Detect faces in an image - Face API, PHP"
+title: "Quickstart: Detect faces in an image using the REST API and PHP"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face API with PHP.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
 ---
-# Quickstart: Detect faces in an image using PHP
+# Quickstart: Detect faces in an image using the REST API and PHP
 
 In this quickstart, you detect human faces in an image using the Face API.
 

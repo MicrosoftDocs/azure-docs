@@ -11,7 +11,7 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ---
 # Monitoring and performance tuning
 
