@@ -55,7 +55,7 @@ summarize count()
 az graph query -q "summarize count()"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "summarize count()"
 ```
 
@@ -74,7 +74,7 @@ project name, type, location
 az graph query -q "project name, type, location | order by name asc"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 ```
 
@@ -95,7 +95,7 @@ project name, location, type
 az graph query -q "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
@@ -115,7 +115,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
@@ -136,7 +136,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
@@ -154,7 +154,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
@@ -174,7 +174,7 @@ where type contains 'storage' | distinct type
 az graph query -q "where type contains 'storage' | distinct type"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 ```
 
@@ -196,7 +196,7 @@ where type contains 'publicIPAddresses' and properties.ipAddress != ''
 az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
@@ -213,7 +213,7 @@ where type contains 'publicIPAddresses' and properties.ipAddress != ''
 az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
@@ -232,7 +232,7 @@ where tags.environment=~'internal'
 az graph query -q "where tags.environment=~'internal' | project name"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
@@ -248,7 +248,7 @@ where tags.environment=~'internal'
 az graph query -q "where tags.environment=~'internal' | project name, tags"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, tags"
 ```
 
@@ -267,7 +267,7 @@ where type =~ 'Microsoft.Storage/storageAccounts'
 az graph query -q "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
