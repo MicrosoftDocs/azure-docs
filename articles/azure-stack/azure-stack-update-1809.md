@@ -44,6 +44,9 @@ This update includes the following improvements for Azure Stack:
 
 ### Fixed issues
 
+<!-- TBD - IS ASDK -->
+- On the portal, the memory chart reporting free/used capacity is now accurate. You can now more reliably predict how many VMs you are able to create.
+
 <!-- TBD - IS ASDK --> 
 - Fixed an issue in which you created virtual machines on the Azure Stack user portal, and the portal displayed an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
