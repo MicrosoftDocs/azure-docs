@@ -67,7 +67,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
       If this command returns a value of 0, it means that the role is disabled, and you can go to step 3.
 
-  2. Use the following commands to check the policies and reconfigure as needed.
+  2. Use the following commands to check the policies and reconfigure as needed:
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
