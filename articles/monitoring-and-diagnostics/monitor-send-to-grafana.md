@@ -20,9 +20,9 @@ Use the following steps to set up a Grafana server and build dashboards for metr
 
 ## Set up a Grafana server
 
-### Setup Grafana locally
-To setup a local Grafana server, download and install Grafana on your local environment as explained [here](https://grafana.com/grafana/download). To use the plugin's Log Analytics integration, install Grafana version 5.3 or higher.
-### Setup Grafana on Azure through the Azure Marketplace
+### Set up Grafana locally
+To set up a local Grafana server, download and install Grafana on your local environment as explained [here](https://grafana.com/grafana/download). To use the plugin's Log Analytics integration, install Grafana version 5.3 or higher.
+### Set up Grafana on Azure through the Azure Marketplace
 1. Go to Azure Marketplace and pick Grafana by Grafana Labs.
 
 2. Fill in the names and details. Create a new resource group. Keep track of the values you choose for the VM username, VM password, and Grafana server admin password.  
@@ -43,7 +43,7 @@ To setup a local Grafana server, download and install Grafana on your local envi
 
 ## Log in to Grafana
 
-1. Using the IP address of your server, open the Login page at *http://\<IP address\>:3000* or the *\<DNSName>\:3000* in your browser (while 3000 is the default port, you might have selected a different port during setup). You should see a login page for the Grafana server you just built.
+1. Using the IP address of your server, open the Login page at *http://\<IP address\>:3000* or the *\<DNSName>\:3000* in your browser. While 3000 is the default port, note you might have selected a different port during setup. You should see a login page for the Grafana server you built.
 
     ![Grafana login screen](.\media\monitor-how-to-grafana\grafana-login-screen.png)
 
@@ -68,7 +68,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 
 3. Provide the connection details to the APIs you'd like to use. You can connect to all or to some of them. 
     * If you connect to both Azure Monitor (to collect metrics) and Azure Log Analytics (for log data), you can reuse the same credentials by selecting "Same details as Azure Monitor API".
-    * While configuring the plugin you can indicate which Azure Cloud (Public, Azure US Government, Azure Germany, or Azure China) you would like the plugin to be configured against.
+    * When configuring the plugin, you can indicate which Azure Cloud you would like the plugin to monitor (Public, Azure US Government, Azure Germany, or Azure China).
     * If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
 > [!NOTE]
@@ -95,9 +95,9 @@ Once successfully logged in, you should see that the Azure Monitor data source p
     ![Grafana new graph](.\media\monitor-how-to-grafana\grafana-new-graph-dark.png)
 
 4. Select the Azure Monitor data source you've configured.
-    * Collecting Azure Monitor metrics - select "Azure Monitor" in the service dropdown. A list of selectors then shows up, where you can select the resource you'd like to monitor, and the metric to present in this chart. To collect metrics from a VM, use the namespace "Microsoft.Compute/VirtualMachines". Once you have selected VMs and metrics, you can start viewing their data in the dashboard.
+    * Collecting Azure Monitor metrics - select "Azure Monitor" in the service dropdown. A list of selectors shows up, where you can select the resources and metric to monitor in this chart. To collect metrics from a VM, use the namespace "Microsoft.Compute/VirtualMachines". Once you have selected VMs and metrics, you can start viewing their data in the dashboard.
     ![Grafana graph config for Azure Monitor](.\media\monitor-how-to-grafana\grafana-graph-config-for-azure-monitor-dark.png)
-    * Collecting Azure Log Analytics data - select "Azure Log Analytics" in the service dropdown. Select the workspace you'd like to query and set the query text. You can copy-paste any Log Analytics query you have (same syntax exactly as your queries in Azure) or create a new one. As you type in your query, IntelliSense will show up and suggest auto-complete options.
+    * Collecting Azure Log Analytics data - select "Azure Log Analytics" in the service dropdown. Select the workspace you'd like to query and set the query text. You can copy here any Log Analytics query you already have or create a new one - the syntax of your queries in Azure works here as well. As you type in your query, IntelliSense will show up and suggest autocomplete options.
     
     > [!NOTE]
     >
@@ -132,7 +132,7 @@ Here is an image of a full Grafana dashboard that has metrics from Azure Monitor
 
 ### Variables
 Some query values can be selected through UI dropdowns, and updated in the query. 
-Say, for example, that this is your query:
+If, for example, this is your query:
     // Chart the volume of data (in Kb)
     Usage 
     | where $__timeFilter(TimeGenerated) 
@@ -140,7 +140,7 @@ Say, for example, that this is your query:
     | sort by TimeGenerated
 
 You can configure a variable that will list all available "Solution" values, and update your query to use it.
-To create a new variable, click the dashboard Settings button (on the top right area), select “Variables”, and then “+New”.
+To create a new variable, click the dashboard's Settings button (on the top right area), select “Variables”, and then “+New”.
 On the variable page, define the data source and query to run in order to get the list of values (here, a list of solutions):
 ![Grafana configure variable](.\media\monitor-how-to-grafana\grafana-configure-variable-dark.png)
 
