@@ -4,11 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-<<<<<<< HEAD
 ms.date: 10/23/2018
-=======
-ms.date: 10/19/2018
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 ms.author: raynew
 ms.custom: mvc
 ---
