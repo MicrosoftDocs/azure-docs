@@ -44,7 +44,7 @@ Let's jump straight into creating the identity. If you run into a problem, check
 
 You've created your Azure AD application and service principal.
 
-## Assign application to role
+## Assign the application to a role
 
 To access resources in your subscription, you must assign the application to a role. Decide which role offers the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
 
