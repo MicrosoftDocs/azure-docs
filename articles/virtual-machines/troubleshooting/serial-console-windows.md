@@ -49,7 +49,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
   3. Click on the VM in the list. The overview page for the VM will open.
   4. Scroll down to the Support + Troubleshooting section and click on the "Serial console" option. A new pane with the serial console will open and start the connection.
 
-  ## Open CMD or Powershell in Serial Console
+## Open CMD or Powershell in Serial Console
 
 1. Connect to Serial Console. If you successfully connect to Serial Console, you will see **SAC>** as the following screenshot shows:
 
