@@ -181,7 +181,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 [return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
 public static object Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-    ILogger log)
+    TraceWriter log)
 {
     return new { Text = $"I'm running in a C# function! {myQueueItem}" };
 }
@@ -283,7 +283,7 @@ For information about attribute properties that you can configure, see [Output -
 [return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
 public static object Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-    ILogger log)
+    TraceWriter log)
 {
     ...
 }

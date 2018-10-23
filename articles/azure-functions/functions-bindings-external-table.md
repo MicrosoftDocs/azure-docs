@@ -108,7 +108,6 @@ Here's the C# script code:
 
 using System;
 using Microsoft.Azure.ApiHub;
-using Microsoft.Extensions.Logging;
 
 //Variable name must match column type
 //Variable type is dynamically bound to the incoming data
@@ -119,7 +118,7 @@ public class Contact
     public string FirstName { get; set; }
 }
 
-public static async Task Run(string input, ITable<Contact> table, ILogger log)
+public static async Task Run(string input, ITable<Contact> table, TraceWriter log)
 {
     //Iterate over every value in the source table
     ContinuationToken continuationToken = null;
@@ -131,7 +130,7 @@ public static async Task Run(string input, ITable<Contact> table, ILogger log)
 
         foreach (var contact in contactsSegment.Items)
         {   
-            log.LogInformation(string.Format("{0} {1}", contact.FirstName, contact.LastName));
+            log.Info(string.Format("{0} {1}", contact.FirstName, contact.LastName));
         }
 
         continuationToken = contactsSegment.ContinuationToken;
