@@ -291,7 +291,6 @@ There are three important things to remember regarding the use of SAS Tokens in 
 
 For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
 
-
 ### Use data encryption and replication
 
 All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). The data in the Azure storage account is always replicated for high availability. When you create a storage account, you can choose one of the following replication options:
