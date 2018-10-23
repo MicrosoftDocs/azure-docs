@@ -4,7 +4,7 @@ description: This topic shows how to use the Azure CLI to create an Azure AD app
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/22/2018
 ms.author: juliako
 
 ---
 
-# Use Azure CLI to create an AAD app and configure it to access Azure Media Services API
+# Use Azure CLI to create an Azure AD app and configure it to access Azure Media Services API
 
 This topic shows you how to use the Azure CLI to create an Azure Active Directory (Azure AD) application and service principal to access Azure Media Services resources. 
 

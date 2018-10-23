@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -30,7 +30,11 @@ Azure Migrate helps you to:
 - You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - Azure Migrate only supports managed disks for migration assessment.
-- You can only create an Azure Migrate project in the United States geography. This doesn't impact your ability to plan migration to any target Azure location. The geography of the migration project is used only to store metadata discovered from the on-premises environment. [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) about the metadata collected by Azure Migrate. The collected metadata is stored in one of the regions in the selected [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/):
+<<<<<<< HEAD
+-  You can only create an Azure Migrate project in the United States geography. This doesn't impact your ability to plan migration to any target Azure location. The geography of the migration project is used only to store metadata discovered from the on-premises environment. [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) about the metadata collected by Azure Migrate. The collected metadata is stored in one of the regions in the selected [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) based on the below mapping. If you plan to leverage dependency visualization and create a new Log Analytics workspace for the same, it is created in the same region as the project. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#prepare-for-dependency-visualization)
+=======
+- You can only create an Azure Migrate project in the United States geography. This doesn't impact your ability to plan migration to any target Azure location. The geography of the migration project is used only to store metadata discovered from the on-premises environment. [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) about the metadata collected by Azure Migrate. The collected metadata is stored in one of the regions in the selected [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) based on the below mapping. If you plan to leverage dependency visualization and create a new Log Analytics workspace for the same, it is created in the same region as the project. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#prepare-for-dependency-visualization)
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **Geography** | **Regions**
 --- | ---
