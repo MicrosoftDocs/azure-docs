@@ -6,7 +6,7 @@
   expanded: true
   items:
   - name: Overview
-    href: azure-ad-developers-guide.md
+    href: v1-overview.md
   - name: Quickstarts
     items:
     - name: Set up a dev environment
@@ -161,6 +161,12 @@
       items:
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: Create service principal
+        items:
+        - name: Using Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: Using Azure portal
+          href: howto-create-service-principal-portal.md
       - name: Restrict your app to a set of users
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: Add app roles in your application
@@ -348,6 +354,12 @@
       items:
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: Create service principal
+        items:
+        - name: Using Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: Using Azure portal
+          href: howto-create-service-principal-portal.md
       - name: Restrict your app to a set of users
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: Add app roles in your application

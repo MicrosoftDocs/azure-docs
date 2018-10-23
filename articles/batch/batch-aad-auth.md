@@ -370,7 +370,7 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 
 * To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
 
-* To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
+* To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
 
 * To authenticate Batch Management applications using Azure AD, see [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md).
 
