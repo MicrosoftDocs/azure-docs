@@ -26,13 +26,11 @@ There are multiple ways to register an application. Select the option that best 
 
 ### Option 1: Register your application (Express mode)
 
-1. Sign in to the [Azure portal app registration (preview)](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) to register an application.
+1. Sign in to the [Azure portal app registration (preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) to register an application.
 1. On the **Register an application** page, enter a name for your application.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. When finished, select **Register**.
-1. In the left-hand navigation pane of the registered application, select **Quickstart**.
-1. Under **Single page applications**, select **JavaScript**.
-1. Follow the instructions to configure the application. Copy the Application ID and paste it into your code.
+1. Follow the quickstart instructions to download and automatically configure your new application for you in one click.
 
 ### Option 2: Register your application (Advanced mode)
 
