@@ -8,13 +8,15 @@ ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 08/02/2018
+ms.date: 10/23/2018
 ms.author: diberry
 --- 
 
-**Question**: Should you use a hierarchical entity or a pattern with a simple entity with roles? 
+## Roles versus hierarchical entities
 
-**Answer**: That depends. Patterns and example utterances are comparable in that they represent a user's utterance, and are specific to an intent.  
+Should you use a hierarchical entity or a pattern with a simple entity with roles? 
+
+That depends. Patterns and example utterances are comparable in that they represent a user's utterance, and are specific to an intent.  
 
 If the utterances don’t have a clear pattern, use hierarchical entities. 
 
