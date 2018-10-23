@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Office 365 and many other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
+  description: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Office 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
   aside: 
     image:
       alt: 
