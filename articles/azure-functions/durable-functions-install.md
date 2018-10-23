@@ -78,10 +78,10 @@ Visual Studio Code provides a local development experience covering all major pl
     ```bash
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
-1. Run Azure Storage Emulator or update the *local.settings.json* file with real Azure Storage connection string.
-2. Open the project in Visual Studio Code. 
-3. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
-4. Start the project by running in command prompt / terminal the following command:
+5. Run Azure Storage Emulator or update the *local.settings.json* file with real Azure Storage connection string.
+6. Open the project in Visual Studio Code. 
+7. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
+8. Start the project by running in command prompt / terminal the following command:
     ```bash
     func host start
     ```

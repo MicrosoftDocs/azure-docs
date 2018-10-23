@@ -113,7 +113,7 @@ module.exports = df.orchestrator(function*(context) {
     const timeoutTask = context.df.createTimer(deadline);
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);
-    if (winner === activityTask) {s
+    if (winner === activityTask) {
         // success case
         timeoutTask.cancel();
         return true;
