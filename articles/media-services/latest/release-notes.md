@@ -78,10 +78,6 @@ You can see the following Event Grid support improvements:
 - Azure EventGrid integration for easier development with Logic Apps and Azure Functions. 
 - Subscribe for events on Encoding, Live Channels, and more.
 
-#### Azure CLI 2.0
- 
-The Azure CLI 2.0 module that includes operations on all features (including Live, Content Key Policies, Account/Asset Filters, Streaming Policies) is coming soon. 
-
 ### CMAF support
 
 CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players that support CMAF.
@@ -89,6 +85,12 @@ CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players
 ### Video Indexer
 
 Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
+
+### Plans for changes
+
+#### Azure CLI 2.0
+ 
+The Azure CLI 2.0 module that includes operations on all features (including Live, Content Key Policies, Account/Asset Filters, Streaming Policies) is coming soon. 
 
 ### Known issues
 
