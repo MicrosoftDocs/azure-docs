@@ -1,5 +1,5 @@
 ---
-title: Connect to Qlik Sense and visualize Azure Cosmos DB data | Microsoft Docs
+title: Connect Qlik Sense to Azure Cosmos DB and visualize your data | Microsoft Docs
 description: This article describes the steps required to connect Azure Cosmos DB to Qlik Sense and visualize your data. 
 services: cosmos-db
 author: SnehaGunda
@@ -11,14 +11,14 @@ ms.author: sngun
 
 ---
 
-# Connect to Qlik Sense and visualize Azure Cosmos DB data
+# Connect Qlik Sense to Azure Cosmos DB and visualize your data
 
 Qlik Sense is a data visualization tool that combines data from different sources into a single view. Qlik Sense indexes every possible relationship in your data so that you can gain immediate insights to the data. You can visualize Azure Cosmos DB data by using Qlik Sense. This article describes the steps required to connect Azure Cosmos DB to Qlik Sense and visualize your data. 
 
 > [!NOTE]
 > Connecting Azure Cosmos DB to Qlik Sense is currently supported for Azure Cosmos DB SQL API accounts only.
 
-You can connect to Qlik Sense with:
+You can Connect Qlik Sense to Azure Cosmos DB with:
 
 * Cosmos DB SQL API by using the ODBC connector.
 
@@ -47,7 +47,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 * Download, install, and configure the ODBC driver by using the steps in the [connect to Cosmos DB with ODBC driver](odbc-driver.md) article. The video game data is a simple data set and you don’t have to edit the schema, just use the default collection-mapping schema.
 
-## Connect to Qlik Sense
+## Connect Qlik Sense to Cosmos DB
 
 1. Open Qlik Sense and select **Create new app**. Provide a name for your app and select **Create**.
 
