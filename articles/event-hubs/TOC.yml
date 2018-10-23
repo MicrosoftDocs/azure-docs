@@ -121,6 +121,8 @@
       href: event-hubs-metrics-azure-monitor.md
     - name: Event Hubs management libraries
       href: event-hubs-management-libraries.md
+  - name: Get Event Hubs connection string
+    href: event-hubs-get-connection-string.md
   - name: Use IP filters
     href: event-hubs-ip-filtering.md
   - name: Use virtual network service endpoints
