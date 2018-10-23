@@ -12,12 +12,12 @@ manager: carmonm
 ---
 # Run your first Resource Graph query using Azure PowerShell
 
-The first step to using Azure Resource Graph is to ensure the module for Azure PowerShell is
-installed. This quickstart walks you through the process of adding the module to your Azure PowerShell
-installation.
+The first step to using Azure Resource Graph is to check that the module for Azure PowerShell is
+installed. This quickstart walks you through the process of adding the module to your Azure
+PowerShell installation.
 
-At the end of this process, you will have added the module to your Azure PowerShell installation of
-choice and run your very first Resource Graph query.
+At the end of this process, you'll have added the module to your Azure PowerShell installation of
+choice and run your first Resource Graph query.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
@@ -25,14 +25,14 @@ before you begin.
 ## Add the Resource Graph module
 
 To enable Azure PowerShell to query Azure Resource Graph, the module must be added. This module can
-be used with locally installed Windows PowerShell and PowerShell Core, as well as the [Azure
+be used with locally installed Windows PowerShell and PowerShell Core, or with the [Azure
 PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### Base requirements
 
 The Azure Resource Graph module requires the following software:
 
-- Azure PowerShell 6.3.0 or higher. If it is not yet installed, follow [these instructions](/powershell/azure/install-azurerm-ps).
+- Azure PowerShell 6.3.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-azurerm-ps).
 
   - For PowerShell Core, use the **Az** version of the Azure PowerShell module.
 
@@ -41,7 +41,11 @@ The Azure Resource Graph module requires the following software:
   > [!NOTE]
   > It is currently not recommended to install the module in Cloud Shell.
 
-- PowerShellGet. If it is not installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+
+### Cloud Shell
+
+To add Azure Resource Graph module in Cloud Shell, follow the instructions below for PowerShell Core.
 
 ### PowerShell Core
 
@@ -49,21 +53,21 @@ The Resource Graph module for PowerShell Core is **Az.ResourceGraph**.
 
 1. From an **administrative** PowerShell Core prompt, run the following command:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Validate that the module has been imported and is the correct version (0.2.0):
+1. Validate that the module has been imported and is the correct version (0.3.0):
 
-   ```powershell
+   ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
    Get-Command -Module 'Az.ResourceGraph' -CommandType 'Cmdlet'
    ```
 
 1. Enable backwards aliases for **Az** to **AzureRm** with the following command:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Enable backwards alias compatibility
    Enable-AzureRmAlias
    ```
@@ -79,7 +83,7 @@ The Resource Graph module for Windows PowerShell is **AzureRm.ResourceGraph**.
    Install-Module -Name AzureRm.ResourceGraph -AllowPrerelease
    ```
 
-1. Validate that the module has been imported and is the correct version (0.1.0-preview):
+1. Validate that the module has been imported and is the correct version (0.1.1-preview):
 
    ```powershell
    # Get a list of commands for the imported AzureRm.ResourceGraph module
@@ -88,14 +92,14 @@ The Resource Graph module for Windows PowerShell is **AzureRm.ResourceGraph**.
 
 ## Run your first Resource Graph query
 
-Now that the Azure PowerShell module has been added to your environment of choice, it is time to
-try out a simple Resource Graph query. The query will return the first five Azure resources with
-the **Name** and **Resource Type** of each resource.
+With the Azure PowerShell module added to your environment of choice, it's time to try out a simple
+Resource Graph query. The query will return the first five Azure resources with the **Name** and
+**Resource Type** of each resource.
 
 1. Run your first Azure Resource Graph query using the `Search-AzureRmGraph` cmdlet:
 
-   ```powershell
-   # Login first with Connect-AzureRmAccount
+   ```azurepowershell-interactive
+   # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
    Search-AzureRmGraph -Query 'project name, type | limit 5'
@@ -107,7 +111,7 @@ the **Name** and **Resource Type** of each resource.
 
 1. Update the query to `order by` the **Name** property:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
    Search-AzureRmGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
@@ -117,16 +121,16 @@ the **Name** and **Resource Type** of each resource.
   > set of resources per request. The order of the query commands is important. In this example, the
   > `order by` comes after the `limit`. This will first limit the query results and then order them.
 
-1. Update the query to first `order by` the **Name** property and then `limit` to the top 5 results:
+1. Update the query to first `order by` the **Name** property and then `limit` to the top five results:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    Search-AzureRmGraph -Query 'project name, type | order by name asc | limit 5'
    ```
 
-When the final query is run multiple times, assuming that nothing in your environment is changing,
+When the final query is run several times, assuming that nothing in your environment is changing,
 the results returned will be consistent and as expected -- ordered by the **Name** property, but
-still limited to the top 5 results.
+still limited to the top five results.
 
 ## Cleanup
 
