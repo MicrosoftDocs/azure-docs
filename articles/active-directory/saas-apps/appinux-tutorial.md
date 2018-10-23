@@ -102,9 +102,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/appinux-tutorial/tutorial_general_301.png)
 
-3. If you need to change to **SAML** mode from any another mode, click **Change single sign-on mode** on top of the screen.
-
-	![Configure Single Sign-On](./media/appinux-tutorial/tutorial_general_300.png)
 
 4. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
@@ -112,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. On the **Basic SAML Configuration** section, perform the following steps:
 
-	![Appinux Domain and URLs single sign-on information](./media/appinux-tutorial/tutorial_appinux_url.png)
+	![Appinux Domain and URLs single sign-on information](./media/appinux-tutorial/tutorial_appinux_url1.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.appinux.com`
 
@@ -129,13 +126,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| Name | Source Attribute|
 	| ---------------| --------- |
-	| `givenname` | `Provide the value as per your organization` |
-	| `surname` | `Provide the value as per your organization` |
+	| `givenname` | `user.givenname` |
+	| `surname` | `user.surname` |
 	| `emailaddress` | `user.mail` |
 	| `name` | `user.userprincipalname` |
 	| `UserType` | `Provide the value as per your organization` |
 	| `Tag` | `Provide the value as per your organization` |
-	| `Role` | `Provide the value as per your organization` |
+	| `Role` | `user.assignedroles` |
 	| `email` | `user.mail` |
 	| `wanshort` | `extractmailprefix([userprincipalname])` |
 	| `nameidentifier` | `user.employeeid` |
