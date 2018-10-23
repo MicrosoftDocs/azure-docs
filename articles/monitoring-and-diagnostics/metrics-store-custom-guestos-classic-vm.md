@@ -155,13 +155,13 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
     $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
-1.	Set the Diagnostics file path to a variable by using the following command.
+1.	Set the Diagnostics file path to a variable by using the following command:
 
     ```powershell
     $diagconfig = “<path of the diagnostics configuration file with the Azure Monitor sink configured>”
     ```
 
-1.	Prepare the update for your classic VM with the Diagnostics file that has the Azure Monitor sink configured.
+1.	Prepare the update for your classic VM with the diagnostics file that has the Azure Monitor sink configured.
 
     ```powershell
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $diagconfig -VM $VM -StorageContext $Storage_Context
