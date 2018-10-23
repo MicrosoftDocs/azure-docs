@@ -299,9 +299,7 @@ A server endpoint represents a specific location on a registered server, such as
 
 Your files are now kept in sync across your Azure file share and Windows Server.
 
-| Azure Storage| Windows Server |
-| ----- | ----- |
-| ![Azure Storage successfully synced](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png) | ![Windows Server successfully synced](media/storage-sync-files-extend-servers/files-synced-on-ws.png) |
+![Azure Storage successfully synced](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## Clean up resources
 
