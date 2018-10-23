@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/05/2018
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -68,7 +68,7 @@ Each request that is sent to Azure AD B2C specifies a policy. A policy controls 
 
 #### Custom policies 
 
-[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of the Identity Experience Framework in your Azure AD B2C tenant. Custom policies can be fully edited to complete many tasks. A custom policy is represented as one or several XML-formatted files that refer to each other in a hierarchical chain. 
+[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of the [Identity Experience Framework](trustframeworkpolicy.md) in your Azure AD B2C tenant. Custom policies can be fully edited to complete many tasks. A custom policy is represented as one or several XML-formatted files that refer to each other in a hierarchical chain. 
 
 Multiple custom policies of different types can be used in your Azure AD B2C tenant as needed and can be reused across applications. This flexibility enables you to define and modify customer identity experiences with minimal or no changes to your code. Policies can be used by adding a special query parameter to HTTP authentication requests.
 
@@ -111,4 +111,4 @@ If you are a single-page application developer using Node.js, set up your applic
 Start configuring your application for the sign-up and sign-in experience by continuing to the tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Register an application to enable sign-up and sign-in using Azure AD B2C](tutorial-register-applications.md)
+> [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
