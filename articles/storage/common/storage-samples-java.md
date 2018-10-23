@@ -163,7 +163,7 @@ The following table provides an overview of our samples repository and the scena
 </tr> 
 <tr> 
 <td>Insert/Merge/Replace Entity</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java Client Library Samples</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 <tr> 
 <td>Query Entities</td> 
@@ -179,7 +179,7 @@ The following table provides an overview of our samples repository and the scena
 </tr> 
 <tr> 
 <td>Update Entity</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java Client Library Samples</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 </tbody> 
 </table>
