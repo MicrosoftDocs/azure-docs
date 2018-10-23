@@ -13,7 +13,7 @@ ms.author: mialdrid
 
 # About ExpressRoute Direct (Preview)
 
-ExpressRoute Direct provides customers with the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100 Gbps connectivity, which supports Active/Active connectivity at scale.
+ExpressRoute Direct provides customers with the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100-Gbps connectivity, which supports Active/Active connectivity at scale.
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
@@ -39,9 +39,9 @@ Before using ExpressRoute direct, you must first enroll your subscription in the
 
 | **ExpressRoute using a service provider** | **ExpressRoute Direct** | 
 | --- | --- | 
-| Utilizes service provider to enable fast onboarding and connectivity into existing infrastructure | Requires 100 Gbps infrastructure and full management of all layers
+| Utilizes service provider to enable fast onboarding and connectivity into existing infrastructure | Requires 100-Gbps infrastructure and full management of all layers
 | Integrates with hundreds of providers including Ethernet and MPLS | Direct/Dedicated capacity for regulated industries and massive data ingestion | 
-| Circuits SKUs from 50 Mbps-10 Gbps | Customer may select a combination of the following circuit SKUs: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - limited to a total of 200Gbps
+| Circuits SKUs from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - limited to a total of 200 Gbps
 | Optimized for single tenant | Optimized for single tenant/Cloud Service providers/multiple business units
 
 ## ExpressRoute Direct circuits
