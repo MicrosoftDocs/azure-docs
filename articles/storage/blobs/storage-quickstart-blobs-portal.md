@@ -29,7 +29,7 @@ To create a container in the Azure portal, follow these steps:
 1. Navigate to your new storage account in the Azure portal.
 2. In the left menu for the storage account, scroll to the **Blob service** section, then select **Blobs**.
 3. Click the **+ Container** button.
-4. Enter a name for your new container. The container name must be lowercase, must start with a letter or number and can contain only letters, numbers, and the dash (-) character. See [Naming and referencing containers, blobs, and metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+4. Enter a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. See [Naming and referencing containers, blobs, and metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 5. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
 6. Click **OK** to create the container.
 
@@ -42,7 +42,7 @@ Block blobs consist of blocks of data assembled to make a blob. Most scenarios u
 To upload a block blob to your new container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the container you created in the previous section.
-2. Select the container to show a list of blobs it contains. In this case, since you created a new container, it won't yet contain any blobs.
+2. Select the container to show a list of blobs it contains. Since this is a new container, it won't contain any blobs yet.
 3. Click the **Upload** button to upload a blob to the container.
 4. Browse your local file system to find a file to upload as a block blob, and click **Upload**.
      
