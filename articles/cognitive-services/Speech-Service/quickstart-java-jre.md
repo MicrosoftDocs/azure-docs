@@ -1,29 +1,30 @@
 ---
 title: 'Quickstart: Recognize speech in Java (Windows or Linux)'
-titleSuffix: "Microsoft Cognitive Services"
+titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Java (Windows or Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in Java on Windows or Linux by using the Speech SDK
+# Quickstart: Recognize speech in Java on Windows or Linux by using the Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or Ubuntu Linux 16.04. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Speech Service SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or Ubuntu Linux 16.04. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
 
 ## Prerequisites
 
-You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech service for free](get-started.md) for details.
+You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Service for free](get-started.md) for details.
 
 
 ## Create and configure project
@@ -65,11 +66,11 @@ If you are using Ubuntu 16.04, before starting Eclipse, run the following comman
 
 1. Open the **pom.xml** file and edit it.
 
-   * At the end of the file, before the closing tag `</project>`, create a repositories section with a reference to the Maven repository for the Speech SDK, as shown here:
+   * At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK, as shown here:
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Also, add afterwards a dependencies section, with the Speech SDK version 1.0.0 as a dependency:
+  * Also add a `dependencies` element, with the Speech SDK version 1.0.1 as a dependency:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

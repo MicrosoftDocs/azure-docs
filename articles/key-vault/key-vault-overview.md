@@ -62,15 +62,15 @@ When storing valuable data, you must take several steps. Security information mu
 
 - Removing the need for in-house knowledge of Hardware Security Modules
 - Scaling up on short notice to meet your organization’s usage spikes.
-- Replicating the contents of your Key Vault within a region and to a secondary region. Key Vault ensures high availability and takes away the need of any action from the administrator to trigger the failover.
-- Providing standards Azure administration options via the portal, Azure CLI and PowerShell.
-- Automating certain tasks on certificates that you purchase from Public CAs, such as enroll and renew.
+- Replicating the contents of your Key Vault within a region and to a secondary region. This ensures high availability and takes away the need of any action from the administrator to trigger the fail over.
+- Providing standard Azure administration options via the portal, Azure CLI and PowerShell.
+- Automating certain tasks on certificates that you purchase from Public CAs, such as enrollment and renewal.
 
 In addition, Azure Key Vaults allow you to segregate application secrets. Applications may access only the vault that they are allowed to access, and they be limited to only perform specific operations. You can create an Azure Key Vault per application and restrict the secrets stored in a Key Vault to a specific application and team of developers.
 
 ### Integrate with other Azure services
 
-As a secure store in Azure, Key Vault has been used to simplify scenarios like [Azure Disk Encryption](../security/azure-security-disk-encryption.md), the [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL, [Azure web apps]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault itself can integrate with storage accounts, event hubs, and log analytics.
+As a secure store in Azure, Key Vault has been used to simplify scenarios like [Azure Disk Encryption](../security/azure-security-disk-encryption.md), the [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL Database, [Azure web apps]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault itself can integrate with storage accounts, event hubs and log analytics.
 
 ## Next steps
 

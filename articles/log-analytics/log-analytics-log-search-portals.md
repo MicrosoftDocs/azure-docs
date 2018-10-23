@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Viewing and analyzing data in Log Analytics

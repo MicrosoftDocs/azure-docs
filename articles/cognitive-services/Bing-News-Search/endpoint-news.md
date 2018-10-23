@@ -1,17 +1,19 @@
 ---
-title: Bing News search endpoints | Microsoft Docs
+title: Bing News Search endpoints
+titlesuffix: Azure Cognitive Services
 description: Summary of the News search API endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: v-gedod
 ---
 
-# News Search endpoints
+# Bing News Search endpoints
 The **News Search API** returns news articles, Web pages, images, videos, and [entities](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entities contain summary information about a person, place, or topic.
 ## Endpoints
 To get News search results using the Bing API, send a `GET` request to one of the following endpoints. The headers and URL parameters define further specifications.

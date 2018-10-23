@@ -1,9 +1,11 @@
 ﻿---
-title: Node.js Quickstart for Bing Spell Check API - Azure Cognitive Services | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Spell Check API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing Spell Check API, Node.js"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Spell Check API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
@@ -11,7 +13,6 @@ ms.date: 09/14/2017
 ms.author: v-jaswel
 ---
 # Quickstart for Bing Spell Check API with Node.js 
-<a name="HOLTop"></a>
 
 This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) with Node.js. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world."
 

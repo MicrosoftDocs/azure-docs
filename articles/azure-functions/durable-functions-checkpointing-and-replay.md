@@ -45,7 +45,7 @@ public static async Task<List<string>> Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const output = [];
     output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
     output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Standard properties in Log Analytics records

@@ -53,7 +53,8 @@ The default retention period for a database created using the DTU-based purchasi
 * Standard service tier is 5 weeks.
 * Premium service tier is 5 weeks.
 
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days. 
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (both on Logical Servers and Managed Instances).
+On Logical Server you can [change backup retention period up to 35 days](#how-to-change-backup-retention-period). Changing backup retention period is not available in Managed Instance. 
 
 If you reduce the current PITR retention period, all existing backups older than the new retention period will no longer be available. 
 
@@ -68,7 +69,7 @@ The PITR backups are geo-redundant and protected by [Azure Storage cross-regiona
 For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### Backups for long-term retention
-SQL Database offers the option of configuring long-term retention (LTR) of full backups for up to 10 years in Azure blob storage. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage. 
+SQL Database hosted in Logical Server offers the option of configuring long-term retention (LTR) of full backups for up to 10 years in Azure blob storage. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage. 
 
 Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -89,6 +90,10 @@ When you migrate your database from a DTU-based service tier with the default PI
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## How to change backup retention period
+
+> [!Note]
+> Default backup retention period (7 days) cannot be changed on Managed Instance. 
+
 You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days. 
 
 > [!NOTE]

@@ -41,7 +41,9 @@ To allow applications from Azure to connect to your Azure Database for MariaDB s
 ![Configure Allow access to Azure services in the portal](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ## Programmatically managing firewall rules
-In addition to the Azure portal, firewall rules can be managed programmatically by using the Azure CLI. <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+In addition to the Azure portal, firewall rules can be managed programmatically by using the Azure CLI. 
+
+<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
 ## Troubleshooting the database firewall
 Consider the following points when access to the Microsoft Azure Database for MariaDB server service does not behave as expected:
