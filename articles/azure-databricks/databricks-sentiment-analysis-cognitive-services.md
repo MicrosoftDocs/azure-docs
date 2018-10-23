@@ -8,7 +8,7 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: "Active"
-ms.date: 23/10/2018
+ms.date: 10/23/2018
 ms.author: alehall
 ---
 
