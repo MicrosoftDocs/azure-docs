@@ -123,7 +123,8 @@ The C# script code uses the token to make an HTTP call to the Microsoft Graph an
 ```csharp
 using System.Net; 
 using System.Net.Http; 
-using System.Net.Http.Headers; 
+using System.Net.Http.Headers;
+using Microsoft.Extensions.Logging; 
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, ILogger log)
 {
@@ -279,7 +280,8 @@ The following C# script code reads the contents of the specified table and retur
 ```csharp
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives; 
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Logging;
 
 public static IActionResult Run(HttpRequest req, string[][] excelTableData, ILogger log)
 {
@@ -429,6 +431,7 @@ The C# script code adds a new row to the table (assumed to be single-column) bas
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, ILogger log)
 {
@@ -583,6 +586,7 @@ The C# script code reads the file specified in the query string and logs its len
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static void Run(HttpRequestMessage req, Stream myOneDriveFile, ILogger log)
 {
@@ -726,6 +730,7 @@ The C# script code gets text from the query string and writes it to a text file 
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(HttpRequest req, ILogger log, Stream myOneDriveFile)
 {
@@ -863,6 +868,7 @@ The C# script code sends a mail from the caller to a recipient specified in the 
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static void Run(HttpRequest req, out Message message, ILogger log)
 { 
@@ -1023,6 +1029,7 @@ The C# script code reacts to incoming mail messages and logs the body of those s
 #r "Microsoft.Graph"
 using Microsoft.Graph;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(Message msg, ILogger log)  
 {
@@ -1156,6 +1163,7 @@ The C# script code gets the subscriptions and deletes them:
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, ILogger log)
 {
@@ -1305,6 +1313,7 @@ The C# script code registers a webhook that will notify this function app when t
 ```csharp
 using System;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, ILogger log)
 {
@@ -1445,6 +1454,7 @@ The C# script code refreshes the subscriptions:
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
 public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, ILogger log)
 {
@@ -1538,6 +1548,7 @@ The C# script code refreshes the subscriptions and creates the output binding in
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, ILogger log)
 {

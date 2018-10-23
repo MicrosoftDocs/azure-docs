@@ -98,6 +98,7 @@ Here's the C# script code:
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
+using Microsoft.Extensions.Logging;
 
 public static void Run(ILogger log, string input, out Mail message)
 {

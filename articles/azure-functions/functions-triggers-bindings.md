@@ -71,6 +71,7 @@ Here's C# script code that works with this trigger and binding. Notice that the 
 ```cs
 #r "Newtonsoft.Json"
 
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 // From an incoming queue message that is a JSON object, add fields and write to Table storage
@@ -540,6 +541,7 @@ For this to work in C# and F#, you need a class that defines the fields to be de
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public class BlobInfo
 {

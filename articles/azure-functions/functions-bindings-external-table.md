@@ -108,6 +108,7 @@ Here's the C# script code:
 
 using System;
 using Microsoft.Azure.ApiHub;
+using Microsoft.Extensions.Logging;
 
 //Variable name must match column type
 //Variable type is dynamically bound to the incoming data

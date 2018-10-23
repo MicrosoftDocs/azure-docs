@@ -111,6 +111,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Extensions.Logging;
 
     namespace FunctionApp1
     {

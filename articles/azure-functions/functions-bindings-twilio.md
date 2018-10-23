@@ -125,6 +125,7 @@ You can't use out parameters in asynchronous code. Here's an asynchronous C# scr
 #r "Twilio.Api"
 
 using System;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Twilio;
 
@@ -258,6 +259,7 @@ Here's C# script code:
 #r "Twilio.Api"
 
 using System;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
@@ -290,6 +292,7 @@ You can't use out parameters in asynchronous code. Here's an asynchronous C# scr
 #r "Twilio.Api"
 
 using System;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;

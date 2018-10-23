@@ -117,6 +117,7 @@ Here's C# script code that binds to `HttpRequestMessage`:
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 {
@@ -144,6 +145,7 @@ You can bind to a custom object instead of `HttpRequestMessage`. This object is 
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 public static string Run(CustomObject req, ILogger log)
 {

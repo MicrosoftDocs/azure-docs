@@ -53,6 +53,7 @@ This example sends a notification for a [template registration](../notification-
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 public static void Run(string myQueueItem,  out IDictionary<string, string> notification, ILogger log)
 {
@@ -76,6 +77,7 @@ If you are using asynchronous code, out parameters are not allowed. In this case
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(string myQueueItem, IAsyncCollector<IDictionary<string,string>> notification, ILogger log)
 {
@@ -99,6 +101,7 @@ This example sends a notification for a [template registration](../notification-
 
 ```cs
 using System;
+using Microsoft.Extensions.Logging;
 
 public static void Run(string myQueueItem,  out string notification, ILogger log)
 {
@@ -117,6 +120,7 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 using System;
 using System.Threading.Tasks;
 using Microsoft.Azure.NotificationHubs;
+using Microsoft.Extensions.Logging;
 
 public static void Run(string myQueueItem,  out Notification notification, ILogger log)
 {
@@ -173,6 +177,7 @@ This C# script example shows how to send a native APNS notification.
 using System;
 using Microsoft.Azure.NotificationHubs;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, ILogger log)
 {
@@ -204,6 +209,7 @@ This C# script example shows how to send a native GCM notification.
 using System;
 using Microsoft.Azure.NotificationHubs;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, ILogger log)
 {
@@ -235,6 +241,7 @@ This C# script example shows how to use types defined in the [Microsoft Azure No
 using System;
 using Microsoft.Azure.NotificationHubs;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, ILogger log)
 {

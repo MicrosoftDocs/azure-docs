@@ -111,6 +111,7 @@ public class TableStorage
 ```csharp
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
@@ -239,6 +240,7 @@ The C# script code adds a reference to the Azure Storage SDK so that the entity 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Extensions.Logging;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
 {
@@ -285,6 +287,7 @@ public class Person : TableEntity
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, ILogger log)
 {

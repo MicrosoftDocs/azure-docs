@@ -82,6 +82,7 @@ Now, you can add the C# function code that connects to your SQL Database.
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
+    using Microsoft.Extensions.Logging;
 	```
 
 4. Replace the existing `Run` function with the following code:

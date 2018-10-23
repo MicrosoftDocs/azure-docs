@@ -165,6 +165,7 @@ To get access to [event metadata](#trigger---event-metadata) in function code, b
 using System.Text;
 using System;
 using Microsoft.ServiceBus.Messaging;
+using Microsoft.Extensions.Logging;
 
 public static void Run(EventData myEventHubMessage,
     DateTime enqueuedTimeUtc, 

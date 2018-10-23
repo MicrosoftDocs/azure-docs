@@ -63,6 +63,7 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -116,7 +117,7 @@ Here's the C# script code:
     using System;
     using Microsoft.Azure.Documents;
     using System.Collections.Generic;
-    
+    using Microsoft.Extensions.Logging;
 
     public static void Run(IReadOnlyList<Document> documents, ILogger log)
     {
@@ -307,6 +308,7 @@ namespace CosmosDBSamplesV2
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -349,6 +351,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -393,6 +396,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -441,6 +445,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -481,6 +486,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -524,6 +530,7 @@ using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -716,6 +723,7 @@ Here's the C# script code:
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
 {
@@ -778,6 +786,7 @@ Here's the C# script code:
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
 {
@@ -839,6 +848,7 @@ Here's the C# script code:
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, ILogger log)
 {
@@ -899,6 +909,7 @@ Here's the C# script code:
 using System.Net;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
+using Microsoft.Extensions.Logging;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, ILogger log)
 {
@@ -1292,6 +1303,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 
 namespace CosmosDBSamplesV2
@@ -1326,6 +1338,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -1410,6 +1423,7 @@ Here's the C# script code:
 
     using Microsoft.Azure.WebJobs.Host;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
     public static void Run(string myQueueItem, out object employeeDocument, ILogger log)
     {
@@ -1472,6 +1486,7 @@ Here's the C# script code:
 
 ```cs
 using System;
+using Microsoft.Extensions.Logging;
 
 public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, ILogger log)
 {
@@ -1587,6 +1602,7 @@ Here's the F# code:
 ```fsharp
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
+    open Microsoft.Extensions.Logging
 
     type Employee = {
       id: string

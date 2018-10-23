@@ -77,6 +77,7 @@ Input or output data is bound to a C# script function parameter via the `name` p
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Queue;
 using System;
 
@@ -124,6 +125,8 @@ Example *run.csx*:
 ```csharp
 #load "mylogger.csx"
 
+using Microsoft.Extensions.Logging;
+
 public static void Run(TimerInfo myTimer, ILogger log)
 {
     log.LogInformation($"Log by run.csx: {DateTime.Now}");
@@ -148,6 +151,7 @@ Example *run.csx* for HTTP trigger:
 #load "..\shared\order.csx"
 
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, ILogger log)
 {
@@ -173,6 +177,7 @@ Example *run.csx* for queue trigger:
 #load "..\shared\order.csx"
 
 using System;
+using Microsoft.Extensions.Logging;
 
 public static void Run(Order myQueueItem, out Order outputQueueItem,ILogger log)
 {
@@ -299,6 +304,7 @@ If you need to import namespaces, you can do so as usual, with the `using` claus
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
@@ -324,6 +330,7 @@ For framework assemblies, add references by using the `#r "AssemblyName"` direct
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
