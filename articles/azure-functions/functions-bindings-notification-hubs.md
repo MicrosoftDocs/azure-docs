@@ -54,9 +54,9 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
+public static void Run(string myQueueItem,  out IDictionary<string, string> notification, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     notification = GetTemplateProperties(myQueueItem);
 }
 
@@ -77,11 +77,11 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-public static async Task Run(string myQueueItem, IAsyncCollector<IDictionary<string,string>> notification, TraceWriter log)
+public static async Task Run(string myQueueItem, IAsyncCollector<IDictionary<string,string>> notification, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
-    log.Info($"Sending Template Notification to Notification Hub");
+    log.LogInformation($"Sending Template Notification to Notification Hub");
     await notification.AddAsync(GetTemplateProperties(myQueueItem));    
 }
 
@@ -100,9 +100,9 @@ This example sends a notification for a [template registration](../notification-
 ```cs
 using System;
 
-public static void Run(string myQueueItem,  out string notification, TraceWriter log)
+public static void Run(string myQueueItem,  out string notification, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
 }
 ```
@@ -118,9 +118,9 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Azure.NotificationHubs;
 
-public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
+public static void Run(string myQueueItem,  out Notification notification, ILogger log)
 {
-   log.Info($"C# Queue trigger function processed: {myQueueItem}");
+   log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
    notification = GetTemplateNotification(myQueueItem);
 }
 
@@ -174,9 +174,9 @@ using System;
 using Microsoft.Azure.NotificationHubs;
 using Newtonsoft.Json;
 
-public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
     // In this example the queue item is a new user to be processed in the form of a JSON string with 
     // a "name" value.
@@ -184,11 +184,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     // The JSON format for a native APNS notification is ...
     // { "aps": { "alert": "notification message" }}  
 
-    log.Info($"Sending APNS notification of a new user");    
+    log.LogInformation($"Sending APNS notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
                                         user.name + ")\" }}";
-    log.Info($"{apnsNotificationPayload}");
+    log.LogInformation($"{apnsNotificationPayload}");
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
 }
 ```
@@ -205,9 +205,9 @@ using System;
 using Microsoft.Azure.NotificationHubs;
 using Newtonsoft.Json;
 
-public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
     // In this example the queue item is a new user to be processed in the form of a JSON string with 
     // a "name" value.
@@ -215,11 +215,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     // The JSON format for a native GCM notification is ...
     // { "data": { "message": "notification message" }}  
 
-    log.Info($"Sending GCM notification of a new user");    
+    log.LogInformation($"Sending GCM notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
                                         user.name + ")\" }}";
-    log.Info($"{gcmNotificationPayload}");
+    log.LogInformation($"{gcmNotificationPayload}");
     await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
 }
 ```
@@ -236,9 +236,9 @@ using System;
 using Microsoft.Azure.NotificationHubs;
 using Newtonsoft.Json;
 
-public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
     // In this example the queue item is a new user to be processed in the form of a JSON string with 
     // a "name" value.
@@ -253,7 +253,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     //   </visual>
     // </toast>
 
-    log.Info($"Sending WNS toast notification of a new user");    
+    log.LogInformation($"Sending WNS toast notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string wnsNotificationPayload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
                                     "<toast><visual><binding template=\"ToastText01\">" +
@@ -262,7 +262,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
                                         "</text>" +
                                     "</binding></visual></toast>";
 
-    log.Info($"{wnsNotificationPayload}");
+    log.LogInformation($"{wnsNotificationPayload}");
     await notification.AddAsync(new WindowsNotification(wnsNotificationPayload));        
 }
 ```

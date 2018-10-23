@@ -117,9 +117,9 @@ In pre-compiled functions, the bindings used by the function are defined by appl
         public static class Function1
         {
             [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, TraceWriter log)
+            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, ILogger log)
             {
-                log.Info($"C# Queue trigger function processed: {myQueueItem}");
+                log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
             }
         }
     }
@@ -147,9 +147,9 @@ As with triggers, input and output bindings are added to your function as bindin
         public static void Run(
             [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
             [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+            log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
             myQueueItemCopy = myQueueItem;
         }
     }

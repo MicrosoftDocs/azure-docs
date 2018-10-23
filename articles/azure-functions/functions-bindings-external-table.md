@@ -118,7 +118,7 @@ public class Contact
     public string FirstName { get; set; }
 }
 
-public static async Task Run(string input, ITable<Contact> table, TraceWriter log)
+public static async Task Run(string input, ITable<Contact> table, ILogger log)
 {
     //Iterate over every value in the source table
     ContinuationToken continuationToken = null;
@@ -130,7 +130,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 
         foreach (var contact in contactsSegment.Items)
         {   
-            log.Info(string.Format("{0} {1}", contact.FirstName, contact.LastName));
+            log.LogInformation(string.Format("{0} {1}", contact.FirstName, contact.LastName));
         }
 
         continuationToken = contactsSegment.ContinuationToken;

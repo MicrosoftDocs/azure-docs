@@ -75,7 +75,7 @@ using Newtonsoft.Json.Linq;
 
 // From an incoming queue message that is a JSON object, add fields and write to Table storage
 // The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
+public static Person Run(JObject order, ILogger log)
 {
     return new Person() { 
             PartitionKey = "Orders", 
@@ -120,7 +120,7 @@ In a class library, the same trigger and binding information &mdash; queue and t
      [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
      public static Person Run(
          [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         TraceWriter log)
+         ILogger log)
      {
          return new Person() {
                  PartitionKey = "Orders",
@@ -234,10 +234,10 @@ Here's C# code that uses the return value for an output binding, followed by an 
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
@@ -245,10 +245,10 @@ public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -269,19 +269,19 @@ Here's the output binding in the *function.json* file:
 Here's the C# script code, followed by an async example:
 
 ```cs
-public static string Run(WorkItem input, TraceWriter log)
+public static string Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
 
 ```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
+public static Task<string> Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -304,7 +304,7 @@ Here's the F# code:
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
     let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
+    log.LogInformation(sprintf "F# script processed queue message '%s'" json)
     json
 ```
 
@@ -397,9 +397,9 @@ You can use the same approach in class libraries:
 [FunctionName("QueueTrigger")]
 public static void Run(
     [QueueTrigger("%input-queue-name%")]string myQueueItem, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 }
 ```
 
@@ -441,9 +441,9 @@ Function code has access to this same value by using `filename` as a parameter n
 
 ```csharp
 // C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+public static void Run(Stream image, string filename, Stream imageSmall, ILogger log)  
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 } 
 ```
@@ -459,9 +459,9 @@ public static void Run(
     [BlobTrigger("sample-images/{filename}")] Stream image,
     [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
     string filename,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 }
 
@@ -546,13 +546,13 @@ public class BlobInfo
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, ILogger log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
 
-    log.Info($"Processing: {info.BlobName}");
+    log.LogInformation($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

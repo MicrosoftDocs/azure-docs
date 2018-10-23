@@ -60,12 +60,12 @@ public static void Run(
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
     string messageId,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"DeliveryCount={deliveryCount}");
-    log.Info($"MessageId={messageId}");
+    log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"DeliveryCount={deliveryCount}");
+    log.LogInformation($"MessageId={messageId}");
 }
 ```
 
@@ -101,13 +101,13 @@ public static void Run(string myQueueItem,
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
     string messageId,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"DeliveryCount={deliveryCount}");
-    log.Info($"MessageId={messageId}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"DeliveryCount={deliveryCount}");
+    log.LogInformation($"MessageId={messageId}");
 }
 ```
 
@@ -136,7 +136,7 @@ Here's the F# script code:
 
 ```fsharp
 let Run(myQueueItem: string, log: TraceWriter) =
-    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
+    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
 ### Trigger - JavaScript example
@@ -220,7 +220,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
-      [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+      [ServiceBusTrigger("myqueue")] string myQueueItem, ILogger log)
   {
       ...
   }
@@ -232,7 +232,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
       [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
-      string myQueueItem, TraceWriter log)
+      string myQueueItem, ILogger log)
   {
       ...
   }
@@ -252,7 +252,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
       [FunctionName("ServiceBusQueueTriggerCSharp")]
       public static void Run(
           [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
-          string myQueueItem, TraceWriter log)
+          string myQueueItem, ILogger log)
   {
       ...
   }
@@ -355,9 +355,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```cs
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 {
-    log.Info($"C# function processed: {input.Text}");
+    log.LogInformation($"C# function processed: {input.Text}");
     return input.Text;
 }
 ```
@@ -393,10 +393,10 @@ Here's the binding data in the *function.json* file:
 Here's C# script code that creates a single message:
 
 ```cs
-public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 {
     string message = $"Service Bus queue message created at: {DateTime.Now}";
-    log.Info(message); 
+    log.LogInformation(message); 
     outputSbQueue = message;
 }
 ```
@@ -404,10 +404,10 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 Here's C# script code that creates multiple messages:
 
 ```cs
-public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue messages created at: {DateTime.Now}";
-    log.Info(message); 
+    log.LogInformation(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
@@ -446,7 +446,7 @@ Here's F# script code that creates a single message:
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
     let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.Info(message)
+    log.LogInformation(message)
     outputSbQueue = message
 ```
 
@@ -530,7 +530,7 @@ The attribute's constructor takes the name of the queue or the topic and subscri
 ```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue")]
-public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+public static string Run([HttpTrigger] dynamic input, ILogger log)
 {
     ...
 }
@@ -541,7 +541,7 @@ You can set the `Connection` property to specify the Service Bus account to use,
 ```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+public static string Run([HttpTrigger] dynamic input, ILogger log)
 {
     ...
 }

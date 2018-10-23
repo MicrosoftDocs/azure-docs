@@ -79,9 +79,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, ILogger log)
 {
-    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+    log.LogInformation($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
@@ -94,17 +94,17 @@ public static void Run(
     DateTime enqueuedTimeUtc, 
     Int64 sequenceNumber,
     string offset,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.LogInformation($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
     // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
+    log.LogInformation($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.LogInformation($"Offset={myEventHubMessage.Offset}");
     // Metadata accessed by using binding expressions
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"SequenceNumber={sequenceNumber}");
-    log.Info($"Offset={offset}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={sequenceNumber}");
+    log.LogInformation($"Offset={offset}");
 }
 ```
 
@@ -112,11 +112,11 @@ To receive events in a batch, make `string` or `EventData` an array:
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, ILogger log)
 {
     foreach (var message in eventHubMessages)
     {
-        log.Info($"C# Event Hub trigger function processed a message: {message}");
+        log.LogInformation($"C# Event Hub trigger function processed a message: {message}");
     }
 }
 ```
@@ -152,9 +152,9 @@ Here's the C# script code:
 ```cs
 using System;
 
-public static void Run(string myEventHubMessage, TraceWriter log)
+public static void Run(string myEventHubMessage, ILogger log)
 {
-    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+    log.LogInformation($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
@@ -170,28 +170,28 @@ public static void Run(EventData myEventHubMessage,
     DateTime enqueuedTimeUtc, 
     Int64 sequenceNumber,
     string offset,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.LogInformation($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
     // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
+    log.LogInformation($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.LogInformation($"Offset={myEventHubMessage.Offset}");
     // Metadata accessed by using binding expressions
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"SequenceNumber={sequenceNumber}");
-    log.Info($"Offset={offset}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={sequenceNumber}");
+    log.LogInformation($"Offset={offset}");
 }
 ```
 
 To receive events in a batch, make `string` or `EventData` an array:
 
 ```cs
-public static void Run(string[] eventHubMessages, TraceWriter log)
+public static void Run(string[] eventHubMessages, ILogger log)
 {
     foreach (var message in eventHubMessages)
     {
-        log.Info($"C# Event Hub trigger function processed a message: {message}");
+        log.LogInformation($"C# Event Hub trigger function processed a message: {message}");
     }
 }
 ```
@@ -226,7 +226,7 @@ Here's the F# code:
 
 ```fsharp
 let Run(myEventHubMessage: string, log: TraceWriter) =
-    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+    log.LogInformation(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
 ### Trigger - JavaScript example
@@ -344,7 +344,7 @@ The attribute's constructor takes the name of the event hub, the name of the con
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, ILogger log)
 {
     ...
 }
@@ -414,9 +414,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```csharp
 [FunctionName("EventHubOutput")]
 [return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
-public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     return $"{DateTime.Now}";
 }
 ```
@@ -451,7 +451,7 @@ Here's C# script code that creates one message:
 ```cs
 using System;
 
-public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
+public static void Run(TimerInfo myTimer, out string outputEventHubMessage, ILogger log)
 {
     String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
     log.Verbose(msg);   
@@ -462,10 +462,10 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 Here's C# script code that creates multiple messages:
 
 ```cs
-public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
+public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, ILogger log)
 {
     string message = $"Event Hub message created at: {DateTime.Now}";
-    log.Info(message);
+    log.LogInformation(message);
     outputEventHubMessage.Add("1 " + message);
     outputEventHubMessage.Add("2 " + message);
 }
@@ -580,7 +580,7 @@ The attribute's constructor takes the name of the event hub and the name of an a
 ```csharp
 [FunctionName("EventHubOutput")]
 [return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
-public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
     ...
 }

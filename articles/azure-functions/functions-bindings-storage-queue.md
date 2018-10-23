@@ -58,9 +58,9 @@ public static class QueueFunctions
     [FunctionName("QueueTrigger")]
     public static void QueueTrigger(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 }
 ```
@@ -104,9 +104,9 @@ public static void Run(CloudQueueMessage myQueueItem,
     string id,
     string popReceipt,
     int dequeueCount,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -193,7 +193,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   [FunctionName("QueueTrigger")]
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -205,7 +205,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   [FunctionName("QueueTrigger")]
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
-      TraceWriter log)
+      ILogger log)
   {
       ....
   }
@@ -325,9 +325,9 @@ public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
     [return: Queue("myqueue-items")]
-    public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
+    public static string QueueOutput([HttpTrigger] dynamic input,  ILogger log)
     {
-        log.Info($"C# function processed: {input.Text}");
+        log.LogInformation($"C# function processed: {input.Text}");
         return input.Text;
     }
 }
@@ -375,7 +375,7 @@ public class CustomQueueMessage
     public string Title { get; set; }
 }
 
-public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
+public static CustomQueueMessage Run(CustomQueueMessage input, ILogger log)
 {
     return input;
 }
@@ -387,7 +387,7 @@ You can send multiple messages at once by using an `ICollector` or `IAsyncCollec
 public static void Run(
     CustomQueueMessage input, 
     ICollector<CustomQueueMessage> myQueueItems, 
-    TraceWriter log)
+    ILogger log)
 {
     myQueueItems.Add(input);
     myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
@@ -472,7 +472,7 @@ The attribute applies to an `out` parameter or the return value of the function.
 ```csharp
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
-public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+public static string Run([HttpTrigger] dynamic input,  ILogger log)
 {
     ...
 }
@@ -483,7 +483,7 @@ You can set the `Connection` property to specify the storage account to use, as 
 ```csharp
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
-public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+public static string Run([HttpTrigger] dynamic input,  ILogger log)
 {
     ...
 }

@@ -50,9 +50,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 [return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
 public static SMSMessage Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {order}");
+    log.LogInformation($"C# Queue trigger function processed: {order}");
 
     var message = new SMSMessage()
     {
@@ -97,9 +97,9 @@ using System;
 using Newtonsoft.Json;
 using Twilio;
 
-public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter log)
+public static void Run(string myQueueItem, out SMSMessage message,  ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
     // In this example the queue item is a JSON string representing an order that contains the name of a 
     // customer and a mobile number to send text updates to.
@@ -128,9 +128,9 @@ using System;
 using Newtonsoft.Json;
 using Twilio;
 
-public static async Task Run(string myQueueItem, IAsyncCollector<SMSMessage> message,  TraceWriter log)
+public static async Task Run(string myQueueItem, IAsyncCollector<SMSMessage> message,  ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
     // In this example the queue item is a JSON string representing an order that contains the name of a 
     // customer and a mobile number to send text updates to.
@@ -215,9 +215,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 [return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
 public static CreateMessageOptions Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {order}");
+    log.LogInformation($"C# Queue trigger function processed: {order}");
 
     var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
     {
@@ -262,9 +262,9 @@ using Newtonsoft.Json;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
-public static void Run(string myQueueItem, out CreateMessageOptions message,  TraceWriter log)
+public static void Run(string myQueueItem, out CreateMessageOptions message,  ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
     // In this example the queue item is a JSON string representing an order that contains the name of a
     // customer and a mobile number to send text updates to.
@@ -294,9 +294,9 @@ using Newtonsoft.Json;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
-public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  TraceWriter log)
+public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
     // In this example the queue item is a JSON string representing an order that contains the name of a
     // customer and a mobile number to send text updates to.
@@ -378,7 +378,7 @@ For information about attribute properties that you can configure, see [Configur
     From = "+1425XXXXXXX" )]
 public static SMSMessage Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }

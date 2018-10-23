@@ -71,9 +71,9 @@ Here's the binding data in the *function.json* file:
 Here's the C# script code:
 
 ```cs
-public static void Run(string myFile, TraceWriter log)
+public static void Run(string myFile, ILogger log)
 {
-    log.Info($"C# File trigger function processed: {myFile}");
+    log.LogInformation($"C# File trigger function processed: {myFile}");
 }
 ```
 
@@ -257,9 +257,9 @@ Here's the binding data in the *function.json* file:
 Here's the C# script code:
 
 ```cs
-public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
+public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputFile = myInputFile;
 }
 ```

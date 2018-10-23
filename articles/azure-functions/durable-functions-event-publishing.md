@@ -132,9 +132,9 @@ A function with the following code is created:
 #r "Newtonsoft.Json"
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-public static void Run(JObject eventGridEvent, TraceWriter log)
+public static void Run(JObject eventGridEvent, ILogger log)
 {
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
+    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
 }
 ```
 
@@ -181,9 +181,9 @@ namespace LifeCycleEventSpike
         }
 
         [FunctionName("Sample_Hello")]
-        public static string SayHello([ActivityTrigger] string name, TraceWriter log)
+        public static string SayHello([ActivityTrigger] string name, ILogger log)
         {
-            log.Info($"Saying hello to {name}.");
+            log.LogInformation($"Saying hello to {name}.");
             return $"Hello {name}!";
         }
 
@@ -191,11 +191,11 @@ namespace LifeCycleEventSpike
         public static async Task<HttpResponseMessage> HttpStart(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
             [OrchestrationClient]DurableOrchestrationClient starter,
-            TraceWriter log)
+            ILogger log)
         {
             // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync("Sample", null);
-            log.Info($"Started orchestration with ID = '{instanceId}'.");
+            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
             return starter.CreateCheckStatusResponse(req, instanceId);
         }
     }
