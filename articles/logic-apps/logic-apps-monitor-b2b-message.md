@@ -82,7 +82,7 @@ select your Log Analytics workspace and the data you want to log.
 
    1. Under **Log Analytics**, select **Configure**. 
 
-   1. Under **OMS workspaces**, select the Log Analytics 
+   1. Under **OMS Workspaces**, select the Log Analytics 
    workspace you want to use for logging. 
 
       > [!NOTE]
@@ -130,7 +130,7 @@ select your Log Analytics workspace and the data you want to log.
 
    1. Under **Log Analytics**, select **Configure**. 
 
-   1. Under **OMS workspaces**, select the Log Analytics 
+   1. Under **OMS Workspaces**, select the Log Analytics 
    workspace you want to use for logging. 
 
       > [!NOTE]
