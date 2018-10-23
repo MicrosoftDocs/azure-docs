@@ -1,4 +1,4 @@
-| China |China North |China East|---
+---
 title: 'Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Docs'
 description: Learn about Azure regional pairing, to ensure that applications are resilient during data center failures.
 author: rayne-wiselman
