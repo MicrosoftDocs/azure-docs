@@ -40,7 +40,7 @@ This page is updated monthly, so revisit it regularly.
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
 
-We're excited to announce that you can now forward your Azure AD logs to Azure Log Analytics! This top-requested feature helps to give you even better analytics for your business, operations, and security, as well as a way to help monitor your infrastructure. For more information, see the [blog post name - need link].
+We're excited to announce that you can now forward your Azure AD logs to Azure Log Analytics! This top-requested feature helps give you even better access to analytics for your business, operations, and security, as well as a way to help monitor your infrastructure. For more information, see the [Azure Active Directory Activity logs in Azure Log Analytics now available](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blog.
 
 ---
 
@@ -58,34 +58,32 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-[318801](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=318801&triage=true&fullScreen=false&_a=edit)
-
 ### Azure AD Domain Services Email Notifications
 
 **Type:** New feature  
 **Service category:** Azure AD Domain Services  
 **Product capability:** Azure AD Domain Services
- 
-Azure AD Domain Services has alerts available on the Azure portal that identifies misconfigurations or problems on your managed domain. These alerts have step-by-step guides for you to be able to remediate issues on your managed domain without having to contact support. 
 
-Starting in October, you will be able to customize notification settings for your managed domain so that a select list of email addresses will be emailed as soon as a new alert is found on your managed domain. This eliminates the need to constantly check the Azure portal for updates, as you will receive email notifications alerting you of any problems found.
+Azure AD Domain Services provides alerts on the Azure portal about misconfigurations or problems with your managed domain. These alerts include step-by-step guides so you can try to fix the problems wihtout having to contact support.
 
-For more information, please visit Azure AD Domain Services email notifications
+Starting in October, you'll be able to customize the notification settings for your managed domain so when new alerts occur, an email is sent to a designated group of people, eliminating the need to constantly check the portal for updates.
+
+For more information, see [Notification settings in Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
 
 ---
 
-[103097](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=103097&triage=true&fullScreen=false&_a=edit)
-
-### Azure AD portal now supports the force delete domain name experience 
+### Azure AD portal supports using the ForceDelete domain API to delete custom domains 
 
 **Type:** Changed feature  
 **Service category:** Directory Management  
 **Product capability:** Directory
- 
 
-We are pleased to announce that you can now force delete a domain name in the Azure AD portal. The ForceDelete domain API will asynchronously rename references like users, groups and apps to the custom domain name to the initial default domain name, and then remove the domain. This provides an easier method of deleting domain names and enables greater efficiency in directory management.
+We're pleased to announce that you can now use the ForceDelete domain API to delete your custom domain names by asynchronously renaming references, like users, groups, and apps from your custom domain name (contoso.com) back to the original default domain name (contoso.onmicrosoft.com). This change helps you to more quickly delete your custom domain names if your organization no longer uses the name, or if you need to use the domain name with another Azure AD.
+
+For more information, see [Delete a custom domain name](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name)
 
 ---
+
 ## September 2018
  
 ### Updated administrator role permissions for dynamic groups
