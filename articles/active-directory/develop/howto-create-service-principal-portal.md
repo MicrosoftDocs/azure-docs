@@ -24,7 +24,7 @@ When you have code that needs to access or modify resources, you can create an i
 > [!IMPORTANT]
 > Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure Active Directory (Azure AD) authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
-## Create an Azure AD application
+## Create an Azure Active Directory application
 
 Let's jump straight into creating the identity. If you run into a problem, check the [required permissions](#required-permissions) to make sure your account can create the identity.
 
@@ -44,7 +44,7 @@ Let's jump straight into creating the identity. If you run into a problem, check
 
 You've created your Azure AD application and service principal.
 
-## Assign the application to a role
+## Assign application to role
 
 To access resources in your subscription, you must assign the application to a role. Decide which role offers the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
 
