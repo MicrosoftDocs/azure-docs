@@ -23,7 +23,9 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 2. Enter a VNet rule name, select the subscription, Virtual network and Subnet name and then click **Enable**. This automatically enables VNet service endpoints on the subnet using the **Microsoft.SQL** service tag.
 
-   The account must have the necessary permissions to create a virtual network and service endpoint.
+   ![Azure portal - configure VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+
+    The account must have the necessary permissions to create a virtual network and service endpoint.
 
     Service endpoints can be configured on virtual networks independently, by a user with write access to the virtual network.
     
@@ -32,8 +34,6 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
     Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
     
     VNets and Azure service resources can be in the same or different subscriptions. If the VNet and Azure service resources are in different subscriptions, the resources should be under the same Active Directory (AD) tenant.
-
-   ![Azure portal - configure VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
 
    > [!IMPORTANT]
    > It is highly recommended to read this article about service endpoint configurations and considerations before configuring service endpoints. **Virtual Network service endpoint:** A [Virtual Network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) is a subnet whose property values include one or more formal Azure service type names. VNet services endpoints use the service type name **Microsoft.Sql**, which refers to the Azure service named SQL Database. This service tag also applies to the Azure SQL Database, Azure Database for PostgreSQL and MySQL services. It is important to note when applying the **Microsoft.Sql** service tag to a VNet service endpoint it configures service endpoint traffic for all Azure Database services, including Azure SQL Database, Azure Database for PostgreSQL and Azure Database for MySQL servers on the subnet. 
