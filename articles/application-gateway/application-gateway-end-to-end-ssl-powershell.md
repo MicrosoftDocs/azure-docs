@@ -15,7 +15,7 @@ ms.date: 10/23/2018
 ms.author: victorh
 
 ---
-# Configure end-to-end SSL by using Application Gateway with PowerShell
+# Configure end to end SSL by using Application Gateway with PowerShell
 
 ## Overview
 
