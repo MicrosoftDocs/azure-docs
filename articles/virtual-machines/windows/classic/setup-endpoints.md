@@ -19,12 +19,12 @@ ms.author: cynthn
 
 ---
 # Set up endpoints on a Windows virtual machine by using the classic deployment model
-Windows virtual machines (VM) that you create in Azure by using the classic deployment model can automatically communicate over a private network channel with other VMs in the same cloud service or virtual network. However, computers on the internet or other virtual networks require endpoints to direct the inbound network traffic to a VM. 
+Windows virtual machines (VMs) that you create in Azure by using the classic deployment model can automatically communicate over a private network channel with other VMs in the same cloud service or virtual network. However, computers on the internet or other virtual networks require endpoints to direct the inbound network traffic to a VM. 
 
 You can also set up endpoints on [Linux virtual machines](../../linux/classic/setup-endpoints.md).
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.  
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In the **Resource Manager** deployment model, endpoints are configured by using **Network Security Groups (NSGs)**. For more information, see [Allow external access to your VM by using the Azure portal](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

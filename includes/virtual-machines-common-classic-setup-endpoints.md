@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines-windows
  ms.topic: include
- ms.date: 10/22/2018
+ ms.date: 10/23/2018
  ms.author: cynthn
  ms.custom: include file
 
@@ -70,7 +70,7 @@ If the virtual machine is in an Azure virtual network, use network security grou
 
    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
-4. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **REMOTE SUBNET** value is an IP address range for incoming traffic from the internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. For example, `10.1.0.0/8`.
+4. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **REMOTE SUBNET** value is an IP address range for incoming traffic from the internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in classless inter-domain routing (CIDR) format, also known as address prefix format. For example, `10.1.0.0/8`.
 
  ![New ACL entry](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
