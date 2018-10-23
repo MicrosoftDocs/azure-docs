@@ -308,7 +308,7 @@ Your files are now kept in sync across your Azure file share and Windows Server.
 When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
 
 ## Next steps
-In this tutorial, you learned the basic steps to take a Windows Server Azure VM and extend its storage capacity using Azure File Sync. Advance to the next tutorial to learn about setting up DFS-N with Azure Files.
+In this tutorial, you learned the basic steps to extend the storage capacity of a Windows Server using Azure File Sync. Follow this link for a more thorough look at planning for an Azure File Sync deployment.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure File Sync](./storage-sync-files-deployment-guide.md)
+> [Plan for Azure File Sync deployment](./storage-sync-files-planning.md)
