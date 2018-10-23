@@ -15,7 +15,7 @@ ms.reviewer: arvindh
 ---
 
 # Manage the way end-users consent to an application in Azure Active Directory
-This article shows you how to control the consent experience when end users access an application.  These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
+Learn how to manage the way users consent to application permissions. You can simplify the user experience by granting admin consent. These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
 
 For more information on application consent, see [Azure Active Directory consent framework](consent-framework.md).
 
@@ -23,15 +23,14 @@ For more information on application consent, see [Azure Active Directory consent
 
 Granting admin consent requires you to sign in as global administrator, an application administrator, or a cloud application administrator.
 
-Before you can grant consent, the application must be:
+To use the Azure portal to grant admin consent, the application needs to be: 
 
 - Registered in your tenant, or
-- Registered in another Azure AD tenant, and accessed by at least one end user. Once an end user accesses an application, Azure AD lists the application under **Enterprise apps** in the [Azure portal](https://portal.azure.com).
-
+- Registered in another Azure AD tenant, and consented by at least one end user. Once an end user has consented to an application, Azure AD lists the application under **Enterprise apps** in the Azure portal.
 
 ## Grant admin consent through the Azure portal
 
-To grant admin consent to an application:
+To grant admin consent to an enterprise app:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Click **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
@@ -41,7 +40,7 @@ To grant admin consent to an application:
 6. Sign in with an account that has permissions to grant admin consent for the application. 
 7. Consent to the application permissions.
 
-Optionally, to grant admin consent when registering an app: 
+To grant admin consent when registering an app: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Navigate to the **App Registrations** blade.
