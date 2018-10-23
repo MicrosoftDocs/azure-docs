@@ -69,7 +69,7 @@ Use the steps in this section to deploy the MySQL Server cluster using the [MySQ
    ![Custom template deployment](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Provide basic deployment information on the **Basics** page. Review the default values and change as needed and click **OK**.<br><br>At a minimum, provide the following:
-   - Deployment name (default is mysql)
+   - Deployment name (default is mymysql)
    - Application root password. Provide a 12 character alphanumeric password with **no special characters**
    - Application database name (default is bitnami)
    - Number of MySQL database replica VMs to create (default is 2)
@@ -106,11 +106,11 @@ By default, no public access is configured for MySQL into the host VM. For the A
 
 1. In the administrator portal, navigate to the resource group created when deploying the MySQL cluster and select the network security group (**default-subnet-sg**):
 
-   ![open](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Select **Inbound security rules** and then click **Add**.<br><br>Enter **3306** in the **Destination port range** and optionally provide a description in the **Name** and **Description** fields. Click Add to close the inbound security rule dialog.
 
-   ![open](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### Configure external access to the MySQL cluster
 Before the MySQL cluster can be added as an Azure Stack MySQL Server host, external access must be enabled.
