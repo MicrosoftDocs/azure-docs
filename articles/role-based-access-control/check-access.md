@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
