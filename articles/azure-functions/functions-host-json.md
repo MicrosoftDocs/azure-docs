@@ -12,6 +12,8 @@ ms.date: 09/08/2018
 ms.author: glenga
 ---
 
+# host.json reference for Azure Functions 2.x  
+
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
@@ -93,7 +95,7 @@ This setting is a child of [logging](#log).
 
 ## cosmosDb
 
-Configuration setting can be found in [CosmosDB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).
 
 ## durableTask
 
