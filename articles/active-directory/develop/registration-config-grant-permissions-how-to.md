@@ -23,12 +23,14 @@ For more information on application consent, see [Azure Active Directory consent
 
 Granting admin consent requires you to sign in as global administrator, an application administrator, or a cloud application administrator.
 
+
+## Grant admin consent through the Azure portal
+
 You can grant admin consent to an application if:
 
 - The application is registered in your tenant, or
 - The application is registered in another Azure AD tenant, and at least one end user has accessed the application. Once an application has been accessed, Azure AD lists the application under **Enterprise apps** in the [Azure portal](https://portal.azure.com).
 
-## Grant admin consent through the Azure portal
 
 To grant admin consent to an application:
 
@@ -53,13 +55,13 @@ Optionally, to grant admin consent when registering an app:
 
 To grant admin consent through a URL request:
 
-1. Construct a request to *login.microsoftonline.com* with your app configs and append on *&prompt=admin\_consent*. 
+1. Construct a request to *login.microsoftonline.com* with your app configs and append on `&prompt=admin\_consent`. 
 2. After signing in with admin credentials, the app has been granted consent for all users.
 
 
 ## Force user consent through a URL request
 
-To require end users to consent to an application each time they authenticate, append `&prompt=consent` to the authentication request URL.
+To require end users to consent to an application each time they authenticate, append `&prompt=admin\_consent` to the authentication request URL.
 
 ## Next steps
 
