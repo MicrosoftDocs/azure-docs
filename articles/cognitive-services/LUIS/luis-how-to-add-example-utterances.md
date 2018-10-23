@@ -16,13 +16,13 @@ ms.author: diberry
 
 Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
-Generally, add an example utterance to an intent first, and then create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
+Usually, add an example utterance to an intent first, and then create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
 
 ## Marking entities in example utterances
 
-When you select text in the example utterance to mark for an entity, you can either create an entity at that time or select an existing entity. 
+When you select text in the example utterance to mark for an entity, you can either create an entity or select an existing entity. 
 
-Certain entity types, such as prebuilt entities and regular expression entities, cannot be marked in the example utterance. This is because they are marked automatically.
+Certain entity types, such as prebuilt entities and regular expression entities, cannot be marked in the example utterance because they are marked automatically.
 
 For each specific markable-entity types, see the following sections. 
 
@@ -99,7 +99,7 @@ The word is now highlighted in blue. If you hover over the word, a tag displays 
 
 ![Screenshot of new list item tag](./media/luis-how-to-add-example-utterances/list-entity-item-name-tag.png)
 
-## Wrap entities in composite entities
+## Use composite entity
 
 Composite entities are created from **Entities**. You can't create a composite entity from the Intent page. Once the composite entity is created, you can wrap the entities in an utterance on the Intent page. 
 
@@ -186,8 +186,9 @@ The following solutions help resolve the entity prediction discrepancy:
 |Correctly labeled text|blue entity highlight, red underline|Incorrect prediction|Provide more utterances with the correctly labeled entity in a variety of places and usages. The current utterances are either not sufficient to teach LUIS that this is the entity is or similar entities appear in the same context. Similar entity should be combined into a single entity so LUIS isn't confused. Another solution is to add a phrase list to boost the significance of the words. |
 |Incorrectly labeled text|blue entity highlight, red underline|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages. 
 
+## Other actions
 
-## Remove entity labels from utterances
+### Remove entity labels from utterances
 
 You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
 
@@ -195,21 +196,21 @@ To remove a machine-learned entity label from an utterance, select the entity in
 
 ![Screenshot of Intents details page, with Remove Label highlighted](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
-## Add prebuilt entity label
+### Add prebuilt entity label
 
 If you add the prebuilt entities to your LUIS app, you don't need to label utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-## Add regular expression entity label
+### Add regular expression entity label
 
 If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities).
 
 
-## Create a pattern from an utterance
+### Create a pattern from an utterance
 
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-## Add pattern.any entity
+### Add pattern.any entity
 
 If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-patternany-entities).
 

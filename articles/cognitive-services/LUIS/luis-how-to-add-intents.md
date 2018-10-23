@@ -14,9 +14,9 @@ ms.service: cognitive-services
 
 # Add intents 
 
-Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intentions. 
+Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention. 
 
-Intents are managed from the **Build** Section in the top toolbar. You add and manage your intents from the **Intents** page, available in the left panel. 
+Intents are managed from **Build**, found in the top toolbar. Manage your intents from **Intents**, available in the left panel. 
 
 The following procedure demonstrates how to add an intent to prediction if a user wants to book a flight for travel.
 
