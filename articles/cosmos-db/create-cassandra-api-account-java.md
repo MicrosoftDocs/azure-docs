@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 # Create an Azure Cosmos DB Cassandra API account, database, and a table by using a Java application
 
-This tutorial describes how to use a Java application to create a Cassandra API account in Azure Cosmos DB, add a database (also referred as a keyspace), and add a table. The Java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) to create a user database that contains details such as user ID, user name, user city.  
+This tutorial describes how to use a Java application to create a Cassandra API account in Azure Cosmos DB, add a database (also referred as a keyspace), and add a table. The Java application uses the [Java driver](https://github.com/datastax/java-driver) to create a user database that contains details such as user ID, user name, user city.  
 
 This tutorial covers the following tasks:
 
@@ -71,7 +71,7 @@ After downloading the files, update the connection string information within the
 
 ```java
 cassandra_host=<FILLME_with_CONTACT POINT> 
-cassandra_host = 10350 
+cassandra_port = 10350 
 cassandra_username=<FILLME_with_USERNAME> 
 cassandra_password=<FILLME_with_PRIMARY PASSWORD> 
 ```
@@ -86,7 +86,7 @@ Alternatively, you can also build the sample from scratch.
  
 2. Locate the `cassandra-demo` folder. Using a text editor, open the `pom.xml` file that was generated. 
 
-   Add the Cassandra datastax dependencies and build plugins required by your project as shown in the [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml) file.  
+   Add the Cassandra dependencies and build plugins required by your project as shown in the [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml) file.  
 
 3. Under the `cassandra-demo\src\main` folder, create a new folder named `resources`.  Under the resources folder, add the config.properties and log4j.properties files:
 

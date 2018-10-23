@@ -8,24 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
 
 ---
 
 # Set and get throughput for Azure Cosmos DB containers and database
 
-You can set throughput for an Azure Cosmos DB container or a set of containers by using Azure portal or by using the client SDKs. 
-
-**Provision throughput for an individual container:** When you provision throughput for a set of containers, all those containers share the provisioned throughput. Provisioning throughput for individual containers will guarantee the reservation of throughput for that specific container. When assigning RU/sec at the individual container level, the containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container, you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values, you ensure that your container/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
-
-**Provision throughput for a set of containers or a database:** Provisioning throughput for a database allows you to share the throughput among all the containers that belong to that database. Within an Azure Cosmos DB database, you can have a set of containers which shares the throughput as well as containers, which have dedicated throughput. When assigning RU/sec across a set of containers, the containers belonging to this set are treated as *unlimited* containers and must specify a partition key.
-
-Based on the provisioned throughput, Azure Cosmos DB will allocate physical partitions to host your container(s) and splits/rebalances data across partitions as it grows. Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). The following image illustrates provisioning throughput at different levels:
-
-![Provisioning request units for individual containers and set of containers](./media/request-units/provisioning_set_containers.png)
-
-In the next sections, you will learn the steps required to configure throughput at different levels for an Azure Cosmos DB account. 
+You can set throughput for an Azure Cosmos DB container or a set of containers by using Azure portal or by using the client SDKs. This article describes the steps required to configure throughput at different granularities for an Azure Cosmos DB account.
 
 ## Provision throughput by using Azure portal
 
@@ -42,7 +32,7 @@ In the next sections, you will learn the steps required to configure throughput 
    |Database id  |  Provide a unique name to identify your database. Database is a logical container of one or more collections. Database names must contain from 1 through 255 characters, and they cannot contain /, \\, #, ?, or a trailing space. |
    |Collection id  | Provide a unique name to identify your collection. Collection ids have the same character requirements as database names. |
    |Storage capacity   | This value represents the storage capacity of the database. When provisioning throughput for an individual collection, storage capacity can be **Fixed (10 GB)** or **Unlimited**. Unlimited storage capacity requires you to set a partition key for your data.  |
-   |Throughput   | Each collection and database can have throughput in request units per second.  For fixed storage capacity, minimum throughput is 400 request units per second (RU/s), for unlimited storage capacity, minimum throughput is set to 1000 RU/s.|
+   |Throughput   | Each collection and database can have throughput in request units per second.  And a collection can have fixed or unlimited storage capacity. |
 
 6. After you enter values for these fields, select **OK** to save the settings.  
 
@@ -195,6 +185,21 @@ int newThroughput = 500;
 offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
+
+## Get the request charge using Cassandra API 
+
+The Cassandra API supports a way to provide extra information about the request units charge for a given operation. For example, RU/s charge for the insert operation can be retrieved as follows:
+
+```csharp
+var insertResult = await tableInsertStatement.ExecuteAsync();
+ foreach (string key in insertResult.Info.IncomingPayload)
+        {
+            byte[] valueInBytes = customPayload[key];
+            string value = Encoding.UTF8.GetString(valueInBytes);
+            Console.WriteLine($“CustomPayload:  {key}: {value}”);
+        }
+```
+
 
 ## Get throughput by using MongoDB API portal metrics
 

@@ -75,6 +75,8 @@ As a developer, you can focus on writing your solution. Rather than researching 
 
 You can find code samples to help you integrate your solution with your preferred language with Azure Stack by using profiles. Currently, you can find guidance and samples for the following languages:
 
+- **.NET**
+You can use the .NET API profile to get the latest, most stable version of each resource type in a resource provider package. For more information, see [Use API version profiles with .NET in Azure Stack](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 You can use the  **AzureRM.Bootstrapper** module available through the PowerShell Gallery to get the PowerShell cmdlets required to work with API version profiles. For information, see [Use API version profiles for PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI**  

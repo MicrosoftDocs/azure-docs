@@ -13,9 +13,9 @@ ms.custom: mvc
 # Starter Resource Graph queries
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
-[Query Language](../concepts/query-language.md). If you are not already familiar with KQL, it is
-recommended to review the basics to understand how to compose requests for the resources you are
-looking for.
+[Query Language](../concepts/query-language.md). If you are not already familiar with [Azure Data
+Explorer](../../../data-explorer/data-explorer-overview.md), it is recommended to review the basics
+to understand how to compose requests for the resources you are looking for.
 
 We'll walk through the following starter queries:
 
@@ -33,7 +33,7 @@ We'll walk through the following starter queries:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-## Language Support
+## Language support
 
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
 Graph. Before performing any of the following queries, check that your environment is ready. See

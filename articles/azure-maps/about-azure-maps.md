@@ -20,6 +20,14 @@ The following video explains Azure Maps in depth:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
+## Map Controls
+
+### Web Control
+
+The Azure Maps Web Control lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with the control using JavaScript or TypeScript.
+
+![Azure Maps Web Control](media/about-azure-maps/Introduction_WebMapControl.png)
+
 ## Services in Azure Maps
 
 Azure Maps consists of the following six services that can provide geographic context to your Azure applications.

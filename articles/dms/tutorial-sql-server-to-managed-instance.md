@@ -2,15 +2,15 @@
 title: Use DMS to migrate to Azure SQL Database Managed Instance | Microsoft Docs
 description: Learn to migrate from SQL Server on-premises to Azure SQL Database Managed Instance by using the Azure Database Migration Service.
 services: dms
-author: edmacauley
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: 
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/22/2018
+ms.date: 10/10/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database Managed Instance offline using DMS
@@ -25,6 +25,10 @@ In this tutorial, you learn how to:
 > * Run the migration.
 > * Monitor the migration.
 > * Download a migration report.
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+This article describes an offline migration from SQL Server to Azure SQL Database Managed Instance. For an online migration, see [Migrate SQL Server to Azure SQL Database Managed Instance online using DMS](tutorial-sql-server-managed-instance-online.md).
 
 ## Prerequisites
 To complete this tutorial, you need to:
@@ -94,7 +98,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     ![Locate all instances of the Azure Database Migration Service](media\tutorial-sql-server-to-managed-instance\dms-search.png)
 
-2. On the **Azure Database Migration Service screen**, search for the name of the instance that you created, and then select the instance.
+2. On the **Azure Database Migration Service** screen, search for the name of the instance that you created, and then select the instance.
  
 3. Select + **New Migration Project**.
 

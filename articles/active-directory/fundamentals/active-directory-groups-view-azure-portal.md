@@ -125,4 +125,4 @@ This group is used in several of the how-to processes that are available in the 
 Advance to the next article to learn how to associate a subscription to your Azure AD directory.
 
 > [!div class="nextstepaction"]
-> [Next steps button](active-directory-how-subscriptions-associated-directory.md)
+> [Associate an Azure subscription](active-directory-how-subscriptions-associated-directory.md)

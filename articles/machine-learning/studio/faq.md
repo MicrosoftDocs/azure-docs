@@ -6,8 +6,6 @@ services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
 ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
 
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning

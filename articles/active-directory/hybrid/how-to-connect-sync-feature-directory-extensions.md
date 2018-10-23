@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -24,6 +24,9 @@ You can use directory extensions to extend the schema in Azure Active Directory 
 At present, no Office 365 workload consumes these attributes.
 
 You configure which additional attributes you want to synchronize in the custom settings path in the installation wizard.
+
+>[!NOTE]
+>The Available Attributes box is case-sensitive.
 
 ![Schema extension wizard](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 

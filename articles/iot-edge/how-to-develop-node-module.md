@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -34,14 +34,13 @@ To create a module, you need Node.js which includes npm to build the project fol
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * You can use a local Docker registry for prototype and testing purposes, instead of a cloud registry. 
 
-To setup local development environment to debug, run and test your IoT Edge solution, you need [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (2.7/3.6) and Pip](https://www.python.org/). Then install **iotedgehubdev** by running below command in your terminal.
+To setup local development environment to debug, run and test your IoT Edge solution, you need [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (2.7/3.6) and Pip](https://www.python.org/). Pip is included with the Python installer. Then install **iotedgehubdev** by running below command in your terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
 To test your module on a device, you need an active IoT hub with at least one IoT Edge device ID created. If you are running IoT Edge daemon on development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step. 
-
 
 ## Create a new solution template
 
@@ -53,6 +52,7 @@ The following steps show you how to create an IoT Edge module based on Node.js u
    ```cmd/sh
    npm install -g yo generator-azure-iot-edge-module
    ```
+
 3. In Visual Studio Code, select **View** > **Command Palette**. 
 4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge Solution**.
 
@@ -87,6 +87,7 @@ When you're ready to customize the Node.js template with your own code, use the 
 Visual Studio Code has support for Node.js. Learn more about [how to work with Node.js in VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## Launch and debug module code without container
+
 The IoT Edge Node.js module depends on Azure IoT Node.js Device SDK. In the default module code, you initialize a **ModuleClient** with environment settings and input name, which means the IoT Edge Node.js module requires the environment settings to start and run, and you also need to send or route messages to the input channels. Your default Node.js module only contains one input channel and the name is **input1**.
 
 ### Setup IoT Edge simulator for single module app
@@ -155,13 +156,13 @@ In your development machine, you can start IoT Edge simulator instead of install
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```
 
-5. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (Node.js)** or **ModuleName Remote Debug (Node.js in Windows Container)**, which depends on your container type on development machine.
+3. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (Node.js)** or **ModuleName Remote Debug (Node.js in Windows Container)**, which depends on your container type on development machine.
 
-6. Select **Start Debugging** or select **F5**. Select the process to attach to.
+4. Select **Start Debugging** or select **F5**. Select the process to attach to.
 
-7. In VS Code Debug view, you'll see the variables in the left panel.
+5. In VS Code Debug view, you'll see the variables in the left panel.
 
-8. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
+6. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
 
 > [!NOTE]
 > The preceding example shows how to debug Node.js IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your Node.js modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.

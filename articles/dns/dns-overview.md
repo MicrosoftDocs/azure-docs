@@ -21,11 +21,11 @@ The following features are included with Azure DNS:
 
 ## Reliability and performance
 
-DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. Azure DNS uses anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
+DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. Azure DNS uses anycast networking so that each DNS query is answered by the closest available DNS server providing both fast performance and high availability for your domain.
 
 ## Security
 
-The Azure DNS service is based on Azure Resource Manager. So, you get Resource Manager features such as:
+The Azure DNS service is based on Azure Resource Manager, providing features such as:
 
 * [role-based access control](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) - to control who has access to specific actions for your organization.
 
@@ -38,9 +38,9 @@ For more information, see [How to protect DNS zones and records](dns-protect-zon
 
 ## Ease of use
 
-The Azure DNS service can manage DNS records for your Azure services, and can provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, support contract, and billing as your other Azure services. 
+The Azure DNS service can manage DNS records for your Azure services and provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, support contract, and billing as your other Azure services. 
 
-DNS billing is based on the number of DNS zones hosted in Azure and by the number of DNS queries. To learn more about pricing, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
+DNS billing is based on the number of DNS zones hosted in Azure and on the number of DNS queries received. To learn more about pricing, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 
 Your domains and records can be managed using the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications requiring automated DNS management can integrate with the service using the REST API and SDKs.
 

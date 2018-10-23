@@ -20,7 +20,7 @@ Azure is ubiquitous - it has a global footprint across 50+ geographical regions 
 
 ## Global distribution with multi-master
 
-As a natively born in the cloud service, Azure Cosmos DB is carefully engineered from the ground up with multi-tenancy, global distribution, and multi-master for document, key-value, graph, and column-family data models.
+As a cloud service, Azure Cosmos DB is carefully engineered to support multi-tenancy, global distribution, and multi-master for document, key-value, graph, and column-family data models.
 
 ![Azure Cosmos DB container partitioned and distributed across three regions](./media/distribute-data-globally/global-apps.png)
 

@@ -36,11 +36,11 @@ Cloud Shell enables access to a browser-based command-line experience built with
 Leverage Cloud Shell to work untethered from a local machine in a way only the cloud can provide.
 
 ### Choice of preferred shell experience
-Linux users can use Bash in Cloud Shell, while Windows users can use PowerShell in Cloud Shell (Preview) from the shell dropdown.
+Users can choose between Bash or PowerShell from the shell dropdown.
 
 ![Bash in Cloud Shell](media/overview/overview-bash-pic.png)
 
-![PowerShell in Cloud Shell (Preview)](media/overview/overview-ps-pic.png)
+![PowerShell in Cloud Shell](media/overview/overview-ps-pic.png)
 
 ### Authenticated and configured Azure workstation
 Cloud Shell is managed by Microsoft so it comes with popular command-line tools and language support. Cloud Shell also securely authenticates automatically for instant access to your resources through the Azure CLI or Azure PowerShell cmdlets.
@@ -63,7 +63,7 @@ Cloud Shell is a flexible tool that can be used from:
 ### Connect your Microsoft Azure Files storage
 Cloud Shell machines are temporary and require a new or existing Azure Files share to be mounted as `clouddrive` to persist your files.
 
-On first launch Cloud Shell prompts to create a resource group, storage account, and Azure Files share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell (Preview).
+On first launch Cloud Shell prompts to create a resource group, storage account, and Azure Files share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell.
 
 Read more to learn how to mount a [new or existing storage account](persisting-shell-storage.md).
 
@@ -73,14 +73,14 @@ Read more to learn how to mount a [new or existing storage account](persisting-s
 * Cloud Shell requires an Azure file share to be mounted
 * Cloud Shell uses the same Azure file share for both Bash and PowerShell
 * Cloud Shell is assigned one machine per user account
-* Cloud Shell persists $Home using a 5-GB image held in your file share
+* Cloud Shell persists $HOME using a 5-GB image held in your file share
 * Permissions are set as a regular Linux user in Bash
 
-Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell (Preview)](features-powershell.md).
+Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell](features-powershell.md).
 
 ## Pricing
 The machine hosting Cloud Shell is free, with a pre-requisite of a mounted Azure Files share. Regular storage costs apply.
 
 ## Next steps
 [Bash in Cloud Shell quickstart](quickstart.md) <br>
-[PowerShell in Cloud Shell (Preview) quickstart](quickstart-powershell.md)
+[PowerShell in Cloud Shell quickstart](quickstart-powershell.md)

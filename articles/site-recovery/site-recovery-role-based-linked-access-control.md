@@ -5,10 +5,10 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/06/2018
-author: mayanknayar
+ms.date: 10/16/2018
+author: mayurigupta13
 ms.topic: conceptual
-ms.author: manayar
+ms.author: mayg
 
 ---
 # Use Role-Based Access Control to manage Site Recovery access

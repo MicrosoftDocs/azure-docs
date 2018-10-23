@@ -5,13 +5,13 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
 # Route custom events to Azure Event Hubs with Azure CLI and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the topic, and trigger the event to view the result. You send the events to an event hub.
+Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an event hub.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a Custom Topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your topic. The topic name must be unique because it's represented by a DNS entry.
+An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your custom topic. The custom topic name must be unique because it's represented by a DNS entry.
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -40,7 +40,7 @@ az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 
 ## Create event hub
 
-Before subscribing to the topic, let's create the endpoint for the event message. You create an event hub for collecting the events.
+Before subscribing to the custom topic, let's create the endpoint for the event message. You create an event hub for collecting the events.
 
 ```azurecli-interactive
 namespace=<unique-namespace-name>
@@ -50,9 +50,9 @@ az eventhubs namespace create --name $namespace --resource-group gridResourceGro
 az eventhubs eventhub create --name $hubname --namespace-name $namespace --resource-group gridResourceGroup
 ```
 
-## Subscribe to a topic
+## Subscribe to a custom topic
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the resource ID of the event hub for the endpoint. The endpoint is in the format:
+You subscribe to an event grid topic to tell Event Grid which events you want to track. The following example subscribes to the custom topic you created, and passes the resource ID of the event hub for the endpoint. The endpoint is in the format:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.EventHub/namespaces/<namespace-name>/eventhubs/<hub-name>`
 
@@ -69,7 +69,9 @@ az eventgrid event-subscription create \
   --endpoint $hubid
 ```
 
-## Send an event to your topic
+The account that creates the event subscription must have write access to the event hub.
+
+## Send an event to your custom topic
 
 Let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's get the URL and key for the custom topic.
 
@@ -78,13 +80,13 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-To simplify this article, you use sample event data to send to the topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the topic.  The following example sends three events to the event grid topic:
+To simplify this article, you use sample event data to send to the custom topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the custom topic.  The following example sends three events to the event grid topic:
 
 ```azurecli-interactive
 for i in 1 2 3
 do
-   body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
-   curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+   event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+   curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 done
 ```
 

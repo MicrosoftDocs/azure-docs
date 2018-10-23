@@ -6,7 +6,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ---
 # Monitor performance with the Query Store
 
@@ -111,7 +111,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 |query_id	|bigint	 ||	Internal hash code, computed from the statement's parse tree|
 |query_sql_text	|Varchar(10000)	 ||	Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster.|
 |plan_id	|bigint	|	|ID of the plan corresponding to this query, not available yet|
-|start_time	|timestamp	||	Queries are aggregated by time buckets - the time span of a bucket is 15 minutes by default but configurable. This is the start time corresponding to the time bucket for this entry.|
+|start_time	|timestamp	||	Queries are aggregated by time buckets - the time span of a bucket is 15 minutes by default. This is the start time corresponding to the time bucket for this entry.|
 |end_time	|timestamp	||	End time corresponding to the time bucket for this entry.|
 |calls	|bigint	 ||	Number of times the query executed|
 |total_time	|double precision	|| 	Total query execution time, in milliseconds|
@@ -162,6 +162,10 @@ Query_store.qs_reset() returns void
 Query_store.staging_data_reset() returns void
 
 `staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
+
+## Limitations and known issues
+- If a PostgreSQL server has the parameter default_transaction_read_only on, Query Store cannot capture data.
+- Query Store functionality can be interrupted if it encounters long Unicode queries (>= 6000 bytes).
 
 
 ## Next steps

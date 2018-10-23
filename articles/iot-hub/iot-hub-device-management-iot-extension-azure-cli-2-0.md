@@ -22,8 +22,8 @@ ms.author: menchi
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Management option          | Task                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Management option          | Task  |
+|----------------------------|-----------|
 | Direct methods             | Make a device act such as starting or stopping sending messages or rebooting the device.                                        |
 | Twin desired properties    | Put a device into certain states, such as setting an LED to green or setting the telemetry send interval to 30 minutes.         |
 | Twin reported properties   | Get the reported state of a device. For example, the device reports the LED is blinking now.                                    |
@@ -44,17 +44,19 @@ Run Azure CLI and the IoT extension for Azure CLI with various management option
 
 ## What you need
 
-- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
+* Complete the tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) which covers the following requirements:
+
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
 
-- Make sure your device is running with the client application during this tutorial.
+* Make sure your device is running with the client application during this tutorial.
 
-- [Python 2.7x or Python 3.x](https://www.python.org/downloads/)
-- The Azure CLI. If you need to install it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –version` to validate. 
-- Install the IoT extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) describes several ways to install the extension.
+* [Python 2.7x or Python 3.x](https://www.python.org/downloads/)
 
+* The Azure CLI. If you need to install it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –version` to validate. 
+
+* Install the IoT extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) describes several ways to install the extension.
 
 ## Log in to your Azure account
 
@@ -67,7 +69,10 @@ az login
 ## Direct methods
 
 ```bash
-az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
+az iot hub invoke-device-method --device-id <your device id> \
+  --hub-name <your hub name> \
+  --method-name <the method name> \
+  --method-payload <the method payload>
 ```
 
 ## Device twin desired properties
@@ -75,7 +80,8 @@ az iot hub invoke-device-method --device-id <your device id> --hub-name <your hu
 Set a desired property interval = 3000 by running the following command:
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.desired.interval = 3000
+az iot hub device-twin update -n <your hub name> \
+  -d <your device id> --set properties.desired.interval = 3000
 ```
 
 This property can be read from your device.
@@ -101,7 +107,10 @@ az iot hub device-twin show --hub-name <your hub name> --device-id <your device 
 Add a field role = temperature&humidity to the device by running the following command:
 
 ```bash
-az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
+az iot hub device-twin update \
+  --hub-name <your hub name> \
+  --device-id <your device id> \
+  --set tags = '{"role":"temperature&humidity"}}'
 ```
 
 ## Device twin queries
@@ -109,13 +118,15 @@ az iot hub device-twin update --hub-name <your hub name> --device-id <your devic
 Query devices with a tag of role = 'temperature&humidity' by running the following command:
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 Query all devices except those with a tag of role = 'temperature&humidity' by running the following command:
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
 ## Next steps

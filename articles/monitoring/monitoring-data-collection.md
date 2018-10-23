@@ -8,10 +8,10 @@ editor: tysonn
 
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
 
 ---
@@ -105,7 +105,7 @@ Tasks that you can perform with metrics include the following:
 
 
 ### Viewing metrics
-Metrics in Azure are collected in the Azure Monitor metrics store. This is a time series database optimized for quick retrieval and stores metric values for 93 days. Copy metrics to Log Analytics for long term analysis and trending.
+Metrics in Azure are collected in the Azure Monitor metrics database. This is a time series database optimized for quick retrieval and stores metric values for 93 days. Copy metrics to Log Analytics for long term analysis and trending.
 
 Metric data is used in a variety of ways as described above. Use [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) to directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
@@ -152,7 +152,7 @@ Log Analytics can collect data from a variety of sources both within Azure and f
 Tasks that you can perform with logs include the following:
 
 - Use the [Log Analytics page](../log-analytics/query-language/get-started-analytics-portal.md) in the Azure portal to write queries analyzing log data.  Pin results rendered as tables or charts to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md).
-- Configure a [log alert rule](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) that sends a notification or takes [automated action](../monitoring-and-diagnostics/monitoring-action-groups.md) when the results of the query match a particular result.
+- Configure a [log alert rule](../monitoring-and-diagnostics/alert-log.md) that sends a notification or takes [automated action](../monitoring-and-diagnostics/monitoring-action-groups.md) when the results of the query match a particular result.
 - Build a workflow based on data in Log Analytics using [Logic Apps]().
 - Export the results of a query to [Power BI](../log-analytics/log-analytics-powerbi.md) to use different visualizations and share with users outside of Azure.
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) or [REST API](https://dev.loganalytics.io/).
@@ -170,10 +170,10 @@ You can copy metrics to Log Analytics to perform complex analysis with other dat
 You can get guidance for collecting metrics from Azure resources at [Collect Azure service logs and metrics for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md). Get guidance for collecting resources metrics from Azure PaaS resources at [Configure collection of Azure PaaS resource metrics with Log Analytics](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### Logs to metrics
-As described above, metrics are more responsive than logs, so you can create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in the Azure metrics store.  A common example is performance data collected from agents and management solutions. Some of these values can be copied into the metrics store, where they are available for alerting and for analysis with Metrics explorer.
+As described above, metrics are more responsive than logs, so you can create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in the Azure metrics database.  A common example is performance data collected from agents and management solutions. Some of these values can be copied into the metrics database, where they are available for alerting and for analysis with Metrics explorer.
 
-The explanation of this feature is available at [Faster Metric Alerts for Logs now in limited public preview](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). The list of values support is available at 
-[Supported metrics and creation methods for new metric alerts](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+The explanation of this feature is available at [Create Metric Alerts for Logs in Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). The list of values support is available at 
+[Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## Stream data to external systems
 In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

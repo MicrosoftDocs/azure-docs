@@ -48,12 +48,16 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
-      - name: Access reviews
+      - name: Identity governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
       - name: Application management
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
+        items:
+        - name: SaaS application tutorials
+          tocHref: /azure/active-directory/saas-apps/
+          topicHref: /azure/active-directory/saas-apps/tutorial-list
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
@@ -135,7 +139,7 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
-  - name: Azure portal
+  - name: Azure portal customization
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Resource Manager
@@ -291,7 +295,7 @@
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
-      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
+      topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -314,12 +318,16 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
-  - name: Data Box
-    tocHref: /azure/databox/
-    topicHref: /azure/databox/ 
-  - name: Data Box Edge/Data Box Gateway
-    tocHref: /azure/databox-online/
-    topicHref: /azure/databox-online/ 
+  - name: Data Box family
+    tocHref: /azure/databox-family/
+    topicHref: /azure/databox-family/
+    items:
+    - name: Data Box offline transfer
+      tocHref: /azure/databox/
+      topicHref: /azure/databox/
+    - name: Data Box online transfer
+      tocHref: /azure/databox-online/
+      topicHref: /azure/databox-online/ 
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -472,6 +480,9 @@
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
+      - name: Video Indexer
+        tocHref: /azure/media-services/video-indexer/
+        topicHref: /azure/media-services/video-indexer/        
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/

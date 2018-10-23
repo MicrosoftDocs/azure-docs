@@ -69,7 +69,7 @@ The macOS Keychain can sometimes get into a state that causes issues for Storage
 7. Try to sign in.
 
 ### General sign-in troubleshooting steps
-* If you are on macOS and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#Mac-Keychain-Errors)
+* If you are on macOS and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#mac-keychain-errors)
 * Restart Storage Explorer
 * If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
 * Ensure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer.

@@ -41,9 +41,9 @@ Once you have deployed a Web App, regardless of if you included the App Insights
 
     ![App Setting for Profiler][profiler-app-setting]
 
-### Enable Profiler for Azure compute resources (preview)
+### Enable Profiler for Azure compute resources
 
-For information, see the [preview version of Profiler for Azure compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
+For information, see the [version of Profiler for Azure compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## View profiler data
 

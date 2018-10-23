@@ -15,7 +15,7 @@ manager: jeconnoc
 
 # Create your first function running on Linux using the Azure CLI (preview)
 
-Azure Functions lets you host your functions on Linux in a default Azure App Service container. You can also [bring your own custom container](functions-create-function-linux-custom-image.md). This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md), which is also in preview.
+Azure Functions lets you host your functions on Linux in a default Azure App Service container. You can also [bring your own custom container](functions-create-function-linux-custom-image.md). This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md).
 
 This quickstart topic walks you through how to use Azure Functions with the Azure CLI to create your first function app on Linux hosted on the default App Service container. The function code itself is deployed to the image from a GitHub sample repository.    
 
@@ -78,6 +78,18 @@ Because `myAppServicePlan` is a Linux plan, the built-in docker image is used to
 
 >[!NOTE]  
 >The sample repository currently includes two scripting files, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) and [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). The .deployment file tells the deployment process to use deploy.sh as the [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). In the current preview release, scripts are required to deploy the function app on a Linux image.  
+
+## Configure the function app
+
+The project in the GitHub repository requires the version 1.x of the Functions runtime. Setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `~1` pins the function app to the latest 1.x version. Set application settings with the [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) command.
+
+In the following Azure CLI command, `<app_name> is the name of your function app.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~1
+```
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

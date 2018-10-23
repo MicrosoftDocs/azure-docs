@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: true
+hide_bc: false
 title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
 description: Azure Active Directory (Azure AD) is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
 services: active-directory
@@ -70,10 +70,10 @@ ms.author: mtillman
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
+                                                                    <h3><a href="/learn/">Build your skills with Microsoft Learn</a></h3> 
 																	<p>
 																	    <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Secure your Azure resources with conditional access</a><br>
-                                                                        <a href="/learn/browse/">More interactive learning ...</a><br>
+                                                                        <a href="/learn/browse/?products=azure-active-directory">More interactive learning...</a><br>
 																    </p>
 																</div>
                                                             </div>
@@ -102,14 +102,14 @@ ms.author: mtillman
                                                             <a href="authentication/concept-registration-mfa-sspr-converged.md">Converged registration for MFA and SSPR</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="b2b/index.yml">Business to business (B2B)</a></h3>
+                                                        <h3><a href="b2b/index.yml">Business-to-Business (B2B)</a></h3>
                                                         <p>
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Add guest users in the portal</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">Bulk invite guest users</a><br>
                                                             <a href="b2b/b2b-tutorial-require-mfa.md">Require MFA for guest users</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="/azure/active-directory-b2c/index">Business to consumer (B2C)</a></h3>
+                                                        <h3><a href="/azure/active-directory-b2c/index">Business-to-Customer (B2C)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create an Azure AD B2C tenant</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Enable a web app to authenticate</a><br>
@@ -176,10 +176,10 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="governance/access-reviews-overview.md">Access reviews</a></h3>
+                                                        <h3><a href="governance/index.yml">Identity governance</a></h3>
                                                         <p>
-                                                            <a href="governance/create-access-review.md">Create an access review</a><br>
-                                                            <a href="governance/perform-access-review.md">Perform an access review</a><br>
+                                                            <a href="governance/manage-user-access-with-access-reviews.md">Manage user access</a><br>
+                                                            <a href="governance/manage-guest-access-with-access-reviews.md">Manage guest access</a><br>
                                                             <a href="governance/active-directory-tou.md">Terms of use</a><br>
                                                         </p>
 														<br><br>

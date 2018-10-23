@@ -2,18 +2,17 @@
 title: Manage after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
-author: joesackmsft
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: joesackmsft
 ms.author: josack
-ms.suite: sql
-ms.prod_service: sql-database
-ms.component: data-movement
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 10/05/2018
 ---
-
 # New DBA in the cloud – Managing your database in Azure SQL Database
 
 Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who: 
@@ -84,7 +83,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 ### How do I limit or control connectivity access to my database?
 There are multiple techniques at your disposal that you could use to attain optimal connectivity organization for your application. 
 - Firewall Rules
-- VNET Service Endpoints
+- VNet Service Endpoints
 - Reserved IPs
 
 #### Firewall
@@ -93,11 +92,11 @@ A firewall prevents access to your server from an external entity by allowing on
 You can create firewall rules at the server level or at the database level. Server level firewall rules can either created through the portal or through SSMS. For learning more about how to set a server and database level firewall rule, see: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### Service endpoints
-By default, your SQL database is configured to “Allow Azure services to access server” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow Azure services to access server”. Additionally, you can configure [VNET Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md).
+By default, your SQL database is configured to “Allow Azure services to access server” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow Azure services to access server”. Additionally, you can configure [VNet Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Service endpoints (SE) allow you to expose your critical Azure resources only to your own private virtual network in Azure. By doing so, you essentially eliminate public access to your resources. The traffic between your virtual network to Azure stays on the Azure backbone network. Without SE you get forced-tunneling packet routing. Your virtual network forces the internet traffic to your organization and the Azure Service traffic to go over the same route. With Service Endpoints, you can optimize this since the packets flow straight from your virtual network to the service on Azure backbone network.
 
-![VNET service endpoints](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNet service endpoints](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### Reserved IPs
 Another option is to provision [reserved IPs](../virtual-network/virtual-networks-reserved-public-ip.md) for your VMs, and whitelist those specific VM IP addresses in the server firewall settings. By assigning reserved IPs, you save the trouble of having to update the firewall rules with changing IP addresses.

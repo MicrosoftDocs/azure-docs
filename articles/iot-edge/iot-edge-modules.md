@@ -4,7 +4,7 @@ description: Learn about Azure IoT Edge modules and how they are configured
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -74,6 +74,7 @@ IoT Edge modules can be offline for extended periods as long as the following re
 Additional offline capabilities are available in public preview. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
 
 ## Next steps
+ - [Understand the requirements and tools for developing IoT Edge modules][lnk-mod-dev]
  - [Understand the Azure IoT Edge runtime and its architecture][lnk-runtime]
 
 <!-- Images -->
@@ -84,3 +85,4 @@ Additional offline capabilities are available in public preview. For more inform
 [lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-runtime]: iot-edge-runtime.md
+[lnk-mod-dev]: module-development.md
