@@ -25,19 +25,19 @@ This article helps resolve the issue in which you can't connect to an Azure Virt
 When you try to connect to a VM, you experience the following issues:
 
 - The Virtual Machine (VM) screenshot shows that the operating system is fully loaded and waiting for credentials.
--	You receive the following error messages when you use the Microsoft Remote Desktop Protocol (RDP):
+- You receive the following error messages when you use the Microsoft Remote Desktop Protocol (RDP):
 
-    ```
-    The remote session was disconnected because there are no Remote Desktop license servers available to provide a license.
-    ```
+   ```
+   The remote session was disconnected because there are no Remote Desktop license servers available to provide a license.
+   ```
 
-    ```
-    No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and has not contacted at least a valid Windows Server 2008 license server. Click this message to open RD Session Host Server Configuration to use Licensing Diagnosis.
-    ```
+   ```
+   No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and has not contacted at least a valid Windows Server 2008 license server. Click this message to open RD Session Host Server Configuration to use Licensing Diagnosis.
+   ```
 
 However, you can connect to the VM normally by using an administrative session by using the following command:
 
-    `mstsc /v:<Server>[:<Port>] /admin`
+   `mstsc /v:<Server>[:<Port>] /admin`
 
 ## Cause
 
