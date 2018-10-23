@@ -33,10 +33,6 @@ This section describes Azure Media Services (AMS) October updates.
 
 The [REST v3 GA release](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) includes more APIs for Live, Account/Asset level manifest filters, and DRM support.
 
-#### Azure CLI 2.0
- 
-The Azure CLI 2.0 module currently includes operations on Live, Content Key Policies, Streaming Policies. For more information, see [Plans for changes](#plans-for-changes).
-
 #### Azure Resource Management 
 
 Support for Azure Resource Management enables unified management and operations API (now everything in one place).
@@ -82,6 +78,10 @@ You can see the following Event Grid support improvements:
 - Azure EventGrid integration for easier development with Logic Apps and Azure Functions. 
 - Subscribe for events on Encoding, Live Channels, and more.
 
+#### Azure CLI 2.0
+ 
+The Azure CLI 2.0 module that includes operations on all features (including Live, Content Key Policies, Account/Asset Filters, Streaming Policies) is coming soon. 
+
 ### CMAF support
 
 CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players that support CMAF.
@@ -89,10 +89,6 @@ CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players
 ### Video Indexer
 
 Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
-
-### Plans for changes
-
-The Azure CLI release is coming on 11/06/2018.
 
 ### Known issues
 
