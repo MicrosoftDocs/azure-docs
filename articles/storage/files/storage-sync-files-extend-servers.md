@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
 ---
@@ -304,8 +304,6 @@ Your files are now kept in sync across your Azure file share and Windows Server.
 ## Clean up resources
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
-
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
 
 ## Next steps
 In this tutorial, you learned the basic steps to extend the storage capacity of a Windows Server using Azure File Sync. Follow this link for a more thorough look at planning for an Azure File Sync deployment.
