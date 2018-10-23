@@ -431,6 +431,7 @@
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
     - name: Visualize Cosmos DB data
+      items:
       - name: Use Power BI 
         href: powerbi-visualize.md
       - name: Use Qlik Sense
