@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: rwike77
 ms.author: ryanwi
-ms.date: 10/17/2018
+ms.date: 10/23/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt 
@@ -16,9 +16,9 @@ Service Fabric supports many different options for state storage. For a conceptu
 With Service Fabric Mesh, you can easily deploy a new application and connect it to an existing data store hosted in Azure. Besides using any remote database, there are several options for storing data, depending on whether the service desires local or remote storage. 
 
 ## Reliable collections
-Reliable Collections give you highly available, scalable, low-latency, transactional storage for cloud applications.  You can add a library to your service, which implements data structures like queues and key-value pairs. Reliable Collections do not require the Service Fabric runtime, so you can use them outside of a Service Fabric environment.
+Reliable Collections give you highly available, scalable, low-latency, transactional storage for cloud applications.  Reliable Collections have been split out from the Service Fabric runtime as a set of libraries.  You can add a library to your service, which implements data structures like queues and key-value pairs.  You can use Reliable Collections outside of a Service Fabric environment to make any code stateful.
 
-When used in a Service Fabric environment, service state is persisted to the local disk and then replicated and partitioned out to secondaries. This means that:
+When used in a Service Fabric environment, service state is persisted to the local disk and then replicated out to secondaries. This means that:
 * All reads are local, which results in low latency and high-throughput reads.
 * All writes incur the minimum number of network IOs, which results in low latency and high-throughput writes.
 * Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
@@ -30,7 +30,6 @@ When used outside of a Service Fabric environment, service state is still persis
 
 ![Reliable Collections][image1]
 
- 
 ## Volumes
 Containers often make use of temporary disks. Temporary disks are ephemeral, however, so you get a new temporary disk and lose the information when a container crashes. It is also difficult to share information on temporary disks with other containers. Volumes are directories that get mounted inside your container instances that you can use to persist state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs. The Volume resource describes how to mount a directory and which backing storage to use.  You can choose either Azure File storage or Service Fabric Volume disk to store data.    
 
