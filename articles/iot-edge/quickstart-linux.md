@@ -56,7 +56,7 @@ IoT Edge device:
 * A Linux device or virtual machine to act as your IoT Edge device. If you want to create a virtual machine in Azure, use the following command to get started quickly:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --location westus2 --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
    ```
 
 ## Create an IoT hub
