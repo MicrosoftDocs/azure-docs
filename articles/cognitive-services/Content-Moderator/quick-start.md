@@ -17,14 +17,22 @@ ms.author: sajagtap
 
 In this quickstart, you will use the online Content Moderator Review Tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
 
+## Prerequisites
+
+- A web browser
+
 ## Set up the review tool
 The Content Moderator Review Tool is a web-based tool that allows human reviewers to aid the cognitive service in making decisions. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review Tool](http://contentmoderator.cognitive.microsoft.com/) site and sign up.
 
 ![Content Moderator Home Page](images/homepage.PNG)
 
-Next, create a review team. You only need to create a team name, but if you wish to invite colleagues to the team, you can do so by entering their email addresses here.
+## Create a review team
+
+Next, create a review team. In a working scenario, this will be the group of people who will manually review the service's moderation decisions. For now, you only need to create a team name. If you wish to invite colleagues to the team, you can do so by entering their email addresses here.
 
 ![Invite team member](images/QuickStart-2-small.png)
+
+## Upload sample content
 
 Now you're ready to upload sample content. Select **Try > Image**, **Try > Text**, or **Try > Video**.
 
@@ -34,9 +42,11 @@ Submit your content for moderation. Internally, the review tool will call the mo
 
 ![Moderate files](images/submitted.png)
 
+## Review moderation tags
+
 Review the applied moderation tags. You can see which tags were applied to your content and what the score was in each category.
 
-![Review results](images/reviewresults.png)
+![Review results](images/reviewresults_text.png)
 
 In a project, you or your review team can change these tags or add more tags as needed. You'll submit these changes with the **Next** button. As your business application calls the Moderator APIs, the tagged content will queue up here, ready to be reviewed by the human review teams. You can quickly review large volumes of content using this approach.
 
