@@ -31,7 +31,7 @@ Before you start, make sure you have installed the newest version of [Visual Stu
 ## Configure VS Code 
 
 ### **Mac OS**
-For macOS, you need to install OpenSSL which is a prerequiste for .Net Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
+For macOS, you need to install OpenSSL which is a prerequisite for .Net Core that mssql extension uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

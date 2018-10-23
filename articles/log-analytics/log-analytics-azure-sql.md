@@ -21,7 +21,7 @@ ms.component:
 
 ![Azure SQL Analytics symbol](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is a cloud monitoring solution for monitoring performance of Azure SQL databases, elastic pools, and Managed Instances at scale and across multiple subscriptions. It collects and visualizes important Azure SQL Database performance metrics with built-in intelligence for performance troubleshooting.
+Azure SQL Analytics is a cloud monitoring solution for monitoring performance of Azure SQL databases, elastic pools, and Managed Instances at scale and across multiple subscriptions through a single pane of glass. It collects and visualizes important Azure SQL Database performance metrics with built-in intelligence for performance troubleshooting.
 
 By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Log Analytics views to present data about all your Azure SQL databases, elastic pools, and databases in Managed Instances in a single Log Analytics workspace. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
@@ -61,23 +61,11 @@ Perform the following steps to add the Azure SQL Analytics solution to your Azur
 
 ### Configure Azure SQL Databases, elastic pools and Managed Instances to stream diagnostics telemetry
 
-Once you have created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL databases, Managed Instance databases and elastic pools, you will need to **configure each** of these resources you wish to monitor to stream its diagnostics telemetry to the solution.
+Once you have created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL databases, databases in Managed Instance databases and elastic pools, you will need to **configure each** of these resources you wish to monitor to stream its diagnostics telemetry to the solution. Please follow detailed instructions on this page:
 
 - Enable Azure Diagnostics for your Azure SQL Database, Managed Instance databases and elastic pools to [stream diagnostics telemetry to Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
-### To configure multiple Azure subscriptions
- 
-To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Provide the workspace resource ID as a parameter when executing the script to send diagnostic data from resources in one Azure subscription to a workspace in another Azure subscription.
-
-**Example**
-
-```
-PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
-```
-
-```
-PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
-```
+The above page also provides instructions on enabling support for monitoring multiple Azure subscriptions from a single Azure SQL Analytics workspace as a single pane of glass.
 
 ## Using the solution
 
@@ -153,6 +141,10 @@ Both elastic pools and SQL Databases have their own specific reports that show a
 Through the Query duration and query waits perspectives, you can correlate the performance of any query through the query report. This report compares the query performance across different databases and makes it easy to pinpoint databases that perform the selected query well versus ones that are slow.
 
 ![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
+
+### Pricing
+
+While the solution is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. Please note that more active databases with heavier workloads will ingest more data versus idle databases. You can easily monitor your data ingestion consumption in the solution by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
 
 ### Analyze data and create alerts
 

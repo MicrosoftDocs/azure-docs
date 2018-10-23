@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: jingwang
 
 ---
@@ -21,10 +21,6 @@ ms.author: jingwang
 Azure Data Factory allows you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  For more information on Microsoft Graph data connect, please refer to [this link](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Office 365. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-For a nine-minute introduction and demonstration about connecting Data Factory to Office 365 data, watch the following video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## Supported capabilities
 
@@ -121,7 +117,7 @@ To copy data from Office 365, the following properties are supported:
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **Office365Table** | Yes |
 | tableName | Name of the dataset to extract from Office 365. Refer [here](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) for the list of Office 365 datasets available for extraction. | Yes |
-| predicate | A predicate expression that can be used to filter the specific rows to extract from Office 365.  Refer here to find out which columns can be used for predicate filtering for each table and the filter expression format. | No<br>(If no predicate is supplied, the default is to extract data for the last 30 days) |
+| predicate | A predicate expression that can be used to filter the specific rows to extract from Office 365.  Refer [here](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) to find out which columns can be used for predicate filtering for each table and the filter expression format. | No<br>(If no predicate is supplied, the default is to extract data for the last 30 days) |
 
 **Example**
 

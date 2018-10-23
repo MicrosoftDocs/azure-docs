@@ -3,7 +3,7 @@ title: Import and publish your first API in Azure API Management | Microsoft Doc
 description: Learn how to import and publish your first API with API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 
@@ -69,10 +69,11 @@ This section shows how to import and publish an OpenAPI specification backend AP
 
 ## Test the new APIM API in the Azure portal
 
+![Test API map](./media/api-management-get-started/01-import-first-api-01.png)
+
 Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
 1. Select the API you created in the previous step (from the **APIs** tab).
 2. Press the **Test** tab.
-    ![Test API](./media/api-management-get-started/test-api.png)
 3. Click on **GetSpeakers**.
     The page displays fields for query parameters, in this case none, and headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. The key is filled in automatically.
 4. Press **Send**.
@@ -84,7 +85,8 @@ Operations can be called directly from the Azure portal, which provides a conven
 Operations can also be called from the **Developer portal** to test APIs.
 
 1. Navigate to the **Developer portal**.
-![Developer portal](./media/api-management-get-started/developer-portal.png)
+
+ ![Developer portal](./media/api-management-get-started/developer-portal.png)
 
 2. Select **APIS**, click on **Demo Conference API** and then **GetSpeakers**.
     

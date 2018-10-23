@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
 
@@ -37,8 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Tools extension. To install, see [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## Open a Quickstart template
 
@@ -53,7 +52,7 @@ The template used in this quickstart is called [Create a standard storage accoun
 3. Select **Open** to open the file.
 4. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
-## Understand the format
+## Understand the schema
 
 From VS Code, collapse the template to the root level. You have the simplest structure with the following elements:
 
@@ -66,7 +65,7 @@ From VS Code, collapse the template to the root level. You have the simplest str
 * **resources**: specify the resource types that are deployed or updated in a resource group.
 * **outputs**: specify the values that are returned after deployment.
 
-## Use parameters in template
+## Use parameters
 
 Parameters enable you to customize the deployment by providing values that are tailored for a particular environment. You use the parameters defined in the template when setting values for the storage account.
 
@@ -87,7 +86,7 @@ To use the parameters defined in the template:
 "name": "[parameters('storageAccountType')]"
 ```
 
-## Use variables in template
+## Use variables
 
 Variables allow you to construct values that can be used throughout your template. Variables help reducing the complexity of the templates.
 
@@ -114,9 +113,7 @@ The goal of this tutorial is to define a template to create an encrypted storage
 
     ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-template-resources-reference-storage-accounts
-1. Explore the encryption-related information.  
-1. Inside the properties element of the storage account resource definition, add the following json:
+4. Find the encryption-related definition information.  
 
     ```json
     "encryption": {
@@ -128,11 +125,9 @@ The goal of this tutorial is to define a template to create an encrypted storage
         }
     }
     ```
-    This part enables the encryption function of the blob storage service.
-
-From Visual Studio Code, modify the template so that the final resources element looks like:
-
-![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. From Visual Studio Code, modify the template so that the final resources element looks like:
+    
+    ![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## Deploy the template
 

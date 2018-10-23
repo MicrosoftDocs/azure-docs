@@ -191,7 +191,11 @@
   - name: Azure CLI
     href: /cli/azure/policy
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.resources/#policies
+    items:
+    - name: Policy
+      href: /powershell/module/azurerm.resources/#policies
+    - name: Guest Configuration (preview)
+      href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
   - name: REST API
     items:
     - name: Events
@@ -204,6 +208,8 @@
       href: /rest/api/resources/policydefinitions
     - name: Initiatives Definitions
       href: /rest/api/resources/policysetdefinitions
+    - name: Guest Configuration (preview)
+      href: /rest/api/guestconfiguration/
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples
