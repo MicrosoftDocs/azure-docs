@@ -49,20 +49,32 @@ This article shows how to independently upgrade a microservice within an applica
 
 ## Modify the config
 
-JTW - drop tools stuff here.
+Upgrades can be pushed for code changes, config changes, or both.
 
-Upgrades can be due to code changes, config changes, or both.  To introduce a config change, open the `WebFrontEnd` project's `service.yaml` file (which is under the **Service Resources** node).
+When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yml** file for each deployment target (cloud and local, by default) where you can define parameters and their values that can be used in your service.yaml file. We will use this file to define a parameter, `cpu`, which will allow us to update the cpu resources from 0.5 to 1.0 in anticipation that the web front end will be heavily used.  
 
-In the `resources:` section, change `cpu:` from 0.5 to 1.0, in anticipation that the web front end will be heavily used. It should now look like this:
+There are two steps.  First define the parameters you want in the **parameters.yml** file. Then define where you would like to use those parameters in your service's **service.yaml** file.
+
+1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file, and add the following to the top of it to define a new parameter, `cpu`, with a value of `1.0`.
+
+```xml
+cpu: 1.0
+```
+
+2. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
+
+In the `resources:` section, change `cpu:` to from `0.5` to `"parameters('cpu')]"`. It should now look like this:
 
 ```xml
               ...
               resources:
                 requests:
-                  cpu: 1.0
+                  cpu: "[parameters('cpu')]"
                   memoryInGB: 1
               ...
 ```
+
+When you deploy the service to the cloud, the value for `cpu` will be taken from the **parameters.yaml** file and will be `1.0`.
 
 ## Modify the model
 
