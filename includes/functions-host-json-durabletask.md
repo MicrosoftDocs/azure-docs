@@ -34,11 +34,11 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 }
 ```
 
-Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](durable-functions-task-hubs.md).
+Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](../articles/azure-functions/durable-functions-task-hubs.md).
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternate [task hub](durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if theyre using the same storage backend.|
+|HubName|DurableFunctionsHub|Alternate [task hub](../articles/azure-functions/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if theyre using the same storage backend.|
 |ControlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
 |PartitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|
 |ControlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|
@@ -53,4 +53,4 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |EventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid Topic fails.|
 |EventGridPublishRetryInterval|5 minutes|The Event Grid publishes retry interval in the *hh:mm:ss* format.|
 
-Many of these are for optimizing performance. For more information, see [Performance and scale](durable-functions-perf-and-scale.md).
+Many of these are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable-functions-perf-and-scale.md).
