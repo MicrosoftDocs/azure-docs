@@ -47,16 +47,14 @@
       href: assets-concept.md
     - name: Content key policies
       href: content-key-policy-concept.md
-    - name: Jobs
-      href: jobs-concept.md
     - name: Streaming endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming locators
       href: streaming-locators-concept.md
     - name: Streaming policies
       href: streaming-policy-concept.md
-    - name: Transforms and jobs
-      href: transform-concept.md
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md
   - name: Examining storage accounts
     href: storage-account-concept.md
   - name: Handling Event Grid events

@@ -21,6 +21,9 @@ Azure Media Services v3 introduces a new templated workflow resource for a recip
 
 A **Job** is the actual request to Azure Media Services to apply the **Transform** (recipe) to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPs URLs, SAS URLs, or [Media Services Assets](https://docs.microsoft.com/rest/api/media/assets).  
 
+> [!NOTE]
+> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](../previous/media-services-scale-media-processing-overview.md).
+
 ## Typical workflow
 
 1. Create a Transform 
