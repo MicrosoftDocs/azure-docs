@@ -142,6 +142,7 @@ select your Log Analytics workspace and the data you want to log.
    For example: 
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+
 1. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## Use diagnostic data with other services
