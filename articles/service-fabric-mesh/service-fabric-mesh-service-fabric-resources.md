@@ -32,12 +32,16 @@ Each resource is described declaratively in a resource file, which is a simple Y
 
 ## Applications and Services
 
-An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, of Service resources that represent a microservice. Each Service resource, in turn, is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package, including the following:
+An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, Service resources that represent a microservice. Each Service resource, in turn, is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.
+
+![Apps and services][Image1]
+
+A Service resource declares the following:
 
 - Container name, version, and registry
 - CPU and memory resources required for each container
 - Network endpoints
-- References to other resources such networks, volumes, and secrets 
+- References to other resources such as networks, volumes, and secrets 
 
 All the code packages defined as part of a Service resource are deployed and activated together as a group. The Service resource also describes how many instances of the service to run and also references other Resources (for example, Network resource) it depends upon.
 
@@ -93,3 +97,5 @@ When deploying to Service Fabric Mesh, Resources are deployed as Azure Resource 
 ## Next steps 
 To learn more about Service Fabric Mesh, read the overview:
 - [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
+
+[Image1]: media/service-fabric-mesh-service-fabric-resources/AppsAndServices.png
