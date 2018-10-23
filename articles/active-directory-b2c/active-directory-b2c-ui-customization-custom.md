@@ -1,6 +1,6 @@
 ---
-title: Customize a UI by using custom policies in Azure Active Directory B2C | Microsoft Docs
-description: Learn about customizing a user interface (UI) while you use custom policies in Azure AD B2C.
+title: Customize the user interface of your application using a custom policy in Azure Active Directory B2C | Microsoft Docs
+description: Learn about customizing a user interface using a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -8,11 +8,11 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
 ---
-# Azure Active Directory B2C: Configure UI customization in a custom policy
+# Customize the user interface of your application using a custom policy in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -123,7 +123,7 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
 3. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 4. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element. 
 5. Search for the **ContentDefinition** element that contains `Id="api.signuporsignin"` in the XML that you copied.
-6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://myStore1.azurewebsites.net/b2c/customize-ui.html.
+6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
     
     Your custom policy should look like the following:
 
