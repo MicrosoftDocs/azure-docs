@@ -88,7 +88,7 @@ You should see a message that says, "Updating certificates in /etc/ssl/certs... 
 
 The following steps are an example of how to install a CA certificate on a Windows host. This sample assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.  
 
-1. In the Start menu, search for and select **Manage computer certificates**. A utility called **certlm** should open.
+1. In the Start menu, search for and select **Manage computer certificates**. A utility called **certlm** opens.
 2. Navigate to **Certificates - Local Computer** > **Trusted Root Certification Authorities**.
 3. Right-click **Certificates** and select **All Tasks** > **Import**. The certificate import wizard should launch. 
 4. Follow the steps as directed and import certificate file `<path>/azure-iot-test-only.root.ca.cert.pem`. When completed, you should see a "Successfully imported" message. 
@@ -166,4 +166,10 @@ This section introduces a sample application to connect an Azure IoT Python devi
 Get the sample for **edge_downstream_client** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples). Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file. In the edge_downstream_client.py file, update the **CONNECTION_STRING** and **TRUSTED_ROOT_CA_CERTIFICATE_PATH** variables. Refer to the SDK documentation for instructions on how to run the sample on your device. 
 
 
+## Test the gateway connection
 
+This is a sample command which tests that everything has been set up correctly. You sohuld a message saying "verified OK".
+
+```cmd/sh
+openssl s_client -connect mygateway.contoso.com:8883 -CAfile $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
+```

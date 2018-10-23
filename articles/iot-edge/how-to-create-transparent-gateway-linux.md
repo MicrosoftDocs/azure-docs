@@ -128,53 +128,6 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
    ```
 6. In the Review template step, select **Submit**.
 
-## Installation on the downstream device
-A downstream device can be any application using the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md), such as the simple one described in [Connect your device to your IoT hub using .NET](../iot-hub/quickstart-send-telemetry-dotnet.md). A downstream device application has to trust the **owner CA** certificate in order to validate the TLS connections to the gateway devices. This step can usually be performed in two ways: at the OS level, or (for certain languages) at the application level.
-
-### OS level
-Installing this certificate in the OS certificate store will allow all applications to use the owner CA certificate as a trusted certificate.
-
-* Ubuntu - Here is an example of how to install a CA certificate on an Ubuntu host.
-
-   ```cmd
-   sudo cp $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem  /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
-   sudo update-ca-certificates
-   ```
- 
-    You should see a message saying, "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done."
-
-* Windows - Here is an example of how to install a CA certificate on a Windows host.
-  1. On the start menu type in "Manage computer certificates". This should bring up a utility called `certlm`.
-  2. Navigate to **Certificates Local Computer** > **Trusted Root Certificates** > **Certificates** > Right click > **All Tasks** > **Import** to launch the certificate import wizard.
-  3. Follow the steps as directed and import certificate file $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
-  4. When completed, you should see a "Successfully imported" message.
-
-### Application level
-For .NET applications, you can add the following snippet to trust a certificate in PEM format. Initialize the variable `certPath` with `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
-
-   ```
-   using System.Security.Cryptography.X509Certificates;
-
-   ...
-
-   X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
-   store.Open(OpenFlags.ReadWrite);
-   store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
-   store.Close();
-   ```
-
-## Connect the downstream device to the gateway
-Initialize the IoT Hub device SDK with a connection string referring to the hostname of the gateway device. This is done by appending the `GatewayHostName` property to your device connection string. For instance, here is a sample device connection string for a device, to which we appended the `GatewayHostName` property:
-
-   ```
-   HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com
-   ```
-
-   >[!NOTE]
-   >This is a sample command which tests that everything has been set up correctly. You sohuld a message saying "verified OK".
-   >
-   >openssl s_client -connect mygateway.contoso.com:8883 -CAfile $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
-
 ## Routing messages from downstream devices
 The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to perform analytics in a module running on the gateway before sending any data to the cloud. The below route would be used to send messages from a downstream device named `sensor` to a module name `ai_insights`.
 
