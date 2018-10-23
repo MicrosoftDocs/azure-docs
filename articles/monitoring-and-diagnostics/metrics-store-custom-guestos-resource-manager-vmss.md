@@ -21,7 +21,7 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-- You need to have [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md). 
+- You need to have [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## Set up Azure Monitor as a data sink 
@@ -37,29 +37,29 @@ For this example, you can use a publicly available [sample template](https://git
 Download and save both files locally. 
 
 ###  Modify azuredeploy.parameters.json
-- Open the **azuredeploy.parameters.json** file:  
+Open the **azuredeploy.parameters.json** file:  
  
-    - Provide a **vmSKU** you want to deploy. We recommend Standard_D2_v3. 
-    - Specify a **windowsOSVersion** you want for your virtual machine scale set. We recommend 2016-Datacenter. 
-    - Name the virtual machine scale set resource to be deployed by using a **vmssName** property. An example is **VMSS-WAD-TEST**.    
-    - Specify the number of VMs you want to run on the virtual machine scale set by using the **instanceCount** property.
-    - Enter values for **adminUsername** and **adminPassword** for the virtual machine scale set. These parameters are used for remote access to the VMs in the scale set. To avoid having your VM hijacked, **do not** use the ones in this template. Bots scan the internet for usernames and passwords in public GitHub repositories. They're likely to be testing VMs with these defaults. 
+- Provide a **vmSKU** you want to deploy. We recommend Standard_D2_v3. 
+- Specify a **windowsOSVersion** you want for your virtual machine scale set. We recommend 2016-Datacenter. 
+- Name the virtual machine scale set resource to be deployed by using a **vmssName** property. An example is **VMSS-WAD-TEST**.    
+- Specify the number of VMs you want to run on the virtual machine scale set by using the **instanceCount** property.
+- Enter values for **adminUsername** and **adminPassword** for the virtual machine scale set. These parameters are used for remote access to the VMs in the scale set. To avoid having your VM hijacked, **do not** use the ones in this template. Bots scan the internet for usernames and passwords in public GitHub repositories. They're likely to be testing VMs with these defaults. 
 
 
 ###  Modify azuredeploy.json
-1. Open the **azuredeploy.json** file. 
+Open the **azuredeploy.json** file. 
 
-1. Add a variable to hold the storage account information in the Resource Manager template. Any logs or performance counters specified in the diagnostics config file are written to both the Azure Monitor metric store and the storage account you specify here: 
+Add a variable to hold the storage account information in the Resource Manager template. Any logs or performance counters specified in the diagnostics config file are written to both the Azure Monitor metric store and the storage account you specify here: 
 
-    ```json
-    "variables": { 
-    //add this line       
-    "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
-    ```
+```json
+"variables": { 
+//add this line       
+"storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
+```
  
-1. Find the virtual machine scale set definition in the resources section and add the **identity** section to the configuration. This addition ensures that Azure assigns it a system identity. This step also ensures that the VMs in the scale set can emit guest metrics about themselves to Azure Monitor:  
+Find the virtual machine scale set definition in the resources section and add the **identity** section to the configuration. This addition ensures that Azure assigns it a system identity. This step also ensures that the VMs in the scale set can emit guest metrics about themselves to Azure Monitor:  
 
-    ```json
+```json
     { 
       "type": "Microsoft.Compute/virtualMachineScaleSets", 
       "name": "[variables('namingInfix')]", 
@@ -70,14 +70,14 @@ Download and save both files locally.
            "type": "systemAssigned" 
        }, 
        //end of lines to add
-    ```
+```
 
-1. In the virtual machine scale set resource, find the **virtualMachineProfile** section. Add a new profile called **extensionsProfile** to manage extensions.  
+In the virtual machine scale set resource, find the **virtualMachineProfile** section. Add a new profile called **extensionsProfile** to manage extensions.  
 
 
 In the **extensionProfile**, add a new extension to the template as shown in the **VMSS-WAD-extension** section.  This section is the managed identities for Azure resources extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
 
-    The following code from the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource. Feel free to add or remove performance counters as needed: 
+The following code from the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource. Feel free to add or remove performance counters as needed: 
 
 ```json
           "extensionProfile": { 
@@ -85,124 +85,141 @@ In the **extensionProfile**, add a new extension to the template as shown in the
             // BEGINNING of added code  
             // Managed identites for Azure resources   
                 { 
-                  "name": "[concat('VMDiagnosticsVmExt','_vmNodeType0Name')]", 
-                  "properties": { 
-                       "type": "IaaSDiagnostics", 
+                 "name": "VMSS-WAD-extension", 
+                 "properties": { 
+                       "publisher": "Microsoft.ManagedIdentity", 
+                       "type": "ManagedIdentityExtensionForWindows", 
+                       "typeHandlerVersion": "1.0", 
                        "autoUpgradeMinorVersion": true, 
-                       "protectedSettings": { 
-                            "storageAccountName": "[variables('storageAccountName')]", 
-                            "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1]", 
-                                "storageAccountEndPoint": "https://core.windows.net/" 
-                           }, 
-                       "publisher": "Microsoft.Azure.Diagnostics", 
                        "settings": { 
-                            "WadCfg": { 
-                                  "DiagnosticMonitorConfiguration": { 
-                                       "overallQuotaInMB": "50000", 
-                                       "PerformanceCounters": { 
-                                           "scheduledTransferPeriod": "PT1M", 
-                                           "sinks": "AzMonSink", 
-                                           "PerformanceCounterConfiguration": [ 
-                                              { 
-                  "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
-                                                  "sampleRate": "PT15S" 
-               }, 
-               { 
-                      "counterSpecifier": "\\Memory\\Available Bytes", 
-                  "sampleRate": "PT15S" 
-               }, 
-               { 
-                  "counterSpecifier": "\\Memory\\Committed Bytes", 
-                  "sampleRate": "PT15S" 
-               } 
-                                           ] 
-                                     }, 
-                                     "EtwProviders": { 
-                                           "EtwEventSourceProviderConfiguration": [ 
-                                               { 
-                                                  "provider": "Microsoft-ServiceFabric-Actors", 
-                                                  "scheduledTransferKeywordFilter": "1", 
-                                                  "scheduledTransferPeriod": "PT5M", 
-                                                  "DefaultEvents": { 
-                                                  "eventDestination": "ServiceFabricReliableActorEventTable" 
-                                               } 
-                                               }, 
-                                               { 
-                                                  "provider": "Microsoft-ServiceFabric-Services", 
-                                                  "scheduledTransferPeriod": "PT5M", 
-                                                  "DefaultEvents": { 
-                                                       "eventDestination": "ServiceFabricReliableServiceEventTable" 
-                                                  } 
-                                               } 
-                                        ], 
-                                         "EtwManifestProviderConfiguration": [ 
-                                               { 
-                                                  "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8", 
-                                                  "scheduledTransferLogLevelFilter": "Information", 
-                                                  "scheduledTransferKeywordFilter": "4611686018427387904", 
-                                                  "scheduledTransferPeriod": "PT5M", 
-                                                  "DefaultEvents": { 
-                                                       "eventDestination": "ServiceFabricSystemEventTable" 
-                                               } 
-                                              } 
-                                         ] 
-                                   } 
-                                   }, 
-                                   "SinksConfig": { 
-                                         "Sink": [ 
-                                              { 
-                                                  "name": "AzMonSink", 
-                                                  "AzureMonitor": {} 
-                                             } 
-                                          ] 
-                                   } 
-                                 }, 
-                             "StorageAccount": "[variables('storageAccountName')]" 
-                             }, 
-                            "typeHandlerVersion": "1.11" 
+                             "port": 50342 
+                           }, 
+                       "protectedSettings": {} 
                      } 
-              } 
-                ] 
-           }
-              }
-         }
-       },
-        //end of added code plus a few brackets. Be sure that the number and type of brackets match properly when done. 
-        {
-          "type": "Microsoft.Insights/autoscaleSettings",
-    ...
-    ```
-
-
-1. Add a **dependsOn** for the storage account to ensure it's created in the correct order: 
-    ```json
-    "dependsOn": [ 
-    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
-    "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
-    //add this line below
-    "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
-    ```
-
-1. Create a storage account if one isn't already created in the template:  
-    ```json
-    "resources": [
-    // add this code    
-      {
-         "type": "Microsoft.Storage/storageAccounts",
-         "name": "[variables('storageAccountName')]",
-         "apiVersion": "2015-05-01-preview",
-         "location": "[resourceGroup().location]",
-         "properties": {
-           "accountType": "Standard_LRS"
+                                
+            }, 
+            // add diagnostic extension. (Remove this comment after pasting.)
+            { 
+              "name": "[concat('VMDiagnosticsVmExt','_vmNodeType0Name')]", 
+              "properties": { 
+                   "type": "IaaSDiagnostics", 
+                   "autoUpgradeMinorVersion": true, 
+                   "protectedSettings": { 
+                        "storageAccountName": "[variables('storageAccountName')]", 
+                        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1]", 
+                        "storageAccountEndPoint": "https://core.windows.net/" 
+                   }, 
+                   "publisher": "Microsoft.Azure.Diagnostics", 
+                   "settings": { 
+                        "WadCfg": { 
+                              "DiagnosticMonitorConfiguration": { 
+                                   "overallQuotaInMB": "50000", 
+                                   "PerformanceCounters": { 
+                                       "scheduledTransferPeriod": "PT1M", 
+                                       "sinks": "AzMonSink", 
+                                       "PerformanceCounterConfiguration": [ 
+                                          { 
+              "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
+                                              "sampleRate": "PT15S" 
+           }, 
+           { 
+              "counterSpecifier": "\\Memory\\Available Bytes", 
+              "sampleRate": "PT15S" 
+           }, 
+           { 
+              "counterSpecifier": "\\Memory\\Committed Bytes", 
+              "sampleRate": "PT15S" 
+           } 
+                                       ] 
+                                 }, 
+                                 "EtwProviders": { 
+                                       "EtwEventSourceProviderConfiguration": [ 
+                                           { 
+                                              "provider": "Microsoft-ServiceFabric-Actors", 
+                                              "scheduledTransferKeywordFilter": "1", 
+                                              "scheduledTransferPeriod": "PT5M", 
+                                              "DefaultEvents": { 
+                                              "eventDestination": "ServiceFabricReliableActorEventTable" 
+                                           } 
+                                           }, 
+                                           { 
+                                              "provider": "Microsoft-ServiceFabric-Services", 
+                                              "scheduledTransferPeriod": "PT5M", 
+                                              "DefaultEvents": { 
+                                                   "eventDestination": "ServiceFabricReliableServiceEventTable" 
+                                              } 
+                                           } 
+                                     ], 
+                                     "EtwManifestProviderConfiguration": [ 
+                                           { 
+                                              "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8", 
+                                              "scheduledTransferLogLevelFilter": "Information", 
+                                              "scheduledTransferKeywordFilter": "4611686018427387904", 
+                                              "scheduledTransferPeriod": "PT5M", 
+                                              "DefaultEvents": { 
+                                                   "eventDestination": "ServiceFabricSystemEventTable" 
+                                              } 
+                                          } 
+                                     ] 
+                               } 
+                               }, 
+                               "SinksConfig": { 
+                                     "Sink": [ 
+                                          { 
+                                              "name": "AzMonSink", 
+                                              "AzureMonitor": {} 
+                                          } 
+                                      ] 
+                               } 
+                         }, 
+                         "StorageAccount": "[variables('storageAccountName')]" 
+                         }, 
+                        "typeHandlerVersion": "1.11" 
+                  } 
+           } 
+            ] 
           }
-      },
-      // end added code
-      { 
-        "type": "Microsoft.Network/virtualNetworks",
-        "name": "[variables('virtualNetworkName')]",
-    ```
+          }
+      }
+    },
+    //end of added code plus a few brackets. Be sure that the number and type of brackets match properly when done. 
+    {
+      "type": "Microsoft.Insights/autoscaleSettings",
+...
+```
 
-1. Save and close both files. 
+
+Add a **dependsOn** for the storage account to ensure it's created in the correct order: 
+
+```json
+"dependsOn": [ 
+"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
+"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
+//add this line below
+"[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
+```
+
+Create a storage account if one isn't already created in the template: 
+
+```json
+"resources": [
+// add this code    
+    {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageAccountName')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[resourceGroup().location]",
+        "properties": {
+        "accountType": "Standard_LRS"
+        }
+    },
+    // end added code
+    { 
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[variables('virtualNetworkName')]",
+```
+
+Save and close both files. 
 
 ## Deploy the Resource Manager template 
 
@@ -227,7 +244,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Remember to use an Azure region that's enabled for custom metrics. 
+   > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-region).
  
 1. Run the following commands to deploy the VM:  
 

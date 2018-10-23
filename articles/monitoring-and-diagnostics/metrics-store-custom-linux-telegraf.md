@@ -21,7 +21,7 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 
 ## Send custom metrics 
 
-For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both the Debian and RPM packages are available along with unpackaged Linux binaries on the InfluxData download portal. See this installation guide for additional Telegraf installation instructions and options. 
+For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both Debian and RPM packages are available along with unpackaged Linux binaries on the [InfluxData download portal](https://portal.influxdata.com/downloads). See this [Telegraf installation guide](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) for additional installation instructions and options. 
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -53,17 +53,17 @@ Create a new Linux VM:
  
 ## Connect to the VM 
 
-1. Create an SSH connection with the VM. Select the **Connect** button on the overview page for your VM. 
+Create an SSH connection with the VM. Select the **Connect** button on the overview page for your VM. 
 
-    ![Telegraf VM overview page](./media/metrics-store-custom-linux-telegraf/connect-VM-button2.png)
+![Telegraf VM overview page](./media/metrics-store-custom-linux-telegraf/connect-VM-button2.png)
 
-1. In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like: 
+In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like: 
 
-    ```cmd
-    ssh azureuser@XXXX.XX.XXX 
-    ```
+```cmd
+ssh azureuser@XXXX.XX.XXX 
+```
 
-1. Paste the SSH connection command into a shell, such as Azure Cloud Shell or Bash on Ubuntu on Windows, or use an SSH client of your choice to create the connection. 
+Paste the SSH connection command into a shell, such as Azure Cloud Shell or Bash on Ubuntu on Windows, or use an SSH client of your choice to create the connection. 
 
 ## Install and configure Telegraf 
 

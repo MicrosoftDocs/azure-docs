@@ -17,7 +17,7 @@ These **custom** metrics can be collected via your application telemetry, an age
 ## Send custom metrics
 Custom metrics can be sent to Azure Monitor via several methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
-- Install the Windows Azure Diagnostics (WAD) extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [virtual machine scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
+- Install the Windows Azure Diagnostics (WAD) extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [virtual machine scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [classic Cloud Services](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
 - Install the [InfluxData Telegraf agent](metrics-store-custom-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
@@ -188,5 +188,5 @@ Use custom metrics from different services:
  - [Azure Virtual Machines (classic)](metrics-store-custom-guestos-classic-vm.md)
  - [Linux Virtual Machine using the Telegraf agent](metrics-store-custom-linux-telegraf.md)
  - [REST API](metrics-store-custom-rest-api.md)
- - [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md)
+ - [Classic Cloud Services](metrics-store-custom-guestos-classic-cloud-service.md)
  

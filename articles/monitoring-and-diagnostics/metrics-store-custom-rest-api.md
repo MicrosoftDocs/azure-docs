@@ -19,25 +19,25 @@ This article shows you how to send custom metrics for Azure resources to the Azu
 
 ## Create and authorize a service principal to emit metrics 
 
-1. Create a service principle in your Azure Active Directory tenant by using the instructions found at [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+Create a service principle in your Azure Active Directory tenant by using the instructions found at [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
 
-1. Note the following while you go through this process: 
+Note the following while you go through this process: 
 
-    - You can enter any URL for the sign-in URL.  
-    - Create a new client secret for this app.  
-    - Save the key and the client ID for use in later steps.  
+- You can enter any URL for the sign-in URL.  
+- Create a new client secret for this app.  
+- Save the key and the client ID for use in later steps.  
 
-1. Give the app created as part of step 1, Monitoring Metrics Publisher, permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level. 
+Give the app created as part of step 1, Monitoring Metrics Publisher, permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level. 
 
 ## Get an authorization token
-1. Open a command prompt and run the following command:
+Open a command prompt and run the following command:
 
-    ```shell
-    curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
-    ```
-1. Save the access token from the response.
+```shell
+curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+```
+Save the access token from the response.
 
-    ![Access token](./media/metrics-store-custom-rest-api/accesstoken.png)
+![Access token](./media/metrics-store-custom-rest-api/accesstoken.png)
 
 ## Emit the metric via the REST API 
 
