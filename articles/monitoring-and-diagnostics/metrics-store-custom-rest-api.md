@@ -19,7 +19,7 @@ This article shows you how to send custom metrics for Azure resources to the Azu
 
 ## Create and authorize a service principal to emit metrics 
 
-Create a service principle in your Azure Active Directory tenant using the instructions found at [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+Create a service principle in your Azure Active Directory tenant using the instructions found at [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md). 
 
 Note the following while going through this process: 
 

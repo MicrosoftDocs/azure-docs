@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app on my local development cluster
@@ -92,6 +92,14 @@ When you debug a Service Fabric Mesh application in Visual Studio, you are using
 3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front-end `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
 4. Step over (F10) the `client.GetAsync(backendUrl).GetAwaiter().GetResult())` call and you'll hit the controller's `Get()` breakpoint. In this method, you can see how the list of to-do items is retrieved from the in-memory list.
 5. When you are done, stop debugging your project in Visual Studio by pressing **Shift+F5**.
+
+### Debug options
+
+You can configure Visual Studio to automatically pull the Docker images that your project relies on, as well as automatically start containers and kill them when the solutions closes. You can change these settings from **Tools** > **Options**  > **Service Fabric Tools** > **General**, as shown in the following illustration:
+
+![Visual Studio Service Fabric Mesh tools options dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-tools-options-dialog.png)
+
+
  
 ## Next steps
 
