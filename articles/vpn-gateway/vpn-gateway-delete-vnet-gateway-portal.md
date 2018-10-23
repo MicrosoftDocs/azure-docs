@@ -4,9 +4,6 @@ description: Delete a virtual network gateway using the Azure portal in the Reso
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: vpn-gateway
