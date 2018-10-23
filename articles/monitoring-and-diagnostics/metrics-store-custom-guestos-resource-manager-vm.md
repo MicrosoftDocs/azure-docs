@@ -11,7 +11,7 @@ ms.component: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
 
-The Azure Monitor [Diagnostics extension](azure-diagnostics.md) (Diagnostics) allows you to collect metrics and logs from the guest operating system (Guest OS) that's running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+By using the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) that's running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
 This article describes the process for sending Guest OS performance metrics for a Windows virtual machine to the Azure Monitor data store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
@@ -21,7 +21,7 @@ If you're new to Resource Manager templates,  learn about [template deployments]
 
 ## Prerequisites
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed. 
 
@@ -264,19 +264,19 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
 
 1. Log in to the Azure portal. 
 
-1.On the left menu, select **Monitor**. 
+2. On the left menu, select **Monitor**. 
 
-1. On the Monitor page, select **Metrics**. 
+3. On the Monitor page, select **Metrics**. 
 
    ![Metrics page](./media/metrics-store-custom-rest-api/metrics.png) 
 
-1. Change the aggregation period to **Last 30 minutes**.  
+4. Change the aggregation period to **Last 30 minutes**.  
 
-1. In the resource drop-down menu, select the VM that you created. If you didn't change the name in the template, it should be *SimpleWinVM2*.  
+5. In the resource drop-down menu, select the VM that you created. If you didn't change the name in the template, it should be *SimpleWinVM2*.  
 
-1. In the namespaces drop-down menu, select **azure.vm.windows.guest** 
+6. In the namespaces drop-down menu, select **azure.vm.windows.guest** 
 
-1. In the metrics drop down menu, select **Memory\%Committed Bytes in Use**.  
+7. In the metrics drop down menu, select **Memory\%Committed Bytes in Use**.  
  
 
 ## Next steps
