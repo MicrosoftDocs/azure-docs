@@ -111,7 +111,7 @@ When identifying IO performance issues, the top wait types associated with IO is
 
 ### If the IO issue is occurring right now
 
-Use the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) or [sys.dm_os_waiting_tasks](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) to see the `wait_type` and `wait_time`.
+Use the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) or [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) to see the `wait_type` and `wait_time`.
 
 #### Identify data and log IO usage
 
