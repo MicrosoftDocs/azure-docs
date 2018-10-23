@@ -1,5 +1,5 @@
 ---
-title: Define environment variables in a Service Fabric Mesh app using Visual Studio | Microsoft Docs
+title: Define environment variables in an Azure Service Fabric Mesh app using Visual Studio | Microsoft Docs
 description: Learn how to use environment variables with the debugger.
 services: service-fabric-mesh
 keywords:  
@@ -43,3 +43,7 @@ You can read the variable of a debug environment variable using the `GetEnvironm
 ```csharp
 string value = $"{Environment.GetEnvironmentVariable("variableName")}";
 ```
+
+## Next steps
+
+Try the [Debug a Service Fabric Mesh application running in your local development cluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md) tutorial.
