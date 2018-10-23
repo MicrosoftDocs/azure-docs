@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 
@@ -32,10 +32,6 @@ This section describes Azure Media Services (AMS) October updates.
 ### REST v3 GA release
 
 The [REST v3 GA release](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) includes more APIs for Live, Account/Asset level manifest filters, and DRM support.
-
-#### Azure CLI 2.0
- 
-The Azure CLI 2.0 module for all features including Live, Content Key Policies, Account/Asset Filters, Streaming Policies.
 
 #### Azure Resource Management 
 
@@ -92,7 +88,9 @@ Video Indexer GA release was announced in August. For new information about curr
 
 ### Plans for changes
 
-The Azure CLI release is coming on 10/23/2018.
+#### Azure CLI 2.0
+ 
+The Azure CLI 2.0 module that includes operations on all features (including Live, Content Key Policies, Account/Asset Filters, Streaming Policies) is coming soon. 
 
 ### Known issues
 
