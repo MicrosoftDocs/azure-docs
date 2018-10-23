@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 
@@ -35,7 +35,7 @@ The [REST v3 GA release](https://github.com/Azure/azure-rest-api-specs/tree/mast
 
 #### Azure CLI 2.0
  
-The Azure CLI 2.0 module for all features including Live, Content Key Policies, Account/Asset Filters, Streaming Policies.
+The Azure CLI 2.0 module currently includes operations on Live, Content Key Policies, Streaming Policies. For more information, see [Plans for changes](#plans-for-changes).
 
 #### Azure Resource Management 
 
@@ -92,7 +92,7 @@ Video Indexer GA release was announced in August. For new information about curr
 
 ### Plans for changes
 
-The Azure CLI release is coming on 10/23/2018.
+The Azure CLI release is coming on 11/06/2018.
 
 ### Known issues
 

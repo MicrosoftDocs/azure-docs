@@ -21226,6 +21226,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-conditional-access-device-remediation.md",
+            "redirect_url": "/azure/active-directory/user-help/user-help-device-remediation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-azure-authenticator-app.md",
             "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
             "redirect_document_id": false
@@ -29934,6 +29939,12 @@
             "source_path": "articles/azure-stack/user/azure-stack-tutorial-sql.md",
             "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-domains",
+            "redirect_document_id": false
+            
         }
     ]
 }
