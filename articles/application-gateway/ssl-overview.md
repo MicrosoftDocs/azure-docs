@@ -42,7 +42,7 @@ Authentication Certificates have been deprecated and replaced by Trusted Root Ce
 
 ## Next steps
 
-After learning about end to end SSL, go to [Configure an application gateway with SSL termination using the Azure portal](create-ssl-portal.md) to create an application gateway using end to end SSL.
+After learning about end to end SSL, go to [Configure end to end SSL by using Application Gateway with PowerShell](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway using end to end SSL.
 
 <!--Image references-->
 
