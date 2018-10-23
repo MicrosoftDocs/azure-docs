@@ -267,6 +267,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/service/quickstart-get-started-with-cli.md",
+            "redirect_url": "/azure/machine-learning/service/reference-azure-machine-learning-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models",
             "redirect_document_id": true
@@ -16475,7 +16480,12 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-openid-connect-code",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/quickstart-v1-openid-connect-code.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-angular.md",
@@ -21214,6 +21224,11 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
             "redirect_url": "/azure/active-directory/user-help/device-management-azuread-joined-devices-setup",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-conditional-access-device-remediation.md",
+            "redirect_url": "/azure/active-directory/user-help/user-help-device-remediation",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-conditional-access-azure-authenticator-app.md",
@@ -29924,6 +29939,12 @@
             "source_path": "articles/azure-stack/user/azure-stack-tutorial-sql.md",
             "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-domains",
+            "redirect_document_id": false
+            
         }
     ]
 }

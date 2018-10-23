@@ -1,33 +1,26 @@
 ---
-title: Managing Azure file shares with Azure portal
-description: Learn to use the Azure portal to manage Azure Files.
+title: Quickstart for managing Azure file shares with Azure portal
+description: Use this quickstart to learn to use the Azure portal to manage Azure Files.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 03/26/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Managing Azure file shares with the Azure portal 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com/). Learn how to:
+# Quickstart: Create and manage Azure file shares with the Azure portal 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com/).
 
-> [!div class="checklist"]
-> * Create a resource group and a storage account
-> * Create an Azure file share 
-> * Create a directory
-> * Upload a file 
-> * Download a file
-> * Create and use a share snapshot
-
-If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a storage account
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
-## Create a file share
-To create a file share:
+## Create an Azure file share
+To create an Azure file share:
 
 1. Select the storage account from your dashboard.
 2. On the storage account page, in the **Services** section, select **Files**.
@@ -37,17 +30,37 @@ To create a file share:
 4. In **Name** type *myshare*.
 5. Click **OK** to create the Azure file share.
 
-## Work with the contents of the Azure file share
-Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can work with your Azure file share with the Azure portal. All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access.
+Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-### Create a directory
+## Use your Azure file share
+Azure Files provides two methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and the [File REST protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+
+To mount a file share with SMB, see the following document based on your OS:
+- [Windows](storage-how-to-use-files-windows.md)
+- [Linux](storage-how-to-use-files-linux.md)
+- [macOS](storage-how-to-use-files-mac.md)
+
+### Using an Azure file share from the Azure portal
+All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access. It is possible work directly with the File REST protocol directly (that is, handcrafting REST HTTP calls yourself), but the most common way (beyond using the Azure portal) to use the File REST protocol is to use the [AzureRM PowerShell module](storage-how-to-use-files-powershell.md), the [Azure CLI](storage-how-to-use-files-cli.md), or an Azure Storage SDK, all of which provide a nice wrapper around the File REST protocol in the scripting/programming language of your choice. 
+
+We expect most uses of Azure Files will want to work with their Azure file share over the SMB protocol, as this allows them to use the existing applications and tools they expect to be able to use, but there are several reasons why it is advantageous to use the File REST API rather than SMB, such as:
+
+- You need to make a quick change to your Azure file share from on-the-go, such as from a laptop without SMB access, tablet, or mobile device.
+- You need to execute a script or application from a client which cannot mount an SMB share, such as on-premises clients, which do not have port 445 unblocked.
+- You are taking advantage of serverless resources, such as [Azure Functions](../../azure-functions/functions-overview.md). 
+
+The following examples show how to use the Azure portal to manipulate your Azure file share with the File REST protocol. 
+
+Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can work with your Azure file share with the Azure portal. 
+
+#### Create a directory
 To create a new directory named *myDirectory* at the root of your Azure file share:
 
 1. On the **File Service** page, select the **myshare** file share. The page for your file share opens.
 2. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
 3. Type *myDirectory* and then click **OK**.
 
-### Upload a file 
+#### Upload a file 
 To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've selected the file you would like to upload:
 
 1. Click on the **myDirectory** directory. The **myDirectory** panel opens.
@@ -59,46 +72,13 @@ To demonstrate uploading a file, you first need to create or select a file to be
 5. In the **Upload files** page, verify the file name and then click **Upload**.
 6. When finished, the file should appear in the list on the **myDirectory** page.
 
-### Download a file
-You can download a copy of the file you uploaded by right clicking on the file. After clicking the download button, the exact experience will depend on the operating system and browser you're using.
-
-## Create and modify share snapshots
-One additional useful task you can do with an Azure file share is to create share snapshots. A snapshot preserves a point-in-time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems such as NTFS and ReFS
-- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
-- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
-
-To create a share snapshot:
-
-1. Open the page for the file share by opening the storage account from your dashboard > **Files** > **myshare**. 
-2. On the page for the file share, click the **Snapshot** button on menu at the top of the page and then select **Create a snapshot**.  
-	![A screenshot illustrating how to find the create snapshot button](media/storage-how-to-use-files-portal/create-snapshot-1.png)
-
-### List and browse share snapshots
-Once the snapshot is created, you can click **Snapshot** again and then select **View snapshots** to list the snapshots for the share. The resulting pane will show the snapshots for this share. Click on a share snapshot to browse it.
-
-### Restore from a share snapshot
-To demonstrate the restore of a file from a share snapshot, we first need to delete a file from the live Azure file share. Navigate into the *myDirectory* folder, right-click on the file you uploaded, and then click **Delete**. Then, to restore that file from the share snapshot:
-
-1. Click on **Snapshots** in the top menu and select **View snapshots**. 
-2. Click on the snapshot that you created earlier and it will open the contents in a new page. 
-3. Click on **myDirectory** in the snapshot and you should see the file that you deleted. 
-4. Right-click on the deleted file and select **Restore**.
-5. A pop-up will appear giving you a choice between restoring the file as a copy or overwriting the original file. Since we have deleted the original file, we can select **Overwrite original file** to restore the file as it was before we deleted it. Click **OK** to restore the file to the Azure file share.  
-	![A screenshot of the restore file dialog](media/storage-how-to-use-files-portal/restore-snapshot-1.png)
-
-6. Once the file is done being restored, close the page for the snapshot and go back to **myshare** > **myDirectory** and the file should be back in its original place.
-
-### Delete a share snapshot
-To delete a share snapshot, [navigate to the list of share snapshots](#list-and-browse-a-share-snapshot). Click the checkbox next to the name of the share snapshot, and select the **Delete** button.
-
-![A screenshot of deleting a share snapshot](media/storage-how-to-use-files-portal/delete-snapshot-1.png)
+#### Download a file
+You can download a copy of the file you uploaded by right-clicking on the file. After clicking the download button, the exact experience will depend on the operating system and browser you're using.
 
 ## Clean up resources
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next steps
-- [Managing file shares with the Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Managing file shares with Azure CLI](storage-how-to-use-files-cli.md)
-- [Managing file shares with Azure Storage Explorer](storage-how-to-use-files-storage-explorer.md)
-- [Planning for an Azure Files deployment](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [What is Azure Files?](storage-files-introduction.md)
