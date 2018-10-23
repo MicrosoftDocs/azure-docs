@@ -39,7 +39,7 @@ This problem occurs because Remote Desktop Services isn't running on the Virtual
 
 ## Solution
 
-To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md) and [attach the OS disk to a rescue VM](../windows/troubleshoot-recovery-disks-portal.md). Then, open an elevated CMD instance and run the following scripts on the rescue VM :
+To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md) and [attach the OS disk to a rescue VM](../windows/troubleshoot-recovery-disks-portal.md). Then, open an elevated CMD instance and run the following scripts on the rescue VM:
 
 >[!NOTE]
 >We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. After this is done, detach the disk from the recovery VM and [re-create your VM](../windows/create-vm-specialized.md).

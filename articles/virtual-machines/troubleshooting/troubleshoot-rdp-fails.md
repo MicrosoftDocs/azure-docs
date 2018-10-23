@@ -87,7 +87,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
   3. After you make any changes to the registry, restart the VM.
 
-  4. If you don't have CALs, the RD Session Host role needs to be removed to set the RDP back to normal and it only allows two concurrent RDP connections to the VM.
+  4. If you don't have CALs, remove the RD Session Host role. Then, the RDP will be set back to normal and it only allows two concurrent RDP connections to the VM.
 
     ```
     dism /ONLINE /Disable-feature /FeatureName:Remote-Desktop-Services
@@ -103,7 +103,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
 3. If there's no RD license server in the environment and you want one, you can [install an RD license role server or Remote Desktop Services (RDS) server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)), and then [configure the RDS licensing](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
 
-4. If an RD license server is configured and it is healthy, make sure that the RD license server is activated and it has CALs.
+4. If an RD license server is configured and healthy, make sure that the RD license server is activated, and that it has CALs.
 
 ## Next steps
 
