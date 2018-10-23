@@ -3,14 +3,14 @@ title: Azure Front Door Service - PowerShell reference | Microsoft Docs
 description: This reference details the different PowerShell cmdlets supported for Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: dlepow
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2018
-ms.author: sharadag
+ms.author: danlep
 Module Name: AzureRM.FrontDoor
 online version: https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorrulegroupoverrideobject
 schema: 2.0.0
