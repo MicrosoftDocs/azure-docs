@@ -37,7 +37,7 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: SSL termination
+  - name: End to end SSL
     href: ssl-overview.md
   - name: SSL policy overview
     href: application-gateway-ssl-policy-overview.md
