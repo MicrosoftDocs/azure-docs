@@ -21,13 +21,13 @@ ms.author: mbullwin
 Profiler currently works for ASP.NET and ASP.NET Core web apps that are running on Web Apps. The Basic service tier or higher is required to use Profiler.
 
 ## <a id="installation"></a> Enable Profiler for your Web Apps
-If you want to enable Profiler for a web app, follow the instructions below. If you are running a different type of Azure service, here are instructions for enabling Profiler on other supported platforms:
+To enable Profiler for a web app, follow the instructions below. If you are running a different type of Azure service, here are instructions for enabling Profiler on other supported platforms:
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-Application Insights Profiler is installed with the Application Insights site extension. You need to enable and configure the site extension in order to get profiles for your Azure Web Apps. Once you have deployed a Web App, regardless of if you included the App Insights SDK in the source code, follow the steps below to enable the profiler.
+Application Insights Profiler is installed with the Application Insights site extension. You need to install the site extension and configure it to get profiles for your Azure Web Apps. Once you have deployed a Web App, even if you have included the App Insights SDK in the source code, follow the steps below to enable the profiler.
 
 1. Go to the **App Services** pane in the Azure portal.
 1. Navigate to **Settings > Monitoring** pane.
@@ -50,7 +50,7 @@ To stop or restart Profiler for an individual web app's instance, under **Web Jo
 
 We recommend that you have Profiler enabled on all your web apps to discover any performance issues as early as possible.
 
-If you use WebDeploy to deploy changes to your web application, ensure that you exclude the App_Data folder from being deleted during deployment. Otherwise, the Profiler extension's files are deleted the next time you deploy the web application to Azure.
+If you use WebDeploy to deploy changes to your web application, make sure you exclude the App_Data folder from being deleted during deployment. Otherwise, the Profiler extension's files are deleted the next time you deploy the web application to Azure.
 
 
 

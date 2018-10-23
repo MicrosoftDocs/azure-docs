@@ -19,11 +19,11 @@ ms.author: mbullwin
 
 # Configure Application Insights Profiler
 
-The profiler settings page can be opened from the Application Insights Performance blade by pressing the **Profiler** button.
+The profiler settings page can be opened from the Application Insights Performance page by pressing the **Profiler** button.
 
 ![configure profiler pane entry][configure-profiler-entry]
 
-The Configure Application Insights Profiler blade contains 4 features: 
+The Configure Application Insights Profiler page contains four features: 
 1. **Profile Now** - clicking this button will cause profiling sessions to start for all apps that are linked to this instance of Application Insights
 1. **Linked apps** - List of applications sending profiler to this Application Insights resource
 1. **Sessions in Progress** - When you press **Profile Now**, the status of the session will display here)
@@ -32,7 +32,7 @@ The Configure Application Insights Profiler blade contains 4 features:
 ![Profiler on-demand][profiler-on-demand]
 
 ## Problem showing agent status for App Service Environments (ASE)
-Depending on how your ASE is configured, the call to check on the agent status may be blocked. This page will say that the agent is not running when in fact it is. You can check the webjob on your application to be sure. But if all the app settings are set correctly and the App Insights site extension is installed on your application, the profiler will be running and you should see recent profiling sessions in the list if there is adequate traffic to your application.
+Depending on how your ASE is configured, the call to check on the agent status may be blocked. This page will say that the agent isn't running when in fact it is. You can check the webjob on your application to be sure. But if all the app settings are set correctly and the App Insights site extension is installed on your application, the profiler will be running and you should see recent profiling sessions in the list if there's adequate traffic to your application.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler
 
@@ -41,7 +41,7 @@ The following steps illustrate how this scenario works:
 
 ### (Optional) Step 1: Generate traffic to your web app by starting a web performance test
 
-If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and proceed to Step 2.
+If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and continue to Step 2.
 
 Navigate to Application Insights portal, **Configure > Performance Testing**. Click on New button to start a new performance test.
 ![create new performance test][create-performance-test]
@@ -50,7 +50,7 @@ In the **New performance test** pane, configure the test target URL. Accept all 
 
 ![Configure load test][configure-performance-test]
 
-You will see the new test is queued first, followed by a status of in progress.
+You will see the new test is queued first, followed by a status of 'in progress'.
 
 ![load test is submitted and queued][load-test-queued]
 
@@ -64,7 +64,7 @@ Navigate to Configure Profiler pane:
 
 ### Step 3: View traces
 
-Once the profiler finishes running, follow the instructions on notification to go to Performance blade and view traces.
+Once the profiler finishes running, follow the instructions on notification to go to Performance page and view traces.
 
 ### Troubleshooting on-demand profiler
 
@@ -74,9 +74,9 @@ Sometimes you might see Profiler timeout error message after an on-demand sessio
 
 There could be two reasons why you see this error:
 
-1. The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data did not finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
+1. The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data didn't finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, just ignore the error message for now. We are actively working on a fix.
 
-1. Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand capability.
+1. Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand feature.
   
 Follow these steps to check and install the latest Profiler:
 
@@ -84,13 +84,13 @@ Follow these steps to check and install the latest Profiler:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for Application Insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
-If any of these settings are not set, go to the Application Insights enablement pane to install the latest site extension.
+If any of these settings aren't set, go to the Application Insights enablement pane to install the latest site extension.
 
 1. Go to Application Insights pane in App Services portal.
 
     ![Enable Application Insights from App Services portal][enable-app-insights]
 
-1. If you see an ‘Update’ button in the following page, click it to update Application Insights site extension which will install the latest Profiler agent.
+1. If you see an ‘Update’ button in the following page, click it to update Application Insights site extension that will install the latest Profiler agent.
 ![Update site extension][update-site-extension]
 
 1. Then click **change** to making sure the Profiler is turned on and select **OK** to save the changes.

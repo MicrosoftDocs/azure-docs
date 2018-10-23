@@ -21,22 +21,22 @@ ms.author: mbullwin
 ## <a id="troubleshooting"></a>General Troubleshooting
 
 ### **Profiles are only uploaded if there are requests to your application while the profiler is running.**
-Application Insights Profiler collects profiler data for two minutes each hour, or when the [**Profile Now**](app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json) button is pressed on the **Configure Application Insights Profiler** blade. But the profiling data is only uploaded when it can be attached to a request that happened while the profiler was running. 
+Application Insights Profiler collects profiler data for two minutes each hour, or when the [**Profile Now**](app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json) button is pressed on the **Configure Application Insights Profiler** page. But the profiling data is only uploaded when it can be attached to a request that happened while the profiler was running. 
 
-The profiler writes trace messages and custom events to your application insights resource, so you can use those events to see how the profiler is running. If you think the profiler should be running and capturing traces but you aren't seeing them in the Performance blade, you can check the following:
+The profiler writes trace messages and custom events to your application insights resource. You can use those events to see how the profiler is running. If you think the profiler should be running and capturing traces but you aren't seeing them in the Performance page, you can check how the profiler is running:
 
 1. Search for trace messages and custom events sent by the profiler to your Application Insights resource. You can use this search string to find the relevant data:
 
     ```
     stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
     ```
-    Here is an example from two searches from two different AI resources. The one on the left is from an application that is not getting requests while the profiler is running. You can see the message that the upload was canceled due to no activity. 
+    Here is an example from two searches from two different AI resources. The one on the left is from an application that isn't getting requests while the profiler is running. You can see the message that the upload was canceled because of no activity. 
 
-    In the example on the right, you can see that the profiler started and sent custom events when it detected requests that happened while the profiler was running. If you see the ServiceProfilerSample custom event, it means the profiler was able to attach a profile to a request and you can view the profiler trace from the Application Insights performance blade.
-    In
+    In the example on the right, you can see that the profiler started and sent custom events when it detected requests that happened while the profiler was running. If you see the ServiceProfilerSample custom event, it means the profiler attached a trace to a request and you can view the trace from the Application Insights performance page.
+
      ![Search Profiler Telemetry][profiler-search-telemetry]
 
-1. If there requests during the time period the profiler ran, make sure requests are handled by the part of your application that has the profiler enabled. Sometimes applications are comprised of multiple components but Profiler is only enabled for some, not all, of the components. The Configure Application Insights Profiler blade will show the components that have uploaded traces.
+1. If there are requests during the time period the profiler ran, make sure requests are handled by the part of your application that has the profiler enabled. Sometimes applications consist of multiple components but Profiler is only enabled for some, not all, of the components. The Configure Application Insights Profiler page will show the components that have uploaded traces.
 
 ### **.Net Core 2.1 bug** 
 There is a bug in the profiler agent that prevents it from uploading traces taken from applications running on ASP.NET Core 2.1. We are working on a fix and will have it ready soon. The fix for this bug will be deployed by the end of October.
@@ -44,14 +44,14 @@ There is a bug in the profiler agent that prevents it from uploading traces take
 ### **Other things to check:**
 * Your app is running on .NET Framework 4.6.
 * If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
-* If the data you are trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after 7 days.
+* If the data you are trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.
 * Ensure that proxies or a firewall have not blocked access to https://gateway.azureserviceprofiler.net.
 
 ### <a id="double-counting"></a>**Double counting in parallel threads**
 
 In some cases, the total time metric in the stack viewer is more than the duration of the request.
 
-This situation might occur when two or more threads are associated with a request, and they are operating in parallel. In that case, the total thread time is more than the elapsed time. One thread might be waiting on the other to be completed. The viewer tries to detect this and omits the uninteresting wait, but it errs on the side of displaying too much information rather than omit what might be critical information.
+This situation might occur when two or more threads are associated with a request, and they are operating in parallel. In that case, the total thread time is more than the elapsed time. One thread might be waiting on the other to be completed. The viewer tries to detect this situation and omits the uninteresting wait, but it errs on the side of displaying too much information rather than omit what might be critical information.
 
 When you see parallel threads in your traces, determine which threads are waiting so you can ascertain the critical path for the request. In most cases, the thread that quickly goes into a wait state is simply waiting on the other threads. Concentrate on the other threads, and ignore the time in the waiting threads.
 
@@ -64,7 +64,7 @@ Submit a support ticket in the portal. Be sure to include the correlation ID fro
 * Your web app must have the Application Insights extension for App Services (2.6.5) installed.
 * Your web app must have the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting configured with the same instrumentation key that's used by the Application Insights SDK.
 * Your web app must have the **APPINSIGHTS_PROFILERFEATURE_VERSION** app setting defined and set to 1.0.0.
-* The **ApplicationInsightsProfiler2** web job must be running. You can check this by going to [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), and opening the **WebJobs Dashboard** under the Tools menu. As you can see in the screenshots below, by clicking the ApplicationInsightsProfiler2 link, you can see details of the webjob, including the log.
+* The **ApplicationInsightsProfiler2** web job must be running. You can check the web job by going to [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), and opening the **WebJobs Dashboard** under the Tools menu. As you can see in the screenshots below, by clicking the ApplicationInsightsProfiler2 link, you can see details of the webjob, including the log.
 
     Here is the link you need to click to see the webjob details: 
 
@@ -94,7 +94,7 @@ Currently, you can enable Profiler on a maximum of four Azure web apps and deplo
 
 ### Deployment error: Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
-If you are redeploying your web app to a Web Apps resource with Profiler enabled, you might see a message like the following:
+If you are redeploying your web app to a Web Apps resource with Profiler enabled, you might see the following message:
 
 *Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
@@ -110,11 +110,11 @@ These parameters delete the folder that's used by Application Insights Profiler 
 
 Profiler runs as a continuous web job in the web app. You can open the web app resource in the [Azure portal](https://portal.azure.com). In the **WebJobs** pane, check the status of **ApplicationInsightsProfiler**. If it isn't running, open **Logs** to get more information.
 
-## Troubleshooting problems with Profiler when installing with WAD on Cloud Services, VMs and VM Scalesets and Service Fabric applications..
+## Troubleshooting problems with Profiler when installing with WAD on Cloud Services, VMs, and virtual machine scale sets and Service Fabric applications.
 
 There are three things to check to see that the profiler is configured correctly by WAD. First, you need to check that the contents of the WAD configuration that are deployed are what you expect. Second, you need to check WAD passes the proper iKey on the profiler command line. Third, you can check the profiler log file to see if profiler ran but is getting an error. 
 
-To check the settings that were used to configure WAD, you need to log into the VM and open the log file at a location similar to this: 
+To check the settings that were used to configure WAD, you need to log into the VM and open the log file at this location: 
 ```
 c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
 ```
@@ -126,7 +126,7 @@ D:\ProgramData\ApplicationInsightsProfiler\config.json
 ```
 Check that the ikey on the profiler command line is correct. 
 
-Third, using the path found in the config.json file above, check the profiler log file. It will contain debug information indicating the settings the profiler is using and status and error messages from the profiler. If the profiler is running while your application is receiving requests, you'll see a message like this: Activity detected from iKey. When the trace is being uploaded, you'll see a message like this: Start to upload trace. 
+Third, using the path found in the config.json file above, check the profiler log file. It will show debug information indicating the settings the profiler is using and status and error messages from the profiler. If the profiler is running while your application is receiving requests, you'll see this message: Activity detected from iKey. When the trace is being uploaded, you'll see this message: Start to upload trace. 
 
 
 [profiler-search-telemetry]:./media/app-insights-profiler/Profiler-Search-Telemetry.png

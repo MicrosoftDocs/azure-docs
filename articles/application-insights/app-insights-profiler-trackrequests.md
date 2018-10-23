@@ -18,7 +18,7 @@ ms.author: mbullwin
 ---
 # Write Code to track requests with Application Insights
 
-To see profiles for your application on the Performance blade, Application Insights needs to be tracking requests for your application. Application Insights can automatically track requests for application that are built on frameworks that are already instrumented, like ASP.net and ASP.Net Core. But for other applications, like Azure Cloud Service worker roles and Service Fabric stateless APIs, your need to write code to tell Application Insights where your requests begin and end. Once you have written this code, requests telemetry will be sent to Application Insights and you'll be able to see the telemetry on the Performance blade and collect profiles for those requests. 
+To see profiles for your application on the Performance page, Application Insights needs to be tracking requests for your application. Application Insights can automatically track requests for an application that are built on frameworks that are already instrumented, like ASP.net and ASP.Net Core. But for other applications, like Azure Cloud Service worker roles and Service Fabric stateless APIs, your need to write code to tell Application Insights where your requests begin and end. Once you've written this code, requests telemetry will be sent to Application Insights and you'll see the telemetry on the Performance page and profiles will be collected for those requests. 
 
 ### Steps and example code 
 
@@ -47,7 +47,7 @@ To see profiles for your application on the Performance blade, Application Insig
         }
         ```
 
-        Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope is not supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. For example:  
+        Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope isn't supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. For example:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))
