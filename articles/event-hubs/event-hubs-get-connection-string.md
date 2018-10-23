@@ -19,7 +19,7 @@ To use Event Hubs, you need to create an Event Hubs namespace. A namespace is a 
 
 The connection string for Azure Event Hubs has the following components embedded within it,
 
-* FQDN = the FQDN of the EventHubs namespace you created (this will include the EventHubs namespace name)
+* FQDN = the FQDN of the EventHubs namespace you created (this will include the EventHubs namespace name followed by servicebus.windows.net)
 * SharedAccessKeyName = the name you chose for your application's SAS keys
 * SharedAccessKey = the generated value of the key.
 
