@@ -38,7 +38,7 @@ The process outlined in this article only works classic Virtual Machines running
 
 ## Create a Service Principal
 
-Create a service principle in your Azure Active Directory tenant using the instructions found at [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). Note the following while going through this process: 
+Create a service principle in your Azure Active Directory tenant using the instructions found at [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
 - Create new client secret for this app  
 - Save the Key and the client id for use in later steps.
 
