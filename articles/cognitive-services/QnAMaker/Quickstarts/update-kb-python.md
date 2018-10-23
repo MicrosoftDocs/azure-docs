@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Python Update knowledge base - QnA Maker"
-description: How to update a knowledge base in Python for QnA Maker.
+title: "Quickstart: Update knowledge base - REST, Python - QnA Maker"
+description: This REST-based quickstart walks you through updating your sample QnA Maker knowledge base (KB), programmatically. The JSON definition you use to update a KB allows you to add, change or delete question and answer pairs. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -8,13 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 
-# Update a knowledge base in Python
+# Quickstart: Update a knowledge base in QnA Maker using Python
 
-The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
+This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
+
+This API is equivalent to editing, then using the **Save and train** button in the QnA Maker portal.
+
+This quickstart calls QnA Maker APIs:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

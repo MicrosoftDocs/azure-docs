@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
 
 ---
@@ -22,7 +22,7 @@ This article describes the structure of an Azure Resource Manager template. It p
 
 ## Quickstarts and tutorials
 
-Use the following quickstarts and tutorials to learn how to develop resource manager templates:
+Use the following quickstarts and tutorials to learn how to develop Resource Manager templates:
 
 - Quickstarts
 
@@ -300,7 +300,7 @@ In the resources section, you define the resources that are deployed or updated.
 ],
 ```
 
-For more information, see [Resources section of Azure Resource Manager templates](resource-manager-templates-resources.md).
+To conditionally include or exclude a resource during deployment, use the [Condition element](resource-manager-templates-resources.md#condition). For more information about the resources section, see [Resources section of Azure Resource Manager templates](resource-manager-templates-resources.md).
 
 ## Outputs
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
