@@ -152,9 +152,9 @@ Here's the C# script code:
 ```cs
 using System;
 
-public static void Run(string myEventHubMessage, ILogger log)
+public static void Run(string myEventHubMessage, TraceWriter log)
 {
-    log.LogInformation($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
@@ -225,8 +225,8 @@ The following examples show Event Hubs binding data in the *function.json* file.
 Here's the F# code:
 
 ```fsharp
-let Run(myEventHubMessage: string, log: ILogger) =
-    log.LogInformation(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+let Run(myEventHubMessage: string, log: TraceWriter) =
+    log.Log(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
 ### Trigger - JavaScript example
@@ -450,11 +450,12 @@ Here's C# script code that creates one message:
 
 ```cs
 using System;
+using Microsoft.Extensions.Logging;
 
 public static void Run(TimerInfo myTimer, out string outputEventHubMessage, ILogger log)
 {
     String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
-    log.Verbose(msg);   
+    log.LogInformation(msg);   
     outputEventHubMessage = msg;
 }
 ```

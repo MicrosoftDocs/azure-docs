@@ -50,9 +50,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 [return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
 public static SMSMessage Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    ILogger log)
+    TraceWriter log)
 {
-    log.LogInformation($"C# Queue trigger function processed: {order}");
+    log.Info($"C# Queue trigger function processed: {order}");
 
     var message = new SMSMessage()
     {
@@ -97,9 +97,9 @@ using System;
 using Newtonsoft.Json;
 using Twilio;
 
-public static void Run(string myQueueItem, out SMSMessage message,  ILogger log)
+public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter log)
 {
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
     // In this example the queue item is a JSON string representing an order that contains the name of a 
     // customer and a mobile number to send text updates to.

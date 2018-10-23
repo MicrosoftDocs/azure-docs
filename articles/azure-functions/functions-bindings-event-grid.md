@@ -123,9 +123,9 @@ Here's Functions 1.x C# script code that binds to `JObject`:
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-public static void Run(JObject eventGridEvent, ILogger log)
+public static void Run(JObject eventGridEvent, TraceWriter log)
 {
-    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
 }
 ```
 

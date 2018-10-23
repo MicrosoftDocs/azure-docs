@@ -69,7 +69,11 @@ public static void Run(
 }
 ```
 
-This example is for Azure Functions version 1.x; for 2.x, [omit the access rights parameter](#trigger---configuration).
+This example is for Azure Functions version 1.x. To make this code work for 2.x:
+
+- [omit the access rights parameter](#trigger---configuration)
+- change the type of the log parameter from `TraceWriter` to `ILogger`
+- change `log.Info` to `log.LogInformation`
  
 ### Trigger - C# script example
 
@@ -101,13 +105,13 @@ public static void Run(string myQueueItem,
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
     string messageId,
-    ILogger log)
+    TraceWriter log)
 {
-    log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.LogInformation($"DeliveryCount={deliveryCount}");
-    log.LogInformation($"MessageId={messageId}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 

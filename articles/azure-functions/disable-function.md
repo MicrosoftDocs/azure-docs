@@ -67,9 +67,9 @@ public static class QueueFunctions
     [FunctionName("QueueTrigger")]
     public static void QueueTrigger(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        ILogger log)
+        TraceWriter log)
     {
-        log.LogInformation($"C# function processed: {myQueueItem}");
+        log.Info($"C# function processed: {myQueueItem}");
     }
 }
 ```
@@ -83,9 +83,9 @@ public static class QueueFunctions
     [FunctionName("QueueTrigger")]
     public static void QueueTrigger(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        ILogger log)
+        TraceWriter log)
     {
-        log.LogInformation($"C# function processed: {myQueueItem}");
+        log.Info($"C# function processed: {myQueueItem}");
     }
 }
 ```
