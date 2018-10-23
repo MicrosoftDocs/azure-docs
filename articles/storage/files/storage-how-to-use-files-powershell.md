@@ -186,4 +186,4 @@ Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Extend Windows file servers with Azure File Sync](storage-sync-files-extend-servers.md)
+> [What is Azure Files?](storage-files-introduction.md)

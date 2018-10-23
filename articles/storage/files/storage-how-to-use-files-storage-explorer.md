@@ -87,4 +87,4 @@ You can't use Storage Explorer to remove resources. To clean up from this quicks
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Extend Windows file servers with Azure File Sync](storage-sync-files-extend-servers.md)
+> [What is Azure Files?](storage-files-introduction.md)

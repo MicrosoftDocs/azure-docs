@@ -4,10 +4,11 @@ description: An overview of Azure Files, a service that enables you to create an
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 07/19/2018
 ms.author: renash
 ms.component: files
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # What is Azure Files?

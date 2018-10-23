@@ -81,4 +81,4 @@ You can download a copy of the file you uploaded by right-clicking on the file. 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Extend Windows file servers with Azure File Sync](storage-sync-files-extend-servers.md)
+> [What is Azure Files?](storage-files-introduction.md)
