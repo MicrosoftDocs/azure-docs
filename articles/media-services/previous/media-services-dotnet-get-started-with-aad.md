@@ -4,7 +4,7 @@ description: This topic shows how to use Azure Active Directory (Azure AD) authe
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 10/22/2018
 ms.author: juliako
 
 ---
@@ -25,7 +25,7 @@ Starting with windowsazure.mediaservices 4.0.0.4, Azure Media Services supports 
 - An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 - The latest [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) package.
-- Familiarity with the topic [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md). 
+- Familiarity with the topic [Accessing Azure Media Services API with Azure AD authentication overview](media-services-use-aad-auth-to-access-ams-api.md). 
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
@@ -93,14 +93,14 @@ The following code example creates a **CloudMediaContext** instance:
 
 The following example shows how to create the Azure AD token and the context:
 
-	namespace AADAuthSample
+	namespace AzureADAuthSample
 	{
 	    class Program
 	    {
 	        static void Main(string[] args)
 	        {
 				// Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
-	            var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
+	            var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
 	
 	            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 	
@@ -154,7 +154,7 @@ The following code example creates a **CloudMediaContext** instance:
 	
 The following example shows how to create the Azure AD token and the context:
 
-	namespace AADAuthSample
+	namespace AzureADAuthSample
 	{
 	
 	    class Program
