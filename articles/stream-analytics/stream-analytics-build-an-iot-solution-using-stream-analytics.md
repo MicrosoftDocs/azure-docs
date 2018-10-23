@@ -104,7 +104,7 @@ Here is a short description of the columns:
 | Expired |The registration status of the vehicle: 0 if vehicle registration is active, 1 if registration is expired |
 
 ## Set up the environment for Azure Stream Analytics
-To complete this solution, you need a Microsoft Azure subscription. If you do not have an Azure account, you can [request a free trial version](http://azure.microsoft.com/pricing/free-trial/).
+To complete this solution, you need a Microsoft Azure subscription. If you do not have an Azure account, you can [request a free trial version](https://azure.microsoft.com/pricing/free-trial/).
 
 Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your Azure credit.
 
