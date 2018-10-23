@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Machine Learning | Microsoft Docs
-description: New features that are available in Azure Machine Learning.
+title: What's new in Azure Machine Learning Studio | Microsoft Docs
+description: New features that are available in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,14 +15,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 10/28/2018
 
 ---
-# What's New in Azure Machine Learning
+# What's New in Azure Machine Learning Studio
 
-### The March 2017 release of Microsoft Azure Machine Learning updates provides the following feature:
+### October 2018
 
+The R language engine in the [Execute R Script](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script) module has added a new R runtime version -- Microsoft R Open (MRO) 3.4.4. MRO 3.4.4 is based on open-source CRAN R 3.4.4 and is therefore compatible with packages that works with that version of R.  Learn more about the supported R packages in the article, "[R Packages supported by Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning#bkmk_List)".
 
+### March 2017 
+This release of Microsoft Azure Machine Learning updates provides the following feature:
 
 * Dedicated Capacity for Azure Machine Learning BES Jobs
 
