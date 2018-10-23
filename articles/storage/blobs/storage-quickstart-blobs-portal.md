@@ -42,7 +42,7 @@ Block blobs consist of blocks of data assembled to make a blob. Most scenarios u
 To upload a block blob to your new container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the container you created in the previous section.
-2. Select the container to show a list of blobs it contains. Since this is a new container, it won't contain any blobs yet.
+2. Select the container to show a list of blobs it contains. Since this is a new container, it won't yet contain any blobs.
 3. Click the **Upload** button to upload a blob to the container.
 4. Browse your local file system to find a file to upload as a block blob, and click **Upload**.
      
