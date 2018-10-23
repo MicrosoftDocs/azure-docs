@@ -51,6 +51,19 @@ Perform the following steps to cable your device.
 4. Assign static IPs to the data ports that you have configured.
 5. Set up a direct network connection (e.g. net use) to the Data Box shared folders. Use a copy tool (e.g. Robocopy) on the server to copy data to the Data Box.
 
+## Two port setup with a switch
+
+Perform the following steps to cable your device.
+
+1. Use an RJ45 Ethernet cable from the server directly to the MGMT portal for configuration.
+2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10 GbE DATA 1 or DATA 2 ports for good performance. The data ports are connected via a 10 GbE switch to the server with data.
+
+    ![Two port setup with a switch](media/data-box-cable-options/cabling-with-static-ip.png)
+
+3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
+4. Identify the IP addresses assigned by the DHCP server.
+5. Set up a direct network connection (e.g. net use) to the Data Box shared folders. Use a copy tool (e.g. Robocopy) on the server to copy data to the Data Box.
+
 ## Two port setup via a switch and static IPs
 
 Perform the following steps to cable your device.
@@ -62,19 +75,6 @@ Perform the following steps to cable your device.
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Assign static IPs to the data ports that you have configured.
-5. Set up a direct network connection (e.g. net use) to the Data Box shared folders. Use a copy tool (e.g. Robocopy) on the server to copy data to the Data Box.
-
-## Two port setup with DHCP server
-
-Perform the following steps to cable your device.
-
-1. Use an RJ45 Ethernet cable from the server directly to the MGMT portal for configuration.
-2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10 GbE DATA 1 or DATA 2 ports for good performance. The data ports are connected via a 10 GbE switch to the server with data.
-
-    ![Two port setup with a switch](media/data-box-cable-options/cabling-with-switch-static-ip.png)
-
-3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
-4. Identify the IP addresses assigned by the DHCP server. 
 5. Set up a direct network connection (e.g. net use) to the Data Box shared folders. Use a copy tool (e.g. Robocopy) on the server to copy data to the Data Box.
 
 ## DHCP server only setup
