@@ -117,7 +117,7 @@ Add the **identity** configuration to the VM resource to ensure that Azure assig
     ...
 ```
 
-Add the following configuration to enable the Diagnostics extension on a Windows virtual machine.  For a simple Resource Manager-based virtual machine, we can add the extension configuration to the resources array for the virtual machine. The line "sinks" -- "AzMonSink"  and the corresponding "SinksConfig" later in the section -- enable the extension to emit metrics directly to Azure Monitor. Feel free to add or remove performance counters as needed.  
+Add the following configuration to enable the Diagnostics extension on a Windows virtual machine.  For a simple Resource Manager-based virtual machine, we can add the extension configuration to the resources array for the virtual machine. The line "sinks"&mdash; "AzMonSink"  and the corresponding "SinksConfig" later in the section&mdash;enable the extension to emit metrics directly to Azure Monitor. Feel free to add or remove performance counters as needed.  
 
 
 ```json
