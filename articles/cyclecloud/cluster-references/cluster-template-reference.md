@@ -57,6 +57,8 @@ MachineType | String | (Required) The Azure VM Size
 SubnetId | String | (Required) Subnet definition in the form `${rg}/${vnet}/${subnet}`
 Credentials | String | (Required) Name of the Cloud Provider account.
 ImageName | String | Cycle-supported image name.  cycle.image.[win2016, win2012, centos7, centos6, ubuntu16, ubuntu14]
+ComputerName | String | Computer name for VM. If specified, overrides the system-generated name.
+ComputerNamePrefix | String | Prefix prepended to system-generated computer names.
 Azure.Publisher | String | Publisher of VM Marketplace image
 Azure.Offer | String | Offer for VM Marketplace image
 Azure.Sku | String | Sku of VM Marketplace image
