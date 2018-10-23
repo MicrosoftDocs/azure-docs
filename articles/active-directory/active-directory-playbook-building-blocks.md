@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: dstefan
 
 ---
@@ -160,7 +160,7 @@ Approximate time to Complete: 60 minutes
 
 ### Considerations
 
-1. If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [Configure applications that are not in the Azure AD application gallery](manage-apps/configure-single-sign-on-non-gallery-applications).
+1. If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [Configure applications that are not in the Azure AD application gallery](manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 ## SaaS Password SSO Configuration
 
