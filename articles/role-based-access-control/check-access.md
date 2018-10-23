@@ -24,7 +24,7 @@ ms.reviewer: bagovind
 
 You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to view the role assignments for multiple users, groups, and applications, but sometimes you just need to quickly view role assignments for a single user, group, or application. The easiest way to do this is to use the **Check access** feature in the Azure portal.
 
-## View the role assignments
+## View role assignments
 
 Follow these steps to view the role assignments for a single user, group, or application at the subscription scope.
 
