@@ -59,15 +59,16 @@ Under **Monitoring**, select **Diagnostic settings**.
 
    ![Find and select your integration account, select "Diagnostic settings"](media/logic-apps-monitor-b2b-message/find-integration-account.png)
 
-1. For the resource where you want to turn on logging, confirm that these values are correct. 
-Otherwise, select the values you want. When you're done, choose **Add diagnostic setting**.
+1. Now find and select your integration account. In filter lists, 
+select the values that apply to your integration account.
+When you're done, choose **Add diagnostic setting**.
 
    | Property | Value | Description | 
    |----------|-------|-------------|
    | **Subscription** | <*Azure-subscription-name*> | The Azure subscription that's associated with your integration account | 
    | **Resource group** | <*Azure-resource-group-name*> | The Azure resource group for your integration account | 
    | **Resource type** | **Integration accounts** | The type for the Azure resource where you want to turn on logging | 
-   | **Resource** | <*integration-account-name*> | The name for your Azure resource where you wnat to turn on logging | 
+   | **Resource** | <*integration-account-name*> | The name for your Azure resource where you want to turn on logging | 
    ||||  
 
    For example:
@@ -75,7 +76,7 @@ Otherwise, select the values you want. When you're done, choose **Add diagnostic
    ![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
 1. Provide a name for your new diagnostic setting and 
-select your Log Analytics workspace and the data for logging.
+select your Log Analytics workspace and the data you want to log.
 
    1. Select **Send to Log Analytics**. 
 
@@ -101,53 +102,46 @@ select your Log Analytics workspace and the data for logging.
 ### Turn on logging through Azure Monitor
 
 1. In the [Azure portal](https://portal.azure.com), 
-on the main Azure menu, choose **Monitor**, **Diagnostics logs**. 
-Then select your integration account as shown here:
+on the main Azure menu, select **Monitor**. 
+Under **Settings**, select **Diagnostics settings**. 
 
-   ![Choose "Monitor", "Diagnostic logs", select your integration account](media/logic-apps-monitor-b2b-message/monitor-service-diagnostics-logs.png)
+   ![Select "Monitor" > "Diagnostics settings" > your integration account](media/logic-apps-monitor-b2b-message/monitor-diagnostics-settings.png)
 
-1. After you select your integration account, 
-the following values are automatically selected. 
-If these values are correct, choose **Turn on diagnostics**. 
-Otherwise, select the values that you want:
+1. Now find and select your integration account. In filter lists, 
+select the values that apply to your integration account.
+When you're done, choose **Add diagnostic setting**.
 
-   1. Under **Subscription**, select the Azure subscription 
-   that you use with your integration account.
-
-   1. Under **Resource group**, select the resource group that 
-   you use with your integration account.
-
-   1. Under **Resource type**, select **Integration accounts**.
-
-   1. Under **Resource**, select your integration account.
-
-   1. Choose **Turn on diagnostics**.
+   | Property | Value | Description | 
+   |----------|-------|-------------|
+   | **Subscription** | <*Azure-subscription-name*> | The Azure subscription that's associated with your integration account | 
+   | **Resource group** | <*Azure-resource-group-name*> | The Azure resource group for your integration account | 
+   | **Resource type** | **Integration accounts** | The type for the Azure resource where you want to turn on logging | 
+   | **Resource** | <*integration-account-name*> | The name for your Azure resource where you want to turn on logging | 
+   ||||  
 
    For example:
 
    ![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-1. Under **Diagnostics settings**, choose **On**.
-
-   ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
-
-1. Now select the Log Analytics workspace and event category for logging as shown:
+1. Provide a name for your new diagnostic setting and 
+select your Log Analytics workspace and the data you want to log.
 
    1. Select **Send to Log Analytics**. 
 
-   1. Under **Log Analytics**, choose **Configure**. 
+   1. Under **Log Analytics**, select **Configure**. 
 
-   1. Under **OMS workspaces**, select the Log Analytics workspace to use for logging.
+   1. Under **OMS workspaces**, select the Log Analytics 
+   workspace you want to use for logging. 
 
       > [!NOTE]
-      > OMS workspaces are replaced by Log Analytics workspaces.
+      > OMS workspaces are being replaced by Log Analytics workspaces. 
 
-   1. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
+   1. Under **Log**, select the **IntegrationAccountTrackingEvents** category, 
+   and choose **Save**.
 
-   1. When you're done, choose **Save**.
+   For example: 
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
-
 1. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## Use diagnostic data with other services
@@ -159,22 +153,20 @@ diagnostic data with other Azure services, for example:
 * [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 You can then get real-time monitoring by using telemetry 
-and analytics from other services, 
-like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
+and analytics from other services, like 
+[Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
 and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-Based on the options that you want set up, make sure that you first 
+Based on the options you want set up, make sure that you first 
 [create an Azure storage account](../storage/common/storage-create-storage-account.md) 
 or [create an Azure event hub](../event-hubs/event-hubs-create.md). 
-Then select the options for where you want to send diagnostic data:
+You can then select the destinations where you want to send diagnostic data.
+Retention periods apply only when you choose to use a storage account.
 
-![Send data to Azure storage account or event hub](./media/logic-apps-monitor-b2b-message/storage-account-event-hubs.png)
-
-> [!NOTE]
-> Retention periods apply only when you choose to use a storage account.
+![Send data to Azure storage account or event hub](./media/logic-apps-monitor-b2b-message/diagnostics-storage-event-hub-log-analytics.png)
 
 ## Supported tracking schemas
 
