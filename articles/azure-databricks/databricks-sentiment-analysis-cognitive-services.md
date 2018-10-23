@@ -127,7 +127,7 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 2. In the New Library page, for **Source** select **Maven Coordinate**. For **Coordinate**, enter the coordinate for the package you want to add. Here is the Maven coordinates for the libraries used in this tutorial:
 
-    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
+    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
     * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
     ![Provide Maven coordinates](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
@@ -398,27 +398,17 @@ Start by adding a new code cell in the notebook and paste the code snippet provi
     import java.net._
     import java.util._
 
-    class Document(var id: String, var text: String, var language: String = "", var sentiment: Double = 0.0) extends Serializable
+    case class Language(documents: Array[LanguageDocuments], errors: Array[Any]) extends Serializable
+    case class LanguageDocuments(id: String, detectedLanguages: Array[DetectedLanguages]) extends Serializable
+    case class DetectedLanguages(name: String, iso6391Name: String, score: Double) extends Serializable
 
-    class Documents(var documents: List[Document] = new ArrayList[Document]()) extends Serializable {
+    case class Sentiment(documents: Array[SentimentDocuments], errors: Array[Any]) extends Serializable
+    case class SentimentDocuments(id: String, score: Double) extends Serializable
 
-        def add(id: String, text: String, language: String = "") {
-            documents.add (new Document(id, text, language))
-        }
-        def add(doc: Document) {
-            documents.add (doc)
-        }
-    }
+    case class RequestToTextApi(documents: Array[RequestToTextApiDocument]) extends Serializable
+    case class RequestToTextApiDocument(id: String, text: String, var language: String = "") extends Serializable
 
-Add a new code cell and paste the code snippet provided below. This code snippet is required for parsing JSON strings.
-
-    class CC[T] extends Serializable { def unapply(a:Any):Option[T] = Some(a.asInstanceOf[T]) }
-    object M extends CC[scala.collection.immutable.Map[String, Any]]
-    object L extends CC[scala.collection.immutable.List[Any]]
-    object S extends CC[String]
-    object D extends CC[Double]
-
-Add a new code cell and paste the snippet provided below. This snippet defines an object that contains functions to call the Text Analysis API to run language detection and sentiment analysis. Make sure you replace the placeholders, `<PROVIDE ACCESS KEY HERE>` and `<PROVIDE HOST HERE>`, with the values you retrieved for your Cognitive Services account.
+Add a new code cell and paste the snippet provided below. This snippet defines an object that contains functions to call the Text Analysis API to run language detection and sentiment analysis. Make sure you replace the placeholders, `<PROVIDE ACCESS KEY HERE>` and `<PROVIDE REGION HERE>`, with the values you retrieved for your Cognitive Services account.
 
     import javax.net.ssl.HttpsURLConnection
     import com.google.gson.Gson
@@ -429,116 +419,114 @@ Add a new code cell and paste the snippet provided below. This snippet defines a
 
     object SentimentDetector extends Serializable {
 
-      // Cognitive Services API connection settings
-      val accessKey = "<PROVIDE ACCESS KEY HERE>"
-      val host = "<PROVIDE HOST HERE>"
-      val languagesPath = "/text/analytics/v2.0/languages"
-      val sentimentPath = "/text/analytics/v2.0/sentiment"
-      val languagesUrl = new URL(host+languagesPath)
-      val sentimenUrl = new URL(host+sentimentPath)
+        // Cognitive Services API connection settings
+        val accessKey = "<PROVIDE ACCESS KEY HERE>"
+        val host = "https://<PROVIDE REGION HERE>.api.cognitive.microsoft.com"
+        val languagesPath = "/text/analytics/v2.0/languages"
+        val sentimentPath = "/text/analytics/v2.0/sentiment"
+        val languagesUrl = new URL(host+languagesPath)
+        val sentimenUrl = new URL(host+sentimentPath)
+        val g = new Gson
 
-      def getConnection(path: URL): HttpsURLConnection = {
-        val connection = path.openConnection().asInstanceOf[HttpsURLConnection]
-        connection.setRequestMethod("POST")
-        connection.setRequestProperty("Content-Type", "text/json")
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey)
-        connection.setDoOutput(true)
-        return connection
-      }
-
-      def prettify (json_text: String): String = {
-        val parser = new JsonParser()
-        val json = parser.parse(json_text).getAsJsonObject()
-        val gson = new GsonBuilder().setPrettyPrinting().create()
-        return gson.toJson(json)
-      }
-
-      // Handles the call to Cognitive Services API.
-      // Expects Documents as parameters and the address of the API to call.
-      // Returns an instance of Documents in response.
-      def processUsingApi(inputDocs: Documents, path: URL): String = {
-        val docText = new Gson().toJson(inputDocs)
-        val encoded_text = docText.getBytes("UTF-8")
-        val connection = getConnection(path)
-        val wr = new DataOutputStream(connection.getOutputStream())
-        wr.write(encoded_text, 0, encoded_text.length)
-        wr.flush()
-        wr.close()
-
-        val response = new StringBuilder()
-        val in = new BufferedReader(new InputStreamReader(connection.getInputStream()))
-        var line = in.readLine()
-        while (line != null) {
-            response.append(line)
-            line = in.readLine()
+        def getConnection(path: URL): HttpsURLConnection = {
+            val connection = path.openConnection().asInstanceOf[HttpsURLConnection]
+            connection.setRequestMethod("POST")
+            connection.setRequestProperty("Content-Type", "text/json")
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey)
+            connection.setDoOutput(true)
+            return connection
         }
-        in.close()
-        return response.toString()
-      }
 
-      // Calls the language API for specified documents.
-      // Returns a documents with language field set.
-      def getLanguage (inputDocs: Documents): Documents = {
-        try {
-          val response = processUsingApi(inputDocs, languagesUrl)
-          // In case we need to log the json response somewhere
-          val niceResponse = prettify(response)
-          val docs = new Documents()
-          val result = for {
+        def prettify (json_text: String): String = {
+            val parser = new JsonParser()
+            val json = parser.parse(json_text).getAsJsonObject()
+            val gson = new GsonBuilder().setPrettyPrinting().create()
+            return gson.toJson(json)
+        }
+
+        // Handles the call to Cognitive Services API.
+        def processUsingApi(request: RequestToTextApi, path: URL): String = {
+            val requestToJson = g.toJson(request)
+            val encoded_text = requestToJson.getBytes("UTF-8")
+            val connection = getConnection(path)
+            val wr = new DataOutputStream(connection.getOutputStream())
+            wr.write(encoded_text, 0, encoded_text.length)
+            wr.flush()
+            wr.close()
+
+            val response = new StringBuilder()
+            val in = new BufferedReader(new InputStreamReader(connection.getInputStream()))
+            var line = in.readLine()
+            while (line != null) {
+                response.append(line)
+                line = in.readLine()
+            }
+            in.close()
+            return response.toString()
+        }
+
+        // Calls the language API for specified documents.
+        def getLanguage (inputDocs: RequestToTextApi): Option[Language] = {
+            try {
+                val response = processUsingApi(inputDocs, languagesUrl)
+                // In case we need to log the json response somewhere
+                val niceResponse = prettify(response)
                 // Deserializing the JSON response from the API into Scala types
-                Some(M(map)) <- scala.collection.immutable.List(JSON.parseFull(niceResponse))
-                L(documents) = map("documents")
-                M(document) <- documents
-                S(id) = document("id")
-                L(detectedLanguages) = document("detectedLanguages")
-                M(detectedLanguage) <- detectedLanguages
-                S(language) = detectedLanguage("iso6391Name")
-          } yield {
-                docs.add(new Document(id = id, text = id, language = language))
-          }
-          return docs
-        } catch {
-              case e: Exception => return new Documents()
+                val language = g.fromJson(niceResponse, classOf[Language])
+                if (language.documents(0).detectedLanguages(0).iso6391Name == "(Unknown)")
+                    return None
+                return Some(language)
+            } catch {
+                case e: Exception => return None
+            }
         }
-      }
 
-      // Calls the sentiment API for specified documents. Needs a language field to be set for each of them.
-      // Returns documents with sentiment field set, taking a value in the range from 0 to 1.
-      def getSentiment (inputDocs: Documents): Documents = {
-        try {
-          val response = processUsingApi(inputDocs, sentimenUrl)
-          val niceResponse = prettify(response)
-          val docs = new Documents()
-          val result = for {
+        // Calls the sentiment API for specified documents. Needs a language field to be set for each of them.
+        def getSentiment (inputDocs: RequestToTextApi): Option[Sentiment] = {
+            try {
+                val response = processUsingApi(inputDocs, sentimenUrl)
+                val niceResponse = prettify(response)
                 // Deserializing the JSON response from the API into Scala types
-                Some(M(map)) <- scala.collection.immutable.List(JSON.parseFull(niceResponse))
-                L(documents) = map("documents")
-                M(document) <- documents
-                S(id) = document("id")
-                D(sentiment) = document("score")
-          } yield {
-                docs.add(new Document(id = id, text = id, sentiment = sentiment))
-          }
-          return docs
-        } catch {
-            case e: Exception => return new Documents()
+                val sentiment = g.fromJson(niceResponse, classOf[Sentiment])
+                return Some(sentiment)
+            } catch {
+                case e: Exception => return None
+            }
         }
-      }
     }
 
+Add another cell to define a Spark UDF (User Defined Function) that determines sentiment.
+
     // User Defined Function for processing content of messages to return their sentiment.
-    val toSentiment = udf((textContent: String) => {
-      val inputDocs = new Documents()
-      inputDocs.add (textContent, textContent)
-      val docsWithLanguage = SentimentDetector.getLanguage(inputDocs)
-      val docsWithSentiment = SentimentDetector.getSentiment(docsWithLanguage)
-      if (docsWithLanguage.documents.isEmpty) {
-        // Placeholder value to display when unable to perform sentiment request for text in unknown language
-        (-1).toDouble
-      } else {
-        docsWithSentiment.documents.get(0).sentiment.toDouble
-      }
-    })
+    val toSentiment =
+    udf((textContent: String) =>
+        {
+            val inputObject = new RequestToTextApi(Array(new RequestToTextApiDocument(textContent, textContent)))
+            val detectedLanguage = SentimentDetector.getLanguage(inputObject)
+            detectedLanguage match {
+            case Some(language) =>
+                if(language.documents.size > 0) {
+                inputObject.documents(0).language = language.documents(0).detectedLanguages(0).iso6391Name
+                val sentimentDetected = SentimentDetector.getSentiment(inputObject)
+                sentimentDetected match {
+                    case Some(sentiment) => {
+                    if(sentiment.documents.size > 0) {
+                        sentiment.documents(0).score.toString()
+                    }
+                    else {
+                        "Error happened when getting sentiment: " + sentiment.errors(0).toString
+                    }
+                    }
+                    case None => "Couldn't detect sentiment"
+                }
+                }
+                else {
+                "Error happened when getting language" + language.errors(0).toString
+                }
+            case None => "Couldn't detect language"
+            }
+        }
+    )
 
 Add a final code cell to prepare a dataframe with the content of the tweet and the sentiment associated with the tweet.
 
