@@ -17,7 +17,8 @@ ms.author: genli
 ---
 
 # Remote Desktop Services is not starting on an Azure VM
-This article describes how to troubleshoot issues of connecting to an Azure Virtual Machine (VM) when Remote Desktop Services (TermService) is not starting or failing to start.
+
+This article describes how to troubleshoot issues of connecting to an Azure Virtual Machine (VM) when Remote Desktop Services (TermService) isn't starting or failing to start.
 
 >[!NOTE]
 >Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
@@ -27,18 +28,18 @@ This article describes how to troubleshoot issues of connecting to an Azure Virt
 When you try to connect to a VM, you experience the following issues:
 
 - The VM screenshot shows the operating system is fully loaded and waiting for credentials.
-- Remote Desktop Services (TermService) is not running on the VM.
+- Remote Desktop Services (TermService) isn't running on the VM.
 
 ## Cause
 
-Remote Desktop Services is not running on the Virtual Machine. The cause can depend on the following scenarios:
+This problem occurs because Remote Desktop Services isn't running on the Virtual Machine. The cause can depend on the following scenarios:
 
 - The TermService service was set to **Disabled**.
 -	The TermService service is crashing or hanging.
 
 ## Solution
 
-To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md), and [attach the OS disk to a rescue VM](../windows/troubleshoot-recovery-disks-portal.md). Then, connect to the rescue VM and run the following scripts on an elevated CMD instance:
+To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md) and [attach the OS disk to a rescue VM](../windows/troubleshoot-recovery-disks-portal.md). Then, open an elevated CMD instance and run the following scripts on the rescue VM :
 
 >[!NOTE]
 >We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. After this is done, detach the disk from the recovery VM and [re-create your VM](../windows/create-vm-specialized.md).
@@ -47,9 +48,9 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
 
 REM Enable Serial Console
-bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
-bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5 bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} bootems yes bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
-bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} displaybootmenu yes
+bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} timeout 5 bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} bootems yes bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /ems {<Boot Loader Identifier>} ON
+bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
 
 REM Get the current ControlSet from where the OS is booting
 for /f "tokens=3" %x in ('REG QUERY HKLM\BROKENSYSTEM\Select /v Current') do set ControlSet=%x
@@ -62,21 +63,21 @@ REG ADD %key% /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
 REG ADD %key% /v NMICrashDump /t REG_DWORD /d 1 /f
 
 REM Set default values back on the broken service
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<PROCESS NAME>" /v start /t REG_DWORD /d <STARTUP TYPE> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<PROCESS NAME>" /v ImagePath /t REG_EXPAND_SZ /d "<IMAGE PATH>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<PROCESS NAME>" /v ObjectName /t REG_SZ /d "<STARTUP ACCOUNT>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<PROCESS NAME>" /v type /t REG_DWORD /d 16 /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<PROCESS NAME>" /v start /t REG_DWORD /d <STARTUP TYPE> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<PROCESS NAME>" /v ImagePath /t REG_EXPAND_SZ /d "<STARTUP ACCOUNT>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<PROCESS NAME>" /v ObjectName /t REG_SZ /d "<STARTUP ACCOUNT>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<PROCESS NAME>" /v type /t REG_DWORD /d 16 /f
+reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v start /t REG_DWORD /d <Startup Type> /f
+reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v ImagePath /t REG_EXPAND_SZ /d "<Image Path>" /f
+reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v ObjectName /t REG_SZ /d "<Startup Account>" /f
+reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v type /t REG_DWORD /d 16 /f
+reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v start /t REG_DWORD /d <Startup Type> /f
+reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v ImagePath /t REG_EXPAND_SZ /d "<Startup Account>" /f
+reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v ObjectName /t REG_SZ /d "<Startup Account>" /f
+reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v type /t REG_DWORD /d 16 /f
 
 REM Enable default dependencies from the broken service
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<DRIVER/SERVICE NAME>" /v start /t REG_DWORD /d <STARTUP TYPE> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<DRIVER/SERVICE NAME>" /v start /t REG_DWORD /d <STARTUP TYPE> /f
+reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Driver/Service Name>" /v start /t REG_DWORD /d <Startup Type> /f
+reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Driver/Service Name>" /v start /t REG_DWORD /d <Startup Type> /f
 reg unload HKLM\BROKENSYSTEM
 ```
 
 ## Next steps
 
-If you still cannot resolve this issue, open a support request.
+If you still can't resolve this issue, open a support request.

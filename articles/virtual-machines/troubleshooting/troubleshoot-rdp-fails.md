@@ -18,7 +18,7 @@ ms.author: genli
 
 # RDP fails if no RD license server is available in Azure
 
-This article helps resolve the issue in which you cannot connect to an Azure Virtual Machine (VM) because no Remote Desktop (RD) license server is available to provide a license.
+This article helps resolve the issue in which you can't connect to an Azure Virtual Machine (VM) because no Remote Desktop (RD) license server is available to provide a license.
 
 ## Symptoms
 
@@ -35,19 +35,19 @@ When you try to connect to a VM, you experience the following issues:
     No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and has not contacted at least a valid Windows Server 2008 license server. Click this message to open RD Session Host Server Configuration to use Licensing Diagnosis.
     ```
 
-However, you can connect to the VM normally by using an administrative session. To do this, use the following command:
+However, you can connect to the VM normally by using an administrative session by using the following command:
 
     `mstsc /v:<Server>[:<Port>] /admin`
 
 ## Cause
 
-An RD license server is unavailable to provide a license to start a remote session. This can be caused by several scenarios even though an RD Session Host role was set up on the VM:
+This problem occurs if an RD license server is unavailable to provide a license to start a remote session. This problem can be caused by several scenarios even though an RD Session Host role was set up on the VM:
 
 - There was never an RD license role in the environment and the grace period (180 days) is over.
 - An RD license was installed in the environment but it is never activated.
-- An RD license on the environment does not have Client Access Licenses (CALs) injected to set up the connection.
-- An RD license was installed on the environment. There are available CALs but they were not configured properly.
-- An RD license has CALs and it was activated. However, some other issues on the RD license server prevent it from providing licenses on the environment.
+- An RD license in the environment doesn't have Client Access Licenses (CALs) injected to set up the connection.
+- An RD license was installed in the environment. There are available CALs but they weren't configured properly.
+- An RD license has CALs and it was activated. However, some other issues on the RD license server prevent it from providing licenses in the environment.
 
 ## Solution
 
@@ -57,7 +57,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
     `mstsc /v:<Server>[:<Port>] /admin`
 
-2. Check whether the VM has an RD Session Host role enabled. If the role is enabled, make sure that it is functioning properly. To do this, open an elevated CMD instance and follow these steps:
+2. Check whether the VM has an RD Session Host role enabled. If the role is enabled, make sure that it is functioning properly. Open an elevated CMD instance and follow these steps:
 
   1. Use the following command to check the status of the RD Session Host role:
 
@@ -73,13 +73,13 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
       ```
 
-      If the LicensingMode value is set to any other value than 4 (per user), then set the value to 4:
+      If the **LicensingMode** value is set to any other value than 4 (per user), then set the value to 4:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode /t REG_DWORD /d 4
       ```
 
-      If the SpecifiedLicenseServers value does not exist or it has an incorrect license server information, then change it as the following:
+      If the **SpecifiedLicenseServers** value doesn't exist or it has an incorrect license server information, then change it as follows:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers /t REG_MULTI_SZ /d "<FQDN / IP License server>"
@@ -87,7 +87,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
   3. After you make any changes to the registry, restart the VM.
 
-  4. If you do not have CALs, the RD Session Host role needs to be removed. This will set the RDP back to normal and it only allows 2 concurrent RDP connections to the VM.
+  4. If you don't have CALs, the RD Session Host role needs to be removed to set the RDP back to normal and it only allows two concurrent RDP connections to the VM.
 
     ```
     dism /ONLINE /Disable-feature /FeatureName:Remote-Desktop-Services
@@ -101,10 +101,10 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
   5. Make sure that there are no networking blocks when you access the RD license server.  
 
-3. If there is no RD license server in the environment and you want one, you can [install an RD license role server or Remote Desktop Services (RDS) server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)), and then [configure the RDS licensing](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
+3. If there's no RD license server in the environment and you want one, you can [install an RD license role server or Remote Desktop Services (RDS) server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)), and then [configure the RDS licensing](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
 
 4. If an RD license server is configured and it is healthy, make sure that the RD license server is activated and it has CALs.
 
 ## Next steps
 
-If you still cannot resolve this issue, open a support request.
+If you still can't resolve this issue, open a support request.
