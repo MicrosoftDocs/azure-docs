@@ -13,7 +13,7 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to make code changes to my Service Fabric Mesh app and upgrade my app on Azure
@@ -48,6 +48,8 @@ Before you begin this tutorial:
 This article shows how to independently upgrade a microservice within an application.  In this example, we will modify the `WebFrontEnd` service to display a task category. Then we'll upgrade the deployed service.
 
 ## Modify the config
+
+JTW - drop tools stuff here.
 
 Upgrades can be due to code changes, config changes, or both.  To introduce a config change, open the `WebFrontEnd` project's `service.yaml` file (which is under the **Service Resources** node).
 
