@@ -30,7 +30,7 @@ There are multiple ways to register an application. Select the option that best 
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
 1. When the **Register an application** page appears, enter a name for your application.
-1. Under **Supported Microsoft accounts**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. When finished, select **Register**.
 1. In the left-hand navigation pane of the registered application, select **Quickstart**. 
 1. Under **Single page applications**, select **JavaScript**.
