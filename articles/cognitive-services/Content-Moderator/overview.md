@@ -54,7 +54,7 @@ The Content Moderator service includes APIs for the following scenarios.
 
 The Content Moderator service also includes the built-in [human review tool](Review-Tool-User-Guide/human-in-the-loop.md). Use the previously mentioned Review API to initiate team reviews of text, images, and videos so that your human moderators can make the final decisions.
 
-![Content Moderator video review tool](images/video-review-default-view.png)
+![Content Moderator Home Page](images/homepage.PNG)
 
 ## Next steps
 

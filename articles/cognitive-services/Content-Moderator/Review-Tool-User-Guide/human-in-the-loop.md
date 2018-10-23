@@ -26,3 +26,5 @@ The human review tool when used in conjunction with the machine-assisted moderat
 5. Add human review to any API or business process by simply building a connector.
 6. Use the default connectors to review results from Microsoft PhotoDNA, Text Analytics, and Face APIs.
 7. Get key performance metrics on your content moderation processes.
+
+![Content Moderator video review tool](../images/video-review-default-view.png)
