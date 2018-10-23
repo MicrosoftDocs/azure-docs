@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create an image classification project - Custom Vision Service, Python"
+title: "Tutorial: Create an image classification project with the Custom Vision SDK for Python"
 titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 08/28/2018
 ms.author: areddish
 ---
 
-# Tutorial: Create an image classification project using the Custom Vision Service with Python
+# Tutorial: Create an image classification project with the Custom Vision SDK for Python
 
 Learn how to create an image classification project with the Custom Vision Service and a basic Python script. After it's created, you can add tags, upload images, train the project, get the project's default prediction endpoint URL, and use it to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
 
