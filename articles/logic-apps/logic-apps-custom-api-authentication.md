@@ -134,7 +134,7 @@ In PowerShell, run these commands:
 the **Application ID**, and the password that you used.
 
 For more information, learn how to 
-[create a service principal with PowerShell to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+[create a service principal with PowerShell to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 #### Part 2: Create an Azure AD application identity for your web app or API app
 

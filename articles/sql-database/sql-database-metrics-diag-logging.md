@@ -344,7 +344,7 @@ If you are using Azure SQL Analytics, you can easily monitor your data ingestion
 
 ## Metrics and logs available
 
-Please find detailed monitoring telemetry content of metrics and logs available for Azure SQL Database, elastic pools, Managed Instance, and databases in Managed Instance for your **custom analysis** and **application development** using [SQL Analytics language](https://docs.microsoft.com/en-us/azure/log-analytics/query-language/get-started-queries).
+Please find detailed monitoring telemetry content of metrics and logs available for Azure SQL Database, elastic pools, Managed Instance, and databases in Managed Instance for your **custom analysis** and **application development** using [SQL Analytics language](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 ## All metrics
 
