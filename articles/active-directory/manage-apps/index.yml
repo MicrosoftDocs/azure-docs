@@ -15,6 +15,16 @@ metadata:
   ms.author: barbkess
 abstract:
   description: Learn how to manage and deploy applications with Azure Active Directory.
+  aside: 
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250  
+    title: Secure access to your applications with Azure AD (1:47)
+    href: https://youtu.be/BSUuXXcJKCk/ 
+    width: 250
+
 sections:
 - title: 5-Minute Quickstarts
   items:
