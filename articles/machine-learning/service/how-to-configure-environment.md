@@ -109,16 +109,16 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
 
     It might take several minutes to create the environment if Python 3.6 and other components need to be downloaded.
 
-1. Install the Azure Machine Learning SDK with notebook extras by using the following command:
+1. Install the Azure Machine Learning SDK with notebook extras and the Data Preparation SDK by using the following command:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl]
+    pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
     > [!NOTE]
     > If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
     >
-    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
     It might take several minutes to install the SDK.
 
@@ -171,10 +171,10 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
     source activate myenv
     ```
 
-1. Install the Azure Machine Learning SDK with the following command:
+1. Install the Azure Machine Learning SDK and Data Preparation SDK with the following command:
 
     ```shell
-    pip install --upgrade azureml-sdk[automl]
+    pip install --upgrade azureml-sdk[automl] azureml-dataprep
     ```
 
 1. Install the Visual Studio code Tools for AI extension. See [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
