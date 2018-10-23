@@ -6,6 +6,101 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/frontdoor/front-door-powershell-reference.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/frontdoor/Get-AzureRmFrontDoor.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/get-azurermfrontdoor",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/frontdoor/Get-AzureRmFrontDoorFireWallPolicy.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/get-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoor.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoor",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorBackendObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorbackendobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorBackendPoolObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorbackendpoolobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorCustomRuleObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorcustomruleobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorFireWallPolicy.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorFrontendEndpointObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorfrontendendpointobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorHealthProbeSettingObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorhealthprobesettingobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorLoadBalancingSettingObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorloadbalancingsettingobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorManagedRuleObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoormanagedruleobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorMatchConditionObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoormatchconditionobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorRoutingRuleObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorroutingruleobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/New-AzureRmFrontDoorRuleGroupOverrideObject.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorrulegroupoverrideobject",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/Remove-AzureRmFrontDoor.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/remove-azurermfrontdoor",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/frontdoor/Remove-AzureRmFrontDoorFireWallPolicy.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/remove-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/frontdoor/Set-AzureRmFrontDoor.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/set-azurermfrontdoor",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/frontdoor/Set-AzureRmFrontDoorFireWallPolicy.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/set-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/governance/management-groups/overview.md",
             "redirect_url": "/azure/governance/management-groups/index",
             "redirect_document_id": true
