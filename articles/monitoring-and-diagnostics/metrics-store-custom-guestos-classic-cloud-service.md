@@ -110,11 +110,13 @@ In the "SinksConfig" section of your diagnostics file, define a new Azure Monito
 
 In the section of your configuration file where you list the performance counters to collect, add the Azure Monitor sink. This entry ensures that all the performance counters that you specified are routed to Azure Monitor as metrics. You can add or remove performance counters according to your needs. 
 
-```XML<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink"> 
- <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT15S" /> 
-  … 
-</PerformanceCounters> 
-```
+```xml
+    <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink">
+        <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT15S" />
+    ...
+    </PerformanceCounters>
+    ```
+
 Finally, in the private configuration, add an *Azure Monitor Account* section. Enter the service principal client ID and secret that you created earlier. 
 
 ```XML
