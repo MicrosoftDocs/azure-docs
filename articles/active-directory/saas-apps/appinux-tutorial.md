@@ -102,12 +102,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/appinux-tutorial/tutorial_general_301.png)
 
-
-4. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Configure Single Sign-On](./media/appinux-tutorial/tutorial_appinux_editurl.png)
 
-5. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
 	![Appinux Domain and URLs single sign-on information](./media/appinux-tutorial/tutorial_appinux_url1.png)
 
@@ -118,11 +117,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Appinux Client support team](mailto:kenneth.thorman@appinux.com) to get these values.
 
-6. Appinux application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. Appinux application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
 	![Attribute section](./media/appinux-tutorial/edit_attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
 	| Name | Source Attribute|
 	| ---------------| --------- |
@@ -155,11 +154,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. Click **Save**.
 
-8. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save metadata file on your computer.
+7. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save metadata file on your computer.
 
 	![The Certificate download link](./media/appinux-tutorial/tutorial_appinux_certificate.png) 
 
-9. To configure single sign-on on **Appinux** side, you need to send the downloaded **Metadata XML** to [Appinux support team](mailto:kenneth.thorman@appinux.com). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **Appinux** side, you need to send the downloaded **Metadata XML** to [Appinux support team](mailto:kenneth.thorman@appinux.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Creating an Azure AD test user
 
