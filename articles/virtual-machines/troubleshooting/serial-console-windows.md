@@ -55,11 +55,11 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 
     ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-3.	Type **cmd** to create a channel that has a CMD instance. 
-4.	Type **ch-si 1** to switch to the channel that is running the CMD instance. 
+3.	Type `cmd` to create a channel that has a CMD instance. 
+4.	Type `ch-si 1` to switch to the channel that is running the CMD instance. 
 5.	Press Enter, and then input your login credentials that have administrative permission.
 6.	After you enter valid credentials, the CMD instance opens.
-7.	To start a PowerShell instance, type **PowerShell** in the CMD instance and then press Enter.
+7.	To start a PowerShell instance, type `PowerShell` in the CMD instance and then press Enter.
 
 ## Enable Serial Console in custom or older images
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
