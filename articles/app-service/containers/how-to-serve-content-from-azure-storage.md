@@ -13,20 +13,33 @@ ms.author: msangapu
 ---
 # Serve content from Azure Storage in App Service on Linux
 
-This guide shows how to serve static content in App Service on Linux by using [Azure Storage](/azure/storage/). This technique helps optimize your App Service resources for application logic, while letting another service serve the static files. In this guide, you learn how to do it by [configuring custom storage](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/). 
-
-The benefits of moving content to Azure Storage include: more bandwidth to the web app, content portability, and multiple methods of transferring content. You'll complete this how-to locally with the [Azure CLI](/cli/azure/install-azure-cli) command-line tool (2.0.46 or later).
+This guide shows how to serve static content in App Service on Linux by using [Azure Storage](/azure/storage/). The benefits of moving content to Azure Storage include: more bandwidth to the web app, content portability, and multiple methods of transferring content. In this guide, you learn how to do it by [configuring custom storage](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/).
 
 ## Prerequisites
 
-To complete this how-to, you will need an [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
+- An existing web app (App Service on Linux or Web App for Containers).
+- [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 or later).
+
+## Create Azure Storage
+
+Create an Azure [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli) by fol
+
+```azurecli
+#Create Storage Account
+az storage account create --name <storage_account_name> --resource-group myResourceGroup
+
+#Create Storage Container
+az storage container create --name wp-uploads --account-name wp-uploads-account
+```
+
+
 
 ## Upload files
 
 To upload a local directory to the storage account, you use the [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) command like the following example:
 
 ```azurecli
-az storage blob upload-batch -d <local_directory_name> --account-name <account_name> --account-key "<access_key>" -s <source_location_name>
+az storage blob upload-batch -d <full_path_to_local_directory> --account-name <account_name> --account-key "<access_key>" -s <source_location_name>
 ```
 
 ## Link storage
@@ -42,6 +55,10 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 ```
 
 You should do this for any other directories you want to be linked to a storage account.
+
+> [!NOTE]
+> Storage Type can be either AzureBlob or AzureFiles.
+>
 
 ## Verify
 
