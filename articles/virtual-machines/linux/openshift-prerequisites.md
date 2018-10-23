@@ -144,4 +144,4 @@ This article covered the following topics:
 Next, deploy an OpenShift cluster:
 
 - [Deploy OpenShift Container Platform](./openshift-container-platform.md)
-- [Deploy OpenShift OKD](./openshift-origin.md)
+- [Deploy OKD](./openshift-okd.md)

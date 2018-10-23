@@ -66,6 +66,7 @@ With this version, the customer deploys containers but has no control over which
 
 - [Configure common prerequisites for OpenShift in Azure](./openshift-prerequisites.md)
 - [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)
-- [Deploy OKD in Azure](./openshift-origin.md)
+- [Deploy OKD in Azure](./openshift-okd.md)
+- [Deploy OpenShift in Azure Stack](./openshift-azure-stack.md)
 - [Post-deployment tasks](./openshift-post-deployment.md)
 - [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
