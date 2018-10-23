@@ -14,8 +14,8 @@ ms.author: barbkess
 ms.reviewer: arvindh
 ---
 
-# Manage the way end users consent to an application in Azure Active Directory
-These are methods an admin can use to control whether or not users see the consent prompt when they access an application.  These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
+# Manage the way end-users consent to an application in Azure Active Directory
+This article shows you how to control whether users see the consent prompt when they access an application.  These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
 
 For more information on application consent, see [Azure Active Directory consent framework](consent-framework.md).
 
