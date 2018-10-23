@@ -30,9 +30,13 @@ The profiler writes trace messages and custom events to your application insight
     ```
     stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
     ```
-    Here is an example from two searches from two different AI resources. The one on the left is from an application that isn't getting requests while the profiler is running. You can see the message that the upload was canceled because of no activity. 
+    Here is an example from two searches from two different AI resources in the screenshot below. 
+    
+    * The one on the left is from an application that isn't getting requests while the profiler is running. You can see the message that the upload was canceled because of no activity. 
 
-    In the example on the right, you can see that the profiler started and sent custom events when it detected requests that happened while the profiler was running. If you see the ServiceProfilerSample custom event, it means the profiler attached a trace to a request and you can view the trace from the Application Insights performance page.
+    * In the example on the right, you can see that the profiler started and sent custom events when it detected requests that happened while the profiler was running. If you see the ServiceProfilerSample custom event, it means the profiler attached a trace to a request and you can view the trace from the Application Insights performance page.
+
+    * If you don't see any telemetry at all, then the profiler is not running. You may need to read the troubleshooting sections for your specific app type on this document below.  
 
      ![Search Profiler Telemetry][profiler-search-telemetry]
 
@@ -82,6 +86,7 @@ When you configure Profiler, updates are made to the web app's settings. You can
 1. Set **.Net Framework version** to **v4.6**.
 1. Set **Always On** to **On**.
 1. Add the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting, and set the value to the same instrumentation key that's used by the SDK.
+1. Add the **APPINSIGHTS_PROFILERFEATURE_VERSION** app setting, and set the value to 1.0.0.
 1. Open **Advanced Tools**.
 1. Select **Go** to open the Kudu website.
 1. On the Kudu website, select **Site extensions**.
