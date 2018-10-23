@@ -43,7 +43,7 @@ Manager template and role assignment on the new resource group.
 
    ![Create blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Provide a **Blueprint Name** such as 'MyBlueprint' (letters and numbers -- up to 48 characters, but no spaces or special characters) for the blueprint, but leave **Blueprint Description** blank for now.  In the **Define Location** box, click the ellipsis on the right, select the [management group](../management-groups/overview.md) where you want to save the blueprint and click **Select**.
+1. Provide a **Blueprint Name** such as 'MyBlueprint' (letters and numbers -- up to 48 characters, but no spaces or special characters) for the blueprint, but leave **Blueprint Description** blank for now.  In the **Definition Location** box, click the ellipsis on the right, select the [management group](../management-groups/overview.md) where you want to save the blueprint and click **Select**.
 
    > [!NOTE]
    > Blueprint definitions can only be saved to management groups. To create your first management group, follow [these steps](../management-groups/create.md).
@@ -114,7 +114,7 @@ Manager template and role assignment on the new resource group.
 
    ![Artifact - Resource Manager template](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. Your completed blueprint should look similar to the following. Notice that each artifact has '_x_ out of _y_ parameters populated' under the _Parameters_ column. The **dynamic parameters** will be set during each assignment of the blueprint and the single **static parameter** on the role assignment has already been configured.
+1. Your completed blueprint should look similar to the following. Notice that each artifact has '_x_ out of _y_ parameters populated' under the _Parameters_ column. The **dynamic parameters** will be set during each assignment of the blueprint.
 
    ![Completed blueprint](./media/create-blueprint-portal/completed-blueprint.png)
 

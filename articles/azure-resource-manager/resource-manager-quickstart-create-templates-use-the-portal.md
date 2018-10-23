@@ -11,17 +11,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/16/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.author: jgao
+
+#Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 
 ---
 
 # Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal
 
-Learn how to create your first Azure Resource Manager template by generating one using the Azure portal, and the process of editing and deploying the template from the Azure portal. The instructions in this tutorial create an Azure Storage account. You can use the same process to create other Azure resources.
-
-Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To create a template, you don't have to always start from scratch. In this tutorial, you learn how to generate a template from the Azure portal. You can then customize the template and deploy it.
+Learn how to create your first Azure Resource Manager template by generating one using the Azure portal, and the process of editing and deploying the template from the Azure portal. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. The instructions in this tutorial create an Azure Storage account. You can use the same process to create other Azure resources.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -50,19 +50,21 @@ In this section, you create a storage account using the Azure portal. Before you
 
     ![Generate a template from the portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    The main pane shows the template. It is a JSON file with four top-level elements - *schema*, *contentVersion*, *parameters* and *resources*. For more information, see [Understand the structure and syntax of Azure Resource Manager Templates](./resource-group-authoring-templates.md)
+    The main pane shows the template. It is a JSON file with four top-level elements - `schema`, `contentVersion`, `parameters` and `resources`. For more information, see [Understand the structure and syntax of Azure Resource Manager Templates](./resource-group-authoring-templates.md)
 
-    There are six parameters defined. One of them is called **storageAccountName**. The second highlighted part shows how to use a parameter in templates. In the next section, you edit the template to use a generated name for the storage account.
-6. Select **Download**. Save **template.json** from the downloaded package to your computer.
-7. Select the **Parameter** tab to see the values you provided for the parameters. Write down these values, you need them in the next session when you deploy the template.
+    There are six parameters defined. One of them is called **storageAccountName**. The second highlighted part shows how to use this parameter in the template. In the next section, you edit the template to use a generated name for the storage account.
+
+    In the template, one Azure resource is defined. The type is [Microsoft.Storage/storageAccounts]. See how the resource is defined, and the definition structure.
+6. Select **Download**. Save **template.json** from the downloaded package to your computer. In the next section, you use a template deployment tool to edit the template.
+7. Select the **Parameter** tab to see the values you provided for the parameters. Write down these values, you need them in the next section when you deploy the template.
 
     ![Generate a template from the portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    These values are what you configured in the previous section. Using both the template and the parameters files, you can create an Azure storage account.
+    Using both the template and the parameters files, you can create an Azure storage account.
 
 ## Edit and deploy the template
 
-The Azure portal can be used to perform some basic template editing. To edit a more complex template, consider using [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) which provides richer edit functionalities.
+The Azure portal can be used to perform some basic template editing. In this quickstart, you use a portal tool called *Template Deployment*. To edit a more complex template, consider using [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) which provides richer edit functionalities.
 
 Azure requires that each Azure service has a unique name. The deployment fails if you enter a storage account name that already exists. To avoid this issue, you can use a template function call `uniquestring()` to generate a unique storage account name.
 
@@ -81,7 +83,7 @@ Azure requires that each Azure service has a unique name. The deployment fails i
     ```
     ![Azure Resource Manager templates](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Two functions are used here: *concat()* and *uniqueString()*. The uniqueString() is helpful for creating a unique name for a resource.
+    Two functions are used here: `concat()` and `uniqueString()`.
 
 8. Remove the **storageAccountName** parameter highlighted in the previous screenshot.
 9. Update the name element of the **Microsoft.Storage/storageAccounts** resource to use the newly defined variable instead of the parameter:
