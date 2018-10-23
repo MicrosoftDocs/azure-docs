@@ -110,8 +110,7 @@ In the "SinksConfig" section of your diagnostics file, define a new Azure Monito
 
 In the section of your configuration file where you list the performance counters to collect, add the Azure Monitor sink. This entry ensures that all the performance counters that you specified are routed to Azure Monitor as metrics. You can add or remove performance counters according to your needs. 
 
-```XML
-<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink"> 
+```XML<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink"> 
  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT15S" /> 
   … 
 </PerformanceCounters> 
@@ -160,7 +159,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 ```
  
 > [!NOTE] 
-> It's still mandatory to provide a storage account as part of the installation of the Diagnostics extension. Any logs or performance counters that are specified in the Diagnostics config file are written to the specified storage account.  
+> It's still mandatory to provide a storage account as part of the installation of the Diagnostics extension. Any logs or performance counters that are specified in the diagnostics config file are written to the specified storage account.  
 
 ## Plot metrics in the Azure portal 
 
