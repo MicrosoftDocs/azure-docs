@@ -23,19 +23,20 @@ ms.custom: include file
 There are multiple ways to create an application, please select one of them:
 
 ### Option 1: Register your application (Express mode)
+
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 
-1.	Register your application through the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure).
-2.	Enter a name for your application and your email.
-3.	Make sure the option for **Guided Setup** is checked.
-4.	Follow the instructions to obtain the application ID and paste it into your code.
+1. Register your application through the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure).
+2. Enter a name for your application and your email.
+3. Make sure the option for **Guided Setup** is checked.
+4. Follow the instructions to obtain the application ID and paste it into your code.
 
 ### Option 2: Register your application (Advanced mode)
 
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application.
 2. Enter a name for your application and your email.
 3. Make sure the option for **Guided Setup** is unchecked.
-4.	Click **Add Platform**, then select **Web**.
+4. Click **Add Platform**, and then select **Web**.
 5. Add the **Redirect URL** that corresponds to the application's URL based on your web server. See the sections below for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
 6. Select **Save**.
 
@@ -47,14 +48,13 @@ Now you need to register your application in the *Microsoft Application Registra
 
 > #### Visual Studio instructions for obtaining the redirect URL
 > Follow these steps to obtain the redirect URL:
-> 1.	In **Solution Explorer**, select the project and look at the **Properties** window. If you don’t see a **Properties** window, press **F4**.
-> 2.	Copy the value from **URL** to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.	Switch back to the *Application Registration Portal* and paste the value as a **Redirect URL** and select **Save**
-
+> 1. In **Solution Explorer**, select the project and look at the **Properties** window. If you don’t see a **Properties** window, press **F4**.
+> 2. Copy the value from **URL** to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3. Switch back to the *Application Registration Portal* and paste the value as a **Redirect URL** and select **Save**.
 
 #### Configure your JavaScript SPA
 
-1.	In the  `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
+1. In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
 ```javascript
 var applicationConfig = {
