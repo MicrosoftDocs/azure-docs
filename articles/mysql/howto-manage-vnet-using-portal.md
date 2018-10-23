@@ -28,7 +28,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
     Service endpoints can be configured on virtual networks independently, by a user with write access to the virtual network.
     
-    To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
+    To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
     
     Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
     
