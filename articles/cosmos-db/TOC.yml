@@ -72,8 +72,9 @@
     - name: Resource model
       href: sql-api-resources.md
     - name: Global distribution
-      href: distribute-data-globally.md
       items:
+      - name: Introduction
+        href: distribute-data-globally.md
       - name: Key benefits
         href: distribute-data-globally-benefits.md
       - name: Enable global distribution
@@ -85,8 +86,9 @@
       - name: Conflict resolution
         href: multi-master-conflict-resolution.md  
     - name: Throughput
-      href: request-units.md
       items:
+      - name: Introduction
+        href: request-units.md
       - name: Get and set throughput
         href: set-throughput.md
     - name: Partitioning and data distribution
@@ -102,8 +104,9 @@
     - name: Unique keys
       href: unique-keys.md
     - name: Security
-      href: database-security.md
       items:
+        - name: Introduction
+          href: database-security.md
         - name: Data encryption
           href: database-encryption-at-rest.md
         - name: Secure access to data
