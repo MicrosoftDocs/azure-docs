@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 
 ---
@@ -152,6 +152,11 @@ You can select the row for peering and modify the peering properties.
 ### <a name="deleteprivate"></a>To delete Azure private peering
 
 You can remove your peering configuration by selecting the delete icon, as shown in the following image:
+
+> [!WARNING]
+> You must ensure that all virtual networks and ExpressRoute Global Reach connections are removed before running this example. 
+> 
+> 
 
 ![delete private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 
