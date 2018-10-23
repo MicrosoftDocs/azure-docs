@@ -5,13 +5,8 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: 
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 10/23/2018
 ms.author: cherylmc
 
 ---
