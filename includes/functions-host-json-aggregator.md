@@ -11,7 +11,7 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-Specifies how many function invocations are aggregated when [calculating metrics for Application Insights](functions-monitoring.md#configure-the-aggregator). 
+Specifies how many function invocations are aggregated when [calculating metrics for Application Insights](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator). 
 
 ```json
 {

@@ -1711,7 +1711,7 @@ By default, when you write to the output parameter in your function, a document 
 ## Host.json configuration - Functions 2.x
 
 > [!NOTE]
-> These settings apply to Azure Functions 2.x.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md#serviceBus).
+> These settings apply to Azure Functions 2.x.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 >
 > See [host.json reference for Azure Functions 2.x](functions-host-json.md) for information on the host.json configuration.
 
@@ -1729,6 +1729,12 @@ By default, when you write to the output parameter in your function, a document 
     }
 }
 ```  
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)| 
+|leasePrefix|n/a|Lease prefix to use across all functions in an app.| 
 
 ## Next steps
 

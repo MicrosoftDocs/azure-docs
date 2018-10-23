@@ -11,7 +11,7 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-Configuration settings for [Durable Functions](durable-functions-overview.md).
+Configuration settings for [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
 ```json
 {

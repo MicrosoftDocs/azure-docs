@@ -97,7 +97,7 @@ Configuration setting can be found in [CosmosDB triggers and bindings](functions
 
 ## durableTask
 
-Configuration setting can be found in [bindings for Durable Functions](durable-functions-bindings#host-json).
+Configuration setting can be found in [bindings for Durable Functions](durable-functions-bindings.md#host-json).
 
 ## eventHub
 
