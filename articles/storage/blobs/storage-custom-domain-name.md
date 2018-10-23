@@ -55,7 +55,7 @@ The process of mapping your custom domain to a blob endpoint can result in a bri
 The intermediary method is covered in [Register a custom domain by using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
 
 ## Register a custom domain
-Register the domain by using the procedure in this section if the following statements are true:
+Register the domain by using the procedure in this section if the following statements apply:
 * You are unconcerned that the domain is briefly unavailable to your users.
 * Your custom domain is not currently hosting an application. 
 
@@ -90,7 +90,7 @@ You can usually manage your domain's DNS settings on your domain registrar's web
 After your new CNAME record has propagated through DNS, if your users have the appropriate permissions, they can view blob data by using your custom domain.
 
 ## Register a custom domain by using the *asverify* subdomain
-If your custom domain currently supports an application with an SLA that requires that there be no downtime, register your custom domain by using the procedure in this section. By creating a CNAME that points from *asverify.<subdomain>.<customdomain>* to *asverify.<storageaccount>.blob.core.windows.net*, you can pre-register your domain with Azure. You can then create a second CNAME that points from *<subdomain>.<customdomain>* to *<storageaccount>.blob.core.windows.net*, and then traffic to your custom domain is directed to your blob endpoint.
+If your custom domain currently supports an application with an SLA that requires that there be no downtime, register your custom domain by using the procedure in this section. By creating a CNAME that points from *asverify.\<subdomain>.\<customdomain>* to *asverify.\<storageaccount>.blob.core.windows.net*, you can pre-register your domain with Azure. You can then create a second CNAME that points from *\<subdomain>.\<customdomain>* to *\<storageaccount>.blob.core.windows.net*, and then traffic to your custom domain is directed to your blob endpoint.
 
 The *asverify* subdomain is a special subdomain recognized by Azure. By prepending *asverify* to your own subdomain, you permit Azure to recognize your custom domain without having to modify the DNS record for the domain. When you do modify the DNS record for the domain, it will be mapped to the blob endpoint with no downtime.
 
