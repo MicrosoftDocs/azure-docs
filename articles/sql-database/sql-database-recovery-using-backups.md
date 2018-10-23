@@ -64,7 +64,7 @@ There is no built-in functionality to do bulk restore. The [Azure SQL Database: 
 
 ## Point-in-time restore
 
-You can restore a single, pooled, or Managed Instance database to an earlier point in time as a new database on the same server using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases). A database can be restored to any service tier or compute size. Ensure you have sufficient resources on the server to which you are restoring the database. Once complete, the restored database is a normal, fully accessible, online database. The restored database is charged at normal rates based on its service tier and compute size. You do not incur charges until the database restore is complete.
+You can restore a single, pooled, or Managed Instance database to an earlier point in time as a new database on the same server using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases). A database can be restored to any service tier or compute size. Ensure you have sufficient resources on the server to which you are restoring the database. Once complete, the restored database is a normal, fully accessible, online database. The restored database is charged at normal rates based on its service tier and compute size. You do not incur charges until the database restore is complete.
 
 You generally restore a database to an earlier point for recovery purposes. When doing so, you can treat the restored database as a replacement for the original database or use it to retrieve data from and then update the original database.
 
@@ -154,7 +154,7 @@ To restore a single or pooled database using the REST API:
 | API | Description |
 | --- | --- |
 | [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Restores a database |
-| [Get Create or Update Database Status](https://docs.microsoft.com/en-us/rest/api/sql/operations) |Returns the status during a restore operation |
+| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/operations) |Returns the status during a restore operation |
 |  | |
 
 ### Azure CLI
