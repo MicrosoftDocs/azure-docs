@@ -65,7 +65,7 @@
 ## Monitor
 ### [Monitor cloud service](cloud-services-how-to-monitor.md)
 ### [Use performance counters](diagnostics-performance-counters.md)
-### [Test performance](/visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services?toc=/azure/cloud-services/TOC.md&bc=/azure/bread/toc.json)
+### [Test performance](/visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services?toc=/azure/cloud-services/toc.json&bc=/azure/bread/toc.json)
 #### [Test with Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Enable diagnostics
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
