@@ -348,8 +348,6 @@
         href: active-directory-optional-claims.md
       - name: Configure token lifetimes (Preview)
         href: active-directory-configurable-token-lifetimes.md
-      - name: Authenticate with Azure AD and get a JWT token using OAuth 2.0
-        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Application configuration
       items:
       - name: Convert a single-tenant app to a multi-tenant app
