@@ -49,18 +49,6 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
   3. Click on the VM in the list. The overview page for the VM will open.
   4. Scroll down to the Support + Troubleshooting section and click on the "Serial console" option. A new pane with the serial console will open and start the connection.
 
-## Open CMD or Powershell in Serial Console
-
-1. Connect to Serial Console. If you successfully connect to Serial Console, you will see **SAC>** as the following screenshot shows:
-
-    ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
-
-3.	Type `cmd` to create a channel that has a CMD instance. 
-4.	Type `ch-si 1` to switch to the channel that is running the CMD instance. 
-5.	Press Enter, and then input your login credentials that have administrative permission.
-6.	After you enter valid credentials, the CMD instance opens.
-7.	To start a PowerShell instance, type `PowerShell` in the CMD instance and then press Enter.
-
 ## Enable Serial Console in custom or older images
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
 To enable Serial console for Windows virtual machines created before February 2018, please use the following steps: 
@@ -106,6 +94,21 @@ The Serial Console can be used to send an NMI to an Azure virtual machine using 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
 For information on configuring Windows to create a crash dump when it receives an NMI, see: [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
+
+## Open CMD or Powershell in Serial Console
+
+1. Connect to Serial Console. If you successfully connect to Serial Console, you will see **SAC>** as the following screenshot shows:
+
+    ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.	Type `cmd` to create a channel that has a CMD instance. 
+4.	Type `ch -si 1` to switch to the channel that is running the CMD instance. 
+5.	Press Enter, and then input your login credentials that have administrative permission.
+6.	After you enter valid credentials, the CMD instance opens.
+7.	To start a PowerShell instance, type `PowerShell` in the CMD instance and then press Enter. 
+
+    ![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
 
 ## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
