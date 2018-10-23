@@ -437,7 +437,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

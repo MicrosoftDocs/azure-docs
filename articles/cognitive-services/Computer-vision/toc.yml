@@ -173,13 +173,13 @@
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
-  - name: Pricing
+  - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure Roadmap
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/

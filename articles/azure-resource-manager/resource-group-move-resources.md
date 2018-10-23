@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
 
 ---
@@ -106,7 +106,7 @@ Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAn
 
 ## Validate move
 
-The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
+The [validate move operation](/rest/api/resources/resources/resources_validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
 
 * name of the source resource group
 * resource ID of the target resource group

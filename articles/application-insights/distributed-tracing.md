@@ -40,7 +40,7 @@ The Application Insights SDKs for .NET, .NET Core, Java, Node.js, and JavaScript
 
 With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in [the Dependency auto-collection documentation](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
- Additionally, any technology can be tracked manually with a call to [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) on the [TeleletryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Additionally, any technology can be tracked manually with a call to [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) on the [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
 
 ## Enable via OpenCensus
 

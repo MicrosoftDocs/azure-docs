@@ -146,9 +146,9 @@
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Troubleshoot
     items:
-    - name: Input connections
+    - name: Input
       href: stream-analytics-troubleshoot-input.md
-    - name: Ouput connections
+    - name: Ouput
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
