@@ -190,7 +190,7 @@ The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets. Instal
 
 At this point, you've finished setting up your environment for the tutorial and you're ready to begin deploying the **Storage Sync Service**.
 
-## Deploy the Storage Sync Service 
+## Deploy the service 
 Deploying Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group for your selected subscription. The Storage Sync Service inherits access permissions from the subscription and resource group you deploy it into.
 
 1. In the Azure portal, click **Create a resource** and then search for **Azure File Sync**.
@@ -211,7 +211,7 @@ Deploying Azure File Sync starts with placing a **Storage Sync Service** resourc
 1. When you're finished, select **Create** to deploy the **Storage Sync Service**.
 1. Click the **Notifications** tab > **Go to resource**.
 
-## Install the Azure File Sync agent
+## Install the agent
 The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share.
 
 1. Switch back to the **Windows Server 2016 Datacenter** VM and open **Internet Explorer**.
@@ -254,7 +254,7 @@ The Server Registration UI should open automatically after installing the **Azur
 1. As part of the registration process, you are prompted for an additional sign-in. Sign in and click **Next**.
 1. Click **OK**.
 
-## Create a sync group and a cloud endpoint
+## Create a sync group
 A sync group defines the sync topology for a set of files. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on a registered server.
 
 1. To create a sync group, in the [Azure portal](https://portal.azure.com/), select **+ Sync group** from the Storage Sync Service you created for this tutorial. We used *afssyncservice02* as the example in this tutorial.
