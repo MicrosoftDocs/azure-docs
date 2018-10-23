@@ -37,7 +37,7 @@ For serial console documentation for Linux VMs, [click here](serial-console-linu
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
-* The virtual machine for which you are acessing serial console must also have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension - see the screenshot below.
+* The virtual machine for which you are accessing serial console must also have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension - see the screenshot below.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
@@ -59,7 +59,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 4.	Type **ch-si 1** to switch to the channel that is running the CMD instance. 
 5.	Press Enter, and then input your login credentials that have administrative permission.
 6.	After you enter valid credentials, the CMD instance opens.
-7.	To start a PowerShell instance, type **PowerShell** in the CMD instance and then press Eneter.
+7.	To start a PowerShell instance, type **PowerShell** in the CMD instance and then press Enter.
 
 ## Enable Serial Console in custom or older images
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
@@ -101,7 +101,7 @@ If you need to enable Windows boot loader prompts to show in the serial console,
 ## Use Serial Console for NMI calls in Windows VMs
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
 
-The Serial Console can be used to send a NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. Once the NMI is delivered, the virtual machine configuration will control how the system responds. Windows can be configured to crash and create a memory dump when receiving an NMI.
+The Serial Console can be used to send an NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. Once the NMI is delivered, the virtual machine configuration will control how the system responds. Windows can be configured to crash and create a memory dump when receiving an NMI.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
@@ -118,7 +118,7 @@ Serial Console can be disabled for an entire subscription by through the [Disabl
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Alternatively, you may use the set of commands below in Cloud Shell (bash commands shown) to disable, enable, and view the disbled status of serial console for a subscription. 
+Alternatively, you may use the set of commands below in Cloud Shell (bash commands shown) to disable, enable, and view the disabled status of serial console for a subscription. 
 
 * To get the disabled status of serial console for a subscription:
     ```azurecli-interactive
@@ -204,7 +204,7 @@ We are aware of some issues with the serial console. Here is a list of these iss
 
 Issue                             |   Mitigation 
 :---------------------------------|:--------------------------------------------|
-Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or a boot config that causers Windows to fail to properly connect to the serial port. This will also happen if you are running a Windows 10 client VM, as only Windows Server VMs are configured to have EMS enabled.
+Hitting enter after the connection banner does not show a log in prompt | see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or a boot config that causers Windows to fail to properly connect to the serial port. This will also happen if you are running a Windows 10 client VM, as only Windows Server VMs are configured to have EMS enabled.
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
 Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to Past unload the PSReadLine module from the current session. Run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session - this will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (e.g. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape sequences are not supported by the SAC prompt.
