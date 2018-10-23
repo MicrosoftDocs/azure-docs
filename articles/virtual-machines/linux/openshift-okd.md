@@ -27,7 +27,15 @@ You can use one of two ways to deploy OKD (formerly OpenShift Origin) in Azure:
 
 ## Deploy by using the OKD template
 
-The OKD template located at https://github.com/Microsoft/openshift-origin has multiple branches available for different versions of OKD.  Depending on your needs, you may be able to deploy directly from the repo or you may need to fork the repo and make custom changes to the templates and / or scripts before deploying.
+To deploy by using the Resource Manager template, you use a parameters file to supply the input parameters. To further customize the deployment, fork the GitHub repo and change the appropriate items.
+
+Some common customization options include, but are not limited to:
+
+- Bastion VM size (variable in azuredeploy.json)
+- Naming conventions (variables in azuredeploy.json)
+- OpenShift cluster specifics, modified via hosts file (deployOpenShift.sh)
+
+The OKD template located at https://github.com/Microsoft/openshift-origin has multiple branches available for different versions of OKD.  Depending on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes before deploying.
 
 Use the `appId` value from the service principal that you created earlier for the `aadClientId` parameter.
 
@@ -123,7 +131,7 @@ az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-The deployment takes at least 30 minutes to finish, depending on the total number of nodes deployed. The URL of the OpenShift console and the DNS name of the OpenShift master prints to the terminal when the deployment finishes. Alternatively, you can view the outputs section of the deployment from the Azure Portal.
+The deployment takes at least 30 minutes to finish, depending on the total number of nodes deployed. The URL of the OpenShift console and the DNS name of the OpenShift master prints to the terminal when the deployment finishes. Alternatively, you can view the outputs section of the deployment from the Azure portal.
 
 ```json
 {

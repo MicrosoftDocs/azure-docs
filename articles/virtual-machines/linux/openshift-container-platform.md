@@ -27,11 +27,11 @@ You can use one of several methods to deploy OpenShift Container Platform in Azu
 - Another option is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 For all options, a Red Hat subscription is required. During the deployment, the Red Hat Enterprise Linux instance is registered to the Red Hat subscription and attached to the Pool ID that contains the entitlements for OpenShift Container Platform.
-Ensure that you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. Alternatively, you can use an Activation Key, Org ID and Pool ID.  You can verify this information by signing in to https://access.redhat.com.
+Ensure you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can use an Activation Key, Org ID, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
 
 ## Deploy by using the OpenShift Container Platform Resource Manager template
 
-To deploy by using the Resource Manager template, you use a parameters file to supply the input parameters. To customize any of the deployment items that are not covered by using input parameters, fork the GitHub repo and change the appropriate items.
+To deploy by using the Resource Manager template, you use a parameters file to supply the input parameters. To further customize the deployment, fork the GitHub repo and change the appropriate items.
 
 Some common customization options include, but are not limited to:
 
@@ -41,11 +41,11 @@ Some common customization options include, but are not limited to:
 
 ### Configure the parameters file
 
-The OpenShift Container Platform template located at https://github.com/Microsoft/openshift-container-platform has multiple branches available for different versions of OpenShift Container Platform.  Depending on your needs, you may be able to deploy directly from the repo or you may need to fork the repo and make custom changes to the templates and / or scripts before deploying.
+The OpenShift Container Platform template located at https://github.com/Microsoft/openshift-container-platform has multiple branches available for different versions of OpenShift Container Platform.  Depending on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes to the templates or scripts before deploying.
 
 Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter.
 
-The following is an example of a parameters file named azuredeploy.parameters.json with all the required inputs.
+The following example shows a parameters file named azuredeploy.parameters.json with all the required inputs.
 
 ```json
 {
@@ -228,7 +228,7 @@ The following is an example of a parameters file named azuredeploy.parameters.js
 
 Replace the parameters with your specific information.
 
-Different releases may have different parameters so please verify the necessary parameters for the branch you are using.
+Different releases may have different parameters so verify the necessary parameters for the branch you are using.
 
 ### Deploy by using Azure CLI
 
@@ -294,4 +294,4 @@ az group delete --name openshiftrg
 
 ### Documentation contributors
 
-Thank you to Vincent Power (vincepower) and Alfred Sin (asinn826) for their contributions to keeping this documentation up to date!
+Thank you to Vincent Power (vincepower) and Alfred Sin (asinn826) for their contributions to keeping this documentation up-to-date!

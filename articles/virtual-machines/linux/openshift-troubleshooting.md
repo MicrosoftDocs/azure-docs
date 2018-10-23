@@ -20,7 +20,7 @@ ms.author: haroldw
 
 # Troubleshoot OpenShift deployment in Azure
 
-If the OpenShift cluster does not deploy successfully, the Azure portal will provide error output that will be very difficult to read and therefore difficult to identify the problem. Quickly scan this output for exit code 3, 4 or 5. The following provides information on these three exit codes:
+If the OpenShift cluster does not deploy successfully, the Azure portal will provide error output. The output may be difficult to read which makes it difficult to identify the problem. Quickly scan this output for exit code 3, 4 or 5. The following provides information on these three exit codes:
 
 - Exit code 3: Your Red Hat Subscription User Name / Password or Organization ID / Activation Key is incorrect
 - Exit code 4: Your Red Hat Pool ID is incorrect or there are no entitlements available
@@ -30,17 +30,17 @@ If the exit code is 2 or anything else, you will need to connect to the host(s) 
 
 **OpenShift Container Platform**
 
-SSH to the ansible playbook host. If using the template or the Marketplace offer, this is the bastion host. From the bastion, you can ssh to all other nodes in the cluster (master, infra, cns, compute). You will need to be root in order to view the log files. Keep in mind that root is disabled for ssh access by default so you will need to exit root in order to ssh from bastion to other nodes.
+SSH to the ansible playbook host. For the template or the Marketplace offer, it is the bastion host. From the bastion, you can ssh to all other nodes in the cluster (master, infra, CNS, compute). You will need to be root in order to view the log files. Keep in mind that root is disabled for ssh access by default so you will need to exit root in order to ssh from bastion to other nodes.
 
 **OKD**
 
-SSH to the ansible playbook host. If using the OKD template (version 3.9 and older), this is hostmaster-0 host. If using the OKD template (version 3.10 and later), this is the bastion host. From the ansible playbook host, you can ssh to all other nodes in the cluster (master, infra, cns, compute). You will need to be root (sudo su -) in order to view the log files. Keep in mind that root is disabled for ssh access by default so you will need to exit root in order to ssh to other nodes.
+SSH to the ansible playbook host. For the OKD template (version 3.9 and older), it is hostmaster-0 host. For the OKD template (version 3.10 and later), it is the bastion host. From the ansible playbook host, you can ssh to all other nodes in the cluster (master, infra, CNS, compute). You will need to be root (sudo su -) in order to view the log files. Keep in mind that root is disabled for ssh access by default so do not use root to ssh to other nodes.
 
 ## Log files
 
 The log files (stderr and stdout) for the host preparation scripts are located in /var/lib/waagent/custom-script/download/0 on all hosts. If an error occurred during the preparation of the host, view these log files to determine the error.
 
-If the preparation scripts ran successfully, then the log files in the /var/lib/waagent/custom-script/download/1 directory of the ansible playbook host will need to be examined. If the error occurred during the actual installation of OpenShift, the stdout file will display the error. This information can be use to contact Support for further assistance.
+If the preparation scripts ran successfully, then the log files in the /var/lib/waagent/custom-script/download/1 directory of the ansible playbook host will need to be examined. If the error occurred during the actual installation of OpenShift, the stdout file will display the error. Use this information to contact Support for further assistance.
 
 Example output
 
