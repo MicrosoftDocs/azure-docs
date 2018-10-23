@@ -12,7 +12,7 @@ ms.author: rosh, v-gedod
 ---
 
 # Categories for Bing Local Search
-You can use defined categories to return a list of entities in the specified category.  This option uses reverse IP location of the caller to return localized results according to the `localCategories` parameter.
+You can use defined categories to return a list of entities in the specified category.  This option uses reverse IP location of the caller to return localized results according to the `localCategories` parameter. 
 ## Examples of Local Categories search
 The following examples get results according the `localCategories` parameter:
 
@@ -153,7 +153,7 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
 
 ## TopLevel Categories 
 
-The following define major categories of search:  
+The following types define major categories of search.  More than one category can be specified using a comma delimited list assigned to the `localCategories` parameter.  
 - EatDrink 
 - SeeDo 
 - Shop 
@@ -163,6 +163,7 @@ The following define major categories of search: 
 - Hospitals 
 
 ## Sub Categories
+Subcategories are passed the same way as `localCategories`. Subcategories are more specific categories. They are subordinate in the sense that if you specify a category C and one of its subcategories S in the same comma-delimited list, you will receive the same results as if you specified C alone.
 
 ### Eat Drink 
 - BreweriesAndBrewPubs
