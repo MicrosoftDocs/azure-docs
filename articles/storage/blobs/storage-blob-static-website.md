@@ -12,7 +12,7 @@ ms.component: blobs
 ---
 
 # Static website hosting in Azure Storage
-Azure Storage accounts allow you to serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Taking advantage of hosting in Azure Storage allows you to use serverless architectures including [Azure Functions](/azure/azure-functions/functions-overview) and other PaaS services.
+Azure Storage GPv2 accounts allow you to serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Taking advantage of hosting in Azure Storage allows you to use serverless architectures including [Azure Functions](/azure/azure-functions/functions-overview) and other PaaS services.
 
 In contrast to static website hosting, dynamic sites that depend on server-side code are best hosted using [Azure Web Apps](/azure/app-service/app-service-web-overview).
 
@@ -58,7 +58,7 @@ Static website hosting is provided at no additional cost. For more details on pr
 ## Quickstart
 
 ### Azure portal
-Begin by opening the Azure portal at https://portal.azure.com and run through the following steps:
+Begin by opening the Azure portal at https://portal.azure.com and run through the following steps on your GPv2 storage account:
 
 1. Click on **Settings**
 2. Click on **Static website**
@@ -77,6 +77,11 @@ Install the storage preview extension:
 ```azurecli-interactive
 az extension add --name storage-preview
 ```
+In the case of multiple subscriptions, set your CLI to the subscription of the GPv2 storage account you wish to enable:
+
+```azurecli-interactive
+az account set --subscription <SUBSCRIPTION_ID>
+```
 Enable the feature. Make sure to replace all placeholder values, including brackets, with your own values:
 
 ```azurecli-interactive
@@ -88,10 +93,10 @@ Query for the web endpoint URL:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Upload objects to the *$web* container:
+Upload objects to the *$web* container from a source directory:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
 ```
 
 ## Deployment
