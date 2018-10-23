@@ -8,30 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/23/2018
 ms.author: diberry
 ---
 
-# Add example utterances and label with entities
+# Add an entity to example utterances 
 
 Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
 Generally, add an example utterance to an intent first, and then create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
 
-## Add an utterance
-On an intent page, enter a relevant example utterance you expect from your users, such as `book 2 adult business tickets to Paris tomorrow on Air France` in the text box below the intent name, and then press Enter. 
- 
->[!NOTE]
->LUIS converts all utterances to lowercase.
+## Marking entities in example utterances
 
-![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
+When you select text in the example utterance to mark for an entity, you can either create an entity at that time or select an existing entity. 
 
-Utterances are added to the utterances list for the current intent. 
+Certain entity types, such as prebuilt entities and regular expression entities, cannot be marked in the example utterance. This is because they are marked automatically.
 
-## Ignoring words and punctuation
-If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
+For each specific markable-entity types, see the following sections. 
 
-## Add simple entity label
+## Add a simple entity
+
 In the following procedure, you create and label custom entities within the following utterance on the intent page:
 
 ```
@@ -56,7 +52,8 @@ book me 2 adult business tickets to Paris tomorrow on Air France
     See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity.
 
 
-## Add list entity and label
+## Add a list entity
+
 List entities represent a fixed, closed set (exact text matches) of related words in your system. 
 
 For a drinks list entity, you can have two normalized values: water and soda pop. Each normalized name has synonyms. For water, synonyms are H20, gas, flat. For soda pop, synonyms are fruit, cola, ginger. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
@@ -82,14 +79,16 @@ For example, if you wanted to create a list of types of drink and you selected t
 
     See [Data Extraction](luis-concept-data-extraction.md#list-entity-data) to learn more about extracting list entities from the endpoint JSON query response. Try the [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more about how to use a list entity.
 
-## Add synonyms to the list entity 
+### Add synonyms to the list entity 
+
 Add a synonym to the list entity by selecting the word or phrase in the utterance. If you have a Drink list entity, and want to add `agua` as a synonym for water, follow the steps:
 
 In the utterance, select the synonymous word, such as `aqua` for water, then select the list entity name in the drop-down list, such as **Drink**, then select **Set as synonym**, then select the list item it is synonymous with, such as **water**.
 
 ![Screenshot of Intents details page, with Create a new normalized view highlighted](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
-## Create new item for list entity
+### Create new item for list entity
+
 Create a new item for an existing list entity by selecting the word or phrase in the utterance. If you have an Employee list, and want to add `Bob Smith` as a new item, follow the steps:
 
 In the utterance, select the word or phrase for the new list item, such as `Bob Smith`, then select the list entity name in the drop-down list, such as **Employee**, then select **Create a new normalized view**. 
@@ -100,7 +99,8 @@ The word is now highlighted in blue. If you hover over the word, a tag displays 
 
 ![Screenshot of new list item tag](./media/luis-how-to-add-example-utterances/list-entity-item-name-tag.png)
 
-## Wrap entities in composite label
+## Wrap entities in composite entities
+
 Composite entities are created from **Entities**. You can't create a composite entity from the Intent page. Once the composite entity is created, you can wrap the entities in an utterance on the Intent page. 
 
 Assuming the utterance, `book 2 tickets from Seattle to Cairo`, a composite utterance can return entity information of the count of tickets (2), the origin (Seattle), and destination (Cairo) locations in a single parent entity. 
@@ -133,7 +133,8 @@ Before you wrap the entities in a composite entity, make sure all the child enti
 
     See [Data Extraction](luis-concept-data-extraction.md#composite-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the composite entity [tutorial](luis-tutorial-composite-entity.md) to learn more about how to use a composite entity.
 
-## Add hierarchical entity and label
+## Add hierarchical entity
+
 A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
 
 In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
@@ -187,6 +188,7 @@ The following solutions help resolve the entity prediction discrepancy:
 
 
 ## Remove entity labels from utterances
+
 You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
 
 To remove a machine-learned entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
@@ -194,31 +196,25 @@ To remove a machine-learned entity label from an utterance, select the entity in
 ![Screenshot of Intents details page, with Remove Label highlighted](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ## Add prebuilt entity label
+
 If you add the prebuilt entities to your LUIS app, you don't need to label utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-prebuilt-entity).
 
 ## Add regular expression entity label
+
 If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities).
 
+
 ## Create a pattern from an utterance
+
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
-## Add pattern.any entity label
+
+## Add pattern.any entity
+
 If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-patternany-entities).
 
-<!--
-Fix this - moved to luis-how-to-add-intents.md - how ?
-
-## Search in utterances
-## Prediction discrepancy errors
-## Filter by intent prediction discrepancy errors
-## Filter by entity type
-## Switch to token view
-## Delete utterances
-## Edit an utterance
-## Reassign utterances
-
--->
 ## Train your app after changing model with utterances
+
 After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps

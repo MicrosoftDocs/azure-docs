@@ -13,6 +13,7 @@ ms.service: cognitive-services
 ---
 
 # Add intents 
+
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intentions. 
 
 Intents are managed from the **Build** Section in the top toolbar. You add and manage your intents from the **Intents** page, available in the left panel. 
@@ -35,11 +36,13 @@ The following procedure demonstrates how to add an intent to prediction if a use
 
 1. On the **Intents** page, select **Create new intent**.
 
-3. In the **Create new intent** dialog box, enter the intent name, and click **Done**.
+1. In the **Create new intent** dialog box, enter the intent name, and click **Done**.
 
     ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-## Add an utterance
+## Add an example utterance
+
+An example utterance is an example of text you expect LUIS to receive from the client application. 
 
 1. On the **BookFlight** intent details page, enter a relevant utterance you expect from your users, such as `book a ticket to Paris tomorrow` in the text box below the intent name, and then press Enter.
  
