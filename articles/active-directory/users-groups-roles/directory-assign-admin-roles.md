@@ -218,7 +218,7 @@ Can perform common billing related tasks like updating payment information.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -230,6 +230,28 @@ Can perform common billing related tasks like updating payment information.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Desktop Analytics Administrator
+Can access and manage Desktop management tools and services including Intune.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | Manage all aspects of Desktop Analytics. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
@@ -302,7 +324,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -347,6 +369,8 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.lockbox/allEntities/allTasks | Manage all aspects of Office 365 Customer Lockbox |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.messageCenter/securityMessages/read | Read securityMessages in microsoft.office365.messageCenter. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI. |
 | microsoft.office365.protectionCenter/allEntities/allTasks | Manage all aspects of Office 365 Protection Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -364,7 +388,7 @@ Can read and manage compliance configuration and reports in Azure AD and Office 
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -407,7 +431,7 @@ Can manage all aspects of the Dynamics 365 product.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -429,7 +453,7 @@ Can approve Microsoft support requests to access customer organizational data.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -585,7 +609,7 @@ Can manage all aspects of the Exchange product.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -594,6 +618,11 @@ Can manage all aspects of the Exchange product.
 | microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.aad.directory/groups/unified/create | Create Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -648,7 +677,7 @@ Can manage all aspects of the Azure Information Protection product.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -669,7 +698,7 @@ Can manage all aspects of the Intune product.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -725,7 +754,7 @@ Can manage all aspects of the Skype for Business product.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -747,14 +776,14 @@ Can read messages and updates for their organization in Office 365 Message Cente
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.accessmessagecenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in Message Center. |
 | microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 
 ### Partner Tier1 Support
 Do not use - not intended for general use.
@@ -765,7 +794,7 @@ Do not use - not intended for general use.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -802,7 +831,7 @@ Do not use - not intended for general use.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -842,7 +871,7 @@ Can manage all aspects of the Power BI product.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -864,7 +893,7 @@ Can manage role assignments in Azure AD,  and all aspects of Privileged Identity
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -882,7 +911,7 @@ Can read sign-in and audit reports.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -902,7 +931,7 @@ Can read security information and reports,  and manage configuration in Azure AD
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -932,7 +961,7 @@ Can read security information and reports in Azure AD and Office 365.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -954,7 +983,7 @@ Can read service health information and manage support tickets.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -975,7 +1004,7 @@ Can manage all aspects of the SharePoint service.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -984,6 +1013,10 @@ Can manage all aspects of the SharePoint service.
 | microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -997,7 +1030,7 @@ Can manage calling and meetings features within the Microsoft Teams service.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1020,7 +1053,7 @@ Can troubleshoot communications issues within Teams using advanced tools.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1040,7 +1073,7 @@ Can troubleshoot communications issues within Teams using basic tools.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1060,7 +1093,7 @@ Can manage the Microsoft Teams service.
   >
 
   > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1068,6 +1101,10 @@ Can manage the Microsoft Teams service.
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
 | microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
+| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
 | microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
