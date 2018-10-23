@@ -67,12 +67,13 @@ The information in this article can help you understand and resolve common issue
 **Remediation** - Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md), and  select the option **Include all certificates in the certification path if possible.** Ensure that only the leaf certificate is selected for export.
 
 ## Fix common packaging issues
-The AzsReadinessChecker can import and then export a PFX file to fix common packaging issues, including: 
+The AzsReadinessChecker contains a helper commandlet Repair-AzsPfxCertificate which can import and then export a PFX file to fix common packaging issues, including: 
  - *PFX Encryption* is not TripleDES-SHA1
  - *Private Key* is missing Local Machine Attribute.
  - *Certificate chain* is incomplete or wrong. (The local machine must contain the certificate chain if the PFX package does not.) 
  - *Other certificates*.
-However, the AzsReadinessChecker cannot help if you need to generate a new CSR and reissue a certificate. 
+ 
+Repair-AzsPfxCertificate cannot help if you need to generate a new CSR and reissue a certificate. 
 
 ### Prerequisites
 The following prerequisites must be in place on the computer where the tool runs: 
@@ -94,10 +95,20 @@ The following prerequisites must be in place on the computer where the tool runs
    - For *-PfxPath*, specify the path to the PFX file you are working with.  In the following example, the path is *.\certificates\ssl.pfx*.
    - For *-ExportPFXPath*, specify the location and name of the PFX file for export.  In the following example, the path is *.\certificates\ssl_new.pfx*
 
-   > `Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
+   > `Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
 
 4. After the tool completes, review the output for success: 
-![results](./media/azure-stack-remediate-certs/remediate-results.png)
+````PowerShell
+Repair-AzsPfxCertificate v1.1809.1005.1 started.
+Starting Azure Stack Certificate Import/Export
+Importing PFX .\certificates\ssl.pfx into Local Machine Store
+Exporting certificate to .\certificates\ssl_new.pfx
+Export complete. Removing certificate from the local machine store.
+Removal complete.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Repair-AzsPfxCertificate Completed
+````
 
 ## Next steps
 [Learn more about Azure Stack security](azure-stack-rotate-secrets.md)
