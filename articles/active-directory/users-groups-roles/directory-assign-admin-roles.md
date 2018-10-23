@@ -93,6 +93,14 @@ Users in this role can add, remove, and update license assignments on users, gro
   * Message Center Reader
   * Reports Reader
   
+  <b>Important</b>: Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. For example:
+  * Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Helpdesk Administrators.
+  *	Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
+  *	Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+  *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+  *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+
+  
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Helpdesk Administrator". It is "Password Administrator" in the [Azure portal](https://portal.azure.com/).
   >
@@ -147,6 +155,13 @@ Users in this role can add, remove, and update license assignments on users, gro
   |General permissions|<p>Create users and groups</p><p>Create and manage user views</p><p>Manage Office support tickets|
   |<p>On all users, including all admins</p>|<p>Manage licenses</p><p>Manage all user properties except User Principal Name</p>
   |Only on users who are non-admins or in any of the following limited admin roles:<ul><li>Directory Readers<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Reports Reader<li>User Account Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>
+  
+    <b>Important</b>: Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. For example:
+  * Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to User Account Administrators.
+  *	Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
+  *	Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+  *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+  *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 The following tables describe the specific permissions in Azure Active Directory given to each role. Some roles may have additional permissions in Microsoft services outside of Azure Active Directory.
 
