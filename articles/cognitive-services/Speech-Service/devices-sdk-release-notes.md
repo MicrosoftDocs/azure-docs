@@ -17,6 +17,12 @@ ms.author: gracez
 
 The following sections list changes in the most recent releases.
 
+## Cognitive Services Speech Devices SDK 1.0.1: 2018-Oct release 
+
+* Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.0.1. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew). 
+* Speech recognition accuracy will be improved with our improved audio processing algorithm  
+* One continuous recognition audio session bug is fixed.
+
 ## Cognitive Services Speech Devices SDK 0.5.0: 2018-Aug release
 
 * Improved the accuracy of speech recognition by fixing a bug in the audio processing code.
