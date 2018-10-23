@@ -115,7 +115,7 @@ In the section of your configuration file where you list the performance counter
         <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT15S" />
     ...
     </PerformanceCounters>
-    ```
+```
 
 Finally, in the private configuration, add an *Azure Monitor Account* section. Enter the service principal client ID and secret that you created earlier. 
 
@@ -165,19 +165,19 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 ## Plot metrics in the Azure portal 
 
-Go to the Azure portal. 
+1. Go to the Azure portal. 
 
- ![Metrics Azure portal](./media/metrics-store-custom-guestos-classic-cloud-service/navigate-metrics.png)
+   ![Metrics Azure portal](./media/metrics-store-custom-guestos-classic-cloud-service/navigate-metrics.png)
 
-1. On the left menu, select **Monitor.**
+2. On the left menu, select **Monitor.**
 
-1. On the **Monitor** blade, select the **Metrics Preview** tab.
+3. On the **Monitor** blade, select the **Metrics Preview** tab.
 
-1. In the resources drop-down menu, select your classic cloud service.
+4. In the resources drop-down menu, select your classic cloud service.
 
-1. In the namespaces drop-down menu, select **azure.vm.windows.guest**. 
+5. In the namespaces drop-down menu, select **azure.vm.windows.guest**. 
 
-1. In the metrics drop-down menu, select **Memory\Committed Bytes in Use**. 
+6. In the metrics drop-down menu, select **Memory\Committed Bytes in Use**. 
 
 You use the dimension filtering and splitting capabilities to view the total memory that's used by a specific role or role instance. 
 
