@@ -1,6 +1,6 @@
 ---
-title: Monitor B2B messages and set up logging - Azure Logic Apps | Microsoft Docs
-description: Monitor AS2, X12, and EDIFACT messages. Set up diagnostics logging for your integration account in Azure Logic Apps.
+title: Monitor B2B messages with Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Monitor AS2, X12, and EDIFACT messages for integration accounts and Azure Logic Apps and set up diagnostics logging with Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,91 +8,97 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 07/21/2017
+ms.date: 10/23/2018
 ---
 
-# Monitor B2B messages and set up logging for integration accounts in Azure Logic Apps
+# Monitor B2B messages with Azure Log Analytics in Azure Logic Apps
 
-After you set up B2B communication between two running business 
-processes or applications through your integration account, 
-those entities can exchange messages with each other. 
-To confirm this communication works as expected, 
-you can set up monitoring for AS2, X12, and EDIFACT messages, 
-along with diagnostics logging for your integration account 
-through the [Azure Log Analytics](../log-analytics/log-analytics-overview.md) service. 
+After you set up B2B communication between trading partners 
+in your integration account, those partners can exchange 
+messages with each other. To check that this communication 
+works the way you expect, you can monitor AS2, X12, and EDIFACT 
+messages and set up diagnostics logging for your integration account 
+with [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
 This service monitors your cloud and on-premises environments, 
-helping you maintain their availability and performance, 
-and also collects runtime details and events for richer debugging. 
-You can also [use your diagnostic data with other services](#extend-diagnostic-data), 
-like Azure Storage and Azure Event Hubs.
+help you maintain their availability and performance, and collects 
+runtime details and events for richer debugging. You can also 
+[use this data with other services](#extend-diagnostic-data) 
+such as Azure Storage and Azure Event Hubs.
 
-## Requirements
+> [!NOTE]
+> This page might still have references to Microsoft Operations Management Suite (OMS), 
+> which is [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> but replaces those steps with Azure Log Analytics where possible. 
 
-* A logic app that's set up with diagnostics logging. 
-Learn [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+## Prerequisites
 
-  > [!NOTE]
-  > After you've met this requirement, you should have a workspace in Log Analytics. 
-  > You should use the same Log Analytics workspace 
-  > when you set up logging for your integration account. 
-  > If you don't have a Log Analytics workspace, 
-  > learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+* A logic app that's set up with diagnostics logging. Learn 
+[how to create a logic app](quickstart-create-first-logic-app-workflow.md) 
+and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+
+* After you meet the previous requirements, you also need a Log Analytics workspace, 
+which you use for monitoring and tracking B2B communication through Log Analytics. 
+If you don't have a Log Analytics workspace, learn 
+[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
 * An integration account that's linked to your logic app. Learn 
 [how to create an integration account with a link to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-## Turn on diagnostics logging for your integration account
+## Turn on diagnostics logging
 
 You can turn on logging either directly from your integration account 
 or [through the Azure Monitor service](#azure-monitor-service). 
 Azure Monitor provides basic monitoring with infrastructure-level data. 
 Learn more about [Azure Monitor](../azure-monitor/overview.md).
 
-### Turn on diagnostics logging directly from your integration account
+### Turn on logging from integration account
 
 1. In the [Azure portal](https://portal.azure.com), 
 find and select your integration account. 
-Under **Monitoring**, choose **Diagnostics logs** as shown here:
+Under **Monitoring**, select **Diagnostic settings**.
 
-   ![Find and select your integration account, choose "Diagnostic logs"](media/logic-apps-monitor-b2b-message/integration-account-diagnostics.png)
+   ![Find and select your integration account, select "Diagnostic settings"](media/logic-apps-monitor-b2b-message/find-integration-account.png)
 
-2. After you select your integration account, 
-the following values are automatically selected. 
-If these values are correct, choose **Turn on diagnostics**. 
-Otherwise, select the values that you want:
+1. For the resource where you want to turn on logging, confirm that these values are correct. 
+Otherwise, select the values you want. When you're done, choose **Add diagnostic setting**.
 
-   1. Under **Subscription**, select the Azure subscription 
-   that you use with your integration account.
-   2. Under **Resource group**, select the resource group that 
-   you use with your integration account.
-   3. Under **Resource type**, select **Integration accounts**. 
-   4. Under **Resource**, select your integration account. 
-   5. Choose **Turn on diagnostics**.
+   | Property | Value | Description | 
+   |----------|-------|-------------|
+   | **Subscription** | <*Azure-subscription-name*> | The Azure subscription that's associated with your integration account | 
+   | **Resource group** | <*Azure-resource-group-name*> | The Azure resource group for your integration account | 
+   | **Resource type** | **Integration accounts** | The type for the Azure resource where you want to turn on logging | 
+   | **Resource** | <*integration-account-name*> | The name for your Azure resource where you wnat to turn on logging | 
+   ||||  
+
+   For example:
 
    ![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-3. Under **Diagnostics settings**, and then **Status**, choose **On**.
-
-   ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
-
-4. Now select the Log Analytics workspace and data to use for logging as shown:
+1. Provide a name for your new diagnostic setting and 
+select your Log Analytics workspace and the data for logging.
 
    1. Select **Send to Log Analytics**. 
-   2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS workspaces**, select the Log Analytics workspace to use for logging. 
-   > [!NOTE]
-   > OMS workspaces are now referred to as Log Analytics workspaces. 
-   4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
-   5. Choose **Save**.
+
+   1. Under **Log Analytics**, select **Configure**. 
+
+   1. Under **OMS workspaces**, select the Log Analytics 
+   workspace you want to use for logging. 
+
+      > [!NOTE]
+      > OMS workspaces are being replaced by Log Analytics workspaces. 
+
+   1. Under **Log**, select the **IntegrationAccountTrackingEvents** category, 
+   and choose **Save**.
+
+   For example: 
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
-### Turn on diagnostics logging through Azure Monitor
+### Turn on logging through Azure Monitor
 
 1. In the [Azure portal](https://portal.azure.com), 
 on the main Azure menu, choose **Monitor**, **Diagnostics logs**. 
@@ -100,41 +106,51 @@ Then select your integration account as shown here:
 
    ![Choose "Monitor", "Diagnostic logs", select your integration account](media/logic-apps-monitor-b2b-message/monitor-service-diagnostics-logs.png)
 
-2. After you select your integration account, 
+1. After you select your integration account, 
 the following values are automatically selected. 
 If these values are correct, choose **Turn on diagnostics**. 
 Otherwise, select the values that you want:
 
    1. Under **Subscription**, select the Azure subscription 
    that you use with your integration account.
-   2. Under **Resource group**, select the resource group that 
+
+   1. Under **Resource group**, select the resource group that 
    you use with your integration account.
-   3. Under **Resource type**, select **Integration accounts**.
-   4. Under **Resource**, select your integration account.
-   5. Choose **Turn on diagnostics**.
+
+   1. Under **Resource type**, select **Integration accounts**.
+
+   1. Under **Resource**, select your integration account.
+
+   1. Choose **Turn on diagnostics**.
+
+   For example:
 
    ![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-3. Under **Diagnostics settings**, choose **On**.
+1. Under **Diagnostics settings**, choose **On**.
 
    ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Now select the Log Analytics workspace and event category for logging as shown:
+1. Now select the Log Analytics workspace and event category for logging as shown:
 
    1. Select **Send to Log Analytics**. 
-   2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS workspaces**, select the Log Analytics workspace 
-   to use for logging.
-   > [!NOTE]
-   > OMS workspaces are now referred to as Log Analytics workspaces.
-   4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
-   5. When you're done, choose **Save**.
+
+   1. Under **Log Analytics**, choose **Configure**. 
+
+   1. Under **OMS workspaces**, select the Log Analytics workspace to use for logging.
+
+      > [!NOTE]
+      > OMS workspaces are replaced by Log Analytics workspaces.
+
+   1. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
+
+   1. When you're done, choose **Save**.
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-## Extend how and where you use diagnostic data with other services
+## Use diagnostic data with other services
 
 Along with Azure Log Analytics, you can extend how you use your logic app's 
 diagnostic data with other Azure services, for example: 

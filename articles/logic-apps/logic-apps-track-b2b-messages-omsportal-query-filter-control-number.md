@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/19/2018
 ---
 
-# Create tracking queries for B2B messages in Log Analytics for Azure Logic Apps
+# Create tracking queries for B2B messages in Azure Log Analytics for Azure Logic Apps
 
 To find AS2, X12, or EDIFACT messages that you're tracking with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md), 
