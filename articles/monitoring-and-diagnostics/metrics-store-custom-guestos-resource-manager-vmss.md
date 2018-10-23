@@ -204,17 +204,17 @@ Create a storage account if one isn't already created in the template:
 ```json
 "resources": [
 // add this code    
-    {
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "[variables('storageAccountName')]",
-        "apiVersion": "2015-05-01-preview",
-        "location": "[resourceGroup().location]",
-        "properties": {
-        "accountType": "Standard_LRS"
-        }
-    },
-    // end added code
-    { 
+{
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2015-05-01-preview",
+    "location": "[resourceGroup().location]",
+    "properties": {
+    "accountType": "Standard_LRS"
+    }
+},
+// end added code
+{ 
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[variables('virtualNetworkName')]",
 ```
