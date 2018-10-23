@@ -92,7 +92,7 @@ Video Indexer GA release was announced in August. For new information about curr
 
 ### Plans for changes
 
-The Azure CLI release is coming on 11/06/2018.
+The Azure CLI updates are coming soon.
 
 ### Known issues
 
