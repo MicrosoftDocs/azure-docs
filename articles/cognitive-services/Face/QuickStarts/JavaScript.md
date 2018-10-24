@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Detect faces in an image - Face API, JavaScript"
+title: "Quickstart: Detect faces in an image using the REST API and JavaScript"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face API with JavaScript in Cognitive Services.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
-# Quickstart: Detect faces in an image using JavaScript
+# Quickstart: Detect faces in an image using the REST API and JavaScript
 
 In this quickstart, you detect faces in an image using the Face API.
 

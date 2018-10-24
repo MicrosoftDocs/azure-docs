@@ -42,7 +42,7 @@ Instead of building your own solution for this, Event Hubs provides this functio
 
 ## IEventProcessor interface
 
-First, consuming applications implement the  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface, which has four methods: [OpenAsync, CloseAsync, ProcessErrorAsync, and ProcessEventsAsnyc](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). This interface contains the actual code to consume the events that Event Hubs sends. The following code shows a simple implementation:
+First, consuming applications implement the  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface, which has four methods: [OpenAsync, CloseAsync, ProcessErrorAsync, and ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). This interface contains the actual code to consume the events that Event Hubs sends. The following code shows a simple implementation:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor

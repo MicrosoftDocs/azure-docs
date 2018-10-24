@@ -1,18 +1,33 @@
 ---
-title: Cognitive Services Speech SDK Documentation | Microsoft Docs
+title: Speech Service SDK Documentation
+titlesuffix: Azure Cognitive Services
 description: Release notes - what has changed in the most recent releases
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 09/24/2018
+ms.topic: conceptual
+ms.date: 10/12/2018
 ms.author: wolfma
 ---
 
 # Release notes
+
+## Speech Service SDK 1.0.1
+
+Reliability improvements and bug fixes:
+
+* Fixed potential fatal error due to race condition in disposing recognizer
+* Fixed potential fatal error in case of unset properties.
+* Added additional error and parameter checking.
+* Objective-C: Fixed possible fatal error caused by name overriding in NSString.
+* Objective-C: Adjusted visibility of API
+* JavaScript: Fixed regarding events and their payloads.
+* Documentation improvements.
+
+In our [sample repository](https://aka.ms/csspeech/samples), a new sample for JavaScript was added.
 
 ## Cognitive Services Speech SDK 1.0.0: 2018-September release
 

@@ -2,15 +2,15 @@
 title: Use Azure Database Migration Service module in Microsoft Azure PowerShell to migrate SQL Server on-premises to Azure SQL DB MI | Microsoft Docs
 description: Learn to migrate from on-premises SQL Server to Azure SQL DB MI by using Azure PowerShell.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: 
 ms.reviewer: 
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 10/09/2018
 ---
 
 # Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell
@@ -191,7 +191,7 @@ $selectedAgentJobs = @("agentJob1", "agentJob2")
 ### Create and start a migration task
 
 Use the `New-AzureRmDataMigrationTask` cmdlet to create and start a migration task. This cmdlet expects the following parameters:
-- *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database Managaged Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
+- *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
 - *Resource Group Name*. Name of Azure resource group in which to create the task.
 - *ServiceName*. Azure Database Migration Service instance in which to create the task.
 - *ProjectName*. Name of Azure Database Migration Service project in which to create the task. 

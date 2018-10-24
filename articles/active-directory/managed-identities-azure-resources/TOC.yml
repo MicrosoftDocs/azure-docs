@@ -48,6 +48,8 @@
       href: tutorial-linux-vm-access-nonaad.md
     - name: Access Azure Cosmos DB
       href: tutorial-linux-vm-access-cosmos-db.md
+    - name: Access Azure AD Graph API
+      href: tutorial-linux-vm-access-azure-ad-graph.md
     - name: Access Azure Resource Manager with a user-assigned managed identity
       href: msi-tutorial-linux-vm-access-arm.md
   - name: Azure Service Bus

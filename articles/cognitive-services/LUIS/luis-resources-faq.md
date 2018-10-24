@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions - Language Understanding (LUIS)
+title: FAQ - Frequently asked questions - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
 author: diberry
@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 # Language Understanding FAQ
@@ -107,6 +107,10 @@ See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
 
 See [Prediction differences between copies of same app](luis-concept-prediction-score.md#differences-with-predictions).
 
+### Some utterances go to the wrong intent after I made changes to my app. The issue seems to disappear at random. How do I fix it? 
+
+See [Train with all data](luis-how-to-train.md#train-with-all-data).
+
 ## App publishing
 
 ### What is the tenant ID in the "Add a key to your app" window?
@@ -129,7 +133,7 @@ If your app existed before LUIS was generally available (GA), LUIS endpoint keys
 To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
 
 ### How do I download a log of user utterances?
-By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, go to **My Apps**, and click on the ellipsis (***...***) in the listing for your app. Then click **Export Endpoint Logs**. The log is formatted as a comma-separated value (CSV) file.
+By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, go to **My Apps**, and select the app. In the contextual toolbar, select **Export Endpoint Logs**. The log is formatted as a comma-separated value (CSV) file.
 
 ### How can I disable the logging of utterances?
 You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on [active learning](luis-concept-review-endpoint-utterances.md#what-is-active-learning). If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
@@ -147,11 +151,9 @@ If you are using your log for prediction analysis, do not capture test utterance
 * You can delete utterances from the list of user utterances that LUIS suggests in the **Review endpoint utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
-### Does Microsoft access my LUIS app data for its own purposes, for example, to enhance LUIS or Microsoft in general?
+### How does Microsoft manage data I send to LUIS?
 
-No. The LUIS app’s data model is not used by LUIS to enhance LUIS as a platform or used by Microsoft in any way. Each app’s data is separate and owned only by the user and collaborators.
-
-Learn more about [user privacy](luis-user-privacy.md), [additional security compliance](luis-concept-security.md#security-compliance), and [data storage](luis-concept-data-storage.md).
+The [Trust Center](https://www.microsoft.com/trustcenter) explains our commitments and your options for data management and access in Azure Services.
 
 ## Language and translation support
 

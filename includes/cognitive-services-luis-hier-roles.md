@@ -22,4 +22,4 @@ If the utterances don’t have a clear pattern, use hierarchical entities.
 |--|--|
 |must have example utterances with child entities labeled in intents|must have example utterances, **roles can't be labeled in intents**|
 |can use in patterns|**must** use in patterns|
-|may need **more** example utterances in intent|may need **fewer example utterances in intent|
+|may need **more** example utterances in intent|may need **fewer** example utterances in intent|

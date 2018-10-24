@@ -647,7 +647,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** product, API, operation
+-   **Policy scopes:** global, product, API, operation
 
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  The `Transform XML using an XSLT` policy applies an XSL transformation to XML in the request or response body.

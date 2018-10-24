@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: na
+ms.component: 
 ---
 
 # Azure Key Vault Analytics solution in Log Analytics
