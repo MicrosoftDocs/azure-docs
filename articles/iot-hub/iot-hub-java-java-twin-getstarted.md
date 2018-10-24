@@ -42,7 +42,9 @@ In this section, you create a Java app that adds location metadata as a tag to t
 
 2. In the `iot-java-twin-getstarted` folder, create a Maven project called **add-tags-query** using the following command at your command prompt. Note this is a single, long command:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
 3. At your command prompt, navigate to the `add-tags-query` folder.
 
@@ -191,7 +193,9 @@ In this section, you create a Java app that adds location metadata as a tag to t
 
 16. Build the **add-tags-query** app and correct any errors. At your command prompt, navigate to the `add-tags-query` folder and run the following command:
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## Create a device app
 
@@ -199,7 +203,9 @@ In this section, you create a Java console app that sets a reported property val
 
 1. In the `iot-java-twin-getstarted` folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
 2. At your command prompt, navigate to the `simulated-device` folder.
 
@@ -312,7 +318,9 @@ In this section, you create a Java console app that sets a reported property val
 
 13. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the `simulated-device` folder and run the following command:
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## Run the apps
 
@@ -320,7 +328,9 @@ You are now ready to run the console apps.
 
 1. At a command prompt in the `add-tags-query` folder, run the following command to run the **add-tags-query** service app:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
     ![Java IoT Hub service app to update tag values and run device queries](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
@@ -328,13 +338,17 @@ You are now ready to run the console apps.
 
 2. At a command prompt in the `simulated-device` folder, run the following command to add the **connectivityType** reported property to the device twin:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
     ![The device client adds the **connectivityType** reported property](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. At a command prompt in the `add-tags-query` folder, run the following command to run the **add-tags-query** service app a second time:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
     ![Java IoT Hub service app to update tag values and run device queries](./media/iot-hub-java-java-twin-getstarted/service-app-2.png)
 
