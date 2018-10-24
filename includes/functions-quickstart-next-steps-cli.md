@@ -1,6 +1,6 @@
 ---
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
