@@ -85,7 +85,7 @@ headers = {
 }
 ```
 
-# Create a request to translate text
+# Create a request to detect text language
 
 Define the string (or strings) that you want to translate:
 

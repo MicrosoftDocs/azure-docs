@@ -88,7 +88,7 @@ headers = {
 }
 ```
 
-## Create a request to translate text
+## Create a request to transliterate text
 
 Define the string (or strings) that you want to translate:
 
