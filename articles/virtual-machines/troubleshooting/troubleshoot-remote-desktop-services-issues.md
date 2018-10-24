@@ -45,7 +45,7 @@ To resolve this problem, use one of the following solutions or try the solutions
 
 ### Solution 1: Using the Serial Console
 
-1. Access the Serial Console by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
+1. Access the [Serial Console](serial-console-windows.md) by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
 2. Create a new channel for a CMD instance. Type **CMD** to start the channel to get the channel name.
 
