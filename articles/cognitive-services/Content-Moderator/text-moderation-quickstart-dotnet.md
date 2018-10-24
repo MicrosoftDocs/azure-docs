@@ -25,11 +25,11 @@ This article provides information and code samples to help you get started using
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-## Sign up for Content Moderator services
+## Prerequisites
+- A Content Moderator subscription key (obtained by subscribing to the Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)).
+- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
-Before you can use Content Moderator services, you'll need a subscription key. Subscribe to the Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
-
-## Create your Visual Studio project
+## Create the Visual Studio project
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
