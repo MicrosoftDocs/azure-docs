@@ -30,6 +30,8 @@
   items:
   - name: What is Key Vault?
     href: key-vault-whatis.md
+  - name: Secure your key vault
+    href: key-vault-secure-your-key-vault.md
   - name: Security worlds
     href: key-vault-ovw-security-worlds.md
   - name: Soft-delete
@@ -67,8 +69,6 @@
     href: key-vault-soft-delete-powershell.md
   - name: Use groups to grant access
     href: key-vault-group-permissions-for-apps.md
-  - name: Secure your key vault
-    href: key-vault-secure-your-key-vault.md
   - name: Configure firewalls and virtual networks
     href: key-vault-network-security.md
 - name: Reference
