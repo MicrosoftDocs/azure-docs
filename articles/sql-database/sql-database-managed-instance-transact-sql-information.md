@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop 
 ms.reviewer: carlrab, bonova 
 manager: craigg 
-ms.date: 08/13/2018 
+ms.date: 10/24/2018 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 
@@ -342,7 +342,7 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
     - Distributor.
  - SSIS is supported. 
 - Other types of job steps are not currently supported, including:.
-  - Merge replication is nto supported.  
+  - Merge replication job step is not supported.  
   - Queue Reader is not supported.  
   - Command shell is not yet supported. 
   - Managed Instance cannot access external resources (for example, network shares via robocopy).  
