@@ -74,7 +74,7 @@ The presentation and business connectivity layer allows end users to interact wi
 
 ## Why Azure IoT?
 
-Azure IoT simplifies the complexity of IoT projects and addresses the challenges such as security, infrastructure incompatibility, and scaling your IoT solution. Here is how:
+Azure IoT simplifies the complexity of IoT projects and addresses the challenges such as security, infrastructure incompatibility, Ecosystem engagement and scaling your IoT solution. Here is how:
 
 ### Agile
 
