@@ -17,34 +17,33 @@ ms.author: juliako
 
 # Transforms and Jobs
  
-Azure Media Services v3 introduces a new templated workflow resource for a recipe that you want to use to encode and/or analyze your videos, called [Transforms](https://docs.microsoft.com/rest/api/media/transforms). **Transforms** can be used to configure common tasks for encoding or analyzing videos. Each **Transform** describes a simple workflow of tasks for processing your video or audio files. 
+Azure Media Services v3 introduces a new templated workflow resource for a recipe that you want to use to encode and/or analyze your videos, called [Transforms](https://docs.microsoft.com/rest/api/media/transforms). **Transforms** can be used to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. 
 
-A **Job** is the actual request to Azure Media Services to apply the **Transform** (recipe) to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPs URLs, SAS URLs, or [Media Services Assets](https://docs.microsoft.com/rest/api/media/assets).  
-
-> [!NOTE]
-> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](../previous/media-services-scale-media-processing-overview.md).
+A **Job** is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPs URLs, SAS URLs, or [Media Services Assets](https://docs.microsoft.com/rest/api/media/assets).  
 
 ## Typical workflow
 
 1. Create a Transform 
 2. Submit Jobs under that Transform 
 3. List Transforms 
-4. Delete a Transform, if you are not planning to use this "recipe" in the future. 
+4. Delete a Transform, if you are not planning to use it in the future. 
 
 Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
 
-1. Define the rule for processing – for example, use the first frame of the video as the thumbnail 
-2. Then, for each video you have as input to the service, you would tell the service: 
-    1. Where to find that video, and 
-    2. Where to write the output – for example, the thumbnail image 
+1. Define the recipe, or the rule for processing your videos - "use the first frame of the video as the thumbnail". 
+2. For each video you would tell the service: 
+    1. Where to find that video,  
+    2. Where to write the output thumbnail image. 
+
+A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
 ## Transforms
 
-Since Media Services v3 API is driven by Azure Resource Manager, you can use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can also be set at the resource level in this API, allowing you to lock down access to specific resources like Transforms.
+You can create Transforms in your Media Services account using the v3 API directly, or using any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
 
 ### Transform definition
 
-The following table shows Transform's properties and gives their definitions.
+The following table shows the Transform's properties and gives their definitions.
 
 |Name|Type|Description|
 |---|---|---|
@@ -58,9 +57,14 @@ The following table shows Transform's properties and gives their definitions.
 
 For the full definition, see [Transforms](https://docs.microsoft.com/rest/api/media/transforms).
 
+As explained above, a Transform helps you create a recipe or rule for processing your videos. A single Transform can apply more than one rule. For example, a Transform could specify that each video be encoded into an MP4 file at a given bitrate, and that a thumbnail image be generated from the first frame of the video. You would add one TransformOutput entry for each rule that you want to include in your Transform.
+
+> [!NOTE]
+> While the Transforms definition supports an Update operation, you should take care to make sure all in-progress Jobs complete before you make a modification. Typically, you would update an existing Transform to change the description, or modify the priorities of the underlying TransformOutputs. If you wanted to rewrite the recipe, then you would create a new Transform.
+
 ## Jobs
 
-The progress and state of encoding and/or analyzing jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using CLI](job-state-events-cli-how-to.md ).
+Once a Transform has been created, you can submit Jobs using Media Services APIs, or any of the published SDKs. The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using CLI](job-state-events-cli-how-to.md ).
 
 ### Jobs definition
 
@@ -70,7 +74,7 @@ The following table shows Jobs's properties and gives their definitions.
 |---|---|---|
 |id|string|Fully qualified resource ID for the resource.|
 |name	|string|The name of the resource.|
-|properties.correlationData	|object|Customer provided correlation data (immutable) that is returned as part of Job and JobOutput states in the Event Grid notification system.|
+|properties.correlationData	|object|Customer provided correlation data (immutable) that is returned as part of Job and JobOutput state change notifications. For more information, see [Event schemas](media-services-event-schemas.md)<br/><br/>correlationData can also be used for multi-tenant usage of Media Services. You can put tenant IDs in the jobs. |
 |properties.created	|string|The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
 |properties.description	|string|Optional customer supplied description of the Job.|
 |properties.input|JobInput:<br/>JobInputClip<br/>JobInputs|The inputs for the Job.|
@@ -80,10 +84,10 @@ The following table shows Jobs's properties and gives their definitions.
 |properties.state	|JobState|The current state of the job.|
 |type	|string|The type of the resource.|
 
-> [!NOTE]
-> The only fields that can be updated after creation are: description and priority.
-
 For the full definition, see [Jobs](https://docs.microsoft.com/rest/api/media/jobs).
+
+> [!NOTE]
+> While the Jobs definition supports an Update operation, the only properties that can be modified after the Job is submitted are the description, and the priority. Further, a change to the priority is effective only if the Job is still in a queued state. If the job has begun processing, or has finished, changing the priority has no effect.
 
 ### Pagination
 
