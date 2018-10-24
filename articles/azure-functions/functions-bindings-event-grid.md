@@ -117,7 +117,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-#### C# script (1.x)
+#### C# script (Version 1.x)
 
 Here's Functions 1.x C# script code that binds to `JObject`:
 
