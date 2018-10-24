@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: jeedes
 
 ---
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<Appinux_SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Appinux Client support team](mailto:kenneth.thorman@appinux.com) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Appinux Client support team](https://support.appinux.com) to get these values.
 
 5. Appinux application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -160,7 +160,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/appinux-tutorial/tutorial_appinux_certificate.png) 
 
-8. To configure single sign-on on **Appinux** side, you need to send the downloaded **Metadata XML** to [Appinux support team](mailto:kenneth.thorman@appinux.com). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **Appinux** side, you need to send the downloaded **Metadata XML** to [Appinux support team](https://support.appinux.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Creating an Azure AD test user
 
@@ -191,7 +191,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Appinux. Appinux supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Appinux if it doesn't exist yet.
 >[!Note]
->If you need to create a user manually, contact [Appinux support team](mailto:kenneth.thorman@appinux.com).
+>If you need to create a user manually, contact [Appinux support team](https://support.appinux.com).
 
 ### Assigning the Azure AD test user
 
