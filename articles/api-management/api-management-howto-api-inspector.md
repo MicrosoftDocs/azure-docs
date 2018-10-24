@@ -40,8 +40,8 @@ In this tutorial, you learn how to:
 
 1. Select **APIs**.
 2. Click **Demo Conference API** from your API list.
-3. Select **GetSpeakers** operation.
-4. Switch to the **Test** tab.
+3. Switch to the **Test** tab.
+4. Select **GetSpeakers** operation.
 5. Make sure to include an HTTP header named **Ocp-Apim-Trace** with the value set to **true**.
 
     > [!NOTE]
