@@ -65,8 +65,8 @@ These are a couple of use cases that you can enable using these properties:
 We made formatting changes to important claims in security tokens emitted by Azure AD B2C. This was done to improve our standard protocol support and for better interoperability with third-party identity libraries. However, to avoid breaking existing apps, we created the following properties to allow customers to opt-in as needed:
 
 * **Issuer (iss) claim**: This identifies the Azure AD B2C tenant that issued the token.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: This is the default value.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: This value includes IDs for both the B2C tenant and the policy used in the token request. If your app or library needs Azure AD B2C to be compliant with the [OpenID Connect Discovery 1.0 spec](http://openid.net/specs/openid-connect-discovery-1_0.html), use this value.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: This is the default value.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: This value includes IDs for both the B2C tenant and the policy used in the token request. If your app or library needs Azure AD B2C to be compliant with the [OpenID Connect Discovery 1.0 spec](http://openid.net/specs/openid-connect-discovery-1_0.html), use this value.
 * **Subject (sub) claim**: This identifies the entity, i.e., the user, for which the token asserts information.
   * **ObjectID**: This is the default value. It populates the object ID of the user in the directory into the `sub` claim in the token.
   * **Not supported**: This is only provided for backward-compatibility, and we recommend that you switch to **ObjectID** as soon as you are able to.

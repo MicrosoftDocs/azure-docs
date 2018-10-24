@@ -3,18 +3,17 @@ title: Virtual Machine sizes supported in Azure Stack | Microsoft Docs
 description: Reference for the supported VM sizes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
-editor: ''
 
-ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 10/22/2018
+ms.author: mabrigg
+ms.reviewer: kivenkat
 
 ---
 
@@ -26,7 +25,7 @@ This article lists the virtual machine (VM) sizes that are available in Azure St
 
 ## General purpose
 
-General purpose VM sizes provide a balanced CPU-to-memory ratio. They are used for testing and development, small to medium databases, and low to medium traffic web servers.
+General-purpose VM sizes provide a balanced CPU-to-memory ratio. They are used for testing and development, small to medium databases, and low to medium traffic web servers.
 
 ### Basic A
 |Size - Size\Name |vCPU     |Memory | Max temporary disk size | Max OS disk throughput: (IOPS) | Max temp storage throughput (IOPS) | Max data disk throughput (IOPS) | Max NICs |    

@@ -1,18 +1,10 @@
 ---
-title: include file
-description: include file
-services: cognitive-services
 author: wolfma61
-manager: onano
-
 ms.service: cognitive-services
-ms.technology: Speech
 ms.topic: include
-ms.date: 07/16/2018
+ms.date: 10/16/2018
 ms.author: wolfma
-ms.custom: include file
 ---
 
 > [!NOTE]
-> Please obtain a subscription key first.
-> See [Try the speech service for free](~/articles/cognitive-services/speech-service/get-started.md).
+> Information on how to setup a development project for your platform and preferred development environment can be found in the [Quickstarts](~/articles/cognitive-services/speech-service/quickstart-csharp-dotnet-windows.md) articles in this documentation. In any case, you will need a subscription key, see [Try the speech service for free](~/articles/cognitive-services/speech-service/get-started.md).

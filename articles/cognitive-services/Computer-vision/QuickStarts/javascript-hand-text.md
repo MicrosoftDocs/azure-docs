@@ -1,38 +1,43 @@
 ---
-title: Computer Vision API JavaScript quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you extract handwritten text from an image using Computer Vision with JavaScript in Cognitive Services.
+title: "Quickstart: Extract handwritten text - REST, JavaScript - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with JavaScript.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/15/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: pafarley
 ---
-# Quickstart: Extract handwritten text with JavaScript
+# Quickstart: Extract handwritten text using the REST API and JavaScript in Computer Vision
 
-In this quickstart, you extract handwritten text from an image using Computer Vision.
+In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) methods, you can detect handwritten text in an image, then extract recognized characters into a machine-usable character stream.
+
+> [!IMPORTANT]
+> Unlike the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Recognize Text method returns a URI in the value of the `Operation-Content` response header field. You can then call this URI, which represents the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) method, to both check the status and return the results of the Recognize Text method call.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Recognize Text request
+## Create and run the sample
 
-With the [Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result methods](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), you can detect handwritten text in an image and extract recognized characters into a machine-usable character stream.
+To create and run the sample, do the following steps:
 
-To run the sample, do the following steps:
-
-1. Copy the following and save it to a file such as `handwriting.html`.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
-1. Drag-and-drop the file into your browser.
-1. Click the `Read image` button.
-
-This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery, see [Intelligently generate a thumbnail](javascript-thumb.md).
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace the value of `subscriptionKey` with your subscription key.
+    1. Replace the value of `uriBase` with the endpoint URL for the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) method from the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image from which you want to extract handwritten text.
+1. Save the code as a file with an `.html` extension. For example, `get-handwriting.html`.
+1. Open a browser window.
+1. In the browser, drag and drop the file into the browser window.
+1. When the webpage is displayed in the browser, choose the **Read image** button.
 
 ```html
 <!DOCTYPE html>
@@ -52,19 +57,18 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
             "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
         // Request parameter.
-        // Note: The request parameter changed for APIv2.
-        // For APIv1, it is "handwriting": "true".
         var params = {
             "mode": "Handwritten",
         };
@@ -181,11 +185,9 @@ Image to read:
 </html>
 ```
 
-## Recognize Text response
+## Examine the response
 
-A successful response is returned in JSON. The handwriting results returned include text, bounding box for regions, lines, and words.
-
-The program produces output similar to the following JSON:
+A successful response is returned in JSON. The sample webpage parses and displays a successful response in the browser window, similar to the following example:
 
 ```json
 {
@@ -463,9 +465,13 @@ The program produces output similar to the following JSON:
 }
 ```
 
+## Clean up resources
+
+When no longer needed, delete the file.
+
 ## Next steps
 
-Explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API JavaScript Tutorial](../Tutorials/javascript-tutorial.md)

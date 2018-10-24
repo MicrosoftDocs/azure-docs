@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 

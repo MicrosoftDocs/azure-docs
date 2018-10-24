@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline | Microsoft Docs'
 description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage an Azure SQL database. 
 services: data-factory
@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 
@@ -48,7 +48,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 ## Prerequisites
 * Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
-* Follow instructions from [this article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to: 
+* Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to: 
   1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
@@ -99,7 +99,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
 ```JSON
 {

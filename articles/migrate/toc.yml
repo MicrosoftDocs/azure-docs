@@ -12,6 +12,8 @@
   items:
   - name: About the collector
     href: concepts-collector.md
+  - name: Collector version upgrades
+    href: concepts-collector-upgrade.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
   - name: About dependency visualization
@@ -26,7 +28,7 @@
       href: contoso-migration-infrastructure.md
     - name: 3. Contoso-Assess on-premises resources for migration to Azure
       href: contoso-migration-assessment.md
-    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Managed Instance
+    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Database Managed Instance
       href: contoso-migration-rehost-vm-sql-managed-instance.md
     - name: 5. Contoso-Rehost an app on Azure VMs
       href: contoso-migration-rehost-vm.md
@@ -46,6 +48,8 @@
       href: contoso-migration-rearchitect-container-sql.md
     - name: 13. Contoso-Rebuild an app in Azure
       href: contoso-migration-rebuild.md
+    - name: 14. Contoso-Scale a migration
+      href: contoso-migration-scale.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines
@@ -62,9 +66,19 @@
     href: troubleshooting-general.md
 - name: Resources
   items:
+  - name: FAQ
+    href: resources-faq.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/migrate/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-migrate/
+  - name: UserVoice
+    href: http://aka.ms/AzureMigrateUservoice
+  - name: Forum
+    href: http://aka.ms/AzureMigrateForum
+  - name: Blog
+    href: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate
     href: https://azure.microsoft.com/migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: FAQ
-    href: resources-faq.md

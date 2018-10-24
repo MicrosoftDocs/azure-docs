@@ -3,7 +3,7 @@ title: Azure SQL Data Warehouse column-level security | Microsoft Docs
 description: Column-Level Security (CLS) enables customers to control access to database table columns based on the user's execution context or their group membership. CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access. 
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
@@ -15,7 +15,9 @@ ms.reviewer: igorstan, carlrab
 # Column-level Security 
 Column-Level Security (CLS) enables customers to control access to database table columns based on the user's execution context or their group membership.  
 
-CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access to protect sensitive data. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time that data access is attempted from any tier. This makes your security system more reliable and robust by reducing the surface area of your overall security system. In addition, this also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users. 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+
+CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access to protect sensitive data. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time that data access is attempted from any tier. This restriction makes your security system more reliable and robust by reducing the surface area of your overall security system. In addition, CLS also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users. 
 
 You could implement CLS with the [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL statement. With this mechanism, both SQL and Azure Active Directory (AAD) authentication are supported.
 
@@ -71,5 +73,5 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 
 ## Use Cases
 Some examples of how CLS is being used today: 
-- A financial services firm allows only account managers to have access to customer social security numbers (SSN), phone numbers and other personally identifiable information (PII).
+- A financial services firm allows only account managers to have access to customer social security numbers (SSN), phone numbers, and other personally identifiable information (PII).
 - A health care provider allows only doctors and nurses to have access to sensitive medical records while not allowing members of the billing department to view this data.

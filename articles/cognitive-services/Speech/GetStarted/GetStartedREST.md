@@ -1,5 +1,6 @@
 ---
-title: Get started with the Microsoft Speech Recognition API by using REST | Microsoft Docs
+title: Get started with the Bing Speech Recognition API by using REST | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use REST to access the Speech Recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
@@ -7,12 +8,15 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
-# Get started with speech recognition by using the REST API
 
-With cloud-based Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
+# Quickstart: Use the Bing Speech recognition REST API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+With the cloud-based Bing Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
 
 ## Prerequisites
 

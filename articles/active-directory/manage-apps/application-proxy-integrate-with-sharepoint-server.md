@@ -11,10 +11,10 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/06/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ---
 
@@ -190,7 +190,7 @@ Your last step is to ensure that SharePoint can find the site based on the exter
 
 3. In the drop-down list beside **Alternate Access Mapping Collection**, select **Change Alternate Access Mapping Collection**.
 4. Select your site--for example, **SharePoint - 80**.
-5. You can choose to add the published URL as either an internal URL or a public URL. This example uses a public URL as the extranet.
+5. You can choose to add the published URL as either an internal URL or a public URL. This example uses a public URL as the extranet. If you are using a custom port make sure to include your custom port in the URL.
 6. Click **Edit Public URLs** in the **Extranet** path, and then enter the External URL that was created when you published the application. For example, enter **https://sharepoint-iddemo.msappproxy.net**.
 
   ![Entering the path](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

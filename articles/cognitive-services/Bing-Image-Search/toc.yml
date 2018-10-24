@@ -1,54 +1,48 @@
-- name: Bing Image Search Documentation
+- name: Bing Image Search API Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
     - name: What is Bing Image Search?
       href: overview.md
-- name: REST API Quickstarts
-  expanded: true
+- name: Quickstarts
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
-- name: SDK Quickstarts
-  items:
-  - name: SDK samples overview 
-    href: sdk.md
-  - name: Image search SDK C# quickstart
-    href: image-search-sdk-quickstart.md
-  - name: Image search SDK Node.js quickstart
-    href: image-search-sdk-node-quickstart.md
-  - name: Image Search SDK Python quickstart
-    href: image-sdk-python-quickstart.md
-  - name: Image Search SDK Java quickstart
-    href: image-sdk-java-quickstart.md
+  - name: "Send search queries using the REST API"
+    items:
+    - name: "Using C#"
+      href: quickstarts/csharp.md
+    - name: "Using Java"
+      href: quickstarts/java.md
+    - name: "Using Node.js"
+      href: quickstarts/nodejs.md
+    - name: "Using PHP"
+      href: quickstarts/php.md
+    - name: "Using Python"
+      href: quickstarts/python.md
+    - name: "Using Ruby"
+      href: quickstarts/ruby.md
+  - name: "Search for images using the SDK"
+    items:
+    - name: "Using C#"
+      href: image-search-sdk-quickstart.md
+    - name: "Using Node.js"
+      href: image-search-sdk-node-quickstart.md
+    - name: "Using Python"
+      href: image-sdk-python-quickstart.md
+    - name: "Using Java"
+      href: image-sdk-java-quickstart.md
 - name: Tutorials
   items:
-  - name: Single-page web app
+  - name: Build an image search web application
     href: tutorial-bing-image-search-single-page-app.md
-  - name: Single-page web app (source code)
-    href: tutorial-bing-image-search-single-page-app-source.md
-  - name: Bing image upload for insights
+  - name: Extract image details
     href: tutorial-image-post.md
-  - name: Bing image upload for insights (source code)
-    href: tutorial-image-post-source.md
 - name: Samples
   items:
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search
 - name: How-to guides
   items:
-  - name: Use and display results
-    href: UseAndDisplayRequirements.md
   - name: Get image insights
     href: image-insights.md
   - name: Get .gif images
@@ -61,12 +55,22 @@
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-image-upgrade-guide-v5-to-v7.md
+- name: Concepts
+  items:
+  - name: Getting images from the web
+    href: concepts/bing-image-search-get-images.md
+  - name: Sending and working with search queries
+    href: concepts/bing-image-search-sending-queries.md
 - name: Reference
   items:
   - name: Bing Image Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
   - name: Bing Image Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
+  - name: Azure PowerShell reference
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Azure CLI reference
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
 - name: Resources
   items:
   - name: FAQ
@@ -87,9 +91,11 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
-  - name: Bing Image Search endpoints      
+  - name: Bing Image Search endpoints
     href: image-search-endpoint.md
-  - name: Supported countries and markets
-    href: supported-countries-markets.md
+  - name: Language and region support
+    href: language-support.md
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
   - name: Analytics for Bing Image Search API
     href: bing-image-stats.md

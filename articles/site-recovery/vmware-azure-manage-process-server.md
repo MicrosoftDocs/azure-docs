@@ -3,9 +3,8 @@ title: Manage a process server in Azure Site Recovery | Microsoft Docs
 description: This article describes manage a process server set up for VMware VM and physical server replication in Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/21/2018
 ms.author: ramamill
 
 ---
@@ -53,7 +52,7 @@ If the process server uses a proxy to connect to Site Recovery in Azure, use thi
 
 1. Log onto the process server machine. 
 2. Open an Admin PowerShell command window, and run the following command:
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine

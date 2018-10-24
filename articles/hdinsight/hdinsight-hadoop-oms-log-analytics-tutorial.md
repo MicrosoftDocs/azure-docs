@@ -1,19 +1,15 @@
 ---
-title: Use Log Analytics to monitor Azure HDInsight clusters | Microsoft Docs
+title: Use Log Analytics to monitor Azure HDInsight clusters 
 description: Learn how to use Azure Log Analytics to monitor jobs running in an HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive 
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Use Azure Log Analytics to monitor HDInsight clusters
@@ -93,7 +89,7 @@ These are the available HDInsight solutions:
 
 For the instructions to install a management solution, see [Management solutions in Azure](../monitoring/monitoring-solutions.md#install-a-management-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
-![HDInsight OMS Hadoop monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+![HDInsight monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
 Because the cluster is a brand new cluster, the report doesn't show any activities.
 

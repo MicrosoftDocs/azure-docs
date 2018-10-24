@@ -1,21 +1,14 @@
 ---
-title: Troubleshoot a slow or failing HDInsight cluster - Azure HDInsight | Microsoft Docs
+title: Troubleshoot a slow or failing HDInsight cluster - Azure HDInsight 
 description: Diagnose and troubleshoot a slow or failing HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+ms.author: ashishth
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: ashishth
-
 ---
 # Troubleshoot a slow or failing HDInsight cluster
 
@@ -58,12 +51,13 @@ The Azure portal can provide this information:
 
 ![HDInsight Azure portal Information](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-You can also use the Azure CLI:
+You can also use the Azure Classic CLI:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Another option is using  PowerShell. For more information, see  [Manage Hadoop clusters in HDInsight with Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -103,7 +97,7 @@ fixes. The issue that is affecting your cluster may have been fixed in the lates
 
 #### Restart your cluster services
 
-If you are experiencing slowdowns in your cluster, consider restarting your services through the Ambari UI or the Azure CLI. The cluster may be experiencing transient errors, and restarting is the quickest way to stabilize your environment and possibly improve performance.
+If you are experiencing slowdowns in your cluster, consider restarting your services through the Ambari UI or the Azure Classic CLI. The cluster may be experiencing transient errors, and restarting is the quickest way to stabilize your environment and possibly improve performance.
 
 ## Step 3: View your cluster's health
 

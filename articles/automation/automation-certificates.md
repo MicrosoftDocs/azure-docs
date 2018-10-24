@@ -78,7 +78,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 ## Using a certificate
 
-To use a certificate, use the **Get-AutomationCertificate** activity. You cannot use the [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx) cmdlet since it returns information about the certificate asset but not the certificate itself.
+To use a certificate, use the **Get-AutomationCertificate** activity. You cannot use the [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-6.6.0) cmdlet since it returns information about the certificate asset but not the certificate itself.
 
 ### Textual runbook sample
 

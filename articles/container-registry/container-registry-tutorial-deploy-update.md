@@ -2,13 +2,12 @@
 title: Azure Container Registry tutorial - Push an updated image to regional deployments
 description: Push a modified Docker image to your geo-replicated Azure contain registry, then see the changes automatically deployed to web apps running in multiple regions. Part three of a three-part series.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -134,7 +133,7 @@ In this tutorial, you updated and pushed a new version of the web application co
 
 In addition to geo-replication, ACR Build is another feature of Azure Container Registry that can help optimize your container deployment pipeline. Start with the ACR Build overview to get an idea of its capabilities:
 
-[Automate OS and framework patching with ACR Build](container-registry-build-overview.md)
+[Automate OS and framework patching with ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

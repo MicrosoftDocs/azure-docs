@@ -1,18 +1,17 @@
 ---
-title: Translator Text get sentence lengths with Python | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Python in Cognitive Services.
+title: "Quickstart: Get sentence lengths, Python - Translator Text API"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Python.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Get sentence lengths with Python
+# Quickstart: Get sentence lengths with the Translator Text REST API (Python)
 
 In this quickstart, you find the lengths of sentences in text using the Translator Text API.
 

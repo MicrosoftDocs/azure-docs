@@ -3,17 +3,13 @@ title: Integrate Azure Automation with Event Grid | Microsoft Docs
 description: Learn how to automatically add a tag when a new VM is created and send a notification to Microsoft Teams.
 keywords: automation, runbook, teams, event grid, virtual machine, VM
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 manager: 
-editor: 
 
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
 
 ---
@@ -84,29 +80,31 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
     ![Configure webhook parameters](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. Select **OK** to create the Automation runbook webhook.
-
+5. Select **Create** to create the Automation runbook webhook.
 
 ## Create an Event Grid subscription
+
 1. On the **Automation Account** overview page, select **Event grid**.
 
     ![Select Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Select the **+ Event Subscription** button.
+2. Click **+ Event Subscription**.
 
 3. Configure the subscription with the following information:
 
-    *	Enter **AzureAutomation** for the name.
-    *	In **Topic Type**, select **Azure Subscriptions**.
-    *	Clear the **Subscribe to all event types** check box.
-    *	In **Event Types**, select **Resource Write Success**.
-    *	In **Subscriber Endpoint**, enter the webhook URL for the Watch-VMWrite runbook.
-    *   In **Prefix Filter**, enter the subscription and resource group where you want to look for the new VMs created. It should look like:
+   * For **Topic Type**, select **Azure Subscriptions**.
+   * Uncheck the **Subscribe to all event types** check box.
+   * Enter **AzureAutomation** for the name.
+   * In the **Defined Event Types** drop-down, uncheck all options except **Resource Write Success**.
+   * For **Endpoint Type**, select **Webhook**.
+   * Click **Select an endpoint**. On the **Select Web Hook** page that opens up, paste the webhook url you created for the Watch-VMWrite runbook.
+   * Under **FILTERS**, enter the subscription and resource group where you want to look for the new VMs created. It should look like:
  `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Select **Create** to save the Event Grid subscription.
 
 ## Create a VM that triggers the runbook
+
 1. Create a new VM in the resource group you specified in the Event Grid subscription prefix filter.
 
 2. The Watch-VMWrite runbook should be called and a new tag added to the VM.
@@ -118,6 +116,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
     ![Microsoft Teams notification](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## Next steps
+
 In this tutorial, you set up integration between Event Grid and Automation. You learned how to:
 
 > [!div class="checklist"]

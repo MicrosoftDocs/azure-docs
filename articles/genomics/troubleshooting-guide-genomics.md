@@ -1,22 +1,22 @@
 ---
-title: 'Microsoft Genomics:Troubleshooting Guide | Microsoft Docs'
+title: 'Microsoft Genomics troubleshooting guide'
 titleSuffix: Azure
 description: Learn more about troubleshooting strategies
 keywords: troubleshooting, error, debugging
 services: microsoft-genomics
-author: grhuynh;ruchir
+author: ruchir
 manager: jhubbard
 editor: jasonwhowell
-ms.author: grhuynh;ruchir
+ms.author: ruchir
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 07/21/2018
 
 ---
-# Troubleshooting guide
+# Troubleshooting guide for Microsoft Genomics
 
-Here are a few troubleshooting tips for some of the common issues that you might face when using the Microsoft Genomics service, MSGEN.
+This overview describes strategies to address common issues when using the Microsoft Genomics service, MSGEN.
 
  For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.md).
 
@@ -94,6 +94,7 @@ Note: All errors have the word 'Error Code [ErrorCode Number]' at the beginning.
 
 ### DEBUGGING MSGEN WORKFLOW ERRORS
 
+
 The Microsoft Genomics Service (msgen) can throw the following two kinds of errors:
 
 1. Internal Service Errors: Errors that are internal to the service, that may not be resolved by fixing parameters or input files. Sometimes resubmitting the workflow might fix these errors.
@@ -156,5 +157,5 @@ These errors are user actionable and you can use the listed troubleshooting step
 If you continue to have job failures, or if you have any other questions, contact Microsoft Genomics support from the Azure portal. Additional information on how to submit a support request can be found [here](file-support-ticket-genomics.md).
 
 ## Next steps
-
 In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
+

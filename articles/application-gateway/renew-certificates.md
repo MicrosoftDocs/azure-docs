@@ -4,13 +4,12 @@ description: Learn how to renew a certificate associated with an application gat
 services: application-gateway
 author: vhorne
 manager: jpconnock
-
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 8/15/2018
 ms.author: victorh
-
 ---
+
 # Renew Application Gateway certificates
 
 At some point, you'll need to renew your certificates if you configured your application gateway for SSL encryption.
@@ -27,7 +26,7 @@ Upload your new PFX certificate, give it a name, type the password, and then cli
 
 ## Azure PowerShell
 
-To renew your certificate using Azure PowerShell, use the following cmdlet:
+To renew your certificate using Azure PowerShell, use the following script:
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -41,6 +40,8 @@ $password = ConvertTo-SecureString `
 
 set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
+
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 ## Azure CLI
 

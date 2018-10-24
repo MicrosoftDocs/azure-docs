@@ -33,6 +33,33 @@ The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.co
 
 * You will need [Powershell with the Service Fabric module](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) or [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installed.
 
+* If you are using hyperv containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your ARM template (Azure cluster) or ClusterConfig.json (standalone cluster). You will need  the volume name and the port that the volume listens to on the cluster. 
+
+In the ClusterManifest, the following needs to be added in the Hosting section. In this example, the volume name is **sfazurefile** and the port it listens to on the cluster is **19300**.  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+In the fabricSettings section in your ARM template (for Azure deployments) or ClusterConfig.json (for standalone deployments), the following snippet needs to be added. 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
+
 ## Deploy the Service Fabric Azure Files application
 
 The Service Fabric application that provides the volumes for your containers can be downloaded from the following [link](https://aka.ms/sfvolume). The application can be deployed to the cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) or [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).

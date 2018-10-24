@@ -1,18 +1,20 @@
 ---
-title: Bing Image Search single-page web app (source code) | Microsoft Docs
-description: Source code for tutorial showing how to use the Bing Image Search API in a single-page Web application.
+title: "Tutorial: Bing Entity Search single-page web app (source code)"
+titlesuffix: Azure Cognitive Services
+description: Source code for tutorial showing how to use the Bing Entity Search API in a single-page Web application.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
 ---
 # Tutorial: Single-page web app source
 
-This is the complete source code discussed in the [single-page app tutorial](tutorial-bing-entities-search-single-page-app.md) for Bing Image Search. To run the app, copy the source code into Notepad or another text editor and save it as `bing.html`. Then open the saved file in Microsoft Edge or another popular browser.
+This is the complete source code discussed in the [single-page app tutorial](tutorial-bing-entities-search-single-page-app.md) for Bing Entity Search. To run the app, copy the source code into Notepad or another text editor and save it as `bing.html`. Then open the saved file in Microsoft Edge or another popular browser.
 
 ```html
 <!DOCTYPE html>

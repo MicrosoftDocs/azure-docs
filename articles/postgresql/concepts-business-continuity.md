@@ -27,7 +27,7 @@ The following table compares the ERT and RPO for the available features:
 | Geo-restore from geo-replicated backups | Not supported | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered.
 
 ## Recover a server after a user or application error
 
@@ -44,7 +44,7 @@ One option is to wait for your server to come back online when the data center o
 The other option is to use the Azure Database for PostgreSQL's geo-restore feature that restores the server using geo-redundant backups. These backups are accessible even when the region your server is hosted in is offline. You can restore from these backups to any other region and bring your server back online.
 
 > [!IMPORTANT]
-> Geo-restore is only possible if you provisioned the server with geo-redundant backup storage.
+> Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using mysqldump of your existing server and restore it to a newly created configured with geo-redundant backups.
 
 ## Next steps
 - To learn more about the automated backups, see [Backups in Azure Database for PostgreSQL](concepts-backup.md). 

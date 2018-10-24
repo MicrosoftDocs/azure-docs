@@ -19,7 +19,7 @@ These steps show how to create an enrollment entry in the Device Provisioning Se
 
 If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
@@ -66,9 +66,9 @@ You will use sample code from the [Azure IoT SDK for Node.js](https://github.com
 
 4. Sign in to the [Azure portal](https://portal.azure.com), click on the **All resources** button on the left-hand menu and open your Device Provisioning Service instance.
 
-5. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+5. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
-6. Under the **Add enrollment** panel, enter the following information:
+6. Under the **Add Enrollment** panel, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
     - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **{certificate-name}_cert.pem** created in the previous steps.  
     - Optionally, you may provide the following information:
@@ -77,7 +77,7 @@ You will use sample code from the [Azure IoT SDK for Node.js](https://github.com
       - Update the **Initial device twin state** with the desired initial configuration for the device.
    - Once complete, click the **Save** button. 
 
-    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-node/individual-enrollment.png)](./media/quick-create-simulated-device-x509-node/individual-enrollment.png#lightbox)
+    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
     On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later.
 
@@ -87,7 +87,7 @@ The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-no
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_GLobal Device Endpoint_** and **_ID Scope_** values.
 
-    ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
 2. Copy your _certificate_ and _key_ to the sample folder.
 
@@ -117,7 +117,7 @@ The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-no
 
 6. In the portal, navigate to the IoT hub linked to your provisioning service and open the **IoT Devices** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-node/hub-registration.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-node/hubregistration.png) 
 
     If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 

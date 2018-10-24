@@ -3,7 +3,7 @@ title: In this tutorial, you learn how to subscribe to an Azure Stack offer | Mi
 description: This tutorial shows you how to create a new subscription to Azure Stack services and test the offer by creating a test virtual machine.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,8 +14,8 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/08/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: sethm
 ms.reviewer: 
 ---
 
@@ -48,7 +48,7 @@ To subscribe to an offer as a user, you need to login to the Azure Stack user po
    > [!TIP]
    > You must now refresh the user portal to start using your subscription.
 
-3. To view the subscription you just created, click **More services**, click **Subscriptions**, then click your new subscription. After you subscribe to an offer, refresh the portal to see if new services have been included as part of the new subscription. In this example, **Virtual machines** has been added.
+3. To view the subscription you created, click **All services**.  Then, under the **GENERAL** category select **Subscriptions**, and then select your new subscription. After you subscribe to an offer, refresh the portal to see if new services have been included as part of the new subscription. In this example, **Virtual machines** has been added.
 
    ![View subscription](media/azure-stack-subscribe-services/view-subscription.png)
 

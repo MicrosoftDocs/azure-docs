@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build your first data factory (REST) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 services: data-factory
@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 
@@ -46,7 +46,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 ## Prerequisites
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory.
-* Follow instructions from [this article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to:
+* Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to:
   1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.
@@ -82,7 +82,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
 >
 >
 

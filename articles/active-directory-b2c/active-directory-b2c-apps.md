@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/13/2018
-ms.author: davidmu1
+ms.author: davidmu
 ms.component: B2C
 
 ---
@@ -56,7 +56,13 @@ Learn more about the types of tokens and claims available to an application in t
 
 In a web application, each execution of a [policy](active-directory-b2c-reference-policies.md) takes these high-level steps:
 
-![Web App Swimlanes Image](./media/active-directory-b2c-apps/webapp.png)
+1. The user browses to the web application.
+2. The web application redirects the user to Azure AD B2C indicating the policy to execute.
+3. The user completes policy.
+4. Azure AD B2C returns an `id_token` to the browser.
+5. The `id_token` is posted to the redirect URI.
+6. The `id_token` is validated and a session cookie is set.
+7. A secure page is returned to the user.
 
 Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This also sets a session cookie that can be used to identify the user on subsequent page requests.
 
@@ -78,14 +84,17 @@ Accept: application/json
 
 The web API can then use the token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the token. Learn more about the types of tokens and claims available to an app in the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
 
-> [!NOTE]
-> Azure AD B2C currently supports only web APIs that are accessed by their own well-known clients. For instance, your complete app may include an iOS application, an Android application, and a back-end web API. This architecture is fully supported. Allowing a partner client, such as another iOS application, to access the same web API is not currently supported. All of the components of your complete application must share a single application ID.
->
->
-
 A web API can receive tokens from many types of clients, including web applications, desktop and mobile applications, single page applications, server-side daemons, and other web APIs. Here's an example of the complete flow for a web application that calls a web API:
 
-![Web App Web API Swimlanes Image](./media/active-directory-b2c-apps/webapi.png)
+1. The web application executes a policy and the user completes the user experience.
+2. Azure AD B2C returns an `access_token` and an authorization code to the browser.
+3. The browser posts the `access_token` and authorization code to the redirect URI.
+4. The web server validates the `access token` and sets a session cookie.
+5. The `access_token` is provided to Azure AD B2C with the authorization code, application client ID, and credentials.
+6. The `access_token` and `refresh_token` are returned to the web server.
+7. The web API is called with the `access_token` in an authorization header.
+8. The web API validates the token.
+9. Secure data is returned to the web server.
 
 To learn more about authorization codes, refresh tokens, and the steps for getting tokens, read about the [OAuth 2.0 protocol](active-directory-b2c-reference-oauth-code.md).
 
@@ -96,13 +105,6 @@ To learn how to secure a web API by using Azure AD B2C, check out the web API tu
 Applications that are installed on devices, such as mobile and desktop applications, often need to access back-end services or web APIs on behalf of users. You can add customized identity management experiences to your native applications and securely call back-end services by using Azure AD B2C and the [OAuth 2.0 authorization code flow](active-directory-b2c-reference-oauth-code.md).  
 
 In this flow, the application executes [policies](active-directory-b2c-reference-policies.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `id_token` and a `refresh_token`.  The application can use the `id_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `id_token` when an older one expires.
-
-> [!NOTE]
-> Azure AD B2C currently supports only tokens that are used to access an application's own back-end web service. For instance, your complete application may include an iOS application, an Android application, and a back-end web API. This architecture is fully supported. Allowing your iOS application to access a partner web API by using OAuth 2.0 access tokens is not currently supported. All of the components of your complete application must share a single application ID.
->
->
-
-![Native App Swimlanes Image](./media/active-directory-b2c-apps/native.png)
 
 ## Current limitations
 

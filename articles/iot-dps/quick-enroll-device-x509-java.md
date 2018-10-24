@@ -1,8 +1,8 @@
 ---
-title: Enroll X.509 devices to Azure Device Provisioning Service using Java | Microsoft Docs
-description: Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service using Java service SDK
-author: dsk-2015
-ms.author: dkshir
+title: This quickstart shows you how to enroll X.509 devices to the Azure Device Provisioning Service using Java | Microsoft Docs
+description: In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using Java
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
 ms.topic: quickstart
 ms.service: iot-dps
@@ -12,47 +12,38 @@ ms.devlang: java
 ms.custom: mvc
 ---
 
-# Enroll X.509 devices to IoT Hub Device Provisioning Service using Java service SDK
+# Quickstart: Enroll X.509 devices to the Device Provisioning Service using Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-These steps show how to enroll a group of X.509 simulated devices programmatically to the Azure IoT Hub Device Provisioning Service, using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
+This quickstart shows how to use Java to programmatically enroll a group of X.509 simulated devices to the Azure IoT Hub Device Provisioning Service. Devices are enrolled to a provisioning service instance by creating an [Enrollment group](concepts-service.md#enrollment-group), or an [Individual enrollment](concepts-service.md#individual-enrollment). This quickstart shows how to create both types of enrollments. The enrollments are created using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. 
 
-Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
+This quickstart expects you have already created an IoT hub and Device Provisioning Service instance. If you have not already created these resources, complete the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart before proceeding with this article.
 
-<a id="setupdevbox"></a>
+Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
 
-## Prepare the development environment 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
+## Prerequisites
 
-2. Set up environment variables for your Java installation. The `PATH` variable should include the full path to *jdk1.8.x\bin* directory. If this is your machine's first Java installation, then create a new environment variable named `JAVA_HOME` and point it to the full path to the *jdk1.8.x* directory. On Windows machine, this directory is usually found in the *C:\\Program Files\\Java\\* folder, and you can create or edit environment variables by searching for **Edit the system environment variables** on the **Control panel** of your Windows machine. 
+* Install [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Install [Maven 3](https://maven.apache.org/download.cgi). You can verify your current Maven version by running:
 
-  You may check if Java is successfully set up on your machine by running the following command on your command window:
-
-    ```cmd\sh
-    java -version
-    ```
-
-3. Download and extract [Maven 3](https://maven.apache.org/download.cgi) on your machine. 
-
-4. Edit environment variable `PATH` to point to the *apache-maven-3.x.x\\bin* folder inside the folder where Maven is extracted. You may confirm that Maven is successfully installed by running this command on your command window:
-
-    ```cmd\sh
+    ```cmd/sh
     mvn --version
     ```
 
-5. Make sure [git](https://git-scm.com/download/) is installed on your machine and is added to the environment variable `PATH`. 
+* Install [Git](https://git-scm.com/download/).
 
 
 <a id="javasample"></a>
 
 ## Download and modify the Java sample code
 
-This section uses a self-signed X.509 certificate, it is important to keep in mind the following:
+This section uses a self-signed X.509 certificate, it is important to keep in mind the following points:
 
-* Self-signed certificates are for testing only, and should not to be used in production.
-* The default expiration date for a self-signed certificate is 1 year.
+* Self-signed certificates are for testing only, and should not be used in production.
+* The default expiration date for a self-signed certificate is one year.
 
 The following steps show how to add the provisioning details of your X.509 device to the sample code. 
 
@@ -66,7 +57,7 @@ The following steps show how to add the provisioning details of your X.509 devic
 
     1. Add the `[Provisioning Connection String]` for your provisioning service, from the portal as following:
         1. Navigate to your provisioning service in the [Azure portal](https://portal.azure.com). 
-        2. Open the **Shared access policies**, and select a policy which has the *EnrollmentWrite* permission.
+        2. Open the **Shared access policies**, and select a policy, which has the *EnrollmentWrite* permission.
         3. Copy the **Primary key connection string**. 
 
             ![Get the provisioning connection string from portal](./media/quick-enroll-device-x509-java/provisioning-string.png)  
@@ -131,7 +122,7 @@ The following steps show how to add the provisioning details of your X.509 devic
             enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
             ```
 
-    4. Study the sample code. It creates, updates, queries and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
+    4. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
 
         ```Java
         // ************************************** Delete info of enrollmentGroup ***************************************
@@ -203,7 +194,7 @@ To enroll a single X.509 device, modify the *individual enrollment* sample code 
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
 
-4. Save, build and run the *individual enrollment* sample file, using the steps in the section [Build and run the sample code for individual enrollment](quick-enroll-device-tpm-java.md#runjavasample).
+4. Save, build, and run the *individual enrollment* sample file, using the steps in the section [Build and run the sample code for individual enrollment](quick-enroll-device-tpm-java.md#runjavasample).
 
 
 ## Clean up resources
@@ -211,7 +202,7 @@ If you plan to explore the Java service sample, do not clean up the resources cr
 
 1. Close the Java sample output window on your machine.
 1. Close the _X509 Cert Generator_ window on your machine.
-1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments** and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
+1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
 
 ## Next steps
 In this Quickstart, you enrolled a simulated group of X.509 devices to your Device Provisioning service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 

@@ -1,18 +1,26 @@
 ---
-title: Create a new knowledge base - quickstart Go - for Microsoft QnA Maker API (v4) - Azure Cognitive Services | Microsoft Docs
-description: Create a knowledge base in Go to hold your FAQs or product manuals, so you can get started with QnA Maker.
+title: "Quickstart: Create knowledge base - REST, Go - QnA Maker"
+titlesuffix: Azure Cognitive Services 
+description: This REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
+ms.date: 10/19/2018
+ms.author: diberry
 ---
 
-# Create a new knowledge base in Go
+# Quickstart: Create a knowledge base in QnA Maker using Go
+
+This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+
+This quickstart calls QnA Maker APIs:
+* [Create KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+
 
 ## Prerequisites
 
@@ -116,8 +124,8 @@ var req string = `{
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }`;

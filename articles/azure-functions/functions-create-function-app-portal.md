@@ -4,16 +4,12 @@ description: Create a new function app in Azure App Service from the portal.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc

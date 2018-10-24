@@ -2,14 +2,12 @@
 title: Using Azure Import/Export to transfer data to Azure Blobs | Microsoft Docs
 description: Learn how to create import and export jobs in Azure portal to transfer data to and from Azure Blobs.
 author: alkohli
-manager: jeconnoc
 services: storage
-
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
-
+ms.component: common
 ---
 # Use the Azure Import/Export service to import data to Azure Blob Storage
 
@@ -22,7 +20,7 @@ You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
 - Have at least one Azure Storage account with a storage container. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). 
-    - For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account). 
+    - For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md). 
     - For information on storage container, go to [Create a storage container](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
@@ -93,7 +91,7 @@ Perform the following steps to create an import job in the Azure portal.
 
     - Select **Import into Azure**.
     - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-        - The name may contain only lowercase letters, numbers, hyphens, and underscores.
+        - The name may contain only lowercase letters, numbers, and hyphens.
         - The name must start with a letter, and may not contain spaces.
     - Select a subscription.
     - Enter or select a resource group.  
@@ -104,7 +102,7 @@ Perform the following steps to create an import job in the Azure portal.
 
     - Upload the drive journal files that you obtained during the drive preparation step. If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file. 
     - Select the destination storage account where data will reside. 
-    - The drop-off location is automatically populated based on the region of the storage account selected.
+    - The dropoff location is automatically populated based on the region of the storage account selected.
    
    ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

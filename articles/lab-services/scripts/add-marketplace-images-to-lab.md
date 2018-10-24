@@ -34,7 +34,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | Searches for resources based on specified parameters. |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Searches for resources based on specified parameters. |
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Gets resources. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource. |
 | [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Create a resource. |

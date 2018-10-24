@@ -57,7 +57,9 @@ The container is now ready to be built and packaged in a Service Fabric applicat
 ## Create an Azure SQL DB
 When running the Fabrikam Fiber CallCenter application in production, the data needs to be persisted in a database. There is currently no way to guarantee persistent data in a container, therefore you cannot store production data in SQL Server in a container.
 
-We recommend [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer.  If you are behind a corporate firewall, the IP address of your development computer may not be IP address exposed to the internet.  You can also set the server firewall rule for the SQL database through the [Azure portal](https://portal.azure.com), which lists the IP address of your computer.
+We recommend [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer.
+
+If you are behind a corporate firewall, the IP address of your development computer may not be IP address exposed to the internet. To verify that the database has the correct IP address for the firewall rule, go to the [Azure portal](https://portal.azure.com) and find your database in the SQL Databases section. Click on its name, then in the Overview section click "Set server firewall". "Client IP address" is the IP address of your development machine. Ensure that it matches the IP address in the "AllowClient" rule.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -216,9 +218,13 @@ Now that the application is ready, you can deploy it to the cluster in Azure dir
 
 ![Publish application][publish-app]
 
-Follow the deployment progress in the output window.  When the application is deployed, open a browser and type in the cluster address and application port. For example, http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Follow the deployment progress in the output window.  When the application is deployed, open a browser and type in the cluster address and application port. For example, http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Fabrikam web sample][fabrikam-web-page-deployed]
+
+## Set up Continuous Integration and Deployment (CI/CD) with a Service Fabric cluster
+To learn how to use Azure DevOps to configure CI/CD application deployment to a Service Fabric cluster, see 
+[Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). The process described in the tutorial is the same for this (FabrikamFiber) project, just skip downloading the Voting sample and substitute FabrikamFiber as the repository name instead of Voting.
 
 ## Clean up resources
 If you're done, be sure to remove all the resources you created.  The simplest way to is to remove the resources groups that contain the Service Fabric cluster, Azure SQL DB, and Azure Container Registry.
@@ -247,8 +253,7 @@ In this tutorial, you learned how to:
 > * Create an Azure container registry
 > * Deploy a Service Fabric application to Azure
 
-In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md).
-
+In the next part of the tutorial, learn how to [Deploy a container application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps

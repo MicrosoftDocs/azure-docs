@@ -1,18 +1,13 @@
 ---
-title: Scale cluster sizes - Azure HDInsight | Microsoft Docs
+title: Scale cluster sizes - Azure HDInsight 
 description: Scale an HDInsight cluster to your workload.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
 
@@ -29,11 +24,13 @@ For example, if you have some batch processing that happens once a day or once a
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* To scale your cluster through the [Azure CLI](hdinsight-administer-use-command-line.md):
+* To scale your cluster through the [Azure Classic CLI](hdinsight-administer-use-command-line.md):
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
 * To scale your cluster through the [Azure portal](https://portal.azure.com), open your HDInsight cluster pane, select **Scale cluster** on the left-hand menu, then on the Scale cluster pane, type in the number of worker nodes, and select Save.
 

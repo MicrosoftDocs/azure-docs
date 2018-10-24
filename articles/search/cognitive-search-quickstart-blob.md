@@ -28,6 +28,9 @@ You can try out cognitive search in an Azure Search service created in the follo
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+
 ## Prerequisites
 
 ["What is cognitive search?"](cognitive-search-concept-intro.md) introduces the enrichment architecture and components. 

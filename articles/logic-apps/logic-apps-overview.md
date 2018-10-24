@@ -1,7 +1,7 @@
 ---
 # required metadata
-title: Enterprise integration solutions with Azure Logic Apps | Microsoft Docs
-description: Learn how Logic Apps helps you build automated workflows and business processes that integrate data, services, apps, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
+title: Enterprise integration with Azure Logic Apps | Microsoft Docs
+description: This overview describes how you can build enterprise integration solutions by automating tasks, workflows and business processes that integrate apps, data, services, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -18,27 +18,29 @@ ms.suite: integration
 
 # What is Azure Logic Apps?
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) helps you build solutions 
-that integrate apps, data, systems, and services across enterprises or organizations 
-by automating tasks and business processes as [workflows](#logic-app-concepts). 
-Logic Apps is cloud service in Azure that simplifies how you design and create 
-scalable solutions for app integration, data integration, system integration, 
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 
+is a cloud service that helps you automate and orchestrate tasks, 
+business processes, and [workflows](#logic-app-concepts) 
+when you need to integrate apps, data, systems, 
+and services across enterprises or organizations. 
+Logic Apps simplifies how you design and build scalable 
+solutions for app integration, data integration, system integration, 
 enterprise application integration (EAI), and business-to-business (B2B) communication, 
 whether in the cloud, on premises, or both.
 
-For example, here are just a few workloads that you can automate with logic apps:
+For example, here are just a few workloads you can automate with logic apps:
 
 * Process and route orders across on-premises systems and cloud services.
-* Move uploaded files from an SFTP or FTP server to Azure Storage. 
 * Send email notifications with Office 365 when events happen in various systems, apps, and services.
+* Move uploaded files from an SFTP or FTP server to Azure Storage. 
 * Monitor tweets for a specific subject, analyze the sentiment, 
 and create alerts or tasks for items that need review.
 
-To build integration solutions with logic apps, choose from 
-a growing gallery that has [200+ connectors](../connectors/apis-list.md), 
-including other Azure services such as Service Bus, Functions, and Storage; 
-SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, 
-file shares, and many more. These [connectors](#logic-app-concepts) provide 
+To build enterprise integration solutions with Azure Logic Apps, you can choose 
+from a growing gallery with [200+ connectors](../connectors/apis-list.md), 
+which include services such as Azure Service Bus, Functions, and Storage; 
+SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, 
+file shares, and more. [Connectors](#logic-app-concepts) provide 
 [triggers](#logic-app-concepts), [actions](#logic-app-concepts), 
 or both for creating logic apps that securely access and process data in real time.
 
@@ -56,7 +58,7 @@ start your workflows with the Schedule trigger.
 Learn more about [how to build schedule-based workflows](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
 
 Each time that the trigger fires, the Logic Apps engine 
-creates a logic app instance that runs the workflow's actions. 
+creates a logic app instance that runs the actions in the workflow. 
 These actions can also include data conversions and flow controls, 
 such as conditional statements, switch statements, loops, and branching. 
 For example, this logic app starts with a Dynamics 365 trigger with the 
@@ -68,9 +70,9 @@ and email notifications.
 ![Logic Apps Designer - example logic app](./media/logic-apps-overview/overview.png)
 
 You can build your logic apps visually with the Logic Apps Designer, 
-available in the Azure portal through your browser and in Visual Studio. 
+which is available in the Azure portal through your browser and in Visual Studio. 
 For more custom logic apps, you can create or edit logic app definitions 
-in JavaScript Object Notation (JSON) by working in "code view" mode. 
+in JavaScript Object Notation (JSON) by working in the "code view" editor. 
 You can also use Azure PowerShell commands and Azure Resource Manager 
 templates for select tasks. Logic apps deploy and run in the cloud on Azure. 
 For a more detailed introduction, watch this video: 
@@ -78,8 +80,8 @@ For a more detailed introduction, watch this video:
 
 ## Why use Logic Apps?
 
-With businesses moving toward digitization, logic apps help you connect legacy 
-systems, modern, and cutting-edge systems more easily and quickly by providing 
+With businesses moving toward digitization, logic apps help you connect legacy, 
+modern, and cutting-edge systems more easily and quickly by providing 
 prebuilt APIs as Microsoft-managed connectors. That way, you can focus on your 
 apps' business logic and functionality. You don't have to worry about building, 
 hosting, scaling, managing, maintaining, and monitoring your apps. 
@@ -90,7 +92,7 @@ you pay only for what you use based on a consumption
 In many cases, you won't have to write code. But if you must write some code, 
 you can create code snippets with [Azure Functions](../azure-functions/functions-overview.md) 
 and run that code on-demand from logic apps. Also, if your logic apps 
-need to interact with events from Azure services, custom apps, or third-party solutions, 
+need to interact with events from Azure services, custom apps, or other solutions, 
 you can use [Azure Event Grid](../event-grid/overview.md) 
 with your logic apps for event monitoring, routing, and publishing.
 
@@ -154,9 +156,9 @@ mature integration scenarios by providing these capabilities and more:
 * Build off these products and services:
 
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Azure Functions](../azure-functions/functions-overview.md)
   * [Azure API Management](../api-management/api-management-key-concepts.md)
-  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
 * Process [XML messages](../logic-apps/logic-apps-enterprise-integration-xml.md)
 * Process [flat files](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
@@ -172,7 +174,7 @@ mature integration scenarios by providing these capabilities and more:
   * [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
    
 For example, if you're using Microsoft BizTalk Server, logic apps 
-can connect to and communicate with your BizTalk Server by using the 
+can communicate with your BizTalk Server by using the 
 [BizTalk Server connector](../connectors/apis-list.md#on-premises-connectors). 
 You can then extend or perform BizTalk-like operations in your logic apps by including 
 [integration account connectors](../connectors/apis-list.md#integration-account-connectors), 

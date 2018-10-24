@@ -4,14 +4,14 @@ description: Azure CLI examples for Azure Media Services service
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 04/15/2018
+ms.date: 10/15/2018
 ms.author: juliako
 ---
 
@@ -35,4 +35,4 @@ The following table includes links to the Azure CLI examples for Azure Media Ser
 
 ## See also
 
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

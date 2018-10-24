@@ -9,11 +9,11 @@
   items:
   - name: Create a Jenkins server
     href: /azure/jenkins/install-jenkins-solution-template
+    maintainContext: true
 - name: Tutorials
   items:
   - name: CI/CD to App Service
     href: /azure/jenkins/java-deploy-webapp-tutorial
-    maintainContext: true
   - name: CI/CD to Kubernetes
     href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
     maintainContext: true
@@ -22,13 +22,13 @@
     maintainContext: true
   - name: Create Azure resources in a pipeline job
     href: /azure/jenkins/execute-cli-jenkins-pipeline
-    maintainContext: true
   - name: Scale with Azure VM agents
     href: /azure/jenkins/jenkins-azure-vm-agents
-    maintainContext: true
   - name: Build using Azure Container Instances
     href: /azure/container-instances/container-instances-jenkins
     maintainContext: true
+  - name: Deploy to AKS using blue/green pattern
+    href: /azure/jenkins/jenkins-aks-blue-green-deployment
 - name: How-to
   items:
     - name: Secure Jenkins on Azure
@@ -38,7 +38,7 @@
     - name: Publish to Azure Storage
       href: /azure/storage/storage-java-jenkins-continuous-integration-solution
       maintainContext: true
-    - name: Use Jenkins with VSTS
+    - name: Use Jenkins with Azure DevOps
       href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
     - name: Deploy Service Fabric apps
       href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins

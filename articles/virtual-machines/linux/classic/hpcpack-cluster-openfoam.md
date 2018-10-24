@@ -42,7 +42,7 @@ Microsoft HPC Pack provides features to run large-scale HPC and parallel applica
   * After deploying the Linux nodes, connect by SSH to perform any additional administrative tasks. Find the SSH connection details for each Linux VM in the Azure portal.  
 * **Intel MPI** - To run OpenFOAM on SLES 12 HPC compute nodes in Azure, you need to install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is preinstalled on CentOS-based HPC images.)  In a later step, if necessary, install Intel MPI on your Linux compute nodes. To prepare for this step, after you register with Intel, follow the link in the confirmation email to the related web page. Then, copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
 * **OpenFOAM Source Pack** - Download the OpenFOAM Source Pack software for Linux from the [OpenFOAM Foundation site](http://openfoam.org/download/2-3-1-source/). This article is based on Source Pack version 2.3.1, available for download as OpenFOAM-2.3.1.tgz. Follow the instructions later in this article to unpack and compile OpenFOAM on the Linux compute nodes.
-* **EnSight** (optional) - To see the results of your OpenFOAM simulation, download and install the [EnSight](https://www.ceisoftware.com/download/) visualization and analysis program. Licensing and download information are at the EnSight site.
+* **EnSight** (optional) - To see the results of your OpenFOAM simulation, download and install the [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) visualization and analysis program. Licensing and download information are at the EnSight site.
 
 ## Set up mutual trust between compute nodes
 Running a cross-node job on multiple Linux nodes requires the nodes to trust each other (by **rsh** or **ssh**). When you create the HPC Pack cluster with the Microsoft HPC Pack IaaS deployment script, the script automatically sets up permanent mutual trust for the administrator account you specify. For non-administrator users you create in the cluster's domain, you have to set up temporary mutual trust among the nodes when a job is allocated to them, and destroy the relationship after the job is complete. To establish trust for each user, provide an RSA key pair to the cluster that HPC Pack uses for the trust relationship.
@@ -358,7 +358,7 @@ Now you can submit a job in HPC Cluster Manager. You need to pass the script hpc
 10. When the job finishes, find the job results in folders under C:\OpenFoam\sloshingTank3D, and the log files at C:\OpenFoam.
 
 ## View results in EnSight
-Optionally use [EnSight](https://www.ceisoftware.com/) to visualize and analyze the results of the OpenFOAM job. For more about visualization and animation in EnSight, see this [video guide](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
+Optionally use [EnSight](http://www.ensight.com/) to visualize and analyze the results of the OpenFOAM job. For more about visualization and animation in EnSight, see this [video guide](http://www.ensight.com/ensight.com/envideo/).
 
 1. After you install EnSight on the head node, start it.
 2. Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

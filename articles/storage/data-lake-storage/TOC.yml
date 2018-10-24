@@ -18,7 +18,7 @@
   items:
   - name: Extract, transform, and load data using Azure Databricks
     href: handle-data-using-databricks.md
-  - name: Access Data Lake Storage data with DataBricks using Spark
+  - name: Access Data Lake Storage data with Databricks using Spark
     href: using-databricks-spark.md
   - name: Extract, transform, and load data using Apache Hive on Azure HDInsight
     href: tutorial-extract-transform-load-hive.md

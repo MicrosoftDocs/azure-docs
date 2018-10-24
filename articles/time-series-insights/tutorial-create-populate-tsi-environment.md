@@ -6,7 +6,8 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.author: bryanla
+ms.author: anshan
+manager: cshankar
 # Customer intent: As a data analyst or developer, I want learn how to create a TSI environment, so I can use TSI queries to understand device behavior.
 ---
 
@@ -21,11 +22,17 @@ This tutorial will guide you through the process of creating a Time Series Insig
 > * Run a device simulation to stream data into the TSI environment
 > * Verify the simulated telemetry data
 
+## Video: 
+
+### In this video, we show you how to use an Azure IoT Solution Accelerator to generate data that can be used to get started with Time Series Insights.</br>
+
+> [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
+
 ## Prerequisites
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
-Your Azure sign-in account also needs to be a member of the subscription's "Owner" role. For details, see [Add or change Azure subscription administrators](/azure/billing/billing-add-change-azure-subscription-administrator)
+Your Azure sign-in account also needs to be a member of the subscription's Owner role. For details, see [Manage access using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 
 ## Overview
 

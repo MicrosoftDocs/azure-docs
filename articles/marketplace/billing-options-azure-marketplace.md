@@ -1,6 +1,6 @@
 ---  
-title: Billing options on Azure Marketplace | Azure
-description: Billing options on Azure Marketplace for publishers.
+title: Billing options in the Azure Marketplace | Azure
+description: Billing options in the Azure Marketplace for publishers.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
@@ -18,58 +18,59 @@ ms.author: ellacroi
 
 ---  
 
-# Billing Options  
+# Billing options in the Azure Marketplace
 
-## Commercial Considerations on the marketplace  
-The marketplace does not share revenue for the following listing types.  
-*   List  
-*   Trial  
+This article describes billing options that are available in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
+
+## Commercial considerations in the Marketplace
+The Marketplace doesn't share revenue for the following listing types: 
+*   List
+*   Trial
 *   Transact using the Bring Your Own License (BYOL) billing model
 
-You are not billed additional fees for participating in the storefronts on the marketplace.  
-*   For more information, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
+You aren't billed additional fees for participating in storefronts in the Marketplace.
 
-## Pay-As-You-Go and Bring Your Own License Billing Options  
-When you use a Pay-As-You-Go billing model as a publishing option, your usage-based software licensing revenue is shared 80/20 between you and Microsoft. A single offer may be priced using both Pay-As-You-Go and BYOL billing models. The two billing models coexist at the offer level as separate SKUs. You configure the billing models in your offer on Cloud Partner Portal. 
+For more information, see [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
-Consider the following examples.  
-*   If you enable the Pay-As-You-Go option, then you have the following result.  
-    | Your license cost | $1.00 per hour |  
-    |:--- |:--- |  
-    | Azure usage cost (D1/1-Core) | $0.14 per hour |  
-    | *Customer is billed by Microsoft* | *$1.14 per hour* |  
+## Pay-As-You-Go and BYOL billing options
+When you use a Pay-As-You-Go billing model as a publishing option, your usage-based software licensing revenue is shared in an 80%/20% split between you and Microsoft. You can price a single offer both by using Pay-As-You-Go and BYOL billing models. The two billing models coexist at the offer level as separate SKUs. You configure the billing models in your offer in the Cloud Partner Portal. 
 
-    In this scenario, Microsoft bills $1.14 per hour for use of your published VM image.  
-    | Microsoft bills | $1.14 per hour |  
-    |:--- |:--- |  
-    | Microsoft pays you 80% of your license cost | $0.80 per hour |  
-    | Microsoft keeps 20% of your license cost | $0.20 per hour |  
-    | Microsoft keeps the Azure usage cost | $0.14 per hour |  
+Consider the following examples:
+*   If you enable the Pay-As-You-Go option, you have the following result:
+    | Your license cost | $1.00 per hour |
+    |:--- |:--- |
+    | Azure usage cost (D1/1-Core) | $0.14 per hour |
+    | *Customer is billed by Microsoft* | *$1.14 per hour* |
 
-*   If you enable the BYOL option, then you have the following result.  
-    | Your license cost | License fee negotiated and billed by you |  
-    |:--- |:--- |  
-    | Azure usage cost (D1/1-Core) | $0.14 per hour |  
-    | *Customer is billed by Microsoft* | *$0.14 per hour* |  
+    In this scenario, Microsoft bills $1.14 per hour for use of your published VM image:
+    | Microsoft bills | $1.14 per hour |
+    |:--- |:--- |
+    | Microsoft pays you 80% of your license cost | $0.80 per hour |
+    | Microsoft keeps 20% of your license cost | $0.20 per hour |
+    | Microsoft keeps the Azure usage cost | $0.14 per hour |
 
-    In this scenario, Microsoft bills $0.14 per hour for use of your published VM image.  
-    | Microsoft bills | $0.14 per hour |  
-    |:--- |:--- |  
-    | Microsoft keeps the Azure usage cost | $0.14 per hour |  
-    | Microsoft keeps 0% of your license cost | $0.00 per hour |  
+*   If you enable the BYOL option, you have the following result:
+    | Your license cost | License fee negotiated and billed by you |
+    |:--- |:--- |
+    | Azure usage cost (D1/1-Core) | $0.14 per hour |
+    | *Customer is billed by Microsoft* | *$0.14 per hour* |
 
-## Single-billing and Payment Methods  
-An important benefit of using the Transact listing option is that your licensing costs and Azure usage are single-billed directly to your customer.  
+    In this scenario, Microsoft bills $0.14 per hour for use of your published VM image: 
+    | Microsoft bills | $0.14 per hour |
+    |:--- |:--- |
+    | Microsoft keeps the Azure usage cost | $0.14 per hour |
+    | Microsoft keeps 0% of your license cost | $0.00 per hour |
 
-In the scenario, Microsoft bills and collects on your behalf. Microsoft billing removes the requirement for you to create your own procurement relationship with your customer. Single-billing may save you time and resources. Single-billing may help you to focus on landing the sale, rather than collecting the bill. 
+## Single billing and payment methods
+An important benefit of using the Transact publishing option in the Marketplace is that your licensing costs and Azure usage are single-billed directly to your customer.
+
+In this scenario, Microsoft bills and collects on your behalf. Microsoft billing removes the requirement for you to create your own procurement relationship with your customer. Single billing might save you time and resources. It also might help you focus on landing the sale instead of on collecting the bill. 
 
 ## Enterprise Agreement  
-If you are an Enterprise Agreement (EA) customer with Microsoft, then you may use your EA to pay for Microsoft products. You may be billed for products including your Azure usage. Using your EA to pay is designed for organizations that want to license software and cloud services for three or more years. You spread out payments instead of one making up-front payment. If you use Pay-As-You-Go transact listing type, then the billing for your software licensing costs follows the quarterly EA overage billing cycle.  
+If you're a Microsoft Enterprise Agreement customer, you can use your Enterprise Agreement to pay for Microsoft products. You can be billed for products, including for your Azure usage. Using your Enterprise Agreement to pay is designed for organizations that want to license software and cloud services for three or more years. You spread out payments instead of making one upfront payment. If you use a Pay-As-You-Go publishing option, the billing for your software licensing costs follows the quarterly Enterprise Agreement overage billing cycle.  
 
-### Monetary Commitment  
-If you are an EA customer, then you may add Azure to your agreement. You add Azure to your agreement by making an upfront monetary commitment to Azure. Your monetary commitment is consumed throughout the year. Your commitment includes any combination of usage of the wide variety of services in Azure.  
+### Monetary commitment
+If you're an Enterprise Agreement customer, you can add Azure to your agreement. You add Azure to your agreement by making an upfront monetary commitment to Azure. Your monetary commitment is consumed throughout the year. Your commitment includes any combination of usage of Azure services.
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
- 
----  
+Review the [Azure Marketplace and AppSource publishing guide](./marketplace-publishers-guide.md).

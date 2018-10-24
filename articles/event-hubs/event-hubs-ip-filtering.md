@@ -1,26 +1,26 @@
 ---
-title: Azure Event Hubs IP connection filters | Microsoft Docs
+title: Azure Event Hubs IP filters | Microsoft Docs
 description: Use IP filtering to block connections from specific IP addresses to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: spelluru
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: clemensv
+ms.date: 10/08/2018
+ms.author: spelluru
 
 ---
 
 # Use IP filters
 
-For scenarios in which Azure Event Hubs is only accessible from certain well-known sites, the *IP filter* feature enables you to configure rules for rejecting or accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
+For scenarios in which Azure Event Hubs should be only accessible from certain well-known sites, the *IP filter* feature enables you to configure rules for rejecting or accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
 
 ## When to use
 
-Two important use cases in which it is useful to block Event Hubs endpoints for certain IP addresses are as follows:
+Two important use cases in which it is useful to block Event Hubs for certain IP addresses are as follows:
 
 - Your event hubs should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using Event Hubs with [Azure Express Route][express-route] to create private connections to your on-premises infrastructure. 
 - You need to reject traffic from IP addresses that have been identified as suspicious by the Event Hubs administrator.
@@ -44,9 +44,12 @@ For example, if you want to accept addresses in the range 70.37.104.0/24 and rej
 > [!NOTE]
 > Rejecting IP addresses can prevent other Azure services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with Event Hubs.
 
-### Creating a virtual network rule with Azure Resource Manager templates
+### Creating an IP filter rule with Azure Resource Manager templates
 
-The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs namespace.
+> [!IMPORTANT]
+> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier. 
+
+The following Resource Manager template enables adding an IP filter rule to an existing Event Hubs namespace.
 
 Template parameters:
 

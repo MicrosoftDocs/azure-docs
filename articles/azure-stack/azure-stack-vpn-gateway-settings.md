@@ -3,7 +3,7 @@ title: VPN gateway settings for Azure Stack | Microsoft Docs
 description: Learn about settings for VPN gateways you use with Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/12/2018
-ms.author: brenduns
+ms.date: 08/14/2018
+ms.author: sethm
 ---
 
 # VPN gateway configuration settings for Azure Stack
@@ -23,7 +23,7 @@ ms.author: brenduns
 
 A VPN gateway is a type of virtual network gateway that sends encrypted traffic between your virtual network in Azure Stack and a remote VPN gateway. The remote VPN gateway can be in Azure, a device in your datacenter or a device in another site.  If there is network connectivity between the two endpoints, you can establish a secure Site-to-Site (S2S) VPN connection between the two networks.
 
-A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in [About VPN Gateway for Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. This article discusses the resources and settings that relate to a VPN gateway for a virtual network that you create in the Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in [About VPN Gateway for Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## VPN gateway settings
 
@@ -96,7 +96,7 @@ When you create the virtual network gateway for a VPN gateway configuration, you
 >
 > In addition, Azure Stack doesn't support using Policy Based Traffic Selectors for Route Based Gateways at this time, because custom IPSec/IKE policy configurations aren't supported.
 
-* **PolicyBased**: Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies that are configured with the combinations of address prefixes between your on-premises network and the Azure Stack VNet. The policy, or traffic selector, is usually defined as an access list in the VPN device configuration.
+* **PolicyBased**: Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies that are configured with the combinations of address prefixes between your on-premises network and the Azure Stack VNet. The policy, or traffic selector, is usually an access list in the VPN device configuration.
 
   >[!NOTE]
   >PolicyBased is supported in Azure, but not in Azure Stack.
@@ -159,7 +159,7 @@ Sometimes you need to modify the local network gateway settings. For example, wh
 
 ## IPsec/IKE parameters
 
-When you set up a VPN Connection in Azure Stack, you need to configure the connection at both ends.  If you are configuring a VPN Connection between Azure Stack and a hardware device like a switch or router, that is acting as a VPN Gateway, that device may ask you for additional settings.
+When you set up a VPN Connection in Azure Stack, you need to configure the connection at both ends.  If you are configuring a VPN Connection between Azure Stack and a hardware device like a switch or router that is acting as a VPN Gateway, that device might ask you for additional settings.
 
 Unlike Azure, which supports multiple offers as both an initiator and a responder, Azure Stack supports only one offer.
 
@@ -180,13 +180,12 @@ Unlike Azure, which supports multiple offers as both an initiator and a responde
 |IKE Version |IKEv2 |
 |Encryption & Hashing Algorithms (Encryption)     | GCMAES256|
 |Encryption & Hashing Algorithms (Authentication) | GCMAES256|
-|SA Lifetime (Time)  | 27,000 seconds<sup>See note 1</sup> |
-|SA Lifetime (Bytes) | 33,553,408<sup>See note 2</sup>     |
-|Perfect Forward Secrecy (PFS) |PFS2048 |
+|SA Lifetime (Time)  | 27,000 seconds  |
+|SA Lifetime (Bytes) | 33,553,408     |
+|Perfect Forward Secrecy (PFS) |None<sup>See note 1</sup> |
 |Dead Peer Detection | Supported|  
 
-* *Note 1:*  Prior to version 1803, Azure Stack uses a value of 14,400 for the SA Lifetime (Time).
-* *Note 2:*  Prior to version 1803, Azure Stack uses a value of 819,200 for the SA Lifetime (Bytes).
+* *Note 1:*  Prior to version 1807, Azure Stack uses a value of PFS2048 for the Perfect Forward Secrecy (PFS).
 
 ## Next steps
 
