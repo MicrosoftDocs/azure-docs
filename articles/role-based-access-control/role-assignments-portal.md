@@ -81,7 +81,7 @@ Follow these steps to view the access for a single user, group, or application a
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view access.
 
-1. Click the **Role assignments** tab to view all the role assignments at this scope.
+1. Click the **Role assignments** tab (or click the **View** button on the View role assignments tile) to view all the role assignments at this scope.
 
    ![Access control - Role assignments tab](./media/role-assignments-portal/access-control-role-assignments.png)
 

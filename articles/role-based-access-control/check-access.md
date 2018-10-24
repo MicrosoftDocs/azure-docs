@@ -34,9 +34,9 @@ Follow these steps to view the role assignments for a single user, group, or app
 
 1. Click **Access control (IAM)**.
 
-    On the **Tasks** tab, you see a section named **Check access**.
+1. Click the **Check access** tab.
 
-    ![Access control - Tasks tab](./media/check-access/access-control-tasks.png)
+    ![Access control - Check access tab](./media/check-access/access-control-tasks.png)
 
 1. In the **Check Access for** list, select the type of security principal you want to check access for.
 
@@ -44,9 +44,9 @@ Follow these steps to view the role assignments for a single user, group, or app
 
     ![Check access select list](./media/check-access/check-access-select.png)
 
-1. Click the security principal to open the **permissions and roles** pane.
+1. Click the security principal to open the **assignments** pane.
 
-    ![permissions and roles pane](./media/check-access/check-access-permissions-roles.png)
+    ![assignments pane](./media/check-access/check-access-permissions-roles.png)
 
     On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments, they will also be listed.
 

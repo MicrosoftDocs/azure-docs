@@ -25,11 +25,9 @@ ms.reviewer: bagovind
 
 Follow these steps to view deny assignments at the subscription or management group scope.
 
-1. In the Azure portal, click **All services** and then **Subscriptions** or **Management groups**.
+1. In the Azure portal, click **All services** and then **Management groups** or **Subscriptions**.
 
-1. If you using management groups, navigate to the management group you want to use.
-
-1. Click your subscription.
+1. Click the management group or subscription you want to view.
 
 1. Click **Access control (IAM)**.
 
