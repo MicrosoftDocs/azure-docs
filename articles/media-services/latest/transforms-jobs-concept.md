@@ -45,15 +45,15 @@ You can create Transforms in your Media Services account using the v3 API direct
 
 The following table shows the Transform's properties and gives their definitions.
 
-|Name|Type|Description|
-|---|---|---|
-|Id|string|Fully qualified resource ID for the resource.|
-|name|string|The name of the resource.|
-|properties.created |string|The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.description |string|An optional verbose description of the Transform.|
-|properties.lastModified |string|The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.outputs |TransformOutput[]|An array of one or more TransformOutputs that the Transform should generate.|
-|type|string|The type of the resource.|
+|Name|Description|
+|---|---|
+|Id|Fully qualified resource ID for the resource.|
+|name|The name of the resource.|
+|properties.created |The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
+|properties.description |An optional verbose description of the Transform.|
+|properties.lastModified |The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
+|properties.outputs |An array of one or more TransformOutputs that the Transform should generate.|
+|type|The type of the resource.|
 
 For the full definition, see [Transforms](https://docs.microsoft.com/rest/api/media/transforms).
 
@@ -64,25 +64,25 @@ As explained above, a Transform helps you create a recipe or rule for processing
 
 ## Jobs
 
-Once a Transform has been created, you can submit Jobs using Media Services APIs, or any of the published SDKs. The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using CLI](job-state-events-cli-how-to.md ).
+Once a Transform has been created, you can submit Jobs using Media Services APIs, or any of the published SDKs. The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md ).
 
 ### Jobs definition
 
 The following table shows Jobs's properties and gives their definitions.
 
-|Name|Type|Description|
-|---|---|---|
-|id|string|Fully qualified resource ID for the resource.|
-|name	|string|The name of the resource.|
-|properties.correlationData	|object|Customer provided correlation data (immutable) that is returned as part of Job and JobOutput state change notifications. For more information, see [Event schemas](media-services-event-schemas.md)<br/><br/>The property can also be used for multi-tenant usage of Media Services. You can put tenant IDs in the jobs. |
-|properties.created	|string|The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.description	|string|Optional customer supplied description of the Job.|
-|properties.input|JobInput:<br/>JobInputClip<br/>JobInputs|The inputs for the Job.|
-|properties.lastModified	|string|The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.outputs|JobOutput[]:<br/>JobOutputAsset[]<br/>|The outputs for the Job.|
-|properties.priority	|Priority|Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.|
-|properties.state	|JobState|The current state of the job.|
-|type	|string|The type of the resource.|
+|Name|Description|
+|---|---|
+|id|Fully qualified resource ID for the resource.|
+|name	|The name of the resource.|
+|properties.correlationData	|Customer provided correlation data (immutable) that is returned as part of Job and JobOutput state change notifications. For more information, see [Event schemas](media-services-event-schemas.md)<br/><br/>The property can also be used for multi-tenant usage of Media Services. You can put tenant IDs in the jobs. |
+|properties.created	|The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
+|properties.description	|Optional customer supplied description of the Job.|
+|properties.input|The inputs for the Job.|
+|properties.lastModified	|The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
+|properties.outputs|The outputs for the Job.|
+|properties.priority	|Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.|
+|properties.state	|The current state of the job.|
+|type	|The type of the resource.|
 
 For the full definition, see [Jobs](https://docs.microsoft.com/rest/api/media/jobs).
 
@@ -100,16 +100,32 @@ If a query response contains many items, the service returns an "\@odata.nextLin
 
 If Jobs are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
 
-The following C# example shows how to enumerate through all the assets in the account.
+The following C# example shows how to enumerate through the jobs in the account.
 
-```csharp
-var firstPage = await MediaServicesArmClient.Jobs.ListAsync(CustomerResourceGroup, CustomerAccountName);
+```csharp            
+List<string> jobsToDelete = new List<string>();
+var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
 
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
+bool exit;
+do
 {
-    currentPage = await MediaServicesArmClient.Jobs.ListNextAsync(currentPage.NextPageLink);
+    foreach (Job j in pageOfJobs)
+    {
+        jobsToDelete.Add(j.Name);
+    }
+
+    if (pageOfJobs.NextPageLink != null)
+    {
+        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
+        exit = false;
+    }
+    else
+    {
+        exit = true;
+    }
 }
+while (!exit);
+
 ```
 
 For REST examples, see [Jobs - List](https://docs.microsoft.com/rest/api/media/jobs/list)
