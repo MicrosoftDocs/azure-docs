@@ -30,7 +30,7 @@ This article describes the contents of the 1809 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1809 update build number is **1.1809.0.88**.  
+The Azure Stack 1809 update build number is **1.1809.0.90**.  
 
 ### New features
 
