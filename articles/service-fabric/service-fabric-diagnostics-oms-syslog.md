@@ -36,7 +36,7 @@ The SyslogConsumer writes all platform events using Facility `Local0`. You can u
 
 ## Enable SyslogConsumer
 
-To enable the SyslogConsumer, you need to perform an ARM upgrade of your cluster. The `fabricSettings` section needs to be updated with the following code. Note this code just includes sections related to SyslogConsumer
+To enable the SyslogConsumer, you need to perform an upgrade of your cluster. The `fabricSettings` section needs to be updated with the following code. Note this code just includes sections related to SyslogConsumer
 
 ```json
     "fabricSettings": [
