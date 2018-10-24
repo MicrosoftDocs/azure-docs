@@ -34,7 +34,7 @@ This page is updated monthly, so revisit it regularly.
 ---
 ## October 2018
 
-### Azure AD Logs now work with Azure Log Analytics
+### Azure AD Logs now work with Azure Log Analytics (Public preview)
 
 **Type:** New feature  
 **Service category:** Reporting  
