@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 10/23/2018
 ms.author: dstefan
 
 ---
@@ -147,7 +147,7 @@ Approximate time to Complete: 60 minutes
 | Share the tutorial to all actors from Microsoft Documentation  | [Tutorial: Azure Active Directory integration with ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Set a working meeting and follow the tutorial steps with each actor. | [Tutorial: Azure Active Directory integration with ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Assign the app to the group identified in the Prerequisites. If the POC has conditional access in the scope, you can revisit that later and add MFA, and similar. <br/>Note this will kick in the provisioning process (if configured) |  [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Create a group and add members in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Use Azure AD management Portal to add ServiceNow Application from Gallery| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[What's new in Enterprise Application management in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
+| Use Azure AD management Portal to add ServiceNow Application from Gallery| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Tutorial: Azure Active Directory integration with ServiceNow](saas-apps/servicenow-tutorial.md) |
 | In "Single sign-on" blade of ServiceNow App enable "SAML-based Sign-on" |  |
 | Fill out "Sign on URL" and "Identifier" fields with your ServiceNow URL<br/>Check the box to "Make new certificate active"<br/>and Save settings |  |
 | Open "Configure ServiceNow" blade on the bottom of the panel to view customized instructions for you to configure ServiceNow |  |
@@ -160,8 +160,7 @@ Approximate time to Complete: 60 minutes
 
 ### Considerations
 
-1. Above [Tutorial](saas-apps/servicenow-tutorial.md) refers to old Azure AD management experience. But PoC is based on [Quickstart](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) experience.
-2. If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [What's new in Enterprise Application management in Azure Active Directory: Add custom applications from one place](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+1. If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [Configure applications that are not in the Azure AD application gallery](manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 ## SaaS Password SSO Configuration
 
@@ -181,7 +180,7 @@ Approximate time to Complete: 15 minutes
 | Step | Resources |
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Configure Application from Gallery | [Tutorial: Configure SAML-based single sign-on](manage-apps/configure-single-sign-on-portal.md) |
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Assign the app to the group identified in the Prerequisites | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Log in to https://myapps.microsoft.com/ as a test user that has access |  |
@@ -192,10 +191,10 @@ Approximate time to Complete: 15 minutes
 
 ### Considerations
 
-If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [What's new in Enterprise Application management in Azure Active Directory: Add custom applications from one place](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [Configure applications that are not in the Azure AD application gallery](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Keep in mind the following requirements:
-   * Application should have a known login URL
+   * Application should have a known login URL.
    * The sign-in page should contain an HTML form with one more text fields that the browser extensions can auto-populate. At the minimum, it should contain username and password.
 
 ## SaaS Shared Accounts Configuration
@@ -216,7 +215,7 @@ Approximate time to Complete: 30 minutes
 | Step | Resources |
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Configure Application from Gallery | [Tutorial: Configure SAML-based single sign-on for an application](manage-apps/configure-single-sign-on-portal.md) |
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Assign the app to the group identified in the Prerequisites while assigning them credentials | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Log in as different users that access app as the **same shared account.**  |  |
@@ -225,7 +224,7 @@ Approximate time to Complete: 30 minutes
 
 ### Considerations
 
-If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [What's new in Enterprise Application management in Azure Active Directory: Add custom applications from one place](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [Configure single sign-on to applications that are not in the Azure AD application gallery](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Keep in mind the following requirements:
    * Application should have a known login URL
@@ -361,7 +360,7 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Go to Enterprise Applications blade in Azure AD Management Portal | [Azure AD Management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
-| Configure Application from Pre-requisites with self service | [What's new in Enterprise Application management in Azure Active Directory: Configure self-service application access](active-directory-enterprise-apps-whats-new-azure-portal.md#configure-self-service-application-access) |
+| Configure Application from Pre-requisites with self service | [Configure self-service application access](manage-apps/manage-self-service-access.md) |
 | Log in as the information worker to my apps portal | http://myapps.microsoft.com |
 | Notice "+Add app" button on op of the page. Use it to get access to the app |  |
 
