@@ -93,22 +93,20 @@ A hierarchical entity is a category of contextually learned and conceptually rel
 
 In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
 
-1. On the Intent page, in the utterance, select "Seattle", then enter the entity name `Location, and then select **Create new entity**.
+1. On the Intent page, in the utterance, select `Seattle`, then enter the entity name `Location, and then select Enter on the keyboard.
 
-    ![Screenshot of Create Hierarchical Entity Labeling dialog box](./media/luis-how-to-add-example-utterances/create-hier-ent-1.png)
+    ![Screenshot of Create Hierarchical Entity Labeling dialog box](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
 
-2. In the pop-up dialog box, select hierarchical for **Entity type**, then add `Origin` and `Destination` as children, and then select **Done**.
+1. In the pop-up dialog box, select _hierarchical_ for **Entity type**, then add `Origin` and `Destination` as children, and then select **Done**.
 
     ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
-3. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the intent page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
+1. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the intent detail page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
 
-    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/luis-how-to-add-example-utterances/label-tolocation.png)
+    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
-
-    See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
 
 ## Entity status predictions
 
