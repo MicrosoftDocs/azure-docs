@@ -21,9 +21,9 @@ ms.reviewer: sureshja
 
 # Azure Active Directory app manifest
 
-The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure Active Directory (Azure AD) application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
 
-Apps that integrate with Azure AD must be registered with an Azure AD tenant. You can configure an app's attributes through the Azure portal UI or programmatically using Microsoft Graph. However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
+You can configure an app's attributes through the Azure portal or programmatically using Microsoft Graph. However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
 * If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you cannot change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
 * If you need to define permissions and roles that your app supports, you must modify the application manifest.
@@ -33,9 +33,9 @@ Apps that integrate with Azure AD must be registered with an Azure AD tenant. Yo
 To configure the application manifest:
 
 1. Log in the [Azure portal](https://portal.azure.com).
-1. Select the **Azure Active Directory** service, and then select **App registrations**.
+1. Select the **Azure Active Directory** service, and then select **App registrations** or **App registrations (Preview)**.
 1. Select the app you want to configure.
-1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
+1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
 
 ## Manifest reference
 
