@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Detect faces in an image - Face API cURL"
+title: "Quickstart: Detect faces in an image using the REST API and cURL"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face API with cURL.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
 ---
-# Quickstart: Detect faces in an image using cURL
+# Quickstart: Detect faces in an image using the REST API and cURL
 
 In this quickstart, you detect faces in an image using Face API.
 

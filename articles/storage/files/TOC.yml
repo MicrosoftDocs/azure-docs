@@ -15,6 +15,10 @@
     href: storage-how-to-use-files-cli.md
   - name: Create file shares - Storage Explorer
     href: storage-how-to-use-files-storage-explorer.md
+- name: Tutorials
+  items:
+  - name: Extend Windows file servers with Azure File Sync
+    href: storage-sync-files-extend-servers.md
 - name: Concepts
   items:
   - name: Plan
