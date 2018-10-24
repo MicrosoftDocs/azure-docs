@@ -25,9 +25,9 @@ ms.reviewer: bagovind
 
 The **Access control (IAM)** blade, also known as identity and access management, appears throughout the portal. To view or manage access in the portal, the first thing you typically do is open the Access control (IAM) blade at the scope where you want to view or make a change.
 
-1. In the Azure portal, click **All services** and then select the scope or resource you want to view or manage. For example, **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Azure portal, click **All services** and then select the scope or resource you want to view or manage. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Click the scope or resource you want to use.
+1. Click the specific resource you want to view or manage.
 
 1. Click **Access control (IAM)**.
 
@@ -37,11 +37,11 @@ The **Access control (IAM)** blade, also known as identity and access management
 
 ## View roles and permissions
 
-A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles](built-in-roles.md). Follow these steps to view the roles and permissions that can or cannot be performed on the management and data plane.
+A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles](built-in-roles.md). Follow these steps to view the roles and permissions that can be performed on the management and data plane.
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view roles and permissions.
 
-1. Click the **Roles** tab (or click the **View** button on the View roles and permissions tile) to see a list of all the built-in and custom roles.
+1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
    You can see the number of users and groups that are assigned to each role at this scope.
 
@@ -61,9 +61,9 @@ Follow these steps to view the access for a single user, group, or application a
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view access.
 
-    On the **Tasks** tab, you see a section named **Check access**.
+1. Click the **Check access** tab.
 
-    ![Access control - Tasks tab](./media/role-assignments-portal/access-control-tasks.png)
+    ![Access control - Check access tab](./media/role-assignments-portal/access-control-tasks.png)
 
 1. In the **Check Access for** list, select the type of security principal you want to check access for.
 
@@ -71,9 +71,9 @@ Follow these steps to view the access for a single user, group, or application a
 
     ![Check access select list](./media/role-assignments-portal/check-access-select.png)
 
-1. Click the security principal to open the **permissions and roles** pane.
+1. Click the security principal to open the **assignments** pane.
 
-    ![permissions and roles pane](./media/role-assignments-portal/check-access-permissions-roles.png)
+    ![assignments pane](./media/role-assignments-portal/check-access-permissions-roles.png)
 
     On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments, they will also be listed.
 
@@ -97,9 +97,9 @@ In RBAC, to grant access, you assign a role to a user, group, or service princip
 
 1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
-1. Click **Add Role assignment** to open the **Add permissions** pane.
+1. Click **Add role assignment** to open the **Add permissions** pane.
 
-   If you don't have permissions to assign roles, you won't see the **Add Role assignment** option.
+   If you don't have permissions to assign roles, you won't see the **Add role assignment** option.
 
    ![Add permissions pane](./media/role-assignments-portal/add-permissions.png)
 
@@ -123,9 +123,9 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 1. Click the **Role assignments** tab to view all the role assignments for this subscription.
 
-1. Click **Add Role assignment** to open the **Add permissions** pane.
+1. Click **Add role assignment** to open the **Add permissions** pane.
 
-   If you don't have permissions to assign roles, you won't see the **Add Role assignment** option.
+   If you don't have permissions to assign roles, you won't see the **Add role assignment** option.
 
    ![Add permissions pane](./media/role-assignments-portal/add-permissions.png)
 
