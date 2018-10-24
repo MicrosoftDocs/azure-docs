@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1809 Update | Microsoft Docs
+title: Azure Stack 1809 update | Microsoft Docs
 description: Learn about what's new in the 1809 update for Azure Stack integrated systems, including the known issues and where to download the update.
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -30,7 +30,7 @@ This article describes the contents of the 1809 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1809 update build number is **1.1809.0.88**.  
+The Azure Stack 1809 update build number is **1.1809.0.90**.  
 
 ### New features
 
@@ -41,6 +41,8 @@ This update includes the following improvements for Azure Stack:
    With this release, the syslog client is generally available, and it can be used in production environments.
 
    For more information, see [Azure Stack syslog forwarding](azure-stack-integrate-security.md).
+
+- You can now [move the registration resource](azure-stack-registration.md#move-a-registration-resource) on Azure between resource groups without having to re-register. Cloud Solution Providers (CSPs) can also move the registration resource between subscriptions, as long as both the new and old subscriptions are mapped to the same CSP partner ID. This does not impact the existing customer tenant mappings. 
 
 ### Fixed issues
 
