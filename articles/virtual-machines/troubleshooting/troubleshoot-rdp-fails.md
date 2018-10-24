@@ -22,7 +22,7 @@ This article helps resolve the issue in which you can't connect to an Azure Virt
 
 ## Symptoms
 
-When you try to connect to a VM, you experience the following issues:
+When you try to connect to a VM, you experience the following scenarios:
 
 - The Virtual Machine (VM) screenshot shows that the operating system is fully loaded and waiting for credentials.
 - You receive the following error messages when you try to make a Microsoft Remote Desktop Protocol (RDP) connection:

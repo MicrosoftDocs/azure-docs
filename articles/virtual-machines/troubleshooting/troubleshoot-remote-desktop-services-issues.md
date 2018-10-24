@@ -25,7 +25,7 @@ This article describes how to troubleshoot issues of connecting to an Azure Virt
 
 ## Symptoms
 
-When you try to connect to a VM, you experience the following issues:
+When you try to connect to a VM, you experience the following scenarios:
 
 - The VM screenshot shows the operating system is fully loaded and waiting for credentials.
 - All applications on the VM are working as expected and accessible.
@@ -43,7 +43,7 @@ This problem occurs because Remote Desktop Services isn't running on the Virtual
 
 To resolve this problem, use one of the following solutions or try the solutions one by one:
 
-### Solution 1
+### Solution 1: Using the Serial Console
 
 1. Access the Serial Console by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
@@ -75,12 +75,12 @@ To resolve this problem, use one of the following solutions or try the solutions
    sc query TermService
    ```
 
-### Solution 2
+### Solution 2: Using a recovery VM to enable the service
 
 [Back up the OS disk](../windows/snapshot-copy-managed-disk.md) and [attach the OS disk to a rescue VM](../windows/troubleshoot-recovery-disks-portal.md). Then, open an elevated CMD instance and run the following scripts on the rescue VM:
 
 >[!NOTE]
->We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. After this is done, detach the disk from the recovery VM and [re-create your VM](../windows/create-vm-specialized.md).
+>We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. After this is done, detach the disk from the recovery VM and [re-create your VM](../windows/create-vm-specialized.md). For further troubleshooting, you can use **Solution 1** because the Serial Console has been enabled.
 
 ```
 reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
