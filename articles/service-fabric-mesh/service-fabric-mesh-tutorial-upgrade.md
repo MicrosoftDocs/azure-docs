@@ -45,20 +45,18 @@ Before you begin this tutorial:
 
 ## Upgrade a Service Fabric Mesh service by using Visual Studio
 
-This article shows how to independently upgrade a microservice within an application.  In this example, we will modify the `WebFrontEnd` service to display a task category. Then we'll upgrade the deployed service.
+This article shows how to upgrade a microservice within an application. In this example, we will modify the `WebFrontEnd` service to display a task category and increase the amount of CPU it is allocated. Then we'll upgrade the deployed service.
 
 ## Modify the config
 
-Upgrades can be pushed for code changes, config changes, or both.
+When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yml** file for each deployment target (cloud and local). In these files you can define parameters and their values that can then be referenced from your Mesh *.yaml files. We will define a parameter which will allow us to update the cpu resources to `1.0` in anticipation that the web front end service will be more heavily used.
 
-When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yml** file for each deployment target (cloud and local, by default) where you can define parameters and their values that can be used in your service.yaml file. We will use this file to define a parameter, `cpu`, which will allow us to update the cpu resources from 0.5 to 1.0 in anticipation that the web front end will be heavily used.  
+There are two steps. First, define the parameters you want in the **parameters.yml** file for the deployment target you want to affect. Then use those parameters in your service's **service.yaml** file.
 
-There are two steps.  First define the parameters you want in the **parameters.yml** file. Then define where you would like to use those parameters in your service's **service.yaml** file.
-
-1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file, and add the following to the top of it to define a new parameter, `cpu`, with a value of `1.0`.
+1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `<WebFrontEnd_>cpu`, with a value of `1.0`. Note that the parameter name is prefaced with the service name `<WebFrontEnd_>` as a best practice to distinguish it from parameters of the same name that apply to different services.
 
 ```xml
-cpu: 1.0
+<WebFrontEnd_>cpu: 1.0
 ```
 
 2. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
@@ -69,12 +67,19 @@ In the `resources:` section, change `cpu:` to from `0.5` to `"parameters('cpu')]
               ...
               resources:
                 requests:
-                  cpu: "[parameters('cpu')]"
+                  cpu: "[parameters('<WebFrontEnd_>cpu')]"
                   memoryInGB: 1
               ...
 ```
 
-When you deploy the service to the cloud, the value for `cpu` will be taken from the **parameters.yaml** file and will be `1.0`.
+If the project is being built for the cloud, the value for `cpu` will be taken from the **Environments** > **Cloud** > **parameters.yaml** file, and will be `1.0`. If the project is being built to run locally, the value will be taken from the **Environments** > **Local** > **parameters.yaml** file, instead.
+
+> [!Tip]
+> By default, the parameter file that is a peer of the profile yaml file will be used to supply the values for the profile yaml file.
+> For example, Environments > Cloud >  parameters.yaml provides the parameter values for the Environments > Cloud > profile.yaml file.
+>
+> You can override this by adding the following to the profile.yaml file:`parametersFilePath=”relative or full path to the parameters file”`
+> For example, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` or `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## Modify the model
 
