@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use Python to detect text language - Translator Text API"
+title: "Quickstart: Detect text language, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to identify the language of provided text using Python and the Translator Text REST API.
 services: cognitive-services
@@ -87,7 +87,7 @@ headers = {
 
 # Create a request to detect text language
 
-Define the string (or strings) that you want to translate:
+Define the string (or strings) that you want to detect the language for:
 
 ```python
 # You can pass more than one object in body.
@@ -96,7 +96,7 @@ body = [{
 }]
 ```
 
-Next, we'll create a post request using the `requests` module. It takes three arguments: the concatenated URL, the request headers, and the request body:
+Next, we'll create a POST request using the `requests` module. It takes three arguments: the concatenated URL, the request headers, and the request body:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)

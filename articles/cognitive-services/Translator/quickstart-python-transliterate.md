@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use Python to transliterate text - Translator Text API"
+title: "Quickstart: Transliterate text, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another. In this sample, Japanese is transliterated to use the Latin alphabet.
 services: cognitive-services
@@ -90,7 +90,7 @@ headers = {
 
 ## Create a request to transliterate text
 
-Define the string (or strings) that you want to translate:
+Define the string (or strings) that you want to transliterate:
 
 ```python
 # Transliterate "good afternoon" from source Japanese.
@@ -100,7 +100,7 @@ body = [{
 }]
 ```
 
-Next, we'll create a post request using the `requests` module. It takes three arguments: the concatenated URL, the request headers, and the request body:
+Next, we'll create a POST request using the `requests` module. It takes three arguments: the concatenated URL, the request headers, and the request body:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
