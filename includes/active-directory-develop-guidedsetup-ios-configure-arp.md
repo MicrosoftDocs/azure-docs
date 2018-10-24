@@ -22,10 +22,12 @@ ms.custom: include file
 
 In this step, you need to add the Application ID to your project:
 
-1.	In `ViewController.swift`, replace the line starting with '`let kClientID`' with:
+1. In `ViewController.swift`, replace the line starting with '`let kClientID`' with:
+
 ```swift
 let kClientID = "[Enter the application Id here]"
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
