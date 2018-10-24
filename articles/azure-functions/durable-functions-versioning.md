@@ -126,6 +126,16 @@ The task hub can be configured in the *host.json* file as follows:
 }
 ```
 
+> [!NOTE]
+> For V1 Functions, *host.json* should be configured like this instead
+>```json
+>{
+>    "durableTask": {
+>        "HubName": "MyTaskHubV2"
+>    }
+>}
+>```
+
 The default value is `DurableFunctionsHub`.
 
 All Azure Storage entities are named based on the `HubName` configuration value. By giving the task hub a new name, you ensure that separate queues and history table are created for the new version of your application.
