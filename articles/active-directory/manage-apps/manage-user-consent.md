@@ -17,7 +17,7 @@ ms.reviewer: arvindh
 # Manage the way end-users consent to an application in Azure Active Directory
 Learn how to manage the way users consent to application permissions. You can simplify the user experience by granting admin consent. These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
 
-For more information on application consent, see [Azure Active Directory consent framework](consent-framework.md).
+For more information on application consent, see [Azure Active Directory consent framework](../develop/consent-framework.md).
 
 ## Prerequisites
 
@@ -65,8 +65,8 @@ To require end users to consent to an application each time they authenticate, a
 
 ## Next steps
 
-[Consent and Integrating Apps to AzureAD](quickstart-v1-integrate-apps-with-azure-ad.md)
+[Consent and Integrating Apps to AzureAD](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 
-[Consent and Permissioning for AzureAD v2.0 converged Apps](active-directory-v2-scopes.md)
+[Consent and Permissioning for AzureAD v2.0 converged Apps](../develop/active-directory-v2-scopes.md)
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
