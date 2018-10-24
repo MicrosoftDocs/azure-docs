@@ -21,6 +21,9 @@ ms.custom: aaddev
 ---
 
 # Service to service calls using delegated user identity in the On-Behalf-Of flow
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
 The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
 
 > [!IMPORTANT]
