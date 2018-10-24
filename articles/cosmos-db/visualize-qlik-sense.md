@@ -71,7 +71,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 ### Limitations when connecting with ODBC 
 
-The Cosmos DB SQL API is not fully ANSI SQL-compliant. Because Cosmos DB is schema-less, and it is not based on relational model, the SQL syntax that has relational capabilities is not applicable to SQL API. Due to this reason, the SQL statements issued through the ODBC driver are translated into Cosmos DB-specific SQL syntax that doesn’t have equivalents for all constructs. To prevent these translation issues, you must apply a schema when setting up the ODBC connection. The [connect with ODBC driver](odbc-driver.md) article gives you suggestions and methods to help you configure the schema. Make sure to create this mapping for every database/collection within the Cosmos DB account.
+Cosmos DB is a schema-less distributed database with drivers modelled around developer needs. The ODBC driver requires a database with schema to infer columns, their data types and other properties. The regular SQL query or the DML syntax with relational capability is not applicable to Cosmos DB SQL API because SQL API is not ANSI SQL. Due to this reason, the SQL statements issued through the ODBC driver are translated into Cosmos DB-specific SQL syntax that doesn’t have equivalents for all constructs. To prevent these translation issues, you must apply a schema when setting up the ODBC connection. The [connect with ODBC driver](odbc-driver.md) article gives you suggestions and methods to help you configure the schema. Make sure to create this mapping for every database/collection within the Cosmos DB account.
 
 ## Next Steps
 
