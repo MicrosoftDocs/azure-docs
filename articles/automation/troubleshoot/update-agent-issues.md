@@ -65,7 +65,7 @@ This check, determines if you're using TLS 1.2 to encrypt your communications. T
 
 This check determines if the agent can properly communicate with the agent service.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### Operations endpoint
 

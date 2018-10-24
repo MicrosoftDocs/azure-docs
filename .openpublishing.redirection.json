@@ -1937,6 +1937,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-group-authenticate-service-principal.md",
+            "redirect_url": "/azure/active-directory/develop/howto-authenticate-service-principal-powershell",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/resource-group-authoring-templates.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
             "redirect_document_id": false
@@ -1950,6 +1955,11 @@
             "source_path": "articles/resource-group-create-service-principal-portal.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-create-service-principal-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-group-create-service-principal-portal.md",
+            "redirect_url": "/azure/active-directory/develop/howto-create-service-principal-portal",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/resource-group-define-dependencies.md",
@@ -16380,6 +16390,11 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-developers-guide.md",
             "redirect_url": "/azure/active-directory/develop/azure-ad-developers-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/azure-ad-developers-guide.md",
+            "redirect_url": "/azure/active-directory/develop",
             "redirect_document_id": true
         },
         {
@@ -28356,6 +28371,11 @@
             "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-error.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-whats-new-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/whats-new",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-prompt.md",
