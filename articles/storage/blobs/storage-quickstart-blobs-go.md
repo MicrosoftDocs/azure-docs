@@ -144,7 +144,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, open the file using **os.Open**. You can then upload the file to the specified path using one of the REST APIs: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
-Alternatively, the SDK offers [high-level APIs](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, ***UploadFileToBlockBlob*** function uses PutBlock operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses PutBlob instead to complete the transfer in a single transaction.
+Alternatively, the SDK offers [high-level APIs](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, ***UploadFileToBlockBlob*** function uses StageBlock (PutBlock) operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses Upload (PutBlob) instead to complete the transfer in a single transaction.
 
 The following example uploads the file to your container called **quickstartblobs-[randomstring]**.
 
