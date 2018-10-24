@@ -20,11 +20,12 @@ ms.author: haroldw
 
 # Post-deployment tasks
 
-After you deploy an OpenShift cluster, you can configure additional items. This article covers the following:
+After you deploy an OpenShift cluster, you can configure additional items. This article covers:
 
 - How to configure single sign-on by using Azure Active Directory (Azure AD)
 - How to configure Log Analytics to monitor OpenShift
 - How to configure metrics and logging
+- How to install Open Service Broker for Azure (OSBA)
 
 ## Configure single sign-on by using Azure Active Directory
 
@@ -142,7 +143,7 @@ Insert the following lines immediately after the preceding lines:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Ensure the text aligns correctly under identityProviders. Find the tenant ID by using the following CLI command: ```az account show```
+Make sure the text aligns correctly under identityProviders. Find the tenant ID by using the following CLI command: ```az account show```
 
 Restart the OpenShift master services on all master nodes:
 
@@ -178,27 +179,26 @@ In the OpenShift console, you now see two options for authentication: htpasswd_a
 
 There are three ways to add the Log Analytics agent to OpenShift.
 - Install the Log Analytics agent for Linux directly on each OpenShift node
-- Enable Log Analytics VM Extension on each OpenShift node residing in Azure
+- Enable Log Analytics VM Extension on each OpenShift node
 - Install the Log Analytics agent as a OpenShift daemon-set
 
 The full instructions are located here: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
 ## Configure metrics and logging
 
-Depending on the branch, the Azure Resource Manager templates for OpenShift Container Platform and OKD may provide input parameters for enabling metrics and logging as part of the installation.
+Based on the branch, the Azure Resource Manager templates for OpenShift Container Platform and OKD may provide input parameters for enabling metrics and logging as part of the installation.
 
 The OpenShift Container Platform Marketplace offer also provides an option to enable metrics and logging during cluster installation.
 
-If metrics and / or logging was not enabled during the installation of the cluster, they can easily be enabled after the fact. 
-execute the appropriate Ansible playbook to enable the desired feature. 
+If metrics / logging wasn't enabled during the installation of the cluster, they can easily be enabled after the fact.
 
 ### Ansible inventory pre-work
 
-Ensure the ansible inventory file (/etc/ansible/hosts) has the appropriate variables for Metrics / Logging. The inventory file can be found on different hsots depending on the template in use.
+Verify the ansible inventory file (/etc/ansible/hosts) has the appropriate variables for metrics / logging. The inventory file can be found on different hosts based on the template used.
 
-For the OpenShift Container template and Marketplace offer, the inventory file is located on Bastion host. For the OKD template, the inventory file is located on either the master-0 host or the bastion host depending on the branch in use.
+For the OpenShift Container template and Marketplace offer, the inventory file is located on Bastion host. For the OKD template, the inventory file is located on either the master-0 host or the bastion host based on the branch in use.
 
-1. Edit the /etc/ansible/hosts file and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider). If these lines are already present, do not add them again.
+1. Edit the /etc/ansible/hosts file and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider). If these lines are already present, don't add them again.
 
    OpenShift / OKD versions 3.9 and earlier
 
@@ -245,7 +245,7 @@ For the OpenShift Container template and Marketplace offer, the inventory file i
 
 ### Azure Cloud Provider in use
 
-SSH to the bastion node or first master node (depending on template and branch in use) using the credentials provided during deployment. Issue the following command:
+SSH to the bastion node or first master node (based on template and branch in use) using the credentials provided during deployment. Issue the following command:
 
 **OpenShift Container Platform 3.7 and earlier**
 
@@ -297,7 +297,7 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 
 ### Azure Cloud Provider not in use
 
-SSH to the bastion node or first master node (depending on template and branch in use) using the credentials provided during deployment. Issue the following command:
+SSH to the bastion node or first master node (based on template and branch in use) using the credentials provided during deployment. Issue the following command:
 
 
 **OpenShift Container Platform 3.7 and earlier**
@@ -341,7 +341,7 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 
 ## Install Open Service Broker for Azure (OSBA)
 
-Open Service Broker for Azure, or OSBA, lets you provision Azure Cloud Services directly from OpenShift. OSBA in an Open Service Broker API implementation for Azure. The Open Service Broker API is a spec that defines a common language for cloud providers that cloud native applications can use to manage cloud services without lockin.
+Open Service Broker for Azure, or OSBA, lets you provision Azure Cloud Services directly from OpenShift. OSBA in an Open Service Broker API implementation for Azure. The Open Service Broker API is a spec that defines a common language for cloud providers that cloud native applications can use to manage cloud services without lock-in.
 
 To install OSBA on OpenShift, follow the instructions located here: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
 

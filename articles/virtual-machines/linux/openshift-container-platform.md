@@ -22,18 +22,18 @@ ms.author: haroldw
 
 You can use one of several methods to deploy OpenShift Container Platform in Azure:
 
-- You can manually deploy the necessary Azure infrastructure components and then follow the OpenShift Container Platform [documentation](https://docs.openshift.com/container-platform).
+- You can manually deploy the necessary Azure infrastructure components and then follow the [OpenShift Container Platform documentation](https://docs.openshift.com/container-platform).
 - You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-container-platform/) that simplifies the deployment of the OpenShift Container Platform cluster.
 - Another option is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 For all options, a Red Hat subscription is required. During the deployment, the Red Hat Enterprise Linux instance is registered to the Red Hat subscription and attached to the Pool ID that contains the entitlements for OpenShift Container Platform.
-Ensure you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can use an Activation Key, Org ID, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
+Make sure you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can use an Activation Key, Org ID, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
 
-## Deploy by using the OpenShift Container Platform Resource Manager template
+## Deploy using the OpenShift Container Platform Resource Manager template
 
-To deploy by using the Resource Manager template, you use a parameters file to supply the input parameters. To further customize the deployment, fork the GitHub repo and change the appropriate items.
+To deploy using the Resource Manager template, you use a parameters file to supply the input parameters. To further customize the deployment, fork the GitHub repo and change the appropriate items.
 
-Some common customization options include, but are not limited to:
+Some common customization options include, but aren't limited to:
 
 - Bastion VM size (variable in azuredeploy.json)
 - Naming conventions (variables in azuredeploy.json)
@@ -41,7 +41,7 @@ Some common customization options include, but are not limited to:
 
 ### Configure the parameters file
 
-The OpenShift Container Platform template located at https://github.com/Microsoft/openshift-container-platform has multiple branches available for different versions of OpenShift Container Platform.  Depending on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes to the templates or scripts before deploying.
+The [OpenShift Container Platform template](https://github.com/Microsoft/openshift-container-platform) has multiple branches available for different versions of OpenShift Container Platform.  Based on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes to the templates or scripts before deploying.
 
 Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter.
 
@@ -228,9 +228,9 @@ The following example shows a parameters file named azuredeploy.parameters.json 
 
 Replace the parameters with your specific information.
 
-Different releases may have different parameters so verify the necessary parameters for the branch you are using.
+Different releases may have different parameters so verify the necessary parameters for the branch you use.
 
-### Deploy by using Azure CLI
+### Deploy using Azure CLI
 
 > [!NOTE] 
 > The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
@@ -243,7 +243,7 @@ az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-The deployment takes at least 30 minutes to complete, depending on the total number of nodes deployed and options configured. The Bastion DNS FQDN and URL of the OpenShift console prints to the terminal when the deployment finishes.
+The deployment takes at least 30 minutes to complete, based on the total number of nodes deployed and options configured. The Bastion DNS FQDN and URL of the OpenShift console prints to the terminal when the deployment finishes.
 
 ```json
 {
@@ -254,7 +254,7 @@ The deployment takes at least 30 minutes to complete, depending on the total num
 
 If you don't want to tie up the command line waiting for the deployment to complete, add `--no-wait` as one of the options for the group deployment. The output from the deployment can be retrieved from the Azure portal in the deployment section for the resource group.
  
-## Deploy by using the OpenShift Container Platform Azure Marketplace offer
+## Deploy using the OpenShift Container Platform Azure Marketplace offer
 
 The simplest way to deploy OpenShift Container Platform into Azure is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
@@ -272,7 +272,7 @@ This is the simplest option, but it also has limited customization capabilities.
 
 ## Connect to the OpenShift cluster
 
-When the deployment finishes, retrieve the connection from the output section of the deployment. Connect to the OpenShift console with your browser by using the `OpenShift Console URL`. Alternatively, you can ssh to the Bastion host. Following is an example where the admin username is clusteradmin and the bastion public IP DNS FQDN is bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
+When the deployment finishes, retrieve the connection from the output section of the deployment. Connect to the OpenShift console with your browser by using the `OpenShift Console URL`. Alternatively, you can SSH to the Bastion host. Following is an example where the admin username is clusteradmin and the bastion public IP DNS FQDN is bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com

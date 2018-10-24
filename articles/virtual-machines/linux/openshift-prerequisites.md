@@ -24,7 +24,7 @@ This article describes common prerequisites for deploying OpenShift Container Pl
 
 The installation of OpenShift uses Ansible playbooks. Ansible uses Secure Shell (SSH) to connect to all cluster hosts to complete installation steps.
 
-When ansible initiates the SSH connection to the remote hosts, it cannot enter a password. For this reason, the private key cannot have a password (passphrase) associated with it or deployment fails.
+When ansible initiates the SSH connection to the remote hosts, it can't enter a password. For this reason, the private key can't have a password (passphrase) associated with it or deployment fails.
 
 Because the virtual machines (VMs) deploy via Azure Resource Manager templates, the same public key is used for access to all VMs. You need to inject the corresponding private key into the VM that executes all the playbooks as well. To do this securely, you use an Azure key vault to pass the private key into the VM.
 
@@ -83,7 +83,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> Your SSH key pair cannot have a password / passphrase.
+> Your SSH key pair can't have a password / passphrase.
 
 For more information on SSH keys on Windows, see [How to create SSH keys on Windows](/azure/virtual-machines/linux/ssh-from-windows). Be sure to export the private key in OpenSSH format.
 

@@ -20,7 +20,7 @@ ms.author: haroldw
 
 # Troubleshoot OpenShift deployment in Azure
 
-If the OpenShift cluster does not deploy successfully, the Azure portal will provide error output. The output may be difficult to read which makes it difficult to identify the problem. Quickly scan this output for exit code 3, 4 or 5. The following provides information on these three exit codes:
+If the OpenShift cluster doesn't deploy successfully, the Azure portal will provide error output. The output may be difficult to read which makes it difficult to identify the problem. Quickly scan this output for exit code 3, 4 or 5. The following provides information on these three exit codes:
 
 - Exit code 3: Your Red Hat Subscription User Name / Password or Organization ID / Activation Key is incorrect
 - Exit code 4: Your Red Hat Pool ID is incorrect or there are no entitlements available
@@ -30,11 +30,11 @@ For all other exit codes, connect to the host(s) via ssh to view the log files.
 
 **OpenShift Container Platform**
 
-SSH to the ansible playbook host. For the template or the Marketplace offer, use the bastion host. From the bastion, you can ssh to all other nodes in the cluster (master, infra, CNS, compute). You'll need to be root in order to view the log files. Keep in mind that root is disabled for ssh access by default so don't use root to ssh to other nodes.
+SSH to the ansible playbook host. For the template or the Marketplace offer, use the bastion host. From the bastion, you can SSH to all other nodes in the cluster (master, infra, CNS, compute). You'll need to be root in order to view the log files. Keep in mind that root is disabled for SSH access by default so don't use root to SSH to other nodes.
 
 **OKD**
 
-SSH to the ansible playbook host. For the OKD template (version 3.9 and older), use the master-0 host. For the OKD template (version 3.10 and later), use the bastion host. From the ansible playbook host, you can ssh to all other nodes in the cluster (master, infra, CNS, compute). You will need to be root (sudo su -) to view the log files. Keep in mind that root is disabled for ssh access by default so don't use root to ssh to other nodes.
+SSH to the ansible playbook host. For the OKD template (version 3.9 and earlier), use the master-0 host. For the OKD template (version 3.10 and later), use the bastion host. From the ansible playbook host, you can SSH to all other nodes in the cluster (master, infra, CNS, compute). You'll need to be root (sudo su -) to view the log files. Keep in mind that root is disabled for SSH access by default so don't use root to SSH to other nodes.
 
 ## Log files
 
@@ -89,7 +89,7 @@ The most common errors during installation are:
 
 ### Private Key has a passphrase
 
-You will see an error that permission was denied for ssh. If you ssh to the ansible playbook host and are prompted for a passphrase, then you know immediately this was done incorrectly.
+You'll see an error that permission was denied for SSH. If you SSH to the ansible playbook host and are prompted for a passphrase, then you know immediately this was done incorrectly.
 
 ### Key vault secret with private key wasn't created correctly
 
@@ -97,7 +97,7 @@ The private key is injected into the ansible playbook host - ~/.ssh/id_rsa. Conf
 
 ### Service principal credentials were entered incorrectly
 
-When providing the input to the template or Marketplace offer, the incorrect information was provided. Ensure you are using the correct appId (clientId) and password (clientSecret) for the service principal. This can be verified by issuing the following azure cli command.
+When providing the input to the template or Marketplace offer, the incorrect information was provided. Make sure you uses the correct appId (clientId) and password (clientSecret) for the service principal. This can be verified by issuing the following azure cli command.
 
 ```bash
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>

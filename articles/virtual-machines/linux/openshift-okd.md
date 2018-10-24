@@ -22,20 +22,20 @@ ms.author: haroldw
 
 You can use one of two ways to deploy OKD (formerly OpenShift Origin) in Azure:
 
-- You can manually deploy all the necessary Azure infrastructure components, and then follow the OKD [documentation](https://docs.okd.io).
+- You can manually deploy all the necessary Azure infrastructure components, and then follow the [OKD documentation](https://docs.okd.io).
 - You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-origin) that simplifies the deployment of the OKD cluster.
 
-## Deploy by using the OKD template
+## Deploy using the OKD template
 
-To deploy by using the Resource Manager template, you use a parameters file to supply the input parameters. To further customize the deployment, fork the GitHub repo and change the appropriate items.
+To deploy using the Resource Manager template, you use a parameters file to supply the input parameters. To further customize the deployment, fork the GitHub repo and change the appropriate items.
 
-Some common customization options include, but are not limited to:
+Some common customization options include, but aren't limited to:
 
 - Bastion VM size (variable in azuredeploy.json)
 - Naming conventions (variables in azuredeploy.json)
 - OpenShift cluster specifics, modified via hosts file (deployOpenShift.sh)
 
-The OKD template located at https://github.com/Microsoft/openshift-origin has multiple branches available for different versions of OKD.  Depending on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes before deploying.
+The [OKD template](https://github.com/Microsoft/openshift-origin) has multiple branches available for different versions of OKD.  Based on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes before deploying.
 
 Use the `appId` value from the service principal that you created earlier for the `aadClientId` parameter.
 
@@ -115,9 +115,9 @@ The following is an example of a parameters file named azuredeploy.parameters.js
 
 Replace the parameters with your specific information.
 
-Different releases may have different parameters so please verify the necessary parameters for the branch you are using.
+Different releases may have different parameters so please verify the necessary parameters for the branch you use.
 
-### Deploy by using Azure CLI
+### Deploy using Azure CLI
 
 
 > [!NOTE] 
@@ -144,7 +144,7 @@ If you don't want to tie up the command line waiting for the deployment to compl
 
 ## Connect to the OKD cluster
 
-When the deployment finishes, connect to the OpenShift console with your browser by using the `OpenShift Console Url`. Alternatively, you can ssh to the OKD master. Following is an example using the output from the deployment:
+When the deployment finishes, connect to the OpenShift console with your browser using the `OpenShift Console Url`. Alternatively, you can SSH to the OKD master. Following is an example that uses the output from the deployment:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
