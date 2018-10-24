@@ -6,7 +6,7 @@ author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
 ---
@@ -22,7 +22,7 @@ To step through this how-to guide, you need:
 ## Configure logging
 Configure access to the MySQL slow query log. 
 
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select your Azure Database for MySQL server.
 

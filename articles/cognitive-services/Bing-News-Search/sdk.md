@@ -1,14 +1,14 @@
 ---
-title: Bing Search SDK | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bing Search SDK for applications that search the web.
+title: Bing News Search SDK
+titleSuffix: Azure Cognitive Services
+description: Bing News Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: 
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/24/2018
 ms.author: v-gedod
 ---
@@ -19,9 +19,6 @@ The Bing News Search API samples include scenarios that:
 3. Query category news for `movie` and `TV entertainment` with safe search, verify number of results, and print out category, name, URL, description, published time and name of provider of the first news result.
 4. Query news trending topics in Bing, verify number of results and print out name, text of query, `webSearchUrl`, `newsSearchUrl` and image URL of the first news result.
 
-> [!NOTE] 
-> Some SDKs are now in GA and changes to documentation are pending. 
-
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
     * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0)
@@ -29,7 +26,7 @@ The Bing Search SDKs make web search functionality readily accessible in the fol
 * Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * See also [Node.js libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/newsSearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-newssearch) for definitions and dependencies.
+    * See also [Java libraries](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) for definitions and dependencies.
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-newssearch) for definitions and dependencies.
 

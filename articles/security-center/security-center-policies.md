@@ -3,28 +3,30 @@ title: Set security policies in Azure Security Center | Microsoft Docs
 description: This article helps you configure security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
+ms.date: 09/3/2018
+ms.author: rkarlin
 
 ---
 # Set security policies in Azure Security Center
 This article helps you configure security policies in Security Center.
 
+For instructions on how to set policies using PowerShell, see [Quickstart: Create a policy assignment to identify non-compliant resources using the Azure RM PowerShell module](../azure-policy/assign-policy-definition-ps.md).
+
 ## How security policies work
 Security Center automatically creates a default security policy for each of your Azure subscriptions. In Security Center, you can edit the policies and monitor policy compliance.
 
 > [!NOTE]
-> You can now extend Security Center policies by using Azure Policy, which is in limited preview. To join the preview, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information, see [Integrate Security Center security policies with Azure Policy](security-center-azure-policy.md).
+> You can now extend Security Center policies by using [Azure Policy](../azure-policy/azure-policy-introduction.md). For more information, see [Integrate Security Center security policies with Azure Policy](security-center-azure-policy.md).
 
 The security requirements for resources that are used for development or test might vary from the requirements for resources that are used for production applications. Applications that use regulated data, such as personally identifiable information, might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md).
 
@@ -33,13 +35,12 @@ You can edit the default security policy for each of your Azure subscriptions in
 
 1. Sign in to the Azure portal.
 
-2. On the **Security Center** dashboard, under **General**, select **Security policy**.
+2. On the **Security Center** dashboard, under **POLICY & COMPLIANCE**, select **Security policy**.
 
 3. Select the subscription that you want to enable a security policy for.
 
-4. In the **Policy Components** section, select **Security policy**.  
-    This is the default policy that's assigned by Security Center. You can turn on or off the available security recommendations.
-
+4. Turn on the policies you want to enable for the subscription. You will get recommendations based on each policy you select. 
+  ![policy list](./media/security-center-policies/policies.png)
 5. When you finish editing, select **Save**.
 
 ## Available security policy definitions
@@ -71,3 +72,5 @@ In this article, you learned how to configure security policies in Security Cent
 * [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+
+To learn more about Azure Policy, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)

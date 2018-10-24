@@ -6,7 +6,8 @@ author: ghogen
 manager: douge
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
@@ -20,7 +21,7 @@ For details on the changes that Connected Services makes in your project to enab
 ## Prerequisites
 
 - **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload).
+- **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - For ASP.NET (not Core), you need the .NET Framework 4.7.1 Development Tools, which are not installed by default. To install them, launch the Visual Studio Installer, choose **Modify**, and then choose **Individual Components**, then on the right-hand side, expand **ASP.NET and web development**, and choose **.NET Framework 4.7.1 Development Tools**.
 - An ASP.NET 4.7.1 or ASP.NET Core 2.0 web project open.
 
@@ -32,7 +33,8 @@ For details on the changes that Connected Services makes in your project to enab
 
    ![Choose "Secure Secrets With Azure Key Vault"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions.
+   If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions. Make sure that you're signed into Visual Studio, and that the account you're signed in with is the same account that you use for your Azure subscription.
+
 1. Select the subscription you want to use, and then choose a new or existing Key Vault, or choose the Edit link to modify the automatically generated name.
 
    ![Select your subscription](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)
@@ -67,6 +69,10 @@ Now, you can access your secrets in code. The next steps are different depending
 
 ## Access your secrets in code (ASP.NET Core projects)
 
+The connection to Key Vault is set up at startup by a class that implements [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) using a way of extending startup behavior that is described in [Enhance an app from an external assembly in ASP.NET Core with IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration). The startup class uses two environment variables that contain the Key Vault connection information: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, set to true, and ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, set to your Key Vault URL. These are added to the launchsettings.json file when you run through the **Add Connected Service** process.
+
+To access your secrets:
+
 1. In Visual Studio, in your ASP.NET Core project, you can now reference these secrets by using the following expressions in code:
  
    ```csharp
@@ -92,6 +98,10 @@ Now, you can access your secrets in code. The next steps are different depending
 1. Build and run the web application, navigate to the About page, and see the "secret" value.
 
 ## Access your secrets in code (ASP.NET 4.7.1 projects)
+
+The connection to your Key Vault is set up by the ConfigurationBuilder class using information that was added to your web.config file when you run through the **Add Connected Service** process.
+
+To access your secrets:
 
 1. Modify web.config as follows. The keys are placeholders that will be replaced by the AzureKeyVault ConfigurationBuilder with the values of secrets in Key Vault.
 
@@ -122,7 +132,29 @@ Now, you can access your secrets in code. The next steps are different depending
       <h3>@ViewBag.Secret2</h3>
    ```
 
-Congratulations, you have now confirmed that your web app can use Key Vault to access securely stored secrets.
+1. Run your app locally to verify that you can read the secret value you entered in the Azure portal, not the dummy value from your configuration file.
+
+Next, publish your app to Azure.
+
+## Publish to Azure App Service
+
+1. Right-click on the project node and choose **Publish**. A screen appears that says **Pick a Publish Target**. On the left, choose **App Service**, and then **Create New**.
+
+   ![Publish to App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. On the **Create App Service** screen, make sure that the subscription and resource group are the same ones that you created the Key Vault in, and choose **Create**.
+
+   ![Create App Service](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. After your web application is created, the **Publish** screen appears. Note the URL for your published web application, hosted in Azure. If you see **None** next to **Key Vault**, you still have to tell App Service what Key Vault to connect to. Choose the **Add Key Vault** link, and choose the Key Vault you created.
+
+   ![Add Key Vault](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   If you see **Manage Key Vault**, you can click that to view the current settings, edit permissions, or make changes to your secrets in the Azure Portal.
+
+1. Now, choose the Site URL link to visit your web application in the browser. Verify that you see the correct value from the Key Vault.
+
+Congratulations, you have confirmed that your web app can use Key Vault to access securely stored secrets when run in Azure.
 
 ## Clean up resources
 

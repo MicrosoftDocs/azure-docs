@@ -41,13 +41,13 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 ## Office 365
 If you plan to enable Office 365 on ExpressRoute, review the following documents for more information about Office 365 requirements.
 
-* [Overview of ExpressRoute for Office 365](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
-* [Routing with ExpressRoute for Office 365](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
+* [Overview of ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+* [Routing with ExpressRoute for Office 365](https://support.office.com/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
 * [High availability and failover with ExpressRoute](https://aka.ms/erhighavailability)
-* [Office 365 URLs and IP address ranges](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-* [Network planning and performance tuning for Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
-* [Network bandwidth calculators and tools](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
-* [Office 365 integration with on-premises environments](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
+* [Network planning and performance tuning for Office 365](https://support.office.com/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
+* [Network bandwidth calculators and tools](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
+* [Office 365 integration with on-premises environments](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [ExpressRoute on Office 365 advanced training videos](https://channel9.msdn.com/series/aer/)
 
 ## Dynamics 365
@@ -61,6 +61,6 @@ If you plan to enable Dynamics 365 on ExpressRoute, review the following documen
 * Find an ExpressRoute connectivity provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 * Refer to requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).
 * Configure your ExpressRoute connection.
-  * [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-  * [Configure routing](expressroute-howto-routing-classic.md)
-  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+  * [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md)
+  * [Configure routing](expressroute-howto-routing-arm.md)
+  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)

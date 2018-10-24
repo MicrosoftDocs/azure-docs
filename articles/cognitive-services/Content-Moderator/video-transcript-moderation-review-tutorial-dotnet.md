@@ -1,17 +1,19 @@
 ---
-title: Azure Content Moderator - Moderate videos and transcripts in .NET | Microsoft Docs
+title: "Tutorial: Moderate videos and transcripts in .NET - Content Moderator"
+titlesuffix: Azure Cognitive Services
 description: How to use Content Moderator to moderate videos and transcripts in .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
 ---
 
-# Video and transcript moderation tutorial
+# Tutorial: Video and transcript moderation
 
 Content Moderator's video APIs allow you to moderate videos and create video reviews in the human review tool. 
 
@@ -414,7 +416,7 @@ The result of the video moderation job (See [video moderation quickstart](video-
 A transcription of the audio from the video is also produced when the `GenerateVTT` flag is set.
 
 > [!NOTE]
-> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 
 ## Creating the human-in-the-loop review

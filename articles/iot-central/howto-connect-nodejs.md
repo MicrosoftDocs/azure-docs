@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Connnect a generic Node.js client application to Azure IoT Central | Microsoft Docs
+title: Connect a generic Node.js client application to Azure IoT Central | Microsoft Docs
 description: As an device developer, how to connect a generic Node.js device to your Azure IoT Central application.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite:
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: timlt
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
 ---
 
 # Connect a generic client application to your Azure IoT Central application (Node.js)
@@ -30,6 +20,8 @@ To complete the steps in this article, you need the following:
 
 1. An Azure IoT Central application. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
 1. A development machine with [Node.js](https://nodejs.org/) version 4.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
+
+## Create a Device Template
 
 In your Azure IoT Central application, you need a device template with the following measurements and device properties defined:
 
@@ -94,11 +86,11 @@ Add the following **number** settings in the **settings page**:
 
 Enter field name exactly as shown in the table into the device template. If the field names do not match, the device cannot receive the setting value.
 
-### Add a real device
+## Add a real device
 
 In your Azure IoT Central application, add a real device from the device template you create and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md)
 
-## Create a Node.js application
+### Create a Node.js application
 
 The following steps show how to create a client application that implements the real device you added to the application.
 
@@ -132,7 +124,11 @@ The following steps show how to create a client application that implements the 
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Update the placeholder `{your device connection string}` with your device connection string. You copied this value from the connection details page when you added your real device. In this sample, we initialize `targetTemperature` to zero, you can optionally take the current reading from the device or value from the device twin. 
+  > [!NOTE]
+   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
+
+
+    Update the placeholder `{your device connection string}` with the device connection string. In this sample, we initialize `targetTemperature` to zero, you can optionally take the current reading from the device or value from the device twin. 
 
 1. To send telemetry, state and event measurements to your Azure IoT Central application, add the following function to the file:
 

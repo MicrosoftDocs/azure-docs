@@ -20,15 +20,7 @@ ms.custom: mvc
 ---
 # Quickstart: Use Azure Redis Cache with a .NET application
 
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [.NET Core](cache-dotnet-core-quickstart.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
-> 
-> 
+
 
 This quickstart shows you how to get started using Microsoft Azure Redis Cache with .NET. Microsoft Azure Redis Cache is based on the popular open-source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
 

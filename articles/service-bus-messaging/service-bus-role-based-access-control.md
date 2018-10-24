@@ -3,7 +3,7 @@ title: Azure Service Bus Role-Based Access Control (RBAC) preview | Microsoft Do
 description: Azure Service Bus role based access control
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
+ms.date: 09/19/2018
+ms.author: spelluru
 
 ---
 
@@ -58,7 +58,7 @@ Before you can run the sample application, register it in Azure AD and approve t
 
 Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the "required permissions" set. Native applications also need a **redirect-URI** in Azure AD which serves as an identifier; the URI does not need to be a network destination. Use `http://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
 
-The detailed registration steps are explained in [this tutorial](../active-directory/develop/active-directory-integrating-applications.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.ServiceBus** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
+The detailed registration steps are explained in [this tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.ServiceBus** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
 
 ### Run the app
 
@@ -77,7 +77,6 @@ When you run the console application, you are prompted to select a scenario; cli
 
 To learn more about Service Bus messaging, see the following topics.
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -1,5 +1,5 @@
 ---
-title: Access a custom lab in Azure DevTest Labs | Microsoft Docs
+title: Access a lab in Azure DevTest Labs | Microsoft Docs
 description: In this tutorial, you access the lab that's created by using Azure DevTest Labs, claim virtual machines, use them, and then unclaim them.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -18,13 +18,13 @@ ms.author: spelluru
 
 ---
 
-# Tutorial: Access a custom lab in Azure DevTest Labs
-In this tutorial, you use the custom lab that was created in the [Tutorial: Create a custom lab](tutorial-create-custom-lab.md) .
+# Tutorial: Access a lab in Azure DevTest Labs
+In this tutorial, you use the lab that was created in the [Tutorial: Create a lab in Azure DevTest Labs](tutorial-create-custom-lab.md) .
 
 In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
-> * Claim a virtual machine (VM) in the custom lab
+> * Claim a virtual machine (VM) in the lab
 > * Connect to the VM
 > * Unclaim the VM
 
@@ -55,6 +55,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Connect to virtual machine](./media/tutorial-use-custom-lab/connect-button.png)
 2. Save the downloaded **RDP** file your hard disk and use it to connect to the virtual machine. Specify the user name and password you mentioned when the VM was created in the previous section. 
 
+    > [!NOTE] 
+    > To connect to a Linux VM, SSH and/or RDP access must be enabled for the VM. For steps to connect to a Linux VM via RDP, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+
 ## Unclaim the VM
 After you are done with using the VM, unclaim the VM by following these steps: 
 
@@ -67,8 +71,8 @@ After you are done with using the VM, unclaim the VM by following these steps:
 1. After the unclaim operation is done, you see the VM in the list of **Claimable virtual machines** list at the bottom. 
     
 ## Next steps
-This tutorial showed you how to access and use a custom lab that was created by using Azure DevTest Labs. For more information about accessing and using VMs in a custom lab, see 
+This tutorial showed you how to access and use a lab that was created by using Azure DevTest Labs. For more information about accessing and using VMs in a lab, see 
 
 > [!div class="nextstepaction"]
-> [How to: Use VMs in a custom lab](devtest-lab-add-vm.md)
+> [How to: Use VMs in a lab](devtest-lab-add-vm.md)
 

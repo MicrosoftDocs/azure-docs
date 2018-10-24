@@ -38,10 +38,22 @@
 ### [Public IP address](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
-#### [Availability zones with SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [Availability zones with SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Storage
 #### [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
+
+### Event Hubs
+#### [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### Service Bus
+#### [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### VPN Gateway
+#### [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # Disaster Recovery
 ## [Use Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

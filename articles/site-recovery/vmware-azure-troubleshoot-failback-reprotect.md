@@ -7,7 +7,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
 
 ---

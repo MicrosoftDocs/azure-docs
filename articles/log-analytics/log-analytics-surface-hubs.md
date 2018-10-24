@@ -3,7 +3,7 @@ title: Monitor Surface Hubs with Azure Log Analytics | Microsoft Docs
 description: Use the Surface Hub solution to track the health of your Surface Hubs and understand how they are being used.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
@@ -11,12 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-
+ms.component: 
 ---
+
 # Monitor Surface Hubs with Log Analytics to track their health
 
 ![Surface Hub symbol](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
@@ -46,7 +46,7 @@ Intune is a Microsoft product that allows you to centrally manage the Log Analyt
 1. Sign in to Intune.
 2. Navigate to **Settings** > **Connected Sources**.
 3. Create or edit a policy based on the Surface Hub template.
-4. Navigate to the OMS (Azure Operational Insights) section of the policy, and add the Log Analytics *Workspace ID* and *Workspace Key* to the policy.
+4. Navigate to the Azure Operational Insights section of the policy, and add the Log Analytics *Workspace ID* and *Workspace Key* to the policy.
 5. Save the policy.
 6. Associate the policy with the appropriate group of devices.
 
@@ -61,9 +61,9 @@ If you don't use Intune to manage your environment, you can enroll devices manua
 
 1. From your Surface Hub, open **Settings**.
 2. Enter the device admin credentials when prompted.
-3. Click **This device**, and the under **Monitoring**, click **Configure OMS Settings**.
+3. Click **This device**, and the under **Monitoring**, click **Configure Log Analytics Settings**.
 4. Select **Enable monitoring**.
-5. In the OMS settings dialog, type the Log Analytics **Workspace ID** and type the **Workspace Key**.  
+5. In the Log Analytics settings dialog, type the Log Analytics **Workspace ID** and type the **Workspace Key**.  
    ![settings](./media/log-analytics-surface-hubs/settings.png)
 6. Click **OK** to complete the configuration.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create and verify a virtual machine in a custom lab | Microsoft Docs
-description: This Azure CLI script creates a virtual machine in a custom lab, and verifies that it's available. 
+title: Azure CLI Script Sample - Create and verify a virtual machine in a lab | Microsoft Docs
+description: This Azure CLI script creates a virtual machine in a lab, and verifies that it's available. 
 services: lab-services
 author: spelluru
 manager: 
@@ -17,9 +17,9 @@ ms.author: spelluru
 ms.custom: mvc
 ---
 
-# Use Azure CLI to create and verify availability of a virtual machine in a custom lab
+# Use Azure CLI to create and verify availability of a virtual machine in a lab in Azure DevTest Labs
 
-This Azure CLI script creates a virtual machine (VM) in a custom lab. The VM created based on a marketplace image with ssh authentication. The script then verifies that the VM is available for use. 
+This Azure CLI script creates a virtual machine (VM) in a lab. The VM created based on a marketplace image with ssh authentication. The script then verifies that the VM is available for use. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -43,12 +43,12 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az lab vm create ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Creates a virtual machine (VM) in a custom lab. |
-| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Displays the status of the VM in a custom lab. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az lab vm create ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Creates a virtual machine (VM) in a lab. |
+| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Displays the status of the VM in a lab. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
-Additional Azure Lab Services PowerShell script samples can be found in the [Azure Lab Services CLI samples](../samples-cli.md).
+Additional Azure Lab Services CLI script samples can be found in the [Azure Lab Services CLI samples](../samples-cli.md).

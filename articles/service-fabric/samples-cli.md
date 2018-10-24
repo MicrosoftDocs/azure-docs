@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric CLI Samples
-description: Azure Service Fabric CLI Samples
+title: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
+description: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
 services: service-fabric
 documentationcenter: service-fabric
-author: Thraka
+author: rwike77
 manager: timlt
 editor: 
 tags: 
@@ -15,21 +15,21 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 ms.date: 04/09/2018
-ms.author: adegeo
+ms.author: ryanwi
 ms.custom: mvc
 ---
 
-# Azure Service Fabric CLI Samples
+# Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
 
-The following table includes links to [Service Fabric CLI](service-fabric-cli.md) script samples that manage Service Fabric clusters, applications, and services.
+The following table includes links to samples on how to manage Service Fabric clusters, applications, and services.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 | | |
 |-|-|
-| **Create cluster** ||
-| [Create a secure Linux cluster (Azure)](./scripts/cli-create-cluster.md)| Creates an Azure Service Fabric cluster. |
-| **Manage applications** ||
+| **Create cluster** (with Azure CLI)||
+| [Create a secure Linux cluster](./scripts/cli-create-cluster.md)| Creates an Azure Service Fabric cluster. |
+| **Manage applications** (with Service Fabric CLI)||
 | [List applications](./scripts/sfctl-list-applications.md)| List applications provisioned to a cluster.|
 | [Deploy an application](./scripts/cli-deploy-application.md)| Deploy an application to a cluster.|
 | [Remove an application](./scripts/cli-remove-application.md)| Remove an application from a cluster.|

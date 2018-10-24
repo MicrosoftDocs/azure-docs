@@ -1,21 +1,16 @@
 ---
-title: 'Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template | Microsoft Docs'
+title: 'Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template '
 description: Learn how to create HDInsight clusters, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-
-
-ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Resource Manager template and run a Hive job
 ---
 # Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template
@@ -75,6 +70,110 @@ In this section, you create a Hadoop cluster in HDInsight using an Azure Resourc
 > For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).       
 > 
 >
+
+## Use VSCode to run Hive queries
+
+How to get HDInsight Tools in VSCode, see [Use Azure HDInsight Tools for Visual Studio Code](../hdinsight-for-vscode.md).
+
+### Submit interactive Hive queries
+
+With HDInsight Tools for VSCode, you can submit interactive Hive queries to HDInsight interactive query clusters.
+
+1. Create a new work folder and a new Hive script file if you don't already have them.
+
+2. Connect to your Azure account, and then configure the default cluster if you haven't already done so.
+
+3. Copy and paste the following code into your Hive file, and then save it.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Right-click the script editor, and then select **HDInsight: Hive Interactive** to submit the query. The tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query results appear in a new tab.
+
+   ![Interactive Hive result](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
+
+    - **RESULTS** panel: You can save the whole result as CSV, JSON, or Excel file to local path, or just select multiple lines.
+
+    - **MESSAGES** panel: When you select **Line** number, it jumps to the first line of the running script.
+
+Running the interactive query takes much less time than [running a Hive batch job](#submit-hive-batch-scripts).
+
+### Submit Hive batch scripts
+
+1. Create a new work folder and a new Hive script file if you don't already have them.
+
+2. Connect to your Azure account, and then configure the default cluster if you haven't already done so.
+
+3. Copy and paste the following code into your Hive file, and then save it.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Right-click the script editor, and then select **HDInsight: Hive Batch** to submit a Hive job. 
+
+5. Select the cluster to which you want to submit.  
+
+    After you submit a Hive job, the submission success info and jobid appears in the **OUTPUT** panel. The Hive job also opens **WEB BROWSER**, which shows the real-time job  logs and status.
+
+   ![submit Hive job result](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
+
+[Submitting interactive Hive queries](#submit-interactive-hive-queries) takes much less time than submitting a batch job.
+
+## Use VisualStudio to run Hive queries
+
+How to get HDInsight Tools in Visual Studio, see [Use Data Lake Tools for Visual Studio](./apache-hadoop-visual-studio-tools-get-started.md).
+
+### Run Hive queries
+
+You have two options for creating and running Hive queries:
+
+* Create ad-hoc queries
+* Create a Hive application
+
+To create and run ad-hoc queries:
+
+1. In **Server Explorer**, select **Azure** > **HDInsight Clusters**.
+
+2. Right-click the cluster where you want to run the query, and then select **Write a Hive Query**.  
+
+3. Enter the Hive queries. 
+
+    The Hive editor supports IntelliSense. Data Lake Tools for Visual Studio supports loading remote metadata when you edit your Hive script. For example, if you type **SELECT * FROM**, IntelliSense lists all the suggested table names. When a table name is specified, IntelliSense lists the column names. The tools support most Hive DML statements, subqueries, and built-in UDFs.
+   
+    ![Screenshot of an HDInsight Visual Studio Tools IntelliSense example 1](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-table-name.png "U-SQL IntelliSense")
+   
+    ![Screenshot of an HDInsight Visual Studio Tools IntelliSense example 2](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "U-SQL IntelliSense")
+   
+   > [!NOTE]
+   > IntelliSense suggests only the metadata of the cluster that is selected in the HDInsight toolbar.
+   > 
+   
+4. Select **Submit** or **Submit (Advanced)**. 
+   
+    ![Screenshot of submit a hive query](./media/apache-hadoop-linux-tutorial-get-started/vs-batch-query.png)
+
+   If you select the advanced submit option, configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
+
+    ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Submit queries")
+
+   Run Interactive Hive queries
+
+   * click on down-arrow to choose **interactive**. 
+   
+   * Click **Execute**.
+
+   ![Screenshot of Execute Interactive Hive queries](./media/apache-hadoop-linux-tutorial-get-started/vs-execute-hive-query.png)
+
+To create and run a Hive solution:
+
+1. On the **File** menu, select **New**, and then select **Project**.
+2. In the left pane, select **HDInsight**. In the middle pane, select **Hive Application**. Enter the properties, and then select **OK**.
+   
+    ![Screenshot of an HDInsight Visual Studio Tools new Hive project](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Create Hive applications from Visual Studio")
+3. In **Solution Explorer**, double-click **Script.hql** to open the script.
+4. Enter the Hive queries and submit. (Refer to the step3&4 above)  
+
+
 
 ## Run Hive queries
 
@@ -148,6 +247,7 @@ In this article, you learned how to create a Linux-based HDInsight cluster using
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* For information on how to create an HDInsight cluster with Data Lake Storage, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight](../hdinsight-upload-data.md).
 
 To learn more about analyzing data with HDInsight, see the following articles:
@@ -156,7 +256,7 @@ To learn more about analyzing data with HDInsight, see the following articles:
 * To learn about Pig, a language used to transform data, see [Use Pig with HDInsight](hdinsight-use-pig.md).
 * To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).
 * To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
-
+* To learn about using the HDInsight Tools for VSCode to analyze data on HDInsight, see [Use Azure HDInsight Tools for Visual Studio Code](../hdinsight-for-vscode.md).
 
 
 If you'd like to learn more about creating or managing an HDInsight cluster, see the following articles:

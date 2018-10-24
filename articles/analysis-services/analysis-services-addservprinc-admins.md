@@ -3,9 +3,9 @@ title: Add a service principal to Azure Analysis Services server admin role | Mi
 description: Learn how to add an automation service principal to the server admin role
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,8 +18,8 @@ ms.reviewer: minewiskan
 ## Before you begin
 Before completing this task, you must have a service principal registered in Azure Active Directory.
 
-[Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Create service principal - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## Required permissions
 To complete this task, you must have [server administrator](analysis-services-server-admins.md) permissions on the Azure AS server. 

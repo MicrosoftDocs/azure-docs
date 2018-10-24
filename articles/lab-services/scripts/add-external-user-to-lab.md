@@ -1,6 +1,6 @@
 ---
-title: "PowerShell script: Add an external user to a custom lab in Azure Lab Services | Microsoft Docs"
-description: This PowerShell script adds an external user to a custom lab in Azure Lab Services.  
+title: "PowerShell script: Add an external user to a lab in Azure DevTest Labs | Microsoft Docs"
+description: This PowerShell script adds an external user to a lab in Azure DevTest Labs.  
 services: lab-services
 author: spelluru
 manager: 
@@ -15,18 +15,18 @@ ms.date: 04/11/2018
 ms.author: spelluru
 ---
 
-# Use PowerShell to add an external user to a custom lab
+# Use PowerShell to add an external user to a lab in Azure DevTest Labs
 
-This sample PowerShell script adds an external user to a custom lab in Azure Lab Services. 
+This sample PowerShell script adds an external user to a lab in Azure DevTest Labs. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Prerequisites
-* **A custom lab**. The script requires you to have an existing custom lab. 
+* **A lab**. The script requires you to have an existing lab. 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1 "Add external user to a lab")]
 
 ## Script explanation
 
@@ -35,7 +35,7 @@ This script uses the following commands:
 | Command | Notes |
 |---|---|
 | [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Retries the user object from Azure active directory. |
-| [New-AzureRmRoleAssignment](/module/azurerm.resources/new-azurermroleassignment) | Assigns the specified role to the specified principal, at the specified scope. |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Assigns the specified role to the specified principal, at the specified scope. |
 
 ## Next steps
 

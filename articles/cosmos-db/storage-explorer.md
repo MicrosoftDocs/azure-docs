@@ -1,21 +1,17 @@
-﻿---
+---
 title: 'Manage Azure Cosmos DB in Azure Storage Explorer'
 description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang 
-manager: omafnan
+manager: kfile
 editor: 
 tags: Azure Cosmos DB
 
-ms.assetid: 
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang 
 
@@ -220,7 +216,7 @@ Before proceeding further, try restarting your application and see if the proble
 
 There are a few reasons you may be seeing this error, the two most common ones are:
 
-+ You're behind a “transparent proxy”, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
++ You're behind a *transparent proxy*, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 
 + You're running software, such as anti-virus software, which is injecting a self-signed SSL certificates into the HTTPS messages you receive.
 

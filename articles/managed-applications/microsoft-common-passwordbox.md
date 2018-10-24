@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
 
 ---
@@ -47,8 +47,7 @@ A control that can be used to provide and confirm a password.
 ## Remarks
 - This element doesn't support the `defaultValue` property.
 - For implementation details of `constraints`, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- If `options.hideConfirmation` is set to **true**, the second text box for
-confirming the user's password is hidden. The default value is **false**.
+- If `options.hideConfirmation` is set to **true**, the second text box for confirming the user's password is hidden. The default value is **false**.
 
 ## Sample output
 ```json

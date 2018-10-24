@@ -1,16 +1,15 @@
 ---
 title: How to scale your Azure Time Series Insights environment | Microsoft Docs
 description: This article describes how to scale your Azure Time Series Insights environment. Use the Azure portal to add or subtract capacity within a pricing SKU. 
-services: time-series-insights
 ms.service: time-series-insights
-author: sandshadow
-ms.author: edett
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ---
 # How to scale your Time Series Insights environment

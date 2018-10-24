@@ -2,13 +2,13 @@
 title: DC/OS agent pools for Azure Container Service
 description: How the public and private agent pools work with an Azure Container Service DC/OS cluster
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -20,7 +20,7 @@ DC/OS clusters in Azure Container Service contain agent nodes in two pools, a pu
 
 * **Public agents**: Public agent nodes run DC/OS apps and services through a publicly accessible network. 
 
-For more information about DC/OS network security, see the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
+For more information about DC/OS network security, see the [DC/OS documentation](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 
 ## Deploy agent pools
 

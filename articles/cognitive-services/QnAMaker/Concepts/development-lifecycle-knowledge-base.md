@@ -1,15 +1,15 @@
 ---
-title: Development lifecycle of a knowledge base - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: Development lifecycle of a knowledge base 
+title: Lifecycle of knowledge base - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries. 
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
+ms.date: 09/12/2018
+ms.author: tulasim
 ---
 
 # Knowledge base lifecycle
@@ -21,7 +21,7 @@ QnA Maker learns best in an iterative cycle of model changes, utterance examples
 QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user query based on the content of the KB. Creating a knowledge base is a one-time action to setting up a content repository of questions, answers and associated metadata. A knowledge base can be created by crawling pre-existing content such as FAQ pages, product manuals or structured Q-A pairs. Learn how to [create a knowledge base](../How-To/create-knowledge-base.md).
 
 ## Testing and updating the knowledge base
-The knowledge base is ready for testing once it is populated with content, either editorially or through automatic extraction. Testing can be done through the **Test** panel by entering common user queries and verifying that the responses returned are as expected and with sufficient confidence score. You can add alternate questions to rectify low confidence scores. You can also add new answers when a query returns "no match found in the KB" default response. This tight loop of test-update continues until you are satisfied with the results. Lear now to [test your knowledge base](../How-To/test-knowledge-base.md).
+The knowledge base is ready for testing once it is populated with content, either editorially or through automatic extraction. Testing can be done through the **Test** panel by entering common user queries and verifying that the responses returned are as expected and with sufficient confidence score. You can add alternate questions to rectify low confidence scores. You can also add new answers when a query returns "no match found in the KB" default response. This tight loop of test-update continues until you are satisfied with the results. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
 For large KBs, the testing can be automated through generateAnswer APIs. 
 

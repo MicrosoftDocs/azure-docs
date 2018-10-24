@@ -26,7 +26,7 @@ We know that security is job one in the cloud and how important it is that you f
 
 Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability. To help you better understand the collection of network security controls implemented within Microsoft Azure from the customer's perspective, this article, “Azure Network Security", is written to provide a comprehensive look at the network security controls available with Microsoft Azure.
 
-This paper is intended to inform you about the wide range of network controls that you can configure to enhance the security of the solutions you deploy in Azure. If you are interested in what Microsoft does to secure the network fabric of the Azure platform itself,  see the Azure security section in the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
+This paper is intended to inform you about the wide range of network controls that you can configure to enhance the security of the solutions you deploy in Azure. If you are interested in what Microsoft does to secure the network fabric of the Azure platform itself,  see the Azure security section in the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure).
 
 ## Azure platform
 
@@ -459,8 +459,6 @@ When a client attempts to connect to a service, it must first resolve the DNS na
 Azure network validation is to ensure that the Azure network is operating as it is configured and validation can be done using the services and features available to monitor the network. With Azure Network Watcher, you can access a plethora of logging and diagnostic capabilities that empower you with insights to understand your network performance and health. These capabilities are accessible via Portal, Power Shell, CLI, Rest API and SDK.
 
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through a various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cyber security threat landscape.
-
--	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 -	[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 

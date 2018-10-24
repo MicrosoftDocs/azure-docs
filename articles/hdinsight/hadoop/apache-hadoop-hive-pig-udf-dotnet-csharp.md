@@ -1,20 +1,15 @@
 ---
-title: Use C# with Hive and Pig on Hadoop in HDInsight - Azure | Microsoft Docs
+title: Use C# with Hive and Pig on Hadoop in HDInsight - Azure 
 description: Learn how to use C# user-defined functions (UDF) with Hive and Pig streaming in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
@@ -32,7 +27,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     * Use whatever IDE you want. We recommend [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, or [Visual Studio Code](https://code.visualstudio.com/). The steps in this document use Visual Studio 2017.
 
-* A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend the Data Lake Tools for Visual Studio, Azure PowerShell, and Azure CLI. The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
+* A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend the Data Lake Tools for Visual Studio, Azure PowerShell, and Azure Classic CLI. The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
 
     For information on other ways to run Hive queries and Pig jobs, see the following documents:
 

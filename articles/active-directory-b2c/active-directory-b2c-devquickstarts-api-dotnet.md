@@ -1,18 +1,18 @@
----
-title: Secure a web API - ASP.NET - Azure Active Directory B2C | Microsoft Docs
+﻿---
+title: Secure an ASP.NET web API in Azure Active Directory B2C | Microsoft Docs
 description: How to build a .NET Web API by using Azure Active Directory B2C, secured using OAuth 2.0 access tokens for authentication.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/14/2018
 ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Build a .NET web API
 
 With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OAuth 2.0 access tokens. These tokens allow your client apps to authenticate to the API. This article shows you how to create a .NET MVC "to-do list" API that allows users of your client application to CRUD tasks. The web API is secured using Azure AD B2C and only allows authenticated users to manage their to-do list.

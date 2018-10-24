@@ -1,16 +1,15 @@
 ---
 title: How to authenticate and authorize by API in Azure Time Series Insights
 description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
-services: time-series-insights
 ms.service: time-series-insights
-author: dmdenmsft
-ms.author: dmden
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
 ---
 
@@ -79,8 +78,10 @@ Here are the detailed steps:
     If you're using C#, you can use the following code to acquire the token on behalf of the application. For a complete sample, see [Query data using C#](time-series-insights-query-data-csharp.md).
 
     ```csharp
+    // Enter your Active Directory tenant domain name
+    var tenant = "YOUR_AD_TENANT.onmicrosoft.com";
     var authenticationContext = new AuthenticationContext(
-        "https://login.microsoftonline.com/common",
+        $"https://login.microsoftonline.com/{tenant}",
         TokenCache.DefaultShared);
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
@@ -102,4 +103,4 @@ Use the application ID and key in your application to authenticate with Azure Ti
 - For API reference information, see [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 
 > [!div class="nextstepaction"]
-> [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+> [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md)

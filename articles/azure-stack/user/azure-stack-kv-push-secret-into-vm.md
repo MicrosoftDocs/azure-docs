@@ -3,7 +3,7 @@ title: Deploy a virtual machine with a securely stored certificate on Azure Stac
 description: Learn how to deploy a virtual machine and push a certificate onto it by using a key vault in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 
 ---
 
@@ -40,8 +40,8 @@ The following steps describe the process required to push a certificate onto the
 2. Update the azuredeploy.parameters.json file.
 3. Deploy the template
 
->[!NOTE]
->You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+> [!NOTE]
+> You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Prerequisites
 
@@ -53,8 +53,8 @@ The following steps describe the process required to push a certificate onto the
 
 The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret.
 
->[!IMPORTANT]
->You must use the `-EnabledForDeployment` parameter when creating the key fault. This parameter ensures that the key vault can be referenced from Azure Resource Manager templates.
+> [!IMPORTANT]
+> You must use the `-EnabledForDeployment` parameter when creating the key vault. This parameter ensures that the key vault can be referenced from Azure Resource Manager templates.
 
 ```powershell
 

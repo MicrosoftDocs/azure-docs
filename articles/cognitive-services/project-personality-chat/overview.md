@@ -1,10 +1,13 @@
 ---
-title: What is Project Personality Chat? - Azure Cognitive Services | Microsoft Docs
-description: This article overviews Azure Project Personality Chat, a cloud-based API for your bot’s conversational capabilities, by handling small talk, in line with a distinct chosen personality.
+title: What is Project Personality Chat?
+titlesuffix: Azure Cognitive Services
+description: This article is an overview of the Azure Project Personality Chat, a cloud-based API for enhancing your bot’s conversational capabilities.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
+ms.component: personality-chat
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: nolachar
@@ -25,34 +28,23 @@ Today, you can also integrate the customizable editorial-only library into your 
 
 ## Generating responses using neural networks
 
-Personality Chat uses deep learning models to learn general conversation patterns and generate responses. The response generation model is a recurrent neural network (RNN). It's trained on tens of millions of conversations taken from social media. From these conversations, it understands and learns patterns of human interactions. Based these sentence structure patterns it has learned, when it receives a new query, it generates a brand new response. When generating a new response, the model searches through a "write vocabulary" of words, and picks n-best first words for the response. Using beam-search, it continues to search for the n-best second words for each of the generated first words. A response is deemed complete when the model picks the "End of sentence" (EOS) word. Once it has all the responses, it chooses the n-best responses based on the probability score for the full response.
+Personality Chat uses deep learning models to learn general conversation patterns and generate responses. The response generation model is a recurrent neural network (RNN). This model is trained on millions of conversations, where it understands and learns patterns of human interactions. With the learned sentence structure patterns, new queries are formed and responses are generated. When generating this new response, the model searches through a "write vocabulary" of words, and picks n-best first words for the response. Using beam-search, it continues to search for the n-best second words for each of the generated first words. A response is deemed complete when the model picks the "End of sentence" (EOS) word. Once it has all the responses, it chooses the n-best responses based on the probability score for the full response.
 
 The model learns to generate contextually appropriate turns that have the right "structure". For instance, a question like “Do you want to talk now?” says quite a bit about the structure of a plausible reply: it will probably start with some paraphrase of “yes” or “no” and a pronoun will likely be “I”. A “no” response is more likely to include a polite explanation, and so on.
 
-In effect, the system tries to learn a language model for the basic structure of conversation. This structure should allow responses to be influenced in part by external constraints like topics, personality, and so on.  Since these constraints are learnt from broad patterns, they are suited for (but not limited to) application for Small talk.
+The system tries to learn a language model for the basic structure of conversation. This structure should allow responses to be influenced in part by external constraints like topics, personality, and so on.  Since these constraints are learnt from broad patterns, they're suited for (but not limited to) application for Small talk.
 
 ![Sequence to sequence model for response generation](./media/overview/sequence-to-sequence-model.png)
 
-#### References to research on Neural Network based Response Generation:
-
-* Alan Ritter, Colin Cherry, Bill Dolan. [Data-Driven Response Generation in Social Media](http://www.aclweb.org/anthology/D11-1054), EMNLP 2011
-* Alessandro Sordoni, Michel Galley, Michael Auli, Chris Brockett, Yangfeng Ji, Meg Mitchell, Jian-Yun Nie, Jianfeng Gao, and Bill Dolan, [A Neural Network Approach to Context-Sensitive Generation of Conversational Responses](https://arxiv.org/abs/1506.06714), NAACL 2015.
-* Jiwei Li, Michel Galley, Chris Brockett, Jianfeng Gao, and Bill Dolan, [A Diversity-Promoting Objective Function for Neural Conversation Models](https://arxiv.org/abs/1510.03055), NAACL 2016.
-
 ## Personality modeling
 
- With any data-driven conversational model, there is the challenge of consistently giving a coherent “personality”. PERSONA is defined as the character experienced during conversational interactions. A persona can be viewed as made up of elements of identity, language behavior, and interaction style. In the current version of Personality Chat, the focus is on language behavior and interaction style.
+ With any data-driven conversational model, there's the challenge of consistently giving a coherent “personality”. PERSONA is defined as the character experienced during conversational interactions. A persona can be viewed as made up of elements of identity, language behavior, and interaction style. In the current version of Personality Chat, the focus is on language behavior and interaction style.
 
 This model represents each individual speaker as a vector or embedding. It encodes information from the speaker that influences the content and style of their responses. The model then learns speaker representations based on conversational content given by different speakers. The speakers with similar responses tend to have similar embeddings, occupying nearby positions in the vector space. This way, the training data of speakers nearby in vector space help increase the generalization capability of the speaker model. The model effectively clusters speakers that have similar representations in the vector space to form a persona cluster, with a "persona ID".
 
-For the default personas, attributes and curated responses are used to find the closest matched speaker cluster. This cluster is then chosen as the Persona ID for each of the default personalities. Continued customization can happen for any type of personality by taking a set of bot/brand responses. Conversations are then made that accurately emulate that individual’s persona in terms of linguistic response behavior and other main characteristics.
+For the default personas, attributes and curated responses are used to find the closest matched speaker cluster. This cluster is then chosen as the Persona ID for each of the default personalities. Continued customization can happen for any type of personality by taking a set of bot/brand responses. Conversations are then made that accurately emulate that individual’s persona like linguistic response behavior and other main characteristics.
 
 ![Persona modeling using speaker clusters](./media/overview/persona-modeling.png)
-
-#### References to research on Neural Network based Response Generation
-
-* Jiwei Li, Michel Galley, Chris Brockett, Jianfeng Gao, and Bill Dolan. [A Personalized Neural Conversation Model.](https://arxiv.org/abs/1603.06155) ACL 2016.
-* Yi Luan, Chris Brockett, Bill Dolan, Jianfeng Gao and Michel Galley. [Multi-Task Learning for Speaker-Role Adaptation in Neural Conversation Models](https://arxiv.org/abs/1710.07388). IJCNLP 2017.
 
 ## Small talk intent understanding
 
@@ -60,4 +52,4 @@ Personality Chat has intent classifiers to ensure a response for small talk inte
 
 Other subintent classifiers are used to identify the subclasses of small talk to constrain the types of small talk the service responds to, for example: greetings, compliments, opinions, and so on. These deep learning classifiers, using the Convolutional Deep Structure Semantic Model (CDSSM), convert all queries to vectors. They're trained using tens of thousands of curated queries for the subintents. The classifier then matches a query with existing, identified intent classes by finding the closest match in the vector space.
 
-To ensure that Personality Chat does not create responses to intents that contain offensive content, offensive identification models are integrated. If any query is identified as offensive, the query is not passed on the auto-generation model.
+A number of controls have been put into place to help prevent unfavorable responses, building on knowledge from intelligent agents like Zo. By default, Project Personality Chat is set to respond solely to recognized user intents. You may want to test whether Project Personality Chat is suitable for your circumstances. Your feedback is welcome if you see anything that needs further training.

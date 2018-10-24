@@ -70,7 +70,7 @@ That way, your gateway appears in the gateways list when you create your connect
 1. When the SQL trigger or action prompts you for connection information, 
 follow these steps:
 
-   1. In the trigger or action, select **Connect via on-premise data gateway** 
+   1. In the trigger or action, select **Connect via on-premises data gateway** 
    so that the SQL server options appear.
 
    2. Create a name for your connection.
@@ -105,7 +105,7 @@ follow these steps:
 
    | Property | Value | Details | 
    |----------|-------|---------| 
-   | Connect via on-premise gateway | Select this option first for SQL Server settings. | | 
+   | Connect via on-premises gateway | Select this option first for SQL Server settings. | | 
    | Connection Name | <*my-sql-connection*> | The name for your connection | 
    | SQL Server Name | <*my-sql-server*> | The name for your SQL server |
    | SQL Database Name | <*my-sql-database*>  | The name for your SQL database |

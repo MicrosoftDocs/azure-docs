@@ -1,23 +1,17 @@
 ---
-title: Query for B2B messages in Log Analytics - Azure Logic Apps  | Microsoft Docs
-description: Create queries to track AS2, X12, and EDIFACT messages in Log Analytics 
-author: padmavc
-manager: anneta
-editor: ''
+title: Create queries for B2B messages in Log Analytics - Azure Logic Apps  | Microsoft Docs
+description: Create queries that track AS2, X12, and EDIFACT messages with Log Analytics for Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 07/21/2017
-ms.author: LADocs; padmavc
+ms.date: 06/19/2018
 ---
 
-# Query for AS2, X12, and EDIFACT messages in Log Analytics
+# Create queries for tracking AS2, X12, and EDIFACT messages in Log Analytics for Azure Logic Apps
 
 To find the AS2, X12, or EDIFACT messages that you're tracking with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md), 
@@ -64,19 +58,11 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Select your Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. Under **Management**, choose **OMS Portal**.
+3. Under **Management**, choose **Log Search**.
 
-   ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+   ![Choose Lo Search](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. On your home page, choose **Log Search**.
-
-   ![On your home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
-
-   -or-
-
-   ![On the menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
-
-5. In the search box, enter a field that you want to find, and press **Enter**. 
+4. In the search box, enter a field that you want to find, and press **Enter**. 
 When you start typing, Log Analytics shows you possible matches and operations that you can use. 
 Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
@@ -84,12 +70,12 @@ Learn more about [how to find data in Log Analytics](../log-analytics/log-analyt
 
    ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. In the left bar, choose the timeframe that you want to view. 
+5. In the left bar, choose the timeframe that you want to view. 
 To add a filter to your query, choose **+Add**.
 
    ![Add filter to query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. Under **Add Filters**, enter the filter name so you can find the filter you want. 
+6. Under **Add Filters**, enter the filter name so you can find the filter you want. 
 Select the filter, and choose **+Add**.
 
    To find the interchange control number, this example searches for the word "interchange", 
@@ -97,13 +83,13 @@ Select the filter, and choose **+Add**.
 
    ![Select filter](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. In the left bar, select the filter value that you want to use, and choose **Apply**.
+7. In the left bar, select the filter value that you want to use, and choose **Apply**.
 
    This example selects the interchange control number for the messages we want.
 
    ![Select filter value](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. Now return to the query that you're building. 
+8. Now return to the query that you're building. 
 Your query has been updated with your selected filter event and value. 
 Your previous results are now filtered too.
 

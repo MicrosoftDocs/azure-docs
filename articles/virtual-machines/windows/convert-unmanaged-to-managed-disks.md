@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/12/2018
 ms.author: cynthn
 ---
 
@@ -96,6 +96,18 @@ If the VMs that you want to convert to managed disks are in an availability set,
 If there is an error during conversion, or if a VM is in a failed state because of issues in a previous conversion, run the `ConvertTo-AzureRmVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
 Before converting, make sure all the VM extensions are in the 'Provisioning succeeded' state or the conversion will fail with the error code 409.
 
+
+## Convert using the Azure portal
+
+You can also convert unmanaged disks to managed disks using the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the VM from the list of VMs in the portal.
+3. In the blade for the VM, select **Disks** from the menu.
+4. At the top of the **Disks** blade, select **Migrate to managed disks**.
+5. If your VM is in an availability set, there will be a warning on the **Migrate to managed disks** blade that you need to convert the availability set first. The warning should have a link you can click to convert the availability set. Once the availability set is converted or if your VM is not in an availability set, click **Migrate** to start the process of migrating your disks to managed disks. 
+
+The VM will be stopped and restarted after migration is complete.
 
 ## Next steps
 

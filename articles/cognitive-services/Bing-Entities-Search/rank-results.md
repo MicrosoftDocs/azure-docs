@@ -1,20 +1,21 @@
 ---
-title: Using ranking to display answers | Microsoft Docs
+title: Using ranking to display answers - Bing Entity Search
+titlesuffix: Azure Cognitive Services
 description: Shows how to use ranking to display the answers that the Bing Entity Search API returns.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
-ms.assetid: BBF87972-B6C3-4910-BB52-DE90893F6C71
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: v-jerkin
 ---
 
 # Using ranking to display results  
 
-Each entity search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-entities-v7-reference#rankingresponse) answer, similar to the one in a Bing Web Search response, that specifies how you must display the search results. The ranking response groups results into pole, mainline, and sidebar content. The pole result is the most important or prominent result and should be displayed first. If you do not display the remaining results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content. 
+Each entity search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) answer, similar to the one in a Bing Web Search response, that specifies how you must display the search results. The ranking response groups results into pole, mainline, and sidebar content. The pole result is the most important or prominent result and should be displayed first. If you do not display the remaining results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content. 
   
 Within each group, the [Items](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) array identifies the order that the content must appear in. Each item provides two ways to identify the result within an answer.  
   

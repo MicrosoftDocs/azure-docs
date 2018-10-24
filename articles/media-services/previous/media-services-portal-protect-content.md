@@ -29,7 +29,7 @@ To use the portal to configure global content protection by using your Media Ser
 
 1. In the [portal](https://portal.azure.com/), select your Media Services account.
 
-2. Select **Settings** > **Content protection**.
+1. Select **Settings** > **Content protection**.
 
     ![Content protection](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -106,11 +106,11 @@ AES clear key encryption is enabled on all streaming protocols: Smooth Streaming
     
     e. **FairPlay only with HLS** dynamically encrypts your HLS stream with FairPlay.
 
-2. To enable FairPlay encryption, on the **Content Protection Global Settings** blade, select **FairPlay configuration**. Then select the **App certificate**, and enter the **Application Secret Key**.
+1. To enable FairPlay encryption, on the **Content Protection Global Settings** blade, select **FairPlay configuration**. Then select the **App certificate**, and enter the **Application Secret Key**.
 
     ![Encryption type](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-3. After you make the encryption selection, select **Apply**.
+1. After you make the encryption selection, select **Apply**.
 
 >[!NOTE] 
 >If you plan to play an AES-encrypted HLS in Safari, see the blog post [Encrypted HLS in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).

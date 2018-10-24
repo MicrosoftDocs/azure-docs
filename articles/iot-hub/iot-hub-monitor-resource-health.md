@@ -1,28 +1,24 @@
 ---
 title: Monitor the health of your Azure IoT Hub | Microsoft Docs
 description: Use Azure Monitor and Azure Resource Health to monitor your IoT Hub and diagnose problems quickly
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/09/2017
+services: iot-hub
+ms.topic: conceptual
+ms.date: 08/09/2018
 ms.author: kgremban
-
 ---
+
 
 # Monitor the health of Azure IoT Hub and diagnose problems quickly
 
 Businesses that implement Azure IoT Hub expect reliable performance from their resources. To help you maintain a close watch on your operations, IoT Hub is fully integrated with [Azure Monitor][lnk-AM] and [Azure Resource Health][lnk-ARH]. These two services work in tandem to provide you with the data you need to keep your IoT solutions up and running in a healthy state. 
 
-Azure Monitor is a single source of monitoring and logging for all your Azure services. You can send the logs that Azure Monitor generates to Log Analytics, Event Hubs, or Azure Storage for custom processing. Azure Monitor's metrics and diagnostics settings give you real-time visibility into the performance of your resources. Continue reading this article to learn how to [Use Azure Monitor](#use-azure-monitor) with your IoT hub. 
+Azure Monitor is a single source of monitoring and logging for all your Azure services. You can send the diagnostic logs that Azure Monitor generates to Log Analytics, Event Hubs, or Azure Storage for custom processing. Azure Monitor's metrics and diagnostics settings give you visibility into the performance of your resources. Continue reading this article to learn how to [Use Azure Monitor](#use-azure-monitor) with your IoT hub. 
+
+> [!IMPORTANT]
+> The events emitted by the IoT Hub service using Azure Monitor diagnostic logs are not guaranteed to be reliable or ordered. Some events might be lost or delivered out of order. Diagnostic logs also aren't meant to be real-time, and it may take several minutes for events to be logged to your choice of destination.
 
 Azure Resource Health helps you diagnose and get support when an Azure issues impacts your resources. A personalized dashboard provides current and past health status for your IoT Hubs. Continue reading this article to learn how to [Use Azure Resource Health](#use-azure-resource-health) with your IoT hub. 
 
@@ -44,7 +40,10 @@ Azure Monitor tracks different operations that occur in IoT Hub. Each category h
 
 #### Connections
 
-The connections category tracks errors that occur when devices connect or disconnect from an IoT hub. Tracking this category is useful for identifying unauthorized connection attempts and for tracking when a connection is lost for devices in areas of poor connectivity.
+The connections category tracks device connect and disconnect events from an IoT hub as well as errors. Tracking this category is useful for identifying unauthorized connection attempts and for tracking when a connection is lost for devices in areas of poor connectivity.
+
+> [!NOTE]
+> For reliable connection status of devices check [Device heartbeat][lnk-devguide-heartbeat].
 
 ```json
 {
@@ -155,7 +154,7 @@ This category cannot catch errors that directly occur while the device is upload
 
 #### Cloud-to-device twin operations
 
-The cloud-to-device twin operations category tracks service-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties
+The cloud-to-device twin operations category tracks service-initiated events on device twins. These operations can include get twin, update or replace tags, and update or replace desired properties. 
 
 ```json
 {
@@ -172,7 +171,7 @@ The cloud-to-device twin operations category tracks service-initiated events on 
 
 #### Device-to-cloud twin operations
 
-The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update or replace tags, and update or replace desired properties. 
+The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties.
 
 ```json
 {
@@ -223,7 +222,7 @@ The jobs operations category reports on job requests to update device twins or i
 
 #### Direct Methods
 
-The direct methods category tracks request-reponse interactions sent to individual devices. These requests are initiated in the cloud. 
+The direct methods category tracks request-response interactions sent to individual devices. These requests are initiated in the cloud. 
 
 ```json
 {
@@ -326,7 +325,7 @@ To learn more about how to interpret health data, see [Azure resource health ove
 - [IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox][lnk-monitoring-notifications]
 
 
-[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-AM]: ../azure-monitor/index.yml
 [lnk-ARH]: ../service-health/resource-health-overview.md
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
@@ -334,3 +333,4 @@ To learn more about how to interpret health data, see [Azure resource health ove
 [lnk-AM-schemas]: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

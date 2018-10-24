@@ -4,7 +4,6 @@ description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: timlt
 editor: ''
 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -13,14 +12,124 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 10/16/2018
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-## April Guest OS
+## September 2018 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-09 | [4457131] | Windows 10 Security | 5.23 | September 11, 2018 |
+| Rel 18-09 | [4457145] | Windows Security only | 2.78 | September 11, 2018 |
+| Rel 18-09 | [4457140] | Windows Security only | 3.65 | September 11, 2018 |
+| Rel 18-09 | [4457143] | Windows Security only | 4.58 | September 11, 2018 |
+| Rel 18-09 | [4457055], [4457030] | .NET 3.5, 4.5 Security | 2.78 | September 11, 2018 |
+| Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x Security | 3.65 | September 11, 2018 |
+| Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x Security | 4.58 | September 11, 2018 |
+| Rel 18-09 | [4457146] | Flash | 3.65, 4.58, 5.23 | September 11, 2018 |
+| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4.58 | September 11, 2018 |
+| N/A | [4343900] | August Non-Security rollup | 2.78 | August 14, 2018 |
+| N/A | [4344152] | August Non-Security .NET 3.5 rollup | 2.78 | August 14, 2018 |
+| N/A | [4344149] | August Non-Security .NET 4x rollup | 2.78 | August 14, 2018 |
+| N/A | [4343901] | August Non-Security rollup | 3.65 | August 14, 2018 |
+| N/A | [4344150] | August Non-Security .NET 3.5 rollup | 3.65 | August 14, 2018 |
+| N/A | [4344148] | August Non-Security .NET 4x rollup | 3.65 | August 14, 2018 |
+| N/A | [4343898] | August Non-Security rollup | 4.58 | August 14, 2018 |
+| N/A | [4344153] | August Non-Security .NET 3.5 rollup | 4.58 | August 14, 2018 |
+| N/A | [4344147] | August Non-Security .NET 4x rollup | 4.58 | August 14, 2018 |
+
+## August 2018 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-08 | [4343887] | Windows 10 Security | 5.22 | August 14, 2018 |
+| Rel 18-08 | [4343899] | Windows Security only | 2.77 | August 14, 2018 |
+| Rel 18-08 | [4343896] | Windows Security only | 3.64 | August 14, 2018 |
+| Rel 18-08 | [4343888] | Windows Security only | 4.57 | August 14, 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 Security | 2.77 | August 14, 2018 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x Security | 3.64 | August 14, 2018 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x Security | 4.57 | August 14, 2018 |
+| Rel 18-08 | [4346742], [4346739] | .NET 3.5, 4.x OOB release | 3.64 | July 30, 2018 |
+| Rel 18-08 | [4346745], [4346408] | .NET 3.5, 4.x OOB release | 4.57 | July 30, 2018 |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | August 14, 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | August 14, 2018 |
+| N/A | [4338818] |July Non-Security rollup |2.77 | July 10, 2018 |
+| N/A | [4019990] |D3D Compiler update for .NET |2.77 | July 10, 2018 |
+| N/A | [4338830] |July Non-Security rollup |3.64 | July 10, 2018 |
+| N/A | [4338421] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
+| N/A | [4338416] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
+| N/A | [4338815] |July Non-Security rollup |4.57 | July 10, 2018 |
+| N/A | [4338424] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
+| N/A | [4338415] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
+
+## July 2018 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Windows 10 Security |5.21 |July 10, 2018 |
+| Rel 18-07 | [4338823] |Windows Security only |2.76 |July 10, 2018 |
+| Rel 18-07 | [4338820] |Windows Security only |3.63 |July 10, 2018 |
+| Rel 18-07 | [4338824] |Windows Security only |4.56 |July 10, 2018 |
+| Rel 18-07 | [4345459] |Security rollup refresh |2.76 |July 10, 2018 |
+| Rel 18-07 | [4345425] |Security rollup refresh |3.63 |July 10, 2018 |
+| Rel 18-07 | [4345424] |Security rollup refresh |4.56 |July 10, 2018 |
+| Rel 18-07 | [4345418] |Security rollup refresh |5.21 |July 10, 2018 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x Security |2.76 |July 10, 2018 |
+| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5x Security |3.63 |July 10, 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x Security |4.56|July 10, 2018 |
+| Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |July 10, 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |July 10, 2018 |
+| N/A | [4284826] |June non-security rollup |2.76 |June 12, 2018 |
+| N/A | [4284855] |June non-security rollup |3.63 |June 12, 2018 |
+| N/A | [4284815] |June non-security rollup |4.56 |June 12, 2018 |
+
+## June 2018 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-06 | [4284880] |Windows 10 Security |5.20 |June 12, 2018 |
+| Rel 18-06 | [4284867] |Windows Security only |2.75 |June 12, 2018 |
+| Rel 18-06 | [4284846] |Windows Security only |3.62 |June 12, 2018 |
+| Rel 18-06 | [4284878] |Windows Security only |4.55 |June 12, 2018 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |June 12, 2018 |
+| Rel 18-06 | [4287903] |Flash |3.62, 4.75, 5.20 |June 12, 2018 |
+| N/A | [4103718] |May non-security rollup |2.75 |May 8, 2018 |
+| N/A | [4103730] |May non-security rollup |3.62 |May 8, 2018 |
+| N/A | [4103725] |May non-security rollup |4.55 |May 8, 2018 |
+| N/A | [4040980], [4040977] |Sept ’17 .NET non-security rollup |2.75 |November 14, 2017 |
+| N/A | [4095874] |May .NET 3.5 non-security release |2.75 |May 8, 2018 |
+| N/A | [4096495] |May .NET 4.x non-security release |2.75 |May 8, 2018 |
+| N/A | [4040975] |Sept ’17 .NET non-security rollup |3.62 |November 14, 2017 |
+| N/A | [4095872] |May .NET 3.5 non-security release |3.62 |May 8, 2018 |
+| N/A | [4096494] |May .NET 4.x non-security release |3.62 |May 8, 2018 |
+| N/A | [4096416] |May .NET 4.5x non-security release |3.62 |May 8, 2018 |
+| N/A | [4040974], [4040972] |Sept ’17 .NET non-security rollup |4.55 |November 14, 2017 |
+| N/A | [4043763] |Oct ’17 .NET non-security rollup |4.55 |September 12, 2017 |
+| N/A | [4095876] |May .NET 4.x non-security release |4.55 |May 8, 2018 |
+| N/A | [4096417] |May .NET 4.5x non-security release |4.55 |May 8, 2018 |
+| N/A | [4132216] |May SSU |5.20 |May 8, 2018 |
+
+## May 2018 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-05 | [4103721], [4103727], [4103723] |Windows 10 Security |5.19 |May 8, 2018 |
+| Rel 18-05 | [4103712] |Windows Security only |2.74 |May 8, 2018 |
+| Rel 18-05 | [4103726] |Windows Security only |3.61 |May 8, 2018 |
+| Rel 18-05 | [4103715] |Windows Security only |4.54 |May 8, 2018 |
+| Rel 18-05 | [4095514], [4095519] |.NET 3.5, 4.x Security |2.74 |May 8, 2018 |
+| Rel 18-05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x, 4.5x Security |3.61 |May 8, 2018 |
+| Rel 18-05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x, 4.5x Security |4.74|May 8, 2018 |
+| Rel 18-05 | [4054856] |.NET 4.7x Security |5.19 |May 8, 2018 |
+| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |May 8, 2018 |
+| Rel 18-05 | [4103729] |Flash |3.61, 4.74, 5.19 |May 8, 2018 |
+| N/A | [4093118] |April non-security rollup |2.73 |April 10, 2018 |
+| N/A | [4093123] |April non-security rollup |3.61 |April 10, 2018 |
+| N/A | [4093114] |April non-security rollup |4.74 |April 10, 2018 |
+| N/A | [4093137] |April SSU |5.19 |April 10, 2018 |
+| N/A | [4093753] |Timezone update |2.74, 3.61, 4.74 |April 10, 2018 |
+
+
+## April 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Windows 10 Security |5.18 |April 10, 2018 |
@@ -34,7 +143,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4088877] |March non-security rollup |3.60 |March 13, 2018 |
 | N/A | [4088876] |March non-security rollup |4.53 |March 13, 2018 |
 
-## March Guest OS
+## March 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Windows 10 Security |5.17 |March 13, 2018 |
@@ -47,7 +156,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4074837] |Timezone update |2.72, 3.59, 4.52 |February 13, 2018 |
 
 
-## February Guest OS
+## February 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Windows 10 Security |5.16 |February 13, 2018 |
@@ -61,7 +170,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4054175], [4054171] |January .NET rollup |3.58 |January 4, 2018 |
 | N/A | [4054177], [4054170] |January .NET rollup |4.51 |January 4, 2018 |
 
-## January Guest OS
+## January 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Windows Security only |2.70, 3.57, 4.50 |January 3, 2018 |
@@ -73,7 +182,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 
-## December Guest OS
+## December 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Windows 10 Security updates |4.49, 5.14 |December 12, 2017 |
@@ -85,7 +194,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4048958] |November non-security rollup |4.49 |November 14, 2017 |
 | N/A | [4049068] |December Timezone update |2.69, 3.56, 4.49 |December 12, 2017 |
 
-## November Guest OS
+## November 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Windows 10 updates |5.13 |November 14, 2017 |
@@ -99,7 +208,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [3191565] |Update for Windows Management Framework 5.1  |3.55 |November 14, 2017 |
 | N/A | [3191564] |Update for Windows Management Framework 5.1  |4.48 |November 14, 2017 |
 
-## October Guest OS
+## October 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4041691] |Windows 10 updates |5.12 |October 10, 2017 |
@@ -113,7 +222,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4040979] |September .NET non-security rollup |3.54 |September 12, 2017 |
 | N/A | [4040981] |September .NET non-security rollup |4.47 |September 12, 2017 |
 
-## September Guest OS
+## September 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Windows 10 updates |5.11 |September 12, 2017 |
@@ -125,7 +234,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4034665] |August non-security rollup |5.11 |August 8, 2017 |
 | N/A | [4034681] |August non-security rollup |4.46 |August 8, 2017 |
 
-## August Guest OS
+## August 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4034658] |Windows 10 updates |5.10 |August 8, 2017 |
@@ -139,7 +248,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-07 | [4025331] |July non-security rollup |3.52 |July 11, 2017 |
 | Rel 17-07 | [4025336] |July non-security rollup |4.45 |July 11, 2017 |
 
-## July Guest OS
+## July 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4025339] |Windows 10 updates |5.9 |July 11, 2017 |
@@ -153,7 +262,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4022724] |June non-security rollup |3.51 |June 13, 2017 |
 | N/A | [4022726] |June non-security rollup |4.44 |June 13, 2017 |
 
-## June Guest OS
+## June 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |WS 2016 OS Quality Improvements |5.8 |May 9, 2017 |
@@ -181,7 +290,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4014510] |May .NET non-security rollup |4.43 |May 9, 2017 |
 | N/A | [4014512] |May .NET non-security rollup |4.43 |May 9, 2017 |
 
-## May Guest OS
+## May 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |WS 2016 OS Quality Improvements |5.7 | May 9, 2017 |
@@ -209,7 +318,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4015550] |April non-security rollup |4.42 | April 11, 2017 |
 | N/A | [4013418] |Servicing Stack Update |5.7 | March 14, 2017 |
 
-## April Guest OS
+## April 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |WS 2016 OS Quality Improvements | 5.6 | April 11, 2017 |
@@ -229,7 +338,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-04 |  [4012217]  |March 2017 Security Monthly Quality Rollup for Windows Server 2012 |3.48 | April 11, 2017 |
 | Rel 17-04 |  [4012216]  |March 2017 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.41 | April 11, 2017 |
 
-## March Guest OS
+## March 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Improvements and fixes | 5.5 | March 14, 2017 |
@@ -243,12 +352,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |  [3205401] |December 2016 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.40 |March 14, 2017 |
 | N/A |  [3211320] |Servicing stack update for Windows 10 Version 1607 and Windows Server 2016: January 24, 2017 |5.5 |March 14, 2017 |
 
-## January Guest OS
+## January 2017 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Security update for Local Security Authority Subsystem Service |2.59 |Jan 10, 2017 |
 
-## December Guest OS
+## December 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Cumulative Security Update for Internet Explorer |2.58, 3.46, 4.39 |Dec 13, 2016 |
@@ -265,7 +374,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3197877] |November 2016 Security Monthly Quality Rollup for Windows Server 2012 |3.46 |Dec 13, 2016 |
 | N/A |[3197874] |November 2016 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.39 |Dec 13, 2016 |
 
-## November Guest OS
+## November 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Cumulative Security Update for Microsoft Edge |5.3 |Nov 8, 2016 |
@@ -290,7 +399,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3199986] |Servicing stack update for Windows 10 Version 1607: October 27, 2016 |5.3 |Nov 8, 2016 |
 | N/A |[3197954] |Cumulative Update for Windows 10 Version 1607 and Windows Server 2016: October 27, 2016 |5.3 |Nov 8, 2016 |
 
-## October Guest OS
+## October 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Cumulative Security Update for Internet Explorer |4.37, 3.44, 2.56 |Oct 11, 2016 |
@@ -305,7 +414,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3185279] |September 2016 update rollup for Windows 8.1 and Windows Server 2012 R2 |4.37 |Oct 11, 2016 |
 | N/A |[3194798] |Cumulative update for Windows 10 Version 1607 and Windows Server 2016 |5.2 |Oct 11, 2016 |
 
-## September Guest OS
+## September 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Cumulative Security Update for Internet Explorer |4.36, 3.43, 2.55 |Sept 13, 2016 |
@@ -322,7 +431,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3179575] |August 2016 update rollup for Windows Server 2012 |3.43 |Sept 13, 2016 |
 | N/A |[3179574] |August 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.36 |Sept 13, 2016 |
 
-## August Guest OS
+## August 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Cumulative Security Update for Internet Explorer |4.35, 3.42, 2.54 |Aug 9, 2016 |
@@ -336,7 +445,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3172615] |July 2016 update rollup for Windows Server 2012 |3.42 |Aug 9, 2016 |
 | N/A |[3172614] |July 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.35 |Aug 9, 2016 |
 
-## July Guest OS
+## July 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Cumulative Security Update for Internet Explorer |4.34, 3.41, 2.53 |July 12, 2016 |
@@ -352,7 +461,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3161606] |June 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.34 |July 12, 2016 |
 | N/A |[3139923] |Windows installer (MSI) repair doesn't work when MSI package is installed on an HTTP share in Windows |4.34 |July 12, 2016 |
 
-## June Guest OS
+## June 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Security Update for .NET Framework to Address Security Feature Bypass |4.33, 3.40, 2.52 |June 14, 2016 |
@@ -379,7 +488,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3156418] |May 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.33 |June 14, 2016 |
 | N/A |[3153731] |May 2016 DST update for Azerbaijan, Chile, Haiti, and Morocco in Windows |4.33, 3.40, 2.52 |June 14, 2016 |
 
-## May Guest OS
+## May 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Cumulative Security Update for Internet Explorer |4.32, 3.39, 2.51 |May 10, 2016 |
@@ -397,7 +506,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3123245] |Update improves port exhaustion identification in Windows Server 2012 R2  |4.32 |May 10, 2016 |
 | N/A |[Disable RC4] | Microsoft security advisory: Update for disabling RC4  |4.32, 3.39, 2.51 |May 10, 2016 |
 
-## April Guest OS
+## April 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Cumulative Security Update for Internet Explorer |4.31, 3.38, 2.50 |April 12, 2016 |
@@ -408,7 +517,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-047 |[3148527] |Security Update for Security Account Manager Remote Protocol |4.31, 3.38, 2.50 |April 12, 2016 |
 | MS16-048 |[3148528] |Security Update for CSRSS |4.31, 3.38 |April 12, 2016 |
 
-## March Guest OS
+## March 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Cumulative Security Update for Internet Explorer |4.30, 3.37, 2.49 |March 8, 2016 |
@@ -421,7 +530,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-033 |[3143142] |Security Update to USB Mass Storage Class Driver to Address Elevation of Privilege |4.30, 3.37, 2.49 |March 8, 2016 |
 | MS16-034 |[3143145] |Security Updates for Kernel-Mode Driver to address Elevation of Privilege |4.30, 3.37, 2.49 |March 8, 2016 |
 
-## February Guest OS
+## February 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Cumulative Security Update for Internet Explorer |4.29, 3.36, 2.48 |February 9, 2016 |
@@ -436,7 +545,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Re-Release - MS15-118 |[3104507] |Security Updates for .NET Framework to Address Elevation of Privilege |4.29, 3.36, 2.48 |February 9, 2016 |
 | Re-Release - MS15-128 |[3104503] |Security Updates for Microsoft Graphics Component to Address Remote Code Execution |4.29, 3.36, 2.48 |February 9, 2016 |
 
-## January Guest OS
+## January 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Cumulative Security Update for Internet Explorer |4.28, 3.35, 2.47 |January 12, 2016 |
@@ -449,7 +558,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Microsoft Security Advisory |[3123479] |Deprecation of SHA-1 Hashing Algorithm for Microsoft Root Certificate Program |4.28, 3.35, 2.47 |January 12, 2016 |
 | Microsoft Security Advisory |[2736233] |Updates for ActiveX Kill Bits |4.28, 3.35, 2.47 |January 12, 2016 |
 
-## December Guest OS
+## December 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Cumulative Security Update for Internet Explorer |4.27, 3.34, 2.46 |December 8, 2015 |
@@ -461,7 +570,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-134 |[3108669] |Security Update for Windows Media Center to Address Remote Code Execution |4.27, 3.34, 2.46 |December 8, 2015 |
 | MS15-135 |[3119075] |Security Update for Windows Kernel Mode Drivers to Address Elevation of Privilege |4.27, 3.34, 2.46 |December 8, 2015 |
 
-## November Guest OS
+## November 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Cumulative Security Update for Internet Explorer |4.26, 3.33, 2.45 |November 10, 2015 |
@@ -475,7 +584,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-122 |[3105256] |Security Update for Kerberos to Address Security Feature Bypass |4.26, 3.33, 2.45 |November 10, 2015 |
 | Microsoft Security Advisory |[3097966] |Inadvertently disclosed Digital Certificates Could Allow spoofing |4.26, 3.33, 2.45 |November 10, 2015 |
 
-## October Guest OS
+## October 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Cumulative Security Update for Internet Explorer |4.25, 3.32, 2.44 |October 13, 2015 |
@@ -484,7 +593,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-111 |[3096447] |Security Update for Windows Kernel to Address Elevation of Privilege |4.25, 3.32, 2.44 |October 13, 2015 |
 | Microsoft Security Advisory |[3092627] |September 2015 update to fix Windows or application freezes after you install security update 3076895 |4.25, 3.32, 2.44 |October 13, 2015 |
 
-## September Guest OS
+## September 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Security Update for Internet Explorer |4.24, 3.31, 2.43 |September 8, 2015 |
@@ -496,7 +605,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-102 |[3089657] |Vulnerabilities in Windows Task Management Could Allow Elevation of Privilege |4.24, 3.31, 2.43 |September 8, 2015 |
 | MS15-105 |[3091287] |Vulnerability in Windows Hyper-V Could Allow Security Feature Bypass |4.24 |September 8, 2015 |
 
-## August Guest OS
+## August 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Cumulative Security Update for Internet Explorer |4.23, 3.30, 2.42 |August 11, 2015 |
@@ -508,7 +617,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-089 |[3060716] |Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege |4.23, 3.30, 2.42 |August 11, 2015 |
 | MS15-090 |[3076949] |Vulnerability in WebDAV Could Allow Information Disclosure |4.23, 3.30, 2.42 |August 11, 2015 |
 
-## July Guest OS
+## July 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Cumulative Security Update for Internet Explorer |4.22, 3.29, 2.41 |July 14, 2015 |
@@ -525,7 +634,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-077 |[3077657] |Vulnerability in ATM Font Driver Could Allow Elevation of Privilege |4.22, 3.29, 2.41 |July 14, 2015 |
 | NA |[3057154] |Update to Restrict Use of DES Encryption |4.22, 3.29, 2.41 |July 14, 2015 |
 
-## June Guest OS
+## June 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Cumulative Security Update for Internet Explorer |4.21, 3.28, 2.40 |June 9, 2015 |
@@ -535,7 +644,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-062 |[3062577] |Vulnerability in Active Directory Federation Services Could Allow Elevation of Privilege |4.21, 3.28, 2.40 |June 9, 2015 |
 | MS15-063 |[3063858] |Vulnerability in Windows Kernel Could Allow Elevation of Privilege |4.21, 3.28, 2.40 |June 9, 2015 |
 
-## May Guest OS
+## May 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Cumulative Security Update for Internet Explorer |4.20, 3.27, 2.39 |May 12, 2015 |
@@ -558,12 +667,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-042 |[3047234] |Vulnerability in Windows Hyper-V Could Allow Denial of Service |4.20, 3.27, 2.39 |Apr 17, 2015 |
 | NA |[3045755] |Update to Improve PKU2U Authentication |4.20, 3.27, 2.39 |Apr 17, 2015 |
 
-## April Guest OS
+## April 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |Vulnerability in HTTP.sys could allow remote code execution |4.19, 3.26, 2.38 |Apr 17, 2015 |
 
-## March Guest OS
+## March 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Cumulative Security Update for Internet Explorer |4.18, 3.25, 2.37 |N/A |
@@ -583,7 +692,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 >
 >
 
-## February Guest OS
+## February 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Security Update for Internet Explorer |4.17, 3.24, 2.36 |N/A |
@@ -594,7 +703,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-016 |[3029944] |Vulnerability in Microsoft Graphics Component Could Allow Information Disclosure |4.17, 3.24, 2.36 |N/A |
 | N/A |[3004375] |Update to Improve Windows Command Line Auditing<p/>**Note**: This is installed but the registry key to enable it is turned off |4.17, 3.24, 2.36 |N/A |
 
-## January Guest OS
+## January 2015 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Vulnerability in Windows AppCompatCache could allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
@@ -610,7 +719,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-002 |[3020393] |Vulnerability in Windows Telnet Service Could Cause Remote Code Execution |4.16, 3.23, 2.35 |Jan 19 2015 |
 
 
-## December Guest OS
+## December 2014 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | N/A |[3013776] |System freezes when you use a domain account to start an application |4.15, 3.22, 2.34 |Jan 13 2015 |
@@ -625,6 +734,144 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
+
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
+
+[4343887]: http://support.microsoft.com/kb/4343887
+[4343899]: http://support.microsoft.com/kb/4343899
+[4343896]: http://support.microsoft.com/kb/4343896
+[4343888]: http://support.microsoft.com/kb/4343888
+[4344177]: http://support.microsoft.com/kb/4344177
+[4344173]: http://support.microsoft.com/kb/4344173
+[4344175]: http://support.microsoft.com/kb/4344175
+[4344172]: http://support.microsoft.com/kb/4344172
+[4344178]: http://support.microsoft.com/kb/4344178
+[4344171]: http://support.microsoft.com/kb/4344171
+[4346742]: http://support.microsoft.com/kb/4346742
+[4346739]: http://support.microsoft.com/kb/4346739
+[4346745]: http://support.microsoft.com/kb/4346745
+[4346408]: http://support.microsoft.com/kb/4346408
+[4343902]: http://support.microsoft.com/kb/4343902
+[4343205]: http://support.microsoft.com/kb/4343205
+[4338818]: http://support.microsoft.com/kb/4338818
+[4019990]: http://support.microsoft.com/kb/4019990
+[4338830]: http://support.microsoft.com/kb/4338830
+[4338421]: http://support.microsoft.com/kb/4338421
+[4338416]: http://support.microsoft.com/kb/4338416
+[4338815]: http://support.microsoft.com/kb/4338815
+[4338424]: http://support.microsoft.com/kb/4338424
+[4338415]: http://support.microsoft.com/kb/4338415
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
+
+[4284880]: http://support.microsoft.com/kb/4284880
+[4284867]: http://support.microsoft.com/kb/4284867
+[4284846]: http://support.microsoft.com/kb/4284846
+[4284878]: http://support.microsoft.com/kb/4284878
+[4230450]: http://support.microsoft.com/kb/4230450
+[4287903]: http://support.microsoft.com/kb/4287903
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103730]: http://support.microsoft.com/kb/4103730
+[4103725]: http://support.microsoft.com/kb/4103725
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040977]: http://support.microsoft.com/kb/4040977
+[4095874]: http://support.microsoft.com/kb/4095874
+[4096495]: http://support.microsoft.com/kb/4096495
+[4040975]: http://support.microsoft.com/kb/4040975
+[4095872]: http://support.microsoft.com/kb/4095872
+[4096494]: http://support.microsoft.com/kb/4096494
+[4096416]: http://support.microsoft.com/kb/4096416
+[4040974]: http://support.microsoft.com/kb/4040974
+[4040972]: http://support.microsoft.com/kb/4040972
+[4043763]: http://support.microsoft.com/kb/4043763
+[4095876]: http://support.microsoft.com/kb/4095876
+[4096417]: http://support.microsoft.com/kb/4096417
+[4132216]: http://support.microsoft.com/kb/4132216
+
+[4103721]: http://support.microsoft.com/kb/4103721
+[4103727]: http://support.microsoft.com/kb/4103727 
+[4103723]: http://support.microsoft.com/kb/4103723
+[4103712]: http://support.microsoft.com/kb/4103712
+[4103726]: http://support.microsoft.com/kb/4103726
+[4103715]: http://support.microsoft.com/kb/4103715
+[4095514]: http://support.microsoft.com/kb/4095514
+[4095519]: http://support.microsoft.com/kb/4095519
+[4095512]: http://support.microsoft.com/kb/4095512
+[4095518]: http://support.microsoft.com/kb/4095518
+[4096235]: http://support.microsoft.com/kb/4096235
+[4095515]: http://support.microsoft.com/kb/4095515
+[4095517]: http://support.microsoft.com/kb/4095517
+[4096236]: http://support.microsoft.com/kb/4096236
+[4054856]: http://support.microsoft.com/kb/4054856
+[4103768]: http://support.microsoft.com/kb/4103768
+[4103729]: http://support.microsoft.com/kb/4103729
+[4093118]: http://support.microsoft.com/kb/4093118
+[4093123]: http://support.microsoft.com/kb/4093123
+[4093114]: http://support.microsoft.com/kb/4093114
+[4093137]: http://support.microsoft.com/kb/4093137
+[4093753]: http://support.microsoft.com/kb/4093753
 
 [4093119]: http://support.microsoft.com/kb/4093119
 [4093108]: http://support.microsoft.com/kb/4093108 
@@ -1163,7 +1410,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3057839]:http://support.microsoft.com/kb/3057839
 [3062577]:http://support.microsoft.com/kb/3062577
 [3063858]:http://support.microsoft.com/kb/3063858
-
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

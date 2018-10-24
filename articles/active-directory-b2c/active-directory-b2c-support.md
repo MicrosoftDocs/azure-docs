@@ -1,24 +1,23 @@
 ---
-title: 'Azure Active Directory B2C: Support | Microsoft Docs'
-description: How to file support requests for Azure Active Directory B2C
+title: Support for Azure Active Directory B2C | Microsoft Docs
+description: How to file support requests for Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: File Support Requests
 You can file support requests for Azure Active Directory (Azure AD) B2C on the Azure portal using the following steps:
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Switch from your B2C tenant to another tenant that has an Azure subscription associated with it. Typically, the latter is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Switch from your B2C tenant to another tenant that has an Azure subscription associated with it. Typically, the latter is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
    
     ![Support - Switch tenants](./media/active-directory-b2c-support/support-switch-dir.png)
 3. After switching tenants, click **Help + support**.

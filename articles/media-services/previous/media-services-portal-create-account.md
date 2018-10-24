@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/03/2017
+ms.date: 07/01/2018
 ms.author: juliako
 
 ---
@@ -27,7 +27,9 @@ ms.author: juliako
 > 
 > 
 
-The Azure portal provides a way to quickly create an Azure Media Services (AMS) account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.
+The Azure portal provides a way to quickly create an Azure Media Services (AMS) account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account. 
+
+You can have General Purpose v1 or General Purpose v2 as your primary storage account. Currently, the Azure portal only allows picking v1 but you can add v2 when creating you account using the API or Powershell. For more information about storage types, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 This article explains some common concepts and shows how to create a Media Services account with the Azure portal.
 
@@ -37,17 +39,14 @@ This article explains some common concepts and shows how to create a Media Servi
 ## Concepts
 Accessing Media Services requires two associated accounts:
 
-* A Media Services account. Your account gives you access to a set of cloud-based Media Services that are available in Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account.
+* A Media Services account. Your account gives you access to a set of cloud-based Media Services resources that are available in Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account.
   
 * An Azure storage account. Storage accounts must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted.
-
-  > [!NOTE]
-  > Media Services restricts the primary storage account to be a **General Purpose Storage** account with Tables, Queues. For more information about storage types, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## Create an AMS account
 The steps in this section show how to create an AMS account.
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
+1. Sign in at the [Azure portal](https://portal.azure.com/).
 2. Click **+New** > **Web + Mobile** > **Media Services**.
    
     ![Media Services Create](./media/media-services-create-account/media-services-new1.png)

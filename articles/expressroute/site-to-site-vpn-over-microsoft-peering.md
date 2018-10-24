@@ -164,7 +164,7 @@ In this example, the variable declarations correspond to the example network. Wh
   "gatewayName": "vpnGw",                 // Name of the Azure VPN gateway
   "gatewaySku": "VpnGw1",                 // Azure VPN gateway SKU
   "vpnType": "RouteBased",                // type of VPN gateway
-  "sharedKey": "string",                  // shared secret needs to match with on-premise configuration
+  "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
   "asnRemote": 65010,                     // BGP Autonmous Syste number assigned to the on-premises device
   "bgpPeeringAddress": "172.16.0.3",      // IP address of the remote BGP peer on-premises

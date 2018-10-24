@@ -1,20 +1,14 @@
 ---
-title: Azure Backup Server protects system state and restores to bare metal | Microsoft Docs
+title: Azure Backup Server protects system state and restores to bare metal
 description: Use Azure Backup Server to back up your system state and provide bare metal recovery (BMR) protection.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-keywords:  
-
-ms.assetid:  
+keywords: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.targetplatform: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal,masaran
+ms.author: markgal
 ---
 
 # Back up system state and restore to bare metal with Azure Backup Server

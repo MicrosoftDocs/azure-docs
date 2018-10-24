@@ -37,17 +37,6 @@ sections:
     - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">Check traffic with a schedule-based logic app</a>
     - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">Manage mailing list requests with a logic app</a>
     - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">Process emails and attachments with a logic app</a>
-- title: PluralSight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Logic Apps - Getting Started 
-      href: https://www.pluralsight.com/courses/azure-logic-apps-getting-started
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/azure-logic-apps-getting-started
 - title: Reference
   items:
   - type: list

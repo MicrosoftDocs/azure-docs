@@ -20,7 +20,7 @@ ms.author: juliako
  
 The Azure Media Services API is a RESTful API. You can use it to perform operations on media resources by using a REST API or by using available client SDKs. Azure Media Services offers a Media Services client SDK for Microsoft .NET. To be authorized to access Media Services resources and the Media Services API, you must first be authenticated. 
 
-Media Services supports [Azure Active Directory (Azure AD)-based authentication](../../active-directory/active-directory-whatis.md). The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).  
+Media Services supports [Azure Active Directory (Azure AD)-based authentication](../../active-directory/fundamentals/active-directory-whatis.md). The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > Currently, Media Services supports the Azure Access Control service authentication model. However, Access Control authorization will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible.
@@ -96,7 +96,7 @@ Applications that commonly use this authentication method are apps that run midd
 
 When you use the service principal authentication method to build consumer scenarios, authentication typically is handled in the middle tier (through some API) and not directly in a mobile or desktop application. 
 
-To use this method, create an Azure AD application and service principal in its own tenant. After you create the application, give the app Contributor or Owner role access to the Media Services account. You can do this in the Azure portal, by using Azure CLI, or with a PowerShell script. You also can use an existing Azure AD application. You can register and manage your Azure AD app and service principal [in the Azure portal](media-services-portal-get-started-with-aad.md). You also can do this by using [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) or [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
+To use this method, create an Azure AD application and service principal in its own tenant. After you create the application, give the app Contributor or Owner role access to the Media Services account. You can do this in the Azure portal, by using the Azure CLI, or with a PowerShell script. You also can use an existing Azure AD application. You can register and manage your Azure AD app and service principal [in the Azure portal](media-services-portal-get-started-with-aad.md). You also can do this by using [Azure CLI](media-services-use-aad-auth-to-access-ams-api.md) or [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
 
 ![Middle-tier apps](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
@@ -142,8 +142,8 @@ Solution: For the Media Services REST request to succeed, the calling user must 
 
 The following articles are overviews of Azure AD authentication concepts: 
 
-- [Authentication scenarios addressed by Azure AD](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [Add, update, or remove an application in Azure AD](../../active-directory/develop/active-directory-integrating-applications.md)
+- [Authentication scenarios addressed by Azure AD](../../active-directory/develop/authentication-scenarios.md)
+- [Add, update, or remove an application in Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [Configure and manage Role-Based Access Control by using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## Next steps

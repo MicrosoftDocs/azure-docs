@@ -15,11 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: aedwin
+ms.author: erikre
 
 ---
 # Overview of Reporting APIs for Enterprise customers
-The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. 
+The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. Enterprise customers have signed an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with Azure to make negotiated monetary commitments and gain access to custom pricing for Azure resources.
+
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## Enabling data access to the API
 * **Generate or retrieve the API key** - Log in to the Enterprise portal, and navigate to Reports > Download Usage > API Access Key to generate or retrieve the API key.
@@ -27,7 +30,7 @@ The Reporting APIs enable Enterprise Azure customers to programmatically pull co
 
 |Request Header Key | Value|
 |-|-|
-|Authorization| Specify the value in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09|
+|Authorization| Specify the value in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09| 
 
 ## Consumption APIs
 A Swagger endpoint is available [here](https://consumption.azure.com/swagger/ui/index) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
@@ -47,7 +50,7 @@ Etags will be returned in the response of all the above API. A change in Etag in
  **List Billing Periods** - The [Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returns a list of billing periods that have consumption data for the specified Enrollment in reverse chronological order. Each Period contains a property pointing to the API route for the four sets of data - BalanceSummary, UsageDetails, Marketplace Charges, and Price Sheet.
 
 
-## API Response Codes  
+## API Response Codes   
 |Response Status Code|Message|Description|
 |-|-|-|
 |200| OK|No error|

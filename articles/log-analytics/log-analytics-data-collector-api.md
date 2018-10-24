@@ -12,10 +12,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/03/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: bwren
-
+ms.component: 
 ---
 
 # Send data to Log Analytics with the HTTP Data Collector API (public preview)
@@ -97,30 +97,34 @@ The samples in the next sections have sample code to help you create an authoriz
 ## Request body
 The body of the message must be in JSON. It must include one or more records with the property name and value pairs in this format:
 
-```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+```json
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 You can batch multiple records together in a single request by using the following format. All the records must be the same record type.
 
-```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-},
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+```json
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    },
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 ## Record type and properties
@@ -210,7 +214,7 @@ For each sample, do these steps to set the variables for the authorization heade
 Alternatively, you can change the variables for the log type and JSON data.
 
 ### PowerShell sample
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -220,8 +224,8 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# Specify a field with the created time for the records
-$TimeStampField = "DateValue"
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create
@@ -271,7 +275,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -294,7 +297,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### C# sample
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -379,8 +382,8 @@ namespace OIAPIExample
 
 ```
 
-### Python sample
-```
+### Python 2 sample
+```python
 import json
 import requests
 import datetime
@@ -464,3 +467,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## Next steps
 - Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
+
+- Learn more about how [create a data pipeline with the Data Collector API](log-analytics-create-pipeline-datacollector-api.md) using Logic Apps workflow to Log Analytics.

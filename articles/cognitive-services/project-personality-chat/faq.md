@@ -1,10 +1,13 @@
 ---
-title: FAQs on Personality Chat - Azure Cognitive Services | Microsoft Docs
+title: Frequently Asked Questions - Personality Chat
+titlesuffix: Azure Cognitive Services
 description: FAQs on Personality Chat
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
+ms.component: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
@@ -14,7 +17,7 @@ comment: As a bot developer, I want my bot to be able to handle small talk in a 
 
 ## Why doesn't this answer every question I ask it, like other chat bots?
 
-Project Personality chat will enhance a bot with common small talk that showcases personality and creates a more complete user experience. It's not designed to carry on long conversations about topics that aren't relevant to the bot's primary function. While it could respond to all conversations, it's restricted—in the beta version—to common small talk domains.
+Project Personality chat will enhance a bot with common small talk that showcases personality and creates a more complete user experience. It's not designed to carry on long conversations about topics that aren't relevant to the bot's primary function. While it could respond to all conversations, it's restricted, in the beta version, to common small talk domains.
 
 ## How can I customize the personality to suit my brand?
 
@@ -26,4 +29,4 @@ The services powering Zo, Cortana, and Project Personality Chat share some simil
 
 ## Can this service lead to bad customer experiences?
 
-The technology that powers Project Personality Chat has the advantage of including all learnings from intelligent agents like Zo. There are many layers of safety in place to avoid unfavorable experiences. Personality Chat is designed to power-specific, small talk intents that it has already learned favorable responses to. It will carry out these responses according to its chosen personality.
+To provide a richer experience, Personality Chat can generate responses beyond the ones in the editorial dataset, and it tries to interpret all user input. So, it's possible a response won't seem right in context. A number of controls have been put into place to help prevent unfavorable responses, building on knowledge from intelligent agents like Zo. By default, Project Personality Chat is set to respond solely to recognized user intents. You may want to test whether Project Personality Chat is suitable for your circumstances. Your feedback is welcome if you see anything that needs further training. If you use this service with your customers in the future, we recommend you consider anonymized logging to help you identify issues with live user interactions.

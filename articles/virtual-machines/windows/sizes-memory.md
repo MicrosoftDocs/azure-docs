@@ -1,5 +1,5 @@
 ---
-title: Windows Azure VM sizes - Memory | Microsoft Docs
+title: Azure VM sizes for Windows - Memory | Microsoft Docs
 description: Lists the different memory optimized sizes available for Windows virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 07/06/2018
 ms.author: jonbeck
 
 ---
@@ -33,6 +33,7 @@ ms.author: jonbeck
 - [Storage optimized](sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

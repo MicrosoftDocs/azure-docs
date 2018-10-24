@@ -3,7 +3,7 @@ title: Managing the Azure Log Analytics Agent | Microsoft Docs
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Microsoft Monitoring Agent (MMA) deployed on a machine.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
+ms.component: 
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
@@ -28,7 +29,7 @@ After initial deployment of the Windows or Linux agent for Log Analytics, you ma
 
 1. Sign on to the computer with an account that has administrative rights.
 2. Open **Control Panel**.
-3. Select **Microsoft Monitoring Agent** and then click the **Azure Log Analytics (OMS)** tab.
+3. Select **Microsoft Monitoring Agent** and then click the **Azure Log Analytics** tab.
 4. If removing a workspace, select it and then click **Remove**. Repeat this step for any other workspace you want the agent to stop reporting to.
 5. If adding a workspace, click **Add** and on the **Add a Log Analytics Workspace** dialog box, paste the Workspace ID and Workspace Key (Primary Key). If the computer should report to a Log Analytics workspace in Azure Government cloud, select Azure US Government from the Azure Cloud drop-down list. 
 6. Click **OK** to save your changes.
@@ -95,7 +96,7 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 The agent service does not need to be restarted in order for the changes to take effect.
 
 ## Update proxy settings 
-To configure the agent to communicate to the service through a proxy server or [OMS Gateway](log-analytics-oms-gateway.md) after deployment, use one of the following methods to complete this task.
+To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](log-analytics-oms-gateway.md) after deployment, use one of the following methods to complete this task.
 
 ### Windows agent
 
@@ -104,7 +105,7 @@ To configure the agent to communicate to the service through a proxy server or [
 1. Sign on to the computer with an account that has administrative rights.
 2. Open **Control Panel**.
 3. Select **Microsoft Monitoring Agent** and then click the **Proxy Settings** tab.
-4. Click **Use a proxy server** and provide the URL and port number of the proxy server or gateway. If your proxy server or OMS Gateway requires authentication, type the username and password to authenticate and then click **OK**. 
+4. Click **Use a proxy server** and provide the URL and port number of the proxy server or gateway. If your proxy server or Log Analytics gateway requires authentication, type the username and password to authenticate and then click **OK**. 
 
 #### Update settings using PowerShell 
 
@@ -135,7 +136,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### Linux agent
-Perform the following steps if your Linux computers need to communicate through a proxy server or OMS Gateway to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.  The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.
+Perform the following steps if your Linux computers need to communicate through a proxy server or Log Analytics gateway.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.  The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.
 
 1. Edit the file `/etc/opt/microsoft/omsagent/proxy.conf` by running the following commands and change the values to your specific settings.
 
@@ -179,7 +180,9 @@ To remove the agent, run the following command on the Linux computer.  The *--pu
 ## Configure agent to report to an Operations Manager management group
 
 ### Windows agent
-Perform the following steps to configure the OMS Agent for Windows to report to a System Center Operations Manager management group. 
+Perform the following steps to configure the Log Analytics agent for Windows to report to a System Center Operations Manager management group.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
 1. Sign on to the computer with an account that has administrative rights.
 2. Open **Control Panel**. 
@@ -193,7 +196,9 @@ Perform the following steps to configure the OMS Agent for Windows to report to 
 10. Click **OK** to close the **Add a Management Group** dialog box and then click **OK** to close the **Microsoft Monitoring Agent Properties** dialog box.
 
 ### Linux agent
-Perform the following steps to configure the OMS Agent for Linux to report to a System Center Operations Manager management group. 
+Perform the following steps to configure the Log Analytics agent for Linux to report to a System Center Operations Manager management group. 
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 1. Edit the file `/etc/opt/omi/conf/omiserver.conf`
 2. Ensure that the line beginning with `httpsport=` defines the port 1270. Such as: `httpsport=1270`

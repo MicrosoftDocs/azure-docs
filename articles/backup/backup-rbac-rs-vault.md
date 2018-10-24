@@ -1,21 +1,13 @@
 ---
-title: 'Manage Backups with Azure Role-Based Access Control | Microsoft Docs'
+title: Manage Backups with Azure Role-Based Access Control'
 description: Use Role-based Access Control to manage access to backup management operations in Recovery Services vault.
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-
-ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 8/22/2017
-ms.author: trinadhk;markgal
-
+ms.topic: conceptual
+ms.date: 7/11/2018
+ms.author: trinadhk
 ---
 
 # Use Role-Based Access Control to manage Azure Backup recovery points
@@ -40,9 +32,9 @@ The following table captures the Backup management actions and corresponding min
 | Management Operation | Minimum RBAC role required |
 | --- | --- |
 | Create Recovery Services vault | Contributor on Resource group of vault |
-| Enable backup of Azure VMs | Backup Operator on vault, Virtual machine contributor on VMs |
+| Enable backup of Azure VMs | Backup Operator defined at the scope of Resource group containing the vault, Virtual machine contributor on VMs |
 | On-demand backup of VM | Backup operator |
-| Restore VM | Backup operator, Resource group contributor in which VM and Vnets are going to get deployed |
+| Restore VM | Backup operator, Resource group contributor in which VM is going to get deployed, Read on Vnet and Join on subnet selected |
 | Restore disks, individual files from VM backup | Backup operator, Virtual machine contributor on VMs |
 | Create backup policy for Azure VM backup | Backup contributor |
 | Modify backup policy of Azure VM backup | Backup contributor |

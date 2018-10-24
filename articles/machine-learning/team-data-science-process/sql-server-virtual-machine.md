@@ -4,11 +4,12 @@ description: Explore data and generate features in a SQL Server virtual machine 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
-editor: ''
+manager: cgronlun
+editor: cgronlun
 
 ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

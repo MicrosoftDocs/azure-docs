@@ -5,8 +5,8 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/08/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
 
 ---
@@ -65,7 +65,7 @@ To protect VMware VMs you'll need a vSphere hypervisor, and virtual machines run
 Yes. When you use Site Recovery to orchestrate replication and failover in your branch offices, you'll get a unified orchestration and view of all your branch office workloads in a central location. You can easily run failovers and administer disaster recovery of all branches from your head office, without visiting the branches.
 
 ## Pricing
-For pricing related questions, please refer to the FAQ at [Azure Site Recovery pricing](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
+For pricing related questions, please refer to the FAQ at [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 ## Security
 ### Is replication data sent to the Site Recovery service?

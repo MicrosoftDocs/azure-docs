@@ -1,15 +1,15 @@
-﻿---
+---
 title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
 
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: reference
 ms.date: 05/11/2018
 
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
 
@@ -20,7 +20,7 @@ ms.reviewer: sasubram
 These frequently asked questions (FAQs) about Azure Active Directory (Azure AD) business-to-business (B2B) collaboration are periodically updated to include new topics.
 
 ### Can we customize our sign-in page so it is more intuitive for our B2B collaboration guest users?
-Absolutely! See our [blog post about this feature](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). For more information about how to customize your organization's sign-in page, see [Add company branding to sign in and Access Panel pages](../customize-branding.md).
+Absolutely! See our [blog post about this feature](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). For more information about how to customize your organization's sign-in page, see [Add company branding to sign in and Access Panel pages](../fundamentals/customize-branding.md).
 
 ### Can B2B collaboration users access SharePoint Online and OneDrive?
 Yes. However, the ability to search for existing guest users in SharePoint Online by using the people picker is **Off** by default. To turn on the option to search for existing guest users, set **ShowPeoplePickerSuggestionsForGuestUsers** to **On**. You can turn this setting on either at the tenant level or at the site collection level. You can change this setting by using the Set-SPOTenant and Set-SPOSite cmdlets. With these cmdlets, members can search all existing guest users in the directory. Changes in the tenant scope do not affect SharePoint Online sites that have already been provisioned.
@@ -42,6 +42,9 @@ This feature is planned for a future release, so that then you can select specif
 
 ### How can I use delayed invitations?
 An organization might want to add B2B collaboration users, provision them to applications as needed, and then send invitations. You can use the B2B collaboration invitation API to customize the onboarding workflow.
+
+### Can I make guest users visible in the Exchange Global Address List?
+Yes. By default, guest objects are not visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
 
 ### Can I make a guest user a limited administrator?
 Absolutely. For more information, see [Adding guest users to a role](add-guest-to-role.md).

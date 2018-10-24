@@ -3,8 +3,8 @@ title: Tutorial - Add Azure CDN to an Azure App Service web app | Microsoft Docs
 description: In this tutorial, Azure Content Delivery Network (CDN) is added to an Azure App Service web app to cache and deliver your static files from servers close to your customers around the world.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
 
 ---
@@ -39,7 +39,7 @@ What you'll learn:
 To complete this tutorial:
 
 - [Install Git](https://git-scm.com/)
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,6 +51,10 @@ To create the web app that you'll work with, follow the [static HTML quickstart]
 
 Open a browser and navigate to the [Azure portal](https://portal.azure.com).
 
+### Dynamic site acceleration optimization
+If you want to optimize your CDN endpoint for dynamic site acceleration (DSA), you should use the [CDN portal](cdn-create-new-endpoint.md) to create your profile and endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For instructions about how to optimize a CDN endpoint for DSA from the CDN portal, see [CDN endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). 
+Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. Note that for **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
+
 ## Create a CDN profile and endpoint
 
 In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/app-service-web-get-started-html.md).
@@ -60,9 +64,6 @@ In the left navigation, select **App Services**, and then select the app that yo
 In the **App Service** page, in the **Settings** section, select **Networking > Configure Azure CDN for your app**.
 
 ![Select CDN in the portal](media/cdn-add-to-web-app/portal-select-cdn.png)
-
-### Dynamic site acceleration optimization
-If you want to optimize your CDN endpoint for dynamic site acceleration (DSA), use the CDN portal to directly create the endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For more information about optimizing a CDN endpoint for DSA from the CDN portal, see [CDN endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). For **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
 
 In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
 

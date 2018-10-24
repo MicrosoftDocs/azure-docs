@@ -16,13 +16,6 @@ ms.author: shwetams
 
 # Get started with Batch SDK for Node.js
 
-> [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
->
->
-
 Learn the basics of building a Batch client in Node.js using [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). We take a step by step approach of understanding a scenario for a batch application and then setting it up using a Node.js client.  
 
 ## Prerequisites

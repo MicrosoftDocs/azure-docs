@@ -1,20 +1,14 @@
 ---
-title: SCP.NET programming guide | Microsoft Docs
-description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm on HDInsight.
+title: SCP.NET programming guide for Storm in Azure HDInsight
+description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm running in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: raviperi
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 34192ed0-b1d1-4cf7-a3d4-5466301cf307
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2016
-ms.author: raviperi
-
 ---
 # SCP programming guide
 SCP is a platform to build real time, reliable, consistent, and high-performance data processing application. It is built on top of [Apache Storm](http://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and was open sourced by Twitter. It leverages [Apache ZooKeeper](http://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 

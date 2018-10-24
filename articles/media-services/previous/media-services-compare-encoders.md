@@ -1,4 +1,4 @@
-﻿---
+---
 title: Comparison of Azure on demand media encoders | Microsoft Docs
 description: This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 services: media-services
@@ -81,6 +81,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | Apple ProRes Proxy |Yes |No |
 | Apple ProRes 4444 |Yes |No |
 | Apple ProRes 4444 XQ |Yes |No |
+| HEVC/H.265|Main Profile|Main and Main 10 Profile|
 
 ## Input audio codecs
 | Input Audio Codecs | Media Encoder Standard | Media Encoder Premium Workflow |

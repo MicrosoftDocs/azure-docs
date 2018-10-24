@@ -1,26 +1,17 @@
 ---
-
-title: Use Azure Backup Server to back up workloads to Azure | Microsoft Docs
+title: Use Azure Backup Server to back up workloads to Azure
 description: Use Azure Backup Server to protect or back up workloads to the Azure portal.
 services: backup
-documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: ''
 keywords: azure backup server; protect workloads; back up workloads
-
-ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 5/14/2018
-ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-
+ms.topic: conceptual
+ms.date: 7/10/2018
+ms.author: adigan
 ---
 
-# Preparing to back up workloads using Azure Backup Server
+# Install and configure Azure Backup Server
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -228,7 +219,7 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 ### Recovering from loss of connectivity
 If you have a firewall or a proxy that is preventing access to Azure, you need to whitelist the following domain addresses in the firewall/proxy profile:
 
-* www.msftncsi.com
+* `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
 * \*.WindowsAzure.com
 * \*.microsoftonline.com

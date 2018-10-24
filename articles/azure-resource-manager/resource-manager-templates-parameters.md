@@ -19,7 +19,7 @@ ms.author: tomfitz
 # Parameters section of Azure Resource Manager templates
 In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You do not have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
 
-You are limited to 255 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as show in this article.
+You are limited to 255 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as shown in this article.
 
 ## Define and use a parameter
 

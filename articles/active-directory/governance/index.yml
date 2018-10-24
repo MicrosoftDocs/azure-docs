@@ -1,0 +1,48 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure AD identity governance documentation
+metadata:
+  document_id: 
+  title: Azure Active Directory identity governance documentation | Microsoft Docs
+  description: Learn about identity lifecycle governance, access lifecycle governance, and secure administration across employees and partners.
+  services: active-directory
+  author: rolyon
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/16/2018
+  ms.author: rolyon
+abstract:
+  description: Azure Active Directory (Azure AD) identity governance gives organizations the ability to govern the identity lifecycle, govern access lifecycle, and secure administration across employees and partners. 
+  aside:
+    image:
+      alt: 
+      height: 112
+      src: media/index/video-thumb-identity-governance.png
+      width: 200  
+    title: Govern access to your resources (1:17:24)
+    href: https://www.youtube.com/embed/aY7A0Br8u5M
+    width: 200
+sections:
+  - title: Identity governance
+    items:
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="/azure/active-directory/governance/identity-governance-overview">What is identity governance?</a>
+  - title: Access reviews
+    items:
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="/azure/active-directory/governance/access-reviews-overview">What is an access review?</a>
+      - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Manage user access with access reviews</a>
+      - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Manage guest access with access reviews</a>
+  - title: Terms of use
+    items:
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="/azure/active-directory/governance/active-directory-tou">What can I do with Terms of use?</a>

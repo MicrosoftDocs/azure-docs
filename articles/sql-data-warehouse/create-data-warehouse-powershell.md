@@ -3,11 +3,11 @@ title: 'Quickstart: Create an Azure SQL Data Warehouse - Azure Powershell | Micr
 description: Quickly create a SQL Database logical server, server-level firewall rule, and data warehouse with Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -77,7 +77,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## Create a logical server
 
-Create an [Azure SQL logical server](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
