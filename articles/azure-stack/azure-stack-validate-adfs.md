@@ -21,7 +21,7 @@ ms.reviewer: jerskine
 
 # Validate AD FS integration for Azure Stack
 
-Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your environment is ready for Active Directory Federation Services (AD FS) integration with Azure Stack. You should validate AD FS integration before you begin datacenter integration or before an Azure Stack deployment.
+Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your environment is ready for Active Directory Federation Services (AD FS) integration with Azure Stack. Validate AD FS integration before you begin datacenter integration or before an Azure Stack deployment.
 
 The readiness checker validates:
 
@@ -63,7 +63,7 @@ You need at least one of the following forms of metadata:
 
      `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-1. After the tool runs, review the output. Confirm that the status is OK for AD FS integration requirements. A successful validation is similar to the following:
+1. After the tool runs, review the output. Confirm that the status is OK for AD FS integration requirements. A successful validation is similar to the following example:
 
     ```
     Invoke-AzsADFSValidation v1.1809.1001.1 started.
