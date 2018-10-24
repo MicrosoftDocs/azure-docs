@@ -27,15 +27,9 @@ When you try to connect to a VM, you experience the following scenarios:
 - The Virtual Machine (VM) screenshot shows that the operating system is fully loaded and waiting for credentials.
 - You receive the following error messages when you try to make a Microsoft Remote Desktop Protocol (RDP) connection:
 
-  **Error message 1**
-   ```
-   The remote session was disconnected because there are no Remote Desktop license servers available to provide a license.
-   ```
+  - **The remote session was disconnected because there are no Remote Desktop license servers available to provide a license.**
 
-   **Error message 2**
-   ```
-   No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and has not contacted at least a valid Windows Server 2008 license server. Click this message to open RD Session Host Server Configuration to use Licensing Diagnosis.
-   ```
+  - **No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and has not contacted at least a valid Windows Server 2008 license server. Click this message to open RD Session Host Server Configuration to use Licensing Diagnosis.**
 
 However, you can connect to the VM normally by using an administrative session:
 
@@ -121,9 +115,9 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
   5. Make sure that the VM can connect to the Remote Desktop license server. You can test the connectivity to the port 135 between the VM and the license server.
 
-   ```
-   telnet <FQDN / IP License Server> 135
-   ```
+    ```
+    telnet <FQDN / IP License Server> 135
+    ```
 
 3. If there's no Remote Desktop license server in the environment and you want one, you can [install a Remote Desktop licensing role service ](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)), and then [configure the RDS licensing](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
 

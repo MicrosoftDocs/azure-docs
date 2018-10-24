@@ -16,6 +16,10 @@
     href: detailed-troubleshoot-rdp.md
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
+  - name: Troubleshoot RDP fails
+  - href: troubleshoot-rdp-fails.md
+  - name: Troubleshoot remote desktop services issues
+  - href: troubleshoot-remote-desktop-services-issues.md  
 - name: SSH
   items:
   - name: SSH troubleshooting
@@ -104,8 +108,8 @@
   items:
   - name: Boot diagnostics
     href: boot-diagnostics.md
-  - name: BitLocker errors 
-    href: troubleshoot-bitlocker-boot-error.md  
+  - name: BitLocker errors
+    href: troubleshoot-bitlocker-boot-error.md
   - name: Checking file system errors
     href: troubleshoot-check-disk-boot-error.md
   - name: Blue screen errors
