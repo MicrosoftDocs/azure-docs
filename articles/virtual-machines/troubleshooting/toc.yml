@@ -17,9 +17,9 @@
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
   - name: Troubleshoot RDP fails
-  - href: troubleshoot-rdp-fails.md
+    href: troubleshoot-rdp-fails.md
   - name: Troubleshoot remote desktop services issues
-  - href: troubleshoot-remote-desktop-services-issues.md  
+    href: troubleshoot-remote-desktop-services-issues.md
 - name: SSH
   items:
   - name: SSH troubleshooting
