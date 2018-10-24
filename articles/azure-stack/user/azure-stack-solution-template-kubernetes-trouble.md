@@ -29,7 +29,7 @@ The following article looks at troubleshooting your Kubernetes cluster. You can 
 
 ## Overview of deployment
 
-Before you start troubleshooting your cluster, you might want to review the Azure Stack Kubernetes cluster deployment process. The deployment uses an Azure Resource Manager solution template to create the VMs and installs the ACS Engine for your cluster.
+Before you start troubleshooting your cluster, you might want to review the Azure Stack Kubernetes cluster deployment process. The deployment uses an Azure Resource Manager solution template to create the VMs and install the ACS Engine for your cluster.
 
 ### Deployment workflow
 
@@ -47,7 +47,7 @@ The following diagram shows the general process for deploying the cluster.
     -  **Service principle**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
     -  **Client secret**: They key you created when you created your service principal.
 
-2. Create deployment VM and custom script extension.
+2. Create they deployment VM and custom script extension.
     -  Create the deployment Linux VM by using the marketplace Linux image **Ubuntu Server 16.04-LTS**.
     -  Download and run the customer script extension from the marketplace. The script is **Custom Script for Linux 2.0**.
     -  Run the DVM custom script. The script does the following tasks:
@@ -122,7 +122,7 @@ To generate the logs, you need to connect to the master VM for your cluster, ope
 
 ### Prerequisites
 
-You need a bash prompt on the machine that you use to manage Azure Stack. Use bash to run the scripts that access the logs. On a Windows machine, you can use the bash prompt installed with Git. To get the most recent version of git, see [Git downloads](https://git-scm.com/downloads).
+You need a bash prompt on the machine that you use to manage Azure Stack. Use bash to run the scripts that access the logs. On a Windows machine, you can use the bash prompt that's installed installed with Git. To get the most recent version of git, see [Git downloads](https://git-scm.com/downloads).
 
 ### Get logs
 
@@ -141,7 +141,7 @@ To get logs, take the following steps:
     > [!Note]  
     > On Windows, you don't need to run `sudo`. Instead, you can just use `chmod 744 getkuberneteslogs.sh`.
 
-3. In the same session, run the following command with the parameters updated to match your environment.
+3. In the same session, run the following command with the parameters updated to match your environment:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
@@ -173,7 +173,7 @@ To get logs, take the following steps:
 
 ## Next steps
 
-[Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+[Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
 [Add a Kubernetes cluster to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
