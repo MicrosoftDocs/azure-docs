@@ -30,12 +30,20 @@ If you're already running a web app in Azure, you already get some monitoring: r
 
 1. **Select Application Insights** in the Azure control panel for your web app.
    
-    ![Under Monitoring, choose Application Insights](./media/app-insights-azure-web-apps/05-extend.png)
+    ![Under Settings, choose Application Insights](./media/app-insights-azure-web-apps/settings-app-insights.png)
    
-   * Choose to create a new resource, unless you already set up an Application Insights resource for this app by another route.
-2. **Instrument your web app** after Application Insights has been installed. 
-   
-    ![Instrument your web app](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+   * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
+
+    > [!NOTE]
+    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your web app, doing so will also **trigger a restart of your web app**. 
+
+    ![Instrument your web app](./media/app-insights-azure-web-apps/create-resource.png)
+
+2. Once your resource is created select **Check and update Application Insights extension for the web app** to confirm that the extension is up to date.
+
+     ![Check and update site extension](./media/app-insights-azure-web-apps/check-and-update.png)
+
+3. **Instrument your web app** after Application Insights has been installed.
 
    **Enable client side monitoring** for page view and user telemetry.
 
