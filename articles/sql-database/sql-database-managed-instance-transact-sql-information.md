@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop 
 ms.reviewer: carlrab, bonova 
 manager: craigg 
-ms.date: 08/13/2018 
+ms.date: 10/24/2018 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 
@@ -97,7 +97,7 @@ See [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### CLR 
@@ -334,14 +334,15 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 ### SQL Server Agent
 
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
-- Jobs - T-SQL job steps are currently supported
-- Other types of job steps are not currently supported (more step types will be added during public preview).
-  - Replication jobs not supported including:
+- Jobs
+ - T-SQL job steps are supported.
+ - The following replication jobs are supported:
     - Transaction-log reader.  
     - Snapshot.
-    - Distributor.  
-    - Merge.  
-  - SSIS is not yet supported. 
+    - Distributor.
+ - SSIS is supported. 
+- Other types of job steps are not currently supported, including:
+  - Merge replication job step is not supported.  
   - Queue Reader is not supported.  
   - Command shell is not yet supported. 
   - Managed Instance cannot access external resources (for example, network shares via robocopy).  
@@ -405,7 +406,7 @@ In this example existing databases will continue to work and can grow without an
 ### Incorrect configuration of SAS key during database restore
 
 `RESTORE DATABASE` that reads .bak file might be constantly retrying to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
-Make sure that you remove leading `?` from the SAS key generated using Azure portal.
+Make sure that you remove the leading `?` from the SAS key that is generated using Azure portal.
 
 ### Tooling
 
