@@ -112,7 +112,7 @@ Create a JSON file named MyEventHub-Parameters.json that contains parameters for
 ### Sign in to Azure
 1. Launch Azure PowerShell
 
-2. Run the following command to log in to Azure:
+2. Run the following command to sign in to Azure:
 
    ```azurepowershell
    Login-AzureRmAccount
