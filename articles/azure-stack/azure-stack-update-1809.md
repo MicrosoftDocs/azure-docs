@@ -42,7 +42,7 @@ This update includes the following improvements for Azure Stack:
 
    For more information, see [Azure Stack syslog forwarding](azure-stack-integrate-security.md).
 
-- You can now move the [registration resource](azure-stack-registration.md#move-a-registration-resource) on Azure between resource groups without having to re-register. Cloud Solution Providers (CSPs) can also move the registration resource between subscriptions, as long as both the new and old subscriptions are mapped to the same CSP partner ID. This does not impact the existing customer tenant mappings. 
+- You can now [move the registration resource](azure-stack-registration.md#move-a-registration-resource) on Azure between resource groups without having to re-register. Cloud Solution Providers (CSPs) can also move the registration resource between subscriptions, as long as both the new and old subscriptions are mapped to the same CSP partner ID. This does not impact the existing customer tenant mappings. 
 
 ### Fixed issues
 
