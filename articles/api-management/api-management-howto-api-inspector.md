@@ -54,9 +54,9 @@ In this tutorial, you learn how to:
     In the **inbound** section, you see the original request API Management received from the caller and all the policies applied to the request including the rate-limit and set-header policies we added in step 2.
 
     In the **backend** section, you see the requests API Management sent to the API backend and the response it received.
-    
+
     In the **outbound** section, you see all the policies applied to the response before sending back to the caller.
- 
+
     > [!TIP]
     > Each step also shows the elapsed time since the request is received by API Management.
 
