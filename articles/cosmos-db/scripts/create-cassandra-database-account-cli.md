@@ -1,25 +1,25 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB MongoDB API account, database, and collection | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Cosmos DB MongoDB API account, database, and collection
+title: Azure CLI Script-Create an Azure Cosmos DB Cassandra API account, database, and table | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Cosmos DB Cassandra API account, database, and table
 services: cosmos-db
 documentationcenter: cosmosdb
 author: markjbrown
-tags: azure-cli, azure, cosmosdb, mongodb
+tags: azure-cli, azure, cosmosdb, cassandra
 
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.component: cosmosdb-table
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 06/02/2017
-ms.author: sngun
+ms.date: 10/26/2018
+ms.author: mjbrown
 ---
 
-# Azure Cosmos DB: Create an MongoDB API account using the Azure CLI
+# Azure Cosmos DB: Create an Cassandra API account using the Azure CLI
 
-This sample CLI script creates an Azure Cosmos DB MongoDB API account, database, and collection.
+This sample CLI script creates an Azure Cosmos DB Cassandra API account, database, and table.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -27,46 +27,44 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-Create an Azure Cosmos DB MongoDB API account, database, and collection
+Create an Azure Cosmos DB Cassandra API account, database, and table
 
 ```azurecli-interactive
 #!/bin/bash
 
-# Set variables for the new MongoDB API account, database, and collection
+# Set variables for the new Cassandra API account, database, and table
 resourceGroupName='myResourceGroup'
 location='southcentralus'
 accountName='myCosmosDbAccount'
 databaseName='myDatabase'
-collectionName='myCollection'
+tableName='myTable'
 
 # Create a resource group
 az group create \
     --name $resourceGroupName \
     --location $location
 
-# Create a MongoDB API Cosmos DB account with bounded staleness consistency and multi-master enabled
+# Create a Cassandra API Cosmos DB account with multi-master enabled
 az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
-    --kind MongoDB \
+    --capabilities EnableCassandra \
     --locations "South Central US"=0 "North Central US"=1 \
-    --default-consistency-level "BoundedStaleness" \
-    --max-interval 5 \
-    --max-staleness-prefix 100 \
+    --default-consistency-level "Session" \
     --enable-multiple-write-locations true
 
 
-# Create a database 
+# Create a database
 az cosmosdb database create \
     --resource-group $resourceGroupName \
     --name $accountName \
     --db-name $databaseName
 
 
-# Create a collection with a partition key and 1000 RU/s
+# Create a Cassandra table
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
-    --collection-name $collectionName \
+    --collection-name $tableName \
     --name $accountName \
     --db-name $databaseName \
     --partition-key-path = "/myPartitionKey" \

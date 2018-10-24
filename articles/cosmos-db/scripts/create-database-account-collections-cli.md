@@ -1,11 +1,10 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB SQL API account, database, and collection | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Cosmos DB SQL API account, database, and collection
+title: Azure CLI Script-Create an Azure Cosmos DB SQL API account, database, and container | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Cosmos DB SQL API account, database, and container
 services: cosmos-db
 documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
+author: markjbrown
+tags: azure-cli, azure, cosmosdb, sql
 
 ms.service: cosmos-db
 ms.custom: mvc
@@ -19,7 +18,7 @@ ms.author: sngun
 
 # Azure Cosmos DB: Create an SQL API account using CLI
 
-This sample CLI script creates an Azure Cosmos DB SQL API account, database, and collection.  
+This sample CLI script creates an Azure Cosmos DB SQL API account, database, and container.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -27,7 +26,52 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB SQL API account, database, and collection")]
+Create an Azure Cosmos DB SQL API account, database, and collection
+
+```azurecli-interactive
+
+#!/bin/bash
+
+# Set variables for the new SQL API account, database, and container
+resourceGroupName='myResourceGroup'
+location='southcentralus'
+accountName='myCosmosDbAccount'
+databaseName='myDatabase'
+containerName='myContainer'
+
+# Create a resource group
+az group create \
+    --name $resourceGroupName \
+    --location $location
+
+# Create a SQL API Cosmos DB account with bounded staleness consistency and multi-master enabled
+az cosmosdb create \
+    --resource-group $resourceGroupName \
+    --name $accountName \
+    --kind GlobalDocumentDB \
+    --locations "South Central US"=0 "North Central US"=1 \
+    --default-consistency-level "BoundedStaleness" \
+    --max-interval 5 \
+    --max-staleness-prefix 100 \
+    --enable-multiple-write-locations true
+
+
+# Create a database
+az cosmosdb database create \
+    --resource-group $resourceGroupName \
+    --name $accountName \
+    --db-name $databaseName
+
+
+# Create a SQL API container with a partition key and 1000 RU/s
+az cosmosdb collection create \
+    --resource-group $resourceGroupName \
+    --collection-name $containerName \
+    --name $accountName \
+    --db-name $databaseName \
+    --partition-key-path = "/myPartitionKey" \
+    --throughput 1000
+```
 
 ## Clean up deployment
 

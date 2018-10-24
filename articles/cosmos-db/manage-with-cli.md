@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Automation - Management with Azure CLI | Microsoft Docs
-description: Use Azure CLI to manage your Azure Cosmos DB account, database and collections. 
+description: Use Azure CLI to manage your Azure Cosmos DB account, database and containers. 
 services: cosmos-db
 author: markjbrown
 tags: azure-cli, azure, cosmosdb
@@ -14,11 +14,11 @@ ms.author: mjbrown
 ---
 # Manage Azure Cosmos DB using Azure CLI
 
-The following guide describes commands to automate management of your Azure Cosmos DB accounts, databases and collections using Azure CLI. It also includes commands to scale container throughput. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md).
+The following guide describes commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. It also includes commands to scale container throughput. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
 
 ## Getting started
 
-This sample CLI script creates an Azure Cosmos DB SQL API account, database, and collection.  
+This sample CLI script creates an Azure Cosmos DB SQL API account, database, and container.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -49,14 +49,14 @@ az cosmosdb database create \
    --resource-group "myResourceGroup"
 ```
 
-## Create a collection
+## Create a container
 
-To create a Cosmos DB collection with RU/s of 1000 and a partition key, open Azure CLI or cloud shell and run the following command:
+To create a Cosmos DB container with RU/s of 1000 and a partition key, open Azure CLI or cloud shell and run the following command:
 
 ```azurecli-interactive
-# Create a collection
+# Create a container
 az cosmosdb collection create \
-   --collection-name "myCollection" \
+   --collection-name "myContainer" \
    --name "myCosmosDbAccount" \
    --db-name "myDatabase" \
    --resource-group "myResourceGroup" \
@@ -64,14 +64,14 @@ az cosmosdb collection create \
    --throughput 1000
 ```
 
-## Change the throughput of a collection
+## Change the throughput of a container
 
-To change the throughput of a Cosmos DB collection to RU/s of 400, open Azure CLI or cloud shell and run the following command:
+To change the throughput of a Cosmos DB container to RU/s of 400, open Azure CLI or cloud shell and run the following command:
 
 ```azurecli-interactive
-# Create a collection
+# Update container throughput
 az cosmosdb collection update \
-   --collection-name "myCollection" \
+   --collection-name "myContainer" \
    --name "myCosmosDbAccount" \
    --db-name "myDatabase" \
    --resource-group "myResourceGroup" \
