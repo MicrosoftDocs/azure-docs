@@ -37,7 +37,7 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 Blob storage supports block blobs, append blobs, and page blobs. VHD files that back IaaS VMs are page blobs. Use append blobs for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs. 
 
-To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). This operation creates the blob if it doesn't already exist, or overwrites the blob if it already exists.
+To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). This operation creates the blob if it doesn't exist, or overwrites the blob if it exists.
 
 The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_TestImages* folder on the local disk to the container you created.
 
@@ -101,7 +101,7 @@ As a quick example, here's the AzCopy command for uploading a file called *myfil
 
 ## Clean up resources
 
-Remove all of the assets you've created. The easiest way to do this is to delete the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account and the resource group itself.
+Remove all of the assets you've created. The easiest way to do remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
