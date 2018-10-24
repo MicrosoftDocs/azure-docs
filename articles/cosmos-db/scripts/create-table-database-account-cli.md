@@ -4,7 +4,6 @@ description: Azure CLI Script Sample - Create an Azure Cosmos DB Table API accou
 services: cosmos-db
 documentationcenter: cosmosdb
 author: markjbrown
-tags: azure-cli, azure, cosmosdb, table
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table

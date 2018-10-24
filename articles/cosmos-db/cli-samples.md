@@ -4,7 +4,6 @@ description: Azure CLI Samples - Create and manage Azure Cosmos DB accounts, dat
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-tags: azure-cli, azure, cosmosdb
 
 ms.service: cosmos-db
 ms.custom: mvc

@@ -1,9 +1,8 @@
 ---
-title: Azure Cosmos DB Automation - Management with Azure CLI | Microsoft Docs
+title: Manage Azure Cosmos DB resources using Azure CLI | Microsoft Docs
 description: Use Azure CLI to manage your Azure Cosmos DB account, database and containers. 
 services: cosmos-db
 author: markjbrown
-tags: azure-cli, azure, cosmosdb
 
 ms.service: cosmos-db
 ms.devlang: na
@@ -12,11 +11,9 @@ ms.date: 10/23/2018
 ms.author: mjbrown
 
 ---
-# Manage Azure Cosmos DB using Azure CLI
+# Manage Azure Cosmos DB resources using Azure CLI
 
 The following guide describes commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. It also includes commands to scale container throughput. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
-
-## Getting started
 
 This sample CLI script creates an Azure Cosmos DB SQL API account, database, and container.  
 
@@ -80,7 +77,7 @@ az cosmosdb collection update \
 
 ## List account keys
 
-When you create an Azure Cosmos DB account, the service generates two master access keys that can be used for authentication when the Azure Cosmos DB account is accessed. By providing two access keys, Azure Cosmos DB enables you to regenerate the keys with no interruption to your Azure Cosmos DB account. Read-only keys for authenticating read-only operations are also available. There are two read-write keys (primary and secondary) and two read-only keys (primary and secondary).
+When you create an Azure Cosmos DB account, the service generates two master access keys that can be used for authentication when the Azure Cosmos DB account is accessed. By providing two access keys, Azure Cosmos DB enables you to regenerate the keys with no interruption to your Azure Cosmos DB account. Read-only keys for authenticating read-only operations are also available. There are two read-write keys (primary and secondary) and two read-only keys (primary and secondary). You can get the keys for your account by running the following command:
 
 ```azurecli-interactive
 # List account keys
@@ -116,6 +113,6 @@ az cosmosdb regenerate-key \
 
 For more information on the Azure CLI, see:
 
-[Install Azure CLI](/cli/azure/install-azure-cli)
-[Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb)
-[Additional Azure CLI samples for Azure Cosmos DB](cli-samples.md)
+- [Install Azure CLI](/cli/azure/install-azure-cli)
+- [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Additional Azure CLI samples for Azure Cosmos DB](cli-samples.md)
