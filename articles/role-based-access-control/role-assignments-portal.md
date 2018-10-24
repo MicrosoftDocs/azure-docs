@@ -21,7 +21,7 @@ ms.reviewer: bagovind
 
 [Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and the Azure portal.
 
-## Open Access control (IAM) at a scope
+## Open Access control (IAM)
 
 The **Access control (IAM)** blade, also known as identity and access management, appears throughout the portal. To view or manage access in the portal, the first thing you typically do is open the Access control (IAM) blade at the scope where you want to view or make a change.
 
@@ -87,7 +87,7 @@ Follow these steps to view the access for a single user, group, or application a
 
    On the Role assignments tab, you can see who has access at this scope. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
 
-## Add role assignments
+## Add a role assignment
 
 In RBAC, to grant access, you assign a role to a user, group, or service principal. Follow these steps to grant access at different scopes.
 
