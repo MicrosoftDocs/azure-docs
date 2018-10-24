@@ -30,13 +30,13 @@ You face intermittent RDP connectivity during your sessions. You can connect to 
 
 ## Cause
 
-This issue may cause by the RDP Listener is misconfigured. typically, this problem happens on the Custom VM.
+This issue may be caused by the RDP Listener is misconfigured. typically, this problem happens on the Custom VM.
 
 ## Solution  
 
 Before you follow the steps, [take a snapshot of the OS disk](../windows/snapshot-copy-managed-disk.md) of the affected VM as a backup. 
 
-To troubleshoot this issue, use Serial control or [repair the VM offline](#repair-the-vm-offline) by attach the OS disk of the VM to a recovery VM.
+To troubleshoot this issue, use Serial control or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
 
 ### Serial control
 
@@ -93,7 +93,7 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-T
 4. Start the Registry Editor (regedit.exe).
 5. Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
 6. Browse to the **\windows\system32\config\SYSTEM** folder on the OS disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key. 
-7. Open an elevated prompt command windows (Run as administrator), then run commands in the rest steps to reset the RDP configurations. 
+7. Open an elevated prompt command window (Run as administrator), then run commands in the rest steps to reset the RDP configurations. 
 8. Lower the RDP Security Layer to 0 where the communication between server and client will use the native RDP Encryption:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'SecurityLayer' /t REG_DWORD /d 0 /f
