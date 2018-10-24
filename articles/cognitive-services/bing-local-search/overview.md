@@ -30,7 +30,7 @@ he Bing Local Business Search API is easy to call from any programming language 
 4. Parse the JSON response 
 
 ## Next steps
-- [Query and response](quickstarts/local-search-query-response.md)
+- [Query and response](local-search-query-response.md)
 - [Local Search quickstart](quickstarts/local-quickstart.md)
-- [Local Business Search API reference](quickstarts/local-search-reference.md)
-- [Use and display requirements](quickstarts/use-display-requirements.md)
+- [Local Business Search API reference](local-search-reference.md)
+- [Use and display requirements](use-display-requirements.md)

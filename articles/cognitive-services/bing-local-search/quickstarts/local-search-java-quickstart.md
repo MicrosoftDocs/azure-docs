@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Send a query to the Bing Local Business Search API in Java | Microsoft Docs
+title: Quickstart - Send a query to the Bing Local Business Search API in Java | Microsoft Docs
 description: Start using the Bing Local Business Search API in Java.
 services: cognitive-services
 author: mikedodaro
