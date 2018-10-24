@@ -50,7 +50,7 @@ In order to provide the best possible experience, there are minimum versions of 
 
 #### Supported OSes
 
-The Linux agent runs on multiple OSes, however the extensions framework has a limit for the OSes that extensions. For more information, see [this article] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+The Linux agent runs on multiple OSes, however the extensions framework has a limit for the OSes that extensions. For more information, see [this article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Some extensions are not supported across all OSes and may emit *Error Code 51, 'Unsupported OS'*. Check the individual extension documentation for supportability.
