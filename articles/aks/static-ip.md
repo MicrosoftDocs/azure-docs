@@ -55,10 +55,10 @@ The IP address is shown, as shown in the following condensed example output:
   }
 ````
 
-You can later get the public IP address using the [az network public-ip list][az-network-public-ip-list] command. Specify the name of the node resource group, and then query for the *ipAddress* as shown in the following example:
+You can later get the public IP address using the [az network public-ip list][az-network-public-ip-list] command. Specify the name of the node resource group and public IP address you created, and query for the *ipAddress* as shown in the following example:
 
 ```azurecli
-$ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```
