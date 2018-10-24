@@ -36,7 +36,7 @@ To follow the steps from this article, you must:
 
 + Have an APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-+ Understand the concept of [Capacity of an Azure API Management instance] (api-management-capacity.md).
++ Understand the concept of [Capacity of an Azure API Management instance](api-management-capacity.md).
 
 ## Upgrade and scale  
 

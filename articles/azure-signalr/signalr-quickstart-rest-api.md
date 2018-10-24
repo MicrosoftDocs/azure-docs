@@ -17,6 +17,7 @@ ms.date: 06/13/2018
 ms.author: zhshang
 #Customer intent: As an ASP.NET Core developer, I want to push real-time data in my ASP.NET Core apps. So that my clients are updated without the need to poll, or request updates.
 ---
+
 # Quickstart: Broadcast real-time messages from console app
 
 Azure SignalR Service provides [REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to support server to client communication scenarios, such as broadcasting. You can choose any programming language that can make REST API call. You can post messages to all connected clients, a specific client by name, or a group of clients.
@@ -130,6 +131,7 @@ The list of available APIs for each specific version is available in the followi
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
+
 [Broadcast to all](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
 [Broadcast to a group](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
 Broadcast to some groups | :heavy_check_mark: (Deprecated) | `N / A`

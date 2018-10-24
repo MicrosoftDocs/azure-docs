@@ -113,9 +113,7 @@ The goal of this tutorial is to define a template to create an encrypted storage
 
     ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-template-resources-reference-storage-accounts
-1. Explore the encryption-related information.  
-1. Inside the properties element of the storage account resource definition, add the following json:
+4. Find the encryption-related definition information.  
 
     ```json
     "encryption": {
@@ -127,11 +125,9 @@ The goal of this tutorial is to define a template to create an encrypted storage
         }
     }
     ```
-    This part enables the encryption function of the blob storage service.
-
-From Visual Studio Code, modify the template so that the final resources element looks like:
-
-![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. From Visual Studio Code, modify the template so that the final resources element looks like:
+    
+    ![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## Deploy the template
 

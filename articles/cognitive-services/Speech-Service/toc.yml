@@ -1,10 +1,10 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Speech Service SDK Documentation
+- name: Speech Service Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: What is the Speech Service?
     href: overview.md
 - name: Quickstarts
   items:

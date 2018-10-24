@@ -2,11 +2,11 @@
 title: Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
 description: Learn how to back up an Exchange server to Azure Backup using System Center 2012 R2 DPM
 services: backup
-author: MaanasSaran
+author: adigan
 manager: NKolli1
 ms.service: backup
-ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: adigan
 ---
 # Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
@@ -21,7 +21,7 @@ To successfully register the DPM server with Azure Backup, you must install the 
 >
 
 ## Prerequisites
-Before you continue, make sure that all the [prerequisites](backup-azure-dpm-introduction.md#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. These prerequisites include the following:
+Before you continue, make sure that all the [prerequisites](backup-azure-dpm-introduction.md#prerequisites-and-limitations) for using Microsoft Azure Backup to protect workloads have been met. These prerequisites include the following:
 
 * A backup vault on the Azure site has been created.
 * Agent and vault credentials have been downloaded to the DPM server.
