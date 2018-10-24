@@ -79,18 +79,18 @@ Streaming of diagnostics telemetry for Azure SQL Database, and databases in Mana
 
 To enable streaming of diagnostics telemetry for **Azure SQL Database**, please follow these steps:
 
-- Go to your Azure SQL Database resource
-- Select **Diagnostics settings**
-- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
+1 Go to your Azure SQL Database resource
+2 Select **Diagnostics settings**
+3 Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
 - Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
 
    ![Enable diagnostics for SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 
-- Type in the name for the setting - for your own reference
-- Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
-- For standard monitoring experience, select checkboxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, **Deadlocks**. This telemetry is event based and provides the standard monitoring experience.
-- For advanced monitoring experience, select checkbox for **AllMetrics**. This is a 1-minute based telemetry for the database diagnostics telemetry as described above. 
-- Click on **Save**
+4 Type in the name for the setting - for your own reference
+5 Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
+6 For standard monitoring experience, select checkboxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, **Deadlocks**. This telemetry is event based and provides the standard monitoring experience.
+7 For advanced monitoring experience, select checkbox for **AllMetrics**. This is a 1-minute based telemetry for the database diagnostics telemetry as described above. 
+8 Click on **Save**
 
    ![Configure diagnostics for SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
@@ -108,17 +108,17 @@ To enable streaming of diagnostics telemetry for **Azure SQL Database**, please 
 
 To enable streaming of diagnostics telemetry for **databases in Managed Instance**, please follow these steps:
 
-- Go to your database in Managed Instance
-- Select **Diagnostics settings**
-- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
+1 Go to your database in Managed Instance
+2 Select **Diagnostics settings**
+3 Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
 - Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
 
    ![Enable diagnostics for Managed Instance database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-- Type in the name for the setting - for your own reference
-- Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
-- Select checkboxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**
-- Click on **Save**
+4 Type in the name for the setting - for your own reference
+5 Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
+6 Select checkboxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**
+7 Click on **Save**
 
    ![Configure diagnostics for Managed Instance database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
@@ -142,17 +142,17 @@ The following diagnostics telemetry is available for collection for elastic pool
 
 To enable streaming of diagnostics telemetry for **elastic pool resource**, please follow these steps:
 
-- Go to the elastic pool resource in Azure portal
-- Select **Diagnostics settings**
-- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
+1 Go to the elastic pool resource in Azure portal
+2 Select **Diagnostics settings**
+3 Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
 
    ![Enable diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
-- Type in the name for the setting - for your own reference
-- Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
-- In case Log Analytics is selected, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace
-- Select the checkbox for elastic pool diagnostics telemetry **AllMetrics**
-- Click **Save**
+4 Type in the name for the setting - for your own reference
+5 Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
+6 In case Log Analytics is selected, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace
+7 Select the checkbox for elastic pool diagnostics telemetry **AllMetrics**
+8 Click **Save**
 
    ![Configure diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
@@ -172,17 +172,17 @@ The following diagnostics telemetry is available for collection for Managed Inst
 
 To enable streaming of diagnostics telemetry for **Managed Instance resource**, please follow these steps:
 
-- Go to the Managed Instance resource in Azure portal
-- Select **Diagnostics settings**
-- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
+1 Go to the Managed Instance resource in Azure portal
+2 Select **Diagnostics settings**
+3 Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
 
    ![Enable diagnostics for Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-- Type in the name for the setting - for your own reference
-- Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
-- In case Log Analytics is selected, create or use an existing workspace
-- Select the checkbox for instance diagnostics telemetry **ResourceUsageStats**
-- Click **Save**
+4 Type in the name for the setting - for your own reference
+5 Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
+6 In case Log Analytics is selected, create or use an existing workspace
+7 Select the checkbox for instance diagnostics telemetry **ResourceUsageStats**
+8 Click **Save**
 
    ![Configure diagnostics for Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
