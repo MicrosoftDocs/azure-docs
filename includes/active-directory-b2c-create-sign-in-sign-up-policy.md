@@ -1,6 +1,6 @@
 ---
 author: PatAltimore
-ms.service: active-directory 
+ms.service: active-directory-b2c 
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
