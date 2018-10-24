@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -21,7 +21,9 @@ ms.reviewer: sureshja
 
 # Azure Active Directory app manifest
 
-Apps that integrate with Azure Active Directory (Azure AD) must be registered with an Azure AD tenant. You can configure the app in the [Azure portal](https://portal.azure.com) by selecting **App registrations** under **Azure Active Directory**, choosing the app you want to configure, and then selecting **Manifest**.
+The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure Active Directory (Azure AD) application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+
+Apps that integrate with Azure AD must be registered with an Azure AD tenant. You can configure the app in the [Azure portal](https://portal.azure.com) by selecting **App registrations** under **Azure Active Directory**, choosing the app you want to configure, and then selecting **Manifest**.
 
 ## Manifest reference
 
