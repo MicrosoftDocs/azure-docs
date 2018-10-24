@@ -144,7 +144,11 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ### Permissions
 
-Recognizing that some organizations enforce strict permission controls in Azure, please find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum permissions required to use Azure SQL Analytics, while granting no access to managing other resources in the portal.
+To use Azure SQL Analytics users will at minimum need to be granted the Reader role in Azure. However this role will not allow users to see the query text, or perform any Automatic tuning actions. More liberal roles in Azure that will allow using the solution to the fullest extent are Owner, Contributor, SQL DB Contributor, or SQL Server Contrubutor. You also might want to consdier creating a custom role in the portal with specific permissions required only to use Azure SQL Analytics, and with no access to managing other resources.
+
+## Creating a custom role in portal
+
+Recognizing that some organizations enforce strict permission controls in Azure, please find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum read and write permissions required to use Azure SQL Analytics to its fullest extent.
 
 Please replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.
 
@@ -173,7 +177,7 @@ Please replace the “{SubscriptionId}" in the below script with your Azure subs
     New-AzureRmRoleDefinition $role
    ```
 
-Once the new role is created, assign this role to each user you need to grant permissions to use Azure SQL Analytics.
+Once the new role is created, assign this role to each user that you need to grant custom permissions to use Azure SQL Analytics.
 
 ### Analyze data and create alerts
 
