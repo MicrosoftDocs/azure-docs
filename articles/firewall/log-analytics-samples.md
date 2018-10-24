@@ -10,7 +10,7 @@ ms.author: victorh
 ---
 # Azure Firewall Log Analytics samples
 
-The following Log Analytics query examples can be used to analyze your Azure Firewall logs.
+The following Log Analytics query samples can be used to analyze your Azure Firewall logs.
 
 ## Application rules
 
