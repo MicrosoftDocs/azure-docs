@@ -129,8 +129,6 @@
       href: azure-stack-region-management.md
     - name: Using the administrator portal
       href: azure-stack-manage-portals.md
-    - name: Connect to Azure Stack
-      href: azure-stack-connect-azure-stack.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN
