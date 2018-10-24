@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Government from Azure DevOps Service | Microsoft Docs
-description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from global Azure DevOps Service
+description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from global Azure DevOps Service.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 9/18/18
 ms.author: yujhong
-
 ---
+
 # Deploy an app in Azure Government with global Azure Pipelines
 
 The tutorial below will help you set up continuous deployment to your web app running in Azure Government using Azure DevOps Service.
