@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Create a blob in object storage using Azure PowerShell | Microsoft Docs
-description: In this quickstart, you use Azure PowerShell  in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+description: In this quickstart, you use Azure PowerShell in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: roygara
 
@@ -14,7 +14,7 @@ ms.author: rogarana
 
 # Quickstart: Upload, download, and list blobs using Azure PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to transfer files between local disk and Azure Blob storage.
+You can use the Azure PowerShell module to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to transfer files between local disk and Azure Blob storage.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -24,9 +24,9 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 ## Create a container
 
-Blobs are always uploaded into a container. You can organize groups of blobs similar to the way you organize your files on your computer in folders.
+Blobs are always uploaded into a container. You can organize groups of blobs like the way you organize your files on your computer in folders.
 
-Set the container name, then create the container using [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), setting the permissions to 'blob' to allow public access of the files. The container name in this example is *quickstartblobs*.
+Set the container name, then create the container using [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Set the permissions to 'blob' to allow public access of the files. The container name in this example is *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -35,11 +35,11 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## Upload blobs to the container
 
-Blob storage supports block blobs, append blobs, and page blobs. VHD files used to back IaaS VMs are page blobs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs. 
+Blob storage supports block blobs, append blobs, and page blobs. VHD files that back IaaS VMs are page blobs. Use append blobs for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs. 
 
-To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
+To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). This operation creates the blob if it doesn't already exist, or overwrites the blob if it already exists.
 
-The following examples upload Image001.jpg and Image002.png from the D:\\_TestImages folder on the local disk to the container you created.
+The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_TestImages* folder on the local disk to the container you created.
 
 ```powershell
 # upload a file
@@ -67,9 +67,9 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## Download blobs
 
-Download the blobs to your local disk. For each blob to be downloaded, set the name and call [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) to download the blob.
+Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) to download the blob.
 
-This example downloads the blobs to D:\\_TestImages\Downloads on the local disk. 
+This example downloads the blobs to *D:\\_TestImages\Downloads* on the local disk. 
 
 ```powershell
 # download first blob
@@ -87,9 +87,9 @@ Get-AzureStorageBlobContent -Blob "Image002.png" `
 
 ## Data transfer with AzCopy
 
-The [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utility is another option for high-performance scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob, File, and Table storage.
+The [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utility is another option for high-performance scriptable data transfer for Azure Storage. Use AzCopy to transfer data to and from Blob, File, and Table storage.
 
-As a quick example, here is the AzCopy command for uploading a file called *myfile.txt* to the *mystoragecontainer* container from within a PowerShell window.
+As a quick example, here's the AzCopy command for uploading a file called *myfile.txt* to the *mystoragecontainer* container from within a PowerShell window.
 
 ```PowerShell
 ./AzCopy `
