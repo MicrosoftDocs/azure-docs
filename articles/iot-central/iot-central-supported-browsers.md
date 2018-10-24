@@ -9,9 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ---
-*This article applies to operators, builders, and administrators.*
 
 # Supported browsers for Azure IoT Central
+
+*This article applies to operators, builders, and administrators.*
 
 We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
 - Microsoft Edge (latest version)
