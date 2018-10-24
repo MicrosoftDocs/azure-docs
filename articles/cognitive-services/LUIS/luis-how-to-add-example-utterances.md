@@ -51,17 +51,11 @@ List entities represent a fixed, closed set (exact text matches) of related word
 
 For a company department list entity, you can have normalized values: `Accounting` and `Human Resources`. Each normalized name has synonyms. For a department, these synonyms can include any department acronyms, numbers, or slang. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
-1. In the utterance, select the word that is the first item in the list, and then enter the name of the list in the textbox, then select **Create new entity**.   
+1. In the example utterance list, for a specific utterance, select the word or phrase that is in the list. Then enter the name of the list in the textbox, then select **Create new entity**.   
 
-    ![Screenshot of Intents details page, with Create new entity highlighted](./media/luis-how-to-add-example-utterances/create-drink-list-entity.png)
+1. In the **What type of entity do you want to create?** dialog box, name the entity and select **List** as the type. Add synonyms of this list item, then select **Done**. 
 
-2. In the **What type of entity do you want to create?** dialog box, add synonyms of this list item. For the water item in a drink list, add `h20`, `perrier`, and `waters`, and select **Done**. Notice that "waters" is added because the list synonyms are matched at the token level. In the English culture, that level is at the word level so "waters" would not be matched to "water" unless it was in the list. 
-
-    ![Screenshot of What type of entity do you want to create dialog box](./media/luis-how-to-add-example-utterances/drink-list-ddl.png)
-
-    This list of drinks has only one drink type, water. You can add more drink types by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or [importing](luis-how-to-add-entities.md#import-list-entity-values) a list. 
-
-    See [Data Extraction](luis-concept-data-extraction.md#list-entity-data) to learn more about extracting list entities from the endpoint JSON query response. Try the [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more about how to use a list entity.
+    You can add more list items or more item synonyms by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or [importing](luis-how-to-add-entities.md#import-list-entity-values) a list. 
 
 ### Add synonyms to the list entity 
 
