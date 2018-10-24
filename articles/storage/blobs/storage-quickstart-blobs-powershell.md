@@ -14,7 +14,7 @@ ms.author: rogarana
 
 # Quickstart: Upload, download, and list blobs using Azure PowerShell
 
-You can use the Azure PowerShell module to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to transfer files between local disk and Azure Blob storage.
+You can use the Azure PowerShell module to create and manage Azure resources. Creating or managing Azure resources can be done from the PowerShell command line or in scripts. This guide describes using PowerShell to transfer files between local disk and Azure Blob storage.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -101,7 +101,7 @@ As a quick example, here's the AzCopy command for uploading a file called *myfil
 
 ## Clean up resources
 
-Remove all of the assets you've created. The easiest way to do remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
+Remove all of the assets you've created. The easiest way to remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
