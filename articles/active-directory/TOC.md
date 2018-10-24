@@ -266,7 +266,6 @@
 
 #### Permissions
 ##### [Choose permissions for an API](develop/perms-for-given-api.md)
-##### [Grant permissions to my app](develop/registration-config-grant-permissions-how-to.md)
 ##### [Delegated vs application permissions](develop/delegated-and-app-perms.md)
 ##### [Application consent](develop/consent-framework.md)
 
