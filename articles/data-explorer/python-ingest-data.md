@@ -7,7 +7,7 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/16/2018
 
 #Customer intent: As a Python developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
 ---
@@ -32,7 +32,7 @@ In addition to an Azure subscription, you need the following to complete this qu
 
 Install *azure-kusto-data* and *azure-kusto-ingest*.
 
-```python
+```
 pip install azure-kusto-data
 pip install azure-kusto-ingest
 ```
