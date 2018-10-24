@@ -52,7 +52,7 @@ When you enable metrics and diagnostics logging, you need to specify the Azure r
 
 You can provision a new Azure resource or select an existing resource. After selecting a resource, using Diagnostic settings option, you need to specify which data to collect.
 
-## Enable logging for Azure SQL Database, or databases in Managed Instance
+## Enable logging for Azure SQL Database or databases in Managed Instance
 
 Metrics and diagnostics logging on SQL Database, and databases in Managed Instance are not enabled by default.
 
@@ -126,7 +126,7 @@ To enable streaming of diagnostics telemetry for **databases in Managed Instance
 > Please repeat the above steps for each database in Managed Instance you wish to monitor.
 >
 
-## Enable logging for elastic pools, or Managed Instance
+## Enable logging for elastic pools or Managed Instance
 
 Elastic pools and Managed Instances as database containers have its own diagnostics telemetry separate from databases. This diagnostics telemetry is not enabled by default. 
 
