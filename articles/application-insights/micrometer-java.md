@@ -1,6 +1,6 @@
 ---
 title: How to use Micrometer with Azure Application Insights Java SDK | Microsoft Docs
-description: 'How to use Micrometer application monitoring with Azure Application Insights Java SDK. '
+description: 'A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications. '
 services: application-insights
 documentationcenter: java
 author: lgayhardt
@@ -17,7 +17,7 @@ ms.author: lagayhar
 
 ---
 # How to use Micrometer with Azure Application Insights Java SDK
-This article is going to walk you through on how to use Micrometer with Application Insights.
+Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with application insight for both Spring Boot and non-Spring Boot applications.
 
 ## Using SpringBoot 1.5x 
 Add the following dependencies to your pom.xml or build.gradle file: 
@@ -165,7 +165,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
 ### Steps:
 
-1. Please add following dependency in your pom.xml or build.gradle file:
+1. Add following dependency in your pom.xml or build.gradle file:
 
 ```XML
     <dependency>
@@ -257,7 +257,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
 To learn more about metrics, you can create refer to the [Micrometer documentation](https://micrometer.io/docs/concepts). 
 
-Other sample code on how to create different types of metrics can be found [here](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Other sample code on how to create different types of metrics can be found [the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 
 ## How to bind additional metrics collection:
@@ -272,7 +272,7 @@ Create a bean of the respective metric category. For example, say we need Guava 
 		Return new GuavaCacheMetrics();
 	}
 ```
-There are several metrics that are not enabled by default but can be bound in the above fashion. For a complete list refer to [the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+There are several metrics that are not enabled by default but can be bound in the above fashion. For a complete list, refer to [the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
 ### Non-Spring apps:
 Add the following binding code to the configuration  file:
