@@ -1,3 +1,4 @@
+### host.json - Functions v1
 ```json
 {
     "eventHub": {
@@ -5,6 +6,22 @@
       "prefetchCount": 256,
       "batchCheckpointFrequency": 1
     }
+}
+```
+
+### host.json - Functions v2
+```json
+{
+  "version": "2.0",
+  "extensions" : {
+    "eventHubs": {
+      "batchCheckpointFrequency": 1,
+      "eventProcessorOptions": {
+        "maxBatchSize": 64,
+        "prefetchCount": 256
+      }
+    }
+  }
 }
 ```
 
