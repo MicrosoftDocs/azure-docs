@@ -95,7 +95,7 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 > |Where: ||
 > |---------|---------|
-> | `ClientId` | Is the **Application (client) ID** value for the registered app. You can find this value in the app's **Overview** page in the Azure portal. |
+> | `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 
 ### Requesting tokens
 
