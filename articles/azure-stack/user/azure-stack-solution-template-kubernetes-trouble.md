@@ -44,7 +44,7 @@ The following diagram shows the general process for deploying the cluster.
     Enter the values you need to set up the Kubernetes cluster, including:
     -  **User name**: The user name for the Linux virtual machines that are part of the Kubernetes cluster and DVM.
     -  **SSH public key**: The key that's used for the authorization of all Linux machines that were created as part of the Kubernetes cluster and DVM.
-    -  **Service principle**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you are created your service principal. 
+    -  **Service principle**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
     -  **Client secret**: They key you created when you created your service principal.
 
 2. Create deployment VM and custom script extension.
@@ -73,7 +73,7 @@ The following diagram shows the general process for deploying the cluster.
 
 7. Download and run the customer script extension.
 
-7. Runs the agent script. The agent custom script does the following tasks:
+7. Run the agent script. The agent custom script does the following tasks:
     - Installs etcd
     - Sets up the kubelet service
     - Joins the Kubernetes cluster
@@ -83,7 +83,7 @@ The following diagram shows the general process for deploying the cluster.
 You can collect logs on the VMs that support your Kubernetes cluster. You can also review the deployment log. You might need to talk to your Azure Stack administrator to verify the version of Azure Stack that you need to use, and to get logs from Azure Stack that are related to your deployment.
 
 1. Review the [deployment status](#review-deployment-status) and [retrieve the logs](#get-logs-from-a-vm) from the master node in your Kubernetes cluster.
-2. Be sure that you're using the latest version of Azure Stack. If you're unsure what version you're using, contact your Azure Stack administrator. The Kubernetes cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
+2. Be sure that you're using the latest version of Azure Stack. If you're unsure which version you're using, contact your Azure Stack administrator. The Kubernetes cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
 3.  Review your VM creation files. You might have encountered the following issues:  
     - The public key might be invalid. Review the key that you created.  
     - VM creation might have triggered an internal error or triggered a creation error. Errors can be caused by a number of factors including capacity limitations for your Azure Stack subscription.
@@ -122,13 +122,13 @@ To generate the logs, you need to connect to the master VM for your cluster, ope
 
 ### Prerequisites
 
-You need a bash prompt on the machine that you use to manage Azure Stack. Use bash to run the scripts that access the logs. c
+You need a bash prompt on the machine that you use to manage Azure Stack. Use bash to run the scripts that access the logs. On a Windows machine, you can use the bash prompt installed with Git. To get the most recent version of git, see [Git downloads](https://git-scm.com/downloads).
 
 ### Get logs
 
 To get logs, take the following steps:
 
-1. Open a bash prompt. If you are using git on a Windows machine, you can open a bash prompt from the following path: `c:\programfiles\git\bin\bash.exe`.
+1. Open a bash prompt. If you are using Git on a Windows machine, you can open a bash prompt from the following path: `c:\programfiles\git\bin\bash.exe`.
 2. Run the following bash commands:
 
     ```Bash  
@@ -166,7 +166,7 @@ To get logs, take the following steps:
     ![Generated logs](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. Retrieve the logs in the folders that were created by the command. The command creates new folders and timestamps them.
+4. Retrieve the logs in the folders that were created by the command. The command creates new folders and time stamps them.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log
