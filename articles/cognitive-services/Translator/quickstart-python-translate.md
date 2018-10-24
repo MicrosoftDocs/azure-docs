@@ -110,7 +110,7 @@ response = request.json()
 The last step is to print the results. This code snippet prettifies the results by sorting the keys, setting indentation, and declaring item and key separators.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## Put it all together
@@ -118,7 +118,7 @@ print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
 
 ```console
-python translate-text.py
+python transliterate-text.py
 ```
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
