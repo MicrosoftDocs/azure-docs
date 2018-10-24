@@ -7,7 +7,7 @@ metadata:
   services: cognitive-services
   author: mikedodaro
   manager: rosh
-  ms.service: bing-local-business
+  ms.component: bing-local-business
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -25,19 +25,19 @@ sections:
     items:
     - image:
         src: media/logo_csharp.svg
-      href: local-quickstart.md
+      href: quickstarts/local-quickstart.md
       text: "C#"
     - image:
         src: media/logo_java.svg
-      href: local-search-java-quickstart.md
+      href: quickstarts/local-search-java-quickstart.md
       text: "Java"
     - image:
         src: media/logo_nodejs.svg
-      href: local-search-node-quickstart.md
+      href: quickstarts/local-search-node-quickstart.md
       text: "Node"
     - image:
         src: media/logo_python.svg
-      href: local-search-python-quickstart.md
+      href: quickstarts/local-search-python-quickstart.md
       text: "Python"
 - title: Concepts
   items:
@@ -49,6 +49,7 @@ sections:
     - html: <a href="overview.md">What is the Bing Local Buisiness Search API?</a>
     - html: <a href="local-search-query-response.md">Query and response</a>      
     - html: <a href="specify-geographic-search.md">Geographic search boundaries</a>
+    - html: <a href="local-categories.md">Local categories search</a>
 - title: Reference
   items:
   - type: paragraph
@@ -58,3 +59,8 @@ sections:
     items:
     - html: <a href="use-display-requirements.md">Use and display requirements</a>     
     - html: <a href="local-search-reference.md">Local Business Search API reference</a>
+- title: Resources
+  items:
+    - html: <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account">Cognitive Services API account</a>
+    - html: <a href="https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api">Try Cognitive Services</a>   
+    - html: <a href="https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/">Pricing information</a> 

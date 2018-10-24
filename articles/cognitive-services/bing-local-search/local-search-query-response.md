@@ -5,7 +5,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-local-business
+ms.component: bing-local-business
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: rosh; v-gedod
@@ -24,10 +24,10 @@ https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restauran
 
 ````
 Complete request syntax and code scenarios are shown in the quickstarts:
-- [Local Search quickstart](local-quickstart.md)
-- [Local Search Java quickstart](local-search-java-quickstart.md)
-- [Local Search Node quickstart](local-search-node-quickstart.md)
-- [Local Search Python quickstart](local-search-python-quickstart.md)
+- [Local Search quickstart](quickstarts/local-quickstart.md)
+- [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Search Node quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)
 
 The response contains a `SearchResponse` object. If Bing finds places that are relevant, the object includes the `places` field. If Bing does not find relevant entities, the response object will not include the `places` field.
 
@@ -149,7 +149,7 @@ For general information about headers, parameters, market codes, response object
 
 
 ## Next steps
-- [Local Search quickstart](local-quickstart.md)
-- [Local Search Java quickstart](local-search-java-quickstart.md)
-- [Local Search Node quickstart](local-search-node-quickstart.md)
-- [Local Search Python quickstart](local-search-python-quickstart.md)
+- [Local Search quickstart](quickstarts/local-quickstart.md)
+- [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Search Node quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)

@@ -5,7 +5,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-local-business
+ms.component: bing-local-business
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: rosh, v-gedod

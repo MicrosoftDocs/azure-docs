@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-local-business
+ms.component: bing-local-business
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: rosh, v-gedod
@@ -16,7 +16,7 @@ ms.author: rosh, v-gedod
 
 The Local Business Search API sends a search query to Bing to get results that include include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries, etc.  
 
-This section provides technical details about the response objects, and the query parameters and headers that affect the search results. For examples that show how to make requests, see [Local Search C# quickstart](local-quickstart.md) or [Local Search Java quickstart](local-search-java-quickstart.md). 
+This section provides technical details about the response objects, and the query parameters and headers that affect the search results. For examples that show how to make requests, see [Local Search C# quickstart](quickstarts/local-quickstart.md) or [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md). 
   
 For information about headers that requests should include, see [Headers](#headers).  
   
@@ -260,7 +260,7 @@ The following are the possible error code and sub-error code values.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returns InsufficientAuthorization when the caller does not have permissions to access the resource. This can occur if the subscription key has been disabled or has expired. <br/><br/>If the error is InsufficientAuthorization, the HTTP status code is 403.
 
 ## Next steps
-- [Local Search quickstart](local-quickstart.md)
-- [Local Search Java quickstart](local-search-java-quickstart.md)
-- [Local Search Node quickstart](local-search-node-quickstart.md)
-- [Local Search Python quickstart](local-search-python-quickstart.md)
+- [Local Search quickstart](quickstarts/local-quickstart.md)
+- [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Search Node quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)

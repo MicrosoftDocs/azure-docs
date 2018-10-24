@@ -5,7 +5,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-local-business
+ms.component: bing-local-business
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: rosh, v-gedod
@@ -45,7 +45,7 @@ Complete query:
 https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ````
 ## Next steps
-- [Local Search Java Quickstart](local-search-java-quickstart.md)
-- [Local Search C# Quickstart](local-quickstart.md)
-- [Local Search Node Quickstart](local-search-node-quickstart.md)
-- [Local Search Python quickstart](local-search-python-quickstart.md)
+- [Local Search Java Quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Search C# Quickstart](quickstarts/local-quickstart.md)
+- [Local Search Node Quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)

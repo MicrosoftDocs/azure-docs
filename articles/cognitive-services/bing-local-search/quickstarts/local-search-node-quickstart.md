@@ -1,17 +1,17 @@
 ---
-title: Local Business Search API Node quickstart | Microsoft Docs
+title: Quickstart: Send a query to the Bing Local Business Search API using NodeJS| Microsoft Docs
 description: Start using the Bing Local Business Search API in Node.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-local-business
+ms.component: bing-local-business
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: rosh, v-gedod
 ---
 
-# Local Business Search query in NodeJS
+# Quickstart: Send a query to the Bing Local Business Search API using NodeJS
 This article uses NodeJS to demonstrate the Bing Local Business Search API, which is part of Microsoft Cognitive Services on Azure. The API is a REST Web service compatible with any programming language that can make HTTP requests and parse JSON.
  
 The following Node example gets local response data from the query for a *hotel in Bellevue*.
