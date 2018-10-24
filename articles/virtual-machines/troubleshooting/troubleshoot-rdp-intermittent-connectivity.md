@@ -89,7 +89,7 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-T
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
 2. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
-3. On the OS disk that you attached, browse to the **\windows\system32\config** folder. Copy all of the files in this folder as a backup, in case a rollback is required.
+3. Browse to the **\windows\system32\config** folder. Copy all of the files in this folder as a backup, in case a rollback is required.
 4. Start the Registry Editor (regedit.exe).
 5. Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
 6. Browse to the **\windows\system32\config\SYSTEM** folder on the OS disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key. 
