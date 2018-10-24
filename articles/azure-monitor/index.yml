@@ -87,8 +87,8 @@ sections:
     items:
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">View or analyze data collected</a>
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Create and share dashboards</a>
-    - html: <a href="monitor-tutorial-autoscale-performance-schedule">Autoscale based on schedule or application performance</a>
-    - html: <a href="monitor-tutorial-archive-monitoring-data">Archive monitoring data</a>
+    - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule">Autoscale based on schedule or application performance</a>
+    - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data">Archive monitoring data</a>
   - type: paragraph
     text: Learn how to continuously improve the performance and usage of your web applications.
   - type: list

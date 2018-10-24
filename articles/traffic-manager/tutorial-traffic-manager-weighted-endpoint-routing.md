@@ -37,7 +37,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ### Create websites
 
-In this section, you create two website instances that provide the two service endpoints for the Traffic Manager profile in two Azure regions. Creating the two websites includes the following steps:
+In this section, you create two website instances that provide the two service endpoints for the Traffic Manager profile in two Azure regions. To create the two websites, complete the following steps :
 1. Create two VMs for running a basic website - one in **East US**, and the other in **West Europe**.
 2. Install IIS server on each VM and update the default website page that describes the VM name that a user is connected to when visiting the website.
 
