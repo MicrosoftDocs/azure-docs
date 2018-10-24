@@ -16,11 +16,11 @@ ms.author: sajagtap
 
 # What is Content Moderator?
 
-The Content Moderator service is a utility that scans text, image, or video content for material that is potentially offensive, undesirable, or otherwise risky. Your app can then handle flagged content appropriately in order to comply with regulations or maintain an intended environment for users. See the [Image](image-moderation-api.md), [Text](text-moderation-api.md), and [Video](video-moderation-api.md) moderation topics to learn more about what the different content flags indicate.
+The Content Moderator service is a utility that scans text, image, or video content for material that is potentially offensive, undesirable, or otherwise risky. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content as desired in order to comply with regulations or maintain the intended environment for users. See the [Image](image-moderation-api.md), [Text](text-moderation-api.md), and [Video](video-moderation-api.md) moderation topics to learn more about what the different content flags indicate.
 
 ## Where it is used
 
-The following are a few example scenarios where Content Moderator can be used:
+The following are a few scenarios in which a software developer or team would use Content Moderator:
 
 - Online marketplaces moderating product catalogs and user-generated content
 - Gaming companies moderating user-generated game artifacts and chat rooms
@@ -56,7 +56,7 @@ The Content Moderator service also includes the web-based [human review tool](Re
 
 ![Content Moderator Home Page](images/homepage.PNG)
 
-You can use the previously mentioned Review APIs to set up team reviews of text, image, and video content, according to filters that you specify. Then, human moderators can make the final moderation decisions. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy.
+You can use the Review APIs to set up team reviews of text, image, and video content, according to filters that you specify. Then, human moderators can make the final moderation decisions. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy.
 
 ## Next steps
 
