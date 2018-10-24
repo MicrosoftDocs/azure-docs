@@ -74,7 +74,7 @@ The following table shows Jobs's properties and gives their definitions.
 |---|---|---|
 |id|string|Fully qualified resource ID for the resource.|
 |name	|string|The name of the resource.|
-|properties.correlationData	|object|Customer provided correlation data (immutable) that is returned as part of Job and JobOutput state change notifications. For more information, see [Event schemas](media-services-event-schemas.md)<br/><br/>correlationData can also be used for multi-tenant usage of Media Services. You can put tenant IDs in the jobs. |
+|properties.correlationData	|object|Customer provided correlation data (immutable) that is returned as part of Job and JobOutput state change notifications. For more information, see [Event schemas](media-services-event-schemas.md)<br/><br/>The property can also be used for multi-tenant usage of Media Services. You can put tenant IDs in the jobs. |
 |properties.created	|string|The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
 |properties.description	|string|Optional customer supplied description of the Job.|
 |properties.input|JobInput:<br/>JobInputClip<br/>JobInputs|The inputs for the Job.|
