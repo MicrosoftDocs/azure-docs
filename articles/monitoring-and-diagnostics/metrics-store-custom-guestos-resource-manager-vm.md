@@ -247,7 +247,7 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
    > [!NOTE] 
    > Remember to [use an Azure region that is enabled for custom metrics](metrics-custom-overview.md). 
  
-1. Run the following commands to deploy the VM with the  
+1. Run the following commands to deploy the VM using the Resource Manager template.
    > [!NOTE] 
    > If you wish to update an existing VM, simply add *-Mode Incremental* to the end of the following command. 
  
