@@ -14,19 +14,19 @@ manager: carmonm
 
 ## Windows
 
-### <a name="records-not-showing-windows"></a>Scenario: Change Tracking records are not showing in the Azure Portal
+### <a name="records-not-showing-windows"></a>Scenario: Change Tracking records aren't showing in the Azure portal
 
 #### Issue
 
-You do not see any Inventory or Change Tracking results for machines that are onboarded for Change Tracking.
+You don't see any Inventory or Change Tracking results for machines that are onboarded for Change Tracking.
 
 #### Cause
 
 This error can be caused by the following reasons:
 
-1. The **Microsoft Monitoring Agent** is not running
+1. The **Microsoft Monitoring Agent** isn't running
 2. Communication back to the Automation Account is being blocked.
-3. The Management Packs for Change Tracking are not downloaded.
+3. The Management Packs for Change Tracking aren't downloaded.
 4. The VM being onboarded may have come from a cloned machine that wasn't sysprepped with the Microsoft Monitoring Agent installed.
 
 #### Resolution
@@ -39,7 +39,7 @@ This error can be caused by the following reasons:
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
 4. If using a cloned image, sysprep the image first and install the Microsoft Monitoring Agent agent after the fact.
 
-If these solutions do not fix your problem and you contact support, you can run the following steps to collecting diagnostic tracing which can help support troubleshoot the issue:
+If these solutions don't resolve your problem and you contact support, you can run the following steps to collecting diagnostic tracing, which can help support troubleshoot the issue:
 
 1. Collect the diagnostic tracing on agent:
 
