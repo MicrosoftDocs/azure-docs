@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: multiple
  ms.topic: include
- ms.date: 09/10/2018
+ ms.date: 10/23/2018
  ms.author: danlep;azcspmt;jonbeck
  ms.custom: include file
 ---
@@ -25,12 +25,12 @@ Premium Storage Caching:  Not Supported
 NC-series VMs are powered by the [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) card. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 340 | 1 | 24 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
-| Standard_NC24 |24 |224 | 1440 | 4 | 64 | 4 |
-| Standard_NC24r* |24 |224 | 1440 | 4 | 64 | 4 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
+| --- | --- | --- | --- | --- | --- | --- | ---- |
+| Standard_NC6 |6 |56 | 340 | 1 | 8 | 24 | 1 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 | 48 | 2 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 32 | 64 | 4 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 32 | 64 | 4 |
 
 1 GPU = one-half K80 card.
 
@@ -48,12 +48,12 @@ NCv2-series VMs are powered by [NVIDIA Tesla P100](http://images.nvidia.com/cont
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
-| --- | --- | --- | --- | --- | --- | ---  |
-| Standard_NC6s_v2 |6 |112 | 736 | 1 | 12 | 4 |
-| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
-| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
-| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
+| --- | --- | --- | --- | --- | --- | ---  | --- |
+| Standard_NC6s_v2 |6 |112 | 736 | 1 | 16 | 12 | 4 |
+| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 32 | 24 | 8 |
+| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 64 | 32 | 8 |
+| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 64 | 32 | 8 |
 
 1 GPU = one P100 card.
 
@@ -71,12 +71,12 @@ NCv3-series VMs are powered by [NVIDIA Tesla V100](http://www.nvidia.com/content
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 |6 |112 | 736 | 1 | 12 | 4 |
-| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
-| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
-| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NC6s_v3 |6 |112 | 736 | 1 | 16 | 12 | 4 |
+| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 32 | 24 | 8 |
+| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 64 | 32 | 8 | 
+| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 64 | 32 | 8 |
 
 1 GPU = one V100 card.
 
@@ -94,12 +94,12 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 > For this size family, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6 |112 | 736 | 1 | 12 | 4 |
-| Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
-| Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
-| Standard_ND24rs* |24 |448 | 2948 | 4 | 32 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_ND6s |6 |112 | 736 | 1 | 24 | 12 | 4 |
+| Standard_ND12s |12 |224 | 1474 | 2 | 48 | 24 | 8 | 
+| Standard_ND24s |24 |448 | 2948 | 4 | 96 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 2948 | 4 | 96 | 32 | 8 |
 
 1 GPU = one P40 card.
 
@@ -115,11 +115,11 @@ The NV-series virtual machines are powered by [NVIDIA Tesla M60](http://images.n
 
 Each GPU in NV instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs | Virtual Workstations | Virtual Applications | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 | 64 | 4 | 4 | 100 |
 
 1 GPU = one-half M60 card.
 
@@ -133,11 +133,11 @@ The NVv2-series virtual machines are powered by [NVIDIA Tesla M60](http://images
 
 Each GPU in NVv2 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs | Virtual Workstations | Virtual Applications | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6s_v2 |6 |112 |320 | 1 | 12 | 4 | 1 | 25 |
-| Standard_NV12s_v2 |12 |224 |640 | 2 | 24 | 8 | 2 | 50 |
-| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 8 | 4 | 100 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6s_v2 |6 |112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v2 |12 |224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
 1 GPU = one-half M60 card.
 
