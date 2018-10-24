@@ -26,7 +26,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 Blobs are always uploaded into a container. You can organize groups of blobs like the way you organize your files on your computer in folders.
 
-Set the container name, then create the container using [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Set the permissions to 'blob' to allow public access of the files. The container name in this example is *quickstartblobs*.
+Set the container name, then create the container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer?view=azurermps-6.11.0). Set the permissions to 'blob' to allow public access of the files. The container name in this example is *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -37,7 +37,7 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 Blob storage supports block blobs, append blobs, and page blobs. VHD files that back IaaS VMs are page blobs. Use append blobs for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs. 
 
-To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). This operation creates the blob if it doesn't exist, or overwrites the blob if it exists.
+To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzureStorageBlobContent](https://docs.microsoft.com/powershell/module/azure.storage/set-azurestorageblobcontent?view=azurermps-6.11.0). This operation creates the blob if it doesn't exist, or overwrites the blob if it exists.
 
 The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_TestImages* folder on the local disk to the container you created.
 
@@ -59,7 +59,7 @@ Upload as many files as you like before continuing.
 
 ## List the blobs in a container
 
-Get a list of blobs in the container using [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob). This example shows just the names of the blobs uploaded.
+Get a list of blobs in the container using [Get-AzureStorageBlob](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestorageblob?view=azurermps-6.11.0). This example shows just the names of the blobs uploaded.
 
 ```powershell
 Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name 
@@ -67,7 +67,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## Download blobs
 
-Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) to download the blob.
+Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzureStorageBlobContent](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestorageblobcontent?view=azurermps-6.11.0) to download the blob.
 
 This example downloads the blobs to *D:\\_TestImages\Downloads* on the local disk. 
 
@@ -109,14 +109,14 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage. To learn more about working with Blob storage using PowerShell, continue to How-to use Azure PowerShell with Azure Storage.
+In this quickstart, you transferred files between a local disk and Azure Blob storage. To learn more about working with Blob storage using PowerShell, continue to How-to use Azure PowerShell with Azure Storage.
 
 > [!div class="nextstepaction"]
 > [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### Microsoft Azure PowerShell Storage cmdlets reference
 
-* [Storage PowerShell cmdlets](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.storage/?view=azurermps-6.11.0#storage)
 
 ### Microsoft Azure Storage Explorer
 
