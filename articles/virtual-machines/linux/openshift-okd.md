@@ -131,7 +131,7 @@ az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-The deployment takes at least 30 minutes to finish, depending on the total number of nodes deployed. The URL of the OpenShift console and the DNS name of the OpenShift master prints to the terminal when the deployment finishes. Alternatively, you can view the outputs section of the deployment from the Azure portal.
+The deployment takes at least 30 minutes to finish, based on the total number of nodes deployed. The URL of the OpenShift console and the DNS name of the OpenShift master prints to the terminal when the deployment finishes. Alternatively, you can view the outputs section of the deployment from the Azure portal.
 
 ```json
 {

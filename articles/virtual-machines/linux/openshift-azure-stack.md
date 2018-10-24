@@ -46,7 +46,7 @@ Make sure you have a valid Red Hat Subscription Manager (RHSM) username, passwor
 
 ## Azure Stack prerequisites
 
-A RHEL image (OpenShift Container Platform) or CentOS image (OKD) needs to be added to your Azure Stack environment in order to deploy an OpenShift cluster. Contact your Azure Stack administrator to add these images. Instructions can be found here:
+A RHEL image (OpenShift Container Platform) or CentOS image (OKD) needs to be added to your Azure Stack environment to deploy an OpenShift cluster. Contact your Azure Stack administrator to add these images. Instructions can be found here:
 
 - https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image
 - https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-marketplace-azure-items
