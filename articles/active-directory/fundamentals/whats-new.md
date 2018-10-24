@@ -64,7 +64,7 @@ For more information about the apps, see [SaaS application integration with Azur
 **Service category:** Azure AD Domain Services  
 **Product capability:** Azure AD Domain Services
 
-Azure AD Domain Services provides alerts on the Azure portal about misconfigurations or problems with your managed domain. These alerts include step-by-step guides so you can try to fix the problems wihtout having to contact support.
+Azure AD Domain Services provides alerts on the Azure portal about misconfigurations or problems with your managed domain. These alerts include step-by-step guides so you can try to fix the problems without having to contact support.
 
 Starting in October, you'll be able to customize the notification settings for your managed domain so when new alerts occur, an email is sent to a designated group of people, eliminating the need to constantly check the portal for updates.
 
