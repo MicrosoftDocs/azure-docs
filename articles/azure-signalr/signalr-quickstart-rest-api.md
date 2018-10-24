@@ -131,7 +131,6 @@ The list of available APIs for each specific version is available in the followi
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-
 [Broadcast to all](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
 [Broadcast to a group](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
 Broadcast to some groups | :heavy_check_mark: (Deprecated) | `N / A`
