@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: vpn-gateway
 
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
 
 ---
@@ -31,11 +31,10 @@ Point-to-Site native Azure certificate authentication connections use the follow
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
-### Running PowerShell locally
+* You can either use the Azure Cloud Shell "Try It' to run your PowerShell commands in the browser, or install PowerShell locally. If you choose to install and use PowerShell locally, be sure to install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specify may fail.
 
-If you choose to install and use the PowerShell locally, install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you will typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specify may fail. 
 
-To find the version you are using, run 'Get-Module -ListAvailable AzureRM'. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azurerm-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+  To find the version of PowerShell that you are running locally, use the 'Get-Module -ListAvailable AzureRM' cmdlet. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azurerm-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 If you are running PowerShell locally, you also need to run 'Connect-AzureRmAccount' to create a connection with Azure.
 
 
@@ -64,7 +63,7 @@ You can use the example values to create a test environment, or refer to these v
 
 In this section, you log in and declare the values used for this configuration. The declared values are used in the sample scripts. Change the values to reflect your own environment. Or, you can use the declared values and go through the steps as an exercise.
 
-1. Open your PowerShell console with elevated privileges, and log in to your Azure account. This cmdlet prompts you for the login credentials. After logging in, it downloads your account settings so that they are available to Azure PowerShell. If you are running PowerShell using the Azure Cloud Shell "Try it", you can skip to step 2.
+1. Open your PowerShell console with elevated privileges, and log in to your Azure account. This cmdlet prompts you for the login credentials. After logging in, it downloads your account settings so that they are available to Azure PowerShell. If you are not running PowerShell locally and are instead using the Azure Cloud Shell 'Try it' in the browser, you can skip to step 2 of this section.
 
   ```azurepowershell
   Connect-AzureRmAccount
