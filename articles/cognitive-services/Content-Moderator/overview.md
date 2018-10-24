@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 # What is Content Moderator?
 
-The Content Moderator service scans text, image, or video content for material that is potentially offensive, undesirable, or otherwise risky. Your app can then handle flagged content appropriately in order to comply with regulations or maintain an intended environment for users.
+The Content Moderator service is a utility that scans text, image, or video content for material that is potentially offensive, undesirable, or otherwise risky. Your app can then handle flagged content appropriately in order to comply with regulations or maintain an intended environment for users. See the [Image](image-moderation-api.md), [Text](text-moderation-api.md), and [Video](video-moderation-api.md) moderation topics to learn more about what the different content flags indicate.
 
 ## Where it is used
 
@@ -52,10 +52,12 @@ The Content Moderator service includes APIs for the following scenarios.
 
 ### Human review tool
 
-The Content Moderator service also includes the built-in [human review tool](Review-Tool-User-Guide/human-in-the-loop.md). Use the previously mentioned Review API to initiate team reviews of text, images, and videos so that your human moderators can make the final decisions.
+The Content Moderator service also includes the web-based [human review tool](Review-Tool-User-Guide/human-in-the-loop.md). 
 
 ![Content Moderator Home Page](images/homepage.PNG)
 
+You can use the previously mentioned Review APIs to set up team reviews of text, image, and video content, according to filters that you specify. Then, human moderators can make the final moderation decisions. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy.
+
 ## Next steps
 
-Follow the [Quickstart](quick-start.md) to get started with Content Moderator.
+Follow the [Quickstart](quick-start.md) to get started using Content Moderator.
