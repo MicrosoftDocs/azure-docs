@@ -153,22 +153,16 @@ Alerts are created by alert rules in Azure Monitor and can automatically run sav
 When setting an alert rule, the resource that you target determines the list of available signals that you can use to generate alerts.
 
 1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
-2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to Network Watcher to filter down to the Network Watcher that you want to monitor. Select the "yadda" Network Watcher...
+2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Network Watcher that you want to monitor.
 
-    ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
-1. 
-1. The Network Watcher has metrics on which you can create alerts. Set **Available signals** to the following metrics: 
+    ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png) 
+1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Set **Available signals** to ProbesFailedPercent and AverageRoundtripMs, which have the following characteristics:
 
   |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
   |---|---|---|---|---|---|
   |ProbesFailedPercent|% Probes Failed|Percent|Average|% of connectivity monitoring probes failed|No Dimensions|
   |AverageRoundtripMs|Avg. Round-trip Time (ms)|MilliSeconds|Average|Average network round-trip time (ms) for connectivity monitoring probes sent between source and destination|No Dimensions|
 
-on the bottom right displays [the supported metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported).
-
-1. Once you have selected a target resource, select **Add criteria**. You see a list of signals supported for the resource. Select the metric on which you want to create an alert.
-1. When you select a metric, you see a chart for the metric for the last 6 hours. Define **Period**, **Frequency**, **Operator** and **Threshold** to determine the logic that the metric alert rule evaluates.
-1. If the metric has dimensions, you can select [one or more values per dimension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric-overview). Select \* to dynamically scale the selection to all current and future values for a dimension.
 1. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response.
 
 ## Clean up resources
