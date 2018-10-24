@@ -30,7 +30,7 @@ You face intermittent RDP connectivity during your sessions. You can connect to 
 
 ## Cause
 
-This issue may be caused by the RDP Listener is misconfigured. typically, this problem happens on the Custom VM.
+This issue may be caused by the RDP Listener is misconfigured. Typically, this problem happens on the Custom VM.
 
 ## Solution  
 
