@@ -117,8 +117,6 @@
   items:
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-key-vault
-  - name: Service overview
-    href: https://azure.microsoft.com/services/key-vault/
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers
