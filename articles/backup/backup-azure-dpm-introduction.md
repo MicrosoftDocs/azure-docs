@@ -1,5 +1,5 @@
 ---
-title: Prepeare the DPM server to back up workloads to Azure
+title: Prepare the DPM server to back up workloads to Azure
 description: An introduction to backing up DPM data to an Azure Recovery Services vault.
 services: backup
 author: adigan
@@ -154,7 +154,7 @@ Every machines that's backed up by Azure Backup must have the Backup agent (also
 
     - Azure Backup uses this location as a temporary holding area for recovered data.
     - After finishing data recovery, Azure Backup will clean up the data in this area.
-    - The location must have enough space to hold items that you anticipate recovering in paralle.
+    - The location must have enough space to hold items that you anticipate recovering in parallel.
 
     ![Recovery Folder Setting](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 
