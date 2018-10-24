@@ -21,7 +21,7 @@ You can also:
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
 - [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-- [Create an ingress controller with a static public IP address and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+- Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates [with a dynamic public IP address][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## Before you begin
 
@@ -255,7 +255,7 @@ You can also:
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
 - [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-- [Create an ingress controller with a static public IP address and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+- Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates [with a dynamic public IP address][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
