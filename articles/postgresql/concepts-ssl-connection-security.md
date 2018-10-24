@@ -52,7 +52,7 @@ The certificate needed to communicate over SSL with your Azure Database for Post
 To decode the certificate file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer.
 
 #### For Linux, OS X, or Unix
-The OpenSSL libraries are provided in source code directly from the [OpenSSL Software Foundation](http://www.openssl.org). The following instructions guide you through the steps necessary to install OpenSSL on your Linux PC. This article uses commands known to work on Ubuntu 12.04 and higher.
+The OpenSSL libraries are provided in source code directly from the [OpenSSL Software Foundation](https://www.openssl.org). The following instructions guide you through the steps necessary to install OpenSSL on your Linux PC. This article uses commands known to work on Ubuntu 12.04 and higher.
 
 Open a terminal session and download OpenSSL.
 ```bash

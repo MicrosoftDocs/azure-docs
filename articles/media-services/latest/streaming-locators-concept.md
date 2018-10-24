@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 
@@ -100,7 +100,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/streaminglocators_list)
+For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 
 ## Next steps
 
