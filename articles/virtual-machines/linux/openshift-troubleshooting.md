@@ -26,15 +26,15 @@ If the OpenShift cluster does not deploy successfully, the Azure portal will pro
 - Exit code 4: Your Red Hat Pool ID is incorrect or there are no entitlements available
 - Exit code 5: Unable to provision Docker Thin Pool Volume
 
-If the exit code is 2 or anything else, you will need to connect to the host(s) via ssh to view the log files in order to identify the issue.
+For all other exit codes, connect to the host(s) via ssh to view the log files.
 
 **OpenShift Container Platform**
 
-SSH to the ansible playbook host. For the template or the Marketplace offer, it is the bastion host. From the bastion, you can ssh to all other nodes in the cluster (master, infra, CNS, compute). You will need to be root in order to view the log files. Keep in mind that root is disabled for ssh access by default so you will need to exit root in order to ssh from bastion to other nodes.
+SSH to the ansible playbook host. For the template or the Marketplace offer, use the bastion host. From the bastion, you can ssh to all other nodes in the cluster (master, infra, CNS, compute). You'll need to be root in order to view the log files. Keep in mind that root is disabled for ssh access by default so don't use root to ssh to other nodes.
 
 **OKD**
 
-SSH to the ansible playbook host. For the OKD template (version 3.9 and older), it is hostmaster-0 host. For the OKD template (version 3.10 and later), it is the bastion host. From the ansible playbook host, you can ssh to all other nodes in the cluster (master, infra, CNS, compute). You will need to be root (sudo su -) in order to view the log files. Keep in mind that root is disabled for ssh access by default so do not use root to ssh to other nodes.
+SSH to the ansible playbook host. For the OKD template (version 3.9 and older), use the master-0 host. For the OKD template (version 3.10 and later), use the bastion host. From the ansible playbook host, you can ssh to all other nodes in the cluster (master, infra, CNS, compute). You will need to be root (sudo su -) to view the log files. Keep in mind that root is disabled for ssh access by default so don't use root to ssh to other nodes.
 
 ## Log files
 
@@ -91,7 +91,7 @@ The most common errors during installation are:
 
 You will see an error that permission was denied for ssh. If you ssh to the ansible playbook host and are prompted for a passphrase, then you know immediately this was done incorrectly.
 
-### Key vault secret with private key was not created correctly
+### Key vault secret with private key wasn't created correctly
 
 The private key is injected into the ansible playbook host - ~/.ssh/id_rsa. Confirm this file is correct. You can test by initiating an SSH session to one of the cluster nodes from the ansible playbook host.
 
