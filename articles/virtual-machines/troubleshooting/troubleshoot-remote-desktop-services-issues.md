@@ -37,7 +37,7 @@ When you try to connect to a VM, you experience the following issues:
 This problem occurs because Remote Desktop Services isn't running on the Virtual Machine. The cause can depend on the following scenarios:
 
 - The TermService service was set to **Disabled**.
--	The TermService service is crashing or hanging.
+- The TermService service is crashing or hanging.
 
 ## Solution
 
@@ -51,29 +51,29 @@ To resolve this problem, use one of the following solutions or try the solutions
 
 3. Switch to the channel that running the CMD instance, in this case it should be channel 1.
 
-```
-ch -si 1
-```
+   ```
+   ch -si 1
+   ```
 
 4. Press **Enter** again and type a valid username and password (local or domain ID) for the VM.
 
 5. Query the status of the TermService service.
 
-```
-sc query TermService
-```
+   ```
+   sc query TermService
+   ```
 
 6. If the service status shows **Stopped**, try to start the service.
 
-```
-sc start TermService
-```
+   ```
+   sc start TermService
+   ```
 
 7. Query the service again to make sure that it is started successfully.
 
-```
-sc query TermService
-```
+   ```
+   sc query TermService
+   ```
 
 ### Solution 2
 
@@ -88,7 +88,7 @@ reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 REM Enable Serial Console
 bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} displaybootmenu yes
 bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} timeout 10
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} bootems yes 
+bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} bootems yes
 bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /ems {<Boot Loader Identifier>} ON
 bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
 
@@ -118,6 +118,6 @@ reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Driver/Service Name>" /v star
 reg unload HKLM\BROKENSYSTEM
 ```
 
-## Need help? Contact support.
+## Need help? Contact support
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

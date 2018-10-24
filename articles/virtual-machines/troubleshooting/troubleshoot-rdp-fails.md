@@ -59,9 +59,9 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
 1. Connect to the VM by using an administrative session:
 
-  ```
-  mstsc /v:<Server>[:<Port>] /admin
-  ```
+   ```
+   mstsc /v:<Server>[:<Port>] /admin
+   ```
 
   If you can't connect to the VM by using an administrative session, you can use the [Serial Console](serial-console-windows.md) to access the VM as follows:
 
@@ -87,7 +87,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
     If this command returns a value of 0, it means that the role is disabled, and you can go to step 3.
 
-  2. Use the following commands to check the policies and reconfigure as needed:
+  2. Use the following command to check the policies and reconfigure as needed:
 
     ```
     reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
@@ -121,14 +121,14 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
   5. Make sure that the VM can connect to the Remote Desktop license server. You can test the connectivity to the port 135 between the VM and the license server.
 
-    ```
-    telnet <FQDN / IP License Server> 135
-    ```
+   ```
+   telnet <FQDN / IP License Server> 135
+   ```
 
 3. If there's no Remote Desktop license server in the environment and you want one, you can [install an Remote Desktop licensing role service ](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)), and then [configure the RDS licensing](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
 
 4. If an Remote Desktop license server is configured and healthy, make sure that the Remote Desktop license server is activated, and that it has CALs.
 
-## Need help? Contact support.
+## Need help? Contact support
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
