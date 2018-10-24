@@ -13,7 +13,7 @@ manager: peterpr
 
 *This article applies to operators, builders, and administrators.*
 
-Azure IoT Central can be accessed across modern desktops, tablets and browsers. The following article outlines the list of supported browsers. 
+Azure IoT Central can be accessed across modern desktops, tablets, and browsers. The following article outlines the list of supported browsers. 
 
 ## Supported browsers
 We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
