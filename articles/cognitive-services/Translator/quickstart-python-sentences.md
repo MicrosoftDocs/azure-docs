@@ -90,7 +90,7 @@ headers = {
 
 ## Create a request to determine sentence length
 
-Define the string (or strings) that you want to find translations for:
+Define the sentence (or sentences) that you want to determine the length of:
 
 ```python
 # You can pass more than one object in body.
