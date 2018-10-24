@@ -18,16 +18,16 @@ ms.author: sharadag
 This tutorial shows how to use Azure PowerShell to create a sample geo-filtering policy and associate the policy with your existing Front Door frontend host. This sample geo-filtering policy will block requests from all other countries except United States.
 
 ## 1. Set up your PowerShell environment
-Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
+Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install AzureRM.
+You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install AzureRM.
 ```
 # Connect to Azure with an interactive dialog for sign-in
 Connect-AzureRmAccount
 Install-Module -Name AzureRM
 ```
 > [!NOTE]
->  [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) support is coming soon.
+>  [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) support is coming soon.
 
 Before install Front Door module, make sure you have the current version of PowerShellGet installed. Run below command and reopen PowerShell.
 
@@ -42,7 +42,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## 2. Define geo-filtering match condition(s)
-First create a sample match condition that selects requests not coming from "US". Refer to PowerShell [guide](https://docs.microsoft.com/en-us/azure/frontdoor/new-azurermfrontdoormatchconditionobject) on parameters when creating a match condition. 
+First create a sample match condition that selects requests not coming from "US". Refer to PowerShell [guide](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) on parameters when creating a match condition. 
 Two letter country code to country mapping is provided [here](/Protection/GeoFiltering).
 
 ```
@@ -57,7 +57,7 @@ Then create a CustomRule object `nonUSBlockRule` based on the match condition, a
 $nonUSBlockRule = New-AzureRmFrontDoorCustomRuleObject -Name "geoFilterRule" -RuleType MatchRule -MatchCondition $nonUSGeoMatchCondition -Action Block -Priority 1
 ```
 
-Refer to PowerShell [guide](https://docs.microsoft.com/en-us/azure/frontdoor/new-azurermfrontdoorcustomruleobject) on parameters when creating a CustomRuleObject.
+Refer to PowerShell [guide](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoorcustomruleobject) on parameters when creating a CustomRuleObject.
 
 ## 4. Add Rules to a Policy
 This step creates a `geoPolicy` policy object containing `nonUSBlockRule` from previous step in the specified resource group. Use `Get-AzureRmResourceGroup` to find your ResourceGroupName $resourceGroup.
@@ -66,18 +66,18 @@ This step creates a `geoPolicy` policy object containing `nonUSBlockRule` from p
 $geoPolicy = New-AzureRmFrontDoorFireWallPolicy -Name "geoPolicyAllowUSOnly" -resourceGroupName $resourceGroup -Customrule $nonUSBlockRule  -Mode Prevention -EnabledState Enabled
 ```
 
-Refer to PowerShell [guide](https://docs.microsoft.com/en-us/azure/frontdoor/new-azurermfrontdoorfirewallpolicy) on parameters when creating a policy.
+Refer to PowerShell [guide](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoorfirewallpolicy) on parameters when creating a policy.
 
 ## 5. Link Policy to a Front Door frontend host
 Last steps are to link the protection policy object to an existing Front Door frontend host and update Front Door properties. 
- You first retrieve your Front Door object by using [Get-AzureRmFrontDoor](https://docs.microsoft.com/en-us/azure/frontdoor/get-azurermfrontdoor), followed by setting its frontend WebApplicationFirewallPolicyLink property to resourceId of  the `geoPolicy`.
+ You first retrieve your Front Door object by using [Get-AzureRmFrontDoor](https://docs.microsoft.com/azure/frontdoor/get-azurermfrontdoor), followed by setting its frontend WebApplicationFirewallPolicyLink property to resourceId of  the `geoPolicy`.
 
 ```
 $geoFrontDoorObjectExample = Get-AzureRmFrontDoor -ResourceGroupName $resourceGroup
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 
-Use the following [command](https://docs.microsoft.com/en-us/azure/frontdoor/set-azurermfrontdoor) to update your  Front Door object.
+Use the following [command](https://docs.microsoft.com/azure/frontdoor/set-azurermfrontdoor) to update your  Front Door object.
 
 ```
 Set-AzureRmFrontDoor -InputObject $geoFrontDoorObjectExample[0]
