@@ -708,7 +708,7 @@ Here's the *function.json* file:
       "Id": "{Query.id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
@@ -1020,7 +1020,7 @@ Here's the *function.json* file:
       "Id": "{Query.id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
