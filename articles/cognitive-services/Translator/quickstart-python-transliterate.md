@@ -125,7 +125,6 @@ python transliterate-text.py
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
-
 ## Sample response
 
 ```json
