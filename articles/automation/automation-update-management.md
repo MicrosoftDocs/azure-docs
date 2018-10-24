@@ -276,7 +276,7 @@ $WUSettings.Save()
 
 ### Enable updates for other Microsoft products
 
-By default, Windows Update only provides updates for Windows. If you enable **Give me updates for other Microsoft products when I update Windows**, you are provided with updates for other products, including such things as SQL server service packs, and others. This option can't be configured by Group Policy. Run the following PowerShell on the systems that you wish to enable other first party patches on, and Update Management will honor this setting.
+By default, Windows Update only provides updates for Windows. If you enable **Give me updates for other Microsoft products when I update Windows**, you are provided with updates for other products, including such things security patches for SQL Server or other first party software. This option can't be configured by Group Policy. Run the following PowerShell on the systems that you wish to enable other first party patches on, and Update Management will honor this setting.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
