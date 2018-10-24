@@ -146,11 +146,11 @@ If you are using premium storage accounts for unmanaged disks and your applicati
 ### Premium Storage disk limits
 When you provision a premium storage disk, the size of the disk determines the maximum IOPS and throughput (bandwidth). Azure offers eight GA types of premium storage disks: P4 (Managed Disks only), P6 (Managed Disks only), P10, P15 (Managed Disks only), P20, P30, P40, and P50. As well as three preview disk sizes: P60, P70, and P80. Each premium storage disk type has specific limits for IOPS and throughput. Limits for the disk types are described in the following table:
 
-| Premium Disks Type  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------|
-| Disk size           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
-| IOPS per disk       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
-| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second | 125 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 480 MB per second | 750 MB per second | 750 MB per second |
+| Premium Disks Type  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+|---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
+| Disk size           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16,384 GiB (16 TiB)| 32,767 GiB (32 TiB)|
+| IOPS per disk       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12,500          | 15,000             | 20,000             |
+| Throughput per disk | 25 MB per second | 50 MB per second | 100 MB per second | 125 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 480 MB per second | 750 MB per second | 750 MB per second |
 
 > [!NOTE]
 > Make sure sufficient bandwidth is available on your VM to drive disk traffic, as described in [Premium Storage-supported VMs](#premium-storage-supported-vms). Otherwise, your disk throughput and IOPS is constrained to lower values. Maximum throughput and IOPS are based on the VM limits, not on the disk limits described in the preceding table.  

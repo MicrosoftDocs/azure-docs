@@ -120,6 +120,9 @@ metadata:
   name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -165,6 +168,9 @@ metadata:
   name: nanoserver-iis
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:

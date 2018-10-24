@@ -1,13 +1,14 @@
 ---
 title: Cognitive Services Speech Devices SDK third-party notice
-titleSuffix: "Microsoft Cognitive Services"
+titleSuffix: Azure Cognitive Services
 description: Information about third-party tools
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ---

@@ -54,8 +54,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/batchai?view=azure-cli-latest">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/batchai?view=azure-cli-latest">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="https://docs.microsoft.com/en-us/dotnet/api/overview/azure/batchai?view=azure-dotnet">.NET</a></p><p><a href="https://docs.microsoft.com/en-us/java/api/overview/azure/batchai?view=azure-java-stable">Java</a></p><p><a href="https://docs.microsoft.com/en-us/javascript/api/overview/azure/batchai?view=azure-node-latest">Node.js</a></p><p><a href="https://docs.microsoft.com/en-us/python/api/overview/azure/batchai?view=azure-python">Python</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/batchai?view=azure-dotnet">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/overview/azure/batchai?view=azure-java-stable">Java</a></p><p><a href="https://docs.microsoft.com/javascript/api/overview/azure/batchai?view=azure-node-latest">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/batchai?view=azure-python">Python</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/batchai/">REST API Reference</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/batchai/">REST API Reference</a></p>
