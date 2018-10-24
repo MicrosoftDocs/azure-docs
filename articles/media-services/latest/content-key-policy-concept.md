@@ -94,7 +94,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/en-us/rest/api/media/contentkeypolicies/list)
+For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
 ## Next steps
 
