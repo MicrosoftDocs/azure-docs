@@ -23,7 +23,19 @@ ms.reviewer: sureshja
 
 The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure Active Directory (Azure AD) application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
 
-Apps that integrate with Azure AD must be registered with an Azure AD tenant. You can configure the app in the [Azure portal](https://portal.azure.com) by selecting **App registrations** under **Azure Active Directory**, choosing the app you want to configure, and then selecting **Manifest**.
+Apps that integrate with Azure AD must be registered with an Azure AD tenant. You can configure an app's attributes through the Azure portal UI or programmatically using Microsoft Graph. However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
+
+* If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you cannot change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
+* If you need to define permissions and roles that your app supports, you must modify the application manifest.
+
+## Configure the app manifest
+
+To configure the application manifest:
+
+1. Log in the [Azure portal](https://portal.azure.com).
+1. Select the **Azure Active Directory** service, and then select **App registrations**.
+1. Select the app you want to configure.
+1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
 
 ## Manifest reference
 
@@ -60,7 +72,7 @@ Apps that integrate with Azure AD must be registered with an Azure AD tenant. Yo
 | `requiredResourceAccess` | Type of array | With dynamic consent, `requiredResourceAccess` drives the admin consent experience and the user consent experience for users who are using static consent. However, this does not drive the user consent experience for the general case.<br>`resourceAppId` is the unique identifier for the resource that the app requires access to. This value should be equal to the appId declared on the target resource app.<br>`resourceAccess` is an array that lists the OAuth2.0 permission scopes and app roles that the app requires from the specified resource. Contains the `id` and `type` values of the specified resources. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>] </code> |
 | `samlMetadataUrl` | string | The URL to the SAML metadata for the app. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | string | Specifies the URL to the app's home page. | `https://MyRegisteredApp` |
-| `signInAudience` | string | Specifies what microsoft accounts are supported for the current application. Supported values are:<ul><li>**AzureADMyOrg** - Users with a Microsoft work or school account in my organization’s Azure AD tenant (i.e. single tenant)</li><li>**AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization’s Azure AD tenant (i.e. multi-tenant)</li> <li>**AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
+| `signInAudience` | string | Specifies what Microsoft accounts are supported for the current application. Supported values are:<ul><li>**AzureADMyOrg** - Users with a Microsoft work or school account in my organization’s Azure AD tenant (i.e. single tenant)</li><li>**AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization’s Azure AD tenant (i.e. multi-tenant)</li> <li>**AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | String array | Custom strings that can be used to categorize and identify the application. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
 ## Next steps
