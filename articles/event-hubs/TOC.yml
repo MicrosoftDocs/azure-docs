@@ -19,6 +19,8 @@
       href: event-hubs-quickstart-cli.md
     - name: Azure PowerShell
       href: event-hubs-quickstart-powershell.md
+    - name: Azure Resource Manager template
+      href: event-hubs-resource-manager-namespace-event-hub.md
   - name: Send events to event hub 
     items:
     - name: .NET Standard
@@ -92,15 +94,13 @@
     href: event-hubs-authentication-and-security-model-overview.md
   - name: Availability and consistency
     href: event-hubs-availability-and-consistency.md
-  - name: Diagnostic logs
-    href: event-hubs-diagnostic-logs.md
   - name: AMQP 1.0 protocol guide
     href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
     maintainContext: true
 - name: How-to guides
   items:
-  - name: Create an event hub using Resource Manager template
-    href: event-hubs-resource-manager-namespace-event-hub.md
+  - name: Set up diagnostic logs
+    href: event-hubs-diagnostic-logs.md
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Create Apache Kafka-enabled event hubs
