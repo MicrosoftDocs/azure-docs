@@ -122,3 +122,6 @@ az functionapp config appsettings set --name <app_name> \
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 [!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+
+Troubleshooting:
+Note, for NodeJS you might need to set the runtime version to the version of NodeJS that you are using and try again. This is done in Application Settings under Platform Features tab as documented here - https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings. 
