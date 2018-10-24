@@ -22,8 +22,8 @@ ms.custom: include file
 
 In this step, you need to add the Application / Client ID to your project.
 
-1.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
-2.	Replace the line starting with `final static String CLIENT_ID` with:
+1. Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
+2. Replace the line starting with `final static String CLIENT_ID` with:
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
@@ -46,4 +46,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
     </intent-filter>
 </activity>
 ```
-

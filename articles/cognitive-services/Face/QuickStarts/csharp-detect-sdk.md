@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Detect faces in an image - SDK, C#"
+title: "Quickstart: Detect faces in an image using the .NET SDK with C#"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face Windows C# client library in Cognitive Services.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
 ---
-# Quickstart: Detect faces in an image using C&#35; - Face
+# Quickstart: Detect faces in an image using the .NET SDK with C#
 
 In this quickstart, you detect human faces in an image using the Face Windows client library.
 

@@ -1,18 +1,19 @@
 ---
-title: 'Quickstart: Recognize speech in Objective-C on iOS using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in Objective-C on iOS using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech in Objective-C on iOS using the Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize speech in Objective-C on iOS using the Speech Service SDK
 services: cognitive-services
 author: chlandsi
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: chlandsi
 ---
 
-# Quickstart: Recognize speech in Objective-C on iOS using the Cognitive Services Speech SDK
+# Quickstart: Recognize speech in Objective-C on iOS using the Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -20,7 +21,7 @@ In this article, you learn how to create an iOS app in Objective-C using the Cog
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
+* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
 * A Mac with Xcode 9.4.1 installed as iOS development environment. This tutorial targets iOS versions 11.4. If you don't have Xcode yet, you can install it from the [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
 ## Get the Speech SDK for iOS

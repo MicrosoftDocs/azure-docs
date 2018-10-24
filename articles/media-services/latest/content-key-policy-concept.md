@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 
@@ -94,7 +94,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/contentkeypolicies_list)
+For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
 ## Next steps
 

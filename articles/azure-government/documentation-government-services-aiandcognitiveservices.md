@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/18/2018
+ms.date: 10/23/2018
 ms.author: jglixon
 
 ---
 # Azure Government AI and Machine Learning
 
-## Cognitive Services 
+This article outlines variations and considerations when using **Cognitive Services** in the Azure Government environment.
 
 The following Cognitive Services are generally available in Azure Government: 
 
@@ -33,7 +33,8 @@ The following Cognitive Services are generally available in Azure Government:
 ### Vision
 
 #### Computer Vision
-The following variations exist for Computer Vision from global Azure:
+
+Variations in Azure Government:
 
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/vision/v2.0/
 - Available SKUs: S1
@@ -42,7 +43,7 @@ For more information, see the [global Azure documentation](../cognitive-services
  
 #### Face
 
-The following variations exist for Face from global Azure:
+Variations in Azure Government:
 
 - Endpoint: https://virginia.api.cognitive.microsoft.us/face/v1.0/
 - Available SKUs: S0
@@ -51,7 +52,7 @@ For more information, see the [global Azure documentation](../cognitive-services
 
 #### Content Moderator
 
-The following variations exist for Content Moderator from global Azure:
+Variations in Azure Government:
 
 - Endpoint: https://virginia.api.cognitive.microsoft.us/contentmoderator
 - The Review UI and Review APIs are not available at this time
@@ -63,7 +64,7 @@ For more information, see the [global Azure documentation](../cognitive-services
  
 #### Translator Text (Text Translation): 
 
-The following variations exist for Translator Text API from global Azure:
+Variations in Azure Government:
 
 - Endpoint:  https://api.cognitive.microsofttranslator.us
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
@@ -74,12 +75,12 @@ For more information, see the [global Azure documentation](../cognitive-services
 
 #### Language Understanding (LUIS)
 
-The following variations exist for Language Understanding from global Azure:
+Variations in Azure Government:
 
 - Endpoint: https://virginia.api.cognitive.microsoft.us/luis/v2.0
 - LUIS portal: https://luis.azure.us
 - Available SKUs: S0
-- Speech Requests are not currently available
+- Speech Requests, Speech Priming, Spell Check, and Prebuilt Domains are not currently available
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
@@ -87,7 +88,7 @@ For more information, see [global Azure documentation](../cognitive-services/lui
 
 #### Translator Speech (Speech Translation)
 
-The following variations exist for Translator Speech from global Azure:
+Variations in Azure Government:
 
 - Endpoint: https://docs.microsoft.com/azure/cognitive-services/translator-speech/
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
