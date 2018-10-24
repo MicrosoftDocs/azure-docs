@@ -47,7 +47,7 @@ The following diagram shows the general process for deploying the cluster.
     -  **Service principle**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
     -  **Client secret**: They key you created when you created your service principal.
 
-2. Create they deployment VM and custom script extension.
+2. Create the deployment VM and custom script extension.
     -  Create the deployment Linux VM by using the marketplace Linux image **Ubuntu Server 16.04-LTS**.
     -  Download and run the customer script extension from the marketplace. The script is **Custom Script for Linux 2.0**.
     -  Run the DVM custom script. The script does the following tasks:
@@ -88,11 +88,11 @@ You can collect logs on the VMs that support your Kubernetes cluster. You can al
     - The public key might be invalid. Review the key that you created.  
     - VM creation might have triggered an internal error or triggered a creation error. A number of factors can cause errors, including capacity limitations for your Azure Stack subscription.
     - Make sure that the fully qualified domain name (FDQN) for the VM begins with a duplicate prefix.
-4.  If the VM is **OK**, then, evaluate the DVM. If the DVM has an error message:
+4.  If the VM is **OK**, then evaluate the DVM. If the DVM has an error message:
 
     - The public key might be invalid. Review the key that you created.  
-     - You need to contact your Azure Stack administrator to retrieve the logs for Azure Stack by using the privileged endpoints. For more information, see [Azure Stack diagnostics tools](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
-5. If you have questions about your deployment, you can post your question or see if someone has already answered the question in the [Azure Stack forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+    - You need to contact your Azure Stack administrator to retrieve the logs for Azure Stack by using the privileged endpoints. For more information, see [Azure Stack diagnostics tools](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+5. If you have a question about your deployment, you can post it or see if someone has already answered the question in the [Azure Stack forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## Review deployment status
 
@@ -122,7 +122,7 @@ To generate the logs, you need to connect to the master VM for your cluster, ope
 
 ### Prerequisites
 
-You need a bash prompt on the machine that you use to manage Azure Stack. Use bash to run the scripts that access the logs. On a Windows machine, you can use the bash prompt that's installed installed with Git. To get the most recent version of git, see [Git downloads](https://git-scm.com/downloads).
+You need a bash prompt on the machine that you use to manage Azure Stack. Use bash to run the scripts that access the logs. On a Windows machine, you can use the bash prompt that's installed with Git. To get the most recent version of git, see [Git downloads](https://git-scm.com/downloads).
 
 ### Get logs
 
@@ -147,7 +147,7 @@ To get logs, take the following steps:
     ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
     ```
 
-4. Review the parameters and set the values based on your environment.
+4. Review the parameters, and set the values based on your environment.
     | Parameter           | Description                                                                                                      | Example                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -i, --identity-file | The RSA private key file to connect the Kubernetes master VM. They key must start with `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
