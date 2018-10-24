@@ -106,7 +106,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
+    href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
