@@ -18,15 +18,14 @@ ms.author: shvija
 
 ---
 
-# Create an Event Hubs namespace with event hub and consumer group using an Azure Resource Manager template
+# Quickstart: Create an event hub using Azure Resource Manager template
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 In this quickstart, you create an event hub using an Azure Resource Manager template. You use an Azure Resource Manager template to create a namespace of type [Event Hubs](event-hubs-what-is-event-hubs.md), with one event hub and one consumer group. The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. For information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
-For the complete template, see the [Event hub and consumer group template][Event Hub and consumer group template] on GitHub.
 
 > [!NOTE]
-> To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Event Hubs.
+> For the complete template, see the [Event hub and consumer group template][Event Hub and consumer group template] on GitHub. This template created a consumer group in addition to an event hub namespace and an event hub. To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Event Hubs.
 
 ## Prerequisites
 To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
@@ -36,7 +35,7 @@ If you want to use **Azure PowerShell** to deploy the Resource Manager template,
 If you want to use **Azure CLI** to deploy the Resource Manager template, [Install  Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create the Resource Manager template JSON
-Create a JSON file named MyEventHub.json with the following content:
+Create a JSON file named MyEventHub.json with the following content, and save it to a folder (for example: C:\EventHubsQuickstarts\ResourceManagerTemplate).
 
 ```json
 {
@@ -109,7 +108,26 @@ Create a JSON file named MyEventHub-Parameters.json that contains parameters for
 
 
 ## Use Azure PowerShell to deploy the template
-To deploy the resources using Azure PowerShell, run the following commands:
+
+### Sign in to Azure
+1. Launch Azure PowerShell
+
+2. Run the following command to log in to Azure:
+
+   ```azurepowershell
+   Login-AzureRmAccount
+   ```
+3. If you have Issue the following commands to set the current subscription context:
+
+   ```azurepowershell
+   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   ```
+
+### Provision resources
+To deploy/provision the resources using Azure PowerShell, switch to the C:\EventHubsQuickStart\ARM\ folder, run the following commands:
+
+> [!IMPORTANT]
+> Specify a name for the Azure resource group as a value for $resourceGroupName before running the commands. 
 
 ```azurepowershell
 $resourceGroupName = "<Specify a name for the Azure resource group>"
@@ -118,48 +136,39 @@ $resourceGroupName = "<Specify a name for the Azure resource group>"
 New-AzureRmResourceGroup $resourceGroupName -location 'East US'
 
 # Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile C:\EventHubsQuickStart\ARM\MyEventHub.json -TemplateParameterFile C:\EventHubsQuickStart\ARM\MyEventHub-Parameters.json
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
 ```
 
 ## Use Azure CLI to deploy the template
-To deploy the resources using Azure PowerShell, switch to the C:\EventHubsQuickStart\ARM\ folder, and run the following commands:
+
+## Sign in to Azure
+
+The following steps are not required if you're running commands in Cloud Shell. If you're running the CLI locally, perform the following steps to sign in to Azure and set your current subscription:
+
+Run the following command to sign in to Azure:
 
 ```azurecli
-azure config mode arm
+az login
+```
 
+Set the current subscription context. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
+
+```azurecli
+az account set --subscription <Name of your Azure subscription>
+``` 
+
+### Provision resources
+To deploy the resources using Azure CLI, switch to the C:\EventHubsQuickStart\ARM\ folder, and run the following commands:
+
+> [!IMPORTANT]
+> Specify a name for the Azure resource group in the az group create command. .
+
+```azurecli
 # Create an Azure resource group
 az group create --name <YourResourceGroupName> --location eastus
 
 # # Deploy the Resource Manager template. Specify the names of resource group, deployment, JSON file for the template, JSON file for parameters
-azure group deployment create <YourResourceGroupName> <YourDeploymentName> --template-file MyEventHub.json -parameters @MyEventHub-Parameters.json
-```
-
-## Use the quick start template 
-
-
-### Use Azure portal 
-You can also use the Azure portal and a quick start template to create an event hub. To run the deployment automatically, select the following button:
-
-[![Deploy to Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
-
-### Use Azure PowerShell
-
-```azurepowershell
-# Create an Azure resource group
-
-# Deploy the Resource Manager template
-
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
-```
-
-### Use Azure CLI
-
-```azurecli
-azure config mode arm
-
-az group create --name <resource group name> --location eastus
-
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
+az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyEventHub.json --parameters @MyEventHub-Parameters.json
 ```
 
 Congratulations! You have used the Azure Resource Manager template to create an Event Hubs namespace, and an event hub within that namespace.
