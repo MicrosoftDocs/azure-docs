@@ -3,7 +3,7 @@ title: Understand admin roles for Enterprise in Azure | Microsoft Docs
 description: Learn about Enterprise administrator roles in Azure.
 services: 'billing'
 documentationcenter: ''
-author: cwatson-cat
+author: adpick
 manager: dougeby
 editor: ''
 
