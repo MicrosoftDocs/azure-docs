@@ -11,11 +11,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 10/23/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-#As an Azure AD administrator, I want to know which roles are available for a given task
+#As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD tenant more secure.
+
 ---
 
 # Administrator roles by identity task in Azure Active Directory
