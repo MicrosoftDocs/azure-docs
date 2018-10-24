@@ -1,6 +1,6 @@
 ---
 title: Manage user consent to an application - Azure Active Directory | Microsoft Docs
-description: Learn ways an admin can consent to an application on behalf of all end users, or force users to consent upon authentication. These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
+description: Learn how to manage the way users consent to application permissions. You can simplify the user experience by granting admin consent. These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -23,12 +23,7 @@ For more information on application consent, see [Azure Active Directory consent
 
 Granting admin consent requires you to sign in as global administrator, an application administrator, or a cloud application administrator.
 
-To use the Azure portal to grant admin consent, the application needs to be: 
-
-- Registered in your tenant, or
-- Registered in another Azure AD tenant, and consented by at least one end user. Once an end user has consented to an application, Azure AD lists the application under **Enterprise apps** in the Azure portal.
-
-## Grant admin consent through the Azure portal
+## Grant admin consent to enterprise apps in the Azure portal
 
 To grant admin consent to an enterprise app:
 
@@ -39,6 +34,13 @@ To grant admin consent to an enterprise app:
 5. Click **Grant Admin Consent**. You'll be prompted to sign in to administrate the application.
 6. Sign in with an account that has permissions to grant admin consent for the application. 
 7. Consent to the application permissions.
+
+This option only works if the application is: 
+
+- Registered in your tenant, or
+- Registered in another Azure AD tenant, and consented by at least one end user. Once an end user has consented to an application, Azure AD lists the application under **Enterprise apps** in the Azure portal.
+
+## Grant admin consent when registering an app in the Azure portal
 
 To grant admin consent when registering an app: 
 
@@ -53,13 +55,13 @@ To grant admin consent when registering an app:
 
 To grant admin consent through a URL request:
 
-1. Construct a request to *login.microsoftonline.com* with your app configurations and append on `&prompt=admin\_consent`. 
+1. Construct a request to *login.microsoftonline.com* with your app configurations and append on `&prompt=admin_consent`. 
 2. After signing in with admin credentials, the app has been granted consent for all users.
 
 
 ## Force user consent through a URL request
 
-To require end users to consent to an application each time they authenticate, append `&prompt=admin\_consent` to the authentication request URL.
+To require end users to consent to an application each time they authenticate, append `&prompt=consent` to the authentication request URL.
 
 ## Next steps
 
