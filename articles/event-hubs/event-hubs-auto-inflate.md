@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
 
 ---
@@ -24,6 +24,8 @@ Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hu
 
 * Data ingress rates exceed set throughput units.
 * Data egress request rates exceed set throughput units.
+
+The Event Hubs service increases the throughput when load increases beyond the minimum threshold, without any requests failing with ServerBusy errors.
 
 ## How Auto-inflate works
 
@@ -51,6 +53,10 @@ With this option enabled, you can start small with your throughput units and sca
 You can also enable Auto-inflate using the **Scale** option on the settings pane in the portal:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. To enable diagnostic logging for an event hub, select **Diagnostic settings** on the left menu on the Event Hub page in the Azure portal. For more information, see [Set up diagnostic logs for an Azure event hub](event-hubs-diagnostic-logs.md). 
 
 ### Enable Auto-Inflate using an Azure Resource Manager template
 
@@ -99,6 +105,7 @@ You can enable Auto-inflate during an Azure Resource Manager template deployment
 ```
 
 For the complete template, see the [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) template on GitHub.
+
 
 ## Next steps
 

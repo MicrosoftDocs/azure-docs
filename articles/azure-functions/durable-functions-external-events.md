@@ -2,13 +2,13 @@
 title: Handling external events in Durable Functions - Azure
 description: Learn how to handle external events in the Durable Functions extension for Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -131,7 +131,7 @@ public static async Task Run(
 #### JavaScript (Functions v2 only)
 
 ```javascript
-const df = require.orchestrator("durable-functions");
+const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const applicationId = context.df.getInput();
@@ -143,7 +143,7 @@ module.exports = df.orchestrator(function*(context) {
     // all three departments must grant approval before a permit can be issued
     yield context.df.Task.all([gate1, gate2, gate3]);
 
-    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+    yield context.df.callActivity("IssueBuildingPermit", applicationId);
 });
 ```
 

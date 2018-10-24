@@ -89,7 +89,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 [yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
 <!--Marketplace Links -->
-[birst_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/birst/birst/
+[birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 <!--[clearstory_marketplace]:-->
 <!--[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner/-->
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 

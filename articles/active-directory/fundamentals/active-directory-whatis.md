@@ -52,7 +52,7 @@ For more information about service level agreements, see [Service Level Agreemen
 ## Choose an edition
 All Microsoft Online business services rely on Azure AD for sign-in and other identity needs. If you subscribe to any Microsoft Online business services (for example, Office 365 or Microsoft Azure), you automatically get Azure AD with access to all of the Free features. Using the Azure Active Directory Free edition, you can manage users and groups, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS apps like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more. 
 
-To enhance your Azure AD implementation, you can also add paid capabilities bu upgrading to Azure Active Directory Basic, Premium P1, or Premium P2 editions. Azure AD paid editions are built on top of your existing free directory, providing enterprise class capabilities that span self-service, enhanced monitoring, security reporting, Multi-Factor Authentication (MFA), and secure access for your mobile workforce.
+To enhance your Azure AD implementation, you can also add paid capabilities by upgrading to Azure Active Directory Basic, Premium P1, or Premium P2 editions. Azure AD paid editions are built on top of your existing free directory, providing enterprise class capabilities that span self-service, enhanced monitoring, security reporting, Multi-Factor Authentication (MFA), and secure access for your mobile workforce.
 
 > [!NOTE]
 > For the pricing options of these editions, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1, Premium P2, and Azure Active Directory Basic are not currently supported in China. For more information about Azure AD pricing, you can contact the Azure Active Directory Forum.
@@ -70,7 +70,7 @@ To enhance your Azure AD implementation, you can also add paid capabilities bu u
 Sign up for a free 30-day trial and deploy your first cloud solution, see [Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 ## As a developer, how do I get started?
-Sign up for a free 30-day trial and start integrating your apps with Azure AD, see [Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/). For more information, you can also see the [Developers Guide](../develop/azure-ad-developers-guide.md) for Azure Active Directory.
+Sign up for a free 30-day trial and start integrating your apps with Azure AD, see [Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/). For more information, you can also see the [Developers Guide](../develop/v1-overview.md) for Azure Active Directory.
 
 ## Next steps
 - [Learn more about the fundamentals of Azure identity and access management](identity-fundamentals.md).
