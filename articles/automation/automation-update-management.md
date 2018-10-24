@@ -33,7 +33,7 @@ Update Management can be used to natively onboard machines in multiple subscript
 
 Once a CVE is release, it takes 2-3 hours for the patch to show up for Linux machines for assessment.  For Windows machines, it takes 12-15 hours for the patch to show up for assessment after it has been released.
 
-After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is ran every 12 hours by default.
+After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is run every 12 hours by default.
 
 In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes if the MMA is restarted, before update installation, and after update installation.
 
@@ -50,7 +50,7 @@ The scheduled deployment defines what target computers receive the applicable up
 
 Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and the runbooks don’t require any configuration. When an update deployment is created, the update deployment creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to install the required updates.
 
-At the date and time specified in the update deployment, the target computers execute the deployment in parallel. Before installation, a scan is ran to verify that the updates are still required. For WSUS client computers, if the updates aren't approved in WSUS, the update deployment fails.
+At the date and time specified in the update deployment, the target computers execute the deployment in parallel. Before installation, a scan is run to verify that the updates are still required. For WSUS client computers, if the updates aren't approved in WSUS, the update deployment fails.
 
 Having a machine registered for Update Management in more than one Log Analytics Workspaces (multi-homing) isn't supported.
 
@@ -258,7 +258,34 @@ sudo yum -q --security check-update
 
 There is currently no method supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
 
-##<a name="ports"></a>Network Planning
+## <a name="firstparty-predownload"></a>First party patching and pre-download
+
+Update Management relies on Windows Update to download and install Windows Updates. As a result, we respect many of the settings used by Windows Update. If you use settings to enable non-Windows updates, Update Management will manage those updates as well. If you want to enable downloading updates before an update deployment occurs, update deployments can go faster and be less likely to exceed the maintenance window.
+
+### Pre download updates
+
+To configure automatically downloading updates in Group Policy, you can set the [Configure Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) to **3**. This downloads the updates needed in the background, but does not install them. This keeps Update Management in control of schedules but allow updates to download outside of the Update Management maintenance window. This can prevent **Maintenance window exceeded** errors in Update Management.
+
+You can also set this with PowerShell, run the following PowerShell on a system that you want to auto-download updates.
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### Enable updates for other Microsoft products
+
+By default, Windows Update only provides updates for Windows. If you enable **Give me updates for other Microsoft products when I update Windows**, you are provided with updates for other products, including such things as SQL server service packs, and others. This option can't be configured by Group Policy. Run the following PowerShell on the systems that you wish to enable other first party patches on, and Update Management will honor this setting.
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>Network Planning
 
 The following addresses are required specifically for Update Management. Communication to these addresses occurs over port 443.
 

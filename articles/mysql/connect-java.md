@@ -26,8 +26,8 @@ There are numerous other examples and sample code at the [MySQL Connector exampl
 2. Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
 
 3. Obtain the MySQL Connector/J connector using one of the following approaches:
-   - Use the Maven package [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) to include the [mysql dependency](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) in the POM file for your project.
-   - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) and include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. If you have trouble with classpaths, consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+   - Use the Maven package [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) to include the [mysql dependency](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) in the POM file for your project.
+   - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) and include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. If you have trouble with classpaths, consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
@@ -228,7 +228,7 @@ public class ReadTable {
 ```
 
 ## Update data
-Use the following code to change the data with an **UPDATE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. The methods [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
+Use the following code to change the data with an **UPDATE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. The methods [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
@@ -309,7 +309,7 @@ public class UpdateTable {
 ```
 
 ## Delete data
-Use the following code to remove data with a **DELETE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL.  The methods [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
+Use the following code to remove data with a **DELETE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL.  The methods [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
