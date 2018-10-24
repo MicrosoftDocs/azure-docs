@@ -99,6 +99,8 @@
       href: protect-with-drm.md
 - name: Reference
   items:
+  - name: OpenAPI Specification (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref
   - name: Azure CLI
