@@ -38,6 +38,9 @@ No. Backup data stored in a vault can't be moved to a different vault.
 
 No. A Recovery Services vault can only change storage options before any backups have been stored.
 
+### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
+No, ILR isn't supported. 
+
 
 ## Azure Backup agent
 
@@ -161,6 +164,15 @@ If you cancel a backup job for an Azure VM, any transferred data is ignored. The
 
 ### Can I delete individual files from a recovery point in the vault?
 No, Azure Backup doesn't support deleting or purging individual items from stored backups.
+
+
+### If I cancel a backup job after it starts, is the transferred backup data deleted?
+
+No. All data that was transferred into the vault before the backup job was canceled remains in the vault.
+- Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup.
+- Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files.
+- The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
+
 
 
 
