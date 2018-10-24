@@ -20,20 +20,22 @@ ms.author: dekapur
 
 # List of Service Fabric events 
 
-Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster as [Service Fabric Events](service-fabric-diagnostics-events.md). These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by configuring [Log Analytics with your cluster](service-fabric-diagnostics-oms-setup.md), querying the [EventStore](service-fabric-diagnostics-eventstore.md) in your cluster, or through the operational channel. On Windows machines, the operational channel is also hooked up to the EventLog - so you can see Service Fabric Events in Event Viewer. 
+Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster as [Service Fabric Events](service-fabric-diagnostics-events.md). These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by configuring in a number of ways including configuring [Log Analytics with your cluster](service-fabric-diagnostics-oms-setup.md), or querying the [EventStore](service-fabric-diagnostics-eventstore.md). On Windows machines, these events are fed into the EventLog - so you can see Service Fabric Events in Event Viewer. 
 
 Here are some characteristics of these events
 * Each event is tied to a specific entity in the cluster e.g. Application, Service, Node, Replica
 * Each event contains a set of common fields: EventInstaceId, EventName, and Category
-* Each event contains fields that tie the event back to the entity its associated with. For instance, the ApplicationCreated event would have fields that identify the name of the application created 
+* Each event contains fields that tie the event back to the entity it is associated with. For instance, the ApplicationCreated event would have fields that identify the name of the application created 
 * Events are structured in such a way that they can be consumed in a variety of tools to do richer analysis and relevant details to an event are defined as separate properties versus a long String 
 * Events are written by different subsystems in Service Fabric identifyed by Source(Task) below. More information is available on these subsystems in [Service Fabric Architecture](service-fabric-architecture.md) and [Service Fabric Technical Overview](service-fabric-technical-overview.md)
 
-Here is a list of these operational events organized by entity.
+Here is a list of these Service Fabric events organized by entity.
 
 ## Cluster events
 
 **Cluster upgrade events**
+
+More details on cluster upgrades can be found [here](service-fabric-cluster-upgrade-windows-server.md)
 
 | EventId | Name | Category | Description |Source (Task) | Level | 
 | --- | --- | --- | --- | --- | --- | 
@@ -72,6 +74,8 @@ Here is a list of these operational events organized by entity.
 
 **Application upgrade events**
 
+More details on application upgrades can be found [here](service-fabric-application-upgrade.md)
+
 | EventId | Name | Category | Description |Source (Task) | Level | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Upgrade | An application upgrade has started | CM | Informational | 
@@ -109,7 +113,11 @@ Here is a list of these operational events organized by entity.
 
 ## Health reports
 
-The [Service Fabric Health Model](service-fabric-health-introduction.md) provides a rich, flexible, and extensible health evaluation and reporting. Starting in version 6.2, health data is written as Platform events to provide historical records of health.
+The [Service Fabric Health Model](service-fabric-health-introduction.md) provides a rich, flexible, and extensible health evaluation and reporting. Starting in version 6.2, health data is written as Platform events to provide historical records of health. To keep the volume of health events low, we only write the following as Service Fabric events:
+
+* All `Error` or `Warning` health reports
+* `Ok` health reports during transitions
+* When an `Error` or `Warning` health event expires. This can be used to determine how long an entity was unhealthy
 
 **Cluster health report events**
 
