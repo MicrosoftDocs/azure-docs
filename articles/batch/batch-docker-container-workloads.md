@@ -242,7 +242,7 @@ Because Batch changes the default working directory in the container, the task r
 
 * Make sure that your task command line (or container working directory) specifies an absolute path, if it isn't already configured that way.
 
-* In the task's ContainerSettings, set a working directory in the container run options. For example, `-w /app`.
+* In the task's ContainerSettings, set a working directory in the container run options. For example, `--workdir /app`.
 
 The following Python snippet shows a basic command line running in an Ubuntu container pulled from Docker Hub. Here, the `--rm` container run option removes the container after the task finishes.
 
