@@ -83,9 +83,9 @@ Failure summary:
 The most common errors during installation are:
 
 1. Private key has passphrase
-2. Key vault secret with private key was not created correctly
+2. Key vault secret with private key wasn't created correctly
 3. Service principal credentials were entered incorrectly
-4. Service principal does not have contributor access to the resource group
+4. Service principal doesn't have contributor access to the resource group
 
 ### Private Key has a passphrase
 
@@ -103,7 +103,7 @@ When providing the input to the template or Marketplace offer, the incorrect inf
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 ```
 
-### Service principal does not have contributor access to the resource group
+### Service principal doesn't have contributor access to the resource group
 
 If the Azure cloud provider is enabled, then the service principal used must have contributor access to the resource group. This can be verified by issuing the following azure cli command.
 
