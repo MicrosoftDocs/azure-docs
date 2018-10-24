@@ -69,7 +69,7 @@ After you create your virtual network, you can add the IP address of a DNS serve
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->The Basic SKU does not support IKEv2 or RADIUS authentication.
+>The Basic SKU does not support IKEv2 or RADIUS authentication. If you are planning on having Mac clients connect to your virtual network, do not use the Basic SKU.
 >
 
 ## <a name="generatecert"></a>5. Generate certificates
