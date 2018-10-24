@@ -29970,6 +29970,12 @@
             "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-domains",
             "redirect_document_id": false
             
+        },
+        {
+            "source_path": "articles/media-services/latest/transform-concept.md",
+            "redirect_url": "/azure/media-services/latest/transforms-jobs-concept",
+            "redirect_document_id": false
+            
         }
     ]
 }
