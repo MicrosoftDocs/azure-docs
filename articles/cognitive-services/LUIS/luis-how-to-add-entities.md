@@ -28,7 +28,7 @@ Common prebuilt entities added to an application are *number* and *datetimeV2*.
  
 1. On the **Entities** page, select **Add prebuilt entities**.
 
-1. In **Add or remove prebuilt entities** dialog box, select the **number** and **datetimeV2** prebuilt entities. Then select **Done**.
+1. In **Add prebuilt entities** dialog box, select the **number** and **datetimeV2** prebuilt entities. Then select **Done**.
 
     ![Screenshot of Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
 
