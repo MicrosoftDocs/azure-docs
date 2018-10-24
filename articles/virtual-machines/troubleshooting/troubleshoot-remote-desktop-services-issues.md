@@ -30,7 +30,7 @@ When you try to connect to a VM, you experience the following issues:
 - The VM screenshot shows the operating system is fully loaded and waiting for credentials.
 - All applications on the VM are working as expected and accessible.
 - The VM is responding to the TCP connectivity on the Microsoft Remote Desktop Protocol (RDP) port (default 3389).
-- You are not prompted for credentials when you try to make an RDP connection.
+- You aren't prompted for credentials when you try to make an RDP connection.
 
 ## Cause
 
@@ -47,7 +47,7 @@ To resolve this problem, use one of the following solutions or try the solutions
 
 1. Access the Serial Console by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
-2. Create a new channel for a CMD instance. Type **CMD** to start the channel and you will get the channel name.
+2. Create a new channel for a CMD instance. Type **CMD** to start the channel to get the channel name.
 
 3. Switch to the channel that running the CMD instance, in this case it should be channel 1.
 
@@ -69,7 +69,7 @@ To resolve this problem, use one of the following solutions or try the solutions
    sc start TermService
    ```
 
-7. Query the service again to make sure that it is started successfully.
+7. Query the service again to make sure that the service is started successfully.
 
    ```
    sc query TermService

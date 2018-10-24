@@ -45,13 +45,13 @@ mstsc /v:<Server>[:<Port>] /admin
 
 ## Cause
 
-This problem occurs if an Remote Desktop license server is unavailable to provide a license to start a remote session. This problem can be caused by several scenarios even though an Remote Desktop Session Host role was set up on the VM:
+This problem occurs if a Remote Desktop license server is unavailable to provide a license to start a remote session. This problem can be caused by several scenarios even though a Remote Desktop Session Host role was set up on the VM:
 
-- There was never an Remote Desktop licensing role in the environment and the grace period (180 days) is over.
-- An Remote Desktop license was installed in the environment but it is never activated.
-- An Remote Desktop license in the environment doesn't have Client Access Licenses (CALs) injected to set up the connection.
-- An Remote Desktop license was installed in the environment. There are available CALs but they weren't configured properly.
-- An Remote Desktop license has CALs and it was activated. However, some other issues on the Remote Desktop license server prevent it from providing licenses in the environment.
+- There was never a Remote Desktop licensing role in the environment and the grace period (180 days) is over.
+- A Remote Desktop license was installed in the environment but it is never activated.
+- A Remote Desktop license in the environment doesn't have Client Access Licenses (CALs) injected to set up the connection.
+- A Remote Desktop license was installed in the environment. There are available CALs but they weren't configured properly.
+- A Remote Desktop license has CALs and it was activated. However, some other issues on the Remote Desktop license server prevent it from providing licenses in the environment.
 
 ## Solution
 
@@ -67,7 +67,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
   1. Access the Serial Console by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
-  2. Create a new channel for a CMD instance. Type **CMD** to start the channel and you will get the channel name.
+  2. Create a new channel for a CMD instance. Type **CMD** to start the channel to get the channel name.
 
   3. Switch to the channel that running the CMD instance, in this case it should be channel 1.
 
@@ -77,7 +77,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
   4. Press **Enter** again and type a valid username and password (local or domain ID) for the VM.
 
-2. Check whether the VM has an Remote Desktop Session Host role enabled. If the role is enabled, make sure that it is functioning properly. Open an elevated CMD instance and follow these steps:
+2. Check whether the VM has a Remote Desktop Session Host role enabled. If the role is enabled, make sure that it is functioning properly. Open an elevated CMD instance and follow these steps:
 
   1. Use the following command to check the status of the Remote Desktop Session Host role:
 
@@ -125,9 +125,9 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
    telnet <FQDN / IP License Server> 135
    ```
 
-3. If there's no Remote Desktop license server in the environment and you want one, you can [install an Remote Desktop licensing role service ](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)), and then [configure the RDS licensing](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
+3. If there's no Remote Desktop license server in the environment and you want one, you can [install a Remote Desktop licensing role service ](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)), and then [configure the RDS licensing](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
 
-4. If an Remote Desktop license server is configured and healthy, make sure that the Remote Desktop license server is activated, and that it has CALs.
+4. If a Remote Desktop license server is configured and healthy, make sure that the Remote Desktop license server is activated with CALs.
 
 ## Need help? Contact support
 
