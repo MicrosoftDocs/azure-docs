@@ -179,7 +179,7 @@ Example *run.csx* for queue trigger:
 using System;
 using Microsoft.Extensions.Logging;
 
-public static void Run(Order myQueueItem, out Order outputQueueItem,ILogger log)
+public static void Run(Order myQueueItem, out Order outputQueueItem, ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed order...");
     log.LogInformation(myQueueItem.ToString());
