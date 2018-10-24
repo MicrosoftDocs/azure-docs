@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 
 ---
@@ -30,13 +30,14 @@ ExpressRoute Global Reach is designed to complement your service provider’s WA
 ## Availability 
 ExpressRoute Global Reach currently is supported in the following places.
 
-* United States
-* United Kingdom 
-* Ireland
-* Netherlands
 * Australia
-* Hong Kong 
+* France
+* Hong Kong
+* Ireland
 * Japan
+* Netherlands
+* United Kindom
+* United States
 
 Your ExpressRoute circuits must be created at the [ExpressRoute peering locations](expressroute-locations.md) in the above countries or region. To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md), your circuits must be Premium SKU.
 

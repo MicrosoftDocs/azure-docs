@@ -194,7 +194,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+    href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
     items:
     - name: Product videos
