@@ -36,13 +36,13 @@ In this tutorial, you learn how to:
 
 ## Trace a call
 
+![API tracing](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
+
 1. Select **APIs**.
 2. Click **Demo Conference API** from your API list.
 3. Select **GetSpeakers** operation.
 4. Switch to the **Test** tab.
 5. Make sure to include an HTTP header named **Ocp-Apim-Trace** with the value set to **true**.
-
-    ![API tracing header](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
     > If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys on the profile page.
