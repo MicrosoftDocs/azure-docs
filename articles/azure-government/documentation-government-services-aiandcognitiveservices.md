@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/18/2018
+ms.date: 10/23/2018
 ms.author: jglixon
 
 ---
 # Azure Government AI and Machine Learning
 
-## Cognitive Services 
+This article outlines variations and considerations when using **Cognitive Services** in the Azure Government environment.
 
 The following Cognitive Services are generally available in Azure Government: 
 
