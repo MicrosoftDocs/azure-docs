@@ -142,44 +142,35 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### Pricing
-
-While the solution is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. Please note that more active databases with heavier workloads will ingest more data versus idle databases. You can easily monitor your data ingestion consumption in the solution by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
-
-### Create custom portal monitoring role
+### Permissions
 
 Recognizing that some organizations enforce strict permission controls in Azure, please find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum permissions required to use Azure SQL Analytics to its fullest extent.
 
-Please replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script as an Owner or Contributor role in Azure.
-
-To enable storage of diagnostics logs in a storage account, use this command:
+Please replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.
 
    ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription {SubscriptionId}
-
-$role = Get-AzureRmRoleDefinition -Name Reader
-$role.Name = "SQL Analytics Monitoring Operator"
-$role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
-$role.IsCustom = $true
-$role.Actions.Add("Microsoft.SQL/servers/databases/read");
-$role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
-$role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
-$role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
-$role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
-$role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
-$role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
-$role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
-$role.Actions.Add("Microsoft.Sql/servers/databases/*");
-$role.Actions.Add("Microsoft.Sql/servers/advisors/read");
-$role.Actions.Add("Microsoft.Sql/servers/advisors/write");
-$role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
-$role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
-$role.Actions.Add("Microsoft.Resources/deployments/write");
-
-$role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-
-New-AzureRmRoleDefinition $role
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
    ```
 
 ### Analyze data and create alerts
@@ -276,6 +267,10 @@ AzureDiagnostics
 > [!NOTE]
 > - Pre-requirement of setting up this alert is that monitored Managed Instance has the streaming of ResourceUsageStats log enabled to the solution.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the Managed Instance. The output is storage percentage consumption on the Managed Instance.
+
+### Pricing
+
+While the solution is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. Please note that more active databases with heavier workloads will ingest more data versus idle databases. You can easily monitor your data ingestion consumption in the solution by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
 
 ## Next steps
 
