@@ -60,6 +60,7 @@ sections:
     - html: <a href="use-display-requirements.md">Use and display requirements</a>     
     - html: <a href="local-search-reference.md">Local Business Search API reference</a>
 - title: Resources
+  items:
   - type: list
     style: unordered
     items:
