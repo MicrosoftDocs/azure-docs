@@ -17,9 +17,7 @@ ms.author: jglixon
 ---
 # Azure Government AI and Machine Learning
 
-This article outlines variations and considerations when using Cognitive Services in the Azure Government environment.
-
-## Cognitive Services 
+This article outlines variations and considerations when using **Cognitive Services** in the Azure Government environment.
 
 The following Cognitive Services are generally available in Azure Government: 
 
