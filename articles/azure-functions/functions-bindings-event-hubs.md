@@ -85,7 +85,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-To get access to [event metadata](#trigger---event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.ServiceBus.Messaging`). You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
+To get access to [event metadata](#trigger---event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.Azure.EventHubs`). You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -96,27 +96,31 @@ public static void Run(
     string offset,
     TraceWriter log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.Body)}");
     // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
-    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.SystemProperties.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SystemProperties.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.SystemProperties.Offset}");
+    // Metadata accessed by using binding expressions in method parameters
     log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
     log.Info($"SequenceNumber={sequenceNumber}");
     log.Info($"Offset={offset}");
 }
 ```
 
-To receive events in a batch, make `string` or `EventData` an array:
+To receive events in a batch, make `string` or `EventData` an array.  
+
+> [!NOTE]
+> When receiving in a batch you cannot bind to method parameters like in the above example with `DateTime enqueuedTimeUtc` and must receive these from each `EventData` object  
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
-        log.Info($"C# Event Hub trigger function processed a message: {message}");
+        log.Info($"C# Event Hub trigger function processed a message: {Encoding.UTF8.GetString(message.Body)}");
+        log.Info($"EnqueuedTimeUtc={message.SystemProperties.EnqueuedTimeUtc}");
     }
 }
 ```
@@ -158,29 +162,30 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-To get access to [event metadata](#trigger---event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.ServiceBus.Messaging`). You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
+To get access to [event metadata](#trigger---event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.Azure.EventHubs`). You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
 
 ```cs
-#r "Microsoft.ServiceBus"
+#r "Microsoft.Azure.EventHubs"
+
 using System.Text;
 using System;
-using Microsoft.ServiceBus.Messaging;
+using Microsoft.Azure.EventHubs;
 
 public static void Run(EventData myEventHubMessage,
     DateTime enqueuedTimeUtc, 
     Int64 sequenceNumber,
     string offset,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
-    // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
+    log.LogInformation($"Event: {Encoding.UTF8.GetString(myEventHubMessage.Body)}");
+    log.LogInformation($"EnqueuedTimeUtc={myEventHubMessage.SystemProperties.EnqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={myEventHubMessage.SystemProperties.SequenceNumber}");
+    log.LogInformation($"Offset={myEventHubMessage.SystemProperties.Offset}");
+
     // Metadata accessed by using binding expressions
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"SequenceNumber={sequenceNumber}");
-    log.Info($"Offset={offset}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={sequenceNumber}");
+    log.LogInformation($"Offset={offset}");
 }
 ```
 
