@@ -17,12 +17,12 @@ Source control allows you to keep your runbooks in your Automation account are u
 Azure Automation supports 3 types of source control:
 
 * GitHub
-* Visual Studio Team Services (Git)
-* Visual Studio Team Services (TFVC)
+* Azure DevOps (Git)
+* Azure DevOps (TFVC)
 
 ## Pre-requisites
 
-* A source control repository (GitHub or Visual Studio Team Services)
+* A source control repository (GitHub or Azure DevOps)
 * The correct [permissions](#personal-access-token-permissions) to the source control repository
 * A [Run-As Account and connection](manage-runas-account.md)
 
@@ -44,7 +44,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |Property  |Description  |
 |---------|---------|
 |Source control name     | A friendly name for the source control        |
-|Source control type     | The type of source control source. Available options are:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Source control type     | The type of source control source. Available options are:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repository     | The name of the repository or project. This value is pulled from the source control repository. Example: $/ContosoFinanceTFVCExample         |
 |Branch     | The branch to pull the source files from. Branch targeting is not available for the TFVC source control type.          |
 |Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks         |
