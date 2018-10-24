@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2018
-ms.author: andret
+ms.date: 10/24/2018
+ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Azure AD v2.0 endpoint.
 ---
@@ -32,11 +32,14 @@ In this quickstart, you'll learn a Windows desktop .NET (WPF) application can si
 > ## Register and download
 > ### Register and configure your application and code sample
 > #### Step 1: Register your application
-> To register your application and add your application registration information to your solution, do the following:
-> 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application.
-> 1. In the **Application Name** box, enter a name for your application.
-> 1. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
-> 1. Select **Add Platform**, select **Native Application**, and then select **Save**.
+> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
+> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+> 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)** > **New registration**.
+> 1. When the Register an application page appears, enter your application's registration information:
+>      - In the *Name* section, Enter a meaningful application name that will be displayed to users of the app, for example `UWP-App-calling-MsGraph`
+>      - In the *Supported account types* section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**
+>      - Click **Register** to create the application.
+> 1. In the list of pages for the app, click on **Authentication** and, in the *Redirect URLs* | *Suggested Redirect URLs for public clients (mobile, desktop)* section, check **"urn:ietf:wg:oauth:2.0:oob**, then **Save**
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
