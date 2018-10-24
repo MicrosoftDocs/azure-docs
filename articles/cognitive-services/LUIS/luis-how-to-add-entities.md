@@ -32,8 +32,6 @@ Common prebuilt entities added to an application are *number* and *datetimeV2*.
 
     ![Screenshot of Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
 
-    See [datetimeV2](luis-reference-prebuilt-datetimev2.md) and [number](luis-reference-prebuilt-number.md) to learn more about extracting the prebuilt entity from the endpoint JSON query response.
-
 ## Add simple entities
 
 A simple entity describes a single concept. Use the following procedure to create an entity that extracts company department names such as *Human resources* or *Operations*.   
@@ -42,11 +40,9 @@ A simple entity describes a single concept. Use the following procedure to creat
 
 1. In the pop-up dialog box, type `Department name` in the **Entity name** box, select **Simple** from the **Entity type** list, and then select **Done**.
 
-    ![Screenshot of dialog box for creating simple entity](./media/add-entities/create-simple-entity.png)
-
     Once this entity is created, go to all intents that have example utterances that contain the entity. Select the text in the example utterance and mark the text as the entity. 
 
-    A phrase list is commonly used in conjuction with a simple list to boost the signal to LUIS regarding the words marked with the simple entity.
+    A [phrase list](luis-concept-feature.md) is commonly used to boost the signal of a simple entity.
 
 ## Add regular expression entities
 
@@ -56,7 +52,7 @@ A regular expression entity is used to pull out data from the utterance based on
 
 1. In the pop-up dialog box, enter `Human resources form name` in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `hrf-[0-9]{6}`, and then select **Done**. 
 
-    This regular expression expects three characters, literally `hrf`, then 6 digits to represent a form number for a Human resources form.
+    This regular expression literal characters `hrf-`, then 6 digits to represent a form number for a Human resources form.
 
     ![Image of dialog box to create regular expression entity](./media/add-entities/create-regex-entity.png)
 

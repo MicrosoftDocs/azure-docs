@@ -55,7 +55,7 @@ For a company department list entity, you can have normalized values: `Accountin
 
 1. In the **What type of entity do you want to create?** dialog box, name the entity and select **List** as the type. Add synonyms of this list item, then select **Done**. 
 
-    You can add more list items or more item synonyms by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or [importing](luis-how-to-add-entities.md#import-list-entity-values) a list. 
+    You can add more list items or more item synonyms by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or importing a list. 
 
 ## Add composite entity
 
