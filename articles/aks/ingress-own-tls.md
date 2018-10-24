@@ -1,16 +1,16 @@
 ---
-title: Create an HTTPS ingress with Azure Kubernetes Service (AKS) cluster
+title: Use your own TLS certificates for ingress with Azure Kubernetes Service (AKS) cluster
 description: Learn how to install and configure an NGINX ingress controller that uses your own certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 10/23/2018
 ms.author: iainfou
 ---
 
-# Create an HTTPS ingress controller and use your own certificates on Azure Kubernetes Service (AKS)
+# Create an HTTPS ingress controller and use your own TLS certificates on Azure Kubernetes Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster.
 
