@@ -49,7 +49,7 @@ See the language-specific example for an Event Grid trigger:
 
 For an HTTP trigger example, see [How to use HTTP trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
 
-### C# (1.x)
+### C# (Version 1.x)
 
 The following example shows a Functions 1.x [C# function](functions-dotnet-class-library.md) that binds to `JObject`:
 
