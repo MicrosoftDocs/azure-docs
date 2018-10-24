@@ -1,5 +1,4 @@
 ---
-
 title: Remote Desktop disconnects frequently in Azure VM| Microsoft Docs
 description: Learn how to troubleshoot the issue in which Remote Desktop disconnects frequently in Azure VM.
 services: virtual-machines-windows
@@ -41,7 +40,7 @@ To troubleshoot this issue, use Serial control or [repair the VM offline](#repai
 
 ### Serial control
 
-1. Connect to Serial Console, open CMD instance, and then run the following commands to reset RDP configurations.   If the Serial Console is not enabled on your VM, move to thsection.
+1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md),  then run the following commands to reset RDP configurations. If the Serial Console is not enabled on your VM, move to the next step. 
 2. Lower the RDP Security Layer to 0 where the communication between server and client will use the native RDP encryption.
 
         REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'SecurityLayer' /t REG_DWORD /d 0 /f
@@ -88,22 +87,23 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-T
 
 ### Repair the VM offline
 
-1. Attach the OS disk to a recovery VM. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as Online in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
-2. On the OS disk that you attached, browse to the \windows\system32\config folder. Copy all of the files in this folder as a backup, in case a rollback is required.
-3. Start the Registry Editor (regedit.exe).
-4. Select the HKEY_LOCAL_MACHINE key. On the menu, select File > Load Hive:
-5. Browse to the \windows\system32\config\SYSTEM folder on the OS disk that you attached. For the name of the hive, enter BROKENSYSTEM. The new registry hive is displayed under the HKEY_LOCAL_MACHINE key. 
-6. Open an elevated prompt command windows (Run as administrator), then run commands in the rest steps to reset the RDP configurations. 
-7. Lower the RDP Security Layer to 0 where the communication between server and client will use the native RDP Encryption:
+1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+2. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
+3. On the OS disk that you attached, browse to the **\windows\system32\config** folder. Copy all of the files in this folder as a backup, in case a rollback is required.
+4. Start the Registry Editor (regedit.exe).
+5. Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
+6. Browse to the **\windows\system32\config\SYSTEM** folder on the OS disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key. 
+7. Open an elevated prompt command windows (Run as administrator), then run commands in the rest steps to reset the RDP configurations. 
+8. Lower the RDP Security Layer to 0 where the communication between server and client will use the native RDP Encryption:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'SecurityLayer' /t REG_DWORD /d 0 /f
-8. Lower the encryption level to the minimum to allow legacy RDP clients to connect:
+9. Lower the encryption level to the minimum to allow legacy RDP clients to connect:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MinEncryptionLevel' /t REG_DWORD /d 1 /f
-9. Set RDP to load the user configuration the client machine.
+10. Set RDP to load the user configuration the client machine.
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fQueryUserConfigFromLocalMachine' /t REG_DWORD /d 1 /f
-10. Enable RDP Keep-Alive control:
+11. Enable RDP Keep-Alive control:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'KeepAliveTimeout' /t REG_DWORD /d 1 /f 
 
@@ -111,32 +111,32 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-T
 
         REG ADD 
         "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v 'KeepAliveInterval' /t REG_DWORD /d 1 /f
-11. Set RDP Reconnect control:
+12. Set RDP Reconnect control:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritReconnectSame' /t 
 
         REG_DWORD /d 0 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fReconnectSame' /t REG_DWORD /d 1 /f 
 
         REG ADD "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v 'fDisableAutoReconnect' /t REG_DWORD /d 0 /f
-12. Set RDP Session Time control:
+13. Set RDP Session Time control:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxSessionTime' /t REG_DWORD /d 1 /f
-13. Set RDP Disconnection Time control:
+14. Set RDP Disconnection Time control:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxDisconnectionTime' /t REG_DWORD /d 1 /f 
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxDisconnectionTime' /t REG_DWORD /d 0 /f
-14. Set RDP Connection Time control:
+15. Set RDP Connection Time control:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
-15. Set RDP Session idle Time control:
+16. Set RDP Session idle Time control:
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f 
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v ' MaxIdleTime' /t REG_DWORD /d 0 /f
-16. Set Limit the maximum concurrent connections:
+17. Set Limit the maximum concurrent connections:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxInstanceCount' /t REG_DWORD /d ffffffff /f
-17. Restart the VM and see if you can connect it by using RDP.
+18. Restart the VM and see if you can connect it by using RDP.
 
 ## Need help? 
 Contact support. If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
