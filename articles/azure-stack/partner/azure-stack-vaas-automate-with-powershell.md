@@ -25,9 +25,7 @@ You can use PowerShell for the following workflow:
 
 - Test Pass
 
-In this tutorial, you learn how to to create a script that:
-
-This script performs the following actions:
+In this tutorial, you learn how to create a script that:
 
 > [!div class="checklist"]
 > * Installs prerequisites
