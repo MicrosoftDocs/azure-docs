@@ -305,11 +305,13 @@ In case you are using elastic pools or Managed Instances, in addition to configu
 
    ![Search for Azure SQL Analytics in portal](./media/sql-database-metrics-diag-logging/sql-analytics-in-marketplace.png)
    
-2. Select **Create** on the resource
+2. Select **Create** on the solution's overview screen
 
 3. Fill in the Azure SQL Analytics form with the additional information that is required: workspace name, subscription, resource group, location, and pricing tier.
  
    ![Configure Azure SQL Analytics in portal](./media/sql-database-metrics-diag-logging/sql-analytics-configuration-blade.png)
+
+4. Confirm by selecting **Ok**, and finalize by selecting **Create**
 
 ### Configure databases to record metrics and diagnostics logs
 
