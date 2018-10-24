@@ -22,7 +22,7 @@ To complete this quickstart:
 * Install [Go 1.8 or above](https://golang.org/dl/)
 * Download and install [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 
 
-> [!WARNING]
+> [!NOTE]
 > Make sure that you capitalize Azure in the URL. Doing otherwise can cause case-related import problems when working with the SDK. You also need to capitalize Azure in your import statements.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -91,7 +91,7 @@ When you press the key to continue, the sample program deletes the storage conta
 Next, we walk through the sample code so that you can understand how it works.
 
 ### Create ContainerURL and BlobURL objects
-The first thing to do is to create the references to the ContainerURL and BlobURL objects used to access and manage Blob storage. These objects offer low-level APIs such as Create, PutBlob, and GetBlob to issue REST APIs.
+The first thing to do is to create the references to the ContainerURL and BlobURL objects used to access and manage Blob storage. These objects offer low-level APIs such as Create, Upload, and Download to issue REST APIs.
 
 * Use [**SharedKeyCredential**](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob#SharedKeyCredential) struct to store your credentials. 
 
@@ -142,7 +142,7 @@ handleErrors(err)
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart.  
 
-To upload a file to a blob, open the file using **os.Open**. You can then upload the file to the specified path using one of the REST APIs: PutBlob, PutBlock/PutBlockList. 
+To upload a file to a blob, open the file using **os.Open**. You can then upload the file to the specified path using one of the REST APIs: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
 Alternatively, the SDK offers [high-level APIs](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, ***UploadFileToBlockBlob*** function uses PutBlock operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses PutBlob instead to complete the transfer in a single transaction.
 
