@@ -52,7 +52,7 @@ To monitor your application, you add an Application Insights SDK to your applica
     Give it a name, select **Script (JScript)** and open the text editor.
 
     ![Open the text editor](./media/app-insights-sample-mscrm/00004.png)
-2. Copy the code from the Application Insights JavaScript SDK you in which you configured your Instrumentation Key before. While copying, make sure to ignore script tags. Refer below screenshot:
+2. Copy the code from the Application Insights JavaScript SDK in which you configured your Instrumentation Key before. While copying, make sure to ignore script tags. Refer to the screenshot below:
 
     ![Set your instrumentation key](./media/app-insights-sample-mscrm/000005.png)
 
