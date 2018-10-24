@@ -28,7 +28,15 @@ To understand the metrics and log categories that are supported by the various A
 * [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Overview of Azure diagnostics logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
- You can enable and manage metrics and diagnostics telemetry logging on a database by using one of the following methods:
+## Enable logging of diagnostics telemetry
+
+Please use the first section of this document to enable diagnostics telemetry for databases, and the second part of the document to enable diagnostics telemetry for elastic pools, or Managed Instances.
+
+> [!NOTE]
+> Please note that besides enabling diagnostics telemetry for databases, in case you are using elastic pools or Managed Instances, you are also advised to enable diagnostics telemetry for these resources as well. This is because elastic pools and Managed Instances in the role of database containers have its own diagnostics telemetry which is separate from an individual database telemetry. 
+>
+
+ You can enable and manage metrics and diagnostics telemetry logging by using one of the following methods:
 
 - Azure portal
 - PowerShell
@@ -42,53 +50,7 @@ When you enable metrics and diagnostics logging, you need to specify the Azure r
 - Event Hubs
 - Storage 
 
-You can provision a new Azure resource or select an existing resource. After selecting a resource, using Diagnostic settings option, you need to specify which data to collect. 
-
-## Enable logging for elastic pools, or Managed Instance
-
-Elastic pools and Managed Instances as database containers have its own diagnostics telemetry that is not enabled by default. Please note this telemetry is separate from database diagnostics telemetry. This is why streaming of diagnostics telemetry for elastic pools, and Managed Instance needs to be configured in addition with configuring database diagnostics telemetry, as explained further below. 
-
-### Configure streaming of diagnostics telemetry for elastic pools
-
-The following diagnostics telemetry is available for collection for elastic pools resource:
-
-| Resource | Monitoring telemetry |
-| :------------------- | ------------------- |
-| **Elastic pool** | [All metrics](sql-database-metrics-diag-logging.md#all-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
-
-To enable streaming of diagnostics telemetry for **elastic pool resource**, follow these steps:
-
-- Go to the elastic pool resource in Azure portal
-- Select **Diagnostics settings**
-- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
-- Type in the name for the setting - for your own reference
-- Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
-- In case Log Analytics is selected, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace
-- Select the checkbox for elastic pool diagnostics telemetry **AllMetrics**
-- Click **Save**
-
-Repeat the above steps for each elastic pool you wish to monitor.
-
-### Configure streaming of diagnostics telemetry for Managed Instance
-
-The following diagnostics telemetry is available for collection for Managed Instance resource:
-
-| Resource | Monitoring telemetry |
-| :------------------- | ------------------- |
-| **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. |
-
-To enable streaming of diagnostics telemetry for **Managed Instance resource**, follow these steps:
-
-- Go to the Managed Instance resource in Azure portal
-- Select **Diagnostics settings**
-- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
-- Type in the name for the setting - for your own reference
-- Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
-- In case Log Analytics is selected, create or use an existing workspace
-- Select the checkbox for instance diagnostics telemetry **ResourceUsageStats**
-- Click **Save**
-
-Repeat the above steps for each Managed Instance you wish to monitor.
+You can provision a new Azure resource or select an existing resource. After selecting a resource, using Diagnostic settings option, you need to specify which data to collect.
 
 ## Enable logging for Azure SQL Database, or databases in Managed Instance
 
@@ -113,43 +75,119 @@ Streaming of diagnostics telemetry for Azure SQL Database, and databases in Mana
 
 ### Configure streaming of diagnostics telemetry for Azure SQL Database
 
-To enable streaming of diagnostics telemetry for **Azure SQL Database**, follow these steps:
+   ![SQL Database icon](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
+
+To enable streaming of diagnostics telemetry for **Azure SQL Database**, please follow these steps:
 
 - Go to your Azure SQL Database resource
 - Select **Diagnostics settings**
 - Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
 - Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
 
-   ![Enable in the Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
+   ![Enable diagnostics for SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 
 - Type in the name for the setting - for your own reference
 - Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
 - For standard monitoring experience, select checkboxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, **Deadlocks**. This telemetry is event based and provides the standard monitoring experience.
 - For advanced monitoring experience, select checkbox for **AllMetrics**. This is a 1-minute based telemetry for the database diagnostics telemetry as described above. 
-
-   ![Diagnostics settings](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
-
-Repeat the above steps for each Azure SQL Database you wish to monitor.
+- Click on **Save**
 
 > [!NOTE]
-> Audit log cannot be enabled from database Diagnostics settings, even though the option is shown. To enable Audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2)
+> Audit log cannot be enabled from database Diagnostics settings. To enable Audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and also see [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+>
+   ![Configure diagnostics for SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+
+> [!NOTE]
+> Please repeat the above steps for each Azure SQL Database you wish to monitor. 
 >
 
 ### Configure streaming of diagnostics telemetry for databases in Managed Instance
 
-To enable streaming of diagnostics telemetry for **databases in Managed Instance**, follow these steps:
+   ![Database in Managed Instance icon](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+
+To enable streaming of diagnostics telemetry for **databases in Managed Instance**, please follow these steps:
 
 - Go to your database in Managed Instance
 - Select **Diagnostics settings**
 - Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
 - Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
+
+   ![Enable diagnostics for Managed Instance database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+
 - Type in the name for the setting - for your own reference
 - Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
 - Select checkboxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**
+- Click on **Save**
 
-   ![Diagnostics settings](./media/sql-database-metrics-diag-logging/diagnostics-portal-mi.png)
+   ![Configure diagnostics for Managed Instance database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
-Repeat the above steps for each database in Managed Instance you wish to monitor.
+> [!NOTE]
+> Please repeat the above steps for each database in Managed Instance you wish to monitor.
+>
+
+## Enable logging for elastic pools, or Managed Instance
+
+Elastic pools and Managed Instances as database containers have its own diagnostics telemetry separate from databases. This diagnostics telemetry is not enabled by default. 
+
+### Configure streaming of diagnostics telemetry for elastic pools
+
+   ![Elastic pool icon](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
+
+The following diagnostics telemetry is available for collection for elastic pools resource:
+
+| Resource | Monitoring telemetry |
+| :------------------- | ------------------- |
+| **Elastic pool** | [All metrics](sql-database-metrics-diag-logging.md#all-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
+
+To enable streaming of diagnostics telemetry for **elastic pool resource**, please follow these steps:
+
+- Go to the elastic pool resource in Azure portal
+- Select **Diagnostics settings**
+- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
+
+   ![Enable diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
+
+- Type in the name for the setting - for your own reference
+- Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
+- In case Log Analytics is selected, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace
+- Select the checkbox for elastic pool diagnostics telemetry **AllMetrics**
+- Click **Save**
+
+   ![Configure diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+
+> [!NOTE]
+> Please repeat the above steps for each elastic pool you wish to monitor.
+>
+
+### Configure streaming of diagnostics telemetry for Managed Instance
+
+   ![Managed Instance icon](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
+
+The following diagnostics telemetry is available for collection for Managed Instance resource:
+
+| Resource | Monitoring telemetry |
+| :------------------- | ------------------- |
+| **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. |
+
+To enable streaming of diagnostics telemetry for **Managed Instance resource**, please follow these steps:
+
+- Go to the Managed Instance resource in Azure portal
+- Select **Diagnostics settings**
+- Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
+
+   ![Enable diagnostics for Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+
+- Type in the name for the setting - for your own reference
+- Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
+- In case Log Analytics is selected, create or use an existing workspace
+- Select the checkbox for instance diagnostics telemetry **ResourceUsageStats**
+- Click **Save**
+
+   ![Configure diagnostics for Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+
+> [!NOTE]
+> Please repeat the above steps for each Managed Instance you wish to monitor.
+>
 
 ### PowerShell
 
@@ -189,7 +227,7 @@ To enable metrics and diagnostics logging by using PowerShell, use the following
 
 You can combine these parameters to enable multiple output options.
 
-### To configure multiple Azure subscriptions
+### To configure multiple Azure resources
 
 To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
@@ -242,43 +280,37 @@ Read about how to [change diagnostics settings by using the Azure Monitor REST A
 
 Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
 
-## Stream into Log Analytics 
+## Stream into Azure SQL Analytics 
 
-SQL Database metrics and diagnostics logs can be streamed into Log Analytics by using the built-in **Send to Log Analytics** option in the portal. You also can enable Log Analytics by using a diagnostics setting via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
+SQL Database metrics and diagnostics logs can be streamed into Azure SQL Analytics by using the built-in **Send to Log Analytics** option in the diagnostics settings blade in the portal. You also can enable Log Analytics by using a diagnostics setting via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
 
 ### Installation overview
 
-Monitoring a SQL Database fleet is simple with Log Analytics. Three steps are required:
+Monitoring a SQL Database fleet is simple with Azure SQL Analytics. Three steps are required:
 
-1. Create a Log Analytics resource.
+1. Create Azure SQL Analytics solution from the Azure Marketplace
+2. Create monitoring workspace in the solution
+3. Configure databases to stream diagnostics telemetry into the workspace you've created
 
-2. Configure databases to record metrics and diagnostics logs into the Log Analytics resource you created.
+### Create Azure SQL Analytics resource
 
-3. Install the **Azure SQL Analytics** solution from the Azure Marketplace.
+1. Search for Azure SQL Analytics in Azure Marketplace and select it
 
-### Create a Log Analytics resource
+   ![Search for Azure SQL Analytics in portal](./media/sql-database-metrics-diag-logging/sql-analytics-in-marketplace.png)
+   
+2. Select **Create** on the resource blade
 
-1. Select **Create a resource** in the menu on the left.
+   ![Create Azure SQL Analytics in portal](./media/sql-database-metrics-diag-logging/sql-analytics-intro-blade.png)
 
-2. Select **Monitoring + Management**.
-
-3. Select **Log Analytics**.
-
-4. Fill in the Log Analytics form with the additional information that is required: workspace name, subscription, resource group, location, and pricing tier.
-
-   ![Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
+3. Fill in the Azure SQL Analytics form with the additional information that is required: workspace name, subscription, resource group, location, and pricing tier.
+ 
+   ![Configure Azure SQL Analytics in portal](./media/sql-database-metrics-diag-logging/sql-analytics-configuration-blade.png)
 
 ### Configure databases to record metrics and diagnostics logs
 
-The easiest way to configure where databases record their metrics is through the Azure portal. In the portal, go to your SQL Database resource and select **Diagnostics settings**. 
+The easiest way to configure where databases record their metrics is through the Azure portal - as described above. In the portal, go to your SQL Database resource and select **Diagnostics settings**.
 
-### Install the SQL Analytics solution from the gallery
-
-1. After you create the Log Analytics resource and your data is flowing into it, install the SQL Analytics solution. On the home page, on the side menu, select **Solutions Gallery**. In the gallery, select the **Azure SQL Analytics** solution, and select **Add**.
-
-   ![Monitoring solution](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
-
-2. On your home page, the **Azure SQL Analytics** tile appears. Select this tile to open the SQL Analytics dashboard.
+Please note that if you are using Elastic Pools or Managed Instances, in the function of database containers, you will also need to configure Diagnostics settings in these resources as well to stream their own diagnostics telemetry into the workspace you've created.
 
 ### Use the SQL Analytics solution
 
