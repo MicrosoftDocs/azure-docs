@@ -19,11 +19,11 @@ ms.author: yujhong
 # Deploy an app in Azure Government with Azure Pipelines
 
 > [!NOTE]
-> Azure Pipelines is not available in Azure Government. This tutorial shows how to configure CI/CD capabilities of Azure Pipelines in order to deploy an app in Azure Government, while the app executes outside the government cloud.
+> The Azure Pipelines service is not available in Azure Government. This tutorial shows how to configure the CI/CD capabilities of Azure Pipelines in order to deploy an app in Azure Government, while the app executes outside the government cloud.
 
-The article helps you set up continuous deployment to your web app running in Azure Government using Azure Pipelines. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. 
+This article helps you use Azure Pipelines to set up continuous deployment of your web app running in Azure Government. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. 
 
-[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=vsts) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=vsts) for Azure Government. 
+[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=vsts) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=vsts) for Azure Government. 
 
 ## Prerequisites
 
@@ -73,15 +73,15 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
     ![ps4](./media/documentation-government-vsts-img11.png)
 
-## Configure Azure Pipelines endpoint
+## Configure the Azure Pipelines service connection
 
 > [!NOTE]
-> Make sure that you add the endpoint soon after running the Powershell script above, as the key expires. 
+> Make sure that you add the connection soon after running the Powershell script above, as the key expires. 
 > If not, you navigate to the [Azure Government portal](https://portal.azure.us) -> AAD -> App registrations -> Add Key
 >
 
 Now we will create an [Azure service connection](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=vsts). 
-1. Navigate to your Team Project from your Azure Pipelines Account. 
+1. Navigate to your Team Project from your Azure Pipelines account. 
 2. Navigate to the Services tab and click on "New Service Endpoint".    
 3. Choose "Azure Resource Manager" from the dropdown menu. 
 
@@ -117,10 +117,12 @@ Now we will create an [Azure service connection](https://docs.microsoft.com/azur
 Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=vsts#deploy) to your applications in Azure Government. 
 
 ## Q&A
-* Do I need a build agent?
-You need at least one [agent](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts#microsoft-hosted-agents). Configuring a private agent would limit data sharing outside of Azure Government.
-* I use Team Foundation Server on-premises. Can I configure CD on my server to target Azure Government?
-Currently, Team Foundation Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of Team Foundation Server.
+
+Q: Do I need a build agent?<br/>
+A: You need at least one [agent](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts#microsoft-hosted-agents). Configuring a private agent would limit data sharing outside of Azure Government.
+
+Q: I use Team Foundation Server on-premises. Can I configure CD on my server to target Azure Government?<br/>
+A: Currently, Team Foundation Server cannot be used to deploy to an Azure Government Cloud.
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
