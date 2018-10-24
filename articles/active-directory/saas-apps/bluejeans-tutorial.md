@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: jeedes
 
 ---
@@ -131,17 +131,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In a different web browser window, log in to your **BlueJeans** company site as an administrator.
 
-9. Go to **ADMIN \> Group Settings \> Security**.
+9. Go to **ADMIN \> GROUP SETTINGS \> SECURITY**.
 
-   ![Admin](./media/bluejeans-tutorial/IC785868.png "Admin")
+	![Admin](./media/bluejeans-tutorial/IC785868.png "Admin")
 
-10. In the **Security** section, perform the following steps:
+10. In the **SECURITY** section, perform the following steps:
 
-   ![SAML Single Sign On](./media/bluejeans-tutorial/IC785869.png "SAML Single Sign On")
+	![SAML Single Sign On](./media/bluejeans-tutorial/IC785869.png "SAML Single Sign On")
 
-   a. Select **SAML Single Sign On**.
+	a. Select **SAML Single Sign On**.
 
-   b. Select **Enable automatic provisioning**.
+	b. Select **Enable automatic provisioning**.
 
 11. Move on with the following steps:
 
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    c. Click **Save Changes**..
+    c. Click **SAVE CHANGES**.
 
 ### Creating an Azure AD test user
 
@@ -198,23 +198,41 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 1. Log in to your **BlueJeans** company site as an administrator.
 
-2. Go to **ADMIN \> Manage Users \> Add User**.
+2. Go to **ADMIN \> MANAGE USERS \> ADD USER**.
 
-   ![Admin](./media/bluejeans-tutorial/IC785877.png "Admin")
+	![Admin](./media/bluejeans-tutorial/IC785877.png "Admin")
 
-   >[!IMPORTANT]
-   >The **Add User** tab is only available if, in the **Security tab**, **Enable automatic provisioning** is unchecked. 
+	>[!IMPORTANT]
+	>The **ADD USER** tab is only available if, in the **SECUTIRY tab**, **Enable automatic provisioning** is unchecked. 
 
-3. In the **Add User** section, perform the following steps:
+3. In the **ADD USER** section, perform the following steps:
 
 	![Add User](./media/bluejeans-tutorial/IC785886.png "Add User")
 
-	a. Type a **BlueJeans Username**, an **Email address**, a **BlueJeans Meeting ID**, a **Moderator Passcode**, a **Full Name**, the **Company** of a valid AAD account you want to provision into the related textboxes.
+	a. In **First Name** text box, enter the first name of user like **Britta**.
 
-	b. Click **Add User**.
+	b. In **Last Name** text box, enter the last name of user like **simon**.
+
+	c. In **Pick a BlueJeans Username** text box, enter the username of user like **Brittasimon**
+
+	d. In **Create a Password** text box, enter your password.
+
+	e. In **Company** text box, enter your Company.
+
+	f. In **Email Address** text box, enter the email of user like **brittasimon@contoso.com**.
+
+	g. In **Create a BlueJeans Meeting I.D** text box, enter your meeting ID.
+
+	h. In **Pick a Moderator Passcode** text box, enter your passcode.
+
+	i. Click **CONTINUE**.
+
+	![Addd User](./media/bluejeans-tutorial/IC785887.png "Addd User")
+
+	J. Click **ADD USER**.
 
 >[!NOTE]
->You can use any other BlueJeans user account creation tools or APIs provided by BlueJeans to provision AAD user accounts.
+>You can use any other BlueJeans user account creation tools or APIs provided by BlueJeans to provision Azure AD user accounts.
 
 ### Assigning the Azure AD test user
 
