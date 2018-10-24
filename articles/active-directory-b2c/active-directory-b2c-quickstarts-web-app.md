@@ -8,14 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/19/2018
+ms.date: 10/24/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Quickstart: Set up sign-in for an ASP.NET application using Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts and enterprise accounts using open standard protocols. In this quickstart, you use a sample ASP.NET application to sign in using a social identity provider and call an Azure AD B2C protected web API.
+Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts and enterprise accounts using open standard protocols. In this quickstart, you use an ASP.NET application to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
     - `https://localhost:44316/` - The ASP.NET web application. You interact directly with this application in the quickstart.
     - `https://localhost:44332/` - The web API that's called by the ASP.NET web application.
 
-## Create an account
+## Sign in using your account
 
 1. Click **Sign up / Sign in** in the ASP.NET web application to start the workflow.
 
@@ -65,14 +65,15 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
 Azure Active Directory B2C provides functionality to allow users to update their profiles. The sample web app uses an Azure AD B2C edit profile policy for the workflow. 
 
-1. In the web application menu bar, click your profile name and select **Edit profile** to edit the profile you created.
+1. In the application menu bar, click your profile name and select **Edit profile** to edit the profile you created.
 
     ![Edit profile](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-2. Change your **Display name** and **City**.  
-3. Click **Continue** to update your profile. The new display name is displayed in the upper right portion of the web application's home page.
+2. Change your **Display name** or **City**, and then click **Continue** to update your profile. 
 
-## Access a protected web API resource
+    The changed is displayed in the upper right portion of the web application's home page.
+
+## Access a protected API resource
 
 1. Click **To-Do List** to enter and modify your to-do list items. 
 
