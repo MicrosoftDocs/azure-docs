@@ -24,7 +24,7 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 - Account Owner
 - Service Administrator
  
-Those roles are specific to managing Enterprise Agreements in the Azure portal. Azure has additional built-in roles to control access to resources. For more information, see [Build-in roles for Azure resources](../role-based-access-control/built-in-roles).
+Those roles are specific to managing Enterprise Agreements in the Azure portal. Azure has additional built-in roles to control access to resources. For more information, see [Build-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
 The following sections describe the user limits for each role, the tasks the roles have permissions to do, and what portal and pricing tools those roles have access to. For all the tasks, Enterprise Administrators and Department Administrators may be granted read-only access.
 
