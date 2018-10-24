@@ -133,7 +133,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-#### C# script (2.x)
+#### C# script (Version 2.x)
 
 Here's Functions 2.x C# script code that binds to `EventGridEvent`:
 
