@@ -91,6 +91,7 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
 | Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
+| LUIS Portal | https://luis.azure.us | https://luis.ai
 
 ## Next steps
 For more information about Azure Government, see the following resources:

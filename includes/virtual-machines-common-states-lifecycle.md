@@ -282,7 +282,7 @@ Once the operation is complete, the VM will transition into one of the following
 
 The instance view API provides VM running-state information. For more information, see the [Virtual Machines - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API documentation.
 
-Azure Resources explorer provides a simple UI for viewing the VM running state: [Resource Explorer] (https://resources.azure.com/).
+Azure Resources explorer provides a simple UI for viewing the VM running state: [Resource Explorer](https://resources.azure.com/).
 
 Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM. 
 
