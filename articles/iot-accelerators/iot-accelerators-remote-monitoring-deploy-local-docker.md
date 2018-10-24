@@ -1,12 +1,12 @@
 ---
-title: Deploy the remote monitoring solution locally - Azure | Microsoft Docs 
+title: Deploy the remote monitoring solution locally (via Docker) - Azure | Microsoft Docs 
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
-author: asdonald
-manager: timlt
-ms.author: asdonald
+author: avneet723
+manager: hegate
+ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/26/2018
+ms.date: 10/26/2018
 ms.topic: conceptual
 ---
 
@@ -20,11 +20,13 @@ To deploy the Azure services used by the Remote Monitoring solution accelerator,
 
 If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
+### Machine Setup
+
 To complete the local deployment, you need the following tools installed on your local development machine:
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Docker compose](https://docs.docker.com/compose/install/)
+* [Visual Studio](https://visualstudio.microsoft.com/)
 * [Node.js v8](https://nodejs.org/) - this software is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Do not use Node.js v10.
 
 > [!NOTE]
@@ -32,18 +34,20 @@ To complete the local deployment, you need the following tools installed on your
 
 ### Download the source code
 
-The Remote Monitoring source code GitHub repository includes the Docker configuration files you need to download, configure, and run the Docker images that contain the microservices. To clone and create a local version of the repository, use your command-line environment to navigate to a suitable folder on your local machine and then run one of the following commands:
+The Remote Monitoring source code GitHub repository includes the Docker configuration files you need to download, configure, and run the Docker images that contain the microservices.
 
-To download the latest version of the Java microservice implementations, run:
-
-```cmd/sh
-git clone https://github.com/Azure/remote-monitoring-services-java.git
-```
+To clone and create a local version of the repository, use your command-line environment to navigate to a suitable folder on your local machine and then run one of the following commands:
 
 To download the latest version of the .NET microservice implementations, run:
 
 ```cmd\sh
-git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
+git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+```
+
+To download the latest version of the Java microservice implementations, run:
+
+```cmd/sh
+git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
 ```
 
 > [!NOTE]
@@ -51,22 +55,28 @@ git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
 
 ## Deploy the Azure services
 
-Although this article shows you how to run the microservices locally, they depend on Azure services running in the cloud. You can deploy these Azure services [manually through the Azure portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), or use the provided script. The following script examples assume you're using the .NET repository on a Windows machine. If you're working in another environment, adjust the paths, file extensions, and path separators appropriately. To use the provided scripts to:
+Although this article shows you how to run the microservices locally, they depend on Azure services running in the cloud. Use the following script to deploy the Azure services. The following script examples assume you're using the .NET repository on a Windows machine. If you're working in another environment, adjust the paths, file extensions, and path separators appropriately. To use the provided scripts to:
 
 ### Create new Azure resources
 
 If you've not yet created the required Azure resources, follow these steps:
 
-1. In your command-line environment, navigate to the **remote-monitoring-services-dotnet\scripts\local\launch** folder in your cloned copy of the repository.
+1. In your command-line environment, navigate to the **remote-monitoring-services-dotnet\scripts\local\launch** folder in your cloned copy of the **remote-monitoring-services-dotnet** repository.
 
 2. Run the **start.cmd** script and follow the prompts. The script prompts you to sign in to your Azure account and restart the script. The script then prompts you for the following information:
     * A solution name.
     * The Azure subscription to use.
     * The location of the Azure datacenter to use.
 
-    The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses.
+    The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
 
-3. When the script completes, it displays a list of environment variables. Follow the instructions in the output from the command to save these variables to the **remote-monitoring-services-dotnet\\scripts\\local\\.env** file.
+3. [Optional Step] When the script completes, it displays a list of environment variables. Follow the instructions in the output from the command to save these variables to the **remote-monitoring-services-dotnet\\scripts\\local\\.env** file. You can leverage these environment variables for future solution deployments.
+
+4. Before running the microservices, please follow these steps to manually start the Azure Stream Analytics job:
+    * Navigate to the [Azure Portal](https://portal.azure.com)
+    * Click on **Resource groups** from the left navigation pane. 
+    * Select the **Resource group** created for your solution. 
+    * From the Overview page, please select the *Streaming Analytics job* and hit the **Run** button.
 
 ### Use existing Azure resources
 
@@ -91,6 +101,16 @@ The first time you run this command, Docker downloads the microservice images fr
 You can use a separate shell to view the logs from the container. First find the container ID using the `docker ps -a` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries for the specified container.
 
 To access the Remote Monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+
+### Run the web application
+
+In this step, we will start up the web application to be able to interact with the remote monitoring session. Please navigate to the **pcs-remote-monitoring-webui** repository on your local machine and run the following set of commands.
+
+```cmd\sh
+cd <path_to_cloned_repositories>\pcs-remote-monitoring-webui
+npm install
+npm start
+```
 
 ## Clean up
 

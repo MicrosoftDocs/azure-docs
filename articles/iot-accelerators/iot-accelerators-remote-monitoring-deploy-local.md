@@ -75,9 +75,9 @@ If you've not yet created the required Azure resources, follow these steps:
 
 4. Before running the microservices, please follow these steps to manually start the Azure Stream Analytics job:
     * Navigate to the [Azure Portal](https://portal.azure.com)
-    * Click on **Resource groups** from the left navigation pane. 
-    * Select the **Resource group** created for your solution. 
-    * From the Overview page, please select the *Streaming Analytics job* and hit the **Run** button. 
+    * Click on **Resource groups** from the left navigation pane.
+    * Select the **Resource group** created for your solution.
+    * From the Overview page, please select the *Streaming Analytics job* and hit the **Run** button.
 
 ### Use existing Azure resources
 
@@ -121,7 +121,7 @@ Please follow the steps below to launch the microservices under **remote-monitor
     * WebService (iothub-manager\WebService)
     * WebService (storage-adapter\WebService)
 1. Hit *Apply* and *OK* to close the dialog
-1. Hit ***Start*** to build and deploy each of the above web services to the local machine. 
+1. Hit ***Start*** to build and deploy each of the above web services to the local machine.
 
 > [!NOTE]
 > Running the web services above will launch a corresponding command prompt and web browser session to monitor the state of the service. Please ***do not*** close the cmd and browser windows as that will stop the web service. 
