@@ -121,3 +121,5 @@
   items:
   - name: Customer data requests
     href: iot-central-customer-data-requests.md
+  - name: Supported browsers
+    href: iot-central-supported-browsers.md
