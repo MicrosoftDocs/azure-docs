@@ -61,5 +61,5 @@ Migrate your existing resource keys to the Speech Service on the Speech Service 
 
 ## See also
 
-* [What is the Speech service](overview.md)
+* [What is the Speech Service](overview.md)
 * [Speech Service and SDK documentation](speech-sdk.md#get-the-sdk)

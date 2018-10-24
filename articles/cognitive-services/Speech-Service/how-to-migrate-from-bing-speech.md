@@ -39,7 +39,7 @@ Feature | Bing Speech | Speech Service | Details
 -|-|-|-
 C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | Speech Service supports Windows and Linux.
 Java SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service supports Android and Speech Devices.
-C# SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service supports Windows 10, UWP, and .NET Standard 2.0.
+C# SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service supports Windows 10, Universal Windows Platform (UWP), and .NET Standard 2.0.
 Continuous speech recognition | 10 minutes | Unlimited (with SDK) | Both Bing Speech and Speech Service WebSockets protocols support up to 10 minutes per call. However, the Speech SDK automatically reconnects on timeout or disconnect.
 Partial or interim results | :heavy_check_mark: | :heavy_check_mark: | With WebSockets protocol or SDK.
 Custom speech models | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Speech subscription.
