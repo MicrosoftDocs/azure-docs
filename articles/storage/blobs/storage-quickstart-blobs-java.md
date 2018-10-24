@@ -8,7 +8,7 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 10/23/2018
 ms.author: rogarana
 ---
 
@@ -78,7 +78,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Before you continue, check your default directory (*C:\Users\<user>\AppData\Local\Temp*, for Windows users) for the sample file. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. If you compare sample file in your directory with the contents stored in Blob storage, you will see that they are the same. 
+Before you continue, check your default directory (*C:\Users\<user>\AppData\Local\Temp*, for Windows users) for the sample file. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. If you compare the sample file in your directory with the contents stored in Blob storage, you will see that they are the same. 
 
   >[!NOTE]
   >You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information.
@@ -101,9 +101,9 @@ The first thing to do is create the references to the objects used to access and
 
     The **CloudBlobClient** provides you a point of access to the blob service, allowing you to set and access Blob storage properties programmatically. Using the **CloudBlobClient** you can create an instance of the **CloudBlobContainer** object, which is necessary to create containers.
 
-* Create an instance of the [CloudBlobContainer](http://azure.github.io/azure-storage-java/com/microsoft/azure/storage/blob/CloudBlobContainer.html) object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.    
+* Create an instance of the [CloudBlobContainer](http://azure.github.io/azure-storage-java/com/microsoft/azure/storage/blob/CloudBlobContainer.html) object, which represents the container you are accessing. Use containers to organize your blobs like you use folders on your computer to organize your files.    
 
-    Once you have the **CloudBlobContainer**, you can create an instance of the [CloudBlockBlob](http://azure.github.io/azure-storage-java/com/microsoft/azure/storage/blob/CloudBlockBlob.html) object that points to the specific blob in which you are interested, and perform an upload, download, copy, etc. operation.
+    Once you have the **CloudBlobContainer**, you can create an instance of the [CloudBlockBlob](http://azure.github.io/azure-storage-java/com/microsoft/azure/storage/blob/CloudBlockBlob.html) object that points to the specific blob you’re interested in, and perform an upload, download, copy, or other operation.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about containers, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -112,7 +112,7 @@ The first thing to do is create the references to the objects used to access and
 
 In this section, you create an instance of the objects, create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartcontainer**. 
 
-This example uses [CreateIfNotExists](https://azure.github.io/azure-sdk-for-java/com/microsoft/azure/storage/blob/CloudBlobContainer.html#createIfNotExists--) because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, its better practice to only call **CreateIfNotExists** once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
+This example uses [CreateIfNotExists](https://azure.github.io/azure-sdk-for-java/com/microsoft/azure/storage/blob/CloudBlobContainer.html#createIfNotExists--) because we want to create a new container each time the sample is run. In a production environment, where you use the same container throughout an application, it's better practice to only call **CreateIfNotExists** once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -129,7 +129,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart. 
 
-To upload a file to a blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud​Block​Blob.​Upload​](https://azure.github.io/azure-sdk-for-java/com/microsoft/azure/storage/blob/CloudBlockBlob.html). This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
+To upload a file to a blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud​Block​Blob.​Upload​](https://azure.github.io/azure-sdk-for-java/com/microsoft/azure/storage/blob/CloudBlockBlob.html). This operation creates the blob if it doesn't already exist, or overwrites the blob if it already exists.
 
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **source** and the name of the blob in **blob**. The following example uploads the file to your container called **quickstartcontainer**.
 
@@ -151,7 +151,7 @@ blob.uploadFromFile(sourceFile.getAbsolutePath());
 
 There are several `upload` methods&mdash;including [upload, uploadBlock, uploadFullBlob, uploadStandardBlobTier, and uploadText](https://azure.github.io/azure-sdk-for-java/com/microsoft/azure/storage/blob/CloudBlockBlob.html)&mdash;that you can use with Blob storage. For example, if you have a string, you can use the `UploadText` method rather than the `Upload` method. 
 
-Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files that are used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
+Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files that back IaaS VMs. Use append blobs for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
 ### List the blobs in a container
 
