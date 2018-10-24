@@ -32,6 +32,8 @@ Stream Analytics integration with Azure Cosmos DB allows you to insert or update
 
 Stream Analytics uses an optimistic upsert approach, where updates are only done when insert fails with a Document ID conflict. This update is performed as a PATCH, so it enables partial updates to the document, that is, addition of new properties or replacing an existing property is performed incrementally. However, changes in the values of array properties in your JSON document result in the entire array getting overwritten, that is, the array isn't merged.
 
+If the incoming JSON document already has an ID field in it, that field is used as the Document ID column, and any subsequent writes are handled as such, determined by the Document ID setting in the output settings, as specified below. If you receive documents without a unique value in ID and want to save all those, then the way to solve this is to rename the ID field in your query. THen if you do want to overwrite when a new file come in with the same ID, just specify the Document ID setting to 'id' and it will upsert based on that field.
+
 ## Data partitioning in Cosmos DB
 Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) are the recommended approach for partitioning your data, as Azure Cosmos DB automatically scales partitions based on your workload. When writing to unlimited containers, Stream Analytics uses as many parallel writers as previous query step or input partitioning scheme.
 > [!Note]
