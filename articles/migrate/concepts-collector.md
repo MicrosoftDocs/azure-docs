@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -193,7 +193,7 @@ Note that the appliance only collects performance data continuously, it does not
 2. Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
 
 > [!NOTE]
-> Continuous discovery functionality is in preview. If the vCenter Server statistics settings isn't set to level 3, we recommend that you use this method.
+> Continuous discovery functionality is in preview. We recommend you to use this method as this method collects granular performance data and results in accurate right-sizing.
 
 
 ## Discovery process

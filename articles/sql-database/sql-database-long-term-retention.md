@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ---
 # Store Azure SQL Database backups for up to 10 years
 
