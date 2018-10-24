@@ -162,7 +162,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Useall**.
 
-	![Configure Single Sign-On](./media/useall-tutorial/tutorial_figma_app.png)
+	![Configure Single Sign-On](./media/useall-tutorial/tutorial_useall_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
