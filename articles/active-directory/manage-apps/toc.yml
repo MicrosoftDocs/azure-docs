@@ -179,6 +179,8 @@
       items:
       - name: Application types
         href: application-types.md
+      - name: Manage user consent
+        href: manage-user-consent.md
       - name: Methods for assigning users and groups to an app
         href: methods-for-assigning-users-and-groups.md
       - name: Assign a user to an app
