@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - Monitor Linux events from syslog with Log Analytics | Microsoft Docs
-description: Learn how to set up Log Analytics to visualize and analyze events from Azure Service Fabric Linux clusters.
+title: Monitor Linux cluster events in Azure Service Fabric | Microsoft Docs
+description: Learn how to monitor Linux cluster events from Syslog
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -18,7 +18,7 @@ ms.author: srrengar
 
 ---
 
-# Service Fabric Linux events in Syslog
+# Service Fabric Linux cluster events in Syslog
 
 Service fabric exposes a set of platform events to inform you of important activity in your cluster. The full list of events that we expose is available [here](service-fabric-diagnostics-event-generation-operational.md). There are variety of ways through which these events can be consumed. In this article, we are going to discuss how to configure Service Fabric to write these events to Syslog.
 
