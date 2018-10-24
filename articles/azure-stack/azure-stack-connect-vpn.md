@@ -76,7 +76,7 @@ First, you create the network resources for Azure. The following instructions sh
    >Gateway subnets are special and must have this specific name to function properly.
 
 5. In the **Address range** field, verify the address is **10.100.1.0/24**.
-6. Click **OK** to create the gateway subnet.
+6. Select **OK** to create the gateway subnet.
 
 ### Create the virtual network gateway
 
@@ -98,7 +98,7 @@ First, you create the network resources for Azure. The following instructions sh
 4. In **Name**, type **Azs-GW**.
 5. In **IP address**, type the public IP address for your Azure Stack Virtual Network Gateway that is listed previously in the network configuration table.
 6. In **Address Space**, from Azure Stack, type the **10.1.0.0/24** and **10.1.1.0/24** address space for **AzureVNet**.
-7. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then click **Create**.
+7. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
 
 ## Create the connection
 
@@ -110,12 +110,12 @@ First, you create the network resources for Azure. The following instructions sh
 6. On the **Settings** section, select **Virtual network gateway**, and then select **Azure-GW**.
 7. Select **Local network gateway**, and then select **Azs-GW**.
 8. In **Connection name**, type **Azure-Azs**.
-9. In **Shared key (PSK)**, type **12345**, then click **OK**.
+9. In **Shared key (PSK)**, type **12345**, then select **OK**.
 
    >[!NOTE]
    >If you use a different value for the shared key, remember that it must match the value for the shared key that you create on the other end of the connection.
 
-10. Review the **Summary** section, and then click **OK**.
+10. Review the **Summary** section, and then select **OK**.
 
 ## Create a virtual machine
 
@@ -126,16 +126,16 @@ Now create a virtual machine in Azure, and put it on your VM subnet in your virt
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Oval** image.
 4. On the **Basics** section, for **Name**, type **AzureVM**.
 5. Type a valid username and password. You use this account to sign in to the virtual machine after it is created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then click **OK**.
+6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
 7. On the **Size** section, select a virtual machine size for this instance, and then select **Select**.
-8. In the **Settings** section, you can use the default settings. Before you click **OK**, confirm that:
+8. In the **Settings** section, you can use the default settings. Before you select **OK**, confirm that:
 
    * The **AzureVnet** virtual network is selected.
    * The subnet is set to **10.100.0.0/24**.
 
-   Click **OK**.
+   Select **OK**.
 
-9. Review the settings on the **Summary** section, and then click **OK**.
+9. Review the settings on the **Summary** section, and then select **OK**.
 
 ## Create the network resources in Azure Stack
 
@@ -159,7 +159,7 @@ A service administrator can sign in as a user to test the plans, offers, and sub
 7. For **Resource Group**, you can either create a resource group or if you already have one, select **Use existing**.
 8. Verify the default location.
 9. Select **Pin to dashboard**.
-10. Click **Create**.
+10. Select **Create**.
 
 ### Create the gateway subnet
 
@@ -171,7 +171,7 @@ A service administrator can sign in as a user to test the plans, offers, and sub
 
 4. By default, the subnet name is set to **GatewaySubnet**. For gateway subnets to function properly, they must use the **GatewaySubnet** name.
 5. In **Address range**, verify that the address is **10.1.1.0/24**.
-6. Click **OK** to create the gateway subnet.
+6. Select **OK** to create the gateway subnet.
 
 ### Create the virtual network gateway
 
@@ -183,7 +183,7 @@ A service administrator can sign in as a user to test the plans, offers, and sub
 6. Select the **Public IP address** menu item. When the **Choose public IP address** section opens, select **Create new**.
 7. In **Name**, type **Azs-GW-PiP**, and then select **OK**.
 8. By default, **Route-based** is selected for **VPN type**. Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Click **Create**.
+9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
 
 ### Create the local network gateway
 
@@ -202,7 +202,7 @@ A more generic description is that the local network gateway resource always ind
 5. In **Name**, type **Azure-GW**.
 6. In **IP address**, type the public IP address for the virtual network gateway in Azure **Azure-GW-PiP**. This address appears earlier in the network configuration table.
 7. In **Address Space**, for the address space of the Azure VNET that you created, type **10.100.0.0/24** and **10.100.1.0/24**.
-8. Verify that your **Subscription**, **Resource Group**, and **location** values are correct, and then click **Create**.
+8. Verify that your **Subscription**, **Resource Group**, and **location** values are correct, and then select **Create**.
 
 ### Create the connection
 
@@ -226,10 +226,10 @@ To check the VPN connection, create two VMs: one in Azure, and one in Azure Stac
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Oval** image.
 4. On the **Basics** section, in **Name**, type **Azs-VM**.
 5. Type a valid username and password. You use this account to sign in to the VM after it is created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then click **OK**.
+6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
 7. On the **Size** section, for this instance, select a virtual machine size, and then select **Select**.
-8. On the **Settings** section, accept the defaults. Make sure that the **Azs-VNet** virtual network is selected. Verify that the subnet is set to **10.1.0.0/24**. Then click **OK**.
-9. On the **Summary** section, review the settings, and then click *OK**.
+8. On the **Settings** section, accept the defaults. Make sure that the **Azs-VNet** virtual network is selected. Verify that the subnet is set to **10.1.0.0/24**. Then select **OK**.
+9. On the **Summary** section, review the settings, and then select *OK**.
 
 ## Test the connection
 
