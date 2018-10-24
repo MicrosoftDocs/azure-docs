@@ -70,11 +70,11 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 
 ## Use free trials
 
-[Signing up for free trials] (https://azure.microsoft.com/try/cognitive-services/ "Sign-up Help") only takes an email and a few simple steps. You need a Microsoft Account if you don't already have one. You'll receive a unique pair of keys for each API requested. The second one is just a spare. Don't share the secret keys with anyone. Trials have both a rate limit, transactions per second or minute, and a monthly usage cap. A transaction is simply an API call. You can upgrade to paid tiers to unlock the restrictions.
+[Signing up for free trials](https://azure.microsoft.com/try/cognitive-services/ "Sign-up Help") only takes an email and a few simple steps. You need a Microsoft Account if you don't already have one. You'll receive a unique pair of keys for each API requested. The second one is just a spare. Don't share the secret keys with anyone. Trials have both a rate limit, transactions per second or minute, and a monthly usage cap. A transaction is simply an API call. You can upgrade to paid tiers to unlock the restrictions.
 
 ## Subscription management
 
-Once you are signed in with your Microsoft Account, you can access [My subscriptions] (https://www.microsoft.com/cognitive-services/en-us/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
+Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/en-us/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
 
 ## Upgrade to unlock limits
 

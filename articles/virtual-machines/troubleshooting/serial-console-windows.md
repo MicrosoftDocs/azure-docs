@@ -70,7 +70,7 @@ If needed, the SAC can be enabled offline as well:
 
 ### How do I know if SAC is enabled?
 
-If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. In some cases, VM Health information will be shown, and in other cases it will be blank. If you are using a Windows Server image created before February 2018, SAC will likely not be enabled.
+If [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. In some cases, VM Health information will be shown, and in other cases it will be blank. If you are using a Windows Server image created before February 2018, SAC will likely not be enabled.
 
 ## Enable the Windows Boot Menu in Serial Console 
 
