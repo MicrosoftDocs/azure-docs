@@ -158,13 +158,13 @@ ingress.extensions/hello-world-ingress created
 To test the certificates with our fake *demo.azure.com* host, use `curl` and specify the *--resolve* parameter. This parameter lets you map the *demo.azure.com* name to the public IP address of your ingress controller. Specify the public IP address of your own ingress controller, as shown in the following example:
 
 ```
-curl -v -k --resolve demo.azure.com:443:51.145.155.210 https://demo.azure.com
+curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 ```
 
 No additional path was provided with the address, so the ingress controller defaults to the */* route. The first demo application is returned, as shown in the following condensed example output:
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:51.145.155.210 https://demo.azure.com
+$ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 
 [...]
 <!DOCTYPE html>
@@ -175,7 +175,7 @@ $ curl -v -k --resolve demo.azure.com:443:51.145.155.210 https://demo.azure.com
 [...]
 ```
 
-The *-v* parameter in our `curl` command outputs verbose information, including the TLS certificate received. Half-way through your curl output, you can verify that your own TLS certificate was uses. The *-k* parameter continues loading the page even though we're using a self-signed certificate. The following example shows that *issuer: CN=demo.azure.com; O=aks-ingress-tls* certificate was used:
+The *-v* parameter in our `curl` command outputs verbose information, including the TLS certificate received. Half-way through your curl output, you can verify that your own TLS certificate was used. The *-k* parameter continues loading the page even though we're using a self-signed certificate. The following example shows that the *issuer: CN=demo.azure.com; O=aks-ingress-tls* certificate was used:
 
 ```
 [...]
@@ -271,3 +271,4 @@ You can also:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-tls]: ingress-tls.md
