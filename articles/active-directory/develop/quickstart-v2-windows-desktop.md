@@ -35,7 +35,7 @@ In this quickstart, you'll learn a Windows desktop .NET (WPF) application can si
 > 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 > 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)** > **New registration**.
-> 1. When the Register an application page appears, enter your application's registration information:
+> 1. When the *Register an application* page appears, enter your application's registration information:
 >      - In the *Name* section, Enter a meaningful application name that will be displayed to users of the app, for example `UWP-App-calling-MsGraph`
 >      - In the *Supported account types* section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**
 >      - Click **Register** to create the application.
