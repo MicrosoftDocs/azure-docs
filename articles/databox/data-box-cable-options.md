@@ -15,9 +15,14 @@ ms.author: alkohli
 
 This article describes the various ways to cable your Azure Data Box.
 
-## One port setup (MGMT/DATA to server)
+## Data transfer via MGMT port
 
-This is the absolute minimum configuration for your Data Box. You can configure only the MGMT port for both management and data.
+This option is the absolute minimum configuration for your Data Box. You can configure only the MGMT port for both management and data.
+
+Before you begin, make sure you have:
+
+- An RJ45 Ethernet cable for the MGMT.
+- A data source.
 
 Do the following steps to cable your device.
 
@@ -33,16 +38,24 @@ Do the following steps to cable your device.
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 
 
-## Two port setup with static IPs (MGMT to server)
+## Data transfer via DATA port via static IPs
 
 You can configure two ports for your Data Box, the MGMT port for management traffic and one of the data ports for data. The data ports could be DATA 1, DATA 2, or DATA 3.
 
-We strongly recommend that if you configure only one data port, it should be a 10 GbE port such as DATA 1 or DATA 2. A 1 GbE port would dramatically increase the time it takes for the data transfer.
+We strongly recommend that if you configure only one data port, it should be a 10-GbE port such as DATA 1 or DATA 2. A 1-GbE port would dramatically increase the time it takes for the data transfer.
+
+Before you begin, make sure you have:
+
+- An RJ45 Ethernet cable for the MGMT.
+- A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
+- One or more data sources.
+
+### Option 1 - Initial setup via server
 
 Do the following steps to cable your device.
 
-1. Use an RJ45 Ethernet cable from the server directly to the MGMT portal for configuration.
-2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10 GbE DATA 1 or DATA 2 ports for good performance.
+1. Use an RJ45 Ethernet cable from the server directly to the MGMT port for configuration.
+2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server acting  as data source. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance.
 3. On the server, set:
 
     - **IP address** to 192.168.100.5
@@ -53,12 +66,12 @@ Do the following steps to cable your device.
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Assign static IPs to the data ports that you have configured.
 
-## Two port setup with static IPs (MGMT to laptop)
+### Option 2 - Initial setup via separate computer
 
 Do the following steps to cable your device.
 
-1. Use an RJ45 Ethernet cable from the server directly to the MGMT portal for configuration.
-2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10 GbE DATA 1 or DATA 2 ports for good performance. The data ports are connected via a 10 GbE switch to the server with data.
+1. Use an RJ45 Ethernet cable from the server directly to the MGMT port for configuration.
+2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance. The data ports are connected via a 10-GbE switch to the server with data.
 3. Configure the Ethernet adapter of the laptop you are using to connect to the device with:
 
     - **IP address** of 192.168.100.5
@@ -69,12 +82,20 @@ Do the following steps to cable your device.
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Identify the IP addresses assigned by the DHCP server.
 
-## Two port setup via a switch and static IPs (MGMT to laptop)
+## Data transfer to DATA port via switch with static IPs
+
+Use this configuration for multiple data sources across 1 GbE and 10 gbE networks.
+
+Before you begin, make sure you have:
+
+- An RJ45 Ethernet cable for the MGMT.
+- A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
+- One or more data sources. These data sources could in different networks such as 1 GbE or 10 GbE networks.
 
 Do the following steps to cable your device.
 
-1. Use an RJ45 Ethernet cable from the server directly to the MGMT portal for configuration.
-2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10 GbE DATA 1 or DATA 2 ports for good performance.
+1. Use an RJ45 Ethernet cable from the server directly to the MGMT port for configuration.
+2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance.
 3. Configure the Ethernet adapter of the laptop you are using to connect to the device with:
 
     - **IP address** of 192.168.100.5
@@ -86,7 +107,15 @@ Do the following steps to cable your device.
 4. Assign static IPs to the data ports that you have configured.
 
 
-## DHCP server only setup (DATA to server)
+## Data transfer to DATA port in a DHCP environment
+
+Use this configuration if your device will be in a DHCP environment.
+
+Before you begin, make sure you have:
+
+- An RJ45 cable if you wish to connect DATA 1.
+- A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
+- One or more data sources. These data sources could in different networks such as 1 GbE or 10 GbE networks.
 
 Do the following steps to cable your device.
 
