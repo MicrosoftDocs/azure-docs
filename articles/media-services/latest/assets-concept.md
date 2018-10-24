@@ -113,8 +113,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/assets_list)
-
+For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
 
 ## Storage side encryption
 
