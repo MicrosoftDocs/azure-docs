@@ -80,7 +80,7 @@ Network resource is individually deployable resource, independent of an Applicat
 ## Gateways
 A gateway connects two networks and routes traffic.  A gateway allows your services to communicate with external clients and provides an ingress into your service(s).  A gateway can also be used to connect your Mesh application with your own, existing virtual network.
 
-### Secrets
+## Secrets
 
 Secrets resources are deployable independent of an application or service resource that may refer to it as their dependency. It is used to securely deliver Secrets to your applications. Multiple services from different applications can reference values of the same Secret.
 
