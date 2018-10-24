@@ -135,14 +135,14 @@ Creates a namespace of type **EventHubs**, with an event hub and a consumer grou
    ],
 ```
 
-## Azure PowerShell
+## Use Azure PowerShell to deploy the template
 To deploy the resources using Azure PowerShell, run the following command:
 
 ```azurepowershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
-## Azure CLI
+## Use Azure CLI to deploy the template
 To deploy the resources using Azure PowerShell, run the following command:
 
 ```azurecli
