@@ -50,7 +50,7 @@ Azure Storage offers three types of blobs&mdash;block blobs, append blobs, and [
 
 All blobs reside within a container. A container is similar to a folder in a file system. You can further organize blobs into virtual directories and navigate them as you would a file system. 
 
-There may be times where large datasets and network constraints make uploading data to Blob storage over the wire unrealistic. You can use [Azure Data Box Disk](../articles/storage/databox/data-box-disk-overview.md) to request solid-state disks (SSDs) from Microsoft. You can then copy your data to those disks and ship them back to Microsoft to be uploaded into Blob storage.
+There may be times where large datasets and network constraints make uploading data to Blob storage over the wire unrealistic. You can use [Azure Data Box Disk](../articles/databox/data-box-disk-overview.md) to request solid-state disks (SSDs) from Microsoft. You can then copy your data to those disks and ship them back to Microsoft to be uploaded into Blob storage.
 
 If you need to export large amounts of data from your storage account, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../articles/storage/common/storage-import-export-service.md).
   
