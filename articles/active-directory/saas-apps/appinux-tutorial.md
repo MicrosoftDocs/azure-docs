@@ -110,9 +110,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Appinux Domain and URLs single sign-on information](./media/appinux-tutorial/tutorial_appinux_url1.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.appinux.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Appinux_SUBDOMAIN>.appinux.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<Appinux_SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Appinux Client support team](mailto:kenneth.thorman@appinux.com) to get these values.
@@ -121,20 +121,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Attribute section](./media/appinux-tutorial/edit_attribute.png)
 
+	![Attribute section](./media/appinux-tutorial/tutorial_namespace.png)
+
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
-	| Name | Source Attribute|
-	| ---------------| --------- |
-	| `givenname` | `user.givenname` |
-	| `surname` | `user.surname` |
-	| `emailaddress` | `user.mail` |
-	| `name` | `user.userprincipalname` |
-	| `UserType` | `Provide the value as per your organization` |
-	| `Tag` | `Provide the value as per your organization` |
-	| `Role` | `user.assignedroles` |
-	| `email` | `user.mail` |
-	| `wanshort` | `extractmailprefix([userprincipalname])` |
-	| `nameidentifier` | `user.employeeid` |
+	| **Name** | **Namespace** | **Source Attribute**|
+	| ---------|---------------| --------- |
+	| `givenname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
+	| `surname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
+	| `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
+	| `name` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
+	| `UserType` | `http://bcv.appinux.com/claims` | `Provide the value as per your organization` |
+	| `Tag` | `http://appinux.com/Tag` | `Provide the value as per your organization` |
+	| `Role` | `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` | `user.assignedroles` |
+	| `email` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
+	| `wanshort` | `http://appinux.com/windowsaccountname2` | `extractmailprefix([userprincipalname])` |
+	| `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
