@@ -28384,7 +28384,7 @@
         },
         {
             "source_path": "articles/active-directory/develop/registration-config-grant-permissions-how-to.md",
-            "redirect_url": "/azure/active-directory/manage-apps/manage-user-consent",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-user-consent",
             "redirect_document_id": true
         },
         {
