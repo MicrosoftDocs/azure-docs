@@ -118,7 +118,7 @@ print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separat
 That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
 
 ```console
-python transliterate-text.py
+python translate-text.py
 ```
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
