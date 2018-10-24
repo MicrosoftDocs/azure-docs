@@ -20,7 +20,7 @@ Usually, add an example utterance to an intent first, and then create entities a
 
 ## Marking entities in example utterances
 
-When you select text in the example utterance to mark for an entity, an in-place pop-up menu appears. Use this menu to either create an entity or select an entity. 
+When you select text in the example utterance to mark for an entity, an in-place pop-up menu appears. Use this menu to either create or select an entity. 
 
 Certain entity types, such as prebuilt entities and regular expression entities, cannot be marked in the example utterance because they are marked automatically. 
 
@@ -28,44 +28,28 @@ For each specific markable-entity types, see the following sections.
 
 ## Add a simple entity
 
-In the following procedure, you create and label custom entities within the following utterance on the intent page:
+In the following procedure, you create and label a custom entity within the following utterance on the intent page:
 
-```
-book me 2 adult business tickets to Paris tomorrow on Air France
+```text
+Does John Smith work in Seattle?
 ```
 
-1. Select "Air France" in the utterance to label it as a simple entity.
+1. Select "Seatte" in the utterance to label it as a simple entity.
 
     > [!NOTE]
     > When selecting words to label them as entities:
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
 
-2. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name in the text box, and then select **Create new entity**. 
- 
-    ![Screenshot of Intents details page, with simple entity labeling option highlighted](./media/luis-how-to-add-example-utterances/create-airline-simple-entity.png)
+1. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name in the text box, and then select **Create new entity**. 
 
-3. In the **What type of entity do you want to create?** pop-up dialog box, verify the entity name and select the simple entity type, and then select **Done**.
-
-    ![Image of confirmation dialog](./media/luis-how-to-add-example-utterances/create-simple-airline-entity.png)
-
-    See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity.
-
+1. In the **What type of entity do you want to create?** pop-up dialog box, verify the entity name and select the **Simple** entity type, and then select **Done**.
 
 ## Add a list entity
 
 List entities represent a fixed, closed set (exact text matches) of related words in your system. 
 
-For a drinks list entity, you can have two normalized values: water and soda pop. Each normalized name has synonyms. For water, synonyms are H20, gas, flat. For soda pop, synonyms are fruit, cola, ginger. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
-
-|Normalized name|Synonyms|
-|--|--|
-|Water|H20, gas, flat|
-|Soda pop|Fruit, cola, ginger|
-
-When creating a new list entity from the intent page, you are doing two things that may not be obvious. First, you are creating a new list by adding the first list item. Second, the first list item is named with the word or phrase you selected from the utterance. While you can change these later from the entity page, it may be faster to select an utterance that has the word that you want for the name of the list item.
-
-For example, if you wanted to create a list of types of drink and you selected the word `h2o` from the utterance to create the entity, the list would have one item, whose name was h20. If you wanted a more generic name, you should choose an utterance that uses the more generic name. 
+For a company department list entity, you can have normalized values: `Accounting` and `Human Resources`. Each normalized name has synonyms. For a department, these synonyms can include any department acronyms, numbers, or slang. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
 1. In the utterance, select the word that is the first item in the list, and then enter the name of the list in the textbox, then select **Create new entity**.   
 
