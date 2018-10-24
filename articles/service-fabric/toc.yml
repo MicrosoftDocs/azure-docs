@@ -637,10 +637,10 @@
       items:
       - name: Query EventStore APIs
         href: service-fabric-diagnostics-eventstore-query.md      
-      - name: Windows Azure Diagnostics
+      - name: Windows Cluster Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Linux Azure Diagnostics
-        href: service-fabric-diagnostics-event-aggregation-lad.md 
+      - name: Linux Cluster Diagnostics
+        href: service-fabric-diagnostics-oms-syslog.md 
       - name: Set up Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
       - name: Monitor with Log Analytics
