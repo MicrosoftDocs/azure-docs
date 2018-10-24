@@ -57,65 +57,41 @@ For a company department list entity, you can have normalized values: `Accountin
 
     You can add more list items or more item synonyms by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or [importing](luis-how-to-add-entities.md#import-list-entity-values) a list. 
 
-### Add synonyms to the list entity 
+## Add composite entity
 
-Add a synonym to the list entity by selecting the word or phrase in the utterance. If you have a Drink list entity, and want to add `agua` as a synonym for water, follow the steps:
+Composite entities are created from existing **Entities**. 
 
-In the utterance, select the synonymous word, such as `aqua` for water, then select the list entity name in the drop-down list, such as **Drink**, then select **Set as synonym**, then select the list item it is synonymous with, such as **water**.
+Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name, and the location in a single parent entity. 
 
-![Screenshot of Intents details page, with Create a new normalized view highlighted](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+The employee name, John Smith, is a prebuilt personName entity. The location, Seattle, is a custom simple entity. Once those two entities are created and marked in an example utterance, those entities can be wrapped in a composite entity. 
 
-### Create new item for list entity
+1. To wrap the individual entities into a composite, select the **first** labeled entity (left-most) in the utterance for the composite entity. A drop-down list appears showing the choices for this selection.
 
-Create a new item for an existing list entity by selecting the word or phrase in the utterance. If you have an Employee list, and want to add `Bob Smith` as a new item, follow the steps:
+1. Select **Wrap composite entity** from the drop-down list. 
 
-In the utterance, select the word or phrase for the new list item, such as `Bob Smith`, then select the list entity name in the drop-down list, such as **Employee**, then select **Create a new normalized view**. 
+    ![Screenshot of Select "Wrap in composite entity"](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
 
-![Screenshot of adding new list item](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
+1. Select the last word of the composite entity (right-most). Notice a green line follows the composite entity.
 
-The word is now highlighted in blue. If you hover over the word, a tag displays showing the list item name, such as tea.
+1. Enter the composite entity name in the drop-down list.
 
-![Screenshot of new list item tag](./media/luis-how-to-add-example-utterances/list-entity-item-name-tag.png)
-
-## Use composite entity
-
-Composite entities are created from **Entities**. You can't create a composite entity from the Intent page. Once the composite entity is created, you can wrap the entities in an utterance on the Intent page. 
-
-Assuming the utterance, `book 2 tickets from Seattle to Cairo`, a composite utterance can return entity information of the count of tickets (2), the origin (Seattle), and destination (Cairo) locations in a single parent entity. 
-
-Follow these [steps](luis-how-to-add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` in the utterance is blue, indicating it is a labeled entity. Prebuilt entities are labeled by LUIS. You can't add or remove the prebuilt entity label from a single utterance. You can only add or remove all the prebuilt labels by adding or removing the prebuilt entity from the application.
-
-Follow these [steps](#add-hierarchical-entity-and-label) to create a **Location** hierarchical entity. Label the origin and destination locations in the example utterance. 
-
-Before you wrap the entities in a composite entity, make sure all the child entities are highlighted in blue, meaning they have been labeled in the utterance.
-
-1. To wrap the individual entities into a composite, select the first labeled entity in the utterance for the composite entity. In the example utterance, `book 2 tickets from Seattle to Cairo`, the first entity is the number 2. A drop-down list appears showing the choices for this selection.
-
-    ![Screenshot of number selected and drop-down options highlighted](./media/luis-how-to-add-example-utterances/wrap-1.png)
-
-2. Select **Wrap composite entity** from the drop-down list. 
-
-    ![Screenshot of drop-down options for wrapping composite entity with Wrap in composite entity highlighted](./media/luis-how-to-add-example-utterances/wrap-2.png)
-
-3. Select the last word of the composite entity. In the utterance of this example, select "Location::Destination" (representing Cairo). The green line is now under all the words, including non-entity words, in the utterance that are the composite.
-
-    ![Screenshot of BookFlight Intent page, with number highlighted](./media/luis-how-to-add-example-utterances/wrap-composite.png)
-
-4. Select the composite entity name from the drop-down list. For this example, that is **TicketOrder**.
-
-    ![Screenshot of wrapping words with composite entity, with composite entity name highlighted in drop-down list](./media/luis-how-to-add-example-utterances/wrap-4.png)
+    ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     When you wrap the entities correctly, a green line is under the entire phrase.
 
-    ![Screenshot of utterance with composite entity highlighted](./media/luis-how-to-add-example-utterances/wrap-5.png)
+1. Validate the composite entity details then select **Done**.
 
-    See [Data Extraction](luis-concept-data-extraction.md#composite-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the composite entity [tutorial](luis-tutorial-composite-entity.md) to learn more about how to use a composite entity.
+    ![Screenshot of Entity details pop-up](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
+
+1. The composite entity displays with both blue highlights for individual entities and a green underline for the entire composite entity. 
+
+    ![Screenshot of Intents details page, with composite entity](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
 ## Add hierarchical entity
 
 A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
 
-In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
+In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
 
 1. On the Intent page, in the utterance, select "Seattle", then enter the entity name `Location, and then select **Create new entity**.
 
