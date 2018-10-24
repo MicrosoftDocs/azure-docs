@@ -11,43 +11,72 @@ ms.author: grhuynh;ruchir
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 07/21/2018
 
 ---
-# MSGEN Troubleshooting guide
+# Troubleshooting guide
 
-This overview describes strategies to address common errors seen when using the Microsoft Genomics service, MSGEN. For general FAQ, see [Common questions](frequently-asked-questions-genomics.md).
+Here are a few troubleshooting tips for some of the common issues that you might face when using the Microsoft Genomics service, MSGEN.
+
+ For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.md).
 
 
-## Step 1:Check your job status
+## Step 1: Locate error codes associated with the workflow
 
-The first step is to find out the status of your job. Type in `msgen status` with the three required arguments:
-:
+You can locate the error messages associated with the workflow by:
+
+1. Using the command line and typing in  `msgen status`
+2. Examining the contents of standardoutput.txt.
+
+
+### 1. MSGEN STATUS
 
 ```bash
-msgen status -u URL -k KEY -w ID [-f CONFIG] 
+msgen status -u URL -k KEY -w ID 
 ```
 
 There are three required arguments:
 
 * URL - the base URI for the API
 * KEY - the access key for your Genomics account
+    * To find your URL and KEY, go to Azure portal and open your Microsoft Genomics account page. Under the **Management** heading, choose **Access keys**. There, you find both the API URL and your access keys.
+
+    * Alternatively you can include the path to the config file instead of directly entering the URL and KEY. Note that if you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.
 * ID - the workflow ID
 
-## How to find the URL and key for your account
+**Note:**
 
-To find your URL and KEY, go to Azure portal and open your Genomics account page. Under the **Management** heading, choose **Access keys**. There, you find both the API URL and your access keys.
+* To  find your workflow ID type in msgen list command: assuming your config file is in the same location as your msgen exe, this will look like this: Be sure to include the  URI and keys in the config file :
 
-**Note:**  You can provide these required arguments in the config file or in the command line. If you include these arguments in the command line and in the config file, the command-line arguments will take precedence. 
+```bash
+msgen list -f "config.txt"
+```
 
-## Step 2: Note your job status
+A Sample output from this command will look like this:
 
-The `msgen status` command provides a detailed message about the status of your workflow. The next section lists the possible errors that you might see if your workflow fails.
+```bash
+c:\Python27\Scripts> msgen list -f "config.txt"
+Microsoft Genomics command-line client v0.7.4
+Copyright (c) 2018 Microsoft. All rights reserved.
 
-### Getting more details about your workflow status
+Workflow List
+-------------
+Total Count  : 1
 
-Besides using `msgen status`, you can also get more details by looking at the workflow output files.
+Workflow ID     : 10001
+Status          : Completed successfully
+Message         :
+Process         : snapgatk-20180730_1
+Description     :
+Created Date    : Mon, 27 Aug 2018 20:27:24 GMT
+End Date        : Mon, 27 Aug 2018 20:55:12 GMT
+Wall Clock Time : 0h 27m 48s
+Bases Processed : 1,348,613,600 (1 GBase)
+```
 
+
+
+### 2. STANDARDOUTPUT.TXT 
 Locate the output container for the workflow in question. MSGEN creates a,   `[workflowfilename].logs.zip` folder after every workflow execution. Unzip the folder to view its contents:
 
 * outputFileList.txt - a list of the output files produced during the workflow
@@ -55,9 +84,10 @@ Locate the output container for the workflow in question. MSGEN creates a,   `[w
 * standardoutput.txt - logs  all top-level status messages including errors, that occurred while running the workflow.
 * GATK log files - all other files in the `logs` folder
 
-For troubleshooting purposes, you only need to evaluate the error messages in the  `standardoutput.txt` file.
+For troubleshooting, examine the contents of standardoutput.txt and note any error messages that appear.
 
-## Step 3:Try to resolve the most common issues using this troubleshooting guide
+
+## Step 2: Try recommended resolutions for common error codes
 
 This section briefly highlights common errors and the strategies you can use to resolve them
 Note: All errors have the word 'Error Code [ErrorCode Number]' at the beginning. This will help you determine what went wrong, and what do to about it.
@@ -80,9 +110,9 @@ You can get one of the following two kinds of internal service errors
 
 | Type of error              | Error code       | Error message                                                                                                                            | Recommended troubleshooting steps                                                                                                                                   |
 |----------------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Undetermined service error | Error code range | "An internal error occurred. Try resubmitting the workflow. If you encounter an error again, please contact Microsoft Genomics support" | Try resubmitting the workflow. If you get the error again, contact Microsoft Genomics support by creating a support [ticket](file-support-ticket-genomics.md )  |
-| Actionable service error   | 592              | "Insufficient buffer space"                                                                                                              | * Please increase the expansion factor by setting -xf to 2, 3, or 4 in 'process_args' in the workflow config file. or,  Unzip the input files and submit FASTQ files. |
-| Actionable service error   | 6                | "The process machine ran out of disk space when writing output files."                                                                   | * Please increase the expansion factor by setting -xf to 2, 3, or 4 in 'process_args' in the workflow config file.  or,  Unzip the input files and submit FASTQ files. |                                                                                                                                                                     |
+| Undetermined service error | >400 | An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md ). |
+| Actionable service error   | 400              | Insufficient buffer space                                                                                                              | Increase the expansion factor by setting -xf to 2, 3, or 4 in 'process_args' in the workflow config file. Unzip the input files and submit FASTQ files. |
+| Actionable service error   | 6                | The process machine ran out of disk space when writing output files.                                                                   | *Increase the expansion factor by setting -xf to 2, 3, or 4 in 'process_args' in the workflow config file.  or,  Unzip the input files and submit FASTQ files. |                                                                                                                                                                     |
 
 **Note:**
 We have successfully run submissions up to 200x coverage.  A memory consumption problem may arise if:
@@ -100,32 +130,31 @@ These errors are user actionable and you can use the listed troubleshooting step
 
 | Type of file | Error code | Error message                                                                           | Recommended troubleshooting steps                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Any          | 769        | "Read [readId] has [number of bases] bases, but the limit is [maxReadLength]"           | The most common reason for this error is file corruption leading  to concatenation of two reads.  Check your input files. |
-| Any          | 4097       | "-o max and /or -mpc are only meaningful in the context of -om                           | Check the input parameters used.                                                                                   |
-| Any          | 4097       | "The minimum read length [minReadLength] must be at least the seed length [seedLength]" | Please check the values specified in the workflow parameters                                                              |
-| BAM          | 256        |   "Unable to read file '[yourFileName]'. Ensure the BAM file is correctly formatted."                                                                                      | Please check the BAM file used for the workflow                                                                           |
-| BAM          | 256        |   "Failure reading file '[yourFileName]'. Ensure the BAM file is correctly formatted."                                                                                      | Please check the BAM file used for the workflow                                                                           |
-| BAM          | 256        | "Malformed BAM file '[yourFileName]'. It is too small to contain even a header. Ensure the BAM file is correctly formatted."                                                                                        | Please check the BAM file used for the workflow                                                                           |
-| BAM          | 256        |   “'[yourFileName]' is not a valid BAM file. Ensure the BAM file is correctly formatted."                                                                                      | Please check the BAM file used for the workflow                                                                           |
-| BAM          | 256        |    "Unable to read entire header of BAM file ‘[yourFileName]’. It may be malformed. Ensure the BAM file is correctly formatted."                                                                                     | Please check the BAM file used for the workflow                                                                           |
-| BAM          | 256        |    ''[yourFileName]'' is not a valid BAM file. Ensure the BAM file is correctly formatted."                                                                                     | Please check the BAM file used for the workflow                                                                           |
-| BAM          | 256        |   "Failed to parse BAM file's '[yourFileName]' header correctly. Ensure the BAM file is correctly formatted."                                                                                      | Please check the BAM file used for the workflow                                                                           |
-| BAM          | 256        |  "Truncated or corrupt BAM file '[yourFileName]' near offset [offset]. Ensure the BAM file is correctly formatted."                                                                                       | Please check the BAM file used for the workflow                                                                           |
-| BAM          | 256        |   "Read [readId] has no sequence in file '[yourFileName]'."                                                                                      | Please correct the information in the BAM file                                                                            |
-| FASTQ        | 259        |   "FASTQ file does not end with a newline. Please ensure the FASTQ file '[yourFileName]' is correctly formatted."                                                                                      | Check the FASTQ file used for the workflow                                                                           |
-| FASTQ        | 259        |   "FASTQ record is larger than buffer size in file '[yourFileName]':[offset]."                                                                                      | Check the FASTQ file used for the workflow                                                                         |
-| FASTQ        | 259        |     "Syntax error (blank line) in FASTQ file '[yourFileName]'. Ensure the FASTQ file is correctly formatted."                                                                                    | Check the FASTQ file used for the workflow                                                                         |
-| FASTQ        | 259        |       "FASTQ file '[yourFileName]' has invalid starting character at offset [offset], line type [i], char [character]. Ensure the FASTQ file is correctly formatted."                                                                                  | Check the FASTQ file used for the workflow                                                                         |
-| FASTQ        | 259        |  "First read of batch doesn't have ID ending with /1: '[readId]' in file '[yourFileName]'."                                                                                       | Correct the information in the FASTQ file file                                                                          |
-| FASTQ        | 259        |  "Second read of batch doesn't have ID ending with /2: '[readId]' in file '[yourFileName]'."                                                                                       | Correct the information in the FASTQ file file                                                                          |
-| FASTQ        | 259        |  "First read of pair doesn't have an ID that ends in /1: '[readId]'."                                                                                       | Correct the information in the FASTQ file file                                                                          |
-| FASTQ        | 259        |   “Read ID doesn't end with /1 or /2, and cannot be used as a paired FASTQ file: [readId] in file '[yourFileName]'."                                                                                      | Correct the information in the FASTQ file file                                                                          |
-| FASTQ        | 259        |  "Reads of both ends responded differently. Please ensure the correct FASTQ files were chosen."                                                                                       | Please choose the right FASTQ files                                                                          |
+| Any          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength]           | The most common reason for this error is file corruption leading to concatenation of two reads. Check your input files. |                                |
+| BAM          | 200        |   Unable to read file '[yourFileName]'.                                                                                       | Check the format of the BAM file. Submit the workflow again with a properly formatted file.                                                                           |
+| BAM          | 201        |  Unable to read BAM file [File_name].                                                                                      |Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 202        | Unable to read BAM file [File_name]. File too small and missing header.                                                                                        | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 203        |   Unable to read BAM file [File_name]. Header of file was corrupt.                                                                                      |Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                           |
+| BAM          | 204        |    Unable to read BAM file [File_name]. Header of file was corrupt.                                                                                     | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                           |
+| BAM          | 205        |    Unable to read BAM file [File_name]. Header of file was corrupt.                                                                                     | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 206        |   Unable to read BAM file [File_name]. Header of file was corrupt.                                                                                      | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 207        |  Unable to read BAM file [File_name]. File truncated near offset [offset].                                                                                       | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 208        |   Invalid BAM file. The ReadID [Read_Id] has no sequence in file [File_name].                                                                                      | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                             |
+| FASTQ        | 300        |  Unable to read FASTQ file. [File_name] doesn't end with a newline.                                                                                     | Correct the format of the FASTQ file and submit  the workflow again.                                                                           |
+| FASTQ        | 301        |   Unable to read FASTQ file [File_name]. FASTQ record is larger than buffer size at offset: [_offset]                                                                                      | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+| FASTQ        | 302        |     FASTQ Syntax error. File [File_name] has a blank line.                                                                                    | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+| FASTQ        | 303        |       FASTQ Syntax error. File[File_name] has an invalid starting character at offset: [_offset],  line type: [line_type], character: [_char]                                                                                  | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+| FASTQ        | 304      |  FASTQ Syntax error at readID [_ReadID].  First read of batch doesn’t have readID ending in /1 in file [File_name]                                                                                       | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+| FASTQ        | 305        |  FASTQ Syntax error at readID [_readID]. Second read of batch doesn’t have readID ending in /2 in file [File_name]                                                                                      | Correct the format of the FASTQ file and submit  the workflow again.                                                                          |
+| FASTQ        | 306        |  FASTQ Syntax error at readID [_ReadID]. First read of pair doesn’t have an ID that ends in /1 in file [File_name]                                                                                       | Correct the format of the FASTQ file and submit  the workflow again.                                                                          |
+| FASTQ        | 307        |   FASTQ Syntax error at readID [_ReadID]. ReadID doesn’t end with /1 or/2. File [File_name] can't be used as a paired FASTQ file.                                                                                      |Correct the format of the FASTQ file and submit  the workflow again.                                                                          |
+| FASTQ        | 308        |  FASTQ read error. Reads of both ends responded differently. Did you choose the correct FASTQ files?                                                                                       | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## Step 4: Contact Microsoft Genomics support
+## Step 3: Contact Microsoft Genomics support
 
 If you continue to have job failures, or if you have any other questions, contact Microsoft Genomics support from the Azure portal. Additional information on how to submit a support request can be found [here](file-support-ticket-genomics.md).
 
 ## Next steps
+
 In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
