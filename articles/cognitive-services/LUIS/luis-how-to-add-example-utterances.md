@@ -20,9 +20,9 @@ Usually, add an example utterance to an intent first, and then create entities a
 
 ## Marking entities in example utterances
 
-When you select text in the example utterance to mark for an entity, you can either create an entity or select an existing entity. 
+When you select text in the example utterance to mark for an entity, an in-place pop-up menu appears. Use this menu to either create an entity or select an entity. 
 
-Certain entity types, such as prebuilt entities and regular expression entities, cannot be marked in the example utterance because they are marked automatically.
+Certain entity types, such as prebuilt entities and regular expression entities, cannot be marked in the example utterance because they are marked automatically. 
 
 For each specific markable-entity types, see the following sections. 
 
