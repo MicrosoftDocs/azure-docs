@@ -10,11 +10,11 @@ ms.date: 10/24/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Troubleshoot Change Tracking
+# Troubleshoot Change Tracking and Inventory
 
-## General
+## Windows
 
-### <a name="records-not-showing"></a>Scenario: Change Tracking records are not showing in the Azure Portal
+### <a name="records-not-showing-windows"></a>Scenario: Change Tracking records are not showing in the Azure Portal
 
 #### Issue
 
@@ -26,9 +26,39 @@ This error can be caused by the following reasons:
 
 1. The **Microsoft Monitoring Agent** is not running
 2. Communication back to the Automation Account is being blocked.
-3. The VM being onboarded may have come from a cloned machine that wasn't sysprepped with the Microsoft Monitoring Agent installed.
+3. The Management Packs for Change Tracking are not downloaded.
+4. The VM being onboarded may have come from a cloned machine that wasn't sysprepped with the Microsoft Monitoring Agent installed.
 
 #### Resolution
 
-1. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Update Management to work.
-2. If using a cloned image, sysprep the image first and install the MMA agent after the fact.
+1. Verify the **Microsoft Monitoring Agent** (HealthService.exe) is running on the machine.
+2. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Change Tracking to work.
+3. Verify that the following Change Tracking and Inventory management packs exist locally:
+    * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
+    * Microsoft.IntelligencePacks.InventoryChangeTracking.*
+    * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
+4. If using a cloned image, sysprep the image first and install the Microsoft Monitoring Agent agent after the fact.
+
+If these solutions do not fix your problem and you contact support, you can run the following steps to collecting diagnostic tracing which can help support troubleshoot the issue:
+
+1. Collect the diagnostic tracing on agent:
+
+   1. On the agent machine, navigate to `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` and run the following commands:
+
+        ```cmd
+        net stop healthservice 
+        StopTracing.cmd
+        StartTracing.cmd VER
+        net start healthservice
+        ```
+
+        > [!NOTE]
+        > By default error tracing is enabled, if you want to enable verbose error messages like the preceding example, use `VER` parameter. For information traces, use `INF` when invoking `StartTracing.cmd`.
+
+## Next steps
+
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+
+* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
