@@ -14,7 +14,7 @@ ms.date: 09/20/2018
 
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a web traffic load balancer that enables you to manage traffic to your web applications.
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create an Azure Application Gateway. It also demonstrates how to use the gateway to manage traffic to two web servers that run that run in Azure container instances.
+Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create an Azure Application Gateway. It also teaches you how to use the gateway to manage traffic to two web servers that run in Azure container instances.
 
 This tutorial shows you how to:
 
@@ -35,7 +35,7 @@ This tutorial shows you how to:
 
 A resource group is a logical container into which Azure resources are deployed and managed.  
 
-The following example creates a resource group named `myResourceGroup` in the `eastus` location.
+The following example creates a resource group named **myResourceGroup** in the **eastus** location.
 
 ```yml
 - hosts: localhost
@@ -49,7 +49,7 @@ The following example creates a resource group named `myResourceGroup` in the `e
         location: "{{ location }}"
 ```
 
-Save above playbook as *rg.yml*. To run the playbook, use the `**ansible-playbook**` command as follows:
+Save above playbook as *rg.yml*. To run the playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook rg.yml
@@ -156,7 +156,7 @@ ansible-playbook aci_create.yml
 
 ## Create the application gateway
 
-Now let us create an application gateway. The following example creates an application gateway named `myAppGateway` with configurations for server, frontend, and http.  
+Now let us create an application gateway. The following example creates an application gateway named **myAppGateway** with configurations for server, frontend, and http.  
 
 * **appGatewayIP** is defined in the **gateway_ip_configurations** block. A subnet reference is required for ip configuration of the gateway.
 * **appGatewayBackendPool** is defined in the **backend_address_pools** block. An application gateway must have at least one backend address pool.
