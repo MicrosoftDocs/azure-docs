@@ -97,7 +97,7 @@ See [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### CLR 
@@ -341,7 +341,7 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
     - Snapshot.
     - Distributor.
  - SSIS is supported. 
-- Other types of job steps are not currently supported, including:.
+- Other types of job steps are not currently supported, including:
   - Merge replication job step is not supported.  
   - Queue Reader is not supported.  
   - Command shell is not yet supported. 
@@ -406,7 +406,7 @@ In this example existing databases will continue to work and can grow without an
 ### Incorrect configuration of SAS key during database restore
 
 `RESTORE DATABASE` that reads .bak file might be constantly retrying to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
-Make sure that you remove leading `?` from the SAS key generated using Azure portal.
+Make sure that you remove the leading `?` from the SAS key that is generated using Azure portal.
 
 ### Tooling
 
