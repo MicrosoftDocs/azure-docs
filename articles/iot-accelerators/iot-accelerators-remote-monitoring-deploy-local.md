@@ -1,18 +1,18 @@
 ---
-title: Deploy the remote monitoring solution locally - Azure | Microsoft Docs 
+title: Deploy the remote monitoring solution locally (via Visual Studio IDE) - Azure | Microsoft Docs 
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
-author: asdonald
-manager: timlt
-ms.author: asdonald
+author: avneet723
+manager: hegate
+ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/26/2018
+ms.date: 10/26/2018
 ms.topic: conceptual
 ---
 
-# Deploy the Remote Monitoring solution accelerator locally
+# Deploy the Remote Monitoring solution accelerator locally (via Visual Studio IDE)
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. The approach described in this article deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure Time Series Insights services in the cloud. To learn how to run the Remote Monitoring solution accelerator in an IDE on your local machine, see [Starting Microservices on local environment](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) on GitHub.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. The approach described in this article deploys the microservices to your local machine and uses IoT Hub, Cosmos DB, and Azure Time Series Insights services in the cloud.
 
 ## Prerequisites
 
@@ -20,11 +20,14 @@ To deploy the Azure services used by the Remote Monitoring solution accelerator,
 
 If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
+### Machine Setup
+
 To complete the local deployment, you need the following tools installed on your local development machine:
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Docker compose](https://docs.docker.com/compose/install/)
+* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Nginx](http://nginx.org/en/download.html)
 * [Node.js v8](https://nodejs.org/) - this software is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Do not use Node.js v10.
 
 > [!NOTE]
@@ -32,71 +35,115 @@ To complete the local deployment, you need the following tools installed on your
 
 ### Download the source code
 
-The Remote Monitoring source code GitHub repository includes the Docker configuration files you need to download, configure, and run the Docker images that contain the microservices. To clone and create a local version of the repository, use your command-line environment to navigate to a suitable folder on your local machine and then run one of the following commands:
+The Remote Monitoring source code consists of several GitHub repositories. In the next step, we will clone the latest top level repository and all of its submodules. Note that the Solution Accelerator code is available in .NET and Java. 
 
-To download the latest version of the Java microservice implementations, run:
-
-```cmd/sh
-git clone https://github.com/Azure/remote-monitoring-services-java.git
-```
+ To clone and create a local version of the repositories, use your command-line environment to navigate to a suitable folder on your local machine and then run one of the following commands:
 
 To download the latest version of the .NET microservice implementations, run:
 
 ```cmd\sh
-git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
+git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+```
+
+To download the latest version of the Java microservice implementations, run:
+
+```cmd/sh
+git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
 ```
 
 > [!NOTE]
-> These commands download the source code for all the microservices in addition to the scripts you use to run the microservices locally. Although you don't need the source code to run the microservices in Docker, the source code is useful if you later plan to modify the solution accelerator and test your changes locally.
+> These commands download the source code for all the microservices in addition to the scripts you use to run the microservices locally. We will use the source code to build the projects locally in your IDE and run the microservices on your local machine. You can also use the source code to modify the solution accelerator and test your changes locally.
 
 ## Deploy the Azure services
 
-Although this article shows you how to run the microservices locally, they depend on Azure services running in the cloud. You can deploy these Azure services [manually through the Azure portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), or use the provided script. The following script examples assume you're using the .NET repository on a Windows machine. If you're working in another environment, adjust the paths, file extensions, and path separators appropriately. To use the provided scripts to:
+Although this article shows you how to run the microservices locally, they depend on Azure services running in the cloud. Use the following script to deploy the Azure services. The following script examples assume you're using the .NET repository on a Windows machine. If you're working in another environment, adjust the paths, file extensions, and path separators appropriately. To use the provided scripts to:
 
 ### Create new Azure resources
 
 If you've not yet created the required Azure resources, follow these steps:
 
-1. In your command-line environment, navigate to the **remote-monitoring-services-dotnet\scripts\local\launch** folder in your cloned copy of the repository.
+1. In your command-line environment, navigate to the **remote-monitoring-services-dotnet\scripts\local\launch** folder in your cloned copy of the **remote-monitoring-services-dotnet** repository.
 
 2. Run the **start.cmd** script and follow the prompts. The script prompts you to sign in to your Azure account and restart the script. The script then prompts you for the following information:
     * A solution name.
     * The Azure subscription to use.
     * The location of the Azure datacenter to use.
 
-    The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses.
+    The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
 
-3. When the script completes, it displays a list of environment variables. Follow the instructions in the output from the command to save these variables to the **remote-monitoring-services-dotnet\\scripts\\local\\.env** file.
+3. [Optional Step] When the script completes, it displays a list of environment variables. Follow the instructions in the output from the command to save these variables to the **remote-monitoring-services-dotnet\\scripts\\local\\.env** file. You can leverage these environment variables for future solution deployments.
+
+4. Before running the microservices, please follow these steps to manually start the Azure Stream Analytics job:
+    * Navigate to the [Azure Portal](https://portal.azure.com)
+    * Click on **Resource groups** from the left navigation pane. 
+    * Select the **Resource group** created for your solution. 
+    * From the Overview page, please select the *Streaming Analytics job* and hit the **Run** button. 
 
 ### Use existing Azure resources
 
 If you've already created the required Azure resources edit the environment variable definitions in the **remote-monitoring-services-dotnet\\scripts\\local\\.env** file with the required values. The **.env** file contains detailed information about where to find the required values.
 
-## Run the microservices in Docker
+## Run the microservices from within Visual Studio IDE and configure NGINX
 
-The microservices running in the local Docker containers need to access the services running in Azure. You can test the internet connectivity of your Docker environment using the following command that starts a small container and tries to ping an internet address:
+Now we will use Visual Studio to run each of the microservices that we need for a local remote monitoring session. We will also spin up a local web application to be able to interact with the various microservices. Please follow the steps in each of the sections below to complete a local deployment of the remote monitoring solution.
 
-```cmd/sh
-docker run --rm -ti library/alpine ping google.com
-```
+### Run the web application
 
-To run the solution accelerator, navigate to the **remote-monitoring-services-dotnet\\scripts\\local** folder in your command-line environment and run the following command:
+In this step, we will start up the web application to be able to interact with the remote monitoring session. Please navigate to the **pcs-remote-monitoring-webui** repository on your local machine and run the following set of commands.
 
 ```cmd\sh
-docker-compose up
+cd <path_to_cloned_repositories>\pcs-remote-monitoring-webui
+npm install
+npm start
 ```
 
-The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers locally. On subsequent runs, Docker runs the containers immediately.
+### Deploy Device Simulation Service (in Docker)
 
-You can use a separate shell to view the logs from the container. First find the container ID using the `docker ps -a` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries for the specified container.
+Please run the following command to launch the docker container for the device simulation service. This service will be utilized to create a set of simulated devices for the local remote monitoring session.
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+```cmd\sh
+<path_to_cloned_repositories>\device-simulation-dotnet\scripts\run.cmd
+```
+
+### Deploy all other microservices on local machine
+
+Please follow the steps below to launch the microservices under **remote-monitoring-services-dotnet** in Visual Studio.
+
+1. Launch Visual Studio 2017
+1. Open **remote-monitoring.sln** solution from under the remote-monitoring-services-dotnet repository
+1. Right click on the solution and open **Properties**
+1. Navigate to **Startup Project** under Common Properties
+1. Select the **Multiple startup projects** radio button and set **Action** to ***Start*** for each of the following projects:
+    * WebService (asa-manager\WebService)
+    * WebService (auth\WebService)
+    * WebService (config\WebService)
+    * WebService (device-telemetry\WebService)
+    * WebService (iothub-manager\WebService)
+    * WebService (storage-adapter\WebService)
+1. Hit *Apply* and *OK* to close the dialog
+1. Hit ***Start*** to build and deploy each of the above web services to the local machine. 
+
+> [!NOTE]
+> Running the web services above will launch a corresponding command prompt and web browser session to monitor the state of the service. Please ***do not*** close the cmd and browser windows as that will stop the web service. 
+
+### Configure and run NGINX
+
+We will now setup a reverse proxy server to link the web application and microservices running on your local machine.
+
+Note, before running the NGINX proxy, you will need to move the NGINX configuration file from under the web application to the root of your NGINX **conf** folder.
+
+* Copy the **nginx.conf** file from **pcs-remote-monitoring-webui\scripts\localhost\nginx.conf**
+* Paste a copy of the **nginx.conf** file to the **nginx\conf** install dir.  
+
+### Connect to the dashboard
+
+> To access the Remote Monitoring solution dashboard, navigate to [http://localhost:9000](http://localhost:9000) in your browser.
 
 ## Clean up
 
 To avoid unnecessary charges, when you have finished your testing remove the cloud services from your Azure subscription. The easiest way to remove the services is to navigate to the [Azure portal](https://ms.portal.azure.com) and delete the resource group that was created when you ran the **start.cmd** script.
 
-Use the `docker-compose down --rmi all` command to remove the Docker images and free up space on your local machine. You can also delete the local copy of the Remote Monitoring repository created when you cloned the source code from GitHub.
+You can also delete the local copy of the Remote Monitoring repository created when you cloned the source code from GitHub.
 
 ## Next steps
 
