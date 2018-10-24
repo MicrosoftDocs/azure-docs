@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Appinux, you need the following items:
 
 - An Azure AD subscription
-- A Appinux single sign-on enabled subscription
+- An Appinux single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -84,7 +84,7 @@ To configure and test Azure AD single sign-on with Appinux, you need to complete
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Appinux test user](#creating-a-appinux-test-user)** - to have a counterpart of Britta Simon in Appinux that is linked to the Azure AD representation of user.
+3. **[Creating an Appinux test user](#creating-an-appinux-test-user)** - to have a counterpart of Britta Simon in Appinux that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -146,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. Leave the **Namespace** blank.
+	c. In the **Namespace** textbox, type the namespace value shown for that row.
 
 	d. Select Source as **Attribute**.
 
@@ -187,7 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Select **Create**.
 
-### Creating a Appinux test user
+### Creating an Appinux test user
 
 The objective of this section is to create a user called Britta Simon in Appinux. Appinux supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Appinux if it doesn't exist yet.
 >[!Note]
