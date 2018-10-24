@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Source control integration in Azure Automation
 
-Source control allows you to keep your runbooks in your Automation account are up-to-date with your scripts in your GitHub or Azure Dev Ops source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account.
+Source control allows you to keep your runbooks in your Automation account are up-to-date with your scripts in your GitHub or Azure DevOps source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account.
 
 Azure Automation supports 3 types of source control:
 
