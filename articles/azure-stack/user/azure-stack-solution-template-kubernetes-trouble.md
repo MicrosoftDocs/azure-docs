@@ -49,12 +49,12 @@ The following diagram shows the general process for deploying the cluster.
 
 2. Create deployment VM and custom script extension.
     -  Create the deployment Linux VM by using the marketplace Linux image **Ubuntu Server 16.04-LTS**.
-    -  Download and run the customer script extension from the marketplace. The script is the **Custom Script for Linux 2.0**.
+    -  Download and run the customer script extension from the marketplace. The script is **Custom Script for Linux 2.0**.
     -  Run the DVM custom script. The script does the following tasks:
         1. Gets the gallery endpoint from the Azure Resource Manager metadata endpoint.
         2. Gets the active directory resource ID from the Azure Resource Manager metadata endpoint.
         3. Loads the API model for the ACS Engine.
-        4. Deploys the ACS Engine to the Kubernetes cluster, and saves the Azure Stack cloud profile to `/etc/kubernetes/azurestackcloud.json`.
+        4. Deploys the ACS Engine to the Kubernetes cluster and saves the Azure Stack cloud profile to `/etc/kubernetes/azurestackcloud.json`.
 3. Create the master VMs.
 
 4. Download and run customer script extensions.
@@ -65,11 +65,11 @@ The following diagram shows the general process for deploying the cluster.
     - Installs etcd, Docker, and Kubernetes resources such as kubelet. etcd is a distributed key value store that provides a way to store data across a cluster of machines. Docker supports bare-bones operating system-level virtualizations known as containers. Kubelet is the node agent that runs on each Kubernetes node.
     - Sets up the etcd service.
     - Sets up the kubelet service.
-    - Starts kubelet. This task involves the following:
+    - Starts kubelet. This task involves the following steps:
         1. Starts the API service.
         2. Starts the controller service.
         3. Starts the scheduler service.
-6. Creates agent VMs.
+6. Create agent VMs.
 
 7. Download and run the customer script extension.
 
@@ -84,9 +84,9 @@ You can collect logs on the VMs that support your Kubernetes cluster. You can al
 
 1. Review the [deployment status](#review-deployment-status) and [retrieve the logs](#get-logs-from-a-vm) from the master node in your Kubernetes cluster.
 2. Be sure that you're using the latest version of Azure Stack. If you're unsure which version you're using, contact your Azure Stack administrator. The Kubernetes cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
-3.  Review your VM creation files. You might have encountered the following issues:  
+3.  Review your VM creation files. You might have had the following issues:  
     - The public key might be invalid. Review the key that you created.  
-    - VM creation might have triggered an internal error or triggered a creation error. Errors can be caused by a number of factors including capacity limitations for your Azure Stack subscription.
+    - VM creation might have triggered an internal error or triggered a creation error. A number of factors can cause errors, including capacity limitations for your Azure Stack subscription.
     - Make sure that the fully qualified domain name (FDQN) for the VM begins with a duplicate prefix.
 4.  If the VM is **OK**, then, evaluate the DVM. If the DVM has an error message:
 
@@ -96,7 +96,7 @@ You can collect logs on the VMs that support your Kubernetes cluster. You can al
 
 ## Review deployment status
 
-When you deploy your Kubernetes cluster, uou can review the deployment status to check for any issues.
+When you deploy your Kubernetes cluster, you can review the deployment status to check for any issues.
 
 1. Open the [Azure Stack portal](https://portal.local.azurestack.external).
 2. Select **Resource groups**, and then select the name of the resource group that you used when deploying the Kubernetes cluster.
@@ -128,7 +128,7 @@ You need a bash prompt on the machine that you use to manage Azure Stack. Use ba
 
 To get logs, take the following steps:
 
-1. Open a bash prompt. If you are using Git on a Windows machine, you can open a bash prompt from the following path: `c:\programfiles\git\bin\bash.exe`.
+1. Open a bash prompt. If you're using Git on a Windows machine, you can open a bash prompt from the following path: `c:\programfiles\git\bin\bash.exe`.
 2. Run the following bash commands:
 
     ```Bash  
