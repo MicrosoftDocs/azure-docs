@@ -11,7 +11,7 @@ ms.author: a-kiwels
 ms.date: 10/09/2018
 ---
 
-# Azure CycleCloud v7.5.4
+# Azure CycleCloud v7.5.5
 
 ## What's New
 
