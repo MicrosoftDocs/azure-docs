@@ -39,21 +39,19 @@ This error can be caused by the following reasons:
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
 4. If using a cloned image, sysprep the image first and install the Microsoft Monitoring Agent agent after the fact.
 
-If these solutions don't resolve your problem and you contact support, you can run the following steps to collecting diagnostic tracing, which can help support troubleshoot the issue:
+If these solutions don't resolve your problem and you contact support, you can run the following commands to collect the diagnostic on the agent
 
-1. Collect the diagnostic tracing on agent:
+On the agent machine, navigate to `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` and run the following commands:
 
-   1. On the agent machine, navigate to `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` and run the following commands:
+```cmd
+net stop healthservice
+StopTracing.cmd
+StartTracing.cmd VER
+net start healthservice
+```
 
-        ```cmd
-        net stop healthservice 
-        StopTracing.cmd
-        StartTracing.cmd VER
-        net start healthservice
-        ```
-
-        > [!NOTE]
-        > By default error tracing is enabled, if you want to enable verbose error messages like the preceding example, use `VER` parameter. For information traces, use `INF` when invoking `StartTracing.cmd`.
+> [!NOTE]
+> By default error tracing is enabled, if you want to enable verbose error messages like the preceding example, use `VER` parameter. For information traces, use `INF` when invoking `StartTracing.cmd`.
 
 ## Next steps
 
