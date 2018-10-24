@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin, jeedes
+ms.reviewer: paulgarn, hirsin, jeedes
 ---
 
 # How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)

@@ -20,6 +20,10 @@ ms.custom: mvc
 
 [App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](app-service-managed-service-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you will add managed identity to the sample ASP.NET web app you built in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). When you're finished, your sample app will connect to SQL Database securely without the need of username and passwords.
 
+> [!NOTE]
+> This scenario is currently supported by .NET Framework 4.6 and above, but not by [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) does support the scenario, but is not yet included in the default images in App Service. 
+>
+
 What you learn how to:
 
 > [!div class="checklist"]
@@ -118,7 +122,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 This constructor configures a custom SqlConnection object to use an access token for Azure SQL Database from App Service. With the access token, your App Service app authenticates with Azure SQL Database with its managed identity. For more information, see [Obtaining tokens for Azure resources](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). The `if` statement lets you continue to test your app locally with LocalDB.
 
 > [!NOTE]
-> `SqlConnection.AccessToken` is currently supported only in .NET Framework 4.6 and above, not in [.NET Core](https://www.microsoft.com/net/learn/get-started/windows).
+> `SqlConnection.AccessToken` is currently supported only in .NET Framework 4.6 and above, as well as [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), not in [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).
 >
 
 To use this new constructor, open `Controllers\TodosController.cs` and find the line `private MyDatabaseContext db = new MyDatabaseContext();`. The existing code uses the default `MyDatabaseContext` controller to create a database using the standard connection string, which had username and password in clear text before [you changed it](#modify-connection-string).

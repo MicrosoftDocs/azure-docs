@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -174,11 +174,11 @@ The Collector communicates on a one-time basis with vCenter Server to gather met
 - For this discovery method, you need to set the statistics settings in vCenter Server to level three.
 - After setting the level to three, it takes up to a day to generate the performance counters. We therefore recommend that you run the discovery after a day.
 - When collecting performance data for a VM, the appliance relies on the historical performance data stored in vCenter Server. It collects performance history for the past month.
-- Azure Migrate collects an average counter (rather than a peak counter) for each metric.
+- Azure Migrate collects average counters (rather than peak counter) for each metric which may result in under-sizing.
 
 ### Continuous discovery
 
-The Collector appliance is continuously connected to the Azure Migrate project.
+The Collector appliance is continuously connected to the Azure Migrate project and continuously collects performance data of VMs.
 
 - The Collector continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds.
 - This model doesn't depend on the vCenter Server statistics settings to collect performance data.
@@ -186,8 +186,14 @@ The Collector appliance is continuously connected to the Azure Migrate project.
 - To create the data point the appliance selects the peak value from the 20-second samples, and sends it to Azure.
 - You can stop continuous profiling at anytime from the Collector.
 
+Note that the appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+
+1. Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
+
+2. Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
+
 > [!NOTE]
-> Continuous discovery functionality is in preview. If the vCenter Server statistics settings isn't set to level 3, we recommend that you use this method.
+> Continuous discovery functionality is in preview. We recommend you to use this method as this method collects granular performance data and results in accurate right-sizing.
 
 
 ## Discovery process
@@ -236,8 +242,8 @@ virtualDisk.read.average | 2 | 2 | Calculates disk size, storage cost, VM size
 virtualDisk.write.average | 2 | 2  | Calculates disk size, storage cost, VM size
 virtualDisk.numberReadAveraged.average | 1 | 3 |  Calculates disk size, storage cost, VM size
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calculates disk size, storage cost, VM size
-net.received.average | 2 | 3 |  Calculates VM size and network cost                        |
-net.transmitted.average | 2 | 3 | Calculates VM size and network cost    
+net.received.average | 2 | 3 |  Calculates VM size                          |
+net.transmitted.average | 2 | 3 | Calculates VM size     
 
 ## Next steps
 

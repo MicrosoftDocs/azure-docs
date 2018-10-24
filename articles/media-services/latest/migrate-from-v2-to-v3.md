@@ -4,7 +4,7 @@ description: This article describes changes that were introduced in Azure Media 
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, stream, broadcast, live, offline
@@ -14,14 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 06/12/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ---
 
 # Migrate from Media Services v2 to v3
-
-> [!NOTE]
-> The latest version of Azure Media Services is in Preview and may be referred to as v3.
 
 This article describes changes that were introduced in Azure Media Services (AMS) v3 and shows differences between two versions.
 
