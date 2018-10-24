@@ -33,7 +33,7 @@ Submit a batch file of utterances, known as a *dataset*, for batch testing. The 
 
 ## Entities allowed in batch tests
 
-Entities include all machine-learned entities. All entities of these types appear in the batch test entities filter even if there are no corresponding entities in the batch file data.
+All custom entities in the model appear in the batch test entities filter even if there are no corresponding entities in the batch file data.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
