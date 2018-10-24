@@ -56,15 +56,16 @@ Now you need to register your application in the *Microsoft Application Registra
 
 1. In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
-```javascript
-var applicationConfig = {
-    clientID: "[Enter the application Id here]",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
-};
-```
-<ol start="3">
+    ```javascript
+    var applicationConfig = {
+        clientID: "[Enter the application Id here]",
+        graphScopes: ["user.read"],
+        graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    };
+    ```
+
+<ol start="2">
 <li>
-Replace <code>Enter the application Id here</code> with the Application Id you just registered.
+Replace <code>Enter the application Id here</code> with the application ID you just registered.
 </li>
 </ol>
