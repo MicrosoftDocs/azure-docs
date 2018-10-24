@@ -109,5 +109,5 @@ To clean up the resources created in this article, delete the **test** container
 
 ## Next steps
 
-- [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=net)
+- [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Event Grid trigger for Azure Functions](./functions-bindings-event-grid.md)
