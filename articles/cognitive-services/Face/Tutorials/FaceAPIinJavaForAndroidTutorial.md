@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Detect and frame faces in an image - Face API, Java for Android"
+title: "Tutorial: Detect and frame faces in an image with the Android SDK"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you create a simple Android app that uses the Face API to detect and frame faces in an image.
 services: cognitive-services

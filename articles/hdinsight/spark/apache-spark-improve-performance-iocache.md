@@ -40,7 +40,7 @@ Azure HDInsight IO Cache is deactivated by default in preview. IO Cache is avail
 1. Confirm restart of all the affected services on the cluster.
 
 >[!NOTE] 
-> Even though the progress bar shows activated, IO Cache isn't actually enabled until you restart the affected services.
+> Even though the progress bar shows activated, IO Cache isn't actually enabled until you restart the other affected services.
 
 ## Troubleshooting
   
