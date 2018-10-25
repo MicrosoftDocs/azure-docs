@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/25/2018
 ms.author: markvi
 
 ---
@@ -42,7 +42,7 @@ In Windows 8.1, settings sync always used consumer Microsoft accounts. Enterpris
 The primary account is defined as the account used to sign in to Windows. This can be a Microsoft account, an Azure Active Directory (Azure AD) account, an on-premises Active Directory account, or a local account. In addition to the primary account, Windows 10 users can add one or more secondary cloud accounts to their device. A secondary account is generally a Microsoft account, an Azure AD account, or some other account such as Gmail or Facebook. These secondary accounts provide access to additional services such as single sign-on and the Windows Store, but they are not capable of powering settings sync.
 
 In Windows 10, only the primary account for the device can be used for settings sync (see
-[How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
+[How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?](enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
 
 Data is never mixed between the different user accounts on the device. There are two rules for settings sync:
 
@@ -121,11 +121,8 @@ Enterprise State Roaming is supported on Windows 10 client SKUs, but not on serv
 If your organization is already using roaming in Windows 10 with the Azure Rights Management limited-use free subscription, purchasing a [paid subscription](https://azure.microsoft.com/pricing/details/information-protection/) that includes the Azure Rights Management protection service will not have any impact on the functionality of the roaming feature, and no configuration changes will be required by your IT administrator.
 
 ## Known issues
-Please see the documentation in the [troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md) section for a list of known issues. 
+Please see the documentation in the [troubleshooting](enterprise-state-roaming-troubleshooting.md) section for a list of known issues. 
 
-## Related topics
-* [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
-* [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-* [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-* [Troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+## Next steps 
+
+For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md)
