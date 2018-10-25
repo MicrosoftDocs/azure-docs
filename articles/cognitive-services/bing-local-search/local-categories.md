@@ -14,7 +14,7 @@ ms.author: rosh, v-gedod
 # Categories for Bing Local Search
 You can use defined categories to return a list of entities in the specified category.  This option uses reverse IP location of the caller to return localized results according to the `localCategories` parameter. 
 ## Examples of Local Categories search
-The following examples get results according the `localCategories` parameter:
+The following examples get results according to the `localCategories` parameter:
 
 GET
 ````
@@ -24,7 +24,7 @@ https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&lo
 https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Hospitals
 ````
 
-The following query limits the number of 'hospital' results to 3 beginning with the 0th index item:
+The following query limits the number of 'hospital' results to three beginning with the 0th index item:
 
 ````
 https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localCategories=Hospitals&count=3&offset=0
@@ -153,7 +153,7 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
 
 ## TopLevel Categories 
 
-The following types define major categories of search.  More than one category can be specified using a comma delimited list assigned to the `localCategories` parameter.  
+The following types define major categories of search.  More than one category can be specified using a comma-delimited list assigned to the `localCategories` parameter.  
 - EatDrink 
 - SeeDo 
 - Shop 
@@ -172,7 +172,7 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 - AmericanRestaurants
 - Bagels
 - BarbecueRestaurants
-- Taverns,SportsBars
+- Taverns, SportsBars
 - Bars
 - BarsGrillsAndPubs
 - BelgianRestaurants
@@ -184,8 +184,8 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 - CoffeeAndTea
 - Delicatessens
 - DeliveryService
-- Diners,DiscountStores
-- Donuts,FastFood,
+- Diners, DiscountStores
+- Donuts, FastFood,
 - renchRestaurants
 - FrozenYogurt
 - GermanRestaurants
@@ -204,7 +204,7 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 - LiquorStores
 - MexicanRestaurants
 - MiddleEasternRestaurants
-- Pizza,PolishRestaurants
+- Pizza, PolishRestaurants
 - PortugueseRestaurants
 - Pretzels
 - Restaurants
