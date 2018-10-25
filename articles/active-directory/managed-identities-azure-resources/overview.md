@@ -12,7 +12,7 @@ ms.component: msi
 ms.devlang: 
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/28/2018
+ms.date: 10/23/2018
 ms.author: daveba
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
@@ -113,9 +113,11 @@ Learn how to use a managed identity with other Azure services:
 
 * [Azure App Service](/azure/app-service/app-service-managed-service-identity)
 * [Azure Functions](/azure/app-service/app-service-managed-service-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
 

@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/09/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ---
 

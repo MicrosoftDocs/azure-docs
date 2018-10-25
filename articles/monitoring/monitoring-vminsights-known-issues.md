@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
 
 ---
@@ -22,6 +22,7 @@ ms.author: magoedte
 
 The following are known issues with the Health feature of Azure Monitor for VMs:
 
+- The Health feature is onbaorded to all the VMs connected to the Log Analytics workspace, even when onboarding is initiated and completed from a single VM.
 - If an Azure VM doesn’t exist any more because it was removed or deleted, it will show up in the VM list view for three to seven days. Additionally, clicking on the state of a removed or deleted VM would launch the **Health Diagnostics** view for it, which then goes into a loading loop. Selecting the name of a deleted VM launches a blade with a message stating the VM has been deleted.
 - The time period and frequency of health criteria cannot be modified with this release. 
 - Health criteria cannot be disabled. 
@@ -41,7 +42,7 @@ The following are known issues with the Health feature of Azure Monitor for VMs:
    - Windows firewall service health – Service is not running
    - Windows event log service health – Service is not running 
    - Server service health – Service is not running 
-   - Windows  remote management service health – Service is not running 
+   - Windows remote management service health – Service is not running 
    - File system error or corruption – Logical Disk is unavailable
 
 - Thresholds for the following Linux health criteria aren’t modifiable, since their health state are already set to **true**.  The health state shows the *comparisonOperator* with a value **LessThan** and *threshold* value of **1** when queried from the Workload Monitoring API for the entity depending on its context:
