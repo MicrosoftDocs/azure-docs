@@ -12,7 +12,7 @@ manager: jeconnoc
 #Customer intent: As a developer, I want to use environment variables when I debug to test different scenarios.
 ---
 
-# Define environment variables in a Service Fabric Mesh app using Visual Studio | Microsoft Docs
+# Define environment variables in a Service Fabric Mesh app using Visual Studio
 
 Visual Studio allows you to easily create and modify environment variables that you can reference at runtime from your Service Fabric Mesh code. Among other scenarios, this allows you to write code that is specific to development or production.
 

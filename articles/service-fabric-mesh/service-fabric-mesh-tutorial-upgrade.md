@@ -55,23 +55,23 @@ There are two steps. First, define the parameters you want in the **parameters.y
 
 1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `<WebFrontEnd_>cpu`, with a value of `1.0`. Note that the parameter name is prefaced with the service name `<WebFrontEnd_>` as a best practice to distinguish it from parameters of the same name that apply to different services.
 
-```xml
-<WebFrontEnd_>cpu: 1.0
-```
-
+    ```xml
+    <WebFrontEnd_>cpu: 1.0
+    ```
+    
 2. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
 
-In the `resources:` section, change `cpu:` to from `0.5` to `"parameters('cpu')]"`. It should now look like this:
-
-```xml
-              ...
-              resources:
-                requests:
-                  cpu: "[parameters('<WebFrontEnd_>cpu')]"
-                  memoryInGB: 1
-              ...
-```
-
+    In the `resources:` section, change `cpu:` to from `0.5` to `"parameters('cpu')]"`. It should now look like this:
+    
+    ```xml
+                  ...
+                  resources:
+                    requests:
+                      cpu: "[parameters('<WebFrontEnd_>cpu')]"
+                      memoryInGB: 1
+                  ...
+    ```
+    
 If the project is being built for the cloud, the value for `cpu` will be taken from the **Environments** > **Cloud** > **parameters.yaml** file, and will be `1.0`. If the project is being built to run locally, the value will be taken from the **Environments** > **Local** > **parameters.yaml** file, instead.
 
 > [!Tip]
