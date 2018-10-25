@@ -244,7 +244,7 @@ policy=None
 If no policy is specified, the hyperparameter tuning service will let all training runs run to completion.
 
 >[!NOTE] 
->If you are looking for a conservative policy that provides some savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
+>If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 
 ## Allocate resources
 
