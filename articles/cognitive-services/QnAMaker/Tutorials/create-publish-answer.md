@@ -58,7 +58,7 @@ At the top of the Program class, add the following constants to access QnA Maker
 
 After the constants, add the following KB model definition:
 
-[!code-csharp[Add the KB definition](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=59-85 "Add the KB definition")]
+[!code-csharp[Add the KB definition](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=59-83 "Add the KB definition")]
 
 ## Add supporting functions and structures
 Add the following code block inside the Program class:
@@ -200,7 +200,7 @@ This API call returns a JSON response:
 ## Get Answer
 Add the following method to get an answer to the user's question. 
 
-[!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-312 "Get Answer")]
+[!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-315 "Get Answer")]
 
 This API call returns a JSON response: 
 
