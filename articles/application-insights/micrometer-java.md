@@ -60,7 +60,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 Add the following dependencies to your pom.xml or build.gradle file: 
 
 * Application Insights Spring-boot-starter 2.1.2 or above 
-*Azure-spring-boot-metrics-starters 2.0.6 or above  
+* Azure-spring-boot-metrics-starters 2.0.6 or above  
 * Micrometer Azure Registry 1.1.0 RC or higher 
 * [Application Insights Resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
 
@@ -282,6 +282,7 @@ Add the following binding code to the configuration  file:
 
 ## Auto-collected metrics
 
+> [!div class="mx-tdCol2BreakAll"]
 |  Metrics Category | Metrics Name  | Metric Type | Base Unit  | Description   | Property Enable and disable    |
 |---|---|---|---|-----------------------|--------------------------|
 | JVM GC Metrics | jvm.gc.max.data.size  |Gauge  |Bytes   | Max size of old generation memory pool|
@@ -312,8 +313,7 @@ Add the following binding code to the configuration  file:
 | File Descriptor Metrics| process.files.max| Gauge | Number |The maximum file descriptor count  | management.metrics.enable.files  |
 | Tomcat Metrics |tomcat.sessions.active.max  |Gauge  |Number  | Total max active sessions  | Management.metrics.enable.tomcat |
 | Tomcat Metrics |tomcat.sessions.active.current |Gauge  | Number | Total current active sessions | Management.metrics.enable.tomcat |
-| Tomcat Metrics |tomcat.sessions.created  |FunctionCounter
-  | Number |Total tomcat sessions created | Management.metrics.enable.tomcat |
+| Tomcat Metrics |tomcat.sessions.created  |FunctionCounter| Number |Total tomcat sessions created | Management.metrics.enable.tomcat |
 | Tomcat Metrics | tomcat.sessions.expired | FunctionCounter | Number |Total tomcat sessions expired| Management.metrics.enable.tomcat |
 | Tomcat Metrics |tomcat.sessions.rejected  |FunctionCounter  | Number | Total tomcat sessions rejected | Management.metrics.enable.tomcat |
 | Tomcat Metrics | tomcat.sessions.alive.max |TimeGauge  | Seconds |The number of tomcat sessions rejected  | Management.metrics.enable.tomcat |
@@ -328,7 +328,7 @@ Add the following binding code to the configuration  file:
 | Tomcat Metrics | tomcat.global.sent| FunctionCounter | Bytes | The total bytes sent in the aggregated time period | Management.metrics.enable.tomcat |
 | Tomcat Metrics |tomcat.global.received  | FunctionCounter | Bytes | The total bytes received in the aggregated time period | Management.metrics.enable.tomcat |
 | Tomcat Metrics | tomcat.global.error | FunctionCounter |Number  |The total error count in the aggregated time period | Management.metrics.enable.tomcat |
-| HTTP Metrics |Http.server.requests<br>&nbsp;Tags: exception <br>&nbsp;Method <br> &nbsp;Status <br>&nbsp;Uri | Timer |Number<br>MilliSeconds | The pre-aggregated metric derived from requests |  |
+| HTTP Metrics |Http.server.requests<br>&nbsp;Tags: exception <br>&nbsp;Method <br> &nbsp;Status <br>&nbsp;Uri | Timer |Number<br>Milliseconds | The pre-aggregated metric derived from requests |  |
 | Spring Integration Metrics |spring.integration.channelNames| Gauge | Number  |The number of spring integration channels  |  | 
 | Spring Integration Metrics|spring.integration.handlerNames | Gauge | Number |The number of spring integration handlers  |  | 
 | Spring Integration Metrics |spring.integration.sourceNames| Gauge | Number | The number of spring integration sources |  | 
