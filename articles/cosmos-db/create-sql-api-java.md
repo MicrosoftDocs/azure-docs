@@ -76,8 +76,6 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-The following snippets are all taken from the `azure-cosmos-db-sql-api-async-java-getting-started/azure-cosmosdb-get-started/src/main/java/com/microsoft/azure/cosmosdb/sample/Main.java` file.
-
 * `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service. The `FILLME` portions of this code will be updated later in the quickstart.
 
     ```java
@@ -95,7 +93,9 @@ The following snippets are all taken from the `azure-cosmos-db-sql-api-async-jav
     Database databaseDefinition = new Database();
     databaseDefinition.setId(databaseName);
     
-    client.createDatabase(databaseDefinition, null).toCompletable().await();
+    client.createDatabase(databaseDefinition, null)
+            .toCompletable()
+            .await();
     ```
 
 * [DocumentCollection](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._document_collection) creation.
@@ -106,20 +106,24 @@ The following snippets are all taken from the `azure-cosmos-db-sql-api-async-jav
 
     ...
 
-    client.createCollection(databaseLink, collectionDefinition, requestOptions).toCompletable().await();
+    client.createCollection(databaseLink, collectionDefinition, requestOptions).toCompletable()
+        .await();
     ```
 
 * Document creation by using the [createDocument](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb._document) method.
 
     ```java
-    // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
+    // Any Java object within your code
+    // can be serialized into JSON and written to Azure Cosmos DB
     Family andersenFamily = new Family();
     andersenFamily.setId("Andersen.1");
     andersenFamily.setLastName("Andersen");
     // More properties
 
     String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    client.createCollection(collectionLink, family, null, true).toCompletable().await();
+    client.createCollection(collectionLink, family, null, true)
+        .toCompletable()
+        .await();
 
     ```
 
@@ -131,15 +135,20 @@ The following snippets are all taken from the `azure-cosmos-db-sql-api-async-jav
     queryOptions.setEnableCrossPartitionQuery(true);
     queryOptions.setMaxDegreeOfParallelism(-1);
 
-    String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
+    String collectionLink = String.format("/dbs/%s/colls/%s",
+        databaseName, 
+        collectionName);
     Iterator<FeedResponse<Document>> it = client.queryDocuments(
         collectionLink,
-        "SELECT * FROM Family WHERE Family.lastName = 'Andersen'", queryOptions).toBlocking().getIterator();
+        "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+        queryOptions).toBlocking().getIterator();
 
     System.out.println("Running SQL query...");
     while(it.hasNext()) {
         FeedResponse<Document> page = it.next();
-        System.out.println(String.format("\tRead a page of results with %d items", page.getResults().size()));
+        System.out.println(
+            String.format("\tRead a page of results with %d items", 
+                page.getResults().size()));
         for(Document doc: page.getResults()) {
             System.out.println(String.format("\t doc %s", doc));
         }
