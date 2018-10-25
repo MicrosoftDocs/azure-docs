@@ -36,14 +36,14 @@ There are two workarounds if you do not want to give owner access to the users w
 
 * A resource group owner can create a cluster if these conditions are met:
 
-  * A subscription owner must [accept the Avere vFXT software terms](#accept-software-terms-in-advance) and [create the cluster node access role](avere-vfxt-deploy.md#create-the-cluster-runtime-role).
+  * A subscription owner must [accept the Avere vFXT software terms](#accept-software-terms-in-advance) and [create the cluster node access role](avere-vfxt-deploy.md#create-the-cluster-node-access-role).
   * All Avere vFXT resources must be deployed inside the resource group, including:
     * Cluster controller
     * Cluster nodes
     * Blob storage
     * Network elements
  
-* A user with no owner privileges can create vFXT clusters if an extra access role is created and assigned to the user ahead of time. However, this role gives significant permissions to these users. [This article](avere-vfxt-non-owner.md) explains how to authorize non-owners to create clusters.
+* A user with no owner privileges can create vFXT clusters if an extra access role is created and assigned to the user ahead of time. However, this role gives significant permissions to these users. -This article- LINK REMOVED TEMPORARILY <!-- [This article](avere-vfxt-non-owner.md) -->explains how to authorize non-owners to create clusters.
 
 ## Quota for the vFXT cluster
 
