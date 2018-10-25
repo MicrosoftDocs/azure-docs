@@ -22,7 +22,7 @@ This option is the absolute minimum configuration for your Data Box. You can con
 Before you begin, make sure you have:
 
 - An RJ45 Ethernet cable for the MGMT.
-- A data source.
+- A data source running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients).
 
 Do the following steps to cable your device.
 
@@ -48,7 +48,7 @@ Before you begin, make sure you have:
 
 - An RJ45 Ethernet cable for the MGMT.
 - A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
-- One or more data sources.
+- One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients).
 
 ### Option 1 - Initial setup via server
 
@@ -90,7 +90,7 @@ Before you begin, make sure you have:
 
 - An RJ45 Ethernet cable for the MGMT.
 - A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
-- One or more data sources. These data sources could in different networks such as 1 GbE or 10 GbE networks.
+- One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients). These data sources could be in different networks such as 1 GbE or 10 GbE networks.
 
 Do the following steps to cable your device.
 
@@ -115,7 +115,7 @@ Before you begin, make sure you have:
 
 - An RJ45 cable if you wish to connect DATA 1.
 - A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
-- One or more data sources. These data sources could in different networks such as 1 GbE or 10 GbE networks.
+- One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients). These data sources could be in different networks such as 1 GbE or 10 GbE networks.
 
 Do the following steps to cable your device.
 
@@ -124,7 +124,6 @@ Do the following steps to cable your device.
     ![Two port setup with a switch](media/data-box-cable-options/cabling-dhcp-data-only.png)
 2. Use DHCP server or DNS server to identify the IP address.
 3. From a server on the same network, access the local web UI of the device using the IP address assigned by the DHCP server. Sign in and unlock the Data Box using the unlock password from the Azure portal.
-
 
 ## Next steps
 
