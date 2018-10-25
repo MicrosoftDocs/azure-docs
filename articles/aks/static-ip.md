@@ -53,7 +53,7 @@ The IP address is shown, as shown in the following condensed example output:
     "ipAddress": "40.121.183.52",
     [..]
   }
-````
+```
 
 You can later get the public IP address using the [az network public-ip list][az-network-public-ip-list] command. Specify the name of the node resource group and public IP address you created, and query for the *ipAddress* as shown in the following example:
 
@@ -85,6 +85,26 @@ Create the service and deployment with the `kubectl apply` command.
 
 ```console
 kubectl apply -f load-balancer-service.yaml
+```
+
+## Using Static IP address outside node resource group
+
+It is possible to use a Static IP that is created outside the node resource group with Kubernetes version 1.10+.  To use an IP address outside the node resource group add an annotation to the Service definition.  Provide your own resource group name as the value to the annotation below.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: resource-group-name
+  name: azure-load-balancer
+spec:
+  loadBalancerIP: 40.121.183.52
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
 ```
 
 ## Troubleshoot
