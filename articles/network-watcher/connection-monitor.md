@@ -26,7 +26,7 @@ Successful communication between a virtual machine (VM) and an endpoint such as 
 > [!div class="checklist"]
 > * Create two VMs
 > * Monitor communication between VMs with the connection monitor capability of Network Watcher
-> * Generate alerts on Network Watcher metrics
+> * Generate alerts on Connection Monitor metrics
 > * Diagnose a communication problem between two VMs, and learn how you can resolve it
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
