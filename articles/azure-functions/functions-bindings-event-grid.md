@@ -49,7 +49,7 @@ See the language-specific example for an Event Grid trigger:
 
 For an HTTP trigger example, see [How to use HTTP trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
 
-### C# example
+### C# (Version 1.x)
 
 The following example shows a Functions 1.x [C# function](functions-dotnet-class-library.md) that binds to `JObject`:
 
@@ -72,6 +72,8 @@ namespace Company.Function
     }
 }
 ```
+
+### C# (2.x)
 
 The following example shows a Functions 2.x [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
 
@@ -115,6 +117,8 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
+#### C# script (Version 1.x)
+
 Here's Functions 1.x C# script code that binds to `JObject`:
 
 ```cs
@@ -128,6 +132,8 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
     log.Info(eventGridEvent.ToString(Formatting.Indented));
 }
 ```
+
+#### C# script (Version 2.x)
 
 Here's Functions 2.x C# script code that binds to `EventGridEvent`:
 
@@ -203,7 +209,7 @@ Here's the Java code:
 ```
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventGridTrigger` annotation on parameters whose value would come from EventGrid. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`. 
-     
+
 ## Attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) attribute.
@@ -216,7 +222,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, Trac
 {
     ...
 }
- ```
+```
 
 For a complete example, see [C# example](#c-example).
 
@@ -429,7 +435,7 @@ Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl
 
 ```
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-``` 
+```
 
 The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
@@ -491,11 +497,11 @@ Create an Event Grid subscription of the type you want to test, and give it your
 Use this endpoint pattern for Functions 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-``` 
+```
 Use this endpoint pattern for Functions 2.x:
 ```
 https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
-``` 
+```
 The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
 Here's an example using the Azure CLI:
