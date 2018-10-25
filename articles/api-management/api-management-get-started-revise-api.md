@@ -77,6 +77,7 @@ In this tutorial, you learn how to:
 1. Select the **Revisions** tab from the menu near the top of the page.
 
     ![The revision menu on the revision screen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+
 2. Open the context menu (**...**) for **Revision 2**.
 3. Select **Make Current**.
 4. Check **Post to Public Change log for this API**, if you want to post notes about this change. Provide a description for your change that developers see, for example: **Testing revisions. Added new "test" operation.**
