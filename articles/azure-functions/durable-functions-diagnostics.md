@@ -131,15 +131,15 @@ It's important to keep the orchestrator replay behavior in mind when writing log
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("Calling F1.");
+    log.LogInformation("Calling F1.");
     await ctx.CallActivityAsync("F1");
-    log.Info("Calling F2.");
+    log.LogInformation("Calling F2.");
     await ctx.CallActivityAsync("F2");
-    log.Info("Calling F3");
+    log.LogInformation("Calling F3");
     await ctx.CallActivityAsync("F3");
-    log.Info("Done!");
+    log.LogInformation("Done!");
 }
 ```
 
@@ -184,15 +184,15 @@ If you want to only log on non-replay execution, you can write a conditional exp
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
-    TraceWriter log)
+    ILogger log)
 {
-    if (!ctx.IsReplaying) log.Info("Calling F1.");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F1.");
     await ctx.CallActivityAsync("F1");
-    if (!ctx.IsReplaying) log.Info("Calling F2.");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F2.");
     await ctx.CallActivityAsync("F2");
-    if (!ctx.IsReplaying) log.Info("Calling F3");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F3");
     await ctx.CallActivityAsync("F3");
-    log.Info("Done!");
+    log.LogInformation("Done!");
 }
 ```
 
