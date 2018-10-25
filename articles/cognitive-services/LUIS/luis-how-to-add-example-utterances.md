@@ -36,7 +36,6 @@ Does John Smith work in Seattle?
 
     [![Screenshot of selecting text in utterance for simple entity](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
 
-
     > [!NOTE]
     > When selecting words to tag as entities:
     > * For a single word, just select it. 
@@ -134,10 +133,10 @@ The entity box displays the **Entity status** with a red exclamation mark if the
 
 The red-line can appear at any of the following times:
 
-    * When an utterance is entered but before the entity is labeled
-    * When the entity label is applied
-    * When the entity label is removed
-    * When more than one entity label is predicted for that text 
+   * When an utterance is entered but before the entity is labeled
+   * When the entity label is applied
+   * When the entity label is removed
+   * When more than one entity label is predicted for that text 
 
 The following solutions help resolve the entity prediction discrepancy:
 
