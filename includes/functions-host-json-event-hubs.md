@@ -1,4 +1,4 @@
-### host.json - Functions v1
+### Version 1.x
 ```json
 {
     "eventHub": {
@@ -9,7 +9,7 @@
 }
 ```
 
-### host.json - Functions v2
+### Version 2.x
 ```json
 {
   "version": "2.0",
