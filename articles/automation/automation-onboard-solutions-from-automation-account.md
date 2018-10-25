@@ -81,7 +81,7 @@ Click **Add non-Azure machine**. This opens up a new browser window with the [in
 
 Manually installed machines or machines already reporting to your workspace need to be added to Azure Automation for the solution to be enabled. From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
 
-Select **Manage machines**. This opens up the **Manage Machines** page. This page allows you to enable the solution on a select set of machines, all available machines, or enable the solution for all current machines and enable it on all future machines.
+Select **Manage machines**. This opens up the **Manage Machines** page. This page allows you to enable the solution on a select set of machines, all available machines, or enable the solution for all current machines and enable it on all future machines. The **Manage machines** button may be greyed out if you had previously chose the option **Enable on all available and future machines**.
 
 ![Saved searches](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
@@ -91,7 +91,7 @@ To enable the solution for all available machines, select **Enable on all availa
 
 ### All available and future machines
 
-To enable the solution for all available machines and all future machines, select **Enable on all available and future machines**. This option deletes the saved searches and Scope Configurations from the workspace. This opens the solution to all Azure and non-Azure machines that are reporting to the workspace. When selected, this disables the **Manage Machines** button.
+To enable the solution for all available machines and all future machines, select **Enable on all available and future machines**. This option deletes the saved searches and Scope Configurations from the workspace. This opens the solution to all Azure and non-Azure machines that are reporting to the workspace. When selected, this disables the **Manage Machines** button permanently as there is no there is no Scope Configuration left.
 
 ### Selected machines
 
