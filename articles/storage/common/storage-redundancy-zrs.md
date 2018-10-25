@@ -51,7 +51,7 @@ A manual migration can result in some application downtime and sometimes you can
 Live migration comes with the following restrictions:
 
 - While Microsoft addresses your live migration request promptly, there's no guarantee as to when the migration will complete. If you need your data to be in ZRS by a certain time, then you should do a manual migration. Generally, the more data you have in your account, the longer it takes to migrate that data. 
-- You may only perform a live migration from an account using LRS or GRS replication. If your account uses RA-GRS, then you need to first migrate to one of these replication types before proceeding. This intermediary step removes the secondary read-only endpoint&mdash;which RA-GRS provides&mdash;prior to migration.
+- You may only perform a live migration from an account using LRS or GRS replication. If your account uses RA-GRS, then you need to first migrate to one of these replication types before proceeding. This intermediary step removes the secondary read-only endpoint&mdash;which RA-GRS provides&mdash; before migration.
 - Your account must contain data.
 - You can only migrate data within the same region. If you want to migrate your data into a ZRS account located in a region different than the source account, then you must perform a manual migration.
 - You can only use standard storage account types. 
@@ -75,7 +75,7 @@ A support person will contact you. That person will provide any assistance you r
 
 ## ZRS Classic: A legacy option for block blobs redundancy
 > [!NOTE]
-> Microsoft will deprecate and migrate ZRS Classic accounts on March 31, 2021. More details will be provided to ZRS Classic customers prior to deprecation. 
+> Microsoft will deprecate and migrate ZRS Classic accounts on March 31, 2021. More details will be provided to ZRS Classic customers before deprecation. 
 >
 > When ZRS becomes [generally available](#support-coverage-and-regional-availability) in a region, customers won't be able to create ZRS Classic accounts from the portal in that region. Using Microsoft PowerShell and Azure CLI to create ZRS Classic accounts is supported until ZRS Classic is deprecated.
 
