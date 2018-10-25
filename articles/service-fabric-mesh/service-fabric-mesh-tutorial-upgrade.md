@@ -21,7 +21,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Learn how to upgrade a Service Fabric application using Visual Studio
 
-This tutorial is part four of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio. The upgrade will include both a code update and a config update. You will see that the steps for upgrading and publishing from within Visual Studio are the same.
+This tutorial is part four of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio. The upgrade will include both a code update and a config update. You'll see that the steps for upgrading and publishing from within Visual Studio are the same.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
@@ -45,15 +45,15 @@ Before you begin this tutorial:
 
 ## Upgrade a Service Fabric Mesh service by using Visual Studio
 
-This article shows how to upgrade a microservice within an application. In this example, we will modify the `WebFrontEnd` service to display a task category and increase the amount of CPU it is allocated. Then we'll upgrade the deployed service.
+This article shows how to upgrade a microservice within an application. In this example, we'll modify the `WebFrontEnd` service to display a task category and increase the amount of CPU it is allocated. Then we'll upgrade the deployed service.
 
 ## Modify the config
 
-When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yml** file for each deployment target (cloud and local). In these files you can define parameters and their values that can then be referenced from your Mesh *.yaml files. We will define a parameter which will allow us to update the cpu resources to `1.0` in anticipation that the web front end service will be more heavily used.
+When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yml** file for each deployment target (cloud and local). In these files, you can define parameters and their values that can then be referenced from your Mesh *.yaml files. We'll define a parameter, which allows us to update the cpu resources to `1.0` in anticipation that the web front end service will be more heavily used.
 
 There are two steps. First, define the parameters you want in the **parameters.yml** file for the deployment target you want to affect. Then use those parameters in your service's **service.yaml** file.
 
-1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `WebFrontEnd_cpu`, with a value of `1.0`. Note that the parameter name is prefaced with the service name `WebFrontEnd_` as a best practice to distinguish it from parameters of the same name that apply to different services.
+1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `WebFrontEnd_cpu`, with a value of `1.0`. The parameter name is prefaced with the service name `WebFrontEnd_` as a best practice to distinguish it from parameters of the same name that apply to different services.
 
     ```xml
     WebFrontEnd_cpu: 1.0
@@ -61,7 +61,7 @@ There are two steps. First, define the parameters you want in the **parameters.y
     
 2. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
 
-    In the `resources:` section, change `cpu:` to from `0.5` to `"parameters('WebFrontEnd_cpu')]"`. It should now look like this:
+    In the `resources:` section, change `cpu:` from `0.5` to `"parameters('WebFrontEnd_cpu')]"`. It should now look like this:
     
     ```xml
                   ...
@@ -141,7 +141,7 @@ Build and run the app to verify that you see a new category column in the web pa
 
 ## Upgrade the app from Visual Studio
 
-Regardless of whether you are making a code upgrade, or a config upgrade (in this case we are doing both), to upgrade your Service Fabric Mesh app on Azure right-click on **todolistapp** in Visual Studio and select **Publish...**
+Regardless of whether you're making a code upgrade, or a config upgrade (in this case we're doing both), to upgrade your Service Fabric Mesh app on Azure right-click on **todolistapp** in Visual Studio and select **Publish...**
 
 Next, you'll see a **Publish Service Fabric Application** dialog.
 
@@ -155,7 +155,7 @@ Ensure that **Azure Container Registry** is set to the azure container registry 
 
 In the publish dialog, press the **Publish** button to upgrade the to-do app on Azure.
 
-You can monitor the progress of the upgrade by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the upgrade has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
+Monitor the progress of the upgrade by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the upgrade has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
 ```json
 Packaging Application...
