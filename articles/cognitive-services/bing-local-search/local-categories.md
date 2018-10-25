@@ -166,59 +166,21 @@ The following types define major categories of search.  More than one category c
 Subcategories are passed the same way as `localCategories`. Subcategories are more specific categories. They are subordinate in the sense that if you specify a category C and one of its subcategories S in the same comma-delimited list, you will receive the same results as if you specified C alone.
 
 ### Eat Drink 
-- BreweriesAndBrewPubs
-- CocktailLounges
-- AfricanRestaurants
-- AmericanRestaurants
-- Bagels
-- BarbecueRestaurants
-- Taverns, SportsBars
-- Bars
-- BarsGrillsAndPubs
-- BelgianRestaurants
-- BritishRestaurants
-- BuffetRestaurants
-- CafeRestaurants
-- CaribbeanRestaurants
-- ChineseRestaurants
-- CoffeeAndTea
-- Delicatessens
-- DeliveryService
-- Diners, DiscountStores
-- Donuts, FastFood,
-- renchRestaurants
-- FrozenYogurt
-- GermanRestaurants
-- GreekRestaurants
-- Supermarkets
-- Grocery
-- Grocers
-- HawaiianRestaurants
-- HungarianRestaurants
-- IceCreamAndFrozenDesserts
-- IndianRestaurants
-- ItalianRestaurants
-- JapaneseRestaurants
-- Juices
-- KoreanRestaurants
-- LiquorStores
-- MexicanRestaurants
-- MiddleEasternRestaurants
-- Pizza, PolishRestaurants
-- PortugueseRestaurants
-- Pretzels
-- Restaurants
-- RussianAndUkrainianRestaurants
-- Sandwiches
-- SeafoodRestaurants
-- SpanishRestaurants
-- SteakHouseRestaurants
-- SushiRestaurants
-- TakeAway
-- ThaiRestaurants
-- TurkishRestaurants
-- VegetarianAndVeganRestaurants
-- VietnameseRestaurants 
+| -- | -- | -- | -- |
+| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants | AmericanRestaurants |
+| Bagels | BarbecueRestaurants | Taverns | SportsBars | 
+| Bars | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
+| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants | ChineseRestaurants | 
+| CoffeeAndTea | Delicatessens | DeliveryService | Diners | 
+| DiscountStores | Donuts | FastFood | FrenchRestaurants | 
+| FrozenYogurt | GermanRestaurants | Supermarkets | GreekRestaurants | 
+| Grocers | HawaiianRestaurants | HungarianRestaurants | IceCreamAndFrozenDesserts | 
+| IndianRestaurants | ItalianRestaurants | JapaneseRestaurants | Juices | 
+| KoreanRestaurants | LiquorStores | MexicanRestaurants | MiddleEasternRestaurants | 
+| Pizza | PolishRestaurants | PortugueseRestaurants | Pretzels | 
+| Restaurants | RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
+| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | TakeAway | 
+| ThaiRestaurants | TurkishRestaurants | VegetarianAndVeganRestaurants | VietnameseRestaurants|
  
 ### See Do 
 - AmusementParks
