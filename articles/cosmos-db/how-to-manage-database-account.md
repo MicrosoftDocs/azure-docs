@@ -29,9 +29,46 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ### <a id="configure-clients-multi-homing-dotnet">.NET</a>
 
+```C#
+// Create a new Connection Policy
+ConnectionPolicy policy = new ConnectionPolicy
+    {
+        // Note: These aren't required settings for multi-homing,
+        // just suggested defaults
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp,
+        UseMultipleWriteLocations = true,
+    };
+// Add regions to Preferred locations
+// The name of the location will match what you see in the portal/etc.
+policy.PreferredLocations.Add("East US");
+policy.PreferredLocations.Add("North Europe");
+
+// Pass the Connection policy with the preferred locations on it to the client.
+DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
+```
+
 ### <a id="configure-clients-multi-homing-java-async">Java Async</a>
 
+```java
+ConnectionPolicy policy = new ConnectionPolicy();
+policy.setPreferredLocations(Collections.singleton("West US"));
+AsyncDocumentClient client =
+        new AsyncDocumentClient.Builder()
+                .withMasterKey(this.accountKey)
+                .withServiceEndpoint(this.accountEndpoint)
+                .withConnectionPolicy(policy).build();
+```
+
 ### <a id="configure-clients-multi-homing-java-sync">Java Sync</a>
+
+```java
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+Collection<String> preferredLocations = new ArrayList<String>();
+preferredLocations.add("Australia East");
+connectionPolicy.setPreferredLocations(preferredLocations);
+DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy);
+```
 
 ### <a id="configure-clients-multi-homing-javascript">Node.js/JavaScript/TypeScript</a>
 
@@ -49,6 +86,13 @@ const client = new CosmosClient({
 ```
 
 ### <a id="configure-clients-multi-homing-python">Python</a>
+
+```python
+connection_policy = documents.ConnectionPolicy()
+connection_policy.PreferredLocations = ['West US', 'Japan West']
+client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy)
+
+```
 
 ## Add/remove regions from your database account
 
