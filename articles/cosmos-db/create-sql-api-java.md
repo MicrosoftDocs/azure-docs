@@ -66,11 +66,11 @@ Before you can create a document database, you need to create a SQL API account 
 
 Now let's switch to working with code. Let's clone a SQL API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+1. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
-```bash
-git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
+    ```
 
 ## Review the code
 
