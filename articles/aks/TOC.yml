@@ -111,6 +111,8 @@
           href: http-application-routing.md
         - name: Use internal network
           href: ingress-internal-ip.md
+        - name: Use TLS with your own certificates
+          href: ingress-own-tls.md
         - name: Use TLS with Let's Encrypt
           href: ingress-tls.md
           items:
