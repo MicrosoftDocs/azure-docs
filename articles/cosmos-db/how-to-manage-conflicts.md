@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB | Manage Conflicts | Microsoft Docs
+title: Learn how to manage conflicts between regions in Azure Cosmos DB
 description: Learn how to manage conflicts in Azure Cosmos DB
 services: cosmos-db
 author: christopheranderson
@@ -10,7 +10,7 @@ ms.date: 10/17/2018
 ms.author: chrande
 ---
 
-# Manage multi-master conflicts
+# Manage conflicts between regions
 
 ## Create a custom conflict resolution policy
 
@@ -50,7 +50,7 @@ DocumentCollection createdCollection = client.createCollection(database.getSelfL
 
 ### <a id="create-custom-conflict-resolution-policy-javascript">Node.js/JavaScript/TypeScript</a>
 
-```typescript
+```javascript
 const database = client.database(this.databaseName);
 const {
   container: manualContainer
@@ -62,7 +62,7 @@ const {
 });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-python"></a>
+### <a id="create-custom-conflict-resolution-policy-python">Python</a>
 
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
@@ -85,7 +85,7 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript">Node.js/JavaScript/TypeScript</a>
 
-```typescript
+```javascript
 const database = client.database(this.databaseName);
 const { container: udpContainer } = await database.containers.createIfNotExists(
   {
@@ -100,7 +100,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-You'll need to create the `resolver` sproc after the creation of your container.
+You'll need to create the `resolver` stored procedure after the creation of your container.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python">Python</a>
 
@@ -114,7 +114,7 @@ You'll need to create the `resolver` sproc after the creation of your container.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-javascript">Node.js/JavaScript/TypeScript</a>
 
-```typescript
+```javascript
 const database = client.database(this.databaseName);
 const { container: lwwContainer } = await database.containers.createIfNotExists(
   {
@@ -141,7 +141,7 @@ If you omit the `conflictResolutionPath` property, it will default to the `_ts` 
 
 ### <a id="read-from-conflict-feed-javascript">Node.js/JavaScript/TypeScript</a>
 
-```typescript
+```javascript
 const container = client
   .database(this.databaseName)
   .container(this.lwwContainerName);

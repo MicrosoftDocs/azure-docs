@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB | Manage Consistency | Microsoft Docs
+title: Learn how to manage consistency in Azure Cosmos DB
 description: Learn how to manage consistency in Azure Cosmos DB
 services: cosmos-db
 author: christopheranderson
@@ -54,7 +54,7 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### Portal
 
-To view or modify the default consistency level, go to your Cosmos DB Account in the Azure portal, and then open the Default Consistency menu. From there, choose the level of consistency you'd like as the new default, then click save.
+To view or modify the default consistency level, sign in to Azure portal. Find your Cosmos DB Account an open the **Default consistency** pane. From there, choose the level of consistency you'd like as the new default, then click save.
 
 ![Picture of the consistency menu in the Azure Portal](./media/how-to-manage-consistency/consistency-settings.png)
 
@@ -92,7 +92,7 @@ var response = await client.CreateDocumentAsync(collectionUri, document, request
 
 ### <a id="override-default-consistency-javascript">Node.js/JavaScript/TypeScript</a>
 
-```typescript
+```javascript
 // Override consistency at the client level
 const client = new CosmosClient({
   /* other config... */
@@ -119,7 +119,7 @@ const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual }
 
 ### <a id="utilize-session-tokens-javascript">Node.js/JavaScript/TypeScript</a>
 
-```typescript
+```javascript
 // Get session token from response
 const { headers, item } = await container.items.create({ id: "meaningful-id" });
 const sessionToken = headers["x-ms-session-token"];
@@ -132,7 +132,7 @@ const { body } = await item.read({ sessionToken });
 
 ## Monitor Probabilistically Bounded Staleness (PBS) metric
 
-To view the PBS metric, go to your Cosmos DB Account in the Azure portal, and then open the metrics menu. From there, click the "Consistency" tab and look at the graph named "Probability of strongly consistent reads based on your workload (see PBS)".
+To view the PBS metric, go to your Cosmos DB Account in the Azure Portal, and then open the **Metrics** pane. From there, click the **Consistency** tab and look at the graph named "**Probability of strongly consistent reads based on your workload (see PBS)**".
 
 ![Picture of the PBS graph in the Azure Portal](./media/how-to-manage-consistency/pbs-metric.png)
 
