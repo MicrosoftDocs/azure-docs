@@ -201,8 +201,8 @@ If it is decided to uninstall the public preview software and cleanup all relate
 2. Uninstall the DC Agent software from all domain controllers. This step **requires** a reboot.
 3. Manually remove all proxy service connection points in each domain naming context. The location of these objects may be discovered with the following Active Directory Powershell command:
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -213,8 +213,8 @@ If it is decided to uninstall the public preview software and cleanup all relate
 4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the public preview software was deployed. The location of that object may be discovered with the following Active Directory Powershell command:
 
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
