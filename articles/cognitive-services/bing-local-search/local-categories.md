@@ -167,7 +167,7 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 
 ### Eat Drink 
 | Category | Category | Category | Category |
-| -- | -- | -- | -- |
+| - | - | - | - |
 | BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants | AmericanRestaurants |
 | Bagels | BarbecueRestaurants | Taverns | SportsBars | 
 | Bars | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
@@ -184,43 +184,27 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 | ThaiRestaurants | TurkishRestaurants | VegetarianAndVeganRestaurants | VietnameseRestaurants|
  
 ### See Do 
-- AmusementParks
-- Attractions
-- Carnivals
-- Casinos
-- LandmarksAndHistoricalSites
-- MiniatureGolfCourses
-- MovieTheaters
-- Museums
-- Parks
-- SightseeingTours
-- TouristInformation
-- Zoos 
+| Category | Category | Category |
+| -- | -- | -- |
+| AmusementParks | Attractions | Carnivals |
+| Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
+| MovieTheaters | Museums | Parks |
+| SightseeingTours | TouristInformation | Zoos |
  
 ### Shop 
-- AntiqueStores
-- Bookstores
-- CDAndRecordStores
-- ChildrensClothingStores
-- CigarAndTobaccoShops
-- ComicBookStores
-- DepartmentStores
-- DiscountStores
-- FleaMarketsAndBazaars
-- FurnitureStores
-- HomeImprovementStores
-- JewelryAndWatchesStores
-- KitchenwareStores
-- LiquorStores
-- MallsAndShoppingCenters
-- MensClothingStores
-- MusicStores
-- OutletStores
-- PetShops
-- PetSupplyStores
-- SchoolAndOfficeSupplyStores
-- ShoeStores
-- SportingGoodsStores
-- ToyAndGameStores
-- VitaminAndSupplementStores
-- WomensClothingStores 
+| Category | Category | Category |
+| -- | -- | -- |
+| AntiqueStores | Bookstores | CDAndRecordStores |
+| ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
+| DepartmentStores | DiscountStores | FleaMarketsAndBazaars |
+| FurnitureStores | HomeImprovementStores | JewelryAndWatchesStores |
+| KitchenwareStores | LiquorStores | MallsAndShoppingCenters |
+| MensClothingStores | MusicStores | OutletStores |
+| PetShops | PetSupplyStores | SchoolAndOfficeSupplyStores |
+| ShoeStores | SportingGoodsStores | ToyAndGameStores |
+| VitaminAndSupplementStores | WomensClothingStores |  |
+
+## Next steps
+- [Geographic search boundaries](specify-geographic-search.md)
+- [Query and response](local-search-query-response.md)
+- [Quickstart in C#](local-quickstart.md)
