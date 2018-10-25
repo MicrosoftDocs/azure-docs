@@ -1,5 +1,4 @@
 ---
-East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
