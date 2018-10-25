@@ -76,7 +76,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 |Enable my users to sign in and access cloud services using their on-premises password|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
 |Implement single sign-on using corporate credentials|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
 |Ensure no password hashes are stored in the cloud| |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
-|Ensure cloud multi-factor authentication solutions| |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
+|Enable cloud multi-factor authentication solutions| |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
 |Enable on-premises multi-factor authentication solutions| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
 |Support smartcard authentication for my users<sup>4</sup>| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
 |Display password expiry notifications in the Office Portal and on the Windows 10 desktop| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
