@@ -37,16 +37,16 @@ Your data is still available even if a zone becomes unavailable. Microsoft recom
 ZRS may not protect your data against a regional disaster where multiple zones are permanently affected. Instead, ZRS offers resiliency for your data if it becomes temporarily unavailable. For protection against regional disasters, Microsoft recommends using geo-redundant storage (GRS). For more information about GRS, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md).
 
 ## Converting to ZRS replication
-Migrating to or from LRS, GRS, and RA-GRS is straightforward. You can use the Azure portal or the Storage Resource Provider API to change your account's redundancy type. With ZRS, however, migration isn't as straightforward. ZRS migration involves the physical data movement from a single storage stamp to multiple stamps within a region. 
+Migrating to or from LRS, GRS, and RA-GRS is straightforward. Use the Azure portal or the Storage Resource Provider API to change your account's redundancy type. With ZRS, however, migration isn't as straightforward. ZRS migration involves the physical data movement from a single storage stamp to multiple stamps within a region. 
 
-There are two primary options for migration to or from ZRS: manually copy or move data to a new ZRS account from an existing account or request a live migration. Microsoft strongly recommends that you perform a manual migration. A manual migration provides more flexibility than a live migration, and you're in control of the migration timing. There's no guarantee as to when a live migration will complete.
+There are two primary options for migration to or from ZRS: manually copy or move data to a new ZRS account from an existing account or request a live migration. Microsoft strongly recommends that you perform a manual migration. A manual migration provides more flexibility than a live migration, and you're in control of the migration timing.
 
 To perform a manual migration, you have options:
 - Use existing tooling like AzCopy, the storage SDK, and reliable third-party tools.
-- If you're familiar with Hadoop or HDInsight, you can attach both source and destination (ZRS) account to your cluster. You can then parallelize the data copy process with something like DistCp.
+- If you're familiar with Hadoop or HDInsight, attach both source and destination (ZRS) account to your cluster. Then, parallelize the data copy process with something like DistCp.
 - Build your own tooling that uses one flavor of the storage SDK.
 
-A manual migration can result in some application downtime and you can't absorb that on your end. If downtime occurs, Microsoft provides a live migration option. A live migration is an in-place migration. You can use your existing storage account while your data is migrated between source and destination storage stamps. During migration, you have the same level of durability and availability SLA as you do normally.
+A manual migration can result in some application downtime and sometimes you can't absorb that on your end. If downtime occurs, Microsoft provides a live migration option. A live migration is an in-place migration. Use your existing storage account while your data is migrated between source and destination storage stamps. During migration, you have the same level of durability and availability SLA as you do normally.
 
 Live migration comes with the following restrictions:
 
@@ -54,7 +54,8 @@ Live migration comes with the following restrictions:
 - You may only perform a live migration from an account using LRS or GRS replication. If your account uses RA-GRS, then you need to first migrate to one of these replication types before proceeding. This intermediary step removes the secondary read-only endpoint&mdash;which RA-GRS provides&mdash;prior to migration.
 - Your account must contain data.
 - You can only migrate data within the same region. If you want to migrate your data into a ZRS account located in a region different than the source account, then you must perform a manual migration.
-- You can only use standard storage account types. You can't migrate from a premium storage account.
+- You can only use standard storage account types. 
+- You can't migrate from a premium storage account.
 
 Live migration requests go through the Azure Support portal. From the portal, you select the storage account you want to convert to ZRS.
 1. Click **New Support Request**
@@ -70,7 +71,7 @@ Live migration requests go through the Azure Support portal. From the portal, yo
 6. Verify that the contact information is correct on the **Contact information** blade.
 7. Click **Create**.
 
-A support person will contact you. That person can provide any assistance you require. 
+A support person will contact you. That person will provide any assistance you require. 
 
 ## ZRS Classic: A legacy option for block blobs redundancy
 > [!NOTE]
