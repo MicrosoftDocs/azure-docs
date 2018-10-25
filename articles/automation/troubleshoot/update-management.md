@@ -107,6 +107,20 @@ The Hybrid Runbook Worker wasn't able to generate a self-signed certificate
 
 Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypto\RSA** and try again.
 
+### <a name="nologs"></a>Scenario: Update Management data not showing in Log Analytics for a machine
+
+#### Issue
+
+You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Log Analytics for the Hybrid Runbook Worker but not Update Management.
+
+#### Cause
+
+The Hybrid Runbook Worker may need to be re-registered and reinstalled.
+
+#### Resolution
+
+Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker.
+
 ### <a name="hresult"></a>Scenario: Machine shows as Not assessed and shows an HResult exception
 
 #### Issue
