@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
 ---
-# Entity roles in Patterns are contextual subtypes
+# Entity roles in patterns are contextual subtypes
 Roles are named, contextual subtypes of an entity used only in [patterns](luis-concept-patterns.md).
 
 For example, in the utterance `buy a ticket from New York to London`, both New York and London are cities but each has a different meaning in the sentence. New York is the origin city and London is the destination city. 
@@ -40,7 +40,7 @@ The entity and role are surrounded in parentheses, `{}`. The entity and the role
 
 [!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
-## Roles with Prebuilt entities
+## Roles with prebuilt entities
 
 Use roles with prebuilt entities to give meaning to different instances of the prebuilt entity within an utterance. 
 
