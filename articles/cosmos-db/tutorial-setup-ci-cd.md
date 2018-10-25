@@ -9,7 +9,11 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
+<<<<<<< HEAD
 ms.date: 08/28/2018
+=======
+ms.date: 8/28/2018
+>>>>>>> Fix nonunified
 ms.author: dech
 
 ---
@@ -30,7 +34,11 @@ To use the build task, we first need to install it onto our Azure DevOps organiz
 Next, choose the organization in which to install the extension. 
 
 > [!NOTE]
+<<<<<<< HEAD
 > To install an extension to a Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/en-us/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+=======
+> To install an extension to a Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions) 
+>>>>>>> Fix nonunified
 
 ![Choose a Azure DevOps organization in which to install an extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -80,7 +88,11 @@ Below is an example of a **.runsettings** file that defines parameters to be pas
   </TestRunParameters>
 </RunSettings>
 ```
+<<<<<<< HEAD
 These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB.
+=======
+These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB. 
+>>>>>>> Fix nonunified
 
 ```csharp
 namespace todo.Tests
