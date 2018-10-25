@@ -68,9 +68,9 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
-    ```
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
+```
 
 ## Review the code
 
@@ -169,13 +169,13 @@ Now go back to the Azure portal to get your connection string information and la
 
 2. In the git terminal window, use the following command to install the required Java packages.
 
-    ```
+    ```bash
     mvn package
     ```
 
 3. In the git terminal window, use the following command to start the Java application (replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal)
 
-    ```
+    ```bash
     mvn exec:java -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
 
     ```
@@ -190,7 +190,7 @@ Now go back to the Azure portal to get your connection string information and la
 
 6. Press a key to run a query and see the output in the console window. 
 
-7. The app doesn't delete the created resources. Switch back to the portal to delete the resources from your account so that you don't incur charges.
+7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
 
     ![Console output](./media/create-sql-api-java/rxjava-console-output.png)
 
