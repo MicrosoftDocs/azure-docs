@@ -91,6 +91,8 @@
         href: conflict-resolution-policies.md
       - name: Global distribution - how it works
         href: global-dist-under-the-hood.md  
+      - name: Multi-master with OSS NoSQL databases
+        href: multi-master-oss-nosql.md
     - name: Throughput
       items:
       - name: Overview
