@@ -1,6 +1,6 @@
 ---
 title: This quickstart shows you how to enroll X.509 devices to the Azure Device Provisioning Service using Java | Microsoft Docs
-description: This quickstart uses both group and individual enrollments. In this, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using Java.
+description: This quickstart uses both group and individual enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
