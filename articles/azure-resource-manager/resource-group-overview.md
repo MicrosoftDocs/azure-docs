@@ -234,9 +234,9 @@ For the full list of roles and permitted actions, see [RBAC: Built in Roles](../
 
 In some cases, you want to run code or script that accesses resources, but you don't want to run it under a user’s credentials. Instead, you want to create an identity called a service principal for the application and assign the appropriate role for the service principal. Resource Manager enables you to create credentials for the application and programmatically authenticate the application. To learn about creating service principals, see one of following topics:
 
-* [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md)
+* [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md)
-* [Use portal to create Azure Active Directory application and service principal that can access resources](resource-group-create-service-principal-portal.md)
+* [Use portal to create Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
