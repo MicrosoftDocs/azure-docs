@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/25/2018
 ms.author: markvi
 
 ---
@@ -33,7 +33,7 @@ When you enable Enterprise State Roaming, your organization is automatically gra
 
 1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
-  ![image of device setting labeled Users may sync settings and app data across devices](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
+  ![image of device setting labeled Users may sync settings and app data across devices](./media/enterprise-state-roaming-enable/device-settings.png)
   
 For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
@@ -60,11 +60,11 @@ Follow these steps to view a per-user device sync status report.
 
 1. Under **Show**, select **Devices syncing settings and app data** to show sync status.
   
-  ![image of device sync data setting](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
+  ![image of device sync data setting](./media/enterprise-state-roaming-enable/sync-status.png)
   
 1. If there are devices syncing for this user, you see the devices as shown here.
   
-  ![image of device sync columnar data](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
+  ![image of device sync columnar data](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## Data retention
 Data synced to the Microsoft cloud using Enterprise State Roaming is retained until it is manually deleted or until the data in question is determined to be stale. 
@@ -86,9 +86,10 @@ Data that has not been accessed for one year (“the retention period”) will b
 ### Deleted data recovery
 The data retention policy is not configurable. Once the data is permanently deleted, it is not recoverable. However, The settings data is deleted only from the Microsoft cloud, not from the end-user device. If any device later reconnects to the Enterprise State Roaming service, the settings are again synced and stored in the Microsoft cloud.
 
-## Related topics
-* [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
-* [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-* [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-* [Troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+## Next steps
+
+* [Enterprise State Roaming overview](enterprise-state-roaming-overview.md)
+* [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md)
+* [Group Policy and MDM settings for settings sync](enterprise-state-roaming-group-policy-settings.md)
+* [Windows 10 roaming settings reference](enterprise-state-roaming-windows-settings-reference.md)
+* [Troubleshooting](enterprise-state-roaming-troubleshooting.md)

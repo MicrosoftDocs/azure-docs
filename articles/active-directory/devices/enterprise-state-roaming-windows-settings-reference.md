@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/25/2018
 ms.author: markvi
 
 ---
@@ -46,15 +46,15 @@ The following settings groups are available for end-users to enable/disable sett
 * Other Windows Settings: see Windows Settings details
 * Edge browser setting: Microsoft Edge favorites, reading list, and other settings
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Edge browser Settings menu option.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 For Windows 10 version 1803 or later, Internet Explorer setting group (favorites, typed URLs) syncing can be enabled or disabled by end users through Internet Explorer Settings menu option. 
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
+![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## Windows Settings details
 In the following table, Other entries in the Settings Group column refers to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 
@@ -176,9 +176,7 @@ Settings that don't roam or sync will not belong to a group.
 ###### Footnote 1
 Minimum supported OS version of Windows Creators Update (Build 15063). 
 
-## Related topics
-* [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
-* [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
-* [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-* [Troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+## Next steps
+
+For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md).
+
