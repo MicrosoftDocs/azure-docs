@@ -38,7 +38,7 @@ The following example portal screenshot shows the *Diagnostics settings* window 
 ![Enable Log Analytics workspace for Log Analytics of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
 
 >[!NOTE]
->OMS workspaces are now referred to as Log Analytics workspaces. 
+>OMS workspaces are now referred to as Log Analytics workspaces.
 
 ## Schedule a test pod on the AKS cluster
 
@@ -78,7 +78,7 @@ It may take a few minutes for the diagnostics logs to be enabled and appear in t
 
 ![Select the Log Analytics workspace for your AKS cluster](media/view-master-logs/select-log-analytics-workspace.png)
 
-On the left-hand side, choose **Log Search**. To view the *kube-apiserver*, enter the following query in the text box:
+On the left-hand side, choose **Logs**. To view the *kube-apiserver*, enter the following query in the text box:
 
 ```
 AzureDiagnostics
