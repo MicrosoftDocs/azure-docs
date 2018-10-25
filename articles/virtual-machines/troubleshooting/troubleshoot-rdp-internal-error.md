@@ -105,7 +105,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
             Start-Service -Name "SessionEnv"
 3. Reset the permission for MachineKeys folder.
 	
-        remove-module psreadline icacls 
+        remove-module psreadline 
 
         md c:\temp
 
