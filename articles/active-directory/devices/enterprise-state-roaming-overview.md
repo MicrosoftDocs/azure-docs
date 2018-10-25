@@ -39,4 +39,4 @@ Enterprise State Roaming is available in multiple Azure regions. You can find th
 
 ## Next steps
 
-For information about enabling enterprise state roaming, see [enable enterprise state roaming](enterprise-state-roaming-enable).
+For information about enabling enterprise state roaming, see [enable enterprise state roaming](enterprise-state-roaming-enable.md).
