@@ -129,6 +129,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password"
     $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"

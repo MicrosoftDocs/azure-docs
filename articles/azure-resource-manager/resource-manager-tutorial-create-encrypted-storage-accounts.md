@@ -124,11 +124,11 @@ The template used in this quickstart is called [Create a standard storage accoun
     }
     ```
 
-# Edit the template
+## Edit the template
 
 From Visual Studio Code, modify the template so that the final resources element looks like:
     
-    ![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## Deploy the template
 
