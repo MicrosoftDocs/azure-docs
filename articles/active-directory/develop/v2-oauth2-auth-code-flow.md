@@ -22,6 +22,8 @@ ms.custom: aaddev
 
 # v2.0 Protocols - OAuth 2.0 authorization code flow
 
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. Using the app model v2.0 's implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps. This guide is language-independent, and describes how to send and receive HTTP messages without using any of the [Azure open-source authentication libraries](active-directory-authentication-libraries.md).
 
 > [!NOTE]
