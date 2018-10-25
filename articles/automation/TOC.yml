@@ -201,6 +201,8 @@
     href: troubleshoot/desired-state-configuration.md
   - name: Hybrid Runbook Worker
     href: troubleshoot/hybrid-runbook-worker.md
+  - name: Change Tracking and Inventory
+    href: troubleshoot/change-tracking.md
   - name: Update Management
     href: troubleshoot/update-management.md
   - name: Troubleshoot Update Agent issues
