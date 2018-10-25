@@ -312,14 +312,6 @@
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
-### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [Integrate on-premises identities using Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [Configure token lifetimes](develop/active-directory-configurable-token-lifetimes.md)
