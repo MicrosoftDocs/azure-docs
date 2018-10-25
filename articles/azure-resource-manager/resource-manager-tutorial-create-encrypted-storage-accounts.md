@@ -108,7 +108,7 @@ The template used in this quickstart is called [Create a standard storage accoun
 
     This piece tells you that there are two ways for managing the encryption key. You can use Microsoft-managed encryption keys with Storage Service Encryption, or you can use your own encryption keys. To keep this tutorial simple, you use the `Microsoft.Storage` option, so you don't have to create an Azure Key Vault.
 
-    Your encryption object shall looks like:
+    Your encryption object shall look like:
 
     ```json
     "encryption": {
