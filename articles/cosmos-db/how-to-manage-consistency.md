@@ -14,7 +14,7 @@ ms.author: chrande
 
 ## Configure the default consistency level
 
-### Via cli
+### CLI
 
 ```bash
 # create with a default consistency
@@ -24,7 +24,35 @@ az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource
 az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level BoundedStaleness
 ```
 
-### Via portal
+### PowerShell
+
+This example below creates a new Cosmos DB account with multi-master enabled in East US and West US regions setting the default consistency policy as Bounded Staleness with a max staleness interval of 10 seconds and maximum number of stale requests tolerated at 200.
+
+```azurepowershell-interactive
+$locations = @(@{"locationName"="East US"; "failoverPriority"=0},
+             @{"locationName"="West US"; "failoverPriority"=1})
+
+$iprangefilter = ""
+
+$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness";
+                       "maxIntervalInSeconds"= "10";
+                       "maxStalenessPrefix"="200"}
+
+$CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
+                        "locations"=$locations;
+                        "consistencyPolicy"=$consistencyPolicy;
+                        "ipRangeFilter"=$iprangefilter;
+                        "enableMultipleWriteLocations"="true"}
+
+New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+  -ApiVersion "2015-04-08" `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "East US" `
+  -Name "myCosmosDbAccount" `
+  -Properties $CosmosDBProperties
+```
+
+### Portal
 
 To view or modify the default consistency level, go to your Cosmos DB Account in the Azure portal, and then open the Default Consistency menu. From there, choose the level of consistency you'd like as the new default, then click save.
 
@@ -34,20 +62,52 @@ To view or modify the default consistency level, go to your Cosmos DB Account in
 
 ### <a id="override-default-consistency-dotnet">.NET</a>
 
+```csharp
+// Override consistency at the client level
+ConsistencyPolicy consistencyPolicy = new ConsistencyPolicy
+    {
+        DefaultConsistencyLevel = ConsistencyLevel.BoundedStaleness,
+        MaxStalenessIntervalInSeconds = 5,
+        MaxStalenessPrefix = 100
+    };
+documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, consistencyPolicy);
+
+// Override consistency at the request level via request options
+RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+
+var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
+```
+
 ### <a id="override-default-consistency-java-async">Java Async</a>
 
-### <a id="override-default-consistency-">Java Sync</a>
+```java
+
+```
+
+### <a id="override-default-consistency-java-sync">Java Sync</a>
+
+```java
+
+```
 
 ### <a id="override-default-consistency-javascript">Node.js/JavaScript/TypeScript</a>
 
 ```typescript
+// Override consistency at the client level
 const client = new CosmosClient({
   /* other config... */
   consistencyLevel: ConsistencyLevel.Strong
 });
+
+// Override consistency at the request level via request options
+const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
 ### <a id="override-default-consistency-python">Python</a>
+
+```python
+
+```
 
 ## Utilize session tokens
 

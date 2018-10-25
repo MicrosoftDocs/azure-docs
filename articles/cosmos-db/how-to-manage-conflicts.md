@@ -16,9 +16,37 @@ ms.author: chrande
 
 ### <a id="create-custom-conflict-resolution-policy-dotnet">#.NET</a>
 
+```csharp
+DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
+  {
+      Id = this.manualCollectionName,
+      ConflictResolutionPolicy = new ConflictResolutionPolicy
+      {
+          Mode = ConflictResolutionMode.Custom,
+      },
+  });
+```
+
 ### <a id="create-custom-conflict-resolution-policy-java-async">Java Async</a>
 
+```java
+DocumentCollection collection = new DocumentCollection();
+collection.setId(id);
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createCustomPolicy();
+collection.setConflictResolutionPolicy(policy);
+DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
+```
+
 ### <a id="create-custom-conflict-resolution-policy-java-sync">Java Sync</a>
+
+```java
+DocumentCollection manualCollection = new DocumentCollection();
+manualCollection.setId(this.manualCollectionName);
+ConflictResolutionPolicy customPolicy = ConflictResolutionPolicy.createCustomPolicy(null);
+manualCollection.setConflictResolutionPolicy(customPolicy);
+DocumentCollection createdCollection = client.createCollection(database.getSelfLink(), collection, null).getResource();
+```
 
 ### <a id="create-custom-conflict-resolution-policy-javascript">Node.js/JavaScript/TypeScript</a>
 
@@ -35,6 +63,17 @@ const {
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-python"></a>
+
+```python
+database = client.ReadDatabase("dbs/" + self.database_name)
+manual_collection = {
+                    'id': self.manual_collection_name,
+                    'conflictResolutionPolicy': {
+                          'mode': 'Custom'
+                        }
+                    }
+manual_collection = client.CreateContainer(database['_self'], collection)
+```
 
 ## Create a custom conflict resolution policy with stored procedure
 

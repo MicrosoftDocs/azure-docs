@@ -77,15 +77,74 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## Configure multiple write-regions
 
-### <a id="configure-multiple-write-regions-via-portal">Via portal</a>
+### <a id="configure-multiple-write-regions-portal">Portal</a>
 
 When you create a database account, make sure the "Multi-region write" setting is enabled.
 
 ![Cosmos DB Account creation screenshot](./media/how-to-manage-database-account/account-create.png)
 
-### <a id="configure-multiple-write-regions-via-cli">Via CLI</a>
+### <a id="configure-multiple-write-regions-cli">Azure CLI</a>
 
-Support for this scenario is coming soon.
+```bash
+az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
+```
+
+### <a id="configure-multiple-write-regions-arm">ARM template</a>
+
+The following JSON code is an example Resource Manager template that you can use to deploy an Azure Cosmos DB account with a consistency policy as Bounded Staleness with a max staleness interval of 5 seconds and maximum number of stale requests tolerated at 100. To learn about Resource Manager template format, and the syntax, see [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) documentation.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        },
+        "locationName": {
+            "type": "String"
+        },
+        "defaultExperience": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.DocumentDb/databaseAccounts",
+            "kind": "GlobalDocumentDB",
+            "name": "[parameters('name')]",
+            "apiVersion": "2015-04-08",
+            "location": "[parameters('location')]",
+            "tags": {
+                "defaultExperience": "[parameters('defaultExperience')]"
+            },
+            "properties": {
+                "databaseAccountOfferType": "Standard",
+                "consistencyPolicy": {
+                    "defaultConsistencyLevel": "BoundedStaleness",
+                    "maxIntervalInSeconds": 5,
+                    "maxStalenessPrefix": 100
+                },
+                "locations": [
+                    {
+                        "id": "[concat(parameters('name'), '-', parameters('location'))]",
+                        "failoverPriority": 0,
+                        "locationName": "[parameters('locationName')]"
+                    }
+                ],
+                "isVirtualNetworkFilterEnabled": false,
+                "enableMultipleWriteLocations": true,
+                "virtualNetworkRules": [],
+                "dependsOn": []
+            }
+        }
+    ]
+}
+```
+
 
 ## Enable manual failover for your Cosmos account
 
