@@ -32,18 +32,16 @@ Use the following steps to deploy the Domain-joined HDInsight cluster:
 - Enable LDAPS for AAD DS
 - Create a service account in Azure Active Directory with delegated read & write admin permission to the OU, so that it can. This service account can then join machines to the domain and place machine principals within the OU. It can also create service principals within the OU that you specify during cluster creation.
 
-> [!Note]
-> The service account does not need to be AD domain admin account
+    > [!Note]
+    > The service account does not need to be AD domain admin account
 
 - Deploy HDInsight ESP cluster by passing the following parameters:
-- **Domain name**: The domain name that's associated with Azure AD DS.
-- **Domain user name**: The service account in the Azure AD DS DC-managed domain that you created in the previous section, for example: `hdiadmin@contoso.onmicrosoft.com`. This domain user will be the administrator of this HDInsight cluster.
-
-- **Domain password**: The password of the service account.
-- **Organizational unit**: The distinguished name of the OU that you want to use with the HDInsight cluster, for example: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. If this OU does not exist, the HDInsight cluster tries to create the OU using the privileges of the service account.
-
-- **LDAPS URL**: for example, `ldaps://contoso.onmicrosoft.com:636`.
-- **Access user group**: The security groups whose users you want to sync to the cluster, for example: `HiveUsers`. If you want to specify multiple user groups, separate them by semicolon ';'. The group(s) must exist in the directory prior to creating the ESP cluster.
+    - **Domain name**: The domain name that's associated with Azure AD DS.
+    - **Domain user name**: The service account in the Azure AD DS DC-managed domain that you created in the previous section, for example: `hdiadmin@contoso.onmicrosoft.com`. This domain user will be the administrator of this HDInsight cluster.
+    - **Domain password**: The password of the service account.
+    - **Organizational unit**: The distinguished name of the OU that you want to use with the HDInsight cluster, for example: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. If this OU does not exist, the HDInsight cluster tries to create the OU using the privileges of the service account.
+    - **LDAPS URL**: for example, `ldaps://contoso.onmicrosoft.com:636`.
+    - **Access user group**: The security groups whose users you want to sync to the cluster, for example: `HiveUsers`. If you want to specify multiple user groups, separate them by semicolon ';'. The group(s) must exist in the directory prior to creating the ESP cluster.
 
 For more information, see the following articles:
 

@@ -71,32 +71,6 @@ For more information, see the following articles:
 
 Azure Data Lake Storage implements HDFS and POSIX style access control model. It provides first class integration with AAD for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
 
-The following formats can be used to access data that is stored in Azure Data Lake Storage (ADLS) Gen1
-
-- `adl:///`: Access the default Data Lake Storage for the cluster.
-- `adl://<storage-name>.azuredatalakestore.net/`: Used when communicating with a non-default Data Lake Storage.
-
-When HDInsight is deployed with Data Lake Storage as default storage, the cluster-related files are stored in Data Lake Storage in the following location:
-- `adl://mydatalakestore/<cluster_root_path>`, where `<cluster_root_path>` is the name of a folder you create in Data Lake Storage. The same Data Lake Storage account can be used for more than one cluster, by specifying a root path for each cluster.
-
-To be able to use Data Lake Storage as default storage, an Azure Active Directory service principal must be granted with access to the following paths:
-
-- The Data Lake Storage account root. For example: `adl://mydatalakestore/`
-- The folder for all cluster folders. For example: `adl://mydatalakestore/clusters`
-- The folder for the cluster. For example: `adl://mydatalakestore/clusters/cluster1storage`
-
-Only an Azure AD administrator can create an AAD service principal. The service principal must be created with a certificate. More than one Data Lake Storage accounts could be added to an HDInsight cluster by giving permission to the service principal to the Data Lake Storage accounts.
-
-> [!Note]
-> Adding Azure Data Lake Storage as **additional** storage to an **existing** HDInsight cluster is not a supported scenario.
-
-ADLS Gen1 is currently available in the following Regions
-
-- East US 2
-- Central US
-- North Europe
-- West Europe
-
 For more information, see the following articles:
 
 - [Create HDInsight clusters with Data Lake Storage by using the Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
