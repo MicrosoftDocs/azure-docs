@@ -158,11 +158,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-These properties describe the configuration of the VM instance, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM instance in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VM instances in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+These properties describe the configuration of a VM instance within a scale set, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM instance within a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VM instances in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### The scale set VM instance view
-Similar to how a scale set has an instance view, each VM instance in the scale set has its own instance view. To query the instance view for a particular VM instance in a scale set, you can use:
+Similar to how a scale set has an instance view, each VM instance in the scale set has its own instance view. To query the instance view for a particular VM instance within a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) as follows:
 
@@ -235,7 +235,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-These properties describe the current runtime state of the VM instance, which includes any extensions applied to the scale set.
+These properties describe the current runtime state of a VM instance within a scale set, which includes any extensions applied to the scale set.
 
 
 ## How to update global scale set properties
