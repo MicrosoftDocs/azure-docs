@@ -1,14 +1,15 @@
+# [Data Catalog Documentation](index.md)
+
 # Overview
 ## [What is Data Catalog?](data-catalog-what-is-data-catalog.md)
 ## [Common scenarios](data-catalog-common-scenarios.md)
 ## [Supported data sources](data-catalog-dsr.md)
-## [What’s new](data-catalog-whats-new.md)
 
 # Get Started
 ## [Get started with Azure Data Catalog](data-catalog-get-started.md)
 ## [Adopting Azure Data Catalog](data-catalog-adopting-data-catalog.md)
-## [Azure Data Catalog prerequisites](data-catalog-prerequisites.md)
-## [Frequently asked questions](data-catalog-frequently-asked-questions.md)
+## [Prerequisites](data-catalog-prerequisites.md)
+## [FAQ](data-catalog-frequently-asked-questions.md)
 
 # How To
 ## [Register data sources](data-catalog-how-to-register.md)
@@ -21,16 +22,22 @@
 ## [Manage data assets](data-catalog-how-to-manage.md)
 ## [Save searches and pin data assets](data-catalog-how-to-save-pin.md)
 ## [Set up the business glossary](data-catalog-how-to-business-glossary.md)
-
-## Develop
-### [Developer concepts](data-catalog-developer-concepts.md)
-### [Developer samples](data-catalog-samples.md)
+## [Secure access to data catalog](data-catalog-how-to-secure-catalog.md)
+## [View related data assets](data-catalog-how-to-view-related-data-assets.md) 
 
 # Reference
-## [Keyboard shortcuts for Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminology](data-catalog-terminology.md)
-## [Release notes](data-catalog-release-notes.md)
-## [REST](https://docs.microsoft.com/rest/api/datacatalog/)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=data-catalog)
+## [REST](/rest/api/datacatalog/)
+## [Search syntax reference](/rest/api/datacatalog/data-catalog-search-syntax-reference)
+## [Developer concepts](data-catalog-developer-concepts.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Keyboard shortcuts for Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Release notes](../active-directory/fundamentals/whats-new.md)
+## [Service updates](https://azure.microsoft.com/updates/?product=data-catalog)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Terminology](data-catalog-terminology.md)

@@ -1,11 +1,11 @@
-﻿---
+---
 title: High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager | Microsoft Docs
 description: In this document you will learn how to deploy AD FS in Azure for high availablity.
 keywords: Ad fs with Azure traffic manager, adfs with Azure Traffic Manager,geographic, multi datacenter, geographic datacenters, multi geographic datacenters, deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
 services: active-directory
 documentationcenter: ''
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
@@ -19,7 +19,7 @@ ms.author: anandy;billmath
 
 ---
 # High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager
-[AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md) provides step-by-step guideline as to how you can deploy a simple AD FS infrastructure for your organization in Azure. This article provides the next steps to create a cross-geographic deployment of AD FS in Azure using [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager helps create a geographically spread high availability and high-performance AD FS infrastructure for your organization by making use of range of routing methods available to suit different needs from the infrastructure.
+[AD FS deployment in Azure](hybrid/how-to-connect-fed-azure-adfs.md) provides step-by-step guideline as to how you can deploy a simple AD FS infrastructure for your organization in Azure. This article provides the next steps to create a cross-geographic deployment of AD FS in Azure using [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager helps create a geographically spread high availability and high-performance AD FS infrastructure for your organization by making use of range of routing methods available to suit different needs from the infrastructure.
 
 A highly available cross-geographic AD FS infrastructure enables:
 
@@ -41,7 +41,7 @@ The basic design principles will be same as listed in Design principles in the a
 
 ## Steps to integrate Azure Traffic Manager
 ### Deploy AD FS in the new geographical region
-Follow the steps and guidelines in [AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md) to deploy the same topology in the new geographical region.
+Follow the steps and guidelines in [AD FS deployment in Azure](hybrid/how-to-connect-fed-azure-adfs.md) to deploy the same topology in the new geographical region.
 
 ### DNS labels for public IP addresses of the Internet Facing (public) Load Balancers
 As mentioned above, the Azure Traffic Manager can only refer to DNS labels as endpoints and therefore it is important to create DNS labels for the External Load Balancers’ public IP addresses. Below screenshot shows how you can configure your DNS label for the public IP address. 
@@ -73,7 +73,7 @@ Follow the steps below to create a traffic manager profile. For more information
    
    **Target resource type:** Select Public IP address as the value to this property. 
    
-   **Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label for to.
+   **Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label corresponding to the endpoint you are configuring.
    
    Add endpoint for each geographical region you want the Azure Traffic Manager to route traffic to.
    For more information and detailed steps on how to add / configure endpoints in traffic manager, refer to [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md)
@@ -112,7 +112,7 @@ The easiest way to test AD FS is by using the IdpInitiatedSignon.aspx page. In o
     ![ADFS test - authentication success](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
 ## Related links
-* [Basic AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md)
+* [Basic AD FS deployment in Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md)
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Release Notes for Azure BizTalk Services | Microsoft Docs
 description: Lists the known issues for Azure BizTalk Services
 services: biztalk-services
@@ -18,6 +18,11 @@ ms.author: deonhe
 
 ---
 # Release Notes for Azure BizTalk Services
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+
 The release notes for the Microsoft Azure BizTalk Services contain the known issues in this release.
 
 ## What’s new in the November update of BizTalk Services
@@ -28,8 +33,8 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
 * Organizational accounts are supported:  
   * **Scenario**: You registered a BizTalk Service deployment using a Microsoft account (like user@live.com). In this scenario, only Microsoft Account users can manage the BizTalk Service using the BizTalk Services portal. An organizational account cannot be used.  
   * **Scenario**: You registered a BizTalk Service deployment using an organizational account in an Azure Active Directory (like user@fabrikam.com or user@contoso.com). In this scenario, only Azure Active Directory users within the same organization can manage the BizTalk Service using the BizTalk Services portal. A Microsoft account cannot be used.  
-* When you create a BizTalk Service in the Azure classic portal, you are automatically registered in the BizTalk Services Portal.
-  * **Scenario**: You sign into the Azure classic portal, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
+* When you create a BizTalk Service, you are automatically registered in the BizTalk Services Portal.
+  * **Scenario**: You sign into Azure, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
     See [Registering and Updating a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### August 14 Update
@@ -57,11 +62,11 @@ You ‘Build’ the solution in Visual Studio successfully. Then, you ‘Rebuild
   Unable to copy file <Path to DLL> to “bin\Debug\FileName.dll”. The process cannot access the file ‘bin\Debug\FileName.dll’ because it is being used by another process.  
 
 #### Workaround
-* If [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) is installed, you have the following two options:
+* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is installed, you have the following two options:
   
   * Restart Visual Studio, or
   * Restart the solution. Then, perform only a Build on the solution.  
-* If [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) is not installed, open Task Manager, click the Processes tab, click the MSBuild.exe process, and then click the End Process button.  
+* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is not installed, open Task Manager, click the Processes tab, click the MSBuild.exe process, and then click the End Process button.  
 
 ### Routing to BasicHttpRelay endpoints is not supported from bridges and BizTalk Services Portal if non-printable characters are promoted as HTTP headers
 If you use non-printable characters as part of promoted properties for messages, those messages cannot be routed to relay destinations that use the BasicHttpRelay binding. Also, the promoted properties that are available as part of tracking are URL-encoded for blobs and un-encoded for destinations.  
@@ -99,39 +104,40 @@ Consider a scenario in the following order:
 * Close the .bcs file (by closing the tab in Visual Studio) without saving the changes.  
 * Open the .bcs file again from the Solution Explorer.  
   You will notice that while the associated .bridgeconfig file has the new name you specified, the entity name on the design surface is still the old name. If you try to open the Bridge Configuration by double-clicking the bridge component, you get the following error:  
-  ‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`
   To avoid running into this scenario, make sure you save changes after you rename the entities in a BizTalk Service project.  
   
-  ### BizTalk Service project builds successfully even if an artifact has been excluded from a Visual Studio project
-  Consider a scenario where you add an artifact (for example, an XSD file) to a BizTalk Service project, include that artifact in the Bridge Configuration (for example, by specifying it as a Request message type), and then exclude it from the Visual Studio project. In such a case, building the project will not give any error as long as the deleted artifact is available on the disk at the same location from where it was included in the Visual Studio project.
+### BizTalk Service project builds successfully even if an artifact has been excluded from a Visual Studio project
+Consider a scenario where you add an artifact (for example, an XSD file) to a BizTalk Service project, include that artifact in the Bridge Configuration (for example, by specifying it as a Request message type), and then exclude it from the Visual Studio project. In such a case, building the project will not give any error as long as the deleted artifact is available on the disk at the same location from where it was included in the Visual Studio project.
   
-  ### The BizTalk Service project does not check for schema availability while configuring the bridges
-  In a BizTalk Service project, if a schema that is added to the project imports another schema, the BizTalk Service project does not check whether the imported schema is added to the project. If you try to build such a project, you do not get any build errors.
+### The BizTalk Service project does not check for schema availability while configuring the bridges
+In a BizTalk Service project, if a schema that is added to the project imports another schema, the BizTalk Service project does not check whether the imported schema is added to the project. If you try to build such a project, you do not get any build errors.
   
-  ### The response message for a XML Request-Reply Bridge is always of charset UTF-8
-  For this release, the charset of the response message from an XML Request-Reply Bridge is always set to UTF-8.
+### The response message for a XML Request-Reply Bridge is always of charset UTF-8
+For this release, the charset of the response message from an XML Request-Reply Bridge is always set to UTF-8.
   
-  ### User-Defined Datatypes
-  The BizTalk Adapter Pack adapters within the BizTalk Adapter Service feature can utilize user-defined datatypes for adapter operations.
-  When using user-defined datatypes, copy the files (.dll) to drive:\Program Files\Microsoft BizTalk Adapter Service\BAServiceRuntime\bin\ or to the Global Assembly Cache (GAC) on the server hosting the BizTalk Adapter Service service. Otherwise, the following error may occur on the client:  
-  ```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
-  <faultcode>s:Client</faultcode>
-  <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
-  <detail>
-    <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+### User-Defined Datatypes
+The BizTalk Adapter Pack adapters within the BizTalk Adapter Service feature can utilize user-defined datatypes for adapter operations.
+When using user-defined datatypes, copy the files (.dll) to drive:\Program Files\Microsoft BizTalk Adapter Service\BAServiceRuntime\bin\ or to the Global Assembly Cache (GAC) on the server hosting the BizTalk Adapter Service service. Otherwise, the following error may occur on the client:  
+```
+<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+<faultcode>s:Client</faultcode>
+<faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
+<detail>
+  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
+  </AFConnectRuntimeFault>
+</detail>
+</s:Fault>
+```  
   
-      <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
-    </AFConnectRuntimeFault>
-  </detail>
-  </s:Fault> ```  
-  
-  > [!IMPORTANT]
-  > It is recommended to use GACUtil.exe to install a file into the Global Assembly Cache. GACUtil.exe documents how to use this tool and the Visual Studio command line options.  
-  > 
-  > 
+> [!IMPORTANT]
+> It is recommended to use GACUtil.exe to install a file into the Global Assembly Cache. GACUtil.exe documents how to use this tool and the Visual Studio command line options.  
+> 
+> 
 
 ### Restarting the BizTalk Adapter Service Web Site
-Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premise service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
+Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premises service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
 
 If you stop and start an application, the configuration for auto-starting an application is not honored. So when **BAService** is stopped, you must always restart the **BizTalk Adapter Service** web site instead. Do not start or stop the **BAService** application.
 
@@ -210,7 +216,7 @@ This capability is not available as part of this edition of Microsoft Azure BizT
 ### UPGRADE: New tracking data does not show up after BizTalk Services is upgraded to GA
 Assume a scenario where you have an XML bridge deployed on BizTalk Services Preview subscription. You send messages to the bridge and the corresponding tracking data is available on the BizTalk Services Portal. Now, if the BizTalk Services Portal and BizTalk Services runtime bits are upgraded to GA, and you send a message to the same bridge endpoint deployed earlier, the tracking data does not show up for messages sent after upgrade.  
 
-### Pipelines v/s Bridges
+### Pipelines versus Bridges
 Throughout this document, the term ‘pipelines’ and ‘bridges’ are used interchangeably. Both essentially mean the same thing, which is, a message processing unit deployed on BizTalk Services.  
 
 ### Concepts

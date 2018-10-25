@@ -1,23 +1,18 @@
 ---
-title: Query Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs
-description: Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility.
+title: Connect to Azure SQL Data Warehouse sqlcmd | Microsoft Docs
+description: Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
-ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
+author: kavithaj
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
 ---
-# Query Azure SQL Data Warehouse (sqlcmd)
+
+# Connect to SQL Data Warehouse with sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -27,7 +22,7 @@ ms.author: barbkess
 > 
 > 
 
-This walkthrough uses the [sqlcmd][sqlcmd] command-line utility to query an Azure SQL Data Warehouse.  
+Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.  
 
 ## 1. Connect
 To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string requires the following parameters:

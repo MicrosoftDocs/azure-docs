@@ -1,21 +1,21 @@
-﻿---
+---
 title: Connecting your on-premises network to Azure | Microsoft Docs
 description: Explains and compares the different methods available for connecting to Microsoft cloud services such as Azure, Office 365, and Dynamics CRM Online.
 services: ''
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: cherylmc
+manager: timlt
 editor: ''
 tags: ''
 
 ms.assetid: 294d39ad-40e0-476a-a362-57911b1172b7
-ms.service: guidance
+ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
-ms.author: jdial
+ms.author: cherylmc
 
 ---
 # Connecting your on-premises network to Azure
@@ -94,7 +94,7 @@ The connection requires use of the ExpressRoute service and a connection to a co
 * *View a [list of services](../expressroute/expressroute-faqs.md#supported-services) that cannot be used with ExpressRoute. Your Azure subscription must be approved to connect to Office 365.  See the [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd?ui=en-US&rs=en-US&ad=US&fromAR=1) article for details.
 * **Learn more about ExpressRoute [NAT](../expressroute/expressroute-nat.md) requirements.
 
-Learn more about [ExpressRoute](../expressroute/expressroute-introduction.md), its associated [pricing](https://azure.microsoft.com/pricing/details/expressroute), and [connectivity providers](../expressroute/expressroute-locations.md#connectivity-provider-locations).
+Learn more about [ExpressRoute](../expressroute/expressroute-introduction.md), its associated [pricing](https://azure.microsoft.com/pricing/details/expressroute), and [connectivity providers](../expressroute/expressroute-locations.md#locations).
 
 ## Additional considerations
 * Several of the options above have various maximum limits they can support for VNet connections, gateway connections, and other criteria. It’s recommended that you review the Azure [networking limits](../azure-subscription-service-limits.md#networking-limits) to understand if any of them impact the connectivity types you choose to use.

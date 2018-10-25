@@ -1,5 +1,5 @@
 ---
-title: Chaos and failover tests | Microsoft Docs
+title: Create chaos and failover tests for Azure Service Fabric | Microsoft Docs
 description: Using the Service Fabric chaos test and failover test scenarios to induce faults and verify the reliability of your services.
 services: service-fabric
 documentationcenter: .net
@@ -10,10 +10,10 @@ editor: toddabel
 ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/08/2016
+ms.date: 06/07/2017
 ms.author: motanv
 
 ---

@@ -1,14 +1,26 @@
-To connect to an Azure Redis Cache instance, cache clients need the host name, ports, and keys of the cache. Some clients may refer to these items by slightly different names. To retrieve these items, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings** or **All settings**. 
+---
+title: "include file"
+description: "include file"
+services: redis-cache
+author: wesmc7777
+ms.service: cache
+ms.topic: "include"
+ms.date: 03/28/2018
+ms.author: wesmc
+ms.custom: "include file"
+---
 
-![Redis cache settings](media/redis-cache-access-keys/redis-cache-settings.png)
+### Retrieve host name, ports, and access keys by using the Azure portal
 
-### Host name and ports
-To access the host name and ports click **Properties**.
+When connecting to an Azure Redis Cache instance, cache clients need the host name, ports, and a key for the cache. Some clients might refer to these items by slightly different names. You can retrieve this information in the Azure portal.
 
-![Redis cache properties](media/redis-cache-access-keys/redis-cache-properties.png)
+#### To retrieve the access keys and host name
 
-### Access keys
-To retrieve the access keys, click **Access keys**.
+1. To retrieve the access keys by using the [Azure portal](https://portal.azure.com), browse to your cache and select **Access keys**. 
 
-![Redis cache access keys](media/redis-cache-access-keys/redis-cache-access-keys.png)
+    ![Azure Redis Cache keys](media/redis-cache-access-keys/redis-cache-keys.png)
+
+2. To retrieve the host name and ports, select **Properties**.
+
+    ![Azure Redis Cache properties](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

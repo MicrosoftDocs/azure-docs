@@ -1,0 +1,23 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0078d7;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>logo_azure-storage-file</title>
+  <g id="paths">
+    <g id="Storage_blob" data-name="Storage blob">
+      <path class="cls-1" d="M48,4H16.46L.75,31.5,16.46,59H48L63.75,31.5Z"/>
+    </g>
+  </g>
+  <rect class="cls-2" x="25" y="30" width="14" height="2"/>
+  <rect class="cls-2" x="25" y="35" width="14" height="2"/>
+  <rect class="cls-2" x="25" y="40" width="14" height="2"/>
+  <path class="cls-2" d="M41.4,16H20.29A4.36,4.36,0,0,0,16,20.27V44.73A4.36,4.36,0,0,0,20.29,49H43.71A4.36,4.36,0,0,0,48,44.73V22.57ZM46,45a2,2,0,0,1-2,2H20a1.94,1.94,0,0,1-2-2V20a1.94,1.94,0,0,1,2-2H41v6h5Z"/>
+</svg>

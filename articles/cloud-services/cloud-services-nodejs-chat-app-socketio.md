@@ -1,10 +1,10 @@
 ---
-title: Node.js application using Socket.io | Microsoft Docs
+title: Node.js application using Socket.io - Azure
 description: Learn how to use socket.io in a node.js application hosted on Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: jpconnock
+manager: timlt
 editor: ''
 
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
@@ -13,15 +13,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
-ms.author: robmcm
+ms.date: 08/17/2017
+ms.author: jeconnoc
 
 ---
-# Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service
-Socket.IO provides realtime communication between between your node.js
-server and clients. This tutorial will walk you through hosting a
+
+# Build a Node.js chat application with Socket.IO on an Azure Cloud Service
+
+Socket.IO provides realtime communication between your node.js
+server and clients. This tutorial walks you through hosting a
 socket.IO based chat application on Azure. For more information
-on Socket.IO, see <http://socket.io/>.
+on Socket.IO, see [socket.io](http://socket.io).
 
 A screenshot of the completed application is below:
 
@@ -30,7 +32,7 @@ A screenshot of the completed application is below:
 ## Prerequisites
 Ensure that the following products and versions are installed to successfully complete the example in this article:
 
-* Install [Visual Studio 2013](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+* Install [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
 * Install [Node.js](https://nodejs.org/download/)
 * Install [Python version 2.7.10](https://www.python.org/)
 
@@ -85,12 +87,13 @@ server.js file:
          , nib = require('nib')
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
+         var port = process.env.PORT || 3000;         //Updated
 3. To ensure the application listens on the correct port, open
    server.js in Notepad or your favorite editor, and then change the
    following line by replacing **3000** with **process.env.port** as shown below:
    
-       //app.listen(3000, function () {            //Original
-       app.listen(process.env.port, function () {  //Updated
+       //app.listen(3000, function () {            //Original
+       app.listen(process.env.port, function () {  //Updated
          var addr = app.address();
          console.log('   app listening on http://' + addr.address + ':' + addr.port);
        });
@@ -119,9 +122,19 @@ Azure emulator:
 1. Launch the emulator by issuing the following command:
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   
+   > [!NOTE]
+   > If you encounter issues with launching emulator, eg.:
+      Start-AzureEmulator : An unexpected failure occurred.  Details: Encountered an unexpected error The communication object,  System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+   
+      reinstall AzureAuthoringTools v 2.7.1 and AzureComputeEmulator v 2.7 - make sure that version matches.
+   >
+   >
+
+
 2. Open a browser and navigate to **http://127.0.0.1**.
 3. When the browser window opens, enter a nickname and then hit enter.
-   This will all you to post messages as a specific nickname. To test
+   This will allow you to post messages as a specific nickname. To test
    multi-user functionality, open additional browser windows using the
    same URL and enter different nicknames.
    
@@ -160,9 +173,9 @@ messages between different clients using Socket.IO.
 ## Next steps
 In this tutorial you learned how to create a basic chat application hosted in an Azure Cloud Service. To learn how to host this application in an Azure Website, see [Build a Node.js Chat Application with Socket.IO on an Azure Web Site][chatwebsite].
 
-For more information, see also the [Node.js Developer Center](/develop/nodejs/).
+For more information, see also the [Node.js Developer Center](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
 [Azure SLA]: http://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

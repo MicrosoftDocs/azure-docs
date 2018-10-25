@@ -1,17 +1,47 @@
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. When you select a higher gateway SKU, more CPUs and network bandwidth are allocated to the gateway, and as a result, the gateway can support higher network throughput to the virtual network.
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 
-VPN Gateway can use the following SKUs:
+When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs.
 
-* Basic
-* Standard
-* HighPerformance
+###  <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
-VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-When selecting a SKU, consider the following:
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-* If you want to use a PolicyBased VPN type, you must use the Basic SKU. PolicyBased VPNs (previously called Static Routing) are not supported on any other SKU.
-* BGP is not supported on the Basic SKU.
-* ExpressRoute-VPN Gateway coexist configurations are not supported on the Basic SKU.
-* Active-active S2S VPN Gateway connections can be configured on the HighPerformance SKU only.
+###  <a name="feature"></a>Gateway SKUs by feature set
 
+The new VPN gateway SKUs streamline the feature sets offered on the gateways:
+
+| **SKU**| **Features**|
+| ---    | ---         |
+|**Basic** (**)   | **Route-based VPN**: 10 tunnels with P2S; no RADIUS authentication for P2S; no IKEv2 for P2S<br>**Policy-based VPN**: (IKEv1): 1 tunnel; no P2S|
+| **VpnGw1, VpnGw2, and VpnGw3** | **Route-based VPN**: up to 30 tunnels (*), P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN coexistence |
+|        |             |
+
+(*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway (VpnGw1, VpnGw2, VpnGw3) to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
+
+(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. You can't resize a gateway that uses a Basic SKU to one of the new gateway SKUs, you must instead change to a new SKU, which involves deleting and recreating your VPN gateway.
+
+###  <a name="workloads"></a>Gateway SKUs - Production vs. Dev-Test Workloads
+
+Due to the differences in SLAs and feature sets, we recommend the following SKUs for production vs. dev-test:
+
+| **Workload**                       | **SKUs**               |
+| ---                                | ---                    |
+| **Production, critical workloads** | VpnGw1, VpnGw2, VpnGw3 |
+| **Dev-test or proof of concept**   | Basic (**)                 |
+|                                    |                        |
+
+(\*\*) The Basic SKU is considered a legacy SKU and has feature limitations. Verify that the feature that you need is supported before you use the Basic SKU.
+
+If you are using the old SKUs (legacy), the production SKU recommendations are Standard and HighPerformance. For information and instructions for old SKUs, see [Gateway SKUs (legacy)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

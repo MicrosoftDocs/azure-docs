@@ -1,0 +1,18 @@
+- name: HDInsight Documentation
+  href: index.yml
+- name: Hadoop
+  href: ./hadoop/apache-hadoop-introduction.md
+- name: Spark
+  href: ./spark/apache-spark-overview.md
+- name: HBase
+  href: ./hbase/apache-hbase-overview.md
+- name: Interactive Query
+  href: ./interactive-query/apache-interactive-query-get-started.md
+- name: Kafka
+  href: ./kafka/apache-kafka-introduction.md
+- name: Storm
+  href: ./storm/apache-storm-overview.md
+- name: ML Services
+  href: ./r-server/r-server-overview.md
+- name: Enterprise readiness
+  href: ./domain-joined/apache-domain-joined-introduction.md

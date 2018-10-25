@@ -1,6 +1,6 @@
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
-| Max number of Trusted IP addresses/ranges</a> per subscription<sup>1</sup> |0 |12 |
+| Max number of Trusted IP addresses/ranges</a> per subscription |0 |50 |
 | Remember my devices - number of days |14 |60 |
 | Max number of app passwords? |0 |No Limit |
 | Allow **X** attempts during MFA call |1 |99 |
@@ -9,6 +9,3 @@
 | Lock user account after **X** consecutive MFA denials |Not Set |99 |
 | Reset account lockout counter after **X** minutes |Not Set |9999 |
 | Unlock account after **X** minutes |Not Set |9999 |
-
-<sup>1</sup>This is expected to increase in the future.
-

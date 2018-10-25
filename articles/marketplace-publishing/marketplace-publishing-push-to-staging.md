@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prepare and test your offer for deployment to the Azure Marketplace | Microsoft Docs
 description: Detailed instructions on providing marketing content, configuring pricing plans, and testing your offer before deploying to the Azure Marketplace.
 services: marketplace-publishing

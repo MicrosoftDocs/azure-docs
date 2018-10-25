@@ -1,215 +1,95 @@
 ---
-title: Add the Excel connector | Microsoft Docs
-description: Overview of the Excel connector with REST API parameters
-services: ''
-documentationcenter: ''
-author: msftman
-manager: erikre
-editor: ''
+title: Connect to Excel Online - Azure Logic Apps | Microsoft Docs
+description: Manage data with Excel Online REST APIs and Azure Logic Apps
+ms.service: logic-apps
+services: logic-apps
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 tags: connectors
-
-ms.assetid: 03af8652-9223-4348-9490-602872a680f0
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/23/2016
-ms.author: deonhe
-
+ms.date: 08/23/2018
 ---
-# Get started with the Excel connector
-Currently, there is no Excel connector in Logic Apps. 
 
-## To use Excel data
-You can store Excel data as a comma-separated value (CSV) file in a storage folder, such as [OneDrive](connectors-create-api-onedrive.md). You can also use this CSV file with the [flat-file connector](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
+# Manage Excel Online data with Azure Logic Apps
 
-<!---
+With Azure Logic Apps and the Excel Online connector, 
+you can create automated tasks and workflows based 
+on your data in Excel Online for Business or OneDrive. 
+This connector provides actions that help you work with 
+your data and manage spreadsheets, for example: 
 
-There is no Excel connector in Logic Apps. Originally, this topic only referenced PowerApps. Removed all PowerApps references. 
+* Create new worksheets and tables.
+* Get and manage worksheets, tables, and rows.
+* Add single rows and key columns.
 
+You can then use the outputs from these actions with 
+actions for other services. For example, 
+if you use an action that creates worksheets each week, 
+you can use another action that sends confirmation email 
+by using the Office 365 Outlook connector.
 
+If you're new to logic apps, review 
+[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-Connect to Excel to insert a row, delete a row, and more. 
+> [!NOTE]
+> The [Excel Online for Business](/connectors/excelonlinebusiness/) 
+> and [Excel Online for OneDrive](/connectors/excelonline/) connectors 
+> work with Azure Logic Apps and differ from the 
+> [Excel connector for PowerApps](/connectors/excel/).
 
-## Triggers and actions
-Excel includes the following action. There are no triggers. 
+## Prerequisites
 
-|Trigger|Actions|
-|--- | ---|
-|None | <ul><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get row</li><li>Get tables</li><li>Update row</li></ul>
+* An Azure subscription. If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-All connectors support data in JSON and XML formats. 
+* An [Office 365 account](https://www.office.com/) 
+for your work account or personal Microsoft account 
 
-## Swagger REST API reference
-Applies to version: 1.0.
+  Your Excel data can exist as a comma-separated 
+  value (CSV) file in a storage folder, for example, in OneDrive. 
+  You can also use the same CSV file with the 
+  [flat-file connector](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
-### Inserts a new row into an Excel table
-```POST: /datasets/{dataset}/tables/{table}/items``` 
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
+* The logic app where you want to access your Excel Online data. 
+This connector provides only actions, so to start your logic app, 
+select a separate trigger, for example, the **Recurrence** trigger.
 
+## Add Excel action
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|Excel file name|
-|table|string|yes|path|none|Excel table name|
-|item| |yes|body|none|Row to insert into the specified Excel table|
+1. In the [Azure portal](https://portal.azure.com), open your 
+logic app in the Logic App Designer, if not already open.
 
+1. Under the trigger, choose **New step**.
 
-### Response
+1. In the search box, enter "excel" as your filter. Under the actions list, 
+select the action you want.
 
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+1. If prompted to sign in to your Office 365 account, choose **Sign in**. 
 
+   Your credentials authorize your logic app to create a 
+   connection to Excel Online and access your data.
 
+1. Continue providing the necessary details for the selected action 
+and building your logic app's workflow.
 
+## Connector reference
 
-### Retrieves a single row from an Excel table
-```GET: /datasets/{dataset}/tables/{table}/items/{id}``` 
+For technical details, such as actions and limits, described 
+by the connectors' Swagger files, see these connector reference pages:
 
+* [Excel Online for Business](/connectors/excelonlinebusiness/) 
+* [Excel Online for OneDrive](/connectors/excelonline/) 
 
+## Get support
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|Excel file name|
-|table|string|yes|path|none|Excel table name|
-|id|string|yes|path|none|Unique identifier of row to retrieve|
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
+## Next steps
 
-### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-
-
-### Deletes a row from an Excel table
-```DELETE: /datasets/{dataset}/tables/{table}/items/{id}``` 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|Excel file name|
-|table|string|yes|path|none|Excel table name|
-|id|string|yes|path|none|Unique identifier of the row to delete|
-
-
-### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-
-
-### Updates an existing row in an Excel table
-```PATCH: /datasets/{dataset}/tables/{table}/items/{id}``` 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|Excel file name|
-|table|string|yes|path|none|Excel table name|
-|id|string|yes|path|none|Unique identifier of the row to update|
-|item| |yes|body|none|Row with updated values|
-
-
-### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-
-
-## Object definitions
-
-#### DataSetsMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-| Name | Data Type |Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-| Name | Data Type |Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-#### TableMetadata
-
-| Name | Data Type |Required|
-|---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|not defined|no|
-
-#### DataSetsList
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-#### DataSet
-
-| Name | Data Type |Required|
-|---|---|---|
-|Name|string|no|
-|DisplayName|string|no|
-
-#### Table
-
-| Name | Data Type |Required|
-|---|---|---|
-|Name|string|no|
-|DisplayName|string|no|
-
-#### Item
-
-| Name | Data Type |Required|
-|---|---|---|
-|ItemInternalId|string|no|
-
-#### TablesList
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-#### ItemsList
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-
-## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-
-
--->
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

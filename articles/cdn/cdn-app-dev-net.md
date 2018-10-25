@@ -3,7 +3,7 @@ title: Get started with the Azure CDN Library for .NET | Microsoft Docs
 description: Learn how to write .NET applications to manage Azure CDN using Visual Studio.
 services: cdn
 documentationcenter: .net
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Get started with Azure CDN development

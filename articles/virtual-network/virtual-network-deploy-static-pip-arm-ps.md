@@ -1,203 +1,77 @@
 ---
-title: Deploy a VM with a static public IP using PowerShell in Resource Manager | Microsoft Docs
-description: Learn how to deploy VMs with a static public IP using PowerShell in Resource Manager
+title: Create a VM with a static public IP address - PowerShell | Microsoft Docs
+description: Learn how to create a VM with a static public IP address using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 08/08/2018
 ms.author: jdial
 
 ---
-# Deploy a VM with a static public IP using PowerShell
-[!INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
+# Create a virtual machine with a static public IP address using PowerShell
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+You can create a virtual machine with a static public IP address. A public IP address enables you to communicate to a virtual machine from the internet. Assign a static public IP address, rather than a dynamic address, to ensure that the address never changes. Learn more about [static public IP addresses](virtual-network-ip-addresses-overview-arm.md#allocation-method). To change a public IP address assigned to an existing virtual machine from dynamic to static, or to work with private IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md). Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses), and there is a [limit](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
+## Create a virtual machine
 
-classic deployment model.
+You can complete the following steps from your local computer or by using the Azure Cloud Shell. To use your local computer, ensure you have the [Azure PowerShell installed](/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). To use the Azure Cloud Shell, select **Try It** in the top right corner of any command box that follows. The Cloud Shell signs you into Azure.
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `Connect-AzureRmAccount`.
+2. Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. The following example creates a resource group in the East US Azure region:
 
-[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
+   ```azurepowershell-interactive
+   New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+   ```
 
-## Step 1 - Start your script
-You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Follow the steps below to change the script to work in your environment.
+3. Create a virtual machine with the [New-AzureRmVM](/powershell/module/AzureRM.Compute/New-AzureRmVM) command. The `-AllocationMethod "Static"` option assigns a static public IP address to the virtual machine. The following example creates a Windows Server virtual machine with a static, basic SKU public IP address named *myPublicIpAddress*. When prompted, provide a username and password to be used as the sign in credentials for the virtual machine:
 
-1. Change the values of the variables below based on the values you want to use for your deployment. The values below map to the scenario used in this document.
-   
-        # Set variables resource group
-        $rgName                = "IaaSStory"
-        $location              = "West US"
-   
-        # Set variables for VNet
-        $vnetName              = "WTestVNet"
-        $vnetPrefix            = "192.168.0.0/16"
-        $subnetName            = "FrontEnd"
-        $subnetPrefix          = "192.168.1.0/24"
-   
-        # Set variables for storage
-        $stdStorageAccountName = "iaasstorystorage"
-   
-        # Set variables for VM
-        $vmSize                = "Standard_A1"
-        $diskSize              = 127
-        $publisher             = "MicrosoftWindowsServer"
-        $offer                 = "WindowsServer"
-        $sku                   = "2012-R2-Datacenter"
-        $version               = "latest"
-        $vmName                = "WEB1"
-        $osDiskName            = "osdisk"
-        $nicName               = "NICWEB1"
-        $privateIPAddress      = "192.168.1.101"
-        $pipName               = "PIPWEB1"
-        $dnsName               = "iaasstoryws1"
+   ```azurepowershell-interactive
+   New-AzureRmVm `
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myVM" `
+     -Location "East US" `
+     -PublicIpAddressName "myPublicIpAddress" `
+     -AllocationMethod "Static"
+   ```
 
-## Step 2 - Create the necessary resources for your VM
-Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.
+   If the public IP address must be a standard SKU, you have to [create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address), [create a network interface](virtual-network-network-interface.md#create-a-network-interface), [assign the public IP address to the network interface](virtual-network-network-interface-addresses.md#add-ip-addresses), and then [create a virtual machine with the network interface](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), in separate steps. Learn more about [Public IP address SKUs](virtual-network-ip-addresses-overview-arm.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-1. Create a new resource group.
-   
-        New-AzureRmResourceGroup -Name $rgName -Location $location
-2. Create the VNet and subnet.
-   
-        $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName `
-            -AddressPrefix $vnetPrefix -Location $location   
-   
-        Add-AzureRmVirtualNetworkSubnetConfig -Name $subnetName `
-            -VirtualNetwork $vnet -AddressPrefix $subnetPrefix
-   
-        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet 
-3. Create the public IP resource. 
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName `
-            -AllocationMethod Static -DomainNameLabel $dnsName -Location $location
-4. Create the network interface (NIC) for the VM in the subnet created above, with the public IP. Notice the first cmdlet retrieving the VNet from Azure, this is necessary since a **Set-AzureRmVirtualNetwork** was executed to change the existing VNet.
-   
-        $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-        $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-            -Subnet $subnet -Location $location -PrivateIpAddress $privateIPAddress `
-            -PublicIpAddress $pip
-5. Create a storage account to host the VM OS drive.
-   
-        $stdStorageAccount = New-AzureRmStorageAccount -Name $stdStorageAccountName `
-            -ResourceGroupName $rgName -Type Standard_LRS -Location $location
+4. View the public IP address assigned and confirm that it was created as a static address, with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress):
 
-## Step 3 - Create the VM
-Now that all necessary resources are in place, you can create a new VM.
+   ```azurepowershell-interactive
+   Get-AzureRmPublicIpAddress `
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myPublicIpAddress" `
+     | Select "IpAddress", "PublicIpAllocationMethod" `
+     | Format-Table
+   ```
 
-1. Create the configuration object for the VM.
-   
-        $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize 
-2. Get credentials for the VM local administrator account.
-   
-        $cred = Get-Credential -Message "Type the name and password for the local administrator account."
-3. Create a VM configuration object.
-   
-        $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName `
-            -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-4. Set the operating system image for the VM.
-   
-        $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher `
-            -Offer $offer -Skus $sku -Version $version
-5. Configure the OS disk.
-   
-        $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
-        $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
-6. Add the NIC to the VM.
-   
-        $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id -Primary
-7. Create the VM.
-   
-        New-AzureRmVM -VM $vmConfig -ResourceGroupName $rgName -Location $location
-8. Save the script file.
+   Azure assigned a public IP address from addresses used in the region you created the virtual machine in. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 
-## Step 4 - Run the script
-After making any necessary changes, and understanding the script show above, run the script. 
+> [!WARNING]
+Do not modify the IP address settings within the virtual machine's operating system. The operating system is unaware of Azure public IP addresses. Though you can add private IP address settings to the operating system, we recommend not doing so unless necessary, and not until after reading [Add a private IP address to an operating system](virtual-network-network-interface-addresses.md#private).
 
-1. From a PowerShell console, or PowerShell ISE, run the script above.
-2. The output below should be displayed after a few minutes.
-   
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              : 
-        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {}
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {
-                              "DnsServers": []
-                            }
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24",
-                                "IpConfigurations": [],
-                                "ProvisioningState": "Succeeded"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        Status              : Succeeded
-        StatusCode          : OK
-        Output              : 
-        StartTime           : 1/12/2016 12:57:56 PM -08:00
-        EndTime             : 1/12/2016 12:59:13 PM -08:00
-        Error               : 
-        ErrorText           : 
+## Clean up resources
 
+When no longer needed, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
+
+## Next steps
+
+- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure
+- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Learn more about [private IP addresses](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine
+- Learn more about creating [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines

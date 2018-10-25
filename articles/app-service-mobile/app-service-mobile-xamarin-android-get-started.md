@@ -3,8 +3,8 @@ title: Get Started with Azure Mobile Apps for Xamarin.Android apps
 description: Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: erikre
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
-ms.author: adrianha
+ms.date: 09/24/2018
+ms.author: crdun
 
 ---
 # Create a Xamarin.Android App
@@ -37,13 +37,6 @@ To complete this tutorial, you need the following prerequisites:
   Apps. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
 
-> [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to
-> [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile).  You can immediately create a short-lived starter Mobile
-> App in App Service. No credit cards required; no commitments.
-> 
-> 
-
 ## Create an Azure Mobile App backend
 Follow these steps to create a Mobile App backend.
 
@@ -57,20 +50,25 @@ project for a simple "todo list" backend and publish it to Azure.
 
 ## Download and run the Xamarin.Android app
 1. Under **Download and run your Xamarin.Android project**, click the **Download** button.
-   
+
       Save the compressed project file to your local computer, and make a note of where you save it.
 2. Press the **F5** key to build the project and start the app.
 3. In the app, type meaningful text, such as *Complete the tutorial* and then click the **Add** button.
-   
+
     ![][10]
-   
+
     Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the
     data appears in the list.
-   
+
    > [!NOTE]
    > You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
-   > 
-   > 
+   >
+   >
+
+## Troubleshooting
+If you have problems building the solution, run the NuGet package manager and update the `Xamarin.Android` support packages. Quickstart projects might not always include the latest versions.
+
+Please note that all the support packages referenced in your project must have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
 ## Next steps
 * [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
