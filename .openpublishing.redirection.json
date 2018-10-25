@@ -96,6 +96,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/bing-web-search/computer-vision-web-search-tutorial.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search/index",
             "redirect_document_id": true
@@ -3276,11 +3281,17 @@
             "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
             "redirect_document_id": false
         },
-       {
+        {
             "source_path": "articles/automation/automation-source-control-integration.md",
             "redirect_url": "/azure/automation/source-control-integration",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/automation/automation-scenario-remove-resourcegroup.md",
+            "redirect_url": "/azure/automation",
+            "redirect_document_id": false
+        },
+        
         {
             "source_path": "articles/azure-functions/functions-create-generic-webhook-triggered-function.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
@@ -30074,6 +30085,36 @@
             "source_path": "articles/media-services/latest/transform-concept.md",
             "redirect_url": "/azure/media-services/latest/transforms-jobs-concept",
             "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-windows-settings-reference.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-windows-settings-reference",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-enable.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-enable",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-faqs.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-faqs",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-group-policy-settings.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-group-policy-settings",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-overview.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-overview",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-troubleshooting.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-troubleshooting",
+            "redirect_document_id" : true
         }
     ]
 }
