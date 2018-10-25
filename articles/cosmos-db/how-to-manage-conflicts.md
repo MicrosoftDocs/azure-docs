@@ -79,9 +79,45 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet">.NET</a>
 
+```csharp
+DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
+  {
+      Id = this.udpCollectionName,
+      ConflictResolutionPolicy = new ConflictResolutionPolicy
+      {
+          Mode = ConflictResolutionMode.Custom,
+          ConflictResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver"),
+      },
+  });
+```
+
+You'll need to create the `resolver` stored procedure after the creation of your container.
+
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async">Java Async</a>
 
+```java
+DocumentCollection collection = new DocumentCollection();
+collection.setId(id);
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createCustomPolicy("resolver");
+collection.setConflictResolutionPolicy(policy);
+DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
+```
+
+You'll need to create the `resolver` stored procedure after the creation of your container.
+
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync">Java Sync</a>
+
+```java
+DocumentCollection udpCollection = new DocumentCollection();
+udpCollection.setId(this.udpCollectionName);
+ConflictResolutionPolicy udpPolicy = ConflictResolutionPolicy.createCustomPolicy(
+        String.format("dbs/%s/colls/%s/sprocs/%s", this.databaseName, this.udpCollectionName, "resolver"));
+udpCollection.setConflictResolutionPolicy(udpPolicy);
+DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
+```
+
+You'll need to create the `resolver` stored procedure after the creation of your container.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript">Node.js/JavaScript/TypeScript</a>
 
@@ -104,13 +140,48 @@ You'll need to create the `resolver` stored procedure after the creation of your
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python">Python</a>
 
+```python
+
+```
+
+You'll need to create the `resolver` stored procedure after the creation of your container.
+
 ## Create a last writer wins conflict resolution policy
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet">.NET</a>
 
+```csharp
+DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
+  {
+      Id = this.lwwCollectionName,
+      ConflictResolutionPolicy = new ConflictResolutionPolicy
+      {
+          Mode = ConflictResolutionMode.LastWriterWins,
+          ConflictResolutionPath = "/regionId",
+      },
+  });
+```
+
 ### <a id="create-custom-conflict-resolution-policy-lww-java-async">Java Async</a>
 
+```java
+DocumentCollection collection = new DocumentCollection();
+collection.setId(id);
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createLastWriterWinsPolicy(conflictResolutionPath);
+collection.setConflictResolutionPolicy(policy);
+DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
+```
+
 ### <a id="create-custom-conflict-resolution-policy-lww-java-sync">Java Sync</a>
+
+```java
+DocumentCollection lwwCollection = new DocumentCollection();
+lwwCollection.setId(this.lwwCollectionName);
+ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/regionId");
+lwwCollection.setConflictResolutionPolicy(lwwPolicy);
+DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
+```
 
 ### <a id="create-custom-conflict-resolution-policy-lww-javascript">Node.js/JavaScript/TypeScript</a>
 
@@ -131,13 +202,44 @@ If you omit the `conflictResolutionPath` property, it will default to the `_ts` 
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python">Python</a>
 
+```python
+udp_collection = {
+                'id': self.udp_collection_name,
+                'conflictResolutionPolicy': {
+                    'mode': 'Custom',
+                    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+                    }
+                }
+udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+```
+
 ## Read from conflict feed
 
 ### <a id="read-from-conflict-feed-dotnet">.NET</a>
 
+```csharp
+FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
+```
+
 ### <a id="read-from-conflict-feed-java-async">Java Async</a>
 
+```java
+FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
+                    .first().toBlocking().single();
+for (Conflict conflict : response.getResults()) {
+    /* Do something with conflict */
+}
+```
+
 ### <a id="read-from-conflict-feed-java-sync">Java Sync</a>
+
+```java
+Iterator<Conflict> conflictsIterartor = client.readConflicts(this.collectionLink, null).getQueryIterator();
+while (conflictsIterartor.hasNext()) {
+    Conflict conflict = conflictsIterartor.next();
+    /* Do something with conflict */
+}
+```
 
 ### <a id="read-from-conflict-feed-javascript">Node.js/JavaScript/TypeScript</a>
 
@@ -150,3 +252,11 @@ const { result: conflicts } = await container.conflicts.readAll().toArray();
 ```
 
 ### <a id="read-from-conflict-feed-python">Python</a>
+
+```python
+conflicts_iterartor = iter(client.ReadConflicts(self.manual_collection_link))
+conflict = next(conflicts_iterartor, None)
+while conflict:
+    # Do something with conflict
+    conflict = next(conflicts_iterator, None)
+```
