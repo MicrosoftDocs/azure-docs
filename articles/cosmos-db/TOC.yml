@@ -82,7 +82,7 @@
       - name: Consistency levels and Cosmos DB APIs
         href: consistency-levels-across-apis.md
       - name: Multi-master with OSS NoSQL databases
-   		  href: multi-master-oss-nosql.md
+        href: multi-master-oss-nosql.md
       - name: Tradeoffs for consistency levels
         href: consistency-levels-tradeoffs.md
       - name: High availability
