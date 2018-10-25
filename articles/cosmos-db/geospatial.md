@@ -28,7 +28,7 @@ Spatial data describes the position and shape of objects in space. In most appli
 ### GeoJSON
 Azure Cosmos DB supports indexing and querying of geospatial point data that's represented using the [GeoJSON specification](https://tools.ietf.org/html/rfc7946). GeoJSON data structures are always valid JSON objects, so they can be stored and queried using Azure Cosmos DB without any specialized tools or libraries. The Azure Cosmos DB SDKs provide helper classes and methods that make it easy to work with spatial data. 
 
-### Points, LineStrings, and Polygons
+### Points, LineStrings, and Polsygons
 A **Point** denotes a single position in space. In geospatial data, a Point represents the exact location, which could be a street address of a grocery store, a kiosk, an automobile, or a city.  A point is represented in GeoJSON (and Azure Cosmos DB) using its coordinate pair or longitude and latitude. Here's an example JSON for a point.
 
 **Points in Azure Cosmos DB**
@@ -128,6 +128,9 @@ public class UserProfile
 
     [JsonProperty("location")]
     public Point Location { get; set; }
+
+    [JsonProperty("profiletype")]
+    public string ProfileType { get; set; }
 
     // More properties
 }
