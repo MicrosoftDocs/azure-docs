@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 # As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
 ---
 
-# Architecture and concepts: How does Azure Machine Learning service work? 
+# How does the Azure Machine Learning service work: architecture and concepts?
 
 This document describes the architecture and concepts for the Azure Machine Learning service. The following diagram shows the major components of the service, and illustrates the general workflow when using the service: 
 
@@ -151,6 +151,13 @@ For an example of viewing runs produced by training a model, see the [Quickstart
 An experiment is a grouping of many runs from a given script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that name is automatically created.
 
 For an example of using an experiment, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
+
+
+## Pipelines
+
+Pipelines are used to create and manage the workflows that stitch together machine learning (ML) phases such as data preparation, model training, model deployment, and inferencing. Each phase can encompass multiple steps, each of which can run unattended in various compute targets.
+
+For more information on machine learning pipelines with this service, see the article, "[Pipelines and Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines)".
 
 ## Compute target
 
