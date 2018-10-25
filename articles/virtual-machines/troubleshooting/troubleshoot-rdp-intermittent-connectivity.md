@@ -38,9 +38,9 @@ Before you follow the steps, [take a snapshot of the OS disk](../windows/snapsho
 
 To troubleshoot this issue, use Serial control or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
 
-### Serial control
+### Reset RDP configurations
 
-1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md),  then run the following commands to reset RDP configurations. If the Serial Console is not enabled on your VM, move to the next step. 
+1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md),  then run the following commands in the reset RDP configurations section. If the Serial Console is not enabled on your VM, move to the next step. 
 2. Lower the RDP Security Layer to 0 where the communication between server and client will use the native RDP encryption.
 
         REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'SecurityLayer' /t REG_DWORD /d 0 /f
@@ -49,7 +49,7 @@ To troubleshoot this issue, use Serial control or [repair the VM offline](#repai
         REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'MinEncryptionLevel' /t REG_DWORD /d 1 /f
 4. Set RDP to load the user configuration the client machine.
 
-REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'fQueryUserConfigFromLocalMachine' /t REG_DWORD /d 1 /f
+        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'fQueryUserConfigFromLocalMachine' /t REG_DWORD /d 1 /f
 5. Enable RDP Keep-Alive control:
 
         REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'KeepAliveTimeout' /t REG_DWORD /d 1 /f

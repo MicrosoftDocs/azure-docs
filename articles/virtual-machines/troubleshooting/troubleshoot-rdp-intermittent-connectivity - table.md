@@ -1,0 +1,74 @@
+---
+title: Remote Desktop disconnects frequently in Azure VM| Microsoft Docs
+description: Learn how to troubleshoot the issue in which Remote Desktop disconnects frequently in Azure VM.
+services: virtual-machines-windows
+documentationCenter: ''
+author: genlin
+manager: cshepard
+editor: ''
+
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 10/24/2018
+ms.author: genli
+---
+
+# Remote Desktop disconnects frequently in Azure VM
+
+This article shows how to troubleshoot the issue in which Remote Desktop disconnects frequently in Azure VM.
+
+> [!NOTE] 
+> Azure has two different deployment models for creating and working with resources: 
+[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
+
+## Symptom 
+
+You face intermittent Remote Desktop connectivity during your sessions. You can connect to the VM but then the connection drops.
+
+## Cause
+
+This issue may be caused by the Remote Desktop protocol (RDP) Listener is misconfigured. Typically, this problem happens on the Custom VM.
+
+## Solution
+
+Before you follow the steps, [take a snapshot of the OS disk](../windows/snapshot-copy-managed-disk.md) of the affected VM as a backup. 
+
+To resolve the problem, use Serial control or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
+
+### Serial Console 
+
+Connect to [Serial Console and open CMD instance](./serial-console-windows.md), then run the commands in the "Reset RDP Listener configuration" section. After that, restart the VM to see if the problem is resolved.
+
+### Repair the VM offline
+
+1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+2. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
+3. Browse to the **\windows\system32\config** folder. Copy all of the files in this folder as a backup, in case a rollback is required.
+4. Start the Registry Editor (regedit.exe).
+5. Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
+6. Browse to the **\windows\system32\config\SYSTEM** folder on the OS disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key. 
+7. Open an elevated prompt command window (Run as administrator), then run commands in the "Reset RDP Listener configuration" section. After that, restart the VM to see if the problem is resolved.
+
+
+## Reset RDP Listener configuration
+
+| Task                                                                                                                        | Serial Console                                                                                                                       | Repair the VM offline                                                                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Lower the RDP Security Layer to the native RDP encryption| REG ADD   "HKLM\SYSTEM\CurrentControlSet\control\Terminal   Server\Winstations\RDP-Tcp" /v 'SecurityLayer' /t REG_DWORD /d 0 /f      | REG ADD   "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal   Server\Winstations\RDP-Tcp" /v 'SecurityLayer' /t REG_DWORD /d 0 /f      |
+| Lower the   encryption level to the minimum to allow legacy RDP clients to connect.                                         | REG ADD   "HKLM\SYSTEM\CurrentControlSet\control\Terminal   Server\Winstations\RDP-Tcp" /v 'MinEncryptionLevel' /t REG_DWORD /d 1 /f | REG ADD   "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal   Server\Winstations\RDP-Tcp" /v 'MinEncryptionLevel' /t REG_DWORD /d 1 /f |
+|                                                                                                                             |                                                                                                                                      |                                                                                                                                        |
+|                                                                                                                             |                                                                                                                                      |                                                                                                                                        |
+|                                                                                                                             |                                                                                                                                      |                                                                                                                                        |
+|                                                                                                                             |                                                                                                                                      |                                                                                                                                        |
+|                                                                                                                             |                                                                                                                                      |                                                                                                                                        |
+|                                                                                                                             |                                                                                                                                      |                                                                                                                                        |
+|                                                                                                                             |                                                                                                                                      |                                                                                                                                        |
+|                                                                                                                             |                                                                                                                                      |                                                                                                                                        |
+
+
+
+
+
