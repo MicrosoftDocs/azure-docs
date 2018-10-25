@@ -26,7 +26,6 @@ The Service Fabric Resource Model describes a simple approach to define resource
 - Gateways
 - Secrets and Secrets/Values
 - Volumes
-- Routing rules
 
 Each resource is described declaratively in a resource file, which is a simple YAML or JSON document that describes the Mesh Application, and is provisioned by the Service Fabric platform.
 
