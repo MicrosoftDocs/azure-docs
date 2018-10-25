@@ -56,7 +56,7 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 To view or modify the default consistency level, sign in to Azure portal. Find your Cosmos DB Account an open the **Default consistency** pane. From there, choose the level of consistency you'd like as the new default, then click save.
 
-![Picture of the consistency menu in the Azure Portal](./media/how-to-manage-consistency/consistency-settings.png)
+![Picture of the consistency menu in the Azure portal](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## Override the default consistency level
 
@@ -132,8 +132,8 @@ const { body } = await item.read({ sessionToken });
 
 ## Monitor Probabilistically Bounded Staleness (PBS) metric
 
-To view the PBS metric, go to your Cosmos DB Account in the Azure Portal, and then open the **Metrics** pane. From there, click the **Consistency** tab and look at the graph named "**Probability of strongly consistent reads based on your workload (see PBS)**".
+To view the PBS metric, go to your Cosmos DB Account in the Azure portal, and then open the **Metrics** pane. From there, click the **Consistency** tab and look at the graph named "**Probability of strongly consistent reads based on your workload (see PBS)**".
 
-![Picture of the PBS graph in the Azure Portal](./media/how-to-manage-consistency/pbs-metric.png)
+![Picture of the PBS graph in the Azure portal](./media/how-to-manage-consistency/pbs-metric.png)
 
 You must use the Cosmos DB metrics menu to see this metric. It will not show up in the Azure Monitoring metrics experience.
