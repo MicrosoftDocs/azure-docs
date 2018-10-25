@@ -6,7 +6,7 @@ manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/26/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ---
 
@@ -74,8 +74,8 @@ If you've not yet created the required Azure resources, follow these steps:
 
 4. Before running the microservices, please follow these steps to manually start the Azure Stream Analytics job:
     * Navigate to the [Azure Portal](https://portal.azure.com)
-    * Click on **Resource groups** from the left navigation pane. 
-    * Select the **Resource group** created for your solution. 
+    * Click on **Resource groups** from the left navigation pane.
+    * Select the **Resource group** created for your solution.
     * From the Overview page, please select the *Streaming Analytics job* and hit the **Run** button.
 
 ### Use existing Azure resources
