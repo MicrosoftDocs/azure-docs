@@ -244,7 +244,7 @@
         {
             "source_path": "articles/cosmos-db/distribute-data-globally-turnkey.md",
             "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }, 
         {
             "source_path": "articles/cognitive-services/Computer-vision/Research.md",
