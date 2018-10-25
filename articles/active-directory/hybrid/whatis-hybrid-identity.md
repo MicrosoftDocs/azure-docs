@@ -13,19 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.component: hybrid
 ms.author: billmath
 ---
 
 # Hybrid identity and Microsoft's identity solutions
-[Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrid identity solutions enable you to synchronize on-premises directory objects with Azure AD while still managing your users on-premises. The first decision to make when planning to synchronize your on-premises Windows Server Active Directory with Azure AD is whether you want to use synchronized identity or federated identity. Synchronized identities, and optionally password hashes, enable your users to use the same password to access both on-premises and cloud-based organizational resources. For more advanced scenario requirements, such as single-sign-on (SSO) or on-premises MFA, you need to deploy Active Directory Federation Services (AD FS) to federate identities. 
+[Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) hybrid identity solutions enable you to synchronize on-premises directory objects with Azure AD while still managing your users on-premises. The first decision to make when planning to synchronize your on-premises Windows Server Active Directory with Azure AD is whether you want to use synchronized identity or federated identity. 
 
-There are several options available for configuring hybrid identity. This article provides information to help you choose the best one for your organization based on ease of deployment and your specific identity and access management needs. As you consider which identity model best fits your organization’s needs, you also need to think about time, existing infrastructure, complexity, and cost. These factors are different for every organization, and might change over time. However, if your requirements do change, you also have the flexibility to switch to a different identity model.
+- **Synchronized identities**, and optionally password hashes, enable your users to use the same password to access both on-premises and cloud-based organizational resources. 
+- **Federated identities** allow for more control over users by separating user authentication from Azure, and delegating authentication to a trusted, on-premises, identity provider. 
 
-> [!TIP]
-> These solutions are all delivered by [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
->
+There are several options available for configuring hybrid identity. As you consider which identity model best fits your organization’s needs, you also need to think about time, existing infrastructure, complexity, and cost. These factors are different for every organization, and might change over time. However, if your requirements do change, you also have the flexibility to switch to a different identity model.
 
 ## Synchronized identity 
 
@@ -33,7 +32,7 @@ Synchronized identity is the simplest way to synchronize on-premises directory o
 
 ![Synchronized hybrid identity](./media/whatis-hybrid-identity/synchronized-identity.png)
 
-While synchronized identity  is the easiest and quickest method, your users still need to maintain a separate password for cloud-based resources. To avoid this, you can also (optionally) [synchronize a hash of user passwords](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization#what-is-password-synchronization) to your Azure AD directory. Synchronizing password hashes enables users to log in to cloud-based organizational resources with the same user name and password that they use on-premises. Azure AD Connect periodically checks your on-premises directory for changes and keeps your Azure AD directory synchronized. When a user attribute or password is changed on-premises Active Directory, it is automatically updated in Azure AD. 
+While synchronized identity  is the easiest and quickest method, your users still need to maintain a separate password for cloud-based resources. To avoid this, you can also (optionally) [synchronize a hash of user passwords](how-to-connect-password-hash-synchronization.md) to your Azure AD directory. Synchronizing password hashes enables users to log in to cloud-based organizational resources with the same user name and password that they use on-premises. Azure AD Connect periodically checks your on-premises directory for changes and keeps your Azure AD directory synchronized. When a user attribute or password is changed on-premises Active Directory, it is automatically updated in Azure AD. 
 
 For most organizations who only need to enable their users to sign in to Office 365, SaaS applications, and other Azure AD-based resources, the default password synchronization option is recommended. If that doesn’t work for you, you'll need to decide between pass-through authentication and AD FS.
 
@@ -43,7 +42,7 @@ For most organizations who only need to enable their users to sign in to Office 
 
 ## Pass-through authentication
 
-[Azure AD pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) provides a simple password validation solution for Azure AD-based services using your on-premises Active Directory. If security and compliance policies for your organization do not permit sending users' passwords, even in a hashed form, and you only need to support desktop SSO for domain joined devices, it is recommended that you evaluate using pass-through authentication. Pass-through authentication does not require any deployment in the DMZ, which simplifies the deployment infrastructure when compared with AD FS. When users sign in using Azure AD, this authentication method validates users' passwords directly against your on-premises Active Directory.
+[Azure AD pass-through authentication](how-to-connect-pta.md) provides a simple password validation solution for Azure AD-based services using your on-premises Active Directory. If security and compliance policies for your organization do not permit sending users' passwords, even in a hashed form, and you only need to support desktop SSO for domain joined devices, it is recommended that you evaluate using pass-through authentication. Pass-through authentication does not require any deployment in the DMZ, which simplifies the deployment infrastructure when compared with AD FS. When users sign in using Azure AD, this authentication method validates users' passwords directly against your on-premises Active Directory.
 
 ![Pass-through authentication](./media/whatis-hybrid-identity/pass-through-authentication.png)
 
@@ -56,7 +55,7 @@ Pass-through authentication is configured with Azure AD Connect, which uses a si
 
 ## Federated identity (AD FS)
 
-For more control over how users access Office 365 and other cloud services, you can set up directory synchronization with single sign-on (SSO) using [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). Federating your user's sign-ins with AD FS delegates authentication to an on-premises server that validates user credentials. In this model, on-premises Active Directory credentials are never passed to Azure AD.
+For more control over how users access Office 365 and other cloud services, you can set up directory synchronization with single sign-on (SSO) using [Active Directory Federation Services (AD FS)](how-to-connect-fed-whatis.md). Federating your user's sign-ins with AD FS delegates authentication to an on-premises server that validates user credentials. In this model, on-premises Active Directory credentials are never passed to Azure AD.
 
 ![Federated identity](./media/whatis-hybrid-identity/federated-identity.png)
 
@@ -96,8 +95,10 @@ Here are some common hybrid identity and access management scenarios with recomm
 Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals.  This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.  It provides the following features:
  	
 - [Synchronization](how-to-connect-sync-whatis.md) - This component is responsible for creating users, groups, and other objects. It is also responsible for making sure identity information for your on-premises users and groups is matching the cloud.  It is responsible for synchronizing password hashes with Azure AD.
+- -  	[Password hash synchronization](how-to-connect-password-hash-synchronization.md) - An optional component that allows users to use the same password on-premises and in the cloud by synchronizing a hash of the users password with Azure AD.
 -  	[AD FS and federation integration](how-to-connect-fed-whatis.md) - Federation is an optional part of Azure AD Connect and can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renew and additional AD FS server deployments.
 -  	[Pass-through Authentication](how-to-connect-pta.md) - Another optional component that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment
+-  	[PingFederate and federation integration](how-to-connect-install-custom.md#configuring-federation-with-pingfederate) - Another federation option that allows you to use PingFederate as your identity provider.
 -  	[Health Monitoring](whatis-hybrid-identity-health.md) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
 
 
