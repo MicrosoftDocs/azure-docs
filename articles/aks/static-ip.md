@@ -89,7 +89,7 @@ kubectl apply -f load-balancer-service.yaml
 
 ## Use a static IP address outside of the node resource group
 
-With Kubernetes 1.10 or later, you can to use a static IP address that is created outside the node resource group. The service principal used by the AKS cluster must have at least delegated permissions to the other resource group.
+With Kubernetes 1.10 or later, you can to use a static IP address that is created outside the node resource group. The service principal used by the AKS cluster must have delegated permissions to the other resource group.
 
 To use an IP address outside the node resource group, add an annotation to the Service definition. The following example sets the annotation to the resource group named *myResourceGroup*. Provide your own resource group name:
 
