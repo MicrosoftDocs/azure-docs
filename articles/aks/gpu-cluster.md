@@ -16,7 +16,7 @@ ms.author: laevenso
 Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics and visualization workloads. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. For more information on available GPU-enabled VMs, see [GPU optimized VM sizes in Azure][gpu-skus]. For AKS nodes, we recommend a minimum size of *Standard_NC6*.
 
 > [!NOTE]
-> GPU-enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availablility].
+> GPU-enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availability].
 
 ## Before you begin
 
@@ -259,7 +259,7 @@ kubectl delete jobs samples-tf-mnist-demo
 
 If you don't see GPUs as being available on your nodes, you may need to deploy a DaemonSet for the nVidia device plugin. This DaemonSet runs a pod on each node to provide the required drivers for the GPUs.
 
-First, create a namespace using the [kubectl create namespace][kubectl-create-namespace] command, such as *gpu-resources*:
+First, create a namespace using the [kubectl create namespace][kubectl-create] command, such as *gpu-resources*:
 
 ```console
 kubectl create namespace gpu-resources
@@ -333,6 +333,7 @@ For more information about running machine learning (ML) workloads on Kubernetes
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [azure-pricing]: https://azure.microsoft.com/pricing/
 [azure-availability]: https://azure.microsoft.com/global-infrastructure/services/
 
