@@ -44,6 +44,10 @@ NMT models are at the core of the API and are not visible to end users. The only
 
 Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
+## Language support
+
+Microsoft Translator provides multi-language support for translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically using the [REST API](./reference/v3-0-languages).  
+
 ## Next steps
 
 - Read about [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
