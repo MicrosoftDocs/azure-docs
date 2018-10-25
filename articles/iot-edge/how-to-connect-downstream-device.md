@@ -4,7 +4,7 @@ description: How to configure downstream or leaf devices to connect through Azur
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/22/2018
+ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -27,8 +27,7 @@ In this article, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge
 Before following the steps in this article, you should have two devices ready to use:
 
 1. An IoT Edge device set up as a transparent gateway. 
-    * [Configure a Linux IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway-linux.md)
-    * [Configure a Windows IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway-windows.md)
+    * [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md)
 
     Once you have your gateway device configured, copy the **azure-iot-test-only.root.ca.cert.pem** certificate and have it available anywhere on your downstream device. 
 

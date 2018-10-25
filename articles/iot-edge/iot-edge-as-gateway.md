@@ -48,7 +48,7 @@ When using an opaque gateway (protocol translation) pattern, all devices connect
 ## Next steps
 Use an IoT Edge device as a [transparent gateway][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

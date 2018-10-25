@@ -137,4 +137,4 @@ Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module 
 
 ## Next steps
 
-Enable extended offline operations in your transparent gateway scenarios for [Linux](how-to-create-transparent-gateway-linux.md) or [Windows](how-to-create-transparent-gateway-windows.md) devices.
+Enable extended offline operations in your [transparent gateway](how-to-create-transparent-gateway.md) scenarios.
