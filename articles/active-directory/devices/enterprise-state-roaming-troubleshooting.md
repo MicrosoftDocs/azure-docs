@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
@@ -31,8 +31,8 @@ This topic provides information on how to troubleshoot and diagnose issues with 
 Before you start troubleshooting, verify that the user and device have been configured properly, and that all the requirements of Enterprise State Roaming are met by the device and the user. 
 
 1. Windows 10, with the latest updates, and a minimum Version 1511 (OS Build 10586 or later) is installed on the device. 
-1. The device is Azure AD joined or hybrid Azure AD joined. For more information, see [how to get a device under the control of Azure AD](device-management-introduction.md).
-1. Ensure that **Enterprise State Roaming** is enabled for the tenant in Azure AD as described in [To enable Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-enable.md). You can enable roaming for all users or for only a selected group of users.
+1. The device is Azure AD joined or hybrid Azure AD joined. For more information, see [how to get a device under the control of Azure AD](overview.md).
+1. Ensure that **Enterprise State Roaming** is enabled for the tenant in Azure AD as described in [To enable Enterprise State Roaming](enterprise-state-roaming-enable.md). You can enable roaming for all users or for only a selected group of users.
 1. The user must already be assigned an Azure Active Directory Premium license.  
 1. The device must be restarted and the user must sign in again to access Enterprise State Roaming features.
 
@@ -179,10 +179,6 @@ In Event Viewer under the AAD/Operational logs, this error may be seen with Even
 **Recommended action**  
 Proceed with the steps listed [KB3196528](https://support.microsoft.com/kb/3196528).  
 
-## Related topics
+## Next steps
 
-* [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
-* [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
-* [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-* [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md).

@@ -16,7 +16,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/25/2018
 ms.author: markvi
 
 ---
@@ -27,7 +27,7 @@ Enterprises that want to manage roaming for personal (unmanaged) devices can use
 The following tables describe the policy settings available.
 
 ## MDM settings
-The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account.  Please refer to [Devices and endpoints](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD based syncing.
+The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account.  Please refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD based syncing.
 
 | Name | Description |
 | --- | --- |
@@ -51,10 +51,8 @@ The Group Policy settings apply to Windows 10 devices that are joined to an Acti
 | Do not sync app settings |Disables roaming of app data |
 | Do not sync start settings |Do not use; has no effect |
 
-## Related topics
-* [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
-* [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
-* [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-* [Troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+## Next steps
+
+For an overview, see [enterprise State Roaming overview](enterprise-state-roaming-overview.md).
+
 
