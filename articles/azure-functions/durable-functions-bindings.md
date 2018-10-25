@@ -349,7 +349,7 @@ More details on starting instances can be found in [Instance management](durable
 
 <a name="host-json"></a>  
 
-## Host.json configuration - Functions 2.x
+## host.json settings
 
 [!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
 

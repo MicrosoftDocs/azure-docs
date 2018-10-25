@@ -199,12 +199,12 @@ The following table explains the binding configuration properties that you set i
 
 <a name="host-json"></a>  
 
-## Host.json configuration - Functions 2.x
+## host.json settings
+
+This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
 
 > [!NOTE]
-> These settings apply to Azure Functions 2.x.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
->
-> See [host.json reference for Azure Functions 2.x](functions-host-json.md) for information on the host.json configuration.
+> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
 ```json
 {

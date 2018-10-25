@@ -1708,12 +1708,9 @@ By default, when you write to the output parameter in your function, a document 
 
 <a name="host-json"></a>  
 
-## Host.json configuration - Functions 2.x
+## host.json settings
 
-> [!NOTE]
-> These settings apply to Azure Functions 2.x.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
->
-> See [host.json reference for Azure Functions 2.x](functions-host-json.md) for information on the host.json configuration.
+This section describes the global configuration settings available for this binding in version 2.x. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
 
 ```json
 {

@@ -41,12 +41,12 @@ The following sample *host.json* files have all possible options specified.
     },
     "extensions": {
         "cosmosDb": {},
+        "durableTask": {},
         "eventHubs": {},
         "http": {},
         "queues": {},
         "sendGrid": {},
-        "serviceBus": {},
-        "durableTask": {}
+        "serviceBus": {}
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -178,7 +178,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|fileLoggingMode|information|Sends logs at this level and above to Application Insights. |
+|fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
 |logLevel|n/a|Object that defines the log category filtering for functions in the app. Version 2.x follows the ASP.NET Core layout for log category filtering. This lets you filter logging for specific functions. For more information, see [Log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
 
