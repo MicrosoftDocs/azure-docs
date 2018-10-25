@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/24/18
+ms.date: 10/25/18
 ms.author: yujhong
 ---
 
 # Deploy an app in Azure Government with Azure Pipelines
 
 > [!NOTE]
-> The Azure Pipelines service is not available in Azure Government. This tutorial shows how to configure the CI/CD capabilities of Azure Pipelines in order to deploy an app in Azure Government, while the app executes outside the government cloud.
+> Azure Pipelines is not available in Azure Government. This tutorial shows how to configure the CI/CD capabilities of Azure Pipelines in order to deploy an app in Azure Government, while the app executes outside the government cloud.
 
 This article helps you use Azure Pipelines to set up continuous deployment of your web app running in Azure Government. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. 
 
@@ -28,9 +28,9 @@ This article helps you use Azure Pipelines to set up continuous deployment of yo
 ## Prerequisites
 
 Before starting this tutorial, you must have the following:
-+ An active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
-+ Create an [Azure DevOps organization and project](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts) if you don't already have one.
++ An active Azure Government subscription. If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
++ [Create an organization in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=vsts).
++ [Create and add a project to the Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&%3Bbc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav).
 + Installed and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
 
 ## Create Azure Government app service 
