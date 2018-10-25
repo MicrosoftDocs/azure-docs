@@ -103,13 +103,13 @@ The template used in this quickstart is called [Create a standard storage accoun
     There are other two pieces of helpful information on the same page:
     ![Resource Manager template reference storage account encryption](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
 
-    This piece confirms the `encryption` object is what we need to create an encrypted storage account.
+    This piece confirms the `encryption` object is what you need to create an encrypted storage account.
 
     ![Resource Manager template reference storage account encryption object](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
 
-    This piece tells you that there are two ways manage the encryption key. You can use Microsoft-managed encryption keys with Storage Service Encryption, or you can use your own encryption keys. For more information about using your own keys. To keep this tutorial simple, you use the `Microsoft.Storage` option, so you don't have to create an Azure Key Vault. You also decide to only encrypt blob storage.  
+    This piece tells you that there are two ways for managing the encryption key. You can use Microsoft-managed encryption keys with Storage Service Encryption, or you can use your own encryption keys. To keep this tutorial simple, you use the `Microsoft.Storage` option, so you don't have to create an Azure Key Vault. You also decide to only encrypt blob storage.  
 
-    Your encryption object looks like:
+    Your encryption object shall looks like:
 
     ```json
     "encryption": {
