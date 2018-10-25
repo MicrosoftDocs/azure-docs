@@ -71,7 +71,7 @@
             "redirect_document_id": false
         },        
         {
-            "source_path": "articles/frontdoor/Nnew-azurermfrontdoorrulegroupoverrideobject.md",
+            "source_path": "articles/frontdoor/New-azurermfrontdoorrulegroupoverrideobject.md",
             "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorrulegroupoverrideobject",
             "redirect_document_id": false
         },        
