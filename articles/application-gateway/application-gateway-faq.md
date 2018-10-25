@@ -73,7 +73,7 @@ The VIP can change if the application gateway is stopped and started. The DNS na
 
 ### Does Application Gateway support static IP?
 
-Yes, the Application Gateway V2 SKU does support static public IP addresses. The V1 SKU supports static internal IPs.
+Yes, the Application Gateway v2 SKU does support static public IP addresses. The V1 SKU supports static internal IPs.
 
 ### Does Application Gateway support multiple public IPs on the gateway?
 
@@ -112,9 +112,9 @@ No, but you can deploy other application gateways in the subnet.
 
 ### Are Network Security Groups supported on the application gateway subnet?
 
-Network Security Groups are supported on the application gateway subnet with the following restrictions:
+Network Security Groups (NSGs) are supported on the application gateway subnet with the following restrictions:
 
-* Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway V1 SKU and ports 65200 - 65535 for the V2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
+* Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway V1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
 * Outbound internet connectivity can't be blocked.
 
@@ -182,7 +182,7 @@ No, this is not supported.
 
 The Application Gateway V1 SKU supports high availability scenarios when you have two or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. The V1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
 
-The V2 SKU automatically ensures that new instances are spread across fault domains and update domains. If zone redundancy is chosen, the newest instances are also spread across availability zones to offer zonal failure resiliency.
+The v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If zone redundancy is chosen, the newest instances are also spread across availability zones to offer zonal failure resiliency.
 
 ### How do I achieve DR scenario across data centers with Application Gateway?
 
@@ -190,7 +190,7 @@ Customers can use Traffic Manager to distribute traffic across multiple Applicat
 
 ### Is autoscaling supported?
 
-Yes, the Application Gateway V2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
+Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
 
 ### Does manual scale up/down cause downtime?
 
