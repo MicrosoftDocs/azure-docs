@@ -58,7 +58,7 @@
     href: Concepts/data-sources-supported.md
 - name: Tutorials
   items: 
-  - name: Create, publish, answer from KB
+  - name: Create and answer from KB using C#
     href: Tutorials/create-publish-answer.md
 - name: How-to guides
   items:
