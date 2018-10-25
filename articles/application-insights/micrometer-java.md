@@ -54,15 +54,15 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
     a. azure.application-insights.instrumentation-key=fakekey
 3. Build your application and run
-4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune ApplicationInsight SpringBoot starter refer to the [readme on GitHub. ](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md)
+4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune ApplicationInsight SpringBoot starter refer to the [readme on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
 
 ## Using Spring 2.x 
 Add the following dependencies to your pom.xml or build.gradle file: 
 
- * Application Insights Spring-boot-starter 2.1.2 or above 
- * Azure-spring-boot-metrics-starters 2.0.6 or above  
+* Application Insights Spring-boot-starter 2.1.2 or above 
+*Azure-spring-boot-metrics-starters 2.0.6 or above  
 * Micrometer Azure Registry 1.1.0 RC or higher 
-*  [Application Insights Resource ](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) 
+* [Application Insights Resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
 
 ### Steps: 
 
@@ -107,22 +107,22 @@ Add the following dependencies to your pom.xml or build.gradle file:
 For now the user needs to create a separate bean in their code as follows: 
 
 > [!NOTE]
-> You will have to include Snapshot Spring repository to pull down the Milestone version in your application. 
+> You will have to include Snapshot Spring repository to pull down the Milestone version in your application.
 
-For Maven use the following: 
- 
+For Maven use the following:
+
 ```XML
-<repositories> 
-    <repository> 
-        <id>Micrometer-snapshot</id> 
-        <url>https://repo.spring.io/libs-snapshot/</url> 
-    </repository> 
-</repositories> 
+<repositories>
+    <repository>
+        <id>Micrometer-snapshot</id>
+        <url>https://repo.spring.io/libs-snapshot/</url>
+    </repository>
+</repositories>
  ```
 
-What metrics you will get by default: 
+What metrics you will get by default:
 
-*    Automatically configured metrics for Tomcat, JVM, Logback Metrics, Log4J metrics, Uptime Metrics, Processor Metrics, FileDescriptorMetrics. 
+*    Automatically configured metrics for Tomcat, JVM, Logback Metrics, Log4J metrics, Uptime Metrics, Processor Metrics, FileDescriptorMetrics.
 *    For example, if the netflix hystrix is present on class path we get those metrics as well. 
 *    The following metrics can be available by adding respective beans. 
         - CacheMetrics (CaffineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
@@ -283,7 +283,7 @@ Add the following binding code to the configuration  file:
 ## Auto-collected metrics
 
 |  Metrics Category | Metrics Name  | Metric Type | Base Unit  | Description   | Property Enable and disable    |
-|---|---|---|---|---|----|
+|---|---|---|---|-----------------------|--------------------------|
 | JVM GC Metrics | jvm.gc.max.data.size  |Gauge  |Bytes   | Max size of old generation memory pool|
 | JVM GC Metrics | jvm.gc.live.data.size  |Gauge  |Bytes|Size of old generation memory pool after a full GC|management.metrics.enable.jvm|
 | JVM GC Metrics |jvm.gc.memory.promoted  |Counter   |Bytes   |Count of positive increases in the size of the old generation memory pool before GC to after GC | management.metrics.enable.jvm|
