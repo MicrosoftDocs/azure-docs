@@ -62,11 +62,11 @@ Live migration requests go through the Azure Support portal. From the portal, yo
 2. Complete the Basics based on your account information. In the **Service** section, select **Storage Account Management** and the resource you want to convert to ZRS. 
 3. Click **Next**. 
 4. In the **Problem** section, 
-    - Leave **Severity** as-is.
-    - **Problem Type** = **Data Migration**
-    - **Category** = **Migrate to ZRS within a region**
-    - **Title** = **ZRS account migration** (or something descriptive)
-    - **Details** = I would like to migrate to ZRS from [LRS, GRS] in the ______ region. 
+    - **Severity**: Leave the default value as-is.
+    - **Problem Type**: Select **Data Migration**.
+    - **Category**: Select **Migrate to ZRS within a region**.
+    - **Title**: Type a descriptive title, for example, **ZRS account migration**.
+    - **Details**: Type additional details in the **Details** box, for example, I would like to migrate to ZRS from [LRS, GRS] in the ______ region. 
 5. Click **Next**.
 6. Verify that the contact information is correct on the **Contact information** blade.
 7. Click **Create**.
