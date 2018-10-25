@@ -87,6 +87,8 @@
         href: high-availability.md
       - name: Scale throughput globally
         href: scaling-throughput.md
+      - name: Conflict resolution policies
+        href: conflict-resolution-policies.md
       - name: Global distribution - how it works
         href: global-dist-under-the-hood.md  
     - name: Throughput
