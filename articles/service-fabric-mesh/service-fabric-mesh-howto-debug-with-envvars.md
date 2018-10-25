@@ -12,15 +12,13 @@ manager: jeconnoc
 #Customer intent: As a developer, I want to use environment variables when I debug to test different scenarios.
 ---
 
-# Define environment variables in a Service Fabric Mesh app using Visual Studio | Microsoft Docs
+# Define environment variables in a Service Fabric Mesh app using Visual Studio
 
-Visual Studio allows you to easily create and modify environment variables that you can check at runtime from your Service Fabric Mesh code.
-
-Among other scenarios, this allows you to write code that can differentiate between development and production, as well as define other variables that you want to consume at runtime in your service.
+Visual Studio allows you to easily create and modify environment variables that you can reference at runtime from your Service Fabric Mesh code. Among other scenarios, this allows you to write code that is specific to development or production.
 
 ## Set a debug variable
 
-To set or modify environment variables in your Service Fabric Mesh application, from the Solution Explorer right-click on the service project and choose **Properties**.
+To set or modify environment variables in your Service Fabric Mesh application, from **Solution Explorer** right-click on the service project and choose **Properties**.
 
 Select the **Debug** tab on the left and you will see the **Environment variables** section in the debug pane.
 
@@ -38,7 +36,7 @@ Press Ctrl+S to save your changes.  Your environment variables are saved in the 
 
 ## Read the value of a debug variable
 
-You can read the variable of a debug environment variable using the `GetEnvironmentVariable()` function:
+You can read the value of an environment variable by using the `GetEnvironmentVariable()` function:
 
 ```csharp
 string value = $"{Environment.GetEnvironmentVariable("variableName")}";
