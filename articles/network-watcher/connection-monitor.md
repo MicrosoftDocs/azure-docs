@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 10/22/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
 ---
@@ -123,16 +123,12 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. A generated alert can automatically run one or more actions, such as to notify someone or start another process. When setting an alert rule, the resource that you target determines the list of available metrics that you can use to generate alerts.
 
 1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
-2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Network Watcher that you want to monitor.
+2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Connection Monitor that you want to use.
 
-    ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png) 
-1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Set **Available signals** to ProbesFailedPercent and AverageRoundtripMs, which have the following characteristics:
+    ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
+1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
 
-  |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-  |---|---|---|---|---|---|
-  |ProbesFailedPercent|% Probes Failed|Percent|Average|% of connectivity monitoring probes failed|No Dimensions|
-  |AverageRoundtripMs|Avg. Round-trip Time (ms)|MilliSeconds|Average|Average network round-trip time (ms) for connectivity monitoring probes sent between source and destination|No Dimensions|
-
+    ![alert page with signals selected](./media/connection-monitor/set-alert-signals.png)
 1. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response.
 
 ## View a problem
