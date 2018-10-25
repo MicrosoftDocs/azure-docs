@@ -244,7 +244,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-region).
+   > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-regions).
  
 1. Run the following commands to deploy the VM:  
 
