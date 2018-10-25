@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/25/2018
 ms.author: adgera
 ---
 
@@ -40,8 +40,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourInstanceName` | The name of your Azure Digital Twins instance |
-| `yourLocation` | Which server region your instance is hosted on |
+| *yourInstanceName* | The name of your Azure Digital Twins instance |
+| *yourLocation* | Which server region your instance is hosted on |
 
 ## Reference material
 
