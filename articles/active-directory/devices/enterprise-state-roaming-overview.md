@@ -1,5 +1,5 @@
 ---
-title: Enterprise State Roaming overview | Microsoft Docs
+title: What is enterprise state roaming in Azure Active Directory? | Microsoft Docs
 description: Provides information about Enterprise State Roaming settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device.
 services: active-directory
 keywords: what is Enterprise State Roaming, enterprise sync, windows cloud
@@ -19,7 +19,7 @@ ms.date: 10/25/2018
 ms.author: markvi
 
 ---
-# Enterprise State Roaming overview
+# What is enterprise state roaming?
 
 With Windows 10, [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) users gain the ability to securely synchronize their user settings and application settings data to the cloud. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device. Enterprise State Roaming operates similar to the standard [consumer settings sync](https://go.microsoft.com/fwlink/?linkid=2015135) that was first introduced in Windows 8. Additionally, Enterprise State Roaming offers:
 
@@ -37,3 +37,6 @@ Enterprise State Roaming is available in multiple Azure regions. You can find th
 | [Windows 10 roaming settings reference](enterprise-state-roaming-windows-settings-reference.md) |The following is a complete list of all the settings that will be roamed and/or backed-up in Windows 10. |
 | [Troubleshooting](enterprise-state-roaming-troubleshooting.md) |This topic goes through some basic steps for troubleshooting, and contains a list of known issues. |
 
+## Next steps
+
+For information about enabling enterprise state roaming, see [enable enterprise state roaming](enterprise-state-roaming-enable).
