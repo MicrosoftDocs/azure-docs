@@ -53,7 +53,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## Confirm that GPUs are schedulable
 
-With your AKS cluster created, confirm that GPUs are schedulable in Kubernetes. First, list the nodes in your cluster using the [kubectl get nodes][kubectl get] command:
+With your AKS cluster created, confirm that GPUs are schedulable in Kubernetes. First, list the nodes in your cluster using the [kubectl get nodes][kubectl-get] command:
 
 ```
 $ kubectl get nodes
