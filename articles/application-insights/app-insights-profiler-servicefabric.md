@@ -1,5 +1,5 @@
 ---
-title: Enable profiler for a Service Fabric Application | Microsoft Docs
+title: Profile live Azure Service Fabric applications with Application Insights | Microsoft Docs
 description: Enable profiler for a Service Fabric Application
 services: application-insights
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 08/06/2018
 ms.author: mbullwin
 
 ---
-# Profile live Service Fabric applications with Application Insights
+# Profile live Azure Service Fabric applications with Application Insights
 
 You can also deploy Application Insights profiler on these services:
 * [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
@@ -51,3 +51,9 @@ To set up your environment, take the following actions:
 
 > [TIP]
 > For Virtual Machines an alternative to the json based steps above is to navigate in the Azure portal to  **Virtual Machines** > **Diagnostic Settings** > **Sinks** > Set send diagnostic data to Application Insights to **Enabled** and either select an Application Insights account or a specific ikey.
+
+## Next steps
+
+- Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
+- See [Profiler traces](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
+- Get help with troubleshooting profiler issues in [Profiler troubleshooting](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

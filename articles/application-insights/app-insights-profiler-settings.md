@@ -1,5 +1,5 @@
 ---
-title: Profiler Settings Blade | Microsoft Docs
+title: Azure Application Insights Profiler Settings Blade | Microsoft Docs
 description: See profiler status and start profiling sessions
 services: application-insights
 documentationcenter: ''
@@ -44,6 +44,7 @@ The following steps illustrate how this scenario works:
 If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and continue to Step 2.
 
 Navigate to Application Insights portal, **Configure > Performance Testing**. Click on New button to start a new performance test.
+
 ![create new performance test][create-performance-test]
 
 In the **New performance test** pane, configure the test target URL. Accept all default settings and start running the load test.
@@ -91,6 +92,7 @@ If any of these settings aren't set, go to the Application Insights enablement p
     ![Enable Application Insights from App Services portal][enable-app-insights]
 
 1. If you see an ‘Update’ button in the following page, click it to update Application Insights site extension that will install the latest Profiler agent.
+
 ![Update site extension][update-site-extension]
 
 1. Then click **change** to making sure the Profiler is turned on and select **OK** to save the changes.
@@ -108,7 +110,8 @@ If any of these settings aren't set, go to the Application Insights enablement p
 
     ![check for extension update][check-for-extension-update]
 
-
+## Next Steps
+[Enable Profiler and View traces](app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png

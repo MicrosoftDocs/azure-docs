@@ -1,5 +1,5 @@
 ---
-title: Enable Application Insights Profiler for Cloud Services | Microsoft Docs
+title: Profile live Azure cloud services with Application Insights | Microsoft Docs
 description: Enable Application Insights Profiler for Cloud Services.
 services: application-insights
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 08/06/2018
 ms.author: mbullwin
 
 ---
-# Profile live cloud services with Application Insights
+# Profile live Azure cloud services with Application Insights
 
 You can also deploy Application Insights profiler on these services:
 * [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
@@ -25,7 +25,7 @@ You can also deploy Application Insights profiler on these services:
 
 Application Insights Profiler is installed with the Windows Azure Diagnostics (WAD) extension. You just need to configure WAD to install the profiler and send profiles to your Application Insights resource.
 
-## Here are the steps you need to take to enable profiler for your Azure Cloud Service:
+## Here are the steps you need to take to enable profiler for your Azure Cloud Service
 1. Check to see that you  using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later.  It's sufficient to confirm that the *ServiceConfiguration.\*.cscfg* files have an `osFamily` value of "5" or later.
 1. Add [Application Insights SDK to cloud service](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Track requests with Application Insights:
@@ -69,3 +69,9 @@ Application Insights Profiler is installed with the Windows Azure Diagnostics (W
     > You can find the actual instrumentation key value that's used by the `ApplicationInsights` sink in the     *ServiceConfiguration.\*.cscfg* files.  
     > After the Visual Studio 15.5 Azure SDK release, only the instrumentation keys that are used by the application     and the `ApplicationInsightsProfiler` sink need to match each other.
 1. Deploy your service with the new diagnostic configuration and Application Insights Profiler will be configured to run on your service.
+ 
+## Next steps
+
+- Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
+- See [Profiler traces](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
+- Get help with troubleshooting profiler issues in [Profiler troubleshooting](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

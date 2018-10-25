@@ -1,5 +1,5 @@
 ﻿---
-title: Profile live web apps on Azure with Application Insights Profiler | Microsoft Docs
+title: Profile live Azure web apps with Application Insights | Microsoft Docs
 description: Profile live web apps on Azure with Application Insights Profiler.
 services: application-insights
 documentationcenter: ''

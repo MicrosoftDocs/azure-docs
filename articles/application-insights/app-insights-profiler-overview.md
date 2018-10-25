@@ -1,5 +1,5 @@
 ---
-title: Profile production applications with Application Insights Profiler | Microsoft Docs
+title: Profile production applications in Azure with Application Insights Profiler | Microsoft Docs
 description: Identify the hot path in your web server code with a low-footprint profiler.
 services: application-insights
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 08/06/2018
 ms.author: mbullwin
 
 ---
-# Profile production applications with Application Insights
+# Profile production applications in Azure with Application Insights
 ## Enable Profiler for your application
 
 Application Insights Profiler provides performance traces for applications running in production in Azure. It captures the data automatically at scale without negatively affecting your end users. Profiler will help you identify the “hot” code path that takes the longest time when handling a particular web request. 
@@ -118,6 +118,14 @@ There are no charges for using the Profiler service. For you to use the Profiler
 ## Overhead and sampling algorithm
 
 Profiler randomly runs two minutes every hour on each virtual machine that hosts the application that has Profiler enabled for capturing traces. When Profiler is running, it adds from 5 percent to 15 percent CPU overhead to the server.
+
+## Next Steps
+Enable Application Insights Profiler for your Azure application
+* [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Virtual Machines and VM Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png

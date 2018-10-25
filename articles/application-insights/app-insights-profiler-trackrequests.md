@@ -1,5 +1,5 @@
 ---
-title: Write code to track requests with Application Insights | Microsoft Docs
+title: Write code to track requests with Azure Application Insights | Microsoft Docs
 description: Write code to track requests with Application Insights so you can get profiles for your reqeusts
 services: application-insights
 documentationcenter: ''
@@ -18,9 +18,9 @@ ms.author: mbullwin
 ---
 # Write Code to track requests with Application Insights
 
-To see profiles for your application on the Performance page, Application Insights needs to be tracking requests for your application. Application Insights can automatically track requests for an application that are built on frameworks that are already instrumented, like ASP.net and ASP.Net Core. But for other applications, like Azure Cloud Service worker roles and Service Fabric stateless APIs, your need to write code to tell Application Insights where your requests begin and end. Once you've written this code, requests telemetry will be sent to Application Insights and you'll see the telemetry on the Performance page and profiles will be collected for those requests. 
+To see profiles for your application on the Performance page, Application Insights needs to be tracking requests for your application. Application Insights can automatically track requests for applications that are built on frameworks that are already instrumented, like ASP.net and ASP.Net Core. But for other applications, like Azure Cloud Service worker roles and Service Fabric stateless APIs, your need to write code to tell Application Insights where your requests begin and end. Once you've written this code, requests telemetry will be sent to Application Insights and you'll see the telemetry on the Performance page and profiles will be collected for those requests. 
 
-### Steps and example code 
+Here are the steps you need to take to manually track requests:
 
 
   1. Early in the application lifetime, add the following code:  
