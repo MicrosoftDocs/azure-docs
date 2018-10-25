@@ -1,0 +1,34 @@
+- name: Windows Virtual Desktop
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Windows Virtual Desktop?
+    href: windows-virtual-desktop-overview.md
+  - name: Set up a Windows Virtual Desktop environment
+    href: set-up-wvd-environment.md
+- name: Tutorials
+  items:
+  - name: Set up Windows Virtual Desktop tenants
+    href: set-up-wvd-tenants.md
+  - name: Create a host pool in Windows Virtual Desktop
+    href: manage-host-pools.md
+  - name: Connect to Microsoft Remote Services
+    href: connect-to-mrs.md
+  - name: Manage app groups for Windows Virtual Desktop
+    href: manage-app-groups-for-wvd.md
+  - name: Manage user storage in Windows Virtual Desktop
+    href: manage-user-storage.md
+- name: How-to
+  items:
+  - name: Set up tenants in Azure Active Directory
+    href: set-up-wvd-tenants-in-ad.md
+  - name: Connect to a Remote Desktop environment
+    href: set-up-wvd-tenants-in-rd.md
+  - name: Hoster admin delegated administration
+    href: hoster-admin-delegated-administration.md
+  - name: Introducing the new diagnostics role service
+    href: introducing-the-new-diagnostics-role-service.md
+- name: Reference
+  items:
+  - name: PowerShell cmdlets
+    href: powershell-cmdlet-table.md
