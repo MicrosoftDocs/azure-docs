@@ -167,7 +167,7 @@ You connected to the Azure Database for PostgreSQL server via psql in Cloud Shel
 
 ## Connect to the PostgreSQL Server using pgAdmin
 
-pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin from the [pgAdmin website](http://www.pgadmin.org/). The pgAdmin version you're using may be different from what is used in this Quickstart. Read the pgAdmin documentation if you need additional guidance.
+pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin from the [pgAdmin website](https://www.pgadmin.org/). The pgAdmin version you're using may be different from what is used in this Quickstart. Read the pgAdmin documentation if you need additional guidance.
 
 1. Open the pgAdmin application on your client computer.
 

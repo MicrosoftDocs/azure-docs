@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 1. Create a new Ruby project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
 ```ruby
