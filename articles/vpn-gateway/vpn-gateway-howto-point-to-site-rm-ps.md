@@ -5,7 +5,6 @@ services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
@@ -31,11 +30,9 @@ Point-to-Site native Azure certificate authentication connections use the follow
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
-* You can either use the Azure Cloud Shell "Try It' to run your PowerShell commands in the browser, or install PowerShell locally. If you choose to install and use PowerShell locally, be sure to install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specify may fail.
-
+* The steps for this article use Azure PowerShell. You can either use the Azure Cloud Shell "Try It' to run your PowerShell commands in the browser, or install PowerShell locally. If you choose to install and use PowerShell locally, be sure to install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specify may fail.
 
   To find the version of PowerShell that you are running locally, use the 'Get-Module -ListAvailable AzureRM' cmdlet. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azurerm-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
-If you are running PowerShell locally, you also need to run 'Connect-AzureRmAccount' to create a connection with Azure.
 
 
 ### <a name="example"></a>Example values
