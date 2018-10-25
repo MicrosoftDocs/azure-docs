@@ -73,7 +73,7 @@ The VIP can change if the application gateway is stopped and started. The DNS na
 
 ### Does Application Gateway support static IP?
 
-Yes, the Application Gateway v2 SKU does support static public IP addresses. The V1 SKU supports static internal IPs.
+Yes, the Application Gateway v2 SKU does support static public IP addresses. The v1 SKU supports static internal IPs.
 
 ### Does Application Gateway support multiple public IPs on the gateway?
 
@@ -92,7 +92,7 @@ Application Gateway also inserts X-Original-Host header that contains the origin
 
 ### How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?
 
-New Application Gateway V1 SKU deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
+New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
 
 V2 SKU deployments can take about five to six minutes to provision.
 
@@ -114,7 +114,7 @@ No, but you can deploy other application gateways in the subnet.
 
 Network Security Groups (NSGs) are supported on the application gateway subnet with the following restrictions:
 
-* Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway V1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
+* Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
 * Outbound internet connectivity can't be blocked.
 
@@ -180,7 +180,7 @@ No, this is not supported.
 
 ### How does Application Gateway support high availability and scalability?
 
-The Application Gateway V1 SKU supports high availability scenarios when you have two or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. The V1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
+The Application Gateway v1 SKU supports high availability scenarios when you have two or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
 
 The v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If zone redundancy is chosen, the newest instances are also spread across availability zones to offer zonal failure resiliency.
 
