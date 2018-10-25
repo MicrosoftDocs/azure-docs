@@ -36,8 +36,8 @@ For optimal performance, configure your DNS server to handle client-facing clust
 
 A cluster vserver is shown on the left, and IP addresses appear in the center and on the right. Configure each client access point with A records and pointers as illustrated.
 
-![Avere cluster round-robin DNS diagram - separate text description file provided](media/avere-vfxt-rrdns-diagram.png) 
-[diagram text description](avere-vfxt-rrdns-alt-text.md)
+![Avere cluster round-robin DNS diagram](media/avere-vfxt-rrdns-diagram.png) 
+<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)
 
