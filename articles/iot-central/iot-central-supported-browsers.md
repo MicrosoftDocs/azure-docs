@@ -23,4 +23,4 @@ We recommend that you use the most up-to-date browser that's compatible with you
 - Firefox (latest version)
 
 ## Required protocols
-Azure IoT Central requires that your network allows you to access HTTPS and Websocket protocols. 
+Azure IoT Central requires that your network allows you to access HTTPS and WebSocket protocols. 
