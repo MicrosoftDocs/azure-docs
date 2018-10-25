@@ -32,7 +32,7 @@ ZRS is generally available in the following regions:
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
 ## What happens when a zone becomes unavailable?
-Your data remains resilient if a zone becomes unavailable. Microsoft recommends that you continue to follow practices for transient fault handling, such as implementing retry policies with exponential back-off. When a zone is unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you are accessing your data before the updates have completed.
+Your data is still available even if a zone becomes unavailable. Microsoft recommends that you continue to follow practices for transient fault handling. These practices include implementing retry policies with exponential back-off. When a zone is unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you are accessing your data before the updates have completed.
 
 ZRS may not protect your data against a regional disaster where multiple zones are permanently affected. Instead, ZRS offers resiliency for your data if it becomes temporarily unavailable. For protection against regional disasters, Microsoft recommends using geo-redundant storage (GRS). For more information about GRS, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md).
 
@@ -46,7 +46,7 @@ To perform a manual migration, you have options:
 - If you're familiar with Hadoop or HDInsight, you can attach both source and destination (ZRS) account to your cluster. You can then parallelize the data copy process with something like DistCp.
 - Build your own tooling that uses one flavor of the storage SDK.
 
-If, however, a manual migration results in some application downtime and you can't absorb that on your end, then Microsoft provides a live migration option. A live migration is an in-place migration. You can use your existing storage account while your data is migrated between source and destination storage stamps. During migration, you have the same level of durability and availability SLA as you do normally.
+Sometimes, a manual migration results in some application downtime and you can't absorb that on your end. If downtime occurs, Microsoft provides a live migration option. A live migration is an in-place migration. You can use your existing storage account while your data is migrated between source and destination storage stamps. During migration, you have the same level of durability and availability SLA as you do normally.
 
 Live migration comes with the following restrictions:
 
