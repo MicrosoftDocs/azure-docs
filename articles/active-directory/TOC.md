@@ -244,7 +244,6 @@
 
 #### Conditional Access
 ##### [Customer did not meet Device Registration pre-reqs](active-directory-conditional-access.md)
-##### [Tenant is getting blocked due to incorrect setting of Conditional Access policies](active-directory-conditional-access-device-remediation.md)
 ##### [How and when do off corpnet rules take effect?](https://aka.ms/calocation)
 ##### [How to increase the number of devices that user is allowed to register in Azure AD?](active-directory-azureadjoin-setup.md)
 ##### [How to set up Conditional Access for Exchange Online?](https://aka.ms/csforexchange)
@@ -267,7 +266,6 @@
 
 #### Permissions
 ##### [Choose permissions for an API](develop/perms-for-given-api.md)
-##### [Grant permissions to my app](develop/registration-config-grant-permissions-how-to.md)
 ##### [Delegated vs application permissions](develop/delegated-and-app-perms.md)
 ##### [Application consent](develop/consent-framework.md)
 
@@ -314,14 +312,6 @@
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
-### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [Integrate on-premises identities using Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [Configure token lifetimes](develop/active-directory-configurable-token-lifetimes.md)

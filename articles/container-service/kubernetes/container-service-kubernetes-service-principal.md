@@ -35,14 +35,14 @@ You can use an existing Azure AD service principal that meets the following requ
 * **Client secret**: Must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
 > [!IMPORTANT]
-> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## Option 1: Create a service principal in Azure AD
 
 If you want to create an Azure AD service principal before you deploy your Kubernetes cluster, Azure provides several methods.
 
-The following example commands show you how to do this with the [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
+The following example commands show you how to do this with the [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), the [portal](../../active-directory/develop/howto-create-service-principal-portal.md), or other methods.
 
 ```azurecli
 az login

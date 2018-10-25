@@ -167,7 +167,6 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                 <div class="card">
                     <div class="cardText">
                         <h3>Enterprise subscription: requires EA portal access</h3>
-                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
                         <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Manage departments<span class="docon docon-navigate-external"></span></a>
                         <br>

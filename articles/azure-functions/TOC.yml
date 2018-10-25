@@ -155,7 +155,9 @@
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling
-       href: functions-bindings-error-pages.md 
+       href: functions-bindings-error-pages.md
+     - name: Debug Event Grid trigger locally
+       href: functions-debug-event-grid-trigger-local.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -178,8 +180,6 @@
       href: install-update-binding-extensions-manual.md
     - name: Disable a function 
       href: disable-function.md
-    - name: Troubleshoot storage
-      href: functions-recover-storage-account.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
