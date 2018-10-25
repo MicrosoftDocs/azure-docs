@@ -12,7 +12,11 @@ ms.author: chrande
 
 # Manage consistency
 
+This article explains the different ways to set default consistency, overrides that consistency on the client, manually manage session tokens, and understand the Monitor Probabilistically Bounded Staleness (PBS) metric.
+
 ## Configure the default consistency level
+
+The default consistency level is the consistency level clients will use by default. It can be overrode by the clients.
 
 ### CLI
 
@@ -60,7 +64,9 @@ To view or modify the default consistency level, sign in to Azure portal. Find y
 
 ## Override the default consistency level
 
-### <a id="override-default-consistency-dotnet">.NET</a>
+Clients can override the default consistency level that is set by the service. This can be done for the whole client, or per request.
+
+### <a id="override-default-consistency-dotnet"></a>.NET
 
 ```csharp
 // Override consistency at the client level
@@ -78,7 +84,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-java-async">Java Async</a>
+### <a id="override-default-consistency-java-async"></a>Java Async
 
 ```java
 // Override consistency at the client level
@@ -92,7 +98,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="override-default-consistency-java-sync">Java Sync</a>
+### <a id="override-default-consistency-java-sync"></a>Java Sync
 
 ```java
 // Override consistency at the client level
@@ -100,7 +106,7 @@ ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Strong);
 ```
 
-### <a id="override-default-consistency-javascript">Node.js/JavaScript/TypeScript</a>
+### <a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript
 
 ```javascript
 // Override consistency at the client level
@@ -113,7 +119,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a id="override-default-consistency-python">Python</a>
+### <a id="override-default-consistency-python"></a>Python
 
 ```python
 # Override consistency at the client level
@@ -123,7 +129,9 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## Utilize session tokens
 
-### <a id="utilize-session-tokens-dotnet">.NET</a>
+If you want to manually manage session tokens, you can get from them from responses and set them per request. If you don't have a need to manually manage session tokens, you don't need to use the below samples. The SDK will automatically keep track of session tokens and use the most recent session token if you don't set the session token yourself.
+
+### <a id="utilize-session-tokens-dotnet"></a>.NET
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -136,7 +144,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-java-async">Java Async</a>
+### <a id="utilize-session-tokens-java-async"></a>Java Async
 
 ```java
 // Get session token from response
@@ -158,7 +166,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a id="utilize-session-tokens-java-sync">Java Sync</a>
+### <a id="utilize-session-tokens-java-sync"></a>Java Sync
 
 ```java
 // Get session token from response
@@ -171,7 +179,7 @@ options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
 
-### <a id="utilize-session-tokens-javascript">Node.js/JavaScript/TypeScript</a>
+### <a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript
 
 ```javascript
 // Get session token from response
@@ -182,7 +190,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a id="utilize-session-tokens-python">Python</a>
+### <a id="utilize-session-tokens-python"></a>Python
 
 ```python
 // Get the session token from the last response headers

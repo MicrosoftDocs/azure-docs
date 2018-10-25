@@ -13,7 +13,7 @@ ms.author: mjbrown
 
 ---
 
-# Choosing the right consistency level for your application
+# Choose the right consistency level for your application
 
 Distributed databases relying on replication for high availability, low latency or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: strong consistency and eventual consistency. Azure Cosmos DB empowers developers to choose between five well-defined consistency models: strong, bounded staleness, session, consistent prefix, and eventual. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provide clear availability and performance tradeoffs and are backed by comprehensive SLAs. The following simple considerations will help you make the right choice in many common scenarios.
 
@@ -46,4 +46,4 @@ Read more about the topic in the following articles:
 
 - [How to manage the session token for your application](how-to-manage-consistency.md#utilize-session-tokens)
 - [How to use the PBS metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
-- [Consistency Levels and choice of Cosmos DB API](consistency-levels-across-apis.md)
+- [Consistency levels and choice of Cosmos DB API](consistency-levels-across-apis.md)

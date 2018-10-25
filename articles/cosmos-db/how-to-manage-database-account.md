@@ -18,7 +18,7 @@ ms.author: chrande
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a id="create-database-account-via-cli">Azure CLI</a>
+### <a id="create-database-account-via-cli"></a>Azure CLI
 
 ```bash
 # Create an account
@@ -27,7 +27,7 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## Configure clients for multi-homing
 
-### <a id="configure-clients-multi-homing-dotnet">.NET</a>
+### <a id="configure-clients-multi-homing-dotnet"></a>.NET
 
 ```C#
 // Create a new Connection Policy
@@ -48,7 +48,7 @@ policy.PreferredLocations.Add("North Europe");
 DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
 ```
 
-### <a id="configure-clients-multi-homing-java-async">Java Async</a>
+### <a id="configure-clients-multi-homing-java-async"></a>Java Async
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -60,7 +60,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="configure-clients-multi-homing-java-sync">Java Sync</a>
+### <a id="configure-clients-multi-homing-java-sync"></a>Java Sync
 
 ```java
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
@@ -70,7 +70,7 @@ connectionPolicy.setPreferredLocations(preferredLocations);
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy);
 ```
 
-### <a id="configure-clients-multi-homing-javascript">Node.js/JavaScript/TypeScript</a>
+### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript
 
 ```javascript
 // Set up the connection policy with your preferred regions
@@ -85,7 +85,7 @@ const client = new CosmosClient({
 });
 ```
 
-### <a id="configure-clients-multi-homing-python">Python</a>
+### <a id="configure-clients-multi-homing-python"></a>Python
 
 ```python
 connection_policy = documents.ConnectionPolicy()
@@ -96,7 +96,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## Add/remove regions from your database account
 
-### <a id="add-remove-regions-via-portal">Azure portal</a>
+### <a id="add-remove-regions-via-portal"></a>Azure portal
 
 1. From your Azure Cosmos DB Account, open the **Replicate data globally** menu.
 2. To add regions, select one or more regions from the map by clicking on the empty hexagons with the **"+"** label corresponding to your desired region or choosing from the drop-down menu on the bottom right.
@@ -109,7 +109,7 @@ In single-region write mode, you cannot remove the write region. You must failov
 
 In multi-region write mode, you can add/remove any region as long as you have at least one region.
 
-### <a id="add-remove-regions-via-cli">Azure CLI</a>
+### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
 ```bash
 # Given an account created with 1 region like so
@@ -124,19 +124,19 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## Configure multiple write-regions
 
-### <a id="configure-multiple-write-regions-portal">Portal</a>
+### <a id="configure-multiple-write-regions-portal"></a>Portal
 
 When you create a database account, make sure the "Multi-region write" setting is enabled.
 
 ![Cosmos DB Account creation screenshot](./media/how-to-manage-database-account/account-create.png)
 
-### <a id="configure-multiple-write-regions-cli">Azure CLI</a>
+### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
 ```bash
 az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
 ```
 
-### <a id="configure-multiple-write-regions-arm">Resource Manager template</a>
+### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
 The following JSON code is an example Resource Manager template. You can use it to deploy an Azure Cosmos DB account with a consistency policy as Bounded Staleness, a max staleness interval of 5 seconds, and maximum number of stale requests tolerated at 100. To learn about Resource Manager template format, and the syntax, see [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) documentation.
 
@@ -195,7 +195,7 @@ The following JSON code is an example Resource Manager template. You can use it 
 
 ## Enable manual failover for your Cosmos account
 
-### <a id="enable-manual-failover-via-portal">Azure portal</a>
+### <a id="enable-manual-failover-via-portal"></a>Azure portal
 
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** menu.
 2. Click the **"Manual Failover"** button at the top of the menu.
@@ -204,7 +204,7 @@ The following JSON code is an example Resource Manager template. You can use it 
 4. Click "Ok" to trigger the failover.
     ![Manual failover portal menu](./media/how-to-manage-database-account/manual-failover.png)
 
-### <a id="enable-manual-failover-via-cli">Azure CLI</a>
+### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
 ```bash
 # Given your account currently has regions with priority like so: 'eastus=0 westus=1'
@@ -214,7 +214,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## Enable automatic failover for your Cosmos account
 
-### <a id="enable-automatic-failover-via-portal">Azure portal</a>
+### <a id="enable-automatic-failover-via-portal"></a>Azure portal
 
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** pane. 
 2. Click the **"Automatic Failover"** button at the top of the pane.
@@ -225,7 +225,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 You can also set your failover priorities on this menu.
 
-### <a id="enable-automatic-failover-via-cli">Azure CLI</a>
+### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
 ```bash
 # Enable automatic failover on account creation
@@ -240,7 +240,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## Set failover priorities for your Cosmos account
 
-### <a id="set-failover-priorities-via-portal">Azure portal</a>
+### <a id="set-failover-priorities-via-portal"></a>Azure portal
 
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** pane. 
 2. Click the **"Automatic Failover"** button at the top of the pane.
@@ -252,7 +252,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 You cannot modify the write region on this menu. You must do a manual failover to change the write region manually.
 
-### <a id="set-failover-priorities-via-cli">Azure CLI</a>
+### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
 ```bash
 az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'

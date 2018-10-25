@@ -42,7 +42,7 @@ Many applications will benefit from the performance enhancements that come with 
 
 Follow these [four easy steps](sql-api-dotnetcore-get-started.md) to build your first globally distributed application. Read more about the topic in the following articles:
 
--[How to configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
--[HOW-TO: Add/remove regions from your database](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
--[HOW-TO: Create a custom conflict resolution policy using SQL API](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
--[HOW-TO: Monitor performance and availability for your application](monitor-accounts.md)
+- [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+- [HOW-TO: Add/remove regions from your database](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [HOW-TO: Create a custom conflict resolution policy using SQL API](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+- [HOW-TO: Monitor performance and availability for your application](monitor-accounts.md)

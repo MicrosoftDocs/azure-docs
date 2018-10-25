@@ -25,9 +25,9 @@ Cosmos DB approaches data consistency as a spectrum of choices instead of the tw
 
 Note that the consistency levels are region-agnostic. Consistency level (and the corresponding consistency guarantees) of your Cosmos DB account, is guaranteed for all read operations regardless of the following:
 
-- (a) The region from which the reads and writes are served
-- (b) The number of regions associated with your Cosmos account
-- (c) Whether your account is configured with a single or multiple write regions
+- The region from which the reads and writes are served
+- The number of regions associated with your Cosmos account
+- Whether your account is configured with a single or multiple write regions
 
 ## Scope of the read-consistency
 
@@ -52,12 +52,14 @@ The comprehensive SLAs provided by Azure Cosmos DB guarantees that 100% of read 
 As the [Replicated Data Consistency Through Baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) paper illustrates, imagine a sequence of writes representing the score from a baseball game with the inning-by-inning line score. This hypothetical baseball game is currently in the middle of the seventh inning (the proverbial seventh-inning stretch), and the home team is winning 2-5.
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Runs** |
+| - | - | - | - | - | - | - | - | - | - | - |
 | **Visitors** | 0 | 0 | 1 | 0 | 5 | 0 | 0 |  |  | 2 |
 | **Home** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
 
 A Cosmos DB container holds the visitors and home team’s run totals. While the game is in progress, different read guarantees may result in clients reading different scores. The following table lists the complete set of scores that could be returned by reading the visitors and home scores with each of the five consistency guarantees. Note that the visitors’ score is listed first, and different possible return values are separated by commas.
 
 | **Consistency Level** | **Scores** |
+| - | - |
 | **Strong** | 2-5 |
 | **Bounded Staleness** | scores that are at most one inning out-of-date" 2-3, 2-4, 2-5 |
 | **Session** | for the writer" 2-5 |

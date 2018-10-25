@@ -72,7 +72,6 @@
     - name: Resource model
       href: sql-api-resources.md
     - name: Global distribution
-      href: distribute-data-globally.md
       items:
       - name: Overview
         href: distribute-data-globally.md
@@ -99,8 +98,6 @@
       href: partition-data.md
     - name: Indexing
       href: indexing-policies.md
-    - name: Consistency models
-      href: consistency-levels.md
     - name: Change feed
       href: change-feed.md
     - name: Time to live

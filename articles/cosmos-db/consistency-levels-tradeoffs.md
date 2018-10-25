@@ -35,6 +35,7 @@ Before a write operation is acknowledged to the client, the data is durably comm
 The following table summarizes the potential window of data loss in the event of a regional disaster for the Cosmos accounts spanning multiple regions.
 
 | **Consistency level** | **Window of potential data loss in the event of a regional disaster** |
+| - | - |
 | Strong | Zero |
 | Bounded Staleness | Confined to the “staleness window” configured by the developer on the Cosmos account |
 | Session | Up to 5 seconds |
@@ -45,6 +46,6 @@ The following table summarizes the potential window of data loss in the event of
 
 Read more about the topic in the following articles:
 
-- [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Consistency tradeoffs in modern distributed database systems design: CAP is only part of the story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 - [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
 - [High availability](high-availability.md)

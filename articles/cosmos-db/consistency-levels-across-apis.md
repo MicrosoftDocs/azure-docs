@@ -24,6 +24,7 @@ The following table shows the mapping between the data-consistency requested by 
 The table below shows the mapping for read consistency between Apache Cassandra 4.x client and Cosmos DB "Default" consistency level for both a multi-region and single-region deployment.
 
 | **Apache Cassandra 4.x** | **Cosmos DB (multi-region)** | **Cosmos DB (single-region)** |
+| - | - | - |
 | ONE, TWO, THREE | Consistent Prefix | Consistent Prefix |
 | LOCAL_ONE | Consistent Prefix | Consistent Prefix |
 | QUORUM, ALL, SERIAL | Bounded Staleness (default) or Strong (in private preview) | Strong |
@@ -35,11 +36,12 @@ The table below shows the mapping for read consistency between Apache Cassandra 
 The table below shows the mapping for "read concerns" of MongoDB 3.4 and Cosmos DB "Default" consistency level for both a multi-region and single-region deployment.
 
 | **MongoDB 3.4** | **Cosmos DB (multi-region)** | **Cosmos DB (single-region)** |
+| - | - | - |
 | Linearizable | Strong | Strong |
 | Majority | Bounded Staleness | Strong |
 | Local | Consistent Prefix | Consistent Prefix |
 
 ## Next Steps
 
-- [MongoDB Feature Support](mongodb-feature-support.md)
-- [Apache Cassandra Feature Support](cassandra-support.md)
+- [MongoDB feature support](mongodb-feature-support.md)
+- [Apache Cassandra feature support](cassandra-support.md)
