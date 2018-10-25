@@ -178,7 +178,7 @@ In this section, you set up console logging that uses the new framework.
 
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a Storage account in Azure and configure the project to use it.
 
-1. Open **Server Explorer** on Visual studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
+1. Open **Server Explorer** in Visual studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
 
    ![Sign in to Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
