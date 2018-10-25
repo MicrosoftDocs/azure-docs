@@ -64,7 +64,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
         Stop-Service -Name <ServiceName>
 
-    B. Start the terminal services service: 
+    B. Start the terminal service: 
 
         Start-Service -Name Termservice
 
@@ -97,7 +97,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
     1. From a working VM with connectivity to the VM that has problem, type **mmc** in the **Run** box to open Microsoft Management Console.
     2. On the **File** menu, select **Add/Remove Snap-in**, select **Certificates**, and then select **Add**.
     3. Select **Computer accounts**, select **Another Computer**, and then add the IP of the VM that has problems.
-    4. Go to the **Remote Desktop\Certificates** folder then right click the certificate and select **Delete**.
+    4. Go to the **Remote Desktop\Certificates** folder then right-click the certificate and select **Delete**.
     5. In PowerShell instance from Serial Console, restart Remote Desktop Configuration service: 
 
             Stop-Service -Name "SessionEnv" 
@@ -201,9 +201,9 @@ To enable dump log and Serial Console, run the following script.
 #### Enable all supported TLS versions 
 
 1.	Open an elevated CMD window (run as administrator), and the run the following commands.  The following script assumes that the driver letter is assigned to the attached OS disk is F. You need to change it with real value in your VM.
-2.	Check which TLS is enabled:
+2.	Check which TLS is enabled. Replace the drive letter F with the appropriate value in your VM.
 
-        reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
+        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
         
@@ -217,7 +217,7 @@ To enable dump log and Serial Console, run the following script.
         
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
 
-3.	If any of these are disable, either because the key doesn't exist, or its value is 0, enable the protocol by running the following scripts:
+3.	If the key doesn't exist, or its value is 0, enable the protocol by running the following scripts:
 
         REM Enable TLS 1.0, TLS 1.1 and TLS 1.2
 
