@@ -15,13 +15,16 @@ ms.author: mjbrown
 
 # Choose the right consistency level for your application
 
-Distributed databases relying on replication for high availability, low latency or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: strong consistency and eventual consistency. Azure Cosmos DB empowers developers to choose between five well-defined consistency models: strong, bounded staleness, session, consistent prefix, and eventual. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provide clear availability and performance tradeoffs and are backed by comprehensive SLAs. The following simple considerations will help you make the right choice in many common scenarios.
+Distributed databases relying on replication for high availability, low latency or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: strong consistency and eventual consistency. Azure Cosmos DB allows developers to choose between five well-defined consistency models: strong, bounded staleness, session, consistent prefix, and eventual. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provides clear availability and performance tradeoffs and are backed by comprehensive SLAs. The following simple considerations will help you make the right choice in many common scenarios.
 
 ## SQL API or Table API
 
-- For many real-world scenarios, session consistency is optimal and it is the recommended option. For more details see, [How-to manage session token for your application](how-to-manage-consistency.md#utilize-session-tokens).
-- If your application requires strong consistency or if you need stricter consistency guarantees than the ones provided by session consistency but still need single-digit-millisecond latency for writes, it is recommended you use bounded staleness consistency level.  
-- If your application requires eventual consistency or if you need less strict consistency guarantees than what is provided by session consistency, it is recommended you use consistent prefix consistency level. If you need the highest availability and lowest latency then use eventual consistency level.
+- For many real-world scenarios, session consistency is optimal and it's the recommended option. For more information see, [How-to manage session token for your application](how-to-manage-consistency.md#utilize-session-tokens).
+- If your application requires strong consistency, it is recommended you use bounded staleness consistency level.
+- If you need stricter consistency guarantees than the ones provided by session consistency and single-digit-millisecond latency for writes, it is recommended you use bounded staleness consistency level.  
+- If your application requires eventual consistency, it is recommended you use consistent prefix consistency level.
+- If you need less strict consistency guarantees than what is provided by session consistency, it is recommended you use consistent prefix consistency level.
+- If you need the highest availability and lowest latency, then use eventual consistency level.
 
 ## Cassandra, MongoDB, or Gremlin API
 
@@ -30,7 +33,7 @@ Distributed databases relying on replication for high availability, low latency 
 
 ## You may get stronger consistency guarantees in practice
 
-Consistency guarantees for a read operation corresponds to the freshness and ordering of the state of the database being requested. Read-consistency is therefore, inextricably tied to the ordering and propagation of the write (update) operations.  
+Consistency guarantees for a read operation correspond to the freshness and ordering of the state of the database being requested. Read-consistency is tied to the ordering and propagation of the write (update) operations.  
 
 When the consistency level is set to **bounded staleness**, Cosmos DB guarantees that the clients always read the value of a previous write, with a lag bounded by the staleness window.
 
