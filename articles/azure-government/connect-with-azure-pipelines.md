@@ -75,13 +75,11 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
 ## Configure the Azure Pipelines service connection
 
-Follow the instructions in [Service connections for builds and releases](../devops/pipelines/library/service-endpoints.md) to set up the Azure Pipelines service connection. In step #3, make sure you click on "use the full version of the service connection catalog" and set **Environment** to **AzureUSGovernment**.
+Follow the instructions in [Service connections for builds and releases](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) to set up the Azure Pipelines service connection. In step #3, make sure you click on "use the full version of the service connection catalog" and set **Environment** to **AzureUSGovernment**.
 
 ## Define a release process
 
-Follow [Deploy a web app to Azure App Services](../devops/pipelines/apps/cd/deploy-webdeploy-webapps.md) instructions to set up your release pipeline and deploy to your application in Azure Government.
-
-After your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=vsts#deploy) to your applications in Azure Government. 
+Follow [Deploy a web app to Azure App Services](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=vsts) instructions to set up your release pipeline and deploy to your application in Azure Government.
 
 ## Q&A
 
