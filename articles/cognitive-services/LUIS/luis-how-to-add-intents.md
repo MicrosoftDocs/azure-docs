@@ -16,13 +16,11 @@ ms.service: cognitive-services
 
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention. 
 
-Intents are managed from **Build**, found in the top toolbar. Manage your intents from **Intents**, available in the left panel. 
-
-The following procedure demonstrates how to add an intent to prediction if a user wants to book a flight for travel.
+Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**. 
 
 ## Create an app
 
-1. In the [LUIS](https://www.luis.ai) portal, sign in.
+1. Sign in to the [LUIS](https://www.luis.ai) portal.
 
 1. Select **Create new app**. 
 
@@ -42,7 +40,7 @@ The following procedure demonstrates how to add an intent to prediction if a use
 
 ## Add an example utterance
 
-An example utterance is an example of text you expect LUIS to receive from the client application. 
+Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add example utterances to an intent.
 
 1. On the **GetEmployeeInformation** intent details page, enter a relevant utterance you expect from your users, such as `Does John Smith work in Seattle?` in the text box below the intent name, and then press Enter.
  
@@ -50,33 +48,37 @@ An example utterance is an example of text you expect LUIS to receive from the c
 
     LUIS converts all utterances to lowercase and adds spaces around tokens such as hyphens.
 
-1. In the top navigation, select **Train**. The red outline around the labeled intent is removed.
-
 ## Intent prediction discrepancy errors 
 
-An utterance in an intent might have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the **Labeled intent** on the row of the example utterance. 
+An utterance in an intent might have an intent prediction discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the **Labeled intent** on the row of the example utterance. 
+
+![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+
+In the top navigation, select **Train**. The prediction discrepancy is now gone.
 
 ## Add a custom entity
 
-Once an utterance is added to an intent, you can select text from within the utterance to create a custom entity. 
+Once an utterance is added to an intent, you can select text from within the utterance to create a custom entity. A custom entity is a way to tag text for extraction, along with the correct intent. 
 
 1. Select the word, `Seattle`, in the utterance. Square brackets are drawn around the text and a drop-down menu appears. 
 
     ![Screenshot of Intents details page, creating custom entity](./media/luis-how-to-add-intents/create-custom-entity.png) 
 
-    This example select a single word to mark as an entity. You can mark single works and phrases as entities.
+    This example selects a single word to mark as an entity. You can mark single works and phrases as entities.
 
 1. In the top text-box of the menu, enter `Location`, then select **Create new entity**. 
 
     ![Screenshot of Intents details page, creating custom entity name](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
 
-1. In the pop-up window, validate that the **entity name** is _Location_, and the **entity type** is _Simple_. Select **Done**.
+1. In the **What type of entity do you want to create?** pop-up window for entity creation, validate that the **entity name** is _Location_, and the **entity type** is _Simple_. Select **Done**.
 
-    ![Screenshot of Intents details page, custom entity name highlighted in blue](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
+## Entity prediction discrepancy errors 
 
-    The entity is underlined in red to indication a [prediction discrepancy](luis-how-to-add-example-utterances.md#entity-status-predictions). Because this is the first occurrence of an entity, there are not enough examples for LUIS to have a high-confidence that this text is marked with the correct entity.
+The entity is underlined in red to indicate an [entity prediction discrepancy](luis-how-to-add-example-utterances.md#entity-status-predictions). Because this is the first occurrence of an entity, there are not enough examples for LUIS to have a high-confidence that this text is tagged with the correct entity. This discrepancy is removed when the app is trained. 
 
-    The text is highlighted in blue, indicating an entity.  
+![Screenshot of Intents details page, custom entity name highlighted in blue](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
+
+The text is highlighted in blue, indicating an entity.  
 
 ## Add a prebuilt entity
 
@@ -84,7 +86,7 @@ For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-
 
 ## Using the contextual toolbar
 
-When one or more utterances is selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
+When one or more example utterances is selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
 
 * Reassign intent: move utterance(s) to different intent
 * Delete utterance(s)

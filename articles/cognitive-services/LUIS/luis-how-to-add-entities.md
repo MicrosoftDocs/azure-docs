@@ -12,13 +12,15 @@ ms.date: 10/24/2018
 ms.author: diberry
 ---
 
-# Create entities apart from utterances
+# Create entities without utterances
 
-You can create entities before or apart from creating intents and adding utterances.
+The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. 
 
-You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own custom entities.
+You can create entities before or apart from creating intents.
 
-Once an entity is created, it can be marked in a intent's example utterance from the **Intent** details page. 
+You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own [custom entities](luis-concept-entity-types.md#types-of-entities).
+
+Once an entity is created, it can be tagged in an intent's example utterance from the **Intent** details page. 
 
 ## Add prebuilt entity
 
@@ -38,7 +40,7 @@ A simple entity describes a single concept. Use the following procedure to creat
 
 1. In your app, select the **Build** section, then select **Entities** in the left panel, then select **Create new entity**.
 
-1. In the pop-up dialog box, type `Department name` in the **Entity name** box, select **Simple** from the **Entity type** list, and then select **Done**.
+1. In the pop-up dialog box, type `Location` in the **Entity name** box, select **Simple** from the **Entity type** list, and then select **Done**.
 
     Once this entity is created, go to all intents that have example utterances that contain the entity. Select the text in the example utterance and mark the text as the entity. 
 
@@ -109,19 +111,19 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
 
-1. In the **Add Entity** dialog box, enter `HumanResourcesFormTitle` in the **Entity name** box and select **Pattern.any** as the **Entity type**.
+1. In the **Add Entity** dialog box, enter  in the Entity name box, and select **Pattern.any** as the **Entity type**.
 
-    To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as "Where is **{HumanResourcesFormTitle}** on the server?".
+    To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as `Where is **{HumanResourcesFormTitle}** on the server?`.
 
     If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
 
-## Add role to pattern-based entity
+## Add a role to pattern-based entity
 
-A role is a named subtype of an entity based on context. It is comparable to a [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
+A role is a named subtype of an entity based on context. It is comparable to an [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
 
-Using the sample example has the hierarchical entity of origin and destination cities, the difference is that a role is named origin instead of a hierarchical child. 
+Using the same example as the hierarchical entity of origin and destination cities, the difference is that a role is named origin instead of a hierarchical child. 
 
-The syntax for a role is **{Entity name:Role name}** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+The syntax for a role is **{Entityname:Rolename}** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. From the **Build** section, select **Entities** in the left panel.
 
@@ -131,23 +133,26 @@ The syntax for a role is **{Entity name:Role name}** where the entity name is fo
 
 1. In the **Role name** textbox, enter the name of the role `Origin` and enter. Add a second role name of `Destination`. 
 
-    ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png) Change this screen shot
+    ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png)
 
 ## Add list entities
 
 List entities represent a fixed, closed set of related words. 
 
-For a Human Resources app, you can have a list of all departments along with any synoynms for the departments. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
+For a Human Resources app, you can have a list of all departments along with any synonyms for the departments. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
 1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
 
 1. In the **Add Entity** dialog box, type `Department` in the **Entity name** box and select **List** as the **Entity type**. Select **Done**.
   
-1.  The list entity page allows you to add normalized names. In the **Values** textbox, enter an department name for the list, such as `HumanResources` then press Enter on the keyboard. 
+1. The list entity page allows you to add normalized names. In the **Values** textbox, enter a department name for the list, such as `HumanResources` then press Enter on the keyboard. 
 
 1. To the right of the normalized value, enter synonyms, pressing Enter on the keyboard after each item.
 
 1. If you want more normalized items for the list, select **Recommend** to see options from the [semantic dictionary](luis-glossary.md#semantic-dictionary).
+
+    ![Screenshot of adding Origin role to Location entity](./media/add-entities/hr-list-2.png)
+
 
 1. Select an item in the recommended list to add it as a normalized value or select **Add all** to add all the items. 
     You can import values into an existing list entity using the following JSON format:
@@ -174,7 +179,7 @@ For a Human Resources app, you can have a list of all departments along with any
     ```
 
 
-## Changing entity type
+## Change entity type
 
 LUIS does not allow you to change the type of the entity because it doesn't know what to add or remove to construct that entity. In order to change the type, it is better to create a new entity of the correct type with a slightly different name. Once the entity is created, in each utterance, remove the old labeled entity name and add the new entity name. Once all the utterances have been relabeled, delete the old entity. 
 

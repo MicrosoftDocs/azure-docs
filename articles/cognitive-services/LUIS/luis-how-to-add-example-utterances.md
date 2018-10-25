@@ -22,25 +22,23 @@ Usually, add an example utterance to an intent first, and then create entities a
 
 When you select text in the example utterance to mark for an entity, an in-place pop-up menu appears. Use this menu to either create or select an entity. 
 
-Certain entity types, such as prebuilt entities and regular expression entities, cannot be marked in the example utterance because they are marked automatically. 
-
-For each specific markable-entity types, see the following sections. 
+Certain entity types, such as prebuilt entities and regular expression entities, cannot be tagged in the example utterance because they are tagged automatically. 
 
 ## Add a simple entity
 
-In the following procedure, you create and label a custom entity within the following utterance on the intent page:
+In the following procedure, you create and tag a custom entity within the following utterance on the intent page:
 
 ```text
 Does John Smith work in Seattle?
 ```
 
-1. Select "Seatte" in the utterance to label it as a simple entity.
+1. Select `Seattle` in the utterance to label it as a simple entity.
 
     [![Screenshot of selecting text in utterance for simple entity](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
 
 
     > [!NOTE]
-    > When selecting words to label them as entities:
+    > When selecting words to tag as entities:
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
 
@@ -48,7 +46,7 @@ Does John Smith work in Seattle?
 
     ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
-1. In the **What type of entity do you want to create?** pop-up dialog box, verify the entity name and select the **Simple** entity type, and then select **Done**.
+1. In the **What type of entity do you want to create?** pop-up box, verify the entity name and select the **Simple** entity type, and then select **Done**.
 
     A [phrase list](luis-concept-feature.md) is commonly used to boost the signal of a simple entity.
 
@@ -56,14 +54,14 @@ Does John Smith work in Seattle?
 
 List entities represent a fixed, closed set (exact text matches) of related words in your system. 
 
-For a company department list entity, you can have normalized values: `Accounting` and `Human Resources`. Each normalized name has synonyms. For a department, these synonyms can include any department acronyms, numbers, or slang. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
+For a company's department list, you can have normalized values: `Accounting` and `Human Resources`. Each normalized name has synonyms. For a department, these synonyms can include any department acronyms, numbers, or slang. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
-1. In the example utterance list, for a specific utterance, select the word or phrase that is in the list. Then enter the name of the list in the textbox, then select **Create new entity**.   
+1. In the example utterance list, for a specific utterance, select the word or phrase that you want in the new list. Then enter the name of the list in the top textbox, then select **Create new entity**.   
 
     ![Screenshot of entering list entity name](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
 
 
-1. In the **What type of entity do you want to create?** dialog box, name the entity and select **List** as the type. Add synonyms of this list item, then select **Done**. 
+1. In the **What type of entity do you want to create?** pop-up box, name the entity and select **List** as the type. Add synonyms of this list item, then select **Done**. 
 
     ![Screenshot of entering list entity synonyms](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
@@ -71,11 +69,11 @@ For a company department list entity, you can have normalized values: `Accountin
 
 ## Add composite entity
 
-Composite entities are created from existing **Entities**. 
+Composite entities are created from existing **Entities** into a parent entity. 
 
-Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name, and the location in a single parent entity. 
+Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name, and the location in a single parent object. 
 
-The employee name, John Smith, is a prebuilt personName entity. The location, Seattle, is a custom simple entity. Once those two entities are created and marked in an example utterance, those entities can be wrapped in a composite entity. 
+The employee name, John Smith, is a prebuilt [personName](luis-reference-prebuilt-person.md) entity. The location, Seattle, is a custom simple entity. Once those two entities are created and tagged in an example utterance, those entities can be wrapped in a composite entity. 
 
 1. To wrap the individual entities into a composite, select the **first** labeled entity (left-most) in the utterance for the composite entity. A drop-down list appears showing the choices for this selection.
 
@@ -91,7 +89,7 @@ The employee name, John Smith, is a prebuilt personName entity. The location, Se
 
     When you wrap the entities correctly, a green line is under the entire phrase.
 
-1. Validate the composite entity details then select **Done**.
+1. Validate the composite entity details on the **What type of entity do you want to create?** pop-up box then select **Done**.
 
     ![Screenshot of Entity details pop-up](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
 
@@ -105,11 +103,11 @@ A hierarchical entity is a category of contextually learned and conceptually rel
 
 In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
 
-1. On the Intent page, in the utterance, select `Seattle`, then enter the entity name `Location, and then select Enter on the keyboard.
+1. On the Intent page, in the utterance, select `Seattle`, then enter the entity name `Location`, and then select Enter on the keyboard.
 
     ![Screenshot of Create Hierarchical Entity Labeling dialog box](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
 
-1. In the pop-up dialog box, select _hierarchical_ for **Entity type**, then add `Origin` and `Destination` as children, and then select **Done**.
+1. In the **What type of entity do you want to create?** pop-up box, select _hierarchical_ for **Entity type**, then add `Origin` and `Destination` as children, and then select **Done**.
 
     ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
@@ -152,6 +150,8 @@ The following solutions help resolve the entity prediction discrepancy:
 
 ## Other actions
 
+You can perform actions on example utterances as a selected group or as an individual item. Groups of selected example utterances change the contextual menu above the list. Single items may use both the contextual menu above the list and the individual contextual ellipsis at the end of each utterance row. 
+
 ### Remove entity labels from utterances
 
 You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
@@ -162,11 +162,11 @@ To remove a machine-learned entity label from an utterance, select the entity in
 
 ### Add prebuilt entity label
 
-If you add the prebuilt entities to your LUIS app, you don't need to label utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-prebuilt-entity).
+When you add the prebuilt entities to your LUIS app, you don't need to tag utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-prebuilt-entity).
 
 ### Add regular expression entity label
 
-If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities).
+If you add the regular expression entities to your LUIS app, you don't need to tag utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities).
 
 
 ### Create a pattern from an utterance
