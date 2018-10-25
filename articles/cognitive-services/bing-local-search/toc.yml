@@ -2,17 +2,11 @@
   href: index.yml
   expanded: true
   items:
-  - name: What is Local Business Search?
-    href: overview.md
-- name: Features
+- name: Overview
   expanded: true
   items:
-  - name: Query and response
-    href: local-search-query-response.md
-  - name: Geographic search boundaries
-    href: specify-geographic-search.md
-  - name: Local categories search
-    href: local-categories.md
+  - name: What is Local Business Search?
+    href: overview.md
 - name: Quickstarts  
   expanded: true
   items: 
@@ -27,6 +21,15 @@
         href: quickstarts/local-search-node-quickstart.md 
       - name: Using Python 
         href: quickstarts/local-search-python-quickstart.md 
+- name: Concepts
+  expanded: true
+  items:
+  - name: Query and response
+    href: local-search-query-response.md
+  - name: Geographic search boundaries
+    href: specify-geographic-search.md
+  - name: Local categories search
+    href: local-categories.md
 - name: Reference
   expanded: true
   items:
