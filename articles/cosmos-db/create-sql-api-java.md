@@ -66,7 +66,7 @@ Before you can create a document database, you need to create a SQL API account 
 
 Now let's switch to working with code. Let's clone a SQL API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
@@ -74,14 +74,15 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app
+](#run-the-app). 
 
-* `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service. The `FILLME` portions of this code will be updated later in the quickstart.
+* `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
 
     ```java
        client = new AsyncDocumentClient.Builder()
-                .withServiceEndpoint(FILLME)
-                .withMasterKeyOrResourceToken(FILLME)
+                .withServiceEndpoint(YOUR_COSMOS_DB_ENDPOINT)
+                .withMasterKeyOrResourceToken(YOUR_COSMOS_DB_MASTER_KEY)
                 .withConnectionPolicy(ConnectionPolicy.GetDefault())
                 .withConsistencyLevel(ConsistencyLevel.Eventual)
                 .build();
@@ -183,13 +184,13 @@ Now go back to the Azure portal to get your connection string information and la
     
 4. Press a key to create the database, and then another key to create the collection. 
 
-    At the end of the program all the resources are deleted, so switch back to Data Explorer in your browser to see that it now contains a FamilyDB database, and FamilyCollection collection.
+    Switch back to Data Explorer in your browser to see that it now contains a FamilyDB database, and FamilyCollection collection.
 
 5. Switch to the console window and press a key to create the first document, and then another key to create the second document. Then switch back to Data Explorer to view them. 
 
 6. Press a key to run a query and see the output in the console window. 
 
-7. The next key you press deletes the resources. If you want to keep the resources you can press CTRL+C in the console window to end the program. Otherwise, press any key to delete the resources from your account so that you don't incur charges. 
+7. The app doesn't delete the created resources. Switch back to the portal to delete the resources from your account so that you don't incur charges.
 
     ![Console output](./media/create-sql-api-java/rxjava-console-output.png)
 
