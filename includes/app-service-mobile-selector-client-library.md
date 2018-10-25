@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 > [!div class="op_single_selector"]
 > * [Android](../articles/app-service-mobile/app-service-mobile-android-how-to-use-client-library.md)
 > * [Cordova](../articles/app-service-mobile/app-service-mobile-cordova-how-to-use-client-library.md)
