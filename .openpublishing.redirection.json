@@ -96,6 +96,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/bing-web-search/computer-vision-web-search-tutorial.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search/index",
             "redirect_document_id": true
