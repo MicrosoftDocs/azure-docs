@@ -1,3 +1,10 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
 ### Prerequisites
 * An [Office 365 Users](https://office365.com) account  
 
