@@ -1,6 +1,101 @@
 {
     "redirections": [
         {
+            "source_path": "articles/frontdoor/front-door-powershell-reference.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/frontdoor/get-azurermfrontdoor.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/get-azurermfrontdoor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/frontdoor/get-azurermfrontdoorfirewallpolicy.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/get-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoor.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoor",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorbackendobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorbackendobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorbackendpoolobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorbackendpoolobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorcustomruleobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorcustomruleobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorfirewallpolicy.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorfrontendendpointobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorfrontendendpointobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorhealthprobesettingobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorhealthprobesettingobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorloadbalancingsettingobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorloadbalancingsettingobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoormanagedruleobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoormanagedruleobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoormatchconditionobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoormatchconditionobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorroutingruleobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorroutingruleobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorrulegroupoverrideobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorrulegroupoverrideobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/remove-azurermfrontdoor.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/remove-azurermfrontdoor",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/remove-azurermfrontdoorfirewallpolicy.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/remove-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/frontdoor/set-azurermfrontdoor.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/set-azurermfrontdoor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/frontdoor/set-azurermfrontdoorfirewallpolicy.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/set-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/bing-web-search/computer-vision-web-search-tutorial.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search/index",
             "redirect_document_id": true
@@ -7266,11 +7361,6 @@
         {
             "source_path": "articles/app-service-web/websites-dotnet-deploy-webjobs.md",
             "redirect_url": "/azure/app-service/websites-dotnet-deploy-webjobs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-update-1809.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
             "redirect_document_id": false
         },
         {
@@ -28380,6 +28470,11 @@
         {
             "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-prompt.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/develop/registration-config-grant-permissions-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-user-consent",
             "redirect_document_id": true
         },
         {
