@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/10/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -31,8 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Tools extension. To install, see [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## Open a Quickstart template
 
@@ -117,14 +116,17 @@ Refer to the [Deploy the template](./resource-manager-quickstart-create-template
 To list all three storage accounts, omit the --name parameter:
 
 # [CLI](#tab/CLI)
-```cli
-az storage account list --resource-group <ResourceGroupName>
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az storage account list --resource-group $resourceGroupName
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```powershell
-Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---

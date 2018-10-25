@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/cognitive-services/bing-web-search/computer-vision-web-search-tutorial.md",
+            "redirect_url": "/azure/cognitive-services/bing-web-search/index",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/governance/management-groups/overview.md",
             "redirect_url": "/azure/governance/management-groups/index",
             "redirect_document_id": true
@@ -265,6 +270,11 @@
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md",
             "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/quickstart-get-started-with-cli.md",
+            "redirect_url": "/azure/machine-learning/service/reference-azure-machine-learning-cli",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models.md",
@@ -1927,6 +1937,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-group-authenticate-service-principal.md",
+            "redirect_url": "/azure/active-directory/develop/howto-authenticate-service-principal-powershell",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/resource-group-authoring-templates.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
             "redirect_document_id": false
@@ -1940,6 +1955,11 @@
             "source_path": "articles/resource-group-create-service-principal-portal.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-create-service-principal-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-group-create-service-principal-portal.md",
+            "redirect_url": "/azure/active-directory/develop/howto-create-service-principal-portal",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/resource-group-define-dependencies.md",
@@ -8748,6 +8768,11 @@
             "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/event-hubs/event-hubs-quickstart-portal.md",
+            "redirect_url": "/azure/event-hubs/event-hubs-create",
+            "redirect_document_id": true
+        },        
         {
             "source_path": "articles/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive.md",
             "redirect_url": "/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture",
@@ -16365,6 +16390,11 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-developers-guide.md",
             "redirect_url": "/azure/active-directory/develop/azure-ad-developers-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/azure-ad-developers-guide.md",
+            "redirect_url": "/azure/active-directory/develop",
             "redirect_document_id": true
         },
         {
@@ -16470,7 +16500,12 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-openid-connect-code",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/quickstart-v1-openid-connect-code.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-angular.md",
@@ -21209,6 +21244,11 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
             "redirect_url": "/azure/active-directory/user-help/device-management-azuread-joined-devices-setup",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-conditional-access-device-remediation.md",
+            "redirect_url": "/azure/active-directory/user-help/user-help-device-remediation",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-conditional-access-azure-authenticator-app.md",
@@ -28333,6 +28373,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-whats-new-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/whats-new",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-prompt.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt",
             "redirect_document_id": true
@@ -29918,6 +29963,21 @@
         {
             "source_path": "articles/azure-stack/user/azure-stack-tutorial-sql.md",
             "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-domains",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-connect-azure-stack.md",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-connect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/media-services/latest/transform-concept.md",
+            "redirect_url": "/azure/media-services/latest/transforms-jobs-concept",
             "redirect_document_id": false
         }
     ]
