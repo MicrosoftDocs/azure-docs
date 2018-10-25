@@ -16,7 +16,6 @@ This article helps you securely connect individual clients running Windows or Ma
 
 ![Connect a computer to an Azure VNet - Point-to-Site connection diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-
 ## Architecture
 
 Point-to-Site native Azure certificate authentication connections use the following items, which you configure in this exercise:
@@ -28,12 +27,9 @@ Point-to-Site native Azure certificate authentication connections use the follow
 
 ## Before you begin
 
-* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
+Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
-* The steps for this article use Azure PowerShell. You can either use the Azure Cloud Shell "Try It' to run your PowerShell commands in the browser, or install PowerShell locally. If you choose to install and use PowerShell locally, be sure to install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specify may fail.
-
-  To find the version of PowerShell that you are running locally, use the 'Get-Module -ListAvailable AzureRM' cmdlet. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azurerm-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
-
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Example values
 
