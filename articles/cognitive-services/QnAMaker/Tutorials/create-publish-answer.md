@@ -52,13 +52,13 @@ Add this KBDetails class inside the Namespace brackets. This class allows the Ne
 
 At the top of the Program class, add the following constants to access QnA Maker:
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=30-60 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=30-57 "Add the required constants")]
 
 ## Add the KB definition
 
 After the constants, add the following KB model definition:
 
-[!code-csharp[Add the KB definition](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=59-81 "Add the KB definition")]
+[!code-csharp[Add the KB definition](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=58-85 "Add the KB definition")]
 
 ## Add supporting functions and structures
 Add the following code block inside the Program class:
