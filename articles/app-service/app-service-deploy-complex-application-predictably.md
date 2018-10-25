@@ -144,7 +144,7 @@ The app settings are also defined as a nested resource.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-In the `properties` element for `config/appsettings`, you have two app settings in the format `“<name>” : “<value>”`.
+In the `properties` element for `config/appsettings`, you have two app settings in the format `"<name>" : "<value>"`.
 
 * `PROJECT` is a [KUDU setting](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) that tells Azure deployment which project to use in a multi-project Visual Studio solution. I will show you later how source control is configured, but since the ToDoApp code is in a multi-project Visual Studio solution, we need this setting.
 * `clientUrl` is simply an app setting that the application code uses.
@@ -154,7 +154,7 @@ The connection strings are also defined as a nested resource.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-In the `properties` element for `config/connectionstrings`, each connection string is also defined as a name:value pair, with the specific format of `“<name>” : {“value”: “…”, “type”: “…”}`. For the `type` element, possible values are `MySql`, `SQLServer`, `SQLAzure`, and `Custom`.
+In the `properties` element for `config/connectionstrings`, each connection string is also defined as a name:value pair, with the specific format of `"<name>" : {"value": "…", "type": "…"}`. For the `type` element, possible values are `MySql`, `SQLServer`, `SQLAzure`, and `Custom`.
 
 > [!TIP]
 > For a definitive list of the connection string types, run the following command in Azure PowerShell:
