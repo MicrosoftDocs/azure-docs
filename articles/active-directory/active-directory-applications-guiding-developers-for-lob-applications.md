@@ -3,19 +3,16 @@ title: Register your application to use Azure Active Directory | Microsoft Docs
 description: Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: barbkess
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
-ms.author: kgremban
-
+ms.author: barbkess
 ms.custom: seohack1
 ---
 # Develop line-of-business apps for Azure Active Directory
