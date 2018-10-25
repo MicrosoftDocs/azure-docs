@@ -207,4 +207,4 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 ## Next steps
 - [Geographic search boundaries](specify-geographic-search.md)
 - [Query and response](local-search-query-response.md)
-- [Quickstart in C#](local-quickstart.md)
+- [Quickstart in C#](quickstarts/local-quickstart.md)
