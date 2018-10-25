@@ -14,9 +14,9 @@ ms.author: alkohli
 
 This article describes the important system requirements for your Microsoft Azure Data Box Edge solution and for the clients connecting to Azure Data Box Edge. We recommend that you review the information carefully before you deploy your Data Box Edge, and then refer back to it as necessary during the deployment and subsequent operation.
 
-The system requirements for the Data Box Edge physical device include:
+The system requirements for the Data Box Edge include:
 
-- **Software requirements for hosts** - describes the supported platforms, browsers for the local configuration UI, SMB clients, and any additional requirements for the hosts that connect to the device.
+- **Software requirements for hosts** - describes the supported platforms, browsers for the local configuration UI, SMB clients, and any additional requirements for the clients that access the device.
 - **Networking requirements for the device** - provides information about any networking requirements for the operation of the physical device.
 
 > [!IMPORTANT]
@@ -24,25 +24,23 @@ The system requirements for the Data Box Edge physical device include:
 
 ## Supported OS for clients connected to device
 
-
-
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
 ## Supported protocols for clients accessing device
 
-[!INCLUDE [Supported protocols for clients accessing device](../data-box-edge-gateway-supported-client-protocols.md)]
+[!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
 ## Supported storage accounts
 
-[!INCLUDE [Supported storage accounts](../data-box-edge-gateway-supported-storage-accounts.md)]
+[!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 ## Supported storage types
 
-[!INCLUDE [Supported storage types](../data-box-edge-gateway-supported-storage-types.md)]
+[!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
 ## Supported browsers for local web UI
 
-[!INCLUDE [Supported browsers for local web UI](../data-box-edge-gateway-supported-browsers.md)]
+[!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
 ## Networking requirements
 
@@ -81,6 +79,8 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                         |
 
 ## Internet bandwidth
+
+[!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## Next step
 
