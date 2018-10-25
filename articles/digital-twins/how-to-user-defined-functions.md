@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/25/2018
 ms.author: alinast
 ---
 
@@ -22,8 +22,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourInstanceName` | The name of your Azure Digital Twins instance |
-| `yourLocation` | Which server region your instance is hosted on |
+| *yourInstanceName* | The name of your Azure Digital Twins instance |
+| *yourLocation* | Which server region your instance is hosted on |
 
 ## Client library reference
 
@@ -65,8 +65,8 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourSpaceIdentifier` | Which server region your instance is hosted on |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
+| *yourSpaceIdentifier* | Which server region your instance is hosted on |
 
 ## Create a user-defined function (UDF)
 
@@ -85,7 +85,7 @@ POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Typ
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
 
 Body:
 
@@ -113,12 +113,12 @@ function process(telemetry, executionContext) {
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourSpaceIdentifier` | The space identifier  |
-| `yourMatcherIdentifier` | The id of the matcher you wish to use |
+| *yourSpaceIdentifier* | The space identifier  |
+| *yourMatcherIdentifier* | The id of the matcher you wish to use |
 
 ### Example Functions
 
-Set the sensor telemetry reading directly for the sensor with data type `Temperature`, which is sensor.DataType:
+Set the sensor telemetry reading directly for the sensor with data type `Temperature`, which is `sensor.DataType`:
 
 ```javascript
 function process(telemetry, executionContext) {
@@ -187,7 +187,7 @@ GET https://yourManagementApiUrl/api/v1.0/system/roles
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
 
 - ObjectId will be the UDF ID that was created earlier
 - Find `Path` by querying the Spaces with their full path and copy the `spacePaths` value. Paste it in Path below when creating the UDF role assignment
@@ -198,8 +198,8 @@ GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=ful
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourSpaceName` | The name of the space you wish to use |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
+| *yourSpaceName* | The name of the space you wish to use |
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -213,10 +213,10 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourDesiredRoleIdentifier` | The identifier for the desired role |
-| `yourUserDefinedFunctionId` | The id for the UDF you want to use |
-| `yourAccessControlPath` | The access control path |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
+| *yourDesiredRoleIdentifier* | The identifier for the desired role |
+| *yourUserDefinedFunctionId* | The id for the UDF you want to use |
+| *yourAccessControlPath* | The access control path |
 
 ## Send telemetry to be processed
 
