@@ -82,7 +82,7 @@ ZRS Classic asynchronously replicates data across data centers within one to two
 
 ZRS Classic is available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
-You cannot convert ZRS Classic accounts to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also don't support metrics or logging.
+You can't convert ZRS Classic accounts to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also don't support metrics or logging.
 
 To manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, or RA-GRS account, use one of the following tools: AzCopy, Azure Storage Explorer, Azure PowerShell, or Azure CLI. You can also build your own migration solution with one of the Azure Storage client libraries.
 
