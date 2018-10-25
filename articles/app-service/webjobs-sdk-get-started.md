@@ -241,7 +241,7 @@ In this section, you build and run the project locally and trigger the function 
 
 1. Close the console window.
 
-1. In **Server Explorer** on Visual Studio, expand the node for your new storage account, and then right-click **Queues**. 
+1. In **Server Explorer** in Visual Studio, expand the node for your new storage account, and then right-click **Queues**. 
 
 1. Select **Create Queue**. 
 
@@ -306,7 +306,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 ### Configure app settings 
 
-1. In **Server Explorer** on Visual Studio, expand the **App Service** node under **Azure**.
+1. In **Server Explorer** in Visual Studio, expand the **App Service** node under **Azure**.
 
 1. Expand the resource group that your App Service app is in, and then right-click your App Service app.
 
@@ -392,7 +392,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 In this section you run locally again to verify that logging data is now going to Application Insights as well as to the console.
 
-1. Use **Server Explorer** on Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function), except enter *Hello App Insights!* as the message text.
+1. Use **Server Explorer** in Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function), except enter *Hello App Insights!* as the message text.
 
 1. Run the project.
 
@@ -480,7 +480,7 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
 1. Create a blob container in your storage account.
 
-   a. In **Server Explorer** on Visual Studio, expand the node for your storage account, right-click **Blobs**, and then select **Create Blob Container**.
+   a. In **Server Explorer** in Visual Studio, expand the node for your storage account, right-click **Blobs**, and then select **Create Blob Container**.
 
    b. In the **Create Blob Container** dialog, enter *container* as the container name, and then click **OK**.
 
