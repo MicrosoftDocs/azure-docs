@@ -6,7 +6,7 @@
     href: Overview/overview.md
 - name: Quickstarts
   items:
-  - name: Using REST API
+  - name: Using REST APIs
     items:
     - name: Create a new knowledge base
       items:
