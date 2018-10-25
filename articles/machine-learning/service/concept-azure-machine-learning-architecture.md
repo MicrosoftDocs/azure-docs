@@ -157,7 +157,7 @@ For an example of using an experiment, see the [Quickstart: Get started with Azu
 
 Pipelines are used to create and manage the workflows that stitch together machine learning (ML) phases such as data preparation, model training, model deployment, and inferencing. Each phase can encompass multiple steps, each of which can run unattended in various compute targets.
 
-For more information on machine learning pipelines with this service, see the article [Pipelines and Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines).
+For more information on machine learning pipelines with this service, see the article [Pipelines and Azure Machine Learning](concept-ml-pipelines.md).
 
 ## Compute target
 
