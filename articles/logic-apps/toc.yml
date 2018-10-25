@@ -315,10 +315,10 @@
 - name: Reference
   items:
   - name: Architectural Patterns
-    href: logic-apps-architectures-simple-enterprise-integration.md
+    href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     items:
     - name: Simple Enterprise Integration
-      href: logic-apps-architectures-simple-enterprise-integration.md
+      href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     - name: Enterprise Integration with Queues & Events
       href: logic-apps-architectures-enterprise-integration-with-queues-events.md
   - name: Connectors - Full details
