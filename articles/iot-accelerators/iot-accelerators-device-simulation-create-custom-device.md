@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/01/2018
+ms.date: 10/25/2018
 ms.author: troyhop
 
 # As an IT Pro, I need to create simulated devices to test my IoT solution.

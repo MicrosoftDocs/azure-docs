@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 10/01/2018
+ms.date: 10/25/2018
 ms.author: troyhop
 
 # As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
@@ -77,7 +77,7 @@ The following properties describe the device model. Each type has a unique ident
 "Id": "chiller-01",
 "Version": "0.0.1",
 "Name": "Chiller",
-"Description": "Chiller with external temperature, humidity and pressure sensors."
+"Description": "Chiller with external temperature and humidity sensors."
 ```
 
 ### IoT Protocol
@@ -90,11 +90,12 @@ IoT devices can connect using different protocols. The simulation lets you use e
 
 ### Simulated device state
 
-Each simulated device has an internal state, which must be defined. The state also defines the properties that can be reported in telemetry. For example, an elevator might have an initial state such as:
+Each simulated device has an internal state, which must be defined. The state also defines the properties that can be reported in telemetry. For example, a chiller might have an initial state such as:
 
 ```json
 "InitialState": {
-    "floor": 1
+    "temperature": 50,
+    "humidity": 40
 },
 ```
 
@@ -124,7 +125,7 @@ The function that generates the state also receives as input:
 
 ### Generating telemetry messages
 
-The simulation service can send several telemetry types for each device, and each type can be sent at a different frequency. Typically, telemetry includes data from the device state. For example, a simulated room might send information about temperature and humidity every 10 seconds, and lights status once per minute. Note the placeholders in the following snippet, which are automatically replaced with values from the device state:
+The simulation service can send several telemetry types for each device. Typically, telemetry includes data from the device state. For example, a simulated room might send information about temperature and humidity every 10 seconds. Note the placeholders in the following snippet, which are automatically replaced with values from the device state:
 
 ```json
 "Telemetry": [
@@ -139,17 +140,6 @@ The simulation service can send several telemetry types for each device, and eac
                 "temperature": "double",
                 "temperature_unit": "text",
                 "humidity": "integer"
-            }
-        }
-    },
-    {
-        "Interval": "00:01:00",
-        "MessageTemplate": "{\"lights\":${lights_on}}",
-        "MessageSchema": {
-            "Name": "RoomLights;v1",
-            "Format": "JSON",
-            "Fields": {
-                "lights": "boolean"
             }
         }
     }
@@ -182,7 +172,7 @@ Simulated devices can also react to method calls, in which case they  execute so
 "CloudToDeviceMethods": {
     "Start": {
         "Type": "JavaScript",
-        "Path": "truck-start.js"
+        "Path": "release-pressure.js"
     }
 }
 ```
