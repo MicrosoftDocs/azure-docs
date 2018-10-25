@@ -110,7 +110,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-When the subscription is completed, you should output similar to the following:
+When the subscription is completed, you should see output similar to the following:
 
 ```JSON
 {

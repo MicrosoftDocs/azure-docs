@@ -90,8 +90,9 @@ LUIS offers many types of entities; prebuilt entities, custom machine learned en
 ## Entity limits
 Review [limits](luis-boundaries.md#model-boundaries) to understand how many of each type of entity you can add to a model.
 
-## Entity roles
-Entity [roles](luis-concept-roles.md) apply to custom and prebuilt entities and are used in patterns only. 
+## Roles versus hierarchical entities
+
+For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Composite vs hierarchical entities
 Composite entities and hierarchical entities both have parent-child relationships and are machine learned. The machine-learning allows LUIS to understand the entities based on different contexts (arrangement of words). Composite entities are more flexible because they allow different entity types as children. A hierarchical entity's children are only simple entities. 
