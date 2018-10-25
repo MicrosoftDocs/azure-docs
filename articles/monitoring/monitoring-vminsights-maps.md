@@ -1,5 +1,5 @@
 ---
-title: How to view app dependencies with Azure Monitor for VMs | Microsoft Docs
+title: How to view app dependencies with Azure Monitor for VMs (Preview) | Microsoft Docs
 description: Map is a feature of the Azure Monitor for VMs that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
 services: azure-monitor
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
 ---
 
-# Using Azure Monitor for VMs Map to understand application components
+# Using Azure Monitor for VMs (Preview) Map to understand application components
 Viewing the discovered application components on Windows and Linux virtual machines running in Azure your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across groups of VMs from Azure Monitor. 
 
 This article will help you understand the experience between the two perspectives and how to use the Map feature. For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md).
