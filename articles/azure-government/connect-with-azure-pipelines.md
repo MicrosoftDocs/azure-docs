@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/22/18
+ms.date: 10/24/18
 ms.author: yujhong
 ---
 
@@ -48,7 +48,7 @@ Follow through one of the quickstarts below to set up a Build for your specific 
 
 ## Generate a service principal 
 
-1. Download or copy and paste [this powershell script](https://github.com/Microsoft/vsts-rm-documentation/blob/master/Azure/SPNCreation.ps1) into an IDE or editor. 
+1. Download or copy and paste the [service principal creation](https://github.com/yujhongmicrosoft/spncreationn/blob/master/spncreation.ps1) powershell script into an IDE or editor. 
 2. Open up the file and navigate to the `param` parameter. Replace the `$environmentName` variable with 
 AzureUSGovernment." This sets the service principal to be created in Azure Government.
 3. Open your Powershell window and run the following command. This command sets a policy that enables running local files. 
@@ -75,46 +75,13 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
 ## Configure the Azure Pipelines service connection
 
-> [!NOTE]
-> Make sure that you add the connection soon after running the Powershell script above, as the key expires. 
-> If not, you navigate to the [Azure Government portal](https://portal.azure.us) -> AAD -> App registrations -> Add Key
->
-
-Now we will create an [Azure service connection](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=vsts). 
-1. Navigate to your Team Project from your Azure Pipelines account. 
-2. Navigate to the Services tab and click on "New Service Endpoint".    
-3. Choose "Azure Resource Manager" from the dropdown menu. 
-
-    ![vsts2](./media/documentation-government-vsts-img13.png)
-4. Click on the blue text in order to set up the service principal. 
-	
-    ![vsts3](./media/documentation-government-vsts-img14.png)
-5. Fill out the dialog with "AzureUSGovernment" for the "Environment" parameter and choose a friendly name for "Connection Name". Fill out the rest of dialog with the Service Connection values generated in **Step 9 of the "Generate a Service Principal" section above**. Click "Verify Connection" in the bottom right corner, make sure it says "Verified", and then click "Ok".
-
-    ![vsts4](./media/documentation-government-vsts-img15.png)
+Follow the instructions in [Service connections for builds and releases](../devops/pipelines/library/service-endpoints.md) to set up the Azure Pipelines service connection. In step #3, make sure you click on "use the full version of the service connection catalog" and set **Environment** to **AzureUSGovernment**.
 
 ## Define a release process
 
-1. After you have completed the steps above, we can now [define the release process](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=vsts#cd) for our build.
-2. Choose the link to the completed build (for example, Build 1634). In the build's Summary tab under Deployments, choose "Create release". This starts a new release definition that's automatically linked to the build definition.
+Follow [Deploy a web app to Azure App Services](../devops/pipelines/apps/cd/deploy-webdeploy-webapps.md) instructions to set up your release pipeline and deploy to your application in Azure Government.
 
-    ![vsts6](./media/documentation-government-vsts-img17.png)
-3. Select the Azure App Service Deployment template and choose Next.
-
-    ![vsts7](./media/documentation-government-vsts-img18.png)
-	In "Source..." make sure your CI build definition for the Web deploy package is selected as the artifact source.
-4. Select the Continuous deployment check box, and then choose Create.
-5. Select the Deploy Azure App Service task and configure it as follows:
- 	- Azure Subscription: Select the endpoint configured earlier
-	- App Service Name: the name of the web app (the part of the URL without .azurewebsites.us).
-	- Deploy to Slot: make sure this is cleared (the default)
-	- Virtual Application: leave blank
-	- Web Deploy Package: $(System.DefaultWorkingDirectory)\**\*.zip (the default)
-	- Advanced: Take App Offline: If you run into locked .DLL problems when you test the release, as explained below, try selecting this check box.
-		
-6. Edit the name of the release definition, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
-	
-Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=vsts#deploy) to your applications in Azure Government. 
+After your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=vsts#deploy) to your applications in Azure Government. 
 
 ## Q&A
 
