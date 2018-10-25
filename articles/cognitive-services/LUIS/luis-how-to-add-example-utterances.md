@@ -36,12 +36,17 @@ Does John Smith work in Seattle?
 
 1. Select "Seatte" in the utterance to label it as a simple entity.
 
+    [![Screenshot of selecting text in utterance for simple entity](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+
+
     > [!NOTE]
     > When selecting words to label them as entities:
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
 
 1. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name in the text box, and then select **Create new entity**. 
+
+    ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. In the **What type of entity do you want to create?** pop-up dialog box, verify the entity name and select the **Simple** entity type, and then select **Done**.
 
@@ -55,7 +60,12 @@ For a company department list entity, you can have normalized values: `Accountin
 
 1. In the example utterance list, for a specific utterance, select the word or phrase that is in the list. Then enter the name of the list in the textbox, then select **Create new entity**.   
 
+    ![Screenshot of entering list entity name](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
+
+
 1. In the **What type of entity do you want to create?** dialog box, name the entity and select **List** as the type. Add synonyms of this list item, then select **Done**. 
+
+    ![Screenshot of entering list entity synonyms](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
     You can add more list items or more item synonyms by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or importing a list. 
 
