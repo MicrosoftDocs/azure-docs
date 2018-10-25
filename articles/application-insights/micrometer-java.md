@@ -302,7 +302,7 @@ Add the following binding code to the configuration  file:
 |JVM Thread Metrics |jvm.threads.live |Gauge  |Number  | The current number of live threads including both daemon and non-daemon threads|   management.metrics.enable.jvm|
 | ClassLoader Metrics | jvm.classes.loaded |Gauge | Number | The number of classes that are currently loaded in the Java virtual machine |management.metrics.enable.jvm  |
 | ClassLoader Metrics |jvm.classes.unloaded | FunctionCounter | Increasing Number |The total number of classes unloaded since the jvm has started execution |management.metrics.enable.jvm  |
-|LogBack Metrics  | logback.events <br> &nbsp; Tags: error<br> &nbsp; Warn<br> &nbsp; Info<br>&nbsp; Debug<br>&nbsp; Trace |  Counter | Number | Number of total $level events that made it to the logs | management.metrics.enable.logback |
+|LogBack Metrics  | logback.events <br> &nbsp; Tags: error<br> &nbsp; Warn<br> &nbsp; Info<br>&nbsp; Debug<br>&nbsp; Trace |  Counter | Number | Number of total level events that made it to the logs | management.metrics.enable.logback |
 | Uptime Metrics | process.uptime |TimeGauge  |Milliseconds |The uptime of the JVM  | management.metrics.enable.uptime|
 | Uptime Metrics |process.start.time |TimeGauge |Milliseconds  |Start time of the process since unix epoch  |management.metrics.enable.uptime |
 | Processor Metrics |System.cpu.count  |Gauge  |Number  |The number of processors available to the JVM  | management.metrics.enable.processor |
