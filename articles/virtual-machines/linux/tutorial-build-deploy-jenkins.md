@@ -39,7 +39,7 @@ to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/releas
 ## Before you begin
 
 * You need access to a Jenkins server. If you have not yet created a Jenkins server,
-  see [Create a Jenkins master on an Azure virtual machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
+  see [Create a Jenkins master on an Azure Virtual Machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Sign in to your Azure DevOps Services organization (**https://{yourorganization}.visualstudio.com**). 
   You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
