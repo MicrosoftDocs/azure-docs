@@ -270,3 +270,8 @@ while conflict:
     # Do something with conflict
     conflict = next(conflicts_iterator, None)
 ```
+
+## Next Steps
+
+- [How to manage consistency](./how-to-manage-consistency.md)
+- [How to manage database account](./how-to=manage-database-account.md)

@@ -257,3 +257,7 @@ You cannot modify the write region on this menu. You must do a manual failover t
 ```bash
 az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
 ```
+
+## Next Steps
+
+- [Partition data](./partition-data.md)

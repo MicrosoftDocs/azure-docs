@@ -211,3 +211,7 @@ To view the PBS metric, go to your Cosmos DB Account in the Azure portal, and th
 ![Picture of the PBS graph in the Azure portal](./media/how-to-manage-consistency/pbs-metric.png)
 
 You must use the Cosmos DB metrics menu to see this metric. It will not show up in the Azure Monitoring metrics experience.
+
+## Next Steps
+
+- [How to manage database account](./how-to=manage-database-account.md)
