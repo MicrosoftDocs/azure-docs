@@ -44,80 +44,151 @@ This issue may cause by the following reasons:
 
 Before you follow the steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To troubleshoot this issue, use Serial control or attach the OS disk of the VM to a recovery VM.
+To troubleshoot this issue, use Serial control or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
 
-### Repair the VM by using Serial control
 
-1. Connect to Serial control.
-2. Use the NETSTAT tool to check if termservice.exe is listening port 8080:
+### Use Serial control
 
-        Netstat -anob
+Connect to [Serial Console and open PowerShell instance](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+). If the Serial Console is not enabled on your VM, move to [repair the VM offline](#repair-the-vm-offline) section.
 
-    If another application is using 8080 port rather than termservice.exe, follow these steps:
+#### Step 1 Check the RDP port
 
-    1.  Stop the service for the application that is using the 3389 service: 
+1. In PowerShell instance, use the [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
+) to check if port 8080 is used by other applications:
 
-            Stop-Service -Name <ServiceName>
-    2. Start the terminal services service: 
-    
-            Start-Service -Name Termservice
+        Netstat -anob |more
+2. If the termservice.exe is using 8080 port, move the step 2. If another service or application is using 8080 port rather than termservice.exe, follow these steps:
 
-    If this method does not work for you, you can also change the port of RDP:
+    A. Stop the service for the application that is using the 3389 service: 
 
-    1. Change the port:
+        Stop-Service -Name <ServiceName>
 
-            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+    B. Start the terminal services service: 
 
-            Stop-Service -Name Termservice Start-Service -Name Termservice
-        
-    2. Set filrewall for the new port:
+        Start-Service -Name Termservice
 
-            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+2. If the application cannot be stopped or this method does not apply to you, you can change the port for RDP:
 
-    3. Update the network security group in Azure portal.
+    A. Change the port:
 
-3. Check if the VM is using a public or private certificate (by default, the VM use a self-signed certificate), run the following command:
+        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+
+        Stop-Service -Name Termservice Start-Service -Name Termservice
  
-        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
+    B. Set firewall for the new port:
 
-    If the registry value is not found, move to next step. If the value is found, move to “steps for the VM that use public or private certificate”
-4.	Renew RDP self-sign certificate:
+        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint Stop-Service -Name "SessionEnv" Start-Service -Name "SessionEnv"
-5.	Reset the permission for MachineKeys folder.
+    C. [Update the network security group for the new port](../../virtual-network/security-overview) in Azure portal RDP port.
+
+#### Step 2 Set correct permissions on the RDP Self-sign Certificate
+
+1.	In PowerShell instance, run the following commands one by one to renew RDP self-sign certificate:
+
+        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint 
+
+        Stop-Service -Name "SessionEnv" 
+
+        Start-Service -Name "SessionEnv"
+
+2. If you cannot renew the certificate by this method, try to renew the RDP Self-sign certificate remotely:
+
+    1. From a working VM with connectivity to the VM that has problem, type **mmc** in the **Run** box to open Microsoft Management Console.
+    2. On the **File** menu, select **Add/Remove Snap-in**, select **Certificates**, and then select **Add**.
+    3. Select **Computer accounts**, select **Another Computer**, and then add the IP of the VM that has problems.
+    4. Go to the **Remote Desktop\Certificates** folder then right click the certificate and select **Delete**.
+    5. In PowerShell instance from Serial Console, restart Remote Desktop Configuration service: 
+
+            Stop-Service -Name "SessionEnv" 
+
+            Start-Service -Name "SessionEnv"
+3. Reset the permission for MachineKeys folder.
 	
-        remove-module psreadline icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r 
-        
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)" icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)" icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)" 
-        
+        remove-module psreadline icacls 
+
+        md c:\temp
+
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r 
+
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)" 
+
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)" 
+
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)" 
+
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
-6. Enable the TLS protocol:
 
-        cmd
+4. Restart the VM, and then try to remote desktop to the VM. If the error still occurs, move to the next step.
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+Step 3: Enable all supported TLS versions
 
-        exit
+The RPD client uses TLS 1.0 as the default protocol, however this could be then changed to TLS 1.1 which became the new standard. If the TLS 1.1 is disabled on the VM, the connection will fail. 
+1.  In CMD instance Enable the TLS protocol:
 
-#### VM uses public or private certificate
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
 
-1.	Make sure that the correct thumbprint is set as **SSLCertificateSHA1Hash** value:
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash /t REG_BINARY /d <CERTIFICATE THUMBSPRINT>
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+2.	To prevent the AD policy overwriting the changes, stop the group policy update temporarily:
 
-2.	Delete the SSLCertificateSHA1Hash key, so the RDP will use the selfsign certificate for RDP
+        REG add "HKLM\SYSTEM\CurrentControlSet\Services\gpsvc" /v Start /t REG_DWORD /d 4 /f
+3.	Restart the VM so the changes. If the issue is resolved, you run the following command to reenable the group policy:
 
-        reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
+        sc config gpsvc start= auto sc start gpsvc
 
-3.	Try to connect the VM by using RDP.
+        gpupdate /force
+    If the change is reverted, it means that there's an AD policy in your company’ domain need to change that to avoid this from happening again.
 
-### Repair the VM by using a recovery VM
+### Repair the VM Offline
 
-1. Attach the OS disk to a recovery VM. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
-2. Enable dump logs and Serial Console.
-3. Reset the permission for Machinkeys folder. In this script, we assume that the drive letter that's assigned to the attached OS disk is F. You should replace it with the appropriate value.
+#### Attach the OS disk to a recovery VM
 
-        icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+2. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
+3. Remote desktop to the recovery VM.
+
+#### Enable dump log and Serial Console
+
+To enable dump log and Serial Console, run the following script.
+
+1. Open elevated command Prompt session (Run as administrator).
+2. Run the following script:
+
+    In this script, we assume that the drive letter that is assigned to the attached OS disk is F.  Replace it with the appropriate value in your VM.
+
+    ```powershell
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+
+    REM Enable Serial Console
+    bcdedit /store F:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store F:\boot\bcd /set {bootmgr} timeout 5
+    bcdedit /store F:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store F:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+    bcdedit /store F:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+    REM Suggested configuration to enable OS Dump
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    reg unload HKLM\BROKENSYSTEM
+    ```
+
+#### Reset the permission for Machinkeys folder
+
+1. Open elevated command Prompt session (Run as administrator).
+2. Run the following script. In this script, we assume that the drive letter that is assigned to the attached OS disk is F.  Replace it with the appropriate value in your VM.
+
+        Md F:\temp
+
+        icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+        takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
@@ -127,19 +198,59 @@ To troubleshoot this issue, use Serial control or attach the OS disk of the VM t
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt
 
-        Restart-Service TermService -Force
-4. Reset TLS settings:
+#### Enable all supported TLS versions 
 
-reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
+1.	Open an elevated CMD window (run as administrator), and the run the following commands.  The following script assumes that the driver letter is assigned to the attached OS disk is F. You need to change it with real value in your VM.
+2.	Check which TLS is enabled:
 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f REG ADD
-    "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
+        reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
 
-    REM Enable NLA
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
+
+3.	If any of these are disable, either because the key doesn't exist, or its value is 0, enable the protocol by running the following scripts:
+
+        REM Enable TLS 1.0, TLS 1.1 and TLS 1.2
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+4.	Enable NLA:
+
+        REM Enable NLA 
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
     
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
-		
-3.	[Detach the OS disk and recreate the VM](troubleshoot-recovery-disks-portal-windows.md).
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f 
+        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
+        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
+        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
+5.	[Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md), and then check if the issue is resolved.
 
 
 
+    
+ 
