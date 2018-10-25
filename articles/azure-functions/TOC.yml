@@ -156,7 +156,7 @@
        href: manage-connections.md
      - name: Error handling
        href: functions-bindings-error-pages.md
-     - name: Debug local function triggered by storage event
+     - name: Debug Event Grid trigger locally
        href: functions-debug-event-grid-trigger-local.md
   - name: Deploy
     items:
