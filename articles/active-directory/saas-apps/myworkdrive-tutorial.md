@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/25/2018
 ms.author: jeedes
 
 ---
@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Reply URL, and Sign-On URL.  Input your own companies MyWorkDrive Server host name:e.g.
+    > These values are not real. Update these values with the actual Reply URL, and Sign-On URL.  Input your own company's MyWorkDrive Server host name:e.g.
     > 
     > Reply URL: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
     > 
