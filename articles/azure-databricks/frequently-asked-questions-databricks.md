@@ -108,7 +108,7 @@ For more detailed instructions, see [Resource providers and types](../azure-reso
 
 #### Background
 
-Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This requires a consent. If the consent is not already available, you see the error.
+Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This requires consent. If the consent is not already available, you see the error.
 
 #### Solution
 
