@@ -283,9 +283,9 @@ Add the following binding code to the configuration  file:
 ## Auto-collected metrics
 
 > [!div class="mx-tdCol2BreakAll"]
-|  Metrics Category | Metrics Name  | Metric Type | Base Unit  | Description   | Property Enable and disable    |
-|---|---|---|---|-----------------------|--------------------------|
-| JVM GC Metrics | jvm.gc.max.data.size  |Gauge  |Bytes   | Max size of old generation memory pool|
+|  Metrics Category |  Metrics Name   | Metric Type | Base Unit  | Description   | Property Enable/disable |
+|---|-------|---|---|-----------------------|-----------------------|
+| JVM GC Metrics | jvm.gc.max.data.size  |Gauge  |Bytes   | Max size of old generation memory pool| management.metrics.enable.jvm |
 | JVM GC Metrics | jvm.gc.live.data.size  |Gauge  |Bytes|Size of old generation memory pool after a full GC|management.metrics.enable.jvm|
 | JVM GC Metrics |jvm.gc.memory.promoted  |Counter   |Bytes   |Count of positive increases in the size of the old generation memory pool before GC to after GC | management.metrics.enable.jvm|
 | JVM GC Metrics |jvm.gc.memory.allocated |Counter   | Bytes  | Incremented for an increase in the size of the young generation memory pool after one GC to before the next|management.metrics.enable.jvm|
