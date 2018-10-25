@@ -14803,6 +14803,11 @@
 "redirect_document_id": false
 },
 {
+"source_path": "articles/active-directory/choose-hybrid-identity-solution.md",
+"redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+"redirect_document_id": false
+},
+{
 "source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-sync.md",
 "redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-sync",
 "redirect_document_id": false
