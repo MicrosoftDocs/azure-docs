@@ -24,7 +24,7 @@ You can deploy models to the following compute targets:
 
 Rest of this document talks about each of these options in detail.
 
-## Azure Container Instances
+## <a id="aci"></a>Azure Container Instances
 
 Use Azure Container Instances for deploying your models as a REST API end point if one or more of the following conditions is true:
 - You need to quickly deploy and validate your model. ACI deployment is finished in less than 5 minutes.
@@ -32,7 +32,7 @@ Use Azure Container Instances for deploying your models as a REST API end point 
 
 For more information, see the [Deploy a model to Azure Container Instances](how-to-deploy-to-aci.md) document.
 
-## Azure Kubernetes Service
+## <a id="aks"></a>Azure Kubernetes Service
 
 For high-scale production scenarios, use Azure Kubernetes Service (AKS). You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
 
@@ -49,7 +49,7 @@ The process of creating an AKS cluster takes approximately 20 minutes.
 
 For more information, see the [Deploy a model to Azure Kubernetes Service](how-to-deploy-to-aks.md) document.
 
-## Azure IoT Edge
+## <a id="iotedge"></a>Azure IoT Edge
 
 With IoT devices, it is faster to perform scoring on the device instead of sending data to the cloud for scoring. With Azure IoT Edge, you can host your model on edge devices. Deploy your model to IoT Edge if you need one or more of the following capabilities:
 - Handle priority tasks locally, even without a cloud connection
@@ -62,7 +62,7 @@ For more information, see the [Deploy to Azure IoT Edge](https://docs.microsoft.
 For more information on the IoT Edge service, see the [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/).
 
 
-## Field-programmable gate arrays (FPGA)
+## <a id="fpga"></a>Field-programmable gate arrays (FPGA)
 
 Hardware Accelerated Models powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerates deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning, or customizable with weights trained from your own data.
 
