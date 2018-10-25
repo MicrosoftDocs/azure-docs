@@ -212,9 +212,8 @@ HDInsight can be connected to the on-premises network by using Azure Virtual Net
 
 ## Next Steps
 
-- [Motivation and benefits of on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-motivation.md)
-- [Architecture best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
-- [Infrastructure best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
-- [Storage best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
-- [Data migration best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
-- [Security and DevOps best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)
+- [Motivation and benefits of on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-motivation.md)
+- [Architecture best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
+- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
+- [Security and DevOps best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)

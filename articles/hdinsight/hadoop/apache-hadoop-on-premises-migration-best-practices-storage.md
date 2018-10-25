@@ -1,6 +1,6 @@
 ---
-title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - best practices - storage
-description: Learn best-practices for migrating on-premises Hadoop clusters to Azure HDInsight.
+title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - storage best practices
+description: Learn storage best-practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -202,9 +202,8 @@ For more information, see the following articles:
 
 ## Next Steps
 
-- [Motivation and benefits of on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-motivation.md)
-- [Architecture best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
-- [Infrastructure best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
-- [Storage best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
-- [Data migration best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
-- [Security and devops best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)
+- [Motivation and benefits of on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-motivation.md)
+- [Architecture best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
+- [Infrastructure best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
+- [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
+- [Security and DevOps best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)

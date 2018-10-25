@@ -1,6 +1,6 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
-description: Learn motivation and benefits of migrating on-premises Hadoop clusters to Azure HDInsight.
+description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -65,8 +65,8 @@ The following steps are recommended for planning a migration of on-premises Hado
 
 Other articles in this series:
 
-- [Architecture best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
-- [Infrastructure best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
-- [Storage best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
-- [Data migration best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
-- [Security and DevOps best practices for on-premises to Azure Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)
+- [Architecture best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
+- [Infrastructure best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
+- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
+- [Security and DevOps best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)
