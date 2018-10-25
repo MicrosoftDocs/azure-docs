@@ -1,17 +1,11 @@
 ---
 title: Azure CLI Script-Create an Azure Cosmos DB Cassandra API account, database, and table | Microsoft Docs
 description: Azure CLI Script Sample - Create an Azure Cosmos DB Cassandra API account, database, and table
-services: cosmos-db
-documentationcenter: cosmosdb
 author: markjbrown
 
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.custom: mvc
-ms.devlang: azurecli
+ms.component: cosmosdb-cassandra
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 10/26/2018
 ms.author: mjbrown
 ---
@@ -26,57 +20,14 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-Create an Azure Cosmos DB Cassandra API account, database, and table
-
-```azurecli-interactive
-#!/bin/bash
-
-# Set variables for the new Cassandra API account, database, and table
-resourceGroupName='myResourceGroup'
-location='southcentralus'
-accountName='myCosmosDbAccount'
-databaseName='myDatabase'
-tableName='myTable'
-
-# Create a resource group
-az group create \
-    --name $resourceGroupName \
-    --location $location
-
-# Create a Cassandra API Cosmos DB account with multi-master enabled
-az cosmosdb create \
-    --resource-group $resourceGroupName \
-    --name $accountName \
-    --capabilities EnableCassandra \
-    --locations "South Central US"=0 "North Central US"=1 \
-    --default-consistency-level "Session" \
-    --enable-multiple-write-locations true
-
-
-# Create a database
-az cosmosdb database create \
-    --resource-group $resourceGroupName \
-    --name $accountName \
-    --db-name $databaseName
-
-
-# Create a Cassandra table
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $tableName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path = "/myPartitionKey" \
-    --throughput 1000
-
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-cassandra-account/create-cosmosdb-cassandra-account.sh?highlight=17-43 "Create an Azure Cosmos DB Cassandra API account, database, and table.")]
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## Script explanation
@@ -87,6 +38,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Creates an Azure Cosmos DB database. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Creates an Azure Cosmos DB table for Cassandra. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

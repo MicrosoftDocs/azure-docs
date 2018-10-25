@@ -1,19 +1,13 @@
 ---
 title: Azure CLI Script-Create an Azure Cosmos DB MongoDB API account, database, and collection | Microsoft Docs
 description: Azure CLI Script Sample - Create an Azure Cosmos DB MongoDB API account, database, and collection
-services: cosmos-db
-documentationcenter: cosmosdb
 author: markjbrown
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: mvc
-ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
-ms.date: 06/02/2017
-ms.author: sngun
+ms.date: 10/26/2018
+ms.author: mjbrown
 ---
 
 # Azure Cosmos DB: Create an MongoDB API account using the Azure CLI
@@ -26,59 +20,14 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-Create an Azure Cosmos DB MongoDB API account, database, and collection
-
-```azurecli-interactive
-#!/bin/bash
-
-# Set variables for the new MongoDB API account, database, and collection
-resourceGroupName='myResourceGroup'
-location='southcentralus'
-accountName='myCosmosDbAccount'
-databaseName='myDatabase'
-collectionName='myCollection'
-
-# Create a resource group
-az group create \
-    --name $resourceGroupName \
-    --location $location
-
-# Create a MongoDB API Cosmos DB account with bounded staleness consistency and multi-master enabled
-az cosmosdb create \
-    --resource-group $resourceGroupName \
-    --name $accountName \
-    --kind MongoDB \
-    --locations "South Central US"=0 "North Central US"=1 \
-    --default-consistency-level "BoundedStaleness" \
-    --max-interval 5 \
-    --max-staleness-prefix 100 \
-    --enable-multiple-write-locations true
-
-
-# Create a database 
-az cosmosdb database create \
-    --resource-group $resourceGroupName \
-    --name $accountName \
-    --db-name $databaseName
-
-
-# Create a collection with a partition key and 1000 RU/s
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $collectionName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path = "/myPartitionKey" \
-    --throughput 1000
-
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=17-43 "Create an Azure Cosmos DB MongoDB API account, database, and collection.")]
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## Script explanation
@@ -89,6 +38,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Creates an Azure Cosmos DB database. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Creates an Azure Cosmos DB collection for MongoDB. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
