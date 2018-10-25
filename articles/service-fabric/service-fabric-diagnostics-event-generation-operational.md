@@ -3,7 +3,7 @@ title: Azure Service Fabric Event List | Microsoft Docs
 description: Comprehensive list of events provided by Azure Service Fabric to help monitor clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 

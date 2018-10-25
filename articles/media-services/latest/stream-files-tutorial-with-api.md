@@ -4,14 +4,14 @@ description: Follow the steps of this tutorial to upload a file, and encode the 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ---
 

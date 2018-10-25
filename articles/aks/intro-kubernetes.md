@@ -21,11 +21,11 @@ To get started, complete the AKS quickstart [in the Azure portal][aks-portal] or
 
 ## Access, security, and monitoring
 
-For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also the monitor the health of your cluster and resources.
+For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also monitor the health of your cluster and resources.
 
 ### Identity and security management
 
-To limit access to cluster resources, AKS supports [Kubernetes role-based access control (RBAC)][kubernetes-rbac]. RBAC lets you control how can access Kubernetes resources and namespaces, and what permissions that have on those resources. You can also configure an AKS cluster to integrate with Azure Active Directory (AD). With Azure AD integration, Kubernetes access can be configured based on existing identity and group membership. Your existing Azure AD users and groups can be provided access to AKS resources and with an integrated sign-on experience.
+To limit access to cluster resources, AKS supports [Kubernetes role-based access control (RBAC)][kubernetes-rbac]. RBAC lets you control access to Kubernetes resources and namespaces, and permissions to those resources. You can also configure an AKS cluster to integrate with Azure Active Directory (AD). With Azure AD integration, Kubernetes access can be configured based on existing identity and group membership. Your existing Azure AD users and groups can be provided access to AKS resources and with an integrated sign-on experience.
 
 To secure your AKS clusters, see [Integrate Azure Active Directory with AKS][aks-aad].
 
@@ -97,7 +97,7 @@ Azure Kubernetes Service (AKS) has been CNCF certified as Kubernetes conformant.
 
 ## Regulatory compliance
 
-Azure Kubernetes Service (AKS) is compliant with SOC, ISO, and PCI DSS.
+Azure Kubernetes Service (AKS) is compliant with SOC, ISO, PCI DSS, and HIPAA.
 
 ## Next steps
 
@@ -119,12 +119,12 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
-[aks-networking]: ./networking-overview.md
+[aks-networking]: ./concepts-network.md
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
+[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces
+[azure-devops]: https://docs.microsoft.com/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md

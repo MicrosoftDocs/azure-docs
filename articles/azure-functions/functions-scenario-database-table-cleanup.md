@@ -19,6 +19,9 @@ This topic shows you how to use Azure Functions to create a scheduled job that c
 
 To have your function process individual create, read, update, and delete (CRUD) operations in a Mobile Apps table, you should instead use [Mobile Apps bindings](functions-bindings-mobile-apps.md).
 
+> [!IMPORTANT]
+> The samples in this doc are applicable to the 1.x runtime. Information on how to create a 1.x function app [can be found here](./functions-versions.md#creating-1x-apps).
+
 ## Prerequisites
 
 + This topic uses a timer triggered function. Complete the steps in the topic [Create a function in Azure that is triggered by a timer](functions-create-scheduled-function.md) to create a C# version of this function.   
@@ -79,11 +82,12 @@ Now, you can add the C# function code that connects to your SQL Database.
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
+    using Microsoft.Extensions.Logging;
 	```
 
 4. Replace the existing `Run` function with the following code:
 	```cs
-    public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    public static async Task Run(TimerInfo myTimer, ILogger log)
     {
         var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
         using (SqlConnection conn = new SqlConnection(str))
@@ -96,7 +100,7 @@ Now, you can add the C# function code that connects to your SQL Database.
             {
                 // Execute the command and log the # rows affected.
                 var rows = await cmd.ExecuteNonQueryAsync();
-                log.Info($"{rows} rows were updated");
+                log.LogInformation($"{rows} rows were updated");
             }
         }
     }

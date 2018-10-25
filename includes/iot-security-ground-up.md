@@ -1,12 +1,12 @@
 ---
  title: include file
  description: include file
- services: iot-suite
- author: dominicbetts
- ms.service: iot-suite
+ services: iot-fundamentals
+ author: robinsh
+ ms.service: iot-fundamentals
  ms.topic: include
  ms.date: 04/24/2018
- ms.author: dobett
+ ms.author: robinsh
  ms.custom: include file
 ---
 
@@ -57,7 +57,9 @@ Azure IoT Hub access control policies in the cloud enable activation and disabli
 Additional device security features include:
 
 * Devices do not accept unsolicited network connections. They establish all connections and routes in an outbound-only fashion. For a device to receive a command from the backend, the device must initiate a connection to check for any pending commands to process. Once a connection between the device and IoT Hub is securely established, messaging from the cloud to the device and device to the cloud can be sent transparently.
+
 * Devices only connect to or establish routes to well-known services with which they are peered, such as an Azure IoT Hub.
+
 * System-level authorization and authentication use per-device identities, making access credentials and permissions near-instantly revocable.
 
 ### Secure connectivity
@@ -71,7 +73,9 @@ Scalability requires the ability to securely interoperate with a wide range of d
 Additional connection security features include:
 
 * The communication path between devices and Azure IoT Hub, or between gateways and Azure IoT Hub, is secured using industry-standard Transport Layer Security (TLS) with Azure IoT Hub authenticated using X.509 protocol.
+
 * In order to protect devices from unsolicited inbound connections, Azure IoT Hub does not open any connection to the device. The device initiates all connections.
+
 * Azure IoT Hub durably stores messages for devices and waits for the device to connect. These commands are stored for two days, enabling devices connecting sporadically, due to power or connectivity concerns, to receive these commands. Azure IoT Hub maintains a per-device queue for each device.
 
 ### Secure processing and storage in the cloud
@@ -95,9 +99,13 @@ The solution accelerators build in security measures by design, enabling secure 
 Each solution accelerator creates instances of Azure services, such as:
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): Your gateway that connects the cloud to devices. You can scale to millions of connections per hub and process massive volumes of data with per-device authentication support helping you secure your solution.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. Azure Cosmos DB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
+
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Real-time stream processing in the cloud that enables you to rapidly develop and deploy a low-cost analytics solution to uncover real-time insights from devices, sensors, infrastructure, and applications. The data from this fully-managed service can scale to any volume while still achieving high throughput, low latency, and resiliency.
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as 
-  a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE—.NET, Node.js, PHP, Python, or Java—to build web apps and APIs faster than ever.
+
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE—.NET, Node.js, PHP, Python, or Java—to build web apps and APIs faster than ever.
+
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): The Logic Apps feature of Azure App Service helps integrate your IoT solution to your existing line-of-business systems and automate workflow processes. Logic Apps enables developers to design workflows that start from a trigger and then execute a series of steps—rules and actions that use powerful connectors to integrate with your business processes. Logic Apps offers out-of-the-box connectivity to a vast ecosystem of SaaS, cloud-based, and on-premises applications.
-* [**Azure blob storage**](https://azure.microsoft.com/services/storage/): Reliable, economical cloud storage for the data that your devices send to the cloud.
+
+* [**Azure Blob storage**](https://azure.microsoft.com/services/storage/): Reliable, economical cloud storage for the data that your devices send to the cloud.

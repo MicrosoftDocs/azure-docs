@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -23,6 +23,9 @@ Join your Azure-SSIS integration runtime (IR) to an Azure virtual network in the
 - You are hosting the SQL Server Integration Services (SSIS) catalog database in Azure SQL Database with virtual network service endpoints/Managed Instance. 
 
  Azure Data Factory lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
+
+> [!IMPORTANT]
+> The classic virtual network is currently being deprecated, so please use the Azure Resource Manager virtual network instead.  If you already use the classic virtual network, please switch to use the Azure Resource Manager virtual network as soon as possible.
 
 ## Access to on-premises data stores
 If SSIS packages access only public cloud data stores, you don't need to join the Azure-SSIS IR to a virtual network. If SSIS packages access on-premises data stores, you must join the Azure-SSIS IR to a virtual network that is connected to the on-premises network. 
@@ -41,16 +44,20 @@ Here are a few important points to note:
 If the SSIS catalog is hosted in Azure SQL Database with virtual network service endpoints, or Managed Instance, you can join your Azure-SSIS IR to: 
 
 - The same virtual network 
-- A different virtual network that has a network-to-network connection with the one that is used for Azure SQL Database with virtual network service endpoints/Managed Instance 
+- A different virtual network that has a network-to-network connection with the one that is used for the Managed Instance 
 
-If you join your Azure-SSIS IR to the same virtual network as the Managed Instance, make sure that the Azure-SSIS IR is in a different subnet than the  Managed Instance. If you join the Azure-SSIS IR to a different virtual network than the Managed Instance, we recommend either virtual network peering (which is limited to the same region) or a virtual network to virtual network connection. See [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+If you host your SSIS catalog in Azure SQL Database with virtual network service endpoints, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
-The virtual network can be deployed through the classic deployment model or the Azure Resource Manager deployment model.
+If you join your Azure-SSIS IR to the same virtual network as the Managed Instance, make sure that the Azure-SSIS IR is in a different subnet than the Managed Instance. If you join your Azure-SSIS IR to a different virtual network than the Managed Instance, we recommend either virtual network peering (which is limited to the same region) or a virtual network to virtual network connection. See [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+
+In all cases, the virtual network can only be deployed through the Azure Resource Manager deployment model.
 
 The following sections provide more details. 
 
 ## Requirements for virtual network configuration
 -   Make sure that `Microsoft.Batch` is a registered provider under the subscription of your virtual network subnet which hosts the Azure-SSIS IR. If you are using Classic virtual network, also join `MicrosoftAzureBatch` to the Classic Virtual Machine Contributor role for that virtual network. 
+
+-   Make sure you have the required permissions. See [Required permissions](#perms).
 
 -   Select the proper subnet to host the Azure-SSIS IR. See [Select the subnet](#subnet). 
 
@@ -61,6 +68,18 @@ The following sections provide more details.
 -   If you are using Azure Express Route or configuring User Defined Route (UDR), see [Use Azure ExpressRoute or User Defined Route](#route). 
 
 -   Make sure the Resource Group of the virtual network can create and delete certain Azure Network resources. See [Requirements for Resource Group](#resource-group). 
+
+### <a name="perms"></a> Required permissions
+
+The user who creates the Azure-SSIS Integration Runtime must have the following permissions:
+
+- If you're joining your SSIS IR to an Azure Resource Manager virtual network, you have two options:
+
+  - Use the built-in *Network Contributor* role. This role comes with the *Microsoft.Network/\** permission, which has a much larger scope than necessary.
+
+  - Create a custom role that includes only the necessary *Microsoft.Network/virtualNetworks/\*/join/action* permission. 
+
+- If you're joining your SSIS IR to a classic virtual network, we recommend that you use the built-in *Classic Virtual Machine Contributor* role. Otherwise you have to define a custom role that includes the permission to join the virtual network.
 
 ### <a name="subnet"></a> Select the subnet
 -   Do not select the GatewaySubnet for deploying an Azure-SSIS Integration Runtime, because it is dedicated for virtual network gateways. 
@@ -85,9 +104,10 @@ If you need to implement a network security group (NSG) for the subnet used by y
 
 | Direction | Transport protocol | Source | Source Port range | Destination | Destination Port range | Comments |
 |---|---|---|---|---|---|---|
-| Inbound | TCP | Internet | * | VirtualNetwork | 29876, 29877 (if you join the IR to an Azure Resource Manager virtual network) <br/><br/>10100, 20100, 30100 (if you join the IR to a classic virtual network)| The Data Factory service uses these ports to communicate with the nodes of your Azure-SSIS integration runtime in the virtual network. <br/><br/> Whether you create a subnet-level NSG or not, Data Factory always configures an NSG at the level of the network interface cards (NICs) attached to the virtual machines that host the Azure-SSIS IR. Only inbound traffic from Data Factory IP addresses on the specified ports is allowed by that NIC-level NSG. Even if you open these ports to Internet traffic at the subnet level, traffic from IP addresses that are not Data Factory IP addresses is blocked at the NIC level. |
-| Outbound | TCP | VirtualNetwork | * | Internet | 443 | The nodes of your Azure-SSIS integration runtime in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
-| Outbound | TCP | VirtualNetwork | * | Internet or Sql | 1433, 11000-11999, 14000-14999 | The nodes of your Azure-SSIS integration runtime in the virtual network use these ports to access SSISDB hosted by your Azure SQL Database server - This purpose is not applicable to SSISDB hosted by Managed Instance. |
+| Inbound | TCP | AzureCloud<br/>(or larger scope like Internet) | * | VirtualNetwork | 29876, 29877 (if you join the IR to an Azure Resource Manager virtual network) <br/><br/>10100, 20100, 30100 (if you join the IR to a classic virtual network)| The Data Factory service uses these ports to communicate with the nodes of your Azure-SSIS integration runtime in the virtual network. <br/><br/> Whether you create a subnet-level NSG or not, Data Factory always configures an NSG at the level of the network interface cards (NICs) attached to the virtual machines that host the Azure-SSIS IR. Only inbound traffic from Data Factory IP addresses on the specified ports is allowed by that NIC-level NSG. Even if you open these ports to Internet traffic at the subnet level, traffic from IP addresses that are not Data Factory IP addresses is blocked at the NIC level. |
+| Outbound | TCP | VirtualNetwork | * | AzureCloud<br/>(or larger scope like Internet) | 443 | The nodes of your Azure-SSIS integration runtime in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
+| Outbound | TCP | VirtualNetwork | * | Internet | 80 | The nodes of your Azure-SSIS integration runtime in the virtual network use this port to download certificate revocation list from Internet. |
+| Outbound | TCP | VirtualNetwork | * | Sql<br/>(or larger scope like Internet) | 1433, 11000-11999, 14000-14999 | The nodes of your Azure-SSIS integration runtime in the virtual network use these ports to access SSISDB hosted by your Azure SQL Database server - This purpose is not applicable to SSISDB hosted by Managed Instance. |
 ||||||||
 
 ### <a name="route"></a> Use Azure ExpressRoute or User Defined Route

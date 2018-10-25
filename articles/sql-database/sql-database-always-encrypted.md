@@ -12,9 +12,9 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: 
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 10/05/2018
 ---
-# Always Encrypted: Protect sensitive data in SQL Database and store your encryption keys in the Windows certificate store
+# Always Encrypted: Protect sensitive data and store encryption keys in the Windows certificate store
 
 This article shows you how to secure sensitive data in a SQL database with database encryption by using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 

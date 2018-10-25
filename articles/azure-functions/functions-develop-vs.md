@@ -9,7 +9,7 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 10/08/2018
 ms.author: glenga
 ---
 # Develop Azure Functions using Visual Studio  
@@ -111,15 +111,16 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Extensions.Logging;
 
     namespace FunctionApp1
     {
         public static class Function1
         {
             [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, TraceWriter log)
+            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, ILogger log)
             {
-                log.Info($"C# Queue trigger function processed: {myQueueItem}");
+                log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
             }
         }
     }
@@ -147,9 +148,9 @@ As with triggers, input and output bindings are added to your function as bindin
         public static void Run(
             [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
             [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+            log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
             myQueueItemCopy = myQueueItem;
         }
     }
@@ -193,6 +194,20 @@ You can also manage application settings in one of these other ways:
 * [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
 * [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## Monitoring functions
+
+The recommended way to monitor the execution of your function in Azure is by integrating with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done. Instead, you get built-in logging, which isn't recommended.
+
+To enable Application Insights for your function app in Azure:
+
+1. Create an Application Insights instance in the [Azure portal](https://portal.azure.com) and copy its instrumentation key. To learn how, see [Manually connect an App Insights resource](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Add an app setting named `APPINSIGHTS_INSTRUMENTATIONKEY` to the function app settings in Azure, as described in [Function app settings](#function-app-settings). This app setting contains the instrumentation key that you created in the previous step.
+
+1. Remove the `AzureWebJobsDashboard` app setting from the function app in Azure, which disables built-in logging.  
+
+To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
 
