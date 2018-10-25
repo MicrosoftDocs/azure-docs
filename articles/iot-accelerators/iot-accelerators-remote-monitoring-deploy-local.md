@@ -75,7 +75,7 @@ If you've not yet created the required Azure resources, follow these steps:
 2. Run the following command to sign in to your Azure account
 > pcs login
 
-3. Run the **start.cmd** script and follow the prompts. The script prompts you to sign in to your Azure account and restart the script. The script then prompts you for the following information:
+3. Run the **start.cmd** script and follow the prompts. The script prompts you for the following information:
     * A solution name.
     * The Azure subscription to use.
     * The location of the Azure datacenter to use.

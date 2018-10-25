@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Deploy the Remote Monitoring solution accelerator locally (via Docker)
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. The approach described in this article deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure Time Series Insights services in the cloud. To learn how to run the Remote Monitoring solution accelerator in an IDE on your local machine, see [Starting Microservices on local environment](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) on GitHub.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. The approach described in this article deploys the microservices to several local Docker containers and uses IoT Hub, Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud. To learn how to run the Remote Monitoring solution accelerator in an IDE on your local machine, see [Starting Microservices on local environment](https://docs.microsoft.com/en-us/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local) on GitHub.
 
 ## Prerequisites
 
@@ -42,12 +42,20 @@ To download the latest version of the .NET microservice implementations, run:
 
 ```cmd\sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+
+# To retrieve the latest submodules, please run the following command: 
+
+git submodule foreach git pull origin master
 ```
 
 To download the latest version of the Java microservice implementations, run:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
+
+# To retrieve the latest submodules, please run the following command: 
+
+git submodule foreach git pull origin master
 ```
 
 > [!NOTE]
@@ -61,26 +69,23 @@ Although this article shows you how to run the microservices locally, they depen
 
 If you've not yet created the required Azure resources, follow these steps:
 
-1. In your command-line environment, navigate to the **remote-monitoring-services-dotnet\scripts\local\launch** folder in your cloned copy of the **remote-monitoring-services-dotnet** repository.
+1. In your command-line environment, navigate to the **\services\scripts\local\launch** folder in your cloned copy of the **\services** submodule.
 
-2. Run the **start.cmd** script and follow the prompts. The script prompts you to sign in to your Azure account and restart the script. The script then prompts you for the following information:
+2. Run the following command to sign in to your Azure account
+> pcs login
+
+3. Run the **start.cmd** script and follow the prompts. The script prompts you for the following information:
     * A solution name.
     * The Azure subscription to use.
     * The location of the Azure datacenter to use.
 
     The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
 
-3. [Optional Step] When the script completes, it displays a list of environment variables. Follow the instructions in the output from the command to save these variables to the **remote-monitoring-services-dotnet\\scripts\\local\\.env** file. You can leverage these environment variables for future solution deployments.
-
-4. Before running the microservices, please follow these steps to manually start the Azure Stream Analytics job:
-    * Navigate to the [Azure Portal](https://portal.azure.com)
-    * Click on **Resource groups** from the left navigation pane.
-    * Select the **Resource group** created for your solution.
-    * From the Overview page, please select the *Streaming Analytics job* and hit the **Run** button.
+4. [Optional Step] When the script completes, it displays a list of environment variables. Follow the instructions in the output from the command to save these variables to the **services\\scripts\\local\\.env** file. You can leverage these environment variables for future solution deployments.
 
 ### Use existing Azure resources
 
-If you've already created the required Azure resources edit the environment variable definitions in the **remote-monitoring-services-dotnet\\scripts\\local\\.env** file with the required values. The **.env** file contains detailed information about where to find the required values.
+If you've already created the required Azure resources, please go ahead and create the corresponding environment variables on your local machine. You may have saved these values in the **services\\scripts\\local\\.env** file as part of your last deployment.
 
 ## Run the microservices in Docker
 
@@ -90,7 +95,7 @@ The microservices running in the local Docker containers need to access the serv
 docker run --rm -ti library/alpine ping google.com
 ```
 
-To run the solution accelerator, navigate to the **remote-monitoring-services-dotnet\\scripts\\local** folder in your command-line environment and run the following command:
+To run the solution accelerator, navigate to the **services\\scripts\\local** folder in your command-line environment and run the following command:
 
 ```cmd\sh
 docker-compose up
@@ -98,19 +103,21 @@ docker-compose up
 
 The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers locally. On subsequent runs, Docker runs the containers immediately.
 
-You can use a separate shell to view the logs from the container. First find the container ID using the `docker ps -a` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries for the specified container.
+> We recommend that you cleanup your local Docker images frequently to make sure you have the latest functionality.
+
+You can use a separate shell to view the logs from the container. First find the container ID using the `docker ps` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries for the specified container.
+
+### Run the Stream Analytics job on Azure Portal 
+
+Please follow these steps to manually start the Azure Stream Analytics job:
+1. Navigate to the [Azure Portal](https://portal.azure.com)
+1. Click on **Resource groups** from the left navigation pane
+1. Select the **Resource group** created for your solution (using the name passed in Start.cmd)
+1. From the **Overview** page, please select the *Streaming Analytics job* and hit the **Run** button. 
+
+### Connect to the dashboard
 
 To access the Remote Monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-
-### Run the web application
-
-In this step, we will start up the web application to be able to interact with the remote monitoring session. Please navigate to the **pcs-remote-monitoring-webui** repository on your local machine and run the following set of commands.
-
-```cmd\sh
-cd <path_to_cloned_repositories>\pcs-remote-monitoring-webui
-npm install
-npm start
-```
 
 ## Clean up
 
