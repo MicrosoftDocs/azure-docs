@@ -37,7 +37,7 @@ Your data remains resilient if a zone becomes unavailable. Microsoft recommends 
 ZRS may not protect your data against a regional disaster where multiple zones are permanently affected. Instead, ZRS offers resiliency for your data if it becomes temporarily unavailable. For protection against regional disasters, Microsoft recommends using geo-redundant storage (GRS). For more information about GRS, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md).
 
 ## Converting to ZRS replication
-If you're migrating to or from LRS, GRS, and RA-GRS, you can use either the Azure portal or the Storage Resource Provider API to change your account's redundancy type. With ZRS, however, migration isn't as straightforward. ZRS migration involves the physical data movement from a single storage stamp to multiple stamps within a region. 
+Migrating to or from LRS, GRS, and RA-GRS is straightforward. You can simply use the Azure portal or the Storage Resource Provider API to change your account's redundancy type. With ZRS, however, migration isn't as straightforward. ZRS migration involves the physical data movement from a single storage stamp to multiple stamps within a region. 
 
 You have two primary options for migration to or from ZRS. You can manually copy or move data to a new ZRS account from your existing account. You can also request a live migration. Microsoft strongly recommends that you perform a manual migration because there's no guarantee as to when a live migration will complete. A manual migration route provides more flexibility than a live migration does, and you're in control of the migration timing.
 
