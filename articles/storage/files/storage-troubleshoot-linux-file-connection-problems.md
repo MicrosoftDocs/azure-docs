@@ -6,13 +6,13 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
 ---
 # Troubleshoot Azure Files problems in Linux
 
-This article lists common problems that are related to Microsoft Azure Files when you connect from Linux clients. It also provides possible causes and resolutions for these problems.
+This article lists common problems that are related to Microsoft Azure Files when you connect from Linux clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) to ensure the Linux client has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
 
 <a id="permissiondenied"></a>
 ## "[permission denied] Disk quota exceeded" when you try to open a file
@@ -76,7 +76,7 @@ Some Linux distributions do not yet support encryption features in SMB 3.0 and u
 
 ### Solution
 
-Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure file share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
+Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure file share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share and verify the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
@@ -143,7 +143,8 @@ Common causes for this issue are:
 - The minimum SMB/CIFS version 2.1 is not installed on the client.
 - SMB 3.0 Encryption is not supported on the client. SMB 3.0 Encryption is available in Ubuntu 16.4 and later version, SUSE 12.3 and later version. Other distributions require kernel 4.11 and later version.
 - You are trying to connect to a storage account over TCP port 445 that is not supported.
-- You are trying try to connect to Azure file share from an Azure VM, and the VM is not located in the same region as Storage account.
+- You are trying to connect to Azure file share from an Azure VM, and the VM is not located in the same region as Storage account.
+- If [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account, Azure Files will only allow connections using SMB 3.0 with encryption.
 
 ### Solution
 
@@ -173,7 +174,7 @@ ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### Solution
-The Linux CIFS client doesn’t support creation of Windows style symbolic links over SMB2/3 protocol. Currently Linux client supports another style of symbolic links called [Mishall+French symlinks] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use "mfsymlinks" mount option. “mfsymlinks” are usually recommended because that is also the format used by Macs.
+The Linux CIFS client doesn’t support creation of Windows style symbolic links over SMB2/3 protocol. Currently Linux client supports another style of symbolic links called [Mishall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use "mfsymlinks" mount option. “mfsymlinks” are usually recommended because that is also the format used by Macs.
 
 To be able to use symlinks, add the following to the end of your CIFS mount command:
 
@@ -184,7 +185,7 @@ To be able to use symlinks, add the following to the end of your CIFS mount comm
 So the command will look something like:
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 Once added, you will be able to create symlinks as suggested on the [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).

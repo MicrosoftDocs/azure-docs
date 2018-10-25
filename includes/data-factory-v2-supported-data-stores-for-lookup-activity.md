@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/07/2018
+ms.date: 10/19/2018
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -19,6 +19,7 @@ ms.custom: include file
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
+| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table storage](../articles/data-factory/connector-azure-table-storage.md) |
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |

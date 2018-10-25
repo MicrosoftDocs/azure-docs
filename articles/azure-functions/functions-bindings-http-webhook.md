@@ -60,9 +60,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 [FunctionName("HttpTriggerCSharp")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -117,10 +117,11 @@ Here's C# script code that binds to `HttpRequestMessage`:
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 {
-    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -144,8 +145,9 @@ You can bind to a custom object instead of `HttpRequestMessage`. This object is 
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static string Run(CustomObject req, TraceWriter log)
+public static string Run(CustomObject req, ILogger log)
 {
     return "Hello " + req?.name;
 }
@@ -384,7 +386,7 @@ This allows the function code to support two parameters in the address, _categor
 
 ```csharp
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
-                                                TraceWriter log)
+                                                ILogger log)
 {
     if (id == null)
         return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");

@@ -109,6 +109,28 @@ Similarly, the snippet below shows how to configure the SECONDARY_PREFERRED Read
   });
 ```
 
+The Read Preference can also be set by passing `readPreference` as a parameter in the connection string URI options:
+
+```javascript
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:27017?ssl=true&replicaSet=globaldb&readPreference=nearest';
+
+// Database Name
+const dbName = 'myproject';
+
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  console.log("Connected correctly to server");
+
+  const db = client.db(dbName);
+
+  client.close();
+});
+```
+
 Refer to the corresponding sample application repos for other platforms, such as [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) and [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference).
 
 ## Read using tags

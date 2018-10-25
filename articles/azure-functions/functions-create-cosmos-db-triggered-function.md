@@ -55,7 +55,7 @@ Next, you create a function in the new function app.
 
 1. In the search field, type `cosmos` and then choose the **Azure Cosmos DB trigger** template.
 
-1. If prompted, select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 

@@ -12,15 +12,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
 
 ---
 
 # Azure Active Directory Terms of use feature
-Azure AD Terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with Azure AD Terms of use.
+Azure AD Terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with Terms of use.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## Overview videos
+
+The following video provides a quick overview of Terms of use.
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+For additional videos, see:
+- [How to deploy Terms of use in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## What can I do with Terms of use?
 Azure AD Terms of use enables you to do the following:
@@ -29,8 +39,9 @@ Azure AD Terms of use enables you to do the following:
 - Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../users-groups-roles/groups-dynamic-membership.md)).
 - Present specific Terms of use when accessing high business impact applications, like Salesforce.
 - Present Terms of use in different languages.
+- Assist in meeting privacy regulations.
 - List who has or hasn't agreed to your Terms of use.
-- Display an audit log of Terms of use activity.
+- Display a log of Terms of use activity for compliance and audit.
 
 ## Prerequisites
 To use and configure Azure AD Terms of use, you must have:
@@ -238,4 +249,4 @@ A: You can [review previously accepted Terms of use](#how-users-can-review-their
 
 ## Next steps
 
-- [Best practices for conditional access in Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Best practices for conditional access in Azure Active Directory](../../active-directory/conditional-access/best-practices.md)

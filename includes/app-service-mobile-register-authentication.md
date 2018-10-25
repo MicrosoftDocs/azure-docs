@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 
 First, you need to register your app at an identity provider's site, and then you will set the provider-generated credentials in the Mobile Apps back end.
 

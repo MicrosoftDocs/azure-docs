@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory ID token reference | Microsoft Docs
-description: Using id_tokens emitted by the v1 and v2 endpoints of Azure AD. 
+description: Learn how to use id_tokens emitted by the v1.0 and v2.0 endpoints of Azure AD. 
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -60,11 +60,12 @@ View this v2.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 
 |Claim | Format | Description |
 |-----|--------|-------------|
-|`aud` | String, an App ID URI | Identifies the intended recipient of the token. In `id_tokens`, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value, and reject the token if the value does not match. |
-|`iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
-|`iat` | int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred. |
-|`nbf` | int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
-|`exp` | int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing. It's important to note that a resource may reject the token before this time as well - if for example a change in authentication is required or a token revocation has been detected. |
+|`aud` |  String, an App ID URI | Identifies the intended recipient of the token. In `id_tokens`, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value, and reject the token if the value does not match. |
+|`iss` |  String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`.  The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
+|`iat` |  int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred.  |
+|`idp`|String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim is not present, it means that the value of `iss` can be used instead.  For personal accounts being used in an orgnizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+|`nbf` |  int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
+|`exp` |  int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  It's important to note that a resource may reject the token before this time as well - if for example a change in authentication is required or a token revocation has been detected. |
 | `c_hash`| String |The code hash is included in ID tokens only when the ID token is issued with an OAuth 2.0 authorization code. It can be used to validate the authenticity of an authorization code. For details about performing this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html). |
 |`at_hash`| String |The access token hash is included in ID tokens only when the ID token is issued with an OAuth 2.0 access token. It can be used to validate the authenticity of an access token. For details about performing this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Opaque String | An internal claim used by Azure AD to record data for token reuse. Should be ignored.|

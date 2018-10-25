@@ -1,18 +1,19 @@
 ---
 title: "Tutorial: QnA bot with Azure Bot Service - QnA Maker"
 titleSuffix: Azure Cognitive Services
-description: This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal without writing any code. Connecting an existing knowledge base (KB) to a bot is as simple as changing bot application settings. 
+description: This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker`
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.author: tulasim
 ---
 
 # Tutorial: Create a QnA Bot with Azure Bot Service v3
+
 This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal without writing any code. Connecting a published knowledge base (KB) to a bot is as simple as changing bot application settings. 
 
 > [!Note] 
@@ -30,9 +31,11 @@ This tutorial walks you through building a QnA bot with Azure Bot service v3 on 
 For this article, you can use the free QnA Maker [service](../how-to/set-up-qnamaker-service-azure.md).
 
 ## Prerequisites
+
 You need to have a published knowledge base for this tutorial. If you do not have one, follow the steps in [Create a knowledge base](../How-To/create-knowledge-base.md) to create a QnA Maker service with questions and answers.
 
 ## Create a QnA Bot
+
 1. In the [Azure portal](https://portal.azure.com), select **Create** new resource.
 
     ![bot service creation](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
@@ -64,6 +67,7 @@ You need to have a published knowledge base for this tutorial. If you do not hav
     - After the notification changes to **Deployment succeeded**, select **Go to resource** on that notification.
 
 ## Chat with the Bot
+
 Selecting **Go to resource** takes you to the bot's resource blade.
 
 Once the bot is registered, click **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
@@ -90,6 +94,7 @@ The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in A
 > If you want to connect the preview version of the knowledge base with the QnA bot, set the value of **Ocp-Apim-Subscription-Key** to **QnAAuthKey**. Leave the **QnAEndpointHostName** empty.
 
 ## Test the bot
+
 In the Azure portal, click on **Test in Web Chat** to test the bot. 
 
 ![QnA Maker bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
@@ -97,6 +102,7 @@ In the Azure portal, click on **Test in Web Chat** to test the bot.
 Your QnA Bot now answers from your knowledge base.
 
 ## Clean up resources
+
 When you are done with this tutorial's bot, remove the bot in the Azure portal. The bot services include:
 
 * The App Service plan

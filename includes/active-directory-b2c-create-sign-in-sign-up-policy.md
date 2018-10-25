@@ -1,3 +1,10 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c 
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 In the policies section of settings, select **Sign-up or sign-in policies** and click **+ Add**.

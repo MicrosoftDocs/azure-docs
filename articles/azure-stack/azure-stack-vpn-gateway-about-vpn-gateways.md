@@ -3,7 +3,7 @@ title: About VPN gateway for Azure Stack | Microsoft Docs
 description: Learn about and configure VPN gateways you use with Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
-ms.author: brenduns
+ms.author: sethm
 ---
 
 # About VPN gateway for Azure Stack

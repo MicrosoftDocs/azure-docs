@@ -33,7 +33,7 @@ In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/ov
 
 - **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Create an SSH key pair**: If you don't already have an SSH key pair, follow the instructions in the article, [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Create an SSH key pair**: If you don't already have an SSH key pair, follow the instructions in the article, [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## Create the directory structure
 
