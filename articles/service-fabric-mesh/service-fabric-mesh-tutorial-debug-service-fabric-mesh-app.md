@@ -70,7 +70,7 @@ Press **F5** to compile and run your service locally. When the project is run an
 
 After the local deployment is finished, and Visual Studio is running your app, a browser window will open to a default sample web page.
 
-**Debugging tips**
+## Debugging tips
 
 You can configure Visual Studio to make debugging faster with settings available under **Tools** > **Options**  > **Service Fabric Tools** > **General**:
 

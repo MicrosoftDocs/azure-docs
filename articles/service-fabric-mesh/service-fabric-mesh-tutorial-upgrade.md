@@ -53,30 +53,30 @@ When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yml
 
 There are two steps. First, define the parameters you want in the **parameters.yml** file for the deployment target you want to affect. Then use those parameters in your service's **service.yaml** file.
 
-1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `<WebFrontEnd_>cpu`, with a value of `1.0`. Note that the parameter name is prefaced with the service name `<WebFrontEnd_>` as a best practice to distinguish it from parameters of the same name that apply to different services.
+1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `WebFrontEnd_cpu`, with a value of `1.0`. Note that the parameter name is prefaced with the service name `WebFrontEnd_` as a best practice to distinguish it from parameters of the same name that apply to different services.
 
     ```xml
-    <WebFrontEnd_>cpu: 1.0
+    WebFrontEnd_cpu: 1.0
     ```
     
 2. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
 
-    In the `resources:` section, change `cpu:` to from `0.5` to `"parameters('cpu')]"`. It should now look like this:
+    In the `resources:` section, change `cpu:` to from `0.5` to `"parameters('WebFrontEnd_cpu')]"`. It should now look like this:
     
     ```xml
                   ...
                   resources:
                     requests:
-                      cpu: "[parameters('<WebFrontEnd_>cpu')]"
+                      cpu: "[parameters('WebFrontEnd_cpu')]"
                       memoryInGB: 1
                   ...
     ```
     
-If the project is being built for the cloud, the value for `cpu` will be taken from the **Environments** > **Cloud** > **parameters.yaml** file, and will be `1.0`. If the project is being built to run locally, the value will be taken from the **Environments** > **Local** > **parameters.yaml** file, instead.
+If the project is being built for the cloud, the value for `'WebFrontEnd_cpu` will be taken from the **Environments** > **Cloud** > **parameters.yaml** file, and will be `1.0`. If the project is being built to run locally, the value will be taken from the **Environments** > **Local** > **parameters.yaml** file, instead.
 
 > [!Tip]
-> By default, the parameter file that is a peer of the profile.yaml file will be used to supply the values for the profile.yaml file.
-> For example, Environments > Cloud >  parameters.yaml provides the parameter values for the Environments > Cloud > profile.yaml file.
+> By default, the parameter file that is a peer of the profile.yaml file will be used to supply the values for that profile.yaml file.
+> For example, Environments > Cloud >  parameters.yaml provides the parameter values for Environments > Cloud > profile.yaml.
 >
 > You can override this by adding the following to the profile.yaml file:`parametersFilePath=”relative or full path to the parameters file”`
 > For example, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` or `parametersFilePath=”..\CommonParameters.yaml”`
