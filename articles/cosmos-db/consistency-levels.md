@@ -62,22 +62,9 @@ A Cosmos DB container holds the visitors and home team’s run totals. While the
 | - | - |
 | **Strong** | 2-5 |
 | **Bounded Staleness** | scores that are at most one inning out-of-date" 2-3, 2-4, 2-5 |
-| **Session** | for the writer" 2-5 |
-| | for anyone other than the writer: 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, |
-| | 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5; |
-| | after reading 1-3:  1-3, 1-4, 1-5, 2-3, 2-4, 2-5 |
+| **Session** | <ul><li>for the writer" 2-5</li><li> for anyone other than the writer: 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5</li><li>after reading 1-3:  1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
 | **Consistent Prefix** | 0-0, 0-1, 1-1, 1-2, 1-3, 2-3, 2-4, 2-5 |
 | **Eventual** | 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5 |
-
-## Next steps
-
-To learn more about consistency in Cosmos DB, read the following articles:
-
-- [Availability and Performance Tradeoffs for various Consistency Levels](consistency-levels-tradeoffs.md)
-- [Choosing the Right Consistency Level](consistency-levels-choosing.md)
-- [Consistency Level across Cosmos DB model APIs](consistency-levels-across-apis.md)
-- [How to Configure the Default Consistency Level](how-to-manage-consistency.md#configure-the-default-consistency-level)
-- [How to Override the Default Consistency Level](how-to-manage-consistency.md#override-the-default-consistency-level)
 
 ## Additional reading
 
@@ -90,3 +77,13 @@ To learn more about consistency concepts, read the following articles:
 - [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 - [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventually Consistent - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+## Next steps
+
+To learn more about consistency in Cosmos DB, read the following articles:
+
+- [Availability and Performance Tradeoffs for various Consistency Levels](consistency-levels-tradeoffs.md)
+- [Choosing the Right Consistency Level](consistency-levels-choosing.md)
+- [Consistency Level across Cosmos DB model APIs](consistency-levels-across-apis.md)
+- [How to Configure the Default Consistency Level](how-to-manage-consistency.md#configure-the-default-consistency-level)
+- [How to Override the Default Consistency Level](how-to-manage-consistency.md#override-the-default-consistency-level)
