@@ -55,4 +55,4 @@ The prebuilt entity, datetimeV2, does a great job of understanding a wide range 
 
 ## Next steps
 
-* Learn how to add [roles](luis-how-to-add-entities.md#add-role-to-pattern-based-entity)
+* Learn how to add [roles](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)
