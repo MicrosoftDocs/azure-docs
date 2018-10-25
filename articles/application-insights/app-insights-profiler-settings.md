@@ -19,6 +19,8 @@ ms.author: mbullwin
 
 # Configure Application Insights Profiler
 
+## Profiler Settings Page
+
 The profiler settings page can be opened from the Application Insights Performance page by pressing the **Profiler** button.
 
 ![configure profiler pane entry][configure-profiler-entry]
@@ -31,7 +33,7 @@ The Configure Application Insights Profiler page contains four features:
 
 ![Profiler on-demand][profiler-on-demand]
 
-## Problem showing agent status for App Service Environments (ASE)
+## Problem showing status for App Service Environments (ASE)
 Depending on how your ASE is configured, the call to check on the agent status may be blocked. This page will say that the agent isn't running when in fact it is. You can check the webjob on your application to be sure. But if all the app settings are set correctly and the App Insights site extension is installed on your application, the profiler will be running and you should see recent profiling sessions in the list if there's adequate traffic to your application.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler

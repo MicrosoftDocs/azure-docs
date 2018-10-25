@@ -25,7 +25,7 @@ You can also deploy Application Insights profiler on these services:
 
 Application Insights Profiler is installed with the Windows Azure Diagnostics (WAD) extension. You just need to configure WAD to install the profiler and send profiles to your Application Insights resource.
 
-## Here are the steps you need to take to enable profiler for your Azure Cloud Service
+## Enable profiler for your Azure Cloud Service
 1. Check to see that you  using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later.  It's sufficient to confirm that the *ServiceConfiguration.\*.cscfg* files have an `osFamily` value of "5" or later.
 1. Add [Application Insights SDK to cloud service](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Track requests with Application Insights:

@@ -62,7 +62,7 @@ When you see parallel threads in your traces, determine which threads are waitin
 ### **Error report in the profiling viewer**
 Submit a support ticket in the portal. Be sure to include the correlation ID from the error message.
 
-## Troubleshooting problems with Profiler running on App Services
+## Troubleshooting Profiler on App Services
 ### **For the profiler to work properly:**
 * Your web app service plan must be Basic tier or higher.
 * Your web app must have the Application Insights extension for App Services (2.6.5) installed.
@@ -115,7 +115,7 @@ These parameters delete the folder that's used by Application Insights Profiler 
 
 Profiler runs as a continuous web job in the web app. You can open the web app resource in the [Azure portal](https://portal.azure.com). In the **WebJobs** pane, check the status of **ApplicationInsightsProfiler**. If it isn't running, open **Logs** to get more information.
 
-## Troubleshooting problems with Profiler when installing with WAD on Cloud Services, VMs, and virtual machine scale sets and Service Fabric applications.
+## Troubleshooting problems with Profiler and WAD
 
 There are three things to check to see that the profiler is configured correctly by WAD. First, you need to check that the contents of the WAD configuration that are deployed are what you expect. Second, you need to check WAD passes the proper iKey on the profiler command line. Third, you can check the profiler log file to see if profiler ran but is getting an error. 
 
