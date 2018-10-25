@@ -13,7 +13,7 @@ ms.author: laevenso
 
 # Use GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
 
-Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics and visualization workloads. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. For more information on available GPU-enabled VMs, see [GPU optimized VM sizes in Azure][gpu-skus]. For AKS nodes, we recommend a minimum size of *Standard_NC6**.
+Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics and visualization workloads. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. For more information on available GPU-enabled VMs, see [GPU optimized VM sizes in Azure][gpu-skus]. For AKS nodes, we recommend a minimum size of *Standard_NC6*.
 
 > [!NOTE]
 > GPU-enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availablility].
@@ -342,3 +342,4 @@ For more information about running machine learning (ML) workloads on Kubernetes
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/linux/sizes-gpu.md
+[install-azure-cli]: /cli/azure/install-azure-cli
