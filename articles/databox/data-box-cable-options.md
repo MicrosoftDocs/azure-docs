@@ -26,7 +26,7 @@ Before you begin, make sure you have:
 
 Do the following steps to cable your device.
 
-1. Use an RJ45 cable to connect the MGMT port to the server containing the data.
+1. Use an RJ45 cable to connect the MGMT port to the server that has the data.
 
     ![One port setup](media/data-box-cable-options/cabling-mgmt-only.png)
 
@@ -47,7 +47,7 @@ We strongly recommend that if you configure only one data port, it should be a 1
 Before you begin, make sure you have:
 
 - An RJ45 Ethernet cable for the MGMT.
-- A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
+- A 10-GbE SFP+ Twinax copper cable for each 10-GbE data port that you want to connect.
 - One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients).
 
 ### Option 1 - Initial setup via server
@@ -64,7 +64,7 @@ Do the following steps to cable your device.
     ![Two port setup](media/data-box-cable-options/cabling-2-port-setup.png)
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
-4. Assign static IPs to the data ports that you have configured.
+4. Assign static IPs to the data ports that you've configured.
 
 ### Option 2 - Initial setup via separate computer
 
@@ -72,7 +72,7 @@ Do the following steps to cable your device.
 
 1. Use an RJ45 Ethernet cable from the server directly to the MGMT port for configuration.
 2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance. The data ports are connected via a 10-GbE switch to the server with data.
-3. Configure the Ethernet adapter of the laptop you are using to connect to the device with:
+3. Configure the Ethernet adapter of the laptop you're using to connect to the device with:
 
     - **IP address** of 192.168.100.5
     - **Subnet** of 255.255.255.0.
@@ -89,14 +89,14 @@ Use this configuration for multiple data sources across 1 GbE and 10 gbE network
 Before you begin, make sure you have:
 
 - An RJ45 Ethernet cable for the MGMT.
-- A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
-- One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients). These data sources could be in different networks such as 1 GbE or 10 GbE networks.
+- A 10-GbE SFP+ Twinax copper cable for each 10-GbE data port that you want to connect.
+- One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients). These data sources could be in different networks such as 1 GbE or 10-GbE networks.
 
 Do the following steps to cable your device.
 
 1. Use an RJ45 Ethernet cable from the server directly to the MGMT port for configuration.
 2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance.
-3. Configure the Ethernet adapter of the laptop you are using to connect to the device with:
+3. Configure the Ethernet adapter of the laptop you're using to connect to the device with:
 
     - **IP address** of 192.168.100.5
     - **Subnet** of 255.255.255.0.
@@ -104,7 +104,7 @@ Do the following steps to cable your device.
     ![Two port setup with a switch](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
-4. Assign static IPs to the data ports that you have configured.
+4. Assign static IPs to the data ports that you've configured.
 
 
 ## Data transfer to DATA port in a DHCP environment
@@ -114,8 +114,8 @@ Use this configuration if your device will be in a DHCP environment.
 Before you begin, make sure you have:
 
 - An RJ45 cable if you wish to connect DATA 1.
-- A 10 GbE SFP+ Twinax copper cable for each 10 GbE data port that you want to connect.
-- One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients). These data sources could be in different networks such as 1 GbE or 10 GbE networks.
+- A 10-GbE SFP+ Twinax copper cable for each 10-GbE data port that you want to connect.
+- One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients). These data sources could be in different networks such as 1 GbE or 10-GbE networks.
 
 Do the following steps to cable your device.
 
@@ -127,4 +127,4 @@ Do the following steps to cable your device.
 
 ## Next steps
 
-- After you have cabled the device, go to [Copy data to your Azure Data Box](data-box-deploy-copy-data.md).
+- After you've cabled the device, go to [Copy data to your Azure Data Box](data-box-deploy-copy-data.md).
