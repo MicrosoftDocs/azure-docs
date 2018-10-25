@@ -39,12 +39,12 @@ ZRS may not protect your data against a regional disaster where multiple zones a
 ## Converting to ZRS replication
 Migrating to or from LRS, GRS, and RA-GRS is straightforward. You can use the Azure portal or the Storage Resource Provider API to change your account's redundancy type. With ZRS, however, migration isn't as straightforward. ZRS migration involves the physical data movement from a single storage stamp to multiple stamps within a region. 
 
-You have two primary options for migration to or from ZRS. You can manually copy or move data to a new ZRS account from your existing account. You can also request a live migration. Microsoft strongly recommends that you perform a manual migration because there's no guarantee as to when a live migration will complete. A manual migration route provides more flexibility than a live migration does, and you're in control of the migration timing.
+You have two primary options for migration to or from ZRS. You can manually copy or move data to a new ZRS account from your existing account. You can also request a live migration. Microsoft strongly recommends that you perform a manual migration because there's no guarantee as to when a live migration will complete. A manual migration route provides more flexibility than a live migration, and you're in control of the migration timing.
 
-To perform a manual migration, you have a variety options:
+To perform a manual migration, you have options:
 - Use existing tooling like AzCopy, the storage SDK, and reliable third-party tools.
 - If you're familiar with Hadoop or HDInsight, you can attach both source and destination (ZRS) account to your cluster and use something like DistCp to massively parallelize the data copy process.
-- Build your own tooling that leverages one flavor of the storage SDK.
+- Build your own tooling that uses one flavor of the storage SDK.
 
 If, however, a manual migration results in some application downtime and you can't absorb that on your end, then Microsoft provides a live migration option. A live migration is an in-place migration that allows you to use your existing storage account while your data is migrated between source and destination storage stamps. During migration, you have the same level of durability and availability SLA as you do normally.
 
@@ -82,9 +82,9 @@ ZRS Classic asynchronously replicates data across data centers within one to two
 
 ZRS Classic is available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
-ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.
+You cannot convert ZRS Classic accounts to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also don't support metrics or logging.
 
-To manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, or RA-GRS account, use AzCopy, Azure Storage Explorer, Azure PowerShell, or Azure CLI. You can also build your own migration solution with one of the Azure Storage client libraries.
+To manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, or RA-GRS account, use one of the following tools: AzCopy, Azure Storage Explorer, Azure PowerShell, or Azure CLI. You can also build your own migration solution with one of the Azure Storage client libraries.
 
 ## See also
 - [Azure Storage replication](storage-redundancy.md)
