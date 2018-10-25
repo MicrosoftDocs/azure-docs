@@ -11,7 +11,7 @@ ms.author: robinsh
 
 # Introduction to Azure and the Internet of Things
 
-Azure IoT consists of three areas of technologies and solutions—solutions, platform services, and edge, all designed to facilitate the end-to-end development of your IoT application. This article begins by describing the common characteristics of an IoT solution in the cloud, followed by an overview of how Azure IoT addresses challenges in IoT projects and why you should consider adopting Azure IoT.
+Azure IoT consists of three parts: solutions architecture, platform services, and edge. Together, they are all designed to facilitate the end-to-end development of your IoT application. This article begins by describing the common characteristics of an IoT solution in the cloud, followed by an overview of how Azure IoT addresses challenges in IoT projects and why you should consider adopting Azure IoT.
 
 ## IoT solution architecture
 
