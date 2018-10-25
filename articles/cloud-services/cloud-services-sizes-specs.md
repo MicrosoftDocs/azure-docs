@@ -4,7 +4,7 @@ description: Lists the different virtual machine sizes (and IDs) for Azure cloud
 services: cloud-services
 documentationcenter: ''
 author: jpconnock
-manager: timlt
+manager: jpconnock
 editor: ''
 
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
@@ -209,7 +209,7 @@ As the nature of your workload changes or new VM sizes become available, you may
 >
 
 ## Get a list of sizes
-You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes avaialble for Cloud Services. 
+You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes available for Cloud Services. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
