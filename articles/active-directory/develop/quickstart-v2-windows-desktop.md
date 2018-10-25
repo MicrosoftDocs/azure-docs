@@ -108,7 +108,7 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 ### Requesting tokens
 
-MSAL has two methods used acquire tokens: `AcquireTokenAsync` and `AcquireTokenSilentAsync`.
+MSAL has two methods for acquiring tokens: `AcquireTokenAsync` and `AcquireTokenSilentAsync`.
 
 #### Get a user token interactively
 
