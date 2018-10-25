@@ -58,7 +58,7 @@ At the top of the Program class, add the following constants to access QnA Maker
 
 After the constants, add the following KB model definition:
 
-[!code-csharp[Add the KB definition](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=59-83 "Add the KB definition")]
+[!code-csharp[Add the KB definition](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=59-81 "Add the KB definition")]
 
 ## Add supporting functions and structures
 Add the following code block inside the Program class:
