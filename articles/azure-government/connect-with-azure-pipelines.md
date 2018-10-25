@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy an app in Azure Government with Azure Pipelines | Microsoft Docs
 description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Azure Pipelines.
 services: azure-government

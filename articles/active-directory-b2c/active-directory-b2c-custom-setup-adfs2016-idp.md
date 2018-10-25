@@ -58,7 +58,6 @@ You can define an ADFS account as a claims provider by adding it to the **Claims
           <Description>Login with your ADFS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
-            <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
           </Metadata>
