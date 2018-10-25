@@ -55,6 +55,8 @@ Kusto offers client SDK that can be used to ingest and query data with :
 
 * [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
+* [Node SDK]
+
 * [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Programmatic ingestion techniques**:
