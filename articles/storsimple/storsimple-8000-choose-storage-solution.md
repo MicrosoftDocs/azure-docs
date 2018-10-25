@@ -16,7 +16,7 @@ This document provides an overview of the on-premises Azure Storage solutions, c
 
 - **[Data Box Edge](data-box-edge-overview.md)** – Data Box Edge is an on-premises network device that moves data into and out of Azure and has AI-enabled edge compute to pre-process data during upload. It was announced at Ignite 2018 and is in public preview. Data Box Gateway is a virtual version of the device with the same data transfer capabilities.
 - **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)** – Azure File Sync can be used to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. General availability of AFS was announced earlier in 2018.
-- **[StorSimple](/azure/storsimple/storsimple-overview)** – StorSimple is a hybrid device that helps enterprises consolidate their storage infrastructure for primary storage, data protection, archiving and disaster recovery on a single solution by tightly integrating with Azure storage. The product lifecycle for StorSimple can be found [here](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+- **[StorSimple](/azure/storsimple/storsimple-overview)** – StorSimple is a hybrid device that helps enterprises consolidate their storage infrastructure for primary storage, data protection, archiving, and disaster recovery on a single solution by tightly integrating with Azure storage. The product lifecycle for StorSimple can be found [here](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
 # Solution comparison
 
