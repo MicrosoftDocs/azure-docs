@@ -49,7 +49,9 @@ Traffic analytics examines the raw NSG flow logs and captures reduced logs by ag
 
 ## Supported regions
 
-You can use traffic analytics for NSGs in any of the following regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, West Europe, North Europe, West UK, South UK, Australia East, Australia Southeast, and Southeast Asia. The log analytics workspace must exist in the West Central US, East US, West Europe, South UK, Australia Southeast, or the Southeast Asia region.
+You can use traffic analytics for NSGs in any of the following regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, Canada Central, West Europe, North Europe, UK West, UK South,  Japan East, India Central, Australia East, Australia Southeast, and Southeast Asia. 
+
+The log analytics workspace must exist in the West Central US, East US, West Europe, South UK, Central Canada, Japan East, India Central Australia Southeast, or the Southeast Asia region.
 
 ## Prerequisites
 
@@ -131,7 +133,7 @@ Select the following options, as shown in the picture:
 2. Select an existing storage account to store the flow logs in. If you want to store the data forever, set the value to *0*. You incur Azure Storage fees for the storage account.
 3. Set **Retention** to the number of days you want to store data for.
 4. Select *On* for **Traffic Analytics Status**.
-5. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#traffic-analytics-supported-regions) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Select an existing Log Analytics Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#traffic-analytics-supported-regions) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     The log analytics workspace hosting the traffic analytics solution and the NSGs do not have to be in the same region. For example, you may have traffic analytics in a workspace in the West Europe region, while you may have NSGs in East US and West US. Multiple NSGs can be configured in the same workspace.
 6. Select **Save**.

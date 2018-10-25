@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 # What is the Web Language Model API? (Preview)
 
 > [!IMPORTANT]
-> The Web Language Model preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
+> The Web Language Model preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 The Microsoft Web Language Model API is a REST-based cloud service providing state-of-the-art tools for natural language processing. Using this API, your application can leverage the power of big data through language models trained on web-scale corpora collected by Bing in the en-US market.
 
