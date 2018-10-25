@@ -1,4 +1,13 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+---
+
 ### Version 1.x
+
 ```json
 {
     "eventHub": {
@@ -10,6 +19,7 @@
 ```
 
 ### Version 2.x
+
 ```json
 {
   "version": "2.0",
