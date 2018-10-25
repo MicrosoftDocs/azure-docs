@@ -14,7 +14,7 @@ ms.author: chrande
 
 ## Create a database account
 
-### <a id="create-database-account-via-portal>Azure portal</a>
+### <a id="create-database-account-via-portal"></a>Azure portal
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
