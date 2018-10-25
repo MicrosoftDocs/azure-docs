@@ -16,9 +16,12 @@ ms.author: sajagtap
 
 # Quickstart: Check video content in C#
 
-Today, online viewers generate billions of video views across popular and regional social media websites and apps. By applying machine-learning-based services that detect potentially adult and racy content, you can lower the cost of your moderation efforts.
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to scan video content for adult or racy content.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
+## Prerequisites
+- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
 ## Sign up for the Content Moderator media processor (preview)
 
