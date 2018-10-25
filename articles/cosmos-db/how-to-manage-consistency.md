@@ -81,13 +81,23 @@ var response = await client.CreateDocumentAsync(collectionUri, document, request
 ### <a id="override-default-consistency-java-async">Java Async</a>
 
 ```java
+// Override consistency at the client level
+ConnectionPolicy policy = new ConnectionPolicy();
 
+AsyncDocumentClient client =
+        new AsyncDocumentClient.Builder()
+                .withMasterKey(this.accountKey)
+                .withServiceEndpoint(this.accountEndpoint)
+                .withConsistencyLevel(ConsistencyLevel.Eventual)
+                .withConnectionPolicy(policy).build();
 ```
 
 ### <a id="override-default-consistency-java-sync">Java Sync</a>
 
 ```java
-
+// Override consistency at the client level
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Strong);
 ```
 
 ### <a id="override-default-consistency-javascript">Node.js/JavaScript/TypeScript</a>
@@ -106,16 +116,60 @@ const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual }
 ### <a id="override-default-consistency-python">Python</a>
 
 ```python
-
+# Override consistency at the client level
+connection_policy = documents.ConnectionPolicy()
+client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Strong)
 ```
 
 ## Utilize session tokens
 
 ### <a id="utilize-session-tokens-dotnet">.NET</a>
 
+```csharp
+var response = await client.ReadDocumentAsync(
+                UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"));
+string sessionToken = response.SessionToken;
+
+RequestOptions options = new RequestOptions();
+options.SessionToken = sessionToken;
+var response = await client.ReadDocumentAsync(
+                UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
+```
+
 ### <a id="utilize-session-tokens-java-async">Java Async</a>
 
+```java
+// Get session token from response
+RequestOptions options = new RequestOptions();
+options.setPartitionKey(new PartitionKey(document.get("mypk")));
+Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
+readObservable.single()           // we know there will be one response
+  .subscribe(
+      documentResourceResponse -> {
+          System.out.println(documentResourceResponse.getSessionToken());
+      },
+      error -> {
+          System.err.println("an error happened: " + error.getMessage());
+      });
+
+// Resume the session by setting the session token on RequestOptions
+RequestOptions options = new RequestOptions();
+requestOptions.setSessionToken(sessionToken);
+Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
+```
+
 ### <a id="utilize-session-tokens-java-sync">Java Sync</a>
+
+```java
+// Get session token from response
+ResourceResponse<Document> response = client.readDocument(documentLink, null);
+String sessionToken = response.getSessionToken();
+
+// Resume the session by setting the session token on the RequestOptions
+RequestOptions options = new RequestOptions();
+options.setSessionToken(sessionToken);
+ResourceResponse<Document> response = client.readDocument(documentLink, options);
+```
 
 ### <a id="utilize-session-tokens-javascript">Node.js/JavaScript/TypeScript</a>
 
@@ -129,6 +183,18 @@ const { body } = await item.read({ sessionToken });
 ```
 
 ### <a id="utilize-session-tokens-python">Python</a>
+
+```python
+// Get the session token from the last response headers
+item = client.ReadItem(item_link)
+session_token = client.last_response_headers["x-ms-session-token"]
+
+// Resume the session by setting the session token on the options for the request
+options = {
+    "sessionToken": session_token
+}
+item = client.ReadItem(doc_link, options)
+```
 
 ## Monitor Probabilistically Bounded Staleness (PBS) metric
 
