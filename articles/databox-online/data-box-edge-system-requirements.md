@@ -46,6 +46,8 @@ The system requirements for the Data Box Edge include:
 
 The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Data Box Edge device sends data externally, beyond the deployment: for example, outbound to the Internet.
 
+### Port configuration for Data Box Edge
+
 | Port no.|	In or out |	Port scope|	Required|	Notes                                                             |                                                                                     |
 |--------|---------|----------|--------------|----------------------|---------------|
 | TCP 80 (HTTP)|Out|WAN	|No|Outbound port is used for Internet access to retrieve updates. <br>The outbound web proxy is user configurable. |                          
@@ -54,7 +56,16 @@ The following table lists the ports that need to be opened in your firewall to a
 | UDP 123 (NTP)|Out|WAN|In some cases<br>See notes|This port is required only if you are using an Internet-based NTP server.  |
 | UDP 67 (DHCP)|Out|WAN|In some cases<br>See notes|This port is required only if you are using a DHCP server.  |
 | TCP 80 (HTTP)|In|LAN|Yes|This is the inbound port for local UI on the device for local management. <br>Accessing the local UI over HTTP will automatically redirect to HTTPS.  | 
-| TCP 443 (HTTPS)|In|LAN|Yes|This is the inbound port for local UI on the device for local management. | 
+| TCP 443 (HTTPS)|In|LAN|Yes|This is the inbound port for local UI on the device for local management. |
+
+
+## Port configuration IoT Edge deployment
+
+Azure IoT Edge allows communication from an on-premises Edge device to Azure cloud using supported IoT Hub protocols. For enhanced security, communication channels between Azure IoT Edge and Azure IoT Hub are always configured to be Outbound; this is based on the Services Assisted Communication pattern, which minimizes the attack surface for a malicious entity to explore. Inbound communication is only required for specific scenarios where Azure IoT Hub need to push messages down to the Azure IoT Edge device (e.g., Cloud To Device messaging), these are again protected using secure TLS channels and can be further secured using X.509 certificates and TPM device modules. 
+
+Use the following table as a guideline for port configuration for the underlying servers where Azure IoT Edge runtime is hosted:
+
+ 
 
 ## URL patterns for firewall rules
 
