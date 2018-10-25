@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Convert text script - Translator Text, Node.js"
+title: "Quickstart: Convert text script, Node.js - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Transliterate text with Node.js
+# Quickstart: Transliterate text with the Translator Text REST API (Node.js)
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
 

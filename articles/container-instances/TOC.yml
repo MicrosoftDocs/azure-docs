@@ -67,6 +67,8 @@
       href: container-instances-restart-policy.md
     - name: Jenkins build agents on ACI
       href: container-instances-jenkins.md
+    - name: Use a managed identity (preview)
+      href: container-instances-managed-identity.md
   - name: Configure data volumes
     items:
     - name: Azure Files

@@ -6,42 +6,44 @@
     href: Overview/overview.md
 - name: Quickstarts
   items:
-  - name: Create a new knowledge base
-    items:
-    - name: C#
-      href: Quickstarts/create-new-kb-csharp.md
-    - name: Go
-      href: Quickstarts/create-new-kb-go.md
-    - name: Java
-      href: Quickstarts/create-new-kb-java.md
-    - name: Node.js
-      href: Quickstarts/create-new-kb-nodejs.md
-    - name: Python
-      href: Quickstarts/create-new-kb-python.md
-  - name: Update a knowledge base
-    items:
-    - name: C#
-      href: Quickstarts/update-kb-csharp.md
-    - name: Go
-      href: Quickstarts/update-kb-go.md
-    - name: Java
-      href: Quickstarts/update-kb-java.md
-    - name: Node.js
-      href: Quickstarts/update-kb-nodejs.md
-    - name: Python
-      href: Quickstarts/update-kb-python.md
-  - name: Publish a knowledge base
-    items:
-    - name: C#
-      href: Quickstarts/publish-kb-csharp.md
-    - name: Go
-      href: Quickstarts/publish-kb-go.md
-    - name: Java
-      href: Quickstarts/publish-kb-java.md
-    - name: Node.js
-      href: Quickstarts/publish-kb-nodejs.md
-    - name: Python
-      href: Quickstarts/publish-kb-python.md
+  - name: Use REST API
+    items: 
+    - name: Create a new knowledge base
+      items:
+      - name: C#
+        href: Quickstarts/create-new-kb-csharp.md
+      - name: Go
+        href: Quickstarts/create-new-kb-go.md
+      - name: Java
+        href: Quickstarts/create-new-kb-java.md
+      - name: Node.js
+        href: Quickstarts/create-new-kb-nodejs.md
+      - name: Python
+        href: Quickstarts/create-new-kb-python.md
+    - name: Update a knowledge base
+      items:
+      - name: C#
+        href: Quickstarts/update-kb-csharp.md
+      - name: Go
+        href: Quickstarts/update-kb-go.md
+      - name: Java
+        href: Quickstarts/update-kb-java.md
+      - name: Node.js
+        href: Quickstarts/update-kb-nodejs.md
+      - name: Python
+        href: Quickstarts/update-kb-python.md
+    - name: Publish a knowledge base
+      items:
+      - name: C#
+        href: Quickstarts/publish-kb-csharp.md
+      - name: Go
+        href: Quickstarts/publish-kb-go.md
+      - name: Java
+        href: Quickstarts/publish-kb-java.md
+      - name: Node.js
+        href: Quickstarts/publish-kb-nodejs.md
+      - name: Python
+        href: Quickstarts/publish-kb-python.md
 - name: Concepts
   items:
   - name: Knowledge base
@@ -94,7 +96,7 @@
     href: How-To/upgrade-qnamaker-service.md
   - name: Troubleshoot and update QnAMaker runtime
     href: How-To/troubleshooting-runtime.md
-  - name: Use QnA Maker API
+  - name: Use REST API
     items:
     - name: C#
       href: Quickstarts/csharp.md
@@ -108,7 +110,7 @@
       href: Quickstarts/go.md
 - name: Reference
   items:
-  - name: API Reference
+  - name: REST API Reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
   - name: FAQ
     href: faqs.md
@@ -121,10 +123,10 @@
 - name: Resources
   items:
   - name: Regional Availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
+  - name: Pricing and limits
     href: https://aka.ms/qnamaker-pricing
   - name: Language and region support
     href: Overview/language-support.md
@@ -133,6 +135,6 @@
   - name: UserVoice
     href: https://aka.ms/qnamaker-uservoice
   - name: Search
-    href: https://docs.microsoft.com/en-us/search/index?search=QnAMaker
+    href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/

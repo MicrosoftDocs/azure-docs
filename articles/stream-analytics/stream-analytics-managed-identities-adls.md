@@ -13,7 +13,7 @@ ms.date: 09/27/2018
 
 Azure Stream Analytics supports managed identity authentication with Azure Data Lake Storage (ADLS) Gen1 output. The identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job, and can be used to authenticate to a targeted resource. Managed identities eliminate the limitations of user-based authentication methods, like needing to reauthenticate due to password changes or user token expirations that occur every 90 days. Additionally, managed identities help with the automation of Stream Analytics job deployments that output to Azure Data Lake Storage Gen1.
 
-Visit the [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) blog post to sign up for this preview and read more about new features.
+Visit the [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog post to sign up for this preview and read more about new features.
 
 This article shows you two ways to enable managed identity for an Azure Stream Analytics job that outputs to an Azure Data Lake Storage Gen1: through the Azure portal and through Azure Resource Manager template deployment.
 

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 10/11/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -25,7 +25,7 @@ ms.reviewer: waltero
 > [!Note]  
 > Kubernetes on Azure Stack is in preview.
 
-The following article looks troubleshooting your Kubernetes cluster. You can review the deployment alert and review the status of your deployment by the elements required for the deployment. You may need to collect the deployment logs from your Azure Stack or the Linux VMs that host Kubernetes. In addition, you may need to work with your Azure Stack administrator to retrieve logs from an administrative endpoint.
+The following article looks at troubleshooting your Kubernetes cluster. You can review the deployment alert and review the status of your deployment by the elements required for the deployment. You may need to collect the deployment logs from your Azure Stack or the Linux VMs that host Kubernetes. In addition, you may need to work with your Azure Stack administrator to retrieve logs from an administrative endpoint.
 
 ## Overview of deployment
 

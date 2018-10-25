@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 
 ---
@@ -242,7 +242,7 @@ You can update the bandwidth of the ExpressRoute circuit using the REST API or P
 ExpressRoute premium is a collection of the following features:
 
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
-* Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). For more information, see the [ExpressRoute Limits](#limits) table.
+* Increased number of VNets and ExpressRoute Global Reach connections that can be enabled on an ExpressRoute circuit (default is 10). For more information, see the [ExpressRoute Limits](#limits) table.
 * Connectivity to Office 365 and Dynamics 365.
 * Global connectivity over the Microsoft core network. You can now link a VNet in one geopolitical region with an ExpressRoute circuit in another region.<br>
     **Examples:**
@@ -251,9 +251,9 @@ ExpressRoute premium is a collection of the following features:
     *  On the Microsoft peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
 
 
-### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
+### <a name="limits"></a>How many VNets and ExpressRoute Global Reach connections can I enable on an ExpressRoute circuit if I enabled ExpressRoute premium?
 
-The following tables show the ExpressRoute limits and the number of VNets per ExpressRoute circuit:
+The following tables show the ExpressRoute limits and the number of VNets and ExpressRoute Global Reach connections per ExpressRoute circuit:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

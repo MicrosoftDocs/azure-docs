@@ -2,8 +2,8 @@
 title: 'Quickstart: Query data in Azure Data Explorer'
 description: 'In this quickstart, you learn how to query and share data in Azure Data Explorer.'
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart

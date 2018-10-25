@@ -87,12 +87,15 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+    items:
+    - name: Authentication, requests and responses
+      href: authentication-requests-and-responses.md
+    - name: Common parameters and headers
+      href: common-parameters-and-headers.md
   - name: Develop
     items:
-    - name: Key Vault developer's guide
+    - name: Developer's guide
       href: key-vault-developers-guide.md
-    - name: Service limits
-      href: key-vault-service-limits.md
     - name: HSM-protected keys
       href: key-vault-hsm-protected-keys.md
     - name: Migrate to .NET 2.0
@@ -117,20 +120,26 @@
   items:
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-key-vault
-  - name: Service overview
-    href: https://azure.microsoft.com/services/key-vault/
-  - name: Authentication, requests and responses
-    href: authentication-requests-and-responses.md
-  - name: Common parameters and headers
-    href: common-parameters-and-headers.md
-  - name: Customer Data 
+  - name: Customer data 
     href: key-vault-customer-data.md
-  - name: Blog
+  - name: Service
+    items:
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/key-vault/
+    - name: Region availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+    - name: Release Notes
+      href: key-vault-versions.md
+    - name: Service Level Agreement (SLA)
+      href: https://azure.microsoft.com/support/legal/sla/key-vault/
+    - name: Service limits
+      href: key-vault-service-limits.md  
+    - name: Service status
+      href: https://azure.microsoft.com/status/
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Team blog
     href: http://blogs.technet.com/b/kv/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/key-vault/
-- name: Release Notes
-  href: key-vault-versions.md
 - name: Product Feedback
   href: https://feedback.azure.com/forums/906355-azure-key-vault
 

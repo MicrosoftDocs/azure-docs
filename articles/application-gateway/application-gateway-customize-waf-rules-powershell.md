@@ -84,6 +84,7 @@ The following example disables rules `910018` and `910017` on an application gat
 ```powershell
 $disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-910-IP-REPUTATION -Rules 910018,910017
 Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## Next steps

@@ -150,7 +150,7 @@ You don't need to make any changes to the template file.
 3. Give the values to:
 
     * **adminUsername**: name the virtual machine administrator account.
-    * **dnsLabelPrefix**: name the dnsLablePrefix.
+    * **dnsLabelPrefix**: name the dnsLabelPrefix.
 4. Save the changes.
 
 ## Deploy the template
