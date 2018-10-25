@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 10/25/2018
 ms.author: adgera
 ---
 
@@ -28,8 +28,9 @@ Some key practices to safely secure your IoT devices include:
 > [!div class="checklist"]
 > * Secure each device that's connected to your IoT space in a tamper-proof way.
 > * Limit the role of each device, sensor, and person within your IoT space. If compromised, the impact is minimized.
-> * Potential use of device IP address filtering.
+> * Potential use of device IP address filtering and port restriction.
 > * Limit I/O and device bandwidth to improve performance. Rate-limiting can improve security by preventing denial-of-service attacks.
+> * Keep device firmware up-to-date.
 
 Some key practices to safely secure an IoT space include:
 
