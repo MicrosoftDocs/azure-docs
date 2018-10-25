@@ -65,5 +65,5 @@ The pipeline architecture is given below.
 ## References
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
 * [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
