@@ -35,7 +35,7 @@ The read-consistency applies to a single read operation scoped within partition-
 
 ## Configuring the default consistency level
 
-You can configure the **default consistency level** on your Cosmos DB account at any time. The default consistency level configured on your account applies to all Cosmos databases (and containers) under that account. All reads and queries issued against a container or a database will use that  consistency level by default. See here for how to [configure the default consistency level](consistency-levels-configure.md).
+You can configure the **default consistency level** on your Cosmos DB account at any time. The default consistency level configured on your account applies to all Cosmos databases (and containers) under that account. All reads and queries issued against a container or a database will use that  consistency level by default. See here for how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## Guarantees associated with consistency levels
 
@@ -74,8 +74,8 @@ To learn more about consistency in Cosmos DB, read the following articles:
 - [Availability and Performance Tradeoffs for various Consistency Levels](consistency-levels-tradeoffs.md)
 - [Choosing the Right Consistency Level](consistency-levels-choosing.md)
 - [Consistency Level across Cosmos DB model APIs](consistency-levels-across-apis.md)
-- [How to Configure the Default Consistency Level](consistency-levels-configure.md#default)
-- [How to Override the Default Consistency Level](consistency-levels-override.md#override)
+- [How to Configure the Default Consistency Level](how-to-manage-consistency.md#configure-the-default-consistency-level)
+- [How to Override the Default Consistency Level](how-to-manage-consistency.md#override-the-default-consistency-level)
 
 ## Additional reading
 

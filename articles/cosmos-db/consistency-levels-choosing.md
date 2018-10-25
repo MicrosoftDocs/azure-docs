@@ -19,7 +19,7 @@ Distributed databases relying on replication for high availability, low latency 
 
 ## SQL API or Table API
 
-- For many real-world scenarios, session consistency is optimal and it is the recommended option. For more details see, [How-to manage session token for your application](how-to-manage-consistency.md#Utilize-session-tokens).
+- For many real-world scenarios, session consistency is optimal and it is the recommended option. For more details see, [How-to manage session token for your application](how-to-manage-consistency.md#utilize-session-tokens).
 - If your application requires strong consistency or if you need stricter consistency guarantees than the ones provided by session consistency but still need single-digit-millisecond latency for writes, it is recommended you use bounded staleness consistency level.  
 - If your application requires eventual consistency or if you need less strict consistency guarantees than what is provided by session consistency, it is recommended you use consistent prefix consistency level. If you need the highest availability and lowest latency then use eventual consistency level.
 
@@ -38,12 +38,12 @@ When the consistency level is set to **strong**, the staleness window is equival
 
 For the remaining three consistency levels, the staleness window is largely dependent on your workload. For example, if there are no writes happening on the database, a read operation with **eventual**, **session**, or **consistent prefix** consistency levels is likely to yield the same results as a read operation with strong consistency level.
 
-If your Cosmos DB account is configured with any consistency level other than the strong consistency, you can find out the probability of your clients to get strongly consistent (linearizable) reads for your workload(s) by looking at the Probabilistic Bounded Staleness (PBS) metric exposed in the Azure portal [See here for how to use the PBS metric](how-to-manage-consistency.md#pbs-metric). Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you get a stronger consistency than the consistency level that you have configured on your Cosmos DB account. In other words, you can see the probability of (depicted in milliseconds) getting strongly consistent reads for a combination of a write and read regions.
+If your Cosmos DB account is configured with any consistency level other than the strong consistency, you can find out the probability of your clients to get strongly consistent (linearizable) reads for your workload(s) by looking at the Probabilistic Bounded Staleness (PBS) metric exposed in the Azure portal [See here for how to use the PBS metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric). Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you get a stronger consistency than the consistency level that you have configured on your Cosmos DB account. In other words, you can see the probability of (depicted in milliseconds) getting strongly consistent reads for a combination of a write and read regions.
 
 ## Next Steps
 
 Read more about the topic in the following articles:
 
-- [How to manage the session token for your application](how-to-manage-consistency.md#Utilize-session-tokens)
-- [How to use the PBS metric](how-to-manage-consistency.md#pbs-metric)
+- [How to manage the session token for your application](how-to-manage-consistency.md#utilize-session-tokens)
+- [How to use the PBS metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
 - [Consistency Levels and choice of Cosmos DB API](consistency-levels-across-apis.md)
