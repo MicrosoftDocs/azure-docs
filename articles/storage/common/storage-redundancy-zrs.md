@@ -43,10 +43,10 @@ You have two primary options for migration to or from ZRS. You can manually copy
 
 To perform a manual migration, you have options:
 - Use existing tooling like AzCopy, the storage SDK, and reliable third-party tools.
-- If you're familiar with Hadoop or HDInsight, you can attach both source and destination (ZRS) account to your cluster and use something like DistCp to massively parallelize the data copy process.
+- If you're familiar with Hadoop or HDInsight, you can attach both source and destination (ZRS) account to your cluster. You can then parallelize the data copy process with something like DistCp.
 - Build your own tooling that uses one flavor of the storage SDK.
 
-If, however, a manual migration results in some application downtime and you can't absorb that on your end, then Microsoft provides a live migration option. A live migration is an in-place migration. This means you can use your existing storage account while your data is migrated between source and destination storage stamps. During migration, you have the same level of durability and availability SLA as you do normally.
+If, however, a manual migration results in some application downtime and you can't absorb that on your end, then Microsoft provides a live migration option. A live migration is an in-place migration. You can use your existing storage account while your data is migrated between source and destination storage stamps. During migration, you have the same level of durability and availability SLA as you do normally.
 
 Live migration comes with the following restrictions:
 
