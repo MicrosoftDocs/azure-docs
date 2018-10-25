@@ -28383,6 +28383,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/develop/registration-config-grant-permissions-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-user-consent",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
