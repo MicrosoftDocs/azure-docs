@@ -41,5 +41,5 @@ The table below shows the mapping for "read concerns" of MongoDB 3.4 and Cosmos 
 
 ## Next Steps
 
-- [MongoDB Read Concern (applicable to only version 3.4)](how-to-manage-consistency.md#mongodb)
-- [Apache Cassandra Read Consistency Levels](how-to-manage-consistency.md#cassandra)
+- [MongoDB Feature Support](mongodb-feature-support.md)
+- [Apache Cassandra Feature Support](cassandra-support.md)
