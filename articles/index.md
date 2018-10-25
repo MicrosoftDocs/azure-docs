@@ -1118,7 +1118,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/avere-vfxt/">
-                                                <img src="media/index/avere.png" alt="" />
+                                                <img src="media/index/avere.svg" alt="" />
                                                 <p>Avere vFXT</p>
                                             </a>
                                         </li>
@@ -2528,7 +2528,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img alt="" src="media/index/avere.png" data-linktype="relative-path">
+                                                        <img alt="" src="media/index/avere.svg" data-linktype="relative-path">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
