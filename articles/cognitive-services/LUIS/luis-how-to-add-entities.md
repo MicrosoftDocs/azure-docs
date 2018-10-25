@@ -54,8 +54,6 @@ A regular expression entity is used to pull out data from the utterance based on
 
     This regular expression literal characters `hrf-`, then 6 digits to represent a form number for a Human resources form.
 
-    ![Image of dialog box to create regular expression entity](./media/add-entities/create-regex-entity.png)
-
 ## Add hierarchical entities
 
 A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
@@ -101,8 +99,6 @@ In the utterance `Send hrf-123456 to John Smith`, the text `hrf-123456` is match
 
 1. Select **Done**.
 
-    ![Image of dialog box to create a composite entity](./media/add-entities/create-composite-entity.png) FIX THIS IMAGE
-
 ## Add Pattern.any entities
 
 [Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
@@ -114,8 +110,6 @@ In the utterance `Where is Request relocation from employee new to the company o
 1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
 
 1. In the **Add Entity** dialog box, enter `HumanResourcesFormTitle` in the **Entity name** box and select **Pattern.any** as the **Entity type**.
- 
-    ![Screenshot of creating a pattern.any entity](./media/add-entities/create-pattern-any-entity.png) FIX IMAGE
 
     To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as "Where is **{HumanResourcesFormTitle}** on the server?".
 
@@ -148,25 +142,14 @@ For a Human Resources app, you can have a list of all departments along with any
 1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
 
 1. In the **Add Entity** dialog box, type `Department` in the **Entity name** box and select **List** as the **Entity type**. Select **Done**.
- 
-    ![Image of dialog box creating Drinks list entity](./media/add-entities/menu-list-dialog.png) FIX this IMAGE
   
 1.  The list entity page allows you to add normalized names. In the **Values** textbox, enter an department name for the list, such as `HumanResources` then press Enter on the keyboard. 
 
-    ![Screenshot of Drinks list entity with water normalized value in textbox](./media/add-entities/entity-list-normalized-name.png) FIX IMAGE
-
 1. To the right of the normalized value, enter synonyms, pressing Enter on the keyboard after each item.
-
-    ![Screenshot of Drinks list entity with synonym items for water highlighted](./media/add-entities/menu-list-synonyms.png)
 
 1. If you want more normalized items for the list, select **Recommend** to see options from the [semantic dictionary](luis-glossary.md#semantic-dictionary).
 
-    ![Screenshot of Drink list entity with Recommended items highlighted](./media/add-entities/entity-list-recommended-list.png)
-
 1. Select an item in the recommended list to add it as a normalized value or select **Add all** to add all the items. 
-
-    ![Screenshot of Drink list entity with recommended item of beer and Add all button highlighted](./media/add-entities/list-entity-add-suggestions.png)
-
     You can import values into an existing list entity using the following JSON format:
 
     ```
@@ -192,12 +175,15 @@ For a Human Resources app, you can have a list of all departments along with any
 
 
 ## Changing entity type
+
 LUIS does not allow you to change the type of the entity because it doesn't know what to add or remove to construct that entity. In order to change the type, it is better to create a new entity of the correct type with a slightly different name. Once the entity is created, in each utterance, remove the old labeled entity name and add the new entity name. Once all the utterances have been relabeled, delete the old entity. 
 
 ## Create a pattern from an utterance
+
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 ## Train your app after changing model with entities
+
 After you add, edit, or remove entities, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps

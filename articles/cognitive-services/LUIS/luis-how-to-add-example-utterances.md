@@ -45,6 +45,8 @@ Does John Smith work in Seattle?
 
 1. In the **What type of entity do you want to create?** pop-up dialog box, verify the entity name and select the **Simple** entity type, and then select **Done**.
 
+    A [phrase list](luis-concept-feature.md) is commonly used to boost the signal of a simple entity.
+
 ## Add a list entity
 
 List entities represent a fixed, closed set (exact text matches) of related words in your system. 
