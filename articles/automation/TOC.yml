@@ -173,8 +173,6 @@
           href: automation-create-alert-triggered-runbook.md 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
-        - name: Remove resource group
-          href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
           href: automation-scenario-source-control-integration-with-github-ent.md
         - name: Source control integration with Azure DevOps
