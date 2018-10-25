@@ -47,7 +47,7 @@ The Avere Control Panel can be used for these tasks:
 
 Avere Control Panel prioritizes data integrity, so it attempts to write any changed data to backend storage before a possibly destructive operation. This makes it a safer option than the Avere portal. 
 
-Access Avere Control Panel from a web browser. Follow the instructions in [Access the vFXT cluster](avere-vfxt-cluster-gui.md) if you need help.
+Access Avere Control Panel from a web browser. Follow the instructions in -Access the vFTX cluster- LINK TO avere-vfxt-cluster-gui.md REMOVED TEMPORARILY <!-- [Access the vFXT cluster](avere-vfxt-cluster-gui.md) --> if you need help.
 
 ### Manage nodes with Avere Control Panel
 
