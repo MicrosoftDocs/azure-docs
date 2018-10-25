@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-
+ms.reviewer: knithinc
 ---
-# Connect to the Azure Stack Development Kit
+# Connect to the ASDK
 
-To manage resources, you must first connect to the Azure Stack Development Kit (ASDK). In this article, we describe the steps that you take to connect to the ASDK. You can use one of the following connection options:
+To manage resources, you must first connect to the Azure Stack Development Kit (ASDK). In this article, we describe the steps that you take to connect to the ASDK by using the following connection options:
 
 * [Remote Desktop Connection (RDP)](#connect-with-rdp). When you connect by using Remote Desktop Connection, a single user can quickly connect to the development kit.
-* [Virtual private network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect from clients outside the Azure Stack infrastructure. A VPN connection requires some setup.
+* [Virtual Private Network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect from clients outside the Azure Stack infrastructure. A VPN connection requires some setup.
 
 <a name="connect-with-rdp"></a>
 ## Connect to Azure Stack using RDP
@@ -112,7 +112,7 @@ If setup succeeds, **azurestack** appears in your list of VPN connections.
 
   * On your local computer, select **Network Settings** > **VPN** > **azurestack** > **connect**. At the sign-in prompt, enter the user name (**AzureStack\AzureStackAdmin**) and your password.
 
-The first time you connect, you will be prompted to install the Azure Stack root certificate from **AzureStackCertificateAuthority** in your local computer’s certificate store. Click **Yes** to install the certificate.
+The first time you connect, you will be prompted to install the Azure Stack root certificate from **AzureStackCertificateAuthority** in your local computer’s certificate store. This step adds the ASDK certificate authority (CA) to the list of trusted hosts. Click **Yes** to install the certificate.
 
 ![Root certificate](media/asdk-connect/cert.png)  
   

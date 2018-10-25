@@ -18,9 +18,9 @@ ms.author: victorh
 
 # Autoscaling and Zone-redundant Application Gateway (Public Preview)
 
-Application Gateway and Web Application Firewall (WAF) are now available in Public Preview under a new SKU that offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the generally available SKU continue to be supported in the new SKU, with few exceptions listed in known limitations section. The new SKUs include the following enhancements:
+Application Gateway and Web Application Firewall (WAF) are now available in Public Preview under a new v2 SKU that offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the generally available SKU continue to be supported in the new v2 SKU, with a few exceptions listed in known limitations section. The new v2 SKUs include the following enhancements:
 
-- **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. Hence, the SKU offers true elasticity. In the new SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) as well as in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see a lot of variance in the application traffic.
+- **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. Hence, the SKU offers true elasticity. In the new SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) as well as in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see lots of variances in the application traffic.
    
    > [!NOTE]
    > Autoscaling is not currently available for WAF SKU. Configure WAF with fixed capacity mode, instead of autoscaling mode.
@@ -35,7 +35,7 @@ Application Gateway and Web Application Firewall (WAF) are now available in Publ
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## Supported regions
-Autoscaling SKU is available in East US 2, US Central, West US2, France Central, West Europe and South East Asia.
+Autoscaling SKU is available in East US 2, US Central, West US2, France Central, West Europe, and South East Asia.
 
 ## Pricing
 During preview, there is no charge. You will be billed for resources other than application gateway, such as Key Vault, virtual machines, etc. 
@@ -44,6 +44,11 @@ During preview, there is no charge. You will be billed for resources other than 
 
 |Issue|Details|
 |--|--|
+|Authentication certificate|Not supported.<br>For more information, see [Overview of end to end SSL with Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Mixing Standard_v2 and Standard Application Gateway on the same subnet|Not supported.<br>Additionally, if autoscaling is enabled, one subnet can have only one application gateway.|
+|User Defined Route (UDR) on Application Gateway subnet|Not supported|
+|NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |Billing|There is no billing currently.|
 |FIPS mode, WebSocket|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|

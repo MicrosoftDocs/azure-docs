@@ -30,8 +30,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 18-10 | [4462915] | Windows Security | 2.79 | October 9, 2018 |
 | Rel 18-10 | [4462931] | Windows Security | 3.66 | October 9, 2018 |
 | Rel 18-10 | [4462941] | Windows Security | 4.59 | October 9, 2018 |
-| Rel 18-09 | [4462930] | Flash | 3.66, 4.59, 5.24, 6.01 | October 9, 2018 |
-| Rel 18-09 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | October 9, 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24, 6.01 | October 9, 2018 |
+| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | October 9, 2018 |
 | N/A | [4339284] | Time zone update | 2.79, 3.66, 4.59 | July 24, 2018 |
 | N/A | [4457144] | September Non-Security rollup | 2.79 | September 11, 2018 |
 | N/A | [4457044] | September Non-Security .NET 3.5 rollup | 2.79 | September 11, 2018 |
