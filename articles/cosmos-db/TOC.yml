@@ -440,6 +440,12 @@
           href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
+    - name: Visualize Cosmos DB data
+      items:
+      - name: Use Power BI 
+        href: powerbi-visualize.md
+      - name: Use Qlik Sense
+        href: visualize-qlik-sense.md
     - name: Integrate with other Azure services
       items: 
       - name: Change feed Ecommerce solution
@@ -470,8 +476,6 @@
         href: spark-connector.md
       - name: Spark and Kafka
         href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
-      - name: Power BI connector
-        href: powerbi-visualize.md
       - name: ODBC driver 
         href: odbc-driver.md
     - name: Bulk executor library
