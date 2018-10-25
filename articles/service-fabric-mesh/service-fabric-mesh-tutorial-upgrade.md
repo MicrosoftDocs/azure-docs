@@ -75,7 +75,7 @@ In the `resources:` section, change `cpu:` to from `0.5` to `"parameters('cpu')]
 If the project is being built for the cloud, the value for `cpu` will be taken from the **Environments** > **Cloud** > **parameters.yaml** file, and will be `1.0`. If the project is being built to run locally, the value will be taken from the **Environments** > **Local** > **parameters.yaml** file, instead.
 
 > [!Tip]
-> By default, the parameter file that is a peer of the profile yaml file will be used to supply the values for the profile yaml file.
+> By default, the parameter file that is a peer of the profile.yaml file will be used to supply the values for the profile.yaml file.
 > For example, Environments > Cloud >  parameters.yaml provides the parameter values for the Environments > Cloud > profile.yaml file.
 >
 > You can override this by adding the following to the profile.yaml file:`parametersFilePath=”relative or full path to the parameters file”`
