@@ -11,7 +11,7 @@ ms.author: mjbrown
 
 ---
 
-# Conflict resolution policies
+# Conflict types and resolution policies
 
 Conflicts and conflict resolution policies are applicable if your Cosmos account is configured with multiple write regions.
 
@@ -20,6 +20,8 @@ For Cosmos DB accounts configured with multiple write regions, update conflicts 
 1. **Insert conflicts** can occur when an application simultaneously inserts two or more items with the same unique index (for example, ID property) from two or more regions. In this case, all the writes may succeed initially in their respective local regions, but based on the conflict resolution policy you choose, only one item with the original ID is finally committed.
 2. **Replace conflicts** can occur when an application updates a single item simultaneously from two or more regions.
 3. **Delete conflicts** can occur when an application simultaneously deletes an item from one region and updates it from any other region.
+
+## conflict resolution policies
 
 Cosmos DB offers a flexible policy-driven mechanism for resolving update conflicts. You can select from the following two conflict resolution policies on a Cosmos container:
 
