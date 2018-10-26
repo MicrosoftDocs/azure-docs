@@ -26,7 +26,7 @@ This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Prepare the Key Vault
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Edit the parameters file
 > * Deploy the template
 > * Validate the deployment

@@ -23,7 +23,7 @@ Learn how to create linked Azure Resource Manager templates. Using linked templa
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Create the linked template
 > * Upload the linked template
 > * Link to the linked template

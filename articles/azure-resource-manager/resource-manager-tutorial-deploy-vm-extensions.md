@@ -24,7 +24,7 @@ This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Prepare a PowerShell scripts
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Edit the template
 > * Deploy the template
 
