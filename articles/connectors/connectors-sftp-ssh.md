@@ -62,13 +62,16 @@ to the SFTP connector. For files larger than 1 GB, use
 * Provides the **Create folder** action, which creates 
 a folder at the specified path on the SFTP server.
 
-* Provides the **Rename file** action, which renames a file on the SFTP server.
+* Provides the **Rename file** action, 
+which renames a file on the SFTP server.
 
 * Caches the connection to SFTP server, which improves performance 
 and reduces the number of attempts at connecting to the server. 
 
-  You can control the duration used for caching the connection 
-  by setting up the <a href="http://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> property on your SFTP server. 
+  You can control the duration used for caching 
+  the connection by setting up the 
+  <a href="http://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
+  property on your SFTP server. 
 
 ## Prerequisites
 
@@ -78,10 +81,9 @@ and reduces the number of attempts at connecting to the server.
 * Your SFTP server address and account credentials, 
 which let your logic app access your SFTP account 
 
-  > [!NOTE] 
-  > 
-  > ***The SFTP-SSH connector supports these private SSH key 
-  > formats but only the MD5 fingerprint***:
+  > [!IMPORTANT] 
+  > The SFTP-SSH connector supports these private SSH key 
+  > formats ***but only the MD5 fingerprint***: 
   > 
   > * PuTTY-based RSA (Rivest Shamir Adleman), not open RSA
   > * DSA (Digital Signature Algorithm)
@@ -159,18 +161,18 @@ choose **Create**.
 1. Now provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.
 
-## How SFTP-SSH trigger polling works
+## SFTP-SSH trigger polling
 
 The SFTP-SSH triggers work by polling the SFTP file system 
 and looking for any file that was changed since the last poll. 
-Some tools let you preserve the timestamp when the files change, 
-so in these cases, you need to disable this feature for your 
-trigger to work. Here are some common settings:
+Some tools let you preserve the timestamp when the files change. 
+In these cases, you have to disable this feature so your trigger 
+can work. Here are some common settings:
 
 | SFTP client | Action | 
 |-------------|--------| 
-| Winscp | Options → Preferences… → Transfer → Edit… → Preserve timestamp → Disable |
-| FileZilla | Transfer → Preserve timestamps of transferred files → Disable | 
+| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
+| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** | 
 ||| 
 
 When a trigger finds a new file, the trigger checks that the new file is complete, 
