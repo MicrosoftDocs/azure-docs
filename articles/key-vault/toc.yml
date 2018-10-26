@@ -103,18 +103,8 @@
       href: vs-secure-secret-appsettings.md
     - name: Service authentication using .NET
       href: service-to-service-authentication.md
-    - name: Working with Visual Studio
-      items:
-      - name: Use the Key Vault Connected Service
-        href: vs-key-vault-add-connected-service.md
-      - name: Get started with ASP.NET projects
-        href: vs-key-vault-aspnet-get-started.md
-      - name: What happened to my ASP.NET project?
-        href: vs-key-vault-aspnet-what-happened.md
-      - name: Get started with ASP.NET Core projects
-        href: vs-key-vault-aspnet-core-get-started.md
-      - name: What happened to my ASP.NET Core project?
-        href: vs-key-vault-aspnet-core-what-happened.md
+    - name: Use the Key Vault Connected Service
+      href: vs-key-vault-add-connected-service.md      
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
