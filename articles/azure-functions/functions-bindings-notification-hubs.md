@@ -184,11 +184,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     // The JSON format for a native APNS notification is ...
     // { "aps": { "alert": "notification message" }}  
 
-    log.Info($"Sending APNS notification of a new user");    
+    log.LogInformation($"Sending APNS notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
                                         user.name + ")\" }}";
-    log.Info($"{apnsNotificationPayload}");
+    log.LogInformation($"{apnsNotificationPayload}");
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
 }
 ```
