@@ -4,9 +4,6 @@ description: How to troubleshoot Traffic Manager profiles when it shows as degra
 services: traffic-manager
 documentationcenter: ''
 author: chadmath
-manager: cshepard
-
-ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
