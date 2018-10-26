@@ -77,11 +77,11 @@
         href: distribute-data-globally.md
       - name: Consistency Levels
         href: consistency-levels.md
-      - name: Choose a consistency level
+      - name: Choosing the right consistency level
         href: consistency-levels-choosing.md
       - name: Consistency levels and Cosmos DB APIs
         href: consistency-levels-across-apis.md
-      - name: Tradeoffs for consistency levels
+      - name: Consistency, availability and performance tradeoffs
         href: consistency-levels-tradeoffs.md
       - name: High availability
         href: high-availability.md
