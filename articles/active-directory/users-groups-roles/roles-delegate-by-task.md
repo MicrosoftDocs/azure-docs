@@ -44,6 +44,19 @@ Read all configuration | Reader ([see documentation](https://docs.microsoft.com/
 View metrics, alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | Contributor, Owner
 
 
+## AD FS services
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+ADFS security reports | Security Reader | Contributor, Owner
+View metrics, alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | Contributor, Owner
+
+## Alerts
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Configure alert notifications | Security Administrator | 
+
 ## Application proxy
 
 Task | Least privileged role | Additional roles
@@ -54,14 +67,58 @@ Create connector group | Application administrator |
 Delete connector group | Application administrator | 
 Disable application proxy | Application administrator | 
 Download connector service | Application administrator | 
+Read all configuration | Application Administrator | 
+
 
 ## Application registration
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create application registration | Application developer | Cloud application administrator, application administrator
-Read all configuration | Directory readers | Default user role (see documentation)
+Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Update application registration properties | Application registration owner | Cloud application administrator, Application administrator
+
+## Applications
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create B2C application | Global Administrator | 
+Create enterprise application | Cloud Application Administrator | Application Administrator
+
+## Audit logs (B2C)
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Read B2C audit logs | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+
+## Azure AD B2C
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create Azure AD B2C directory | All non-guest users ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Read all configuration | Global Administrator | 
+
+## Azure AD Connect
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Passthrough authentication | Global Administrator | 
+Read all configuration | Global Administrator | 
+Seamless single sign-on | Global Administrator | 
+
+## Azure AD domain service
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create Azure AD domain service instance | Global Administrator | 
+Peform all Azure AD domain services tasks | AAD DC Administrators group (see documentation) | 
+Read all configuration | Reader on Azure subscription containing ADDS service | 
+
+## Azure AD Identity Protection
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Read all configuration | Security Reader | 
 
 ## Azure AD roles
 
@@ -72,12 +129,18 @@ Configure role settings | Privileged role administrator |
 View audit activity | Security reader | 
 View role memberships | Security reader | 
 
+## B2C policies
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create, read, update, and delete B2C policies | Global Administrator | 
+
 ## Company branding
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure company branding | Global Administrator | 
-Read all configuration | Directory readers | Default user role (see documentation)
+Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## Company properties
 
@@ -111,14 +174,14 @@ Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Disable device | Cloud device administrator | 
 Enable device | Cloud device administrator | 
-Read all configuration | Directory readers | Default user role (see documentation)
+Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## Domains
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Manage domains | Global Administrator | 
-Read all configuration | Directory readers | Default user role (see documentation)
+Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## Enterprise applications
 
@@ -128,13 +191,13 @@ Consent to requested permissions | Cloud application administrator | Application
 Create enterprise application | Cloud application administrator | Application administrator
 Manage Application Proxy | Application administrator | 
 Manage user settings | Global Administrator | 
-Read all configuration | Directory readers | Default user role (see documentation)
-Update enterprise application assignments | Enterprise application owner | Cloud application administrator, application administrator
-Update enterprise application owners | Enterprise application owner | Cloud application administrator, application administrator
-Update enterprise application properties | Enterprise application owner | Cloud application administrator, application administrator
-Update enterprise application provisioning | Enterprise application owner | Cloud application administrator, application administrator
-Update enterprise application self-service | Enterprise application owner | Cloud application administrator, application administrator
-Update single sign-on properties | Enterprise application owner | Cloud application administrator, application administrator
+Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Update enterprise application assignments | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, application administrator
+Update enterprise application owners | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)[Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, application administrator
+Update enterprise application properties | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, application administrator
+Update enterprise application provisioning | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, application administrator
+Update enterprise application self-service | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, application administrator
+Update single sign-on properties | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)Enterprise application owner | Cloud application administrator, application administrator
 
 ## Group management
 
@@ -142,31 +205,44 @@ Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Assign license | User account administrator | 
 Create group | User account administrator | 
+Create, update or delete access review of a group or of an app | User account administrator | 
 Manage group expiration | User account administrator | 
 Manage group settings | User account administrator | 
-Read all configuration (except hidden membership) | Directory readers | Default user role (see documentation)
+Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Read hidden membership | Group member | Group owner, password administrator, exchange administrator, sharepoint administrator, teams administrator, user account administrator
 Revoke license | License administrator | User account administrator
-Update group membership | Group owner | User account administrator
-Update group owners | Group owner | User account administrator
-Update group properties | Group owner | User account administrator
+Update group membership | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
+Update group owners | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
+Update group properties | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
 
-## Identity security score
+## Identity providers
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Read all configuration | Security reader | Security administrator
-Read security score | Security reader | Security administrator
-Update event status | Security administrator | 
+Create, read, update, and delete identity providers | Global Administrator | 
+
 
 ## Licenses
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Assign license | License administrator | User account administrator
-Read all configuration | Directory readers | Default user role (see documentation)
+Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Revoke license | License administrator | User account administrator
 Try or buy subscription | Billing administrator | 
+
+## MFA registration
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Configure and enable or disable MFA policy | Security Administrator | 
+
+## Mobility (MDM and MAM)
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Add application | Global Administrator | 
+Read all configuration | Global Administrator  | 
 
 ## Multi-factor authentication
 
@@ -188,24 +264,170 @@ Manage settings | Global Administrator |
 Manage terms of use | Global Administrator | 
 Read all configuration | Global Administrator | 
 
+## Password reset
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Configure authentication methods | Global Administrator | 
+Configure customization | Global Administrator | 
+Configure notification | Global Administrator | 
+Configure on-premises integration | Global Administrator | 
+Configure password reset properties | Global Administrator | 
+Configure registration | Global Administrator | 
+Read all configuration | Security Administrator	User Administrator | 
+
+## Password reset user flow
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create, read, update, and delete password reset user flows | Global Administrator | 
+
+## Profile editing user flow
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create, read, update, and delete profile editing user flow | Global Administrator | 
+
+## Risk events
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Dismiss all events | Security Administrator | 
+Read all events | Security Reader | 
+
 ## Roles and administrators
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Manage role assignments | Privileged role administrator | 
-Read all configuration | Directory readers | Default user role (see documentation)
+Read access review of an Azure AD role  | Security Reader | Security Administrator, Privileged Role Administrator
+Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
-## Security authentication methods
+## Security - Authentication methods
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure authentication methods | Global Administrator | 
+Read all configuration | Global Administrator | 
+
+## Security - Conditional access
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Configure MFA trusted IP addresses | Conditional Access Administrator | 
+Create custom controls | Conditional Access Administrator | Security Administrator
+Create named locations | Conditional Access Administrator | Security Administrator
+Create policies | Conditional Access Administrator | Security Administrator
+Create terms of use | Conditional Access Administrator | Security Administrator
+Create VPN connectivity certificate | Conditional Access Administrator | Security Administrator
+Delete classic policy | Conditional Access Administrator | Security Administrator
+Delete terms of use | Conditional Access Administrator | Security Administrator
+Delete VPN connectivity certificate | Conditional Access Administrator | Security Administrator
+Disable classic policy | Conditional Access Administrator | Security Administrator
+Manage custom controls | Conditional Access Administrator | Security Administrator
+Manage named locations | Conditional Access Administrator | Security Administrator
+Manage terms of use | Conditional Access Administrator | Security Administrator
+Read all configuration | Security Reader | Security Administrator
+Read named locations | Security Reader | Conditional Access Administrator, Security Administrator
+
+## Security - Identity security score
+
+Task | Least privileged role | Additional roles | 
+---- | --------------------- | ----------------
+Read all configuration | Security reader | Security administrator
+Read security score | Security reader | Security administrator
+Update event status | Security administrator | 
+
+## Security - MFA Server
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Block/unblock users | Global Administrator | 
+Configure account lockout | Global Administrator | 
+Configure caching rules | Global Administrator | 
+Configure fraud alert | Global Administrator
+Configure notifications | Global Administrator | 
+Configure one-time bypass | Global Administrator | 
+Configure phone call settings | Global Administrator | 
+Configure providers | Global Administrator | 
+Configure server settings | Global Administrator | 
+Read activity report | Global Administrator | 
+Read all configuration | Global Administrator | 
+Read server status | Global Administrator | 
+
+## Security - Risky sign-ins
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Read all configuration | Security Reader | 
+Read risky sign-ins | Security Reader | 
+
+## Security - Users flagged for risk
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Dismiss all events | Security Administrator | 
+Read all configuration | Security Reader | 
+Read users flagged for risk | Security Reader | 
+
+## Settings
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Add/delete service | Owner ([see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
+Configure settings | Owner (see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations))) | 
+
+## Sign-in risk policy
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Configure and enable or disable sign-in risk policy | Security Administrator | 
+
+## Sign-in user flow
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create, read, update, and delete sign-in user flow | Global Administrator | 
+
+## Signup or sign-in user flow
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create, read, update, and delete sign-up or sign-in user flow | Global Administrator | 
+
+## Signup user flow
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create, read, update, and delete sign-up user flow |Global Administrator | 
 
 ## Support
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
+Support	Read support tickets | Service Administrator | Application Administrator, Billing Administrator, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Information Protection Administrator, Intune Administrator, Skype for Business Administrator, Power BI Administrator, Privileged Authentication Administrator, SharePoint Administrator, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator
 Submit support ticket | Service Support Administrator | See documentation
+
+## Sync errors
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Apply fix to sync errors | Contributor (see documentation)	Owner
+Configure notifications | Contributor (see documentation)	Owner
+Read sync errors | Reader (see documentation) | Contributor, Owner
+
+## Sync services
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Read sync services | Reader (see documentation) | Contributor, Owner
+View metrics, alerts | Reader (see documentation) | Contributor, Owner
+
+## User attributes
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create, read, update, and delete user attributes | Global Administrator | 
 
 ## User management
 
@@ -220,7 +442,7 @@ Delete users | User account administrator |
 Invalidate refresh tokens of limited admins (see documentation) | User account administrator | 
 Invalidate refresh tokens of non-admins (see documentation) | Password administrator | User account administrator
 Invalidate refresh tokens of privileged admins (see documentation) | Global Administrator | 
-Read all configuration | Directory readers | Default user role (see documentation)
+Read basic configuration | Default User role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Reset password for limited admins (see documentation) | User account administrator | 
 Reset password of non-admins (see documentation) | Password administrator | User account administrator
 Reset password of privileged admins | Global Administrator | 
@@ -229,6 +451,31 @@ Update all properties except User Principal Name | User account administrator |
 Update User Principal Name for limited admins (see documentation) | User account administrator | 
 Update User Principal Name property on privileged admins (see documentation) | Global Administrator | 
 Update user settings | Global Administrator | 
+
+## User risk policy
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Configure and enable or disable user risk policy | Security Administrator | 
+
+## Users (B2C)
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Create, read, update, and delete users | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
+
+## Vulnerabilities
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Fix or dismiss vulnerability | Security Administrator | 
+Read vulnerabilities | Security Reader | 
+
+## Weekly digests
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Configure weekly digests | Security Administrator | 
 
 ## Next steps
 
