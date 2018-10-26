@@ -22,7 +22,7 @@ The Bing Local Business Search API is a RESTful service that enables your applic
 | [Filter local results by category](local-categories.md) | Search for local business entities by category. This option uses reverse IP location of the caller to return localized results of various categories of business.|
 
 ## Workflow
-he Bing Local Business Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the REST API.
+The Bing Local Business Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the REST API.
  
 1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)  with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api).   
 2. URL encode your search terms for the `q=""` query parameter. For example, `q=nearby+restaurant` or `q=nearby%20restaurant`. Set pagination as well, if needed. 
