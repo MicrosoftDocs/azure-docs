@@ -102,14 +102,14 @@ application:
             ...
           replicaCount: 1
           autoScalingPolicies:
-            name: AutoScaleWorkerRule
-            trigger:
+            - name: AutoScaleWorkerRule
+              trigger:
                 kind: AverageLoad
                 metricName: cpu
                 lowerLoadThreshold: 0.2
                 upperLoadThreshold: 0.8
                 scaleIntervalInSeconds: 60
-            mechanism:
+              mechanism:
                 kind: AddRemoveReplica
                 minCount: 1
                 maxCount: 40
