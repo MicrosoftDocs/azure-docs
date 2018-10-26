@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
+title: Quickstart - Periodic backup and restore in Azure Service Fabric  | Microsoft Docs
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
@@ -17,7 +17,7 @@ ms.date: 04/04/2018
 ms.author: hrushib
 
 ---
-# Quickstart: Periodic backup and restore in Azure Service Fabric (Preview)
+# Quickstart: Periodic backup and restore in Azure Service Fabric 
 > [!div class="op_single_selector"]
 > * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -38,9 +38,6 @@ Service Fabric provides an inbuilt API to do point in time [backup and restore](
 
 Backup of the application data on a periodic basis is a basic need for managing a distributed application and guarding against loss of data or prolonged loss of service availability. Service Fabric provides an optional backup and restore service, which allows you to configure periodic backup of stateful Reliable Services (including Actor Services) without having to write any additional code. It also facilitates restoring previously taken backups. 
 
-> [!NOTE]
-> Periodic backup and restore feature is presently in **Preview** and not supported for production workloads. 
->
 
 Service Fabric provides a set of APIs to achieve the following functionality related to periodic backup and restore feature:
 
@@ -138,7 +135,7 @@ $BackupPolicy = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicy)
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
@@ -154,7 +151,7 @@ $BackupPolicyReference = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicyReference)
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
@@ -172,7 +169,7 @@ Backups associated with all partitions belonging to Reliable Stateful services a
 Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
 
 ```powershell
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
 
 $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 
@@ -219,10 +216,9 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## Preview limitation/ caveats
+## Limitation/ caveats
 - No Service Fabric built in PowerShell cmdlets.
 - No support for Service Fabric CLI.
-- No support for automated backup purging. [Backup retention script](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) may be referred to setup up script based external automation for purging backups.
 - No support for Service Fabric clusters on Linux.
 
 ## Next steps
