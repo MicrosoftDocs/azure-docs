@@ -27,9 +27,9 @@ This article describes "An internal error has occurred" you may encounter when y
 
 You cannot connect to Azure Windows VM by using remote desktop protocol (RDP). The connection is stuck on the configuring remote section or the following error is received:
 
-- RDP internal error 
-- An internal error has occurred
-- This computer can't be connected to the remote computer. Try connecting again. If the problem continues, contact the owner of the remote computer or your network administrator
+- RDP internal error.
+- An internal error has occurred.
+- This computer can't be connected to the remote computer. Try connecting again. If the problem continues, contact the owner of the remote computer or your network administrator.
 
 
 ## Cause
@@ -38,7 +38,7 @@ This issue may cause by the following reasons:
 
 - The local RSAs keys cannot be accessed.
 - TLS protocol is disabled.
-- The certificate is corrupted or expired 
+- The certificate is corrupted or expired.
 
 ## Solution 
 
@@ -52,7 +52,7 @@ To troubleshoot this issue, use Serial control or [repair the VM offline](#repai
 Connect to [Serial Console and open PowerShell instance](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
 ). If the Serial Console is not enabled on your VM, move to [repair the VM offline](#repair-the-vm-offline) section.
 
-#### Step 1 Check the RDP port
+#### Check the RDP port
 
 1. In PowerShell instance, use the [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) to check if port 8080 is used by other applications:
@@ -82,7 +82,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
     C. [Update the network security group for the new port](../../virtual-network/security-overview.md) in Azure portal RDP port.
 
-#### Step 2 Set correct permissions on the RDP Self-sign Certificate
+#### Set correct permissions on the RDP Self-sign Certificate
 
 1.	In PowerShell instance, run the following commands one by one to renew RDP self-sign certificate:
 
@@ -121,7 +121,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 4. Restart the VM, and then try to remote desktop to the VM. If the error still occurs, move to the next step.
 
-Step 3: Enable all supported TLS versions
+#### Enable all supported TLS versions
 
 The RPD client uses TLS 1.0 as the default protocol, however this could be then changed to TLS 1.1 which became the new standard. If the TLS 1.1 is disabled on the VM, the connection will fail. 
 1.  In CMD instance Enable the TLS protocol:
@@ -200,8 +200,8 @@ To enable dump log and Serial Console, run the following script.
 
 #### Enable all supported TLS versions 
 
-1.	Open an elevated CMD window (run as administrator), and the run the following commands.  The following script assumes that the driver letter is assigned to the attached OS disk is F. You need to change it with real value in your VM.
-2.	Check which TLS is enabled. Replace the drive letter F with the appropriate value in your VM.
+1. Open an elevated CMD window (run as administrator), and the run the following commands.  The following script assumes that the driver letter is assigned to the attached OS disk is F. You need to change it with real value in your VM.
+2. Check which TLS is enabled. Replace the drive letter F with the appropriate value in your VM.
 
         reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
@@ -217,7 +217,7 @@ To enable dump log and Serial Console, run the following script.
         
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
 
-3.	If the key doesn't exist, or its value is 0, enable the protocol by running the following scripts:
+3. If the key doesn't exist, or its value is 0, enable the protocol by running the following scripts:
 
         REM Enable TLS 1.0, TLS 1.1 and TLS 1.2
 
@@ -233,9 +233,7 @@ To enable dump log and Serial Console, run the following script.
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-4.	Enable NLA:
-
-        REM Enable NLA 
+4. Enable Network Level Authentication:
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
     
@@ -248,7 +246,7 @@ To enable dump log and Serial Console, run the following script.
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
         
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
-5.	[Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md), and then check if the issue is resolved.
+5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md), and then check if the issue is resolved.
 
 
 
