@@ -44,7 +44,7 @@ Submit your content for moderation. Internally, the review tool will call the mo
 
 ## Review moderation tags
 
-Review the applied moderation tags. You can see which tags were applied to your content and what the score was in each category.
+Review the applied moderation tags. You can see which tags were applied to your content and what the score was in each category. See the [Image](image-moderation-api.md), [Text](text-moderation-api.md), and [Video](video-moderation-api.md) moderation topics to learn more about what the different content tags indicate.
 
 ![Review results](images/reviewresults_text.png)
 
