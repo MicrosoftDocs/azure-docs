@@ -59,12 +59,12 @@ Using declarative data dependencies, you can optimize your tasks. The SDK includ
 
 Pipelines can be saved as templates and can be deployed to a REST endpoint so you can schedule batch-scoring or retraining jobs.
 
-Check out the [Python SDK reference docs for pipelines](http://aka.ms/aml-sdk) and the notebook in the next section to see how to build your own.
+Check out the [Python SDK reference docs for pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and the notebook in the next section to see how to build your own.
 
 ## Example notebooks
  
-The following notebook demonstrates pipelines with Azure Machine Learning:  `pipeline/pipeline-batch-scoring.ipynb`.
+The following notebook demonstrates pipelines with Azure Machine Learning:  [pipeline/pipeline-batch-scoring.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/pipeline-batch-scoring.ipynb).
  
-Get these notebooks:
+Get this notebook:
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

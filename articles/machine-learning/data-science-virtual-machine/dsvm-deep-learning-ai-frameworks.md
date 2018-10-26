@@ -171,7 +171,7 @@ Log in to the VM with X2Go. At a terminal, start the service:
 
     sudo systemctl start digits
 
-The service takes about one minute to start. Start a web browser and navigate to `http://localhost:5000`.
+The service takes about one minute to start. Start a web browser and navigate to `http://localhost:5000`. Note that DIGITS does not provide a secure login and should not be exposed outside the VM.
 
 
 

@@ -1,12 +1,14 @@
 ---
-title: Similarity method in the Academic Knowledge API | Microsoft Docs
-description: Use the Similarity method to calculate the academic similarity of two strings in Microsoft Cognitive Services.
+title: Similarity method - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Use the Similarity method to calculate the academic similarity of two strings.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
 ---

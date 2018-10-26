@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
@@ -26,10 +26,9 @@ In this tutorial, you learn how to:
 > * Create listeners, URL path map, and rules
 > * Create scalable backend pools
 
-
 ![URL routing example](./media/tutorial-url-route-cli/scenario.png)
 
-If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-route-powershell.md).
+If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-route-powershell.md) or the [Azure portal](create-url-route-portal.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

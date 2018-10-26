@@ -1,5 +1,5 @@
 ---
-title: Application Insights data from LUIS using C# 
+title: Application Insights data from LUIS using Node.js 
 titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application and Application Insights using Node.js.
 services: cognitive-services

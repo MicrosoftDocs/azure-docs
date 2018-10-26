@@ -2,18 +2,11 @@
 title: Microsoft Azure Data Box FAQ | Microsoft Docs in data 
 description: Contains frquently asked questions and answers for Azure Data Box, a cloud solution that enables you to transfer large amounts of data into Azure.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: 
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/27/2018
 ms.author: alkohli
 ---
@@ -219,7 +212,7 @@ A.  Once the data copy to Azure is complete, the data from the disks on the Data
 ## Audit report
 
 ### How does Azure Data Box service help support customers chain of custody procedure?
-A.  Azure Data Box service natively provides reports that you can use for your chain of custody documentation. The audit and copy logs are available in your storage account in Azure and the order history can be downloaded in your order in the Azure portal after the order is complete.
+A.  Azure Data Box service natively provides reports that you can use for your chain of custody documentation. The audit and copy logs are available in your storage account in Azure and you can [download the order history](data-box-portal-admin.md#download-order-history) in the Azure portal after the order is complete.
 
 
 ### What type of reporting is available to support chain of custody?
@@ -232,7 +225,7 @@ A.  Following reporting is available to support chain of custody:
 - Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
 
 ### Are the carrier tracking logs ( from UPS/DHL) available? 
-A.  Carrier tracking logs are captured in the Data Box audit log report. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
+A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
 
 ### Can I transport the Data Box to Azure datacenter? 
 A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS/DHL.

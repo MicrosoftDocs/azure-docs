@@ -3,11 +3,7 @@ title: Manage endpoints in Azure Traffic Manager | Microsoft Docs
 description: This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
+author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -44,7 +40,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 7.	When the addition of both endpoints is complete, they are displayed in the **Traffic Manager profile** blade along with their monitoring status as **Online**.
 
 > [!NOTE]
-> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered they way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md).
+> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered the way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md).
 
 ## To disable an endpoint
 
