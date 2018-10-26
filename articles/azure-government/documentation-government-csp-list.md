@@ -1,3 +1,16 @@
+---
+title: <Azure Government authorized reseller list>
+description: <Comprehensive listing of Azure Government Cloud Solution Providers, Resellers and Distributors>
+services: <service slug assigned to your service by ACOM>
+cloud: <Azure Government>
+author: <todorgb>
+ms.service: <Azure Government>
+ms.tgt_pltfrm: <optional>
+ms.devlang: <optional>
+ms.topic: article
+ms.date: 10/26/2018
+ms.author: <todorb>
+---
 # Azure Government authorized reseller list
 
 Since the launch of the [Azure Government in the Cloud Solution Provider Program (CSP)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), work has been done with the Partner Community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
