@@ -66,7 +66,7 @@ a folder at the specified path on the SFTP server.
 * Provides the **Rename file** action, which renames a file on the SFTP server.
 
 * Caches the connection to SFTP server, which improves performance 
-and reduces the number of connection attempts on the server. 
+and reduces the number of attempts at connecting to the server. 
 
   You can control the duration used for caching the connection 
   by setting up the <a href="http://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> property on your SFTP server. 
@@ -77,7 +77,7 @@ and reduces the number of connection attempts on the server.
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 * Your SFTP server address and account credentials, 
-which authorize your logic app to access your SFTP account 
+which let your logic app access your SFTP account 
 
   > [!NOTE] 
   > 
@@ -154,7 +154,7 @@ select the trigger you want.
   ***make sure you paste*** the key. ***Don't manually enter 
   or edit the key***.
 
-1. When you're done providing the connection details, 
+1. When you're done entering the connection details, 
 choose **Create**.
 
 1. Now provide the necessary details for your selected trigger 
@@ -194,18 +194,17 @@ such as **Get file content using path**.
 
 ### SFTP - SSH trigger: When a file is added or modified
 
-This trigger starts a logic app workflow when the trigger 
-detects when a file is added or changed on an SFTP server. 
-So for example, you can add a condition that checks the file's 
-content and decides whether to get that content, 
-based on whether that content meets a specified condition. 
-Finally, you can add an action that gets the file's content, 
-and put that content in a folder on the SFTP server. 
+This trigger starts a logic app workflow when a file is added 
+or changed on an SFTP server. For example, you can add a condition 
+that checks the file's content and gets the content 
+based on whether the content meets a specified condition. 
+You can then add an action that gets the file's content, 
+and puts that content in a folder on the SFTP server. 
 
 **Enterprise example**: You can use this trigger to monitor 
 an SFTP folder for new files that represent customer orders. 
-You can then use an SFTP action such as **Get file content**, 
-so you can get the order's contents for further processing 
+You can then use an SFTP action such as **Get file content** 
+so you get the order's contents for further processing 
 and store that order in an orders database.
 
 ### SFTP - SSH action: Get content

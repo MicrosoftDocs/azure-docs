@@ -48,7 +48,7 @@ For files larger than 1 GB, you can use the SFTP-SSH connector and also
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 * Your SFTP server address and account credentials, 
-which authorize your logic app to access your SFTP account
+which let your logic app access your SFTP account
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -92,18 +92,17 @@ or action and continue building your logic app's workflow.
 
 ### SFTP trigger: When a file is added or modified
 
-This trigger starts a logic app workflow when the trigger 
-detects when a file is added or changed on an SFTP server. 
-So for example, you can add a condition that checks the file's 
-content and decides whether to get that content, 
-based on whether that content meets a specified condition. 
-Finally, you can add an action that gets the file's content, 
-and put that content in a folder on the SFTP server. 
+This trigger starts a logic app workflow when a file is added 
+or changed on an SFTP server. For example, you can add a condition 
+that checks the file's content and gets the content 
+based on whether the content meets a specified condition. 
+You can then add an action that gets the file's content, 
+and puts that content in a folder on the SFTP server. 
 
 **Enterprise example**: You can use this trigger to monitor 
 an SFTP folder for new files that represent customer orders. 
-You can then use an SFTP action such as **Get file content**, 
-so you can get the order's contents for further processing 
+You can then use an SFTP action such as **Get file content** 
+so you get the order's contents for further processing 
 and store that order in an orders database.
 
 ### SFTP action: Get content
