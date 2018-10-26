@@ -21,7 +21,7 @@ For Cosmos DB accounts configured with multiple write regions, update conflicts 
 2. **Replace conflicts** can occur when an application updates a single item simultaneously from two or more regions.
 3. **Delete conflicts** can occur when an application simultaneously deletes an item from one region and updates it from any other region.
 
-## conflict resolution policies
+## Conflict resolution policies
 
 Cosmos DB offers a flexible policy-driven mechanism for resolving update conflicts. You can select from the following two conflict resolution policies on a Cosmos container:
 
