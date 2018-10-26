@@ -13,9 +13,9 @@ ms.date: 09/24/2018
 ---
 # Select and use a compute target to train your model
 
-With the Azure Machine Learning service, you can train your model in several different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
+With the Azure Machine Learning service, you can train your model in different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you learn about the supported compute targets and how to use them.
 
-A compute target is the resource that runs your training script or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK or CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can use them by attaching them to your Azure Machine Learning service workspace.
+A compute target is the resource that runs your training script, or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK or CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can use them by attaching them to your Azure Machine Learning service workspace.
 
 You can start with local runs on your machine, and then scale up and out to other environments such as remote Data Science virtual machines with GPU or Azure Batch AI. 
 
@@ -316,7 +316,7 @@ Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can
 
 To attach Azure Databricks as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
 
-* __Compute name__: The name you want to assign to this compute resource. This does not have to be the same as the Databricks workspace or Apache Spark cluster name.
+* __Compute name__: The name you want to assign to this compute resource.
 * __Resource ID__: The resource ID of the Azure Databricks workspace. The format of the resource ID value is `/subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>`.
 
     > [!TIP]
@@ -361,7 +361,7 @@ Azure Data Lake Analytics is a big data analytics platform in the Azure cloud.
 
 To attach Data Lake Analytics as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
 
-* __Compute name__: The name you want to assign to this compute resource. This does not have to be the same as the Data Lake Analytics account name.
+* __Compute name__: The name you want to assign to this compute resource.
 * __Resource ID__: The resource ID of the Data Lake Analytics account. The format of the resource ID value is `/subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>`.
 
     > [!TIP]
@@ -444,7 +444,7 @@ There are two ways to submit a training run:
 
 ### Submit using `ScriptRunConfig`
 
-The code pattern for submitting a training run using `ScriptRunConfig` is the same regardless of the compute target:
+The code pattern for submitting a training runs using `ScriptRunConfig` is the same regardless of the compute target:
 
 * Create a `ScriptRunConfig` object using the run configuration for the compute target.
 * Submit the run.
@@ -462,7 +462,7 @@ For a Jupyter Notebook that demonstrates training with Spark on HDInsight, see [
 
 ### Submit using a pipeline
 
-The code pattern for submitting a training run using a pipeline is the same regardless of the compute target:
+The code pattern for submitting a training runs using a pipeline is the same regardless of the compute target:
 
 * Add a step to the pipeline for the compute resource.
 * Submit a run using the pipeline.
@@ -524,7 +524,7 @@ Follow the above steps to view the list of compute targets, and then use the fol
 1. You can view the status create operation by selecting the compute target from the list.
 
     ![View Compute list](./media/how-to-set-up-training-targets/View_list.png)
-    You will then see the details for that compute.
+    You will then see the details for the compute target.
     ![View details](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. Now you can submit a run against these targets as detailed above.
 
@@ -553,7 +553,7 @@ Follow the above steps to view the list of compute targets, then use the followi
     > * [Create and use SSH keys on Linux or macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Create and use SSH keys on Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
+5. You can view the status of the provisioning state by selecting the compute target from the list.
 6. Now you can submit a run against these targets.
 
 ## Examples
