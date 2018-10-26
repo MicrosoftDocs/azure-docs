@@ -74,7 +74,7 @@ Before you get started, you’ll need:
 
     a. In the **Name** textbox, type a name for your application (e.g.: AADIP Risk Event API Application).
    
-    b. As **Type**, select **Web Application And / Or Web API**.
+    b. As **Application type**, select **Web Application And / Or Web API**.
    
     c. In the **Sign-on URL** textbox, type `http://localhost`.
 
