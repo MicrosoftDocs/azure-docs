@@ -269,9 +269,23 @@
         - name: Add continuous monitoring
           href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
         - name: Profiler
-          href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
-        - name: Enable the Profiler
-          href: ../application-insights/enable-profiler-compute.md?toc=/azure/azure-monitor/toc.json
+          items:
+          - name: Overview
+            href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
+          - name: Enable Profiler for an App Service
+            href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
+          - name: Enable the Profiler for a Cloud Service
+            href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
+          - name: Enable Profiler for a Service Fabric Application
+            href: ../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json
+          - name: Enable Profiler for an Azure VM
+            href: ../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json
+          - name: Profiler Settings
+            href: ../application-insights/app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json
+          - name: Track Requests for Profiling
+            href: ../application-insights/app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json
+          - name: Profiler Troubleshooting
+            href: ../application-insights/app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Previews
@@ -821,7 +835,7 @@
       - name: Azure PowerShell samples
         href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
       - name: PowerShell cmdlets
-        href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure%monitoring-and-diagnostics/toc.json
+        href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
       - name: Applications
         items:
         - name: Create Application Insights resources 
@@ -835,13 +849,13 @@
     - name: Azure CLI samples
       href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
     - name: Resource Manager templates
-      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure%monitoring-and-diagnostics/toc.json
+      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
     - name: API
       items:  
       - name: Walkthrough using REST API
         href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
       - name: Alert API
-        href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure%monitoring-and-diagnostics/toc.json
+        href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure/monitoring-and-diagnostics/toc.json
     - name: Applications
       items:
       - name: Automate with Microsoft Flow
