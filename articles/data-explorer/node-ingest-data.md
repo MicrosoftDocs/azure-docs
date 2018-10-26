@@ -44,7 +44,7 @@ const KustoIngestClient = require('azure-kusto-ingest').KustoIngestClient;
 const KustoConnectionStringBuilder = require('azure-kusto-ingest').KustoConnectionStringBuilder;
 ```
 
-To authenticate an application, Azure Data Explorer uses your AAD tenant ID. To find your tenant ID, follow [Find your Office 365 tenant ID](https://docs.microsoft.com/en-us/onedrive/find-your-office-365-tenant-id).
+To authenticate an application, Azure Data Explorer uses your Azure Active Directory tenant ID. To find your tenant ID, follow [Find your Office 365 tenant ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).
 
 Set the values for `authorityId`, `kustoUri`, `kustoIngestUri` and `kustoDatabase` before running this code.
 
@@ -55,7 +55,7 @@ const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:
 const kustoDatabase  = "<DatabaseName>"
 ```
 
-Now construct the connection string. This example uses device authentication to access the cluster. You can also use AAD application certificate, AAD application key, and AAD user and password.
+Now construct the connection string. This example uses device authentication to access the cluster. You can also use Azure Active Directory application certificate, application key, and user and password.
 
 You create the destination table and mapping in a later step.
 
@@ -128,9 +128,9 @@ ingestClient.ingestFromBlob(blobDesc,ingestionProps, (err) => {
 });
 ```
 
-## Validate that data was ingested into the table
+## Validate that table contains data
 
-Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into Azure Data Explorer. Then run the following code to get the count of records in the `StormEvents` table.
+Validate that the data was ingested into the table. Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into Azure Data Explorer. Then run the following code to get the count of records in the `StormEvents` table.
 
 ```javascript
 const query = "StormEvents | count";
