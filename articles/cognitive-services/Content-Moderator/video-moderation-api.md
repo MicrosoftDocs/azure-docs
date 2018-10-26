@@ -62,7 +62,7 @@ Install the following NuGet packages available on [NuGet](https://www.nuget.org/
 
 ### Update the program's using statements
 
-Add the following `using` statements.
+Add the following `using` statements to the top of your _Program.cs_ file.
 
 ```csharp
 using System;
@@ -96,7 +96,7 @@ private static StorageCredentials _StorageCredentials = null;
 
 // Azure Media Services authentication. See the quickstart for how to get these.
 private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
-private const string CLIENT_ID = "YOUR CLIENT ID"
+private const string CLIENT_ID = "YOUR CLIENT ID";
 private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
 
 // REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
