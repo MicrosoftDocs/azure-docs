@@ -1,13 +1,14 @@
 ---
-title: Upgrade Bing News Search API v5 to v7 | Microsoft Docs
+title: Upgrade Bing News Search API v5 to v7
+titlesuffix: Azure Cognitive Services
 description: Identifies the parts of your application that you need to update to use version 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 5334C475-4841-4736-A66E-DC1E07CBCEC9
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---

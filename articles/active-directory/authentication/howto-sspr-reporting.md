@@ -20,7 +20,7 @@ After deployment, many organizations want to know how or if self-service passwor
 
 ![Reporting][Reporting]
 
-The following questions can be answered by the reports that exist in the [Azure portal] (https://portal.azure.com/):
+The following questions can be answered by the reports that exist in the [Azure portal](https://portal.azure.com/):
 
 > [!NOTE]
 > You must be [a global administrator](../users-groups-roles/directory-assign-admin-roles.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.

@@ -7,8 +7,8 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
 #Customer intent: Use speech service and get LUIS prediction information -- without calling LUIS directly.
@@ -24,7 +24,7 @@ For this article, you need a free [LUIS][LUIS] website account in order to impor
 In the Azure portal, [create](luis-how-to-azure-subscription.md#create-luis-endpoint-key) a **Language Understanding** (LUIS) key. 
 
 ## Import Human Resources LUIS app
-The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 
+The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) file, save it with the `.json` extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 
 
 This app has intents, entities, and utterances related to the Human Resources domain. Example utterances include:
 
@@ -37,7 +37,7 @@ This app has intents, entities, and utterances related to the Human Resources do
 
 
 ## Add KeyPhrase prebuilt entity
-After importing the app, select **Entities**, then **Manage prebuilt entities**. Add the **KeyPhrase** entity. The KeyPhrase entity extracts key subject matter from the utterance.
+After importing the app, select **Entities**, then **Add prebuilt entity**. Add the **KeyPhrase** entity. The KeyPhrase entity extracts key subject matter from the utterance.
 
 ## Train and publish the app
 1. In the top, right navigation bar, select the **Train** button to train the LUIS app.
@@ -66,57 +66,29 @@ The Speech SDK is already included as a reference.
 [![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## Modify the C# code
-Open the **LUIS_samples.cs** file and change the following variables:
+Open the `Program.cs` file and change the following variables:
 
 |Variable name|Purpose|
 |--|--|
-|luisSubscriptionKey|Corresponds to endpoint URL's subscription-key value from Publish page|
-|luisRegion|Corresponds to endpoint URL's first subdomain|
-|luisAppId|Corresponds to endpoint URL's route following **apps/**|
+|LUIS_assigned_endpoint_key|Corresponds to endpoint URL's assigned subscription-key value from Publish page|
+|LUIS_endpoint_key_region|Corresponds to endpoint URL's first subdomain, for example `westus`|
+|LUIS_app_ID|Corresponds to endpoint URL's route following **apps/**|
 
-[![](./media/luis-tutorial-speech-to-intent/change-variables.png "Screenshot of Visual Studio 2017 displaying LUIS_samples.cs variables")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
-
-The file already has the Human Resources intents mapped.
-
-[![](./media/luis-tutorial-speech-to-intent/intents.png "Screenshot of Visual Studio 2017 displaying LUIS_samples.cs intents")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+The `Program.cs` file already has the Human Resources intents mapped.
 
 Build and run the app. 
 
 ## Test code with utterance
-Select **1** and speak into the microphone "Who is the manager of John Smith".
+Speak into the microphone "Who are the approved dentists in Redmond?".
 
-```cmd
-1. Speech recognition of LUIS intent.
-0. Stop.
-Your choice: 1
-LUIS...
-Say something...
-ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
-  "query": "Who is the manager of John Smith?",
-  "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.617331
-  },
-  "entities": [
-    {
-      "entity": "manager of john smith",
-      "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 31
-    }
-  ]
-}
+[!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Recognition done. Your Choice:
-
-```
-
-The correct intent, **GetEmployeeOrgChart**, was found with a 61% confidence. The keyPhrase entity was returned. 
+The correct intent, **GetEmployeeBenefits**, was found with a 85% confidence. The keyPhrase entity was returned. 
 
 The Speech SDK returns the entire LUIS response. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS HumanResources app. To do so, select the ellipsis (***...***) button to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS HumanResources app. To do so, select the app, then in the contextual toolbar above the list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 Remember to delete the LUIS-Samples directory when you are done using the sample code.
 

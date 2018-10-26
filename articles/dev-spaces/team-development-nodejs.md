@@ -56,6 +56,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
        });
     });
     ```
+ 4. *Remove* the `server.close()` line at the end of `server.js`
 
 The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this helps teams with collaborative development.
 

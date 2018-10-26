@@ -20,8 +20,8 @@ You can also:
 
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
-- [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
-- [Create an ingress controller with a static public IP address and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
+- Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates [with a dynamic public IP address][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## Before you begin
 
@@ -43,13 +43,16 @@ controller:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
 
-Now deploy the *nginx-ingress* chart with Helm. To use the manifest file created in the previous step, add the `-f internal-ingress.yaml` parameter:
+Now deploy the *nginx-ingress* chart with Helm. To use the manifest file created in the previous step, add the `-f internal-ingress.yaml` parameter. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
 > [!TIP]
 > The following example installs the ingress controller in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system -f internal-ingress.yaml
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    -f internal-ingress.yaml \
+    --set controller.replicaCount=2
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned, as shown in the following example output:
@@ -171,6 +174,41 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 [...]
 ```
 
+## Clean up resources
+
+This article used Helm to install the ingress components and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, first list the Helm releases with the `helm list` command. Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
+
+```
+$ helm list
+
+NAME             	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
+kissing-ferret   	1       	Tue Oct 16 17:13:39 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
+intended-lemur   	1       	Tue Oct 16 17:20:59 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+pioneering-wombat	1       	Tue Oct 16 17:21:05 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+```
+
+Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, and the two sample AKS hello world apps.
+
+```
+$ helm delete kissing-ferret intended-lemur pioneering-wombat
+
+release "kissing-ferret" deleted
+release "intended-lemur" deleted
+release "pioneering-wombat" deleted
+```
+
+Next, remove the Helm repo for the AKS hello world app:
+
+```console
+helm repo remove azure-samples
+```
+
+Finally, remove the ingress route that directed traffic to the sample apps:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
+
 ## Next steps
 
 This article included some external components to AKS. To learn more about these components, see the following project pages:
@@ -196,3 +234,4 @@ You can also:
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

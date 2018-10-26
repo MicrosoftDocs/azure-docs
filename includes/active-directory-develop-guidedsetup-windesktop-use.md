@@ -3,27 +3,25 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/18/2018
-ms.author: andret
-ms.custom: include file 
-
+ms.date: 09/17/2018
+ms.author: jmprieur
+ms.custom: include file
 ---
 
 ## Use MSAL to get a token for the Microsoft Graph API
 
 In this section, you use MSAL to get a token for the Microsoft Graph API.
 
-1.	In the *MainWindow.xaml.cs* file, add the reference for MSAL to the class:
+1. In the *MainWindow.xaml.cs* file, add the reference for MSAL to the class:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -213,4 +211,3 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 In addition to the access token that's used to call the Microsoft Graph API, after the user signs in, MSAL also obtains an ID token. This token contain a small subset of information that's pertinent to users. The `DisplayBasicTokenInfo` method displays the basic information that's contained in the token. For example, it displays the user's display name and ID, as well as the token expiration date and the string representing the access token itself. You can select the *Call Microsoft Graph API* button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
 <!--end-collapse-->
-

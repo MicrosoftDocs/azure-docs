@@ -4,10 +4,6 @@ description: This article explains different types of endpoints that can be used
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -33,8 +29,9 @@ The following sections describe each endpoint type in greater depth.
 
 Azure endpoints are used for Azure-based services in Traffic Manager. The following Azure resource types are supported:
 
-* 'Classic' IaaS VMs and PaaS cloud services.
+* PaaS cloud services.
 * Web Apps
+* Web App Slots
 * PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer). The publicIpAddress must have a DNS name assigned to be used in a Traffic Manager profile.
 
 PublicIPAddress resources are Azure Resource Manager resources. They do not exist in the classic deployment model. Thus they are only supported in Traffic Manager's Azure Resource Manager experiences. The other endpoint types are supported via both Resource Manager and the classic deployment model.

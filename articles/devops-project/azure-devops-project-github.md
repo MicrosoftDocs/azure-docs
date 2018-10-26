@@ -20,7 +20,7 @@ monikerRange: 'vsts'
 ---
 
 
-# Create a CI/CD pipeline for your existing code with the Azure DevOps Project
+# Tutorial:  Create a CI/CD pipeline for your existing code with the Azure DevOps Project
 
 The Azure DevOps Project presents a simplified experience where you can bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
 
@@ -64,8 +64,6 @@ The Azure DevOps Project creates a CI/CD pipeline in Azure DevOps Services.  You
 ## Configure Azure DevOps Services and an Azure subscription 
 
 1. Create a **new** Azure DevOps Services organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps Project.  Select your **Azure subscription**, **location**, and choose a **name** for your application.  When you're done, choose **Done**.
-
-   	![Enter Azure DevOps info](_img/azure-devops-project-github/vstsazureinfo.png)
 
 1. In a few minutes, the **Azure DevOps Project dashboard** loads in the Azure portal.  A sample application is set up in a repository in your Azure DevOps Services organization, a build executes, and your application deploys to Azure.  This dashboard provides visibility into your GitHub **code repository**, **Azure DevOps Services CI/CD pipeline**, and your **application in Azure**.  On the right side of the dashboard, select **Browse** to view your running application.
 

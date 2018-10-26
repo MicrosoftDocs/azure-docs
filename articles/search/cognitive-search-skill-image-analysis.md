@@ -42,7 +42,6 @@ Parameters are case-sensitive.
 
 
 ##	Sample definition
-
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
@@ -103,8 +102,16 @@ Parameters are case-sensitive.
     "values": [
         {
             "recordId": "1",
-            "data": {
-                "url": "https://storagesample.blob.core.windows.net/sample-container/image.jpg"
+            "data": {                
+                "image":  {
+                               "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
+                               "width": 500,
+                               "height": 300,
+                               "originalWidth": 5000,  
+                               "originalHeight": 3000,
+                               "rotationFromOriginal": 90,
+                               "contentOffset": 500  
+                           }
             }
         }
     ]
@@ -215,7 +222,7 @@ Parameters are case-sensitive.
                         "Black"
                     ],
                     "accentColor": "873B59",
-                    "isBWImg": false
+                    "isBwImg": false
                     },
                 "imageType": {
                     "clipArtType": 0,

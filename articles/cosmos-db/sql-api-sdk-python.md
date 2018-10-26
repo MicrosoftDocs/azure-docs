@@ -34,7 +34,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Download SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
+<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
 
 <tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)</td></tr>
 

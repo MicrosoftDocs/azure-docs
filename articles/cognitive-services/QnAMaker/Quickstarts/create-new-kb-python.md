@@ -1,19 +1,19 @@
 ---
-title:  "Quickstart: API Python - Create knowledge base - QnA Maker"
+title:  "Quickstart: Create knowledge base - REST, Python - QnA Maker"
 titlesuffix: Azure Cognitive Services 
-description: This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+description: This REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 
-# Create a new knowledge base in Python
+# Quickstart: Create a knowledge base in QnA Maker using Python
 
 This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
@@ -29,7 +29,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ![Azure dashboard service key](../media/sub-key.png)
 
-For more help with Visual Studio and Python: [Work with Python in Visual Studio on Windows](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio).
+For more help with Visual Studio and Python: [Work with Python in Visual Studio on Windows](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio).
 
 ## Create knowledge base
 
@@ -133,8 +133,8 @@ req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }

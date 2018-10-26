@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/29/2018
+ms.date: 09/27/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -36,7 +36,7 @@ If your account is assigned the **Contributor** role, you do not have adequate p
 2. In the Azure portal, select **Azure Active Directory**.
 3. In Azure Active Directory, select **User settings**.
 4. Check the **App registrations** option.
-    - If it is set to **Yes**, then non-administrator users can register AD apps. This setting means any user in the Azure AD tenant can register an app. You can proceed to Required Azure subscription permissions.  
+    - If it is set to **Yes**, then non-administrator users can register AD apps. This setting means any user in the Azure AD tenant can register an app.  
     ![App registrations](./media/activate-subs-accounts/app-register.png)
     - If the **App registrations** option is set to **No**, then only tenant administrative users can register Azure Active Directory apps. Your tenant administrator must register the CloudynCollector application.
 
@@ -60,7 +60,7 @@ When you add an account update a subscription, you grant Cloudyn access to your 
     2. In the Azure portal, select **Azure Active Directory**.
     3. To get the tenant ID, select **Properties** for your Azure AD tenant.
     4. Copy the Directory ID GUID. This value is your tenant ID.
-    For more information, see [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+    For more information, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 3. If necessary, select your Rate ID. If you don't know your rate ID, use the following steps to find it.
     1. In the upper-right of the Azure portal, click your user information and then click **View my bill**.
     2. Under **Billing Account**, click **Subscriptions**.

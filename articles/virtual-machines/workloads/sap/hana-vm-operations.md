@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2018
+ms.date: 09/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 
@@ -165,6 +165,8 @@ The disks recommended for the smaller VM types with 3 x P20 oversize the volumes
 Check whether the storage throughput for the different suggested volumes will meet the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed will increase the IOPS and I/O throughput within the limits of the Azure virtual machine type. 
 
 
+
+
 #### Storage solution with Azure Write Accelerator for Azure M-Series virtual machines
 Azure Write Accelerator is a functionality that is getting rolled out for M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of Writes against the Azure Premium Storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore the configurations shown so far need to be changed. The main change is the breakup between the **/hana/data** and **/hana/log** in order to use Azure Write Accelerator against the **/hana/log** volume only. 
 
@@ -200,7 +202,9 @@ More detailed instructions on how to enable Azure Write Accelerator can be found
 
 Details and restrictions for Azure Write Accelerator can be found in the same documentation.
 
-
+> [!NOTE]
+> The disk configuration recommendations stated are targeting minimum requirements SAP expresses towards  their infrastructure providers. In real customer deployments and workload scenarios, situations were encountered where these recommendations still did not provide sufficient capabilities. These could be situations where a customer required a faster reload of the data after a HANA restart or where backup configurations required higher bandwidth to the storage. Other cases included **/hana/log** where 5000 IOPS was not sufficient for the specific workload. So take these recommendations as a starting point and adapt based on the requirements of the workload.
+>  
 
 ### Set up Azure virtual networks
 When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you must have at least one Azure virtual network that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. In simple deployments, the Virtual Gateway can be deployed in a subnet of the Azure virtual network (VNet) that hosts the SAP HANA instances as well. To install SAP HANA, you create two additional subnets within the Azure virtual network. One subnet hosts the VMs to run the SAP HANA instances. The other subnet runs Jumpbox or Management VMs to host SAP HANA Studio, other management software, or your application software.
@@ -357,7 +361,7 @@ Following this setup routine, the scale-out configuration you installed is going
 ## SAP HANA Dynamic Tiering 2.0 for Azure virtual machines
 
 In addition to the SAP HANA certifications on Azure M-series VMs, SAP HANA Dynamic Tiering 2.0 is also supported on Microsoft Azure
-(see SAP HANA Dynamic Tiering documentation linsk further down). While there is no difference in installing the product or 
+(see SAP HANA Dynamic Tiering documentation links further down). While there is no difference in installing the product or 
 operating it, for example, via SAP HANA Cockpit inside an Azure Virtual Machine, there are a few important items, which are mandatory for official support on Azure. These key points are described below. Throughout the article, the abbreviation "DT 2.0" will be used
 instead of the full name Dynamic Tiering 2.0.
 
@@ -508,4 +512,4 @@ Be sure to install SAProuter in a separate VM and not in your Jumpbox VM. The se
 For more information on how to set up and maintain remote support connections through SAProuter, see the [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### High-availability with SAP HANA on Azure native VMs
-If you're running SUSE Linux 12 SP1 or later, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information about the setup procedure, see [SAP HANA High Availability guide for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+If you're running SUSE Linux Enterprise Server for SAP Applications 12 SP1 or later, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information about the setup procedure, see [SAP HANA High Availability guide for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

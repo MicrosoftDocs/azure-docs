@@ -35,10 +35,10 @@ Here is a simple C# example:
 public static async Task Run(
     [ManualTrigger] string input,
     [OrchestrationClient] DurableOrchestrationClient starter,
-    TraceWriter log)
+    ILogger log)
 {
     string instanceId = await starter.StartNewAsync("HelloWorld", input);
-    log.Info($"Started orchestration with ID = '{instanceId}'.");
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 }
 ```
 
@@ -55,6 +55,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+The code above assumes that in the function.json file you have defined an out binding with name as "starter" and type as "orchestrationClient". If the binding is not defined, then the durable function instance will not be created.
+
+For the durable function to be invoked the  function.json should be modified to have a binding for orchestration client as described below
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]
@@ -101,12 +114,38 @@ You can use the `GetStatusAsync` method to query the statuses of all orchestrati
 public static async Task Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient client,
-    TraceWriter log)
+    ILogger log)
 {
     IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(); // You can pass CancellationToken as a parameter.
     foreach (var instance in instances)
     {
-        log.Info(JsonConvert.SerializeObject(instance));
+        log.LogInformation(JsonConvert.SerializeObject(instance));
+    };
+}
+```
+## Querying instances with filters
+
+You can also use the `GetStatusAsync` method to get a list of orchestration instances that match a set of predefined filters. Possible filter options include the orchestration creation time and the orchestration runtime status.
+
+```csharp
+[FunctionName("QueryStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    ILogger log)
+{
+    IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
+        OrchestrationRuntimeStatus.Completed,
+        OrchestrationRuntimeStatus.Running
+    };
+    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(
+        new DateTime(2018, 3, 10, 10, 1, 0),
+        new DateTime(2018, 3, 10, 10, 23, 59),
+        runtimeStatus
+    ); // You can pass CancellationToken as a parameter.
+    foreach (var instance in instances)
+    {
+        log.LogInformation(JsonConvert.SerializeObject(instance));
     };
 }
 ```

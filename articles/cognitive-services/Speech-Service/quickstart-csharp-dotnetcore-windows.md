@@ -1,14 +1,15 @@
 ---
-title: 'Quickstart: Recognize speech in C# under .NET Core on Windows by using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in C# under .NET Core on Windows by using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech in C# under .NET Core on Windows by using the Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize speech in C# under .NET Core on Windows by using the Speech Service SDK
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
 ---
 
@@ -42,9 +43,9 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![Screenshot of Solution Explorer, with Manage NuGet Packages for Solution highlighted](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 
-1. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package, and install it into the **helloworld** project.
+1. In the upper-right corner, in the **Package Source** field, select **nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package, and install it into the **helloworld** project.
 
-    ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "Install Nuget package")
+    ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Install NuGet package")
 
 1. Accept the displayed license to begin installation of the NuGet package.
 
@@ -57,7 +58,7 @@ After the package is installed, a confirmation appears in the Package Manager co
 
 1. Open `Program.cs`, and replace all the code in it with the following.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 

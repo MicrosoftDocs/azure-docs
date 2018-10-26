@@ -44,8 +44,9 @@
   - name: IoT Edge certificates
     href: iot-edge-certs.md
   - name: IoT Edge modules
-    href: iot-edge-modules.md
     items: 
+    - name: Understand Azure IoT Edge modules
+      href: iot-edge-modules.md
     - name: Development
       href: module-development.md
     - name: Composition
@@ -90,6 +91,8 @@
       href: how-to-install-iot-edge-windows-with-linux.md
     - name: IoT Core
       href: how-to-install-iot-core.md
+    - name: Update the runtime version
+      href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
     items: 
     - name: Linux

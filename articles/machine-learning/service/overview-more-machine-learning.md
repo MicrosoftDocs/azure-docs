@@ -37,7 +37,8 @@ Microsoft provides a variety of product options to build, deploy, and manage you
 
 Use Azure Machine Learning service to train, deploy, and manage ML models using Python and CLI at cloud scale.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+>[!Note]
+> You can try Azure Machine Learning for free. No credit card or Azure subscription is required. Get started now. https://azure.microsoft.com/free/
 
 ## Azure Machine Learning Studio
 
@@ -45,6 +46,8 @@ Use Azure Machine Learning service to train, deploy, and manage ML models using 
 No programming is required - you construct your machine learning model by connecting datasets and analysis modules on an interactive canvas, and then deploy it with a couple clicks.
 
 Use Machine Learning Studio when you want to develop and deploy models with no code required.
+
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Azure Databricks
 

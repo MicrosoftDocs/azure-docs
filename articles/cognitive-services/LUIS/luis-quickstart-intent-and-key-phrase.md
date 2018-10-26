@@ -58,7 +58,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 2. Select **Entities** from the left menu.
 
-3. Select **Manage prebuilt entities**.
+3. Select **Add prebuilt entity**.
 
 4. In the pop-up dialog, Select **keyPhrase**, then select **Done**. 
 

@@ -8,14 +8,14 @@
     items:
     - name: Recent updates
       href: azure-stack-servicing-policy.md#update-package-release-cadence 
+    - name: 1809 update 
+      href: azure-stack-update-1809.md
     - name: 1808 update 
       href: azure-stack-update-1808.md 
     - name: 1807 update 
       href: azure-stack-update-1807.md 
     - name: 1805 update
       href: azure-stack-update-1805.md
-    - name: 1804 update
-      href: azure-stack-update-1804.md
 - name: Quickstarts
   expanded: true
   items:
@@ -27,6 +27,10 @@
     href: azure-stack-tutorial-tenant-vm.md
   - name: Offer SQL databases
     href: azure-stack-tutorial-sql-server.md
+  - name: Offer highly available SQL databases
+    href: azure-stack-tutorial-sql.md
+  - name: Offer highly available MyQL databases
+    href: azure-stack-tutorial-mysql.md
   - name: Offer Web Apps
     href: azure-stack-tutorial-app-service.md
   - name: Deploy Ethereum
@@ -73,6 +77,10 @@
         href: azure-stack-integrate-identity.md
       - name: Validate Azure identity
         href: azure-stack-validate-identity.md
+      - name: Validate ADFS integration
+        href: azure-stack-validate-adfs.md
+      - name: Validate graph integration
+        href: azure-stack-validate-graph.md
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
@@ -121,8 +129,6 @@
       href: azure-stack-region-management.md
     - name: Using the administrator portal
       href: azure-stack-manage-portals.md
-    - name: Connect to Azure Stack
-      href: azure-stack-connect-azure-stack.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN

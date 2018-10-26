@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
 
 ---
@@ -24,8 +24,10 @@ When moving resources, both the source group and the target group are locked dur
 You can't change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that doesn't change the location of the resource.
 
 > [!NOTE]
-> This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md).
->
+> This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from free to pay-as-you-go) you need to convert your subscription. 
+> * To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](..//billing/billing-upgrade-azure-subscription.md).
+> * To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
+> * If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 >
 
 ## Checklist before moving resources
@@ -106,7 +108,7 @@ Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAn
 
 ## Validate move
 
-The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
+The [validate move operation](/rest/api/resources/resources/resources_validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
 
 * name of the source resource group
 * resource ID of the target resource group
@@ -192,6 +194,7 @@ The following list provides a general summary of Azure services that can be move
 * DNS
 * Event Grid
 * Event Hubs
+* Front Door
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
@@ -203,7 +206,6 @@ The following list provides a general summary of Azure services that can be move
 * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -263,37 +265,39 @@ The following list provides a general summary of Azure services that can't be mo
 
 ## Virtual Machines limitations
 
-Managed disks are supported for move as of September 24, 2018. You'll have to register to enable this feature.
+Managed disks are supported for move as of September 24, 2018. 
 
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. In the source subscription, register this feature.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-The registration request initially returns a state of `Registering`. You can check the current status with:
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. The registration request initially returns a state of `Registering`. You can check the current status with:
 
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-Wait several minutes for the status to change to `Registered`.
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-After the feature is registered, register the `Microsoft.Compute` resource provider. Perform this step even if the resource provider was previously registered.
+1. Wait several minutes for the status to change to `Registered`.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-```
+1. After the feature is registered, register the `Microsoft.Compute` resource provider. Perform this step even if the resource provider was previously registered.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
 
 This support means you can also move:
 

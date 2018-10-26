@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Windows event log data sources in Log Analytics

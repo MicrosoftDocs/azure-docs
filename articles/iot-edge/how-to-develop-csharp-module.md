@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 09/25/2018
+ms.date: 09/27/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -48,16 +48,16 @@ To test your module on a device, you need an active IoT hub with at least one Io
 Take these steps to create an IoT Edge module based on .NET Core 2.1 using Visual Studio Code and the Azure IoT Edge extension. First you create a solution, and then you generate the first module in that solution. Each solution can contain more than one module. 
 
 1. In Visual Studio Code, select **View** > **Integrated Terminal**.
-3. Select **View** > **Command Palette**. 
-4. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.
+2. Select **View** > **Command Palette**. 
+3. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.
 
    ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. Browse to the folder where you want to create the new solution. Choose **Select folder**. 
-6. Enter a name for your solution. 
-7. Select **C# Module** as the template for the first module in the solution.
-8. Enter a name for your module. Choose a name that's unique within your container registry. 
-9. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name.
+4. Browse to the folder where you want to create the new solution. Choose **Select folder**. 
+5. Enter a name for your solution. 
+6. Select **C# Module** as the template for the first module in the solution.
+7. Enter a name for your module. Choose a name that's unique within your container registry. 
+8. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name.
 
    ![Provide Docker image repository](./media/how-to-develop-csharp-module/repository.png)
 
@@ -173,8 +173,9 @@ In your development machine, you can start IoT Edge simulator instead of install
 
 7. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
 
-> [!NOTE]
-> This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the Visual Studio .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+    > [!NOTE]
+    > This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the Visual Studio .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+
 
 ## Next steps
 
