@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: sajagtap
 #As a C# developer of content-providing software, I want to analyze images for offensive or inappropriate content so that I can categorize and handle them accordingly.
 ---
@@ -24,11 +24,12 @@ This article provides information and code samples to help you get started using
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-## Sign up for Content Moderator services
+## Prerequisites
 
-Before you can use Content Moderator services, you'll need a subscription key. Subscribe to the Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
+- A Content Moderator subscription key (obtained by subscribing to the Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)).
+- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
-## Create your Visual Studio project
+## Create the Visual Studio project
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
@@ -45,9 +46,11 @@ Install the following NuGet packages to your new project:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### Update the program's using statements
+## Add the text moderation code
 
-Add the following `using` statements.
+### Include namespaces
+
+Add the following `using` statements to the top of your *Program.cs* file.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
@@ -62,11 +65,7 @@ using System.Threading;
 
 ### Create the Content Moderator client
 
-Add the following code to create a Content Moderator client for your subscription.
-
-> [!IMPORTANT]
-> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
-> the values of your region identifier and subscription key.
+Add the following code to create a Content Moderator client provider for your subscription. You can add this to the *Program.cs* file or a new file. You'll need to update the **AzureRegion** and **CMSubscriptionKey** fields with the values of your region identifier and subscription key.
 
 ```csharp
 /// <summary>
@@ -112,9 +111,9 @@ public static class Clients
 }
 ```
 
-### Initialize application-specific settings
+### Set up input and output targets
 
-Add the following static fields to the **Program** class in Program.cs.
+Add the following static fields to the **Program** class in _Program.cs_.
 
 ```csharp
 ///<summary>
@@ -133,13 +132,13 @@ private static string ImageUrlFile = "ImageFiles.txt";
 private static string OutputFile = "ModerationOutput.json";
 ```
 
-Create an input file, _ImageFiles.txt_, and add the URLs of images you wish to analyze. This quickstart uses the following two URLs to generate its sample output.
+Create an input file, _ImageFiles.txt_, and add the URLs of images you wish to analyze. This quickstart uses the following two URLs as its sample input.
 - https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 - https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
-## Create a class to handle results
+### Create a class to handle results
 
-Add the following class to the **Program** class. You will use an instance of this class to record the moderation results for each of the reviewed images.
+Add the following class definition to the **Program** class. You will use an instance of this class to record the moderation results for each of the reviewed images.
 
 ```csharp
 /// <summary>
@@ -170,13 +169,9 @@ public class EvaluationData
 }
 ```
 
-## Create the image evaluation method
+### Define the image evaluation method
 
-Add the following method to the **Program** class. This method evaluates a single image and returns the evaluation results.
-
-> [!NOTE]
-> Your Content Moderator service key has a requests-per-second (RPS)
-> rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code. A free tier key has a one-RPS rate limit.
+Add the following method to the **Program** class. This method evaluates a single image and returns the evaluation results. Note that your Content Moderator service key has a requests-per-second (RPS) rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code. A free tier key has a one-RPS rate limit.
 
 ```csharp
 /// <summary>
@@ -218,18 +213,9 @@ private static EvaluationData EvaluateImage(
 }
 ```
 
-The **EvaluateUrlInput** method is a wrapper for the Image Moderation REST API.
-The return value contains the object returned from the API call.
+## Load and evaluate the input images
 
-The **OCRUrlInput** method is a wrapper for the Image OCR REST API.
-The return value contains the object returned from the API call.
-
-The **FindFacesUrlInput** method is a wrapper for the Image Find Faces REST API.
-The return value contains the object returned from the API call.
-
-## Evaluate the images in your code
-
-Add the following code to the **Main** method.
+Add the following code to the **Main** method in the **Program** class.
 
 ```csharp
 // Create an object to store the image moderation results.
@@ -266,7 +252,7 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 
 ## Run the program and review the output
 
-Open your _ModerationOutput.json_ file to view the output content. It should look something like the content below. Note that each image has different sections for `ImageModeration`, `FaceDetection`, and `TextDetection`, which correspond to the three API calls in your **EvaluateImage** method.
+The program will write JSON string data to the _ModerationOutput.json_ file. The sample images used in this quickstart give the following output. Note that each image has different sections for `ImageModeration`, `FaceDetection`, and `TextDetection`, which correspond to the three API calls in your **EvaluateImage** method.
 
 ```json
 [{
@@ -450,6 +436,9 @@ Open your _ModerationOutput.json_ file to view the output content. It should loo
 }]
 ```
 
-## Next steps - get the source code
+## Next steps
 
-Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+In this quickstart, you've developed a simple .NET application that uses the Content Moderator service to return relevant data about a given image sample. Next, learn how to create and manage your own list of targeted images. Custom image lists can optimize the moderation process by allowing the service to skip redundant analyses.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Check text against a custom term list in C#](term-lists-quickstart-dotnet.md)
