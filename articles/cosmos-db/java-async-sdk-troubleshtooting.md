@@ -3,6 +3,7 @@ title: Diagnose, and troubleshoot Azure Cosmos DB Java Async SDK| Microsoft Docs
 description: Use features like client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues.
 services: cosmos-db
 author: moderakh
+
 ms.service: cosmos-db
 ms.topic: article
 ms.date: 10/28/2018
@@ -32,15 +33,14 @@ Java Async SDK is provides access to Azure Cosmos DB SQL API.
 Java Async SDK provides client-side logical representation for accessing Azure Cosmos DB SQL API. We provide a few different tools and approaches for helping you if you face any problem.
 
 Please start with this list:
-    1. Take a look at the commons problem [TODO link] in this article.
-    2. Our SDK is open-source on github and we have issues section that we actively monitor. Check if there is any similar issue already filed and if there is a workaround: (Our GitHub Issues)[https://github.com/Azure/azure-cosmosdb-java/issues]
-    3. Review (Performance Tips)[performance-tips-async-java.md] and follow the suggested practices.
-    4. Follow the rest of this article, if you didn't find a solution, file a (GitHub issue)[https://github.com/Azure/azure-cosmosdb-java/issues].
+    1. Take a look at the [commons issues](common-issue) in this article.
+    2. Our SDK is [open-source on github](https://github.com/Azure/azure-cosmosdb-java) and we have issues section that we actively monitor. Check if there is any similar issue already filed and if there is a workaround: [Our GitHub Issues](https://github.com/Azure/azure-cosmosdb-java/issues)
+    3. Review [Performance Tips](performance-tips-async-java.md) and follow the suggested practices.
+    4. Follow the rest of this article, if you didn't find a solution, file a [GitHub issue](https://github.com/Azure/azure-cosmosdb-java/issues).
 
 ## <a name="common-issues"></a>Common Issues and Workarounds
 
 ### Network Issues, `io.netty.handler.timeout.ReadTimeoutException`, low throughput, high latency
-
 
 1. Make sure the app is running on the same region as your cosmosdb endpoint. 
 2. Check the CPU usage on the app Host. If it is 90% or more maybe it is time to run your app on a host with higher spec or distribute the load on more hosts.
@@ -65,10 +65,10 @@ for example the following code snippet shows that if you some work on the netty 
 ```java
     @Test(groups = { "simple" })
     public void badcode() throws Exception {
-        int maxProcessingTimeInSecondsBeforeGettingReadTimeoutException = 10;
+        int requestTimeoutInSeconds = 10;
 
         ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setRequestTimeoutInMillis(maxProcessingTimeInSecondsBeforeGettingReadTimeoutException * 1000);
+        policy.setRequestTimeoutInMillis(requestTimeoutInSeconds * 1000);
 
         AsyncDocumentClient testClient = new AsyncDocumentClient.Builder()
                 .withServiceEndpoint(TestConfigurations.HOST)
@@ -89,7 +89,7 @@ for example the following code snippet shows that if you some work on the netty 
                         try {
                             // time consuming work: e.g., writing to a file, computationally heavy work, or just sleep
                             // basically anything which takes more than a few milliseconds
-                            TimeUnit.SECONDS.sleep(2 * maxProcessingTimeInSecondsBeforeGettingReadTimeoutException);
+                            TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
                         } catch (Exception e) {
                         }
                     },
@@ -115,10 +115,10 @@ the workaround is to change the thread on which you are doing additional work, e
 ```java
     @Test
     public void workaround() throws Exception {
-        int maxProcessingTimeInSecondsBeforeGettingReadTimeoutException = 10;
+        int requestTimeoutInSeconds = 10;
 
         ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setRequestTimeoutInMillis(maxProcessingTimeInSecondsBeforeGettingReadTimeoutException * 1000);
+        policy.setRequestTimeoutInMillis(requestTimeoutInSeconds * 1000);
 
         AsyncDocumentClient testClient = new AsyncDocumentClient.Builder()
                 .withServiceEndpoint(TestConfigurations.HOST)
@@ -144,7 +144,7 @@ the workaround is to change the thread on which you are doing additional work, e
                         try {
                             // time consuming work: e.g., writing to a file, computationally heavy work, or just sleep
                             // basically anything which takes more than a few milliseconds
-                            TimeUnit.SECONDS.sleep(2 * maxProcessingTimeInSecondsBeforeGettingReadTimeoutException);
+                            TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
                         } catch (Exception e) {
                         }
                     },
@@ -164,10 +164,13 @@ the workaround is to change the thread on which you are doing additional work, e
     }
 ```
 
-### `CollectionPoolExhausted` this is a client side failure. if you get this failure often, that's indication that your app workload is higher than what the connection pool size can serve. Trying to increase connection pool size or distributing the load on multiple apps may help.
+### `CollectionPoolExhausted` 
+
+this is a client side failure. if you get this failure often, that's indication that your app workload is higher than what the connection pool size can serve. Trying to increase connection pool size or distributing the load on multiple apps may help.
 
 
 ### Request Rate Too Large.
+This is a service side failure indicating that you consumed your provisioned throughput and should retry later. If you get this failure often it is an indication that you should increase the collection throughput.
 
 ### Fialure in connecting to Cosmos DB Emulator
 
@@ -180,36 +183,36 @@ The async Java SDK uses slf4j as the logging facade as the logging framework. SF
 
 For example if you want to use log4j as the logging framework, you need to have the following libs in your Java classpath:
 
-    ```xml
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>${slf4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
-    ```
+```xml
+<dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-log4j12</artifactId>
+  <version>${slf4j.version}</version>
+</dependency>
+<dependency>
+  <groupId>log4j</groupId>
+  <artifactId>log4j</artifactId>
+  <version>${log4j.version}</version>
+</dependency>
+```
 
 and have log4j config file in place:
-    ```
-    # this is a sample log4j configuration
+```
+# this is a sample log4j configuration
 
-    # Set root logger level to DEBUG and its only appender to A1.
-    log4j.rootLogger=INFO, A1
+# Set root logger level to DEBUG and its only appender to A1.
+log4j.rootLogger=INFO, A1
 
-    log4j.category.com.microsoft.azure.cosmosdb=DEBUG
-    #log4j.category.io.netty=INFO
-    #log4j.category.io.reactivex=INFO
-    # A1 is set to be a ConsoleAppender.
-    log4j.appender.A1=org.apache.log4j.ConsoleAppender
+log4j.category.com.microsoft.azure.cosmosdb=DEBUG
+#log4j.category.io.netty=INFO
+#log4j.category.io.reactivex=INFO
+# A1 is set to be a ConsoleAppender.
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
 
-    # A1 uses PatternLayout.
-    log4j.appender.A1.layout=org.apache.log4j.PatternLayout
-    log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
-    ```
+# A1 uses PatternLayout.
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
+```
 
 Please follow [sfl4j logging manual](https://www.slf4j.org/manual.html) for more information.
 
