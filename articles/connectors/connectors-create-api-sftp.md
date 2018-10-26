@@ -16,9 +16,9 @@ ms.date: 10/26/2018
 # Monitor, create, and manage SFTP files by using Azure Logic Apps
 
 With Azure Logic Apps and the SFTP connector, 
-you can create automated tasks and workflows that 
-monitor, create, send, and receive files through your 
-account on an [SFTP](https://www.ssh.com/ssh/sftp/) server, 
+you can automate tasks and processes that 
+monitor, create, send, and receive files on an 
+[SFTP](https://www.ssh.com/ssh/sftp/) server 
 along with other actions, for example:
 
 * Monitor when files are added or changed.
@@ -47,10 +47,8 @@ For files larger than 1 GB, you can use the SFTP-SSH connector and also
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* Your SFTP host server address and account credentials
-
-   Your credentials authorize your logic app to create 
-   a connection and access your SFTP account.
+* Your SFTP server address and account credentials, 
+which authorize your logic app to access your SFTP account
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)

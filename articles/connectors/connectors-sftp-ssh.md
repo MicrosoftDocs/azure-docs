@@ -15,9 +15,9 @@ ms.date: 10/26/2018
 # Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps
 
 With Azure Logic Apps and the SFTP-SSH connector, 
-you can create automated tasks and workflows that 
-monitor, create, send, and receive files through your 
-account on an [SFTP](https://www.ssh.com/ssh/sftp/) server, 
+you can automate tasks and processes that monitor, 
+create, send, and receive files on an 
+[SFTP](https://www.ssh.com/ssh/sftp/) server 
 along with other actions, for example:
 
 * Monitor when files are added or changed.
@@ -76,9 +76,8 @@ and reduces the number of connection attempts on the server.
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* Your SFTP host server address and account credentials, 
-including your SSH private key, which authorize your 
-logic app to connect and access your SFTP account. 
+* Your SFTP server address and account credentials, 
+which authorize your logic app to access your SFTP account 
 
   > [!NOTE] 
   > 
@@ -139,15 +138,14 @@ select the trigger you want.
    > provide the complete and correct value for this property. 
    > An invalid key causes the connection to fail.
    
-   Although you can use any text editor, 
-   here are sample steps that show how to 
-   copy and paste your key correctly by using 
-   Notepad.exe as an the example.
+   Although you can use any text editor, here are sample 
+   steps that show how to correctly copy and paste your key 
+   by using Notepad.exe as an example.
     
    1. Open the SSH private key file in a text editor. 
-   These steps use Notepad.exe as an example.
+   These steps use Notepad as the example.
 
-   1. On the **Edit** menu, select **Select All**.
+   1. On Notepad's **Edit** menu, select **Select All**.
 
    1. Select **Edit** > **Copy**.
 
