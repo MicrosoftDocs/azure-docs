@@ -26,14 +26,14 @@ You can start with local runs on your machine, and then scale up and out to othe
 
 Azure Machine Learning service supports the following compute targets:
 
-|Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines|
-|----|:----:|:----:|:----:|:----:|
-|[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
-|[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines| Can ONLY be used in pipelines |
+|----|:----:|:----:|:----:|:----:|:----:|
+|[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; | &nbsp; |
+|[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ | &nbsp; |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | &nbsp; |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓ | ✓ |
+|[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ | ✓ |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ | &nbsp; |
 
 __[Azure Container Instances (ACI)](#aci)__ can also be used to train models. It is a serverless cloud offering that is inexpensive and easy to create and work with. ACI does not support GPU acceleration, automated hyper parameter tuning, or automated model selection. Also, it cannot be used in a pipeline.
 
@@ -312,6 +312,8 @@ For a Jupyter Notebook that demonstrates training on Azure Container Instance, s
 Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target when training models with an Azure Machine Learning pipeline.
 
 > [!IMPORTANT]
+> An Azure Databricks compute target can only be used in a Machine Learning pipeline.
+>
 > You must create an Azure Databricks workspace before using it to train your model. To create these resource, see the [Run a Spark job on Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) document.
 
 To attach Azure Databricks as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
@@ -357,6 +359,8 @@ except ComputeTargetException:
 Azure Data Lake Analytics is a big data analytics platform in the Azure cloud.
 
 > [!IMPORTANT]
+> An Azure Data Lake Analytics compute target can only be used in a Machine Learning pipeline.
+>
 > You must create an Azure Data Lake Analytics account before using it to train your model. To create this resource, see the [Get started with Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) document.
 
 To attach Data Lake Analytics as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
