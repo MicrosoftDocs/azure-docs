@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -36,7 +36,13 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* You need to specify a password for the virtual machine administrator account. To increase security, use a generated password. Here is a sample:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Open a Quickstart template
 
@@ -108,7 +114,7 @@ Make two changes to the existing template:
 
 Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to deploy the template.
 
-When you deploy the template using Azure PowerShell, you need to specify one additional parameter:
+When you deploy the template using Azure PowerShell, you need to specify one additional parameter. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
