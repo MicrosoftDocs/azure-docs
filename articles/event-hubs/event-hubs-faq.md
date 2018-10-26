@@ -1,4 +1,4 @@
----
+10---
 title: Azure Event Hubs FAQ | Microsoft Docs
 description: Azure Event Hubs frequently asked questions (FAQ)
 services: event-hubs
@@ -31,6 +31,18 @@ The Standard tier of Azure Event Hubs provides features beyond what is available
 
 For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
+### Where is Azure Event Hubs available?
+
+Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  
+
+### Can I use a single AMQP connection to send and receive from multiple event hubs?
+
+Yes, as long as all the event hubs are in the same namespace.
+
+### What is the maximum retention period for events?
+
+Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
+
 ### How do I monitor my Event Hubs?
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
@@ -40,7 +52,7 @@ Event Hubs emits exhaustive metrics that provide the state of your resources to 
 Event Hubs provides a Kafka endpoint that can be used by your existing Apache Kafka based applications. A configuration change is all that is required to have the PaaS Kafka experience. It provides an alternative to running your own Kafka cluster. Event Hubs supports Apache Kafka 1.0 and newer client versions and works with your existing Kafka applications, tools, and frameworks. For more information, see [Event Hubs for Kafka repo](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 
-## Performance (throughput units)
+## Tthroughput units
 
 ### What are Event Hubs throughput units?
 Throughput in Event Hubs defines the amount of data in mega bytes or the number (in thousands) of 1KB events that ingress and egress through Event Hubs. This throughput is measured in throughput units (TUs). Purchase TUs before you can start using the Event Hubs service. You can explicitly select Event Hubs TUs either by using portal or Event Hubs Resource Manager templates. 
@@ -75,7 +87,7 @@ If the total egress throughput or the total event egress rate across all event h
 ### Is there a limit on the number of throughput units (TUs) that can be reserved/selected?
 On a multi-tenant offering, throughput units can grow up to 40 TUs (you can select up to 20 TUs in the portal, and raise a support ticket to raise it to 40 TUs on the same namespace). Beyond 40 TUs, Event Hubs offers the resource/capacity-based model called the **Event Hubs Dedicated clusters**. Dedicated clusters are sold in Capacity Units (CUs).
 
-## Performance (dedicated clusters)
+## Dedicated clusters
 
 ### What are Event Hubs Dedicated clusters?
 Event Hubs Dedicated clusters offer single-tenant deployments for customers with most demanding requirements. This offering builds a capacity-based cluster that is not bound by throughput units. It means that you could utilize the cluster to ingest and stream your data as dictated by the CPU and memory usage of the cluster. For more information, see [Event Hubs Dedicated clusters](event-hubs-dedicated-overview.md).
@@ -101,19 +113,6 @@ The results give you an idea of what can be achieved with a dedicated Event Hubs
 
 ### How do I create an Event Hubs Dedicated cluster?
 You create an Event Hubs dedicated cluster by submitting a [quota increase support request](https://portal.azure.com/#create/Microsoft.Support) or by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). It typically takes about 2 weeks to get the cluster deployed and handed over to be used by you. This process is temporary until a complete self-serve is made available through the Azure portal or Azure Resource Manager templates, which takes about two hours to deploy the cluster.
-
-
-### Can I use a single AMQP connection to send and receive from multiple event hubs?
-
-Yes, as long as all the event hubs are in the same namespace.
-
-### What is the maximum retention period for events?
-
-Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
-
-### Where is Azure Event Hubs available?
-
-Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  
 
 ## Best practices
 
