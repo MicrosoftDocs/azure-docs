@@ -40,6 +40,10 @@
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
     href: key-vault-overview-vnet-service-endpoints.md
+  - name: Authentication, requests and responses
+    href: authentication-requests-and-responses.md
+  - name: Common parameters and headers
+    href: common-parameters-and-headers.md
   - name: About keys, secrets and certificates
     href: about-keys-secrets-and-certificates.md
     items:
@@ -87,11 +91,6 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
-    items:
-    - name: Authentication, requests and responses
-      href: authentication-requests-and-responses.md
-    - name: Common parameters and headers
-      href: common-parameters-and-headers.md
   - name: Develop
     items:
     - name: Developer's guide
@@ -122,14 +121,14 @@
     href: /learn/browse/?products=azure-key-vault
   - name: Customer data 
     href: key-vault-customer-data.md
+  - name: Release Notes
+    href: key-vault-versions.md
   - name: Service
     items:
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/key-vault/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
-    - name: Release Notes
-      href: key-vault-versions.md
     - name: Service Level Agreement (SLA)
       href: https://azure.microsoft.com/support/legal/sla/key-vault/
     - name: Service limits
