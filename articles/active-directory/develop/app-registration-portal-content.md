@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: App registration portal content
+title: Azure Active Directory guided setups steps
 description: App registration portal content
 author: CelesteDG
 ms.author: celested
