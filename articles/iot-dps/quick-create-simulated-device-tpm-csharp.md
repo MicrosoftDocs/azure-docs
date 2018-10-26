@@ -1,6 +1,6 @@
 ---
 title: Provision a simulated TPM device to Azure IoT Hub using C# | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated TPM device using C# device SDK for Azure IoT Hub Device Provisioning Service. This quick start, uses individual enrollments.
+description: Azure Quickstart - Create and provision a simulated TPM device using C# device SDK for Azure IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -43,7 +43,7 @@ This article will demonstrate individual enrollments.
 ## Provision the simulated device
 
 
-1. Sign in to the Azure portal. Click the **All resources** button on the left-hand menu and open your Device Provisioning service. From the **Overview** blade. note down the **_ID Scope_** value.
+1. Sign in to the Azure portal. Click the **All resources** button on the left-hand menu and open your Device Provisioning service. From the **Overview** blade, note down the **_ID Scope_** value.
 
     ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 
