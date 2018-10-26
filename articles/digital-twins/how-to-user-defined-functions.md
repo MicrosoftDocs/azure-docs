@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 10/26/2018
 ms.author: alinast
 ---
 
@@ -47,7 +47,7 @@ Valid matcher condition targets:
 
 The following example matcher will evaluate to true on any sensor telemetry event with `Temperature` as its data type value. You can create multiple matchers on a user-defined function.
 
-```text
+```plaintext
 POST https://yourManagementApiUrl/api/v1.0/matchers
 {
   "Name": "Temperature Matcher",
@@ -118,9 +118,9 @@ function process(telemetry, executionContext) {
 
 ### Example Functions
 
-Set the sensor telemetry reading directly for the sensor with data type `Temperature`, which is `sensor.DataType`:
+Set the sensor telemetry reading directly for the sensor with data type **Temperature**, which is `sensor.DataType`:
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Get sensor metadata
@@ -134,7 +134,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-The `telemetry` parameter exposes a `SensorId` and `Message`. The `executionContext` parameter exposes the following attributes:
+The *telemetry* parameter exposes the **SensorId** and **Message** attributes (corresponding to a message sent by a sensor). The *executionContext* parameter exposes the following attributes:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -148,7 +148,7 @@ var executionContext = new UdfExecutionContext
 
 In the next example, we will log a message if the sensor telemetry reading surpasses a pre-defined threshold. If your diagnostic settings are enabled on the Digital Twins instance, logs from user-defined functions will also be forwarded:
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -163,7 +163,7 @@ function process(telemetry, executionContext) {
 
 The following code will trigger a notification if the temperature level rises above the pre-defined constant.
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -248,7 +248,7 @@ Given a space identifier, retrieves the space from the graph.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `id`  | `guid` | space identifier |
+| *id*  | `guid` | space identifier |
 
 ### getSensorMetadata(id) ⇒ `sensor`
 
@@ -258,7 +258,7 @@ Given a sensor identifier, retrieves the sensor from the graph.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `id`  | `guid` | sensor identifier |
+| *id*  | `guid` | sensor identifier |
 
 ### getDeviceMetadata(id) ⇒ `device`
 
@@ -268,7 +268,7 @@ Given a device identifier, retrieves the device from the graph.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `id`  | `guid` | device identifier |
+| *id* | `guid` | device identifier |
 
 ### getSensorValue(sensorId, dataType) ⇒ `value`
 
@@ -278,8 +278,8 @@ Given a sensor identifier and its data type, retrieve the current value for that
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `sensorId`  | `guid` | sensor identifier |
-| `dataType`  | `string` | sensor data type |
+| *sensorId*  | `guid` | sensor identifier |
+| *dataType*  | `string` | sensor data type |
 
 ### getSpaceValue(spaceId, valueName) ⇒ `value`
 
@@ -289,8 +289,8 @@ Given a space identifier and the value name, retrieve the current value for that
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `spaceId`  | `guid` | space identifier |
-| `valueName` | `string` | space property name |
+| *spaceId*  | `guid` | space identifier |
+| *valueName* | `string` | space property name |
 
 ### getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
@@ -300,8 +300,8 @@ Given a sensor identifier and its data type, retrieve the historical values for 
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `sensorId` | `guid` | sensor identifier |
-| `dataType` | `string` | sensor data type |
+| *sensorId* | `guid` | sensor identifier |
+| *dataType* | `string` | sensor data type |
 
 ### getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
@@ -311,8 +311,8 @@ Given a space identifier and the value name, retrieve the historical values for 
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | space identifier |
-| `valueName` | `string` | space property name |
+| *spaceId* | `guid` | space identifier |
+| *valueName* | `string` | space property name |
 
 ### getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -322,7 +322,7 @@ Given a space identifier, retrieve the child spaces for that parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | space identifier |
+| *spaceId* | `guid` | space identifier |
 
 ### getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
@@ -332,7 +332,7 @@ Given a space identifier, retrieve the child sensors for that parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | space identifier |
+| *spaceId* | `guid` | space identifier |
 
 ### getSpaceChildDevices(spaceId) ⇒ `device[]`
 
@@ -342,7 +342,7 @@ Given a space identifier, retrieve the child devices for that parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | space identifier |
+| *spaceId* | `guid` | space identifier |
 
 ### getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
@@ -352,7 +352,7 @@ Given a device identifier, retrieve the child sensors for that parent device.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `deviceId` | `guid` | device identifier |
+| *deviceId* | `guid` | device identifier |
 
 ### getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -362,7 +362,7 @@ Given a space identifier, retrieve its parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `childSpaceId` | `guid` | space identifier |
+| *childSpaceId* | `guid` | space identifier |
 
 ### getSensorParentSpace(childSensorId) ⇒ `space`
 
@@ -372,7 +372,7 @@ Given a sensor identifier, retrieve its parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `childSensorId` | `guid` | sensor identifier |
+| *childSensorId* | `guid` | sensor identifier |
 
 ### getDeviceParentSpace(childDeviceId) ⇒ `space`
 
@@ -382,7 +382,7 @@ Given a device identifier, retrieve its parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `childDeviceId` | `guid` | device identifier |
+| *childDeviceId* | `guid` | device identifier |
 
 ### getSensorParentDevice(childSensorId) ⇒ `space`
 
@@ -392,7 +392,7 @@ Given a sensor identifier, retrieve its parent device.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `childSensorId` | `guid` | sensor identifier |
+| *childSensorId* | `guid` | sensor identifier |
 
 ### getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
@@ -402,8 +402,8 @@ Given a space identifier, retrieve the property and its value from the space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | space identifier |
-| `propertyName` | `string` | space property name |
+| *spaceId* | `guid` | space identifier |
+| *propertyName* | `string` | space property name |
 
 ### getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
@@ -413,8 +413,8 @@ Given a sensor identifier, retrieve the property and its value from the sensor.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `sensorId` | `guid` | sensor identifier |
-| `propertyName` | `string` | sensor property name |
+| *sensorId* | `guid` | sensor identifier |
+| *propertyName* | `string` | sensor property name |
 
 ### getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
@@ -424,8 +424,8 @@ Given a device identifier, retrieve the property and its value from the device.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `deviceId` | `guid` | device identifier |
-| `propertyName` | `string` | device property name |
+| *deviceId* | `guid` | device identifier |
+| *propertyName* | `string` | device property name |
 
 ### setSensorValue(sensorId, dataType, value)
 
@@ -435,9 +435,9 @@ Sets a value on the sensor object with the given data type.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `sensorId` | `guid` | sensor identifier |
-| `dataType`  | `string` | sensor data type |
-| `value`  | `string` | value |
+| *sensorId* | `guid` | sensor identifier |
+| *dataType*  | `string` | sensor data type |
+| *value*  | `string` | value |
 
 ### setSpaceValue(spaceId, dataType, value)
 
@@ -447,9 +447,9 @@ Sets a value on the space object with the given data type.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | space identifier |
-| `dataType` | `string` | data type |
-| `value` | `string` | value |
+| *spaceId* | `guid` | space identifier |
+| *dataType* | `string` | data type |
+| *value* | `string` | value |
 
 ### log(message)
 
@@ -459,7 +459,7 @@ Logs the following message within the user-defined function.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `message` | `string` | message to be logged |
+| *message* | `string` | message to be logged |
 
 ### sendNotification(topologyObjectId, topologyObjectType, payload)
 
@@ -469,9 +469,9 @@ Sends a custom notification out to be dispatched.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `topologyObjectId`  | `guid` | graph object identifier (ex. space / sensor /device ID)|
-| `topologyObjectType`  | `string` | (ex. space / sensor / device)|
-| `payload`  | `string` | the JSON payload to be sent with the notification |
+| *topologyObjectId*  | `guid` | graph object identifier (ex. space / sensor /device ID)|
+| *topologyObjectType*  | `string` | (ex. space / sensor / device)|
+| *payload*  | `string` | the JSON payload to be sent with the notification |
 
 ## Return Types
 
@@ -510,7 +510,7 @@ Returns the extended property and its value for the current space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `propertyName` | `string` | name of the extended property |
+| *propertyName* | `string` | name of the extended property |
 
 #### Value(valueName) ⇒ `value`
 
@@ -518,7 +518,7 @@ Returns the value of the current space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `valueName` | `string` | name of the value |
+| *valueName* | `string` | name of the value |
 
 #### History(valueName) ⇒ `value[]`
 
@@ -526,7 +526,7 @@ Returns the historical values of the current space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `valueName` | `string` | name of the value |
+| *valueName* | `string` | name of the value |
 
 #### Notify(payload)
 
@@ -534,7 +534,7 @@ Sends a notification with the specified payload.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `payload` | `string` | JSON payload to include in the notification |
+| *payload* | `string` | JSON payload to include in the notification |
 
 ### Device
 
@@ -570,7 +570,7 @@ Returns the extended property and its value for the current device.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `propertyName` | `string` | name of the extended property |
+| *propertyName* | `string` | name of the extended property |
 
 #### Notify(payload)
 
@@ -578,7 +578,7 @@ Sends a notification with the specified payload.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `payload` | `string` | JSON payload to include in the notification |
+| *payload* | `string` | JSON payload to include in the notification |
 
 ### Sensor
 
@@ -618,7 +618,7 @@ Returns the extended property and its value for the current sensor.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `propertyName` | `string` | name of the extended property |
+| *propertyName* | `string` | name of the extended property |
 
 #### Value() ⇒ `value`
 
@@ -634,7 +634,7 @@ Sends a notification with the specified payload.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| `payload` | `string` | JSON payload to include in the notification |
+| *payload* | `string` | JSON payload to include in the notification |
 
 ### Value
 
