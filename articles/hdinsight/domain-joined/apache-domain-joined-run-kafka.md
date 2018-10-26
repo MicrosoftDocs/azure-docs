@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
-* Create a [HDInsight Kafka cluster with Enterprise Security Package](apache-domain-joined-configure-using-azure-adds).
+* Create a [HDInsight Kafka cluster with Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
 ## Connect to Apache Ranger Admin UI
 
