@@ -26,6 +26,9 @@ Speech translation is also available through the [Cognitive Services Speech prev
 
 Learn more about the [Microsoft Translator service](https://www.microsoft.com/en-us/translator/home.aspx)
 
+## Language support
+
+Microsoft Translator provides multi-language support for translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically using the [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-languages).  
 ## Language customization
 
 An extension of the core Microsoft Translator service, Custom Translator can be used in conjunction with the Translator Text API to help you customize the neural translation system and improve the translation for your specific terminology and style.
@@ -43,10 +46,6 @@ NMT provides better translations than SMT not only from a raw translation qualit
 NMT models are at the core of the API and are not visible to end users. The only noticeable difference is improved translation quality, especially for languages such as Chinese, Japanese, and Arabic.
 
 Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
-
-## Language support
-
-Microsoft Translator provides multi-language support for translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically using the [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-languages).  
 
 ## Next steps
 
