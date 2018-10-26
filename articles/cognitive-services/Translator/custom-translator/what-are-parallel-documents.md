@@ -56,8 +56,7 @@ projects or trainings as you like. Sentences extracted from your documents are
 stored separately in your repository as plain Unicode text files and are
 available for you delete. Do not use the Custom Translator as a document
 repository, you will not be able to download the documents you uploaded in the
-format you uploaded them. The number of sentences extracted from each document
-is reported as Extracted Sentence Count in Custom Translator.
+format you uploaded them.
 
 
 ## Next steps

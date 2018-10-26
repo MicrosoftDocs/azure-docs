@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 During the training, sentences present in parallel documents are
 paired or aligned. Custom Translator reports the number of sentences it was
-able to pair as the Aligned Sentence Count in each of the data sets.
+able to pair as the Aligned Sentences in each of the data sets.
 
 Custom Translator learns translations of sentences one sentence at a time. It readings a
 sentence from source, and then the translation of this sentence from target. Then it aligns words and phrases
