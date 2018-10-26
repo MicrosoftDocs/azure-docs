@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 Because of ongoing development, the Android SDK version installed in Android Studio might not match the version in the code. The Android SDK referenced in this tutorial is version 26, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recommend using the latest version available.
 
 Two symptoms of version mismatch are:
