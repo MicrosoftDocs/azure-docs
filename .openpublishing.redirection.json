@@ -14804,6 +14804,11 @@
 "redirect_document_id": false
 },
 {
+"source_path": "articles/active-directory/active-directory-federation-sha256-guidance.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-sha256-guidance",
+"redirect_document_id": false
+},
+{
 "source_path": "articles/active-directory/connect/active-directory-aadconnect-move-db.md",
 "redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-move-db",
 "redirect_document_id": false
