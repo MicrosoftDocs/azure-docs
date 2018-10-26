@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -36,8 +36,9 @@ This article details how to set up a rule in the Azure portal for dynamic member
 
    ![Add dynamic membership rule](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. After creating the rule, select **Add query** at the bottom of the blade.
-6. Select **Create** on the **Group** blade to create the group.
+5. To add custom extension properties to your dynamic query, select **Get custom extension properties** and enter an application ID to retrieve the properties.
+6. After creating the rule, select **Add query** at the bottom of the blade.
+7. Select **Create** on the **Group** blade to create the group.
 
 > [!TIP]
 > Group creation fails if the rule you entered was incorrectly formed or not valid. A notification is displayed in the upper-right hand corner of the portal, containing an explanation of why the rule could not be processed. Read it carefully to understand how you need to adjust the rule to make it valid.
