@@ -5,8 +5,6 @@ services: <service slug assigned to your service by ACOM>
 cloud: <Azure Government>
 author: <todorgb>
 ms.service: <Azure Government>
-ms.tgt_pltfrm: <optional>
-ms.devlang: <optional>
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: <todorb>
