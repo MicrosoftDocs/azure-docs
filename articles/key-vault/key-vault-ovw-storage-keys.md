@@ -26,15 +26,15 @@ Prerequisites
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
    Install Azure CLI   
 2. [Create a Storage Account](https://azure.microsoft.com/services/storage/)
-    - Please follow the steps in this [document](https://docs.microsoft.com/azure/storage/) to create a storage account  
+    - Follow the steps in this [document](https://docs.microsoft.com/azure/storage/) to create a storage account  
     - **Naming guidance:**
       Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.        
       
 Step by step instructions
 -------------------------
-In the below instructions we are assigning Key Vault as a service to have operator permissions on your storage accountn
+In the below instructions, we are assigning Key Vault as a service to have operator permissions on your storage account
 
-1. After creating a storage account run the following command to get the resource ID of the storage account you want to manage
+1. After creating a storage account run the following command to get the resource ID of the storage account, you want to manage
 
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
@@ -59,8 +59,7 @@ In the below instructions we are assigning Key Vault as a service to have operat
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     In case the user didn't create the storage account and does not have permissions to the storage account, the steps below set the permissions for your account to ensure that you can manage all the storage permissions in the Key Vault.
-    [!NOTE] In the case that the user does not permissions to the storage account 
-    We first get the object id of the user
+    [!NOTE] In the case that the user does not have permissions to the storage account, we first get the Object-Id of the user
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
