@@ -40,8 +40,6 @@
 - name: Resources
   expanded: true
   items:
-  - name: Cognitive Services API account
-    href: https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account
   - name: Try Cognitive Services
     href: https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api
   - name: Pricing information
