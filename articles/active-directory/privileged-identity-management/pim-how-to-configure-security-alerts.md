@@ -16,10 +16,14 @@ ms.author: rolyon
 ms.custom: pim
 ---
 # Configure security alerts for Azure AD directory roles in PIM
-## Security alerts
-Azure Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the PIM dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
-![PIM dashboard security alerts - screenshot](./media/pim-how-to-configure-security-alerts/PIM_security_dash.png)
+Azure AD Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the PIM dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
+
+![PIM security alerts - screenshot](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+
+## Security alerts
+
+The following table lists all the security alert for directory roles, how to fix, and how to prevent.
 
 | Alert | Severity | Why am I getting this? | How to fix? | Prevention | In-portal mitigation action |
 | --- | --- | --- | --- | --- | --- |
@@ -30,36 +34,47 @@ Azure Privileged Identity Management (PIM) generates alerts when there is suspic
 | **Roles are being activated too frequently** | Low | Multiple activations to the same privileged role by the same user is a sign of an attack. | Review the users in the list and ensure that the [activation duration](pim-how-to-change-default-settings.md) for their privileged role is set long enough for them to perform their tasks. | Ensure that the [activation duration](pim-how-to-change-default-settings.md) for privileged roles is set long enough for users to perform their tasks.</br>[Require MFA](pim-how-to-change-default-settings.md) for privileged roles that have accounts shared by multiple administrators. | N/A |
 | **Roles don't require MFA for activation** | Low | Without MFA, compromised users can activate privileged roles. | Review the list of roles and [require MFA](pim-how-to-change-default-settings.md) for every role. | [Require MFA](pim-how-to-change-default-settings.md) for every role. | Makes MFA required for activation of the privileged role. |
 
-
 ### Severity
+
 * **High**: Requires immediate action because of a policy violation. 
 * **Medium**: Does not require immediate action but signals a potential policy violation.
 * **Low**: Does not require immediate action but suggests a preferrable policy change.
 
 ## Configure security alert settings
-You can customize some of the security alerts in PIM to work with your environment and security goals. Follow these steps to reach the settings blade:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and select the **Azure AD Privileged Identity Management** tile from the dashboard.
-2. Select **Managed privileged roles** > **Settings** > **Alerts settings**.
-   
-    ![Navigate to security alerts settings](./media/pim-how-to-configure-security-alerts/PIM_security_settings.png)
+You can customize some of the security alerts in PIM to work with your environment and security goals. Follow these steps to open the security alert settings:
 
-### "Roles are being activated too frequently" alert
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Click **Azure AD roles**.
+
+1. Click **Settings** and then **Alerts**.
+
+    ![Navigate to security alerts settings](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+
+1. Click an alert name to configure the setting for that alert.
+
+    ![Security alert settings](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+
+### Administrators aren't using their privileged roles
+
+This alert triggers if a user goes a certain amount of time without activating a role.
+
+* **Number of days**: Specify the number of days, from 0 to 100, that a user can go without activating a role.
+
+### There are too many global administrators
+
+PIM triggers this alert if two different criteria are met, and you can configure both of them. First, you need to reach a certain threshold of Global Administrators. Second, a certain percentage of your total role assignments must be Global Administrators. If you only meet one of these measurements, the alert does not appear.  
+
+* **Minimum number of Global Administrators**: Specify the number of Global administrators, from 2 to 100, that you consider an unsafe amount.
+* **Percentage of Global Administrators**: Specify the minimum percentage of administrators who are Global Administrators, from 0% to 100%, that is unsafe in your environment.
+
+### Roles are being activated too frequently
+
 This alert triggers if a user activates the same privileged role multiple times within a specified period. You can configure both the time period and the number of activations.
 
 * **Activation renewal timeframe**: Specify in days, hours, minutes, and second the time period you want to use to track suspicious renewals.
 * **Number of activation renewals**: Specify the number of activations, from 2 to 100, that you consider worthy of alert, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box.
-
-### "There are too many global administrators" alert
-PIM triggers this alert if two different criteria are met, and you can configure both of them. First, you need to reach a certain threshold of global administrators. Second, a certain percentage of your total role assignments must be global administrators. If you only meet one of these measurements, the alert does not appear.  
-
-* **Minimum number of Global Administrators**: Specify the number of global administrators, from 2 to 100, that you consider an unsafe amount.
-* **Percentage of global administrators**: Specify the percentage of administrators who are global administrators, from 0% to 100%, that is unsafe in your environment.
-
-### "Administrators aren't using their privileged roles" alert
-This alert triggers if a user goes a certain amount of time without activating a role.
-
-* **Number of days**: Specify the number of days, from 0 to 100, that a user can go without activating a role.
 
 ## Next steps
 
