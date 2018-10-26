@@ -182,7 +182,7 @@ az storage file list \
 
 Although the `az storage file copy start` command is convenient for file moves between Azure file shares and Azure Blob storage containers, we recommend that you use AzCopy for larger moves. (Larger in terms of the number or size of files being moved.) Learn more about [AzCopy for Linux](../common/storage-use-azcopy-linux.md) and [AzCopy for Windows](../common/storage-use-azcopy.md). AzCopy must be installed locally. AzCopy isn't available in Cloud Shell. 
 
-## Create and modify share snapshots
+## Create and manage share snapshots
 Another useful task that you can do with an Azure file share is create share snapshots. A snapshot preserves a point-in-time copy of an Azure file share. Share snapshots are similar to some operating system technologies that you might already be familiar with:
 
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
