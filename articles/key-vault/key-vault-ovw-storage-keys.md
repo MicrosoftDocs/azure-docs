@@ -59,7 +59,7 @@ In the below instructions, we are assigning Key Vault as a service to have opera
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     In case the user didn't create the storage account and does not have permissions to the storage account, the steps below set the permissions for your account to ensure that you can manage all the storage permissions in the Key Vault.
-    [!NOTE] In the case that the user does not have permissions to the storage account, we first get the Object-Id of the user
+ > [!NOTE] In the case that the user does not have permissions to the storage account, we first get the Object-Id of the user
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
