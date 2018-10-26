@@ -52,7 +52,7 @@ To troubleshoot this issue, use Serial control or [repair the VM offline](#repai
 Connect to [Serial Console and open PowerShell instance](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
 ). If the Serial Console is not enabled on your VM, move to [repair the VM offline](#repair-the-vm-offline) section.
 
-#### Check the RDP port
+#### Step 1 Check the RDP port
 
 1. In PowerShell instance, use the [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) to check if port 8080 is used by other applications:
@@ -82,7 +82,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
     C. [Update the network security group for the new port](../../virtual-network/security-overview.md) in Azure portal RDP port.
 
-#### Set correct permissions on the RDP Self-sign Certificate
+#### Step 2 Set correct permissions on the RDP Self-sign Certificate
 
 1.	In PowerShell instance, run the following commands one by one to renew RDP self-sign certificate:
 
@@ -121,7 +121,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 4. Restart the VM, and then try to remote desktop to the VM. If the error still occurs, move to the next step.
 
-#### Enable all supported TLS versions
+#### Step 3 Enable all supported TLS versions
 
 The RPD client uses TLS 1.0 as the default protocol, however this could be then changed to TLS 1.1 which became the new standard. If the TLS 1.1 is disabled on the VM, the connection will fail. 
 1.  In CMD instance Enable the TLS protocol:
@@ -143,13 +143,13 @@ The RPD client uses TLS 1.0 as the default protocol, however this could be then 
 
 ### Repair the VM Offline
 
-#### Attach the OS disk to a recovery VM
+#### Step 1 Attach the OS disk to a recovery VM
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
 2. Once the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 3. Remote desktop to the recovery VM.
 
-#### Enable dump log and Serial Console
+#### Step 2 Enable dump log and Serial Console
 
 To enable dump log and Serial Console, run the following script.
 
@@ -180,7 +180,7 @@ To enable dump log and Serial Console, run the following script.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-#### Reset the permission for Machinkeys folder
+#### Step 3 Reset the permission for Machinkeys folder
 
 1. Open elevated command Prompt session (Run as administrator).
 2. Run the following script. In this script, we assume that the drive letter that is assigned to the attached OS disk is F.  Replace it with the appropriate value in your VM.
@@ -198,7 +198,7 @@ To enable dump log and Serial Console, run the following script.
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt
 
-#### Enable all supported TLS versions 
+#### Step 4 Enable all supported TLS versions 
 
 1. Open an elevated CMD window (run as administrator), and the run the following commands.  The following script assumes that the driver letter is assigned to the attached OS disk is F. You need to change it with real value in your VM.
 2. Check which TLS is enabled. Replace the drive letter F with the appropriate value in your VM.
