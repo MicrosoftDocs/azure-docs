@@ -122,14 +122,14 @@
     href: /learn/browse/?products=azure-key-vault
   - name: Customer data 
     href: key-vault-customer-data.md
+  - name: Release Notes
+    href: key-vault-versions.md
   - name: Service
     items:
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/key-vault/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
-    - name: Release Notes
-      href: key-vault-versions.md
     - name: Service Level Agreement (SLA)
       href: https://azure.microsoft.com/support/legal/sla/key-vault/
     - name: Service limits

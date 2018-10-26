@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file 
-
+#Do not delete: File is used in the Azure portal guided setup experience but not rendered as part of docs.microsoft.com
 ---
 
 ## Add the application’s registration to your code
