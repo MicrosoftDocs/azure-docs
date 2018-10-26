@@ -26,14 +26,17 @@ You can start with local runs on your machine, and then scale up and out to othe
 
 Azure Machine Learning service supports the following compute targets:
 
-|Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines| Can ONLY be used in pipelines |
-|----|:----:|:----:|:----:|:----:|:----:|
-|[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; | &nbsp; |
-|[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ | &nbsp; |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | &nbsp; |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ | &nbsp; |
+|Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines|
+|----|:----:|:----:|:----:|:----:|
+|[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
+|[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. 
 
 __[Azure Container Instances (ACI)](#aci)__ can also be used to train models. It is a serverless cloud offering that is inexpensive and easy to create and work with. ACI does not support GPU acceleration, automated hyper parameter tuning, or automated model selection. Also, it cannot be used in a pipeline.
 
