@@ -77,12 +77,12 @@ This step is optional. If you're interested in learning how the database resourc
 * `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
 
     ```java
-       client = new AsyncDocumentClient.Builder()
-                .withServiceEndpoint(YOUR_COSMOS_DB_ENDPOINT)
-                .withMasterKeyOrResourceToken(YOUR_COSMOS_DB_MASTER_KEY)
-                .withConnectionPolicy(ConnectionPolicy.GetDefault())
-                .withConsistencyLevel(ConsistencyLevel.Eventual)
-                .build();
+    client = new AsyncDocumentClient.Builder()
+             .withServiceEndpoint(YOUR_COSMOS_DB_ENDPOINT)
+             .withMasterKeyOrResourceToken(YOUR_COSMOS_DB_MASTER_KEY)
+             .withConnectionPolicy(ConnectionPolicy.GetDefault())
+             .withConsistencyLevel(ConsistencyLevel.Eventual)
+             .build();
     ```
 
 * [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database) creation.
