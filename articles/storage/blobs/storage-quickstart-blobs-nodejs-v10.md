@@ -2,12 +2,12 @@
 title: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript (preview)
 description: Create, upload, and delete blobs and containers in Node.js with Azure Storage
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
-ms.author: cshoe
+ms.author: tamram
 ---
 
 # Quickstart: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript (preview)
