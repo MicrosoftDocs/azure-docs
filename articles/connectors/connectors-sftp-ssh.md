@@ -40,6 +40,12 @@ If you're new to logic apps, review
 > The SFTP-SSH connector can handle files up to *1 GB* in size. 
 > For larger messages, you can also use 
 > [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+>
+> Also, ***the SFTP-SSH connector supports these private SSH key 
+> formats but only the MD5 fingerprint***:
+> 
+> * PuTTY-based RSA (Rivest Shamir Adleman), not open RSA
+> * DSA (Digital Signature Algorithm)
 
 ## SFTP-SSH versus SFTP
 
@@ -49,14 +55,6 @@ connector provides these capabilities:
 
 * Uses the <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> library, 
 which is an open-source Secure Shell (SSH) library that supports .NET. 
-
-  > [!NOTE] 
-  >
-  > ***The SFTP-SSH connector supports these private SSH key 
-  > formats but only the MD5 fingerprint***:
-  > 
-  > * PuTTY-based RSA (Rivest Shamir Adleman), not open RSA
-  > * DSA (Digital Signature Algorithm)
 
 * Reads or writes files up to *1 GB* in size compared 
 to the SFTP connector. For files larger than 1 GB, use 
