@@ -1,7 +1,7 @@
 - name: Custom Vision Service Documentation
 - name: Overview
   items:
-  - name: What is Custom Vision Service?
+  - name: What is Custom Vision?
     href: home.md
 - name: How-to guides
   items:
