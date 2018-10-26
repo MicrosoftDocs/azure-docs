@@ -35,6 +35,15 @@ Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Read sign-in logs | Reports reader | Security Reader, Security administrator
 
+## AD DS services
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Configure notifications | Contributor ([see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | Owner
+Read all configuration | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | Contributor, Owner
+View metrics, alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | Contributor, Owner
+
+
 ## Application proxy
 
 Task | Least privileged role | Additional roles
