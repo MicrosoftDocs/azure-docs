@@ -63,7 +63,7 @@
   - name: Manage Service Fabric Mesh Application Secrets
     href: service-fabric-mesh-howto-manage-secrets.md
   - name: Auto scale services
-    href: service-fabric-mesh-how-to-auto-scale-services.md
+    href: service-fabric-mesh-howto-auto-scale-services.md
 
 - name: Reference
   items:
