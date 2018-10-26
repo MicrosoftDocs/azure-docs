@@ -19,9 +19,8 @@ ms.author: vturecek
 ---
 
 > [!NOTE]
-> Microsoft recommends to configure Backup And Restore service (service-fabric-backuprestoreservice-configure-periodic-backup.md) for periodic backups and restore of Data.
+> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
 > 
-
 
 # Implement Reliable Actors backup and restore
 In the following example, a custom actor service exposes a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`:
