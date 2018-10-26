@@ -30,6 +30,8 @@
   items:
   - name: What is Key Vault?
     href: key-vault-whatis.md
+  - name: Secure your key vault
+    href: key-vault-secure-your-key-vault.md
   - name: Security worlds
     href: key-vault-ovw-security-worlds.md
   - name: Soft-delete
@@ -67,8 +69,6 @@
     href: key-vault-soft-delete-powershell.md
   - name: Use groups to grant access
     href: key-vault-group-permissions-for-apps.md
-  - name: Secure your key vault
-    href: key-vault-secure-your-key-vault.md
   - name: Configure firewalls and virtual networks
     href: key-vault-network-security.md
 - name: Reference
@@ -87,11 +87,10 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
-    items:
-    - name: Authentication, requests and responses
-      href: authentication-requests-and-responses.md
-    - name: Common parameters and headers
-      href: common-parameters-and-headers.md
+  - name: Authentication, requests and responses
+    href: authentication-requests-and-responses.md
+  - name: Common parameters and headers
+    href: common-parameters-and-headers.md
   - name: Develop
     items:
     - name: Developer's guide
@@ -120,25 +119,27 @@
   items:
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-key-vault
-  - name: Customer data 
+  - name: Authentication, requests and responses
+    href: authentication-requests-and-responses.md
+  - name: Common parameters and headers
+    href: common-parameters-and-headers.md
+  - name: Customer Data 
     href: key-vault-customer-data.md
   - name: Release Notes
     href: key-vault-versions.md
-  - name: Service
-    items:
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/key-vault/
-    - name: Region availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
-    - name: Service Level Agreement (SLA)
-      href: https://azure.microsoft.com/support/legal/sla/key-vault/
-    - name: Service limits
-      href: key-vault-service-limits.md  
-    - name: Service status
-      href: https://azure.microsoft.com/status/
-    - name: Service updates
-      href: https://azure.microsoft.com/updates/?product=key-vault
-  - name: Team blog
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: Service limits
+    href: key-vault-service-limits.md  
+  - name: Service status
+    href: https://azure.microsoft.com/status/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog
     href: http://blogs.technet.com/b/kv/
 - name: Product Feedback
   href: https://feedback.azure.com/forums/906355-azure-key-vault
