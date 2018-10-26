@@ -7,7 +7,7 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/2/2018
 ms.author: victorh
-#Customer intent: As an administrator, I want to deploy and configure Azure Firewall in a hybrid network so that I can control access from an on-premise newtork to an Azure VNet.
+#Customer intent: As an administrator, I want to deploy and configure Azure Firewall in a hybrid network so that I can control access from an on-premise network to an Azure VNet.
 ---
 # Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
 
@@ -182,10 +182,11 @@ $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAd
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
 $NetRuleCollection = New-AzureRmFirewallNetworkRuleCollection -Name RCNet01 -Priority 100 `
-   -Rule $Rule1,$Rule2,$Rule3 -ActionType "Allow"
+   -Rule $Rule1,$Rule3 -ActionType "Allow"
 $Azfw.NetworkRuleCollections = $NetRuleCollection
 Set-AzureRmFirewall -AzureFirewall $Azfw
 ```
+
 ### Configure an application rule
 
 ```azurepowershell
