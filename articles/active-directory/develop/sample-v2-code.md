@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2018
+ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
@@ -54,10 +54,10 @@ The following samples illustrate web applications that sign in users. Some sampl
 
  Platform | Only signs in users | Signs in users and calls Microsoft Graph
  -------- | ------------------- | ---------------------------------
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [appmodelv2-webapp-openIDConnect-dotNet](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [dotnet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |              [aspnet-connect-rest-sample](https://github.com/microsoftgraph/aspnet-connect-rest-sample)
-![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) |              [aspnetcore-connect-sample](https://github.com/microsoftgraph/aspnetcore-connect-sample)
-![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [AppModelv2-WebApp-OpenIDConnect-nodejs](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
-![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [ruby-connect-rest-sample](https://github.com/microsoftgraph/ruby-connect-rest-sample)
+![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | Same sample in the [signInAndCallMsGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/signInAndCallMsGraph) branch
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [ASP.NET Quickstart](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [dotnet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) <p/>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js Quickstart](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
+![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
 ## Desktop and mobile public client apps
 
@@ -65,9 +65,9 @@ The following samples show public client applications (desktop/mobile applicatio
 
 Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET Core 2.0 Web API
 ------------------ | -------- |  ----------| ---------- | -------------------------
-Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | interactive | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | interactive | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NET.png) | Integrated Windows Authentication |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
-Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Username/Password |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-up-v2)
+Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Username/Password |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Mobile (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | interactive |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
 Mobile (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | interactive |[xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
 Mobile (iOS)       | ![iOS / Objective C or swift](media/sample-v2-code/logo_iOS.png) | interactive |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
@@ -96,7 +96,7 @@ The following sample shows how to protect a web API with the Azure AD V2 endpoin
 
 Platform | Sample
  -------- | -------------------
-![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (service) of [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 
 ## Other Microsoft Graph samples
 
