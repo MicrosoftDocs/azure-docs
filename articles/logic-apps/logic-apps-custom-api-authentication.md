@@ -124,11 +124,11 @@ when you leave the **Keys** page.
 You can perform this task through Azure Resource Manager with PowerShell. 
 In PowerShell, run these commands:
 
-1. `Switch-AzureMode AzureResourceManager`
+1. `Add-AzureRmAccount`
 
-2. `Add-AzureAccount`
+2. `$SecurePassword = Read-Host -AsSecureString` (Enter a password and hit enter)
 
-3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
+3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
 the **Application ID**, and the password that you used.
