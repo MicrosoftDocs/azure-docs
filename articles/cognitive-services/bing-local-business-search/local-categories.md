@@ -184,7 +184,7 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 | ThaiRestaurants | TurkishRestaurants | VegetarianAndVeganRestaurants | VietnameseRestaurants|
  
 ### See Do 
-| Category | Category | Category |
+|  |  |  |
 | -- | -- | -- |
 | AmusementParks | Attractions | Carnivals |
 | Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
@@ -192,7 +192,7 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 | SightseeingTours | TouristInformation | Zoos |
  
 ### Shop 
-| Category | Category | Category |
+|  |  |  |
 | -- | -- | -- |
 | AntiqueStores | Bookstores | CDAndRecordStores |
 | ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
