@@ -54,7 +54,10 @@ Here are the event formats for each of the event types:
 
 - **UdfCustom**
 
-  An event sent by a user-defined function (UDF). Note, this event has to be explicitly sent from the UDF itself.
+  An event sent by a user-defined function (UDF). 
+  
+  > [!IMPORTANT]
+  > This event has to be explicitly sent from the UDF itself.
 
   Example:
 
@@ -166,7 +169,7 @@ Endpoint management is exercised through the Endpoints API. Here are some exampl
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- Route to **Service Bus** events types: **SensorChange**, **SpaceChange**, **TopologyOperation**
+- Route to **Service Bus** event types: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -189,7 +192,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | *yourSecondaryKey* | The secondary connection string used to authenticate |
     | *yourTopicName* | The name of your customized topic |
 
-- Route to **Event Grid** events types: **SensorChange**, **SpaceChange**, **TopologyOperation**
+- Route to **Event Grid** event types: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -211,7 +214,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | *yourSecondaryKey* | The secondary connection string used to authenticate |
     | *yourTopicName* | The name of your customized topic |
 
-- Route to **Event Hub** events types: **SensorChange**, **SpaceChange**, **TopologyOperation**
+- Route to **Event Hub** event types: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -234,7 +237,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | *yourSecondaryKey* | The secondary connection string used to authenticate |
     | *yourEventHubName* | The name of your **Event Hub** |
 
-- Route to **Event Hub** event types **DeviceMessage**. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
+- Route to **Event Hub** event type: **DeviceMessage**. The inclusion of `EntityPath` in the **connectionString** is mandatory.
 
   ```JSON
   {
