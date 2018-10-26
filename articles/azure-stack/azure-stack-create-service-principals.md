@@ -37,7 +37,7 @@ Depending on how you have deployed Azure Stack, you start by creating a service 
 
 ## Create service principal for Azure AD
 
-If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure. This section shows you how to perform the steps through the portal. Check that you have the [required Azure AD permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
+If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure. This section shows you how to perform the steps through the portal. Check that you have the [required Azure AD permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) before beginning.
 
 ### Create service principal
 In this section, you create an application (service principal) in Azure AD that represents your application.
