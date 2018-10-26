@@ -25,15 +25,15 @@ This article covers how to query the EventStore APIs that are available in Servi
 >[!NOTE]
 >As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
 
-The EventStore APIs can be accessed directly via a REST endpoint, or programmatically. Depending on the query, there are several parameters that are required to gather the right data. These typically include:
+The EventStore APIs can be accessed directly via a REST endpoint, or programmatically. Depending on the query, there are several parameters that are required to gather the right data. These parameters typically include:
 * `api-version`: the version of the EventStore APIs you are using
-* `StartTimeUtc`: defines the start of the period you are interesting in looking at
+* `StartTimeUtc`: defines the start of the period you are interested in looking at
 * `EndTimeUtc`: end of the time period
 
-In addition to these, there are optional parameters available as well, such as:
-* `timeout`: override the default 60 seconds timeout for performing the request operation
+In addition to these parameters, there are optional parameters available as well, such as:
+* `timeout`: override the default 60 second timeout for performing the request operation
 * `eventstypesfilter`: this gives you the option to filter for specific event types
-* `ExcludeAnalysisEvents`: do not return 'Analysis' events. By default, EventStore queries will return with "analysis" events where possible - analysis events are richer operational channel events that contain additional context or information beyond a regular Service Fabric event and provide more depth.
+* `ExcludeAnalysisEvents`: do not return 'Analysis' events. By default, EventStore queries will return with "analysis" events where possible. Analysis events are richer operational channel events that contain additional context or information beyond a regular Service Fabric event and provide more depth.
 * `SkipCorrelationLookup`: do not look for potential correlated events in the cluster. By default, the EventStore will attempt to correlate events across a cluster, and link your events together when possible. 
 
 Each entity in a cluster can be queries for events. You can also query for events for all entities of the type. For example, you can query for events for a specific node, or for all nodes in your cluster. The current set of entities for which you can query for events is (with how the query would be structured):
@@ -65,7 +65,7 @@ Method: GET
 URL: http://mycluster:19080/EventsStore/Cluster/Events?api-version=6.4&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
 ```
 
-This could either return an error if no events are available, or if the query was successful, you'll see events returned in json:
+This could either return no events or the list of events returned in json:
 
 ```json
 Response: 200
@@ -194,7 +194,7 @@ To see your node status changes over the last few days - when nodes went up or d
 
 *Application events:*
 
-You can also track your recent application deployments and upgrades. Use the following query to see all application related events in your cluster:
+You can also track your recent application deployments and upgrades. Use the following query to see all application events in your cluster:
 `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *Historical health for an application:*
