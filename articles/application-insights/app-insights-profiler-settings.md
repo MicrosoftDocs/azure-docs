@@ -69,7 +69,7 @@ Navigate to Configure Profiler pane:
 
 Once the profiler finishes running, follow the instructions on notification to go to Performance page and view traces.
 
-### Troubleshooting on-demand profiler
+## Troubleshooting on-demand profiler
 
 Sometimes you might see Profiler timeout error message after an on-demand session:
 
@@ -95,7 +95,7 @@ If any of these settings aren't set, go to the Application Insights enablement p
 
 1. If you see an ‘Update’ button in the following page, click it to update Application Insights site extension that will install the latest Profiler agent.
 
-![Update site extension][update-site-extension]
+    ![Update site extension][update-site-extension]
 
 1. Then click **change** to making sure the Profiler is turned on and select **OK** to save the changes.
 
