@@ -12,6 +12,8 @@ ms.author: chrande
 
 # Manage database account
 
+This article describes how to manage your Cosmos DB account to setup multi-homing, add/remove a region, configure multiple write regions, and failover priorities. 
+
 ## Create a database account
 
 ### <a id="create-database-account-via-portal"></a>Azure portal
