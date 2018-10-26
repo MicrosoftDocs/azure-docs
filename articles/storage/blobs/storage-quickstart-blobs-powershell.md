@@ -12,7 +12,7 @@ ms.date: 10/23/2018
 ms.author: rogarana
 ---
 
-# Quickstart: Upload, download, and list blobs using Azure PowerShell
+# Quickstart: Upload, download, and list blobs by using Azure PowerShell
 
 You can use the Azure PowerShell module to create and manage Azure resources. Creating or managing Azure resources can be done from the PowerShell command line or in scripts. This guide describes using PowerShell to transfer files between local disk and Azure Blob storage.
 
@@ -26,7 +26,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 Blobs are always uploaded into a container. You can organize groups of blobs like the way you organize your files on your computer in folders.
 
-Set the container name, then create the container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer?view=azurermps-6.11.0). Set the permissions to 'blob' to allow public access of the files. The container name in this example is *quickstartblobs*.
+Set the container name, then create the container by using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer?view=azurermps-6.11.0). Set the permissions to `blob` to allow public access of the files. The container name in this example is *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -59,7 +59,7 @@ Upload as many files as you like before continuing.
 
 ## List the blobs in a container
 
-Get a list of blobs in the container using [Get-AzureStorageBlob](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestorageblob?view=azurermps-6.11.0). This example shows just the names of the blobs uploaded.
+Get a list of blobs in the container by using [Get-AzureStorageBlob](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestorageblob?view=azurermps-6.11.0). This example shows just the names of the blobs uploaded.
 
 ```powershell
 Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name 
@@ -109,7 +109,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this quickstart, you transferred files between a local disk and Azure Blob storage. To learn more about working with Blob storage using PowerShell, continue to How-to use Azure PowerShell with Azure Storage.
+In this quickstart, you transferred files between a local disk and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, continue to How-to use Azure PowerShell with Azure Storage.
 
 > [!div class="nextstepaction"]
 > [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
