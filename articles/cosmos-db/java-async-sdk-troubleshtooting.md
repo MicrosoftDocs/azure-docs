@@ -16,8 +16,6 @@ ms.topic: troubleshoot
 ## Overview
 This article covers commons problems, diagnosing and troubleshooting issues when working with Azure Cosmos DB Java Async SDK. [SQL Java API](sql-api-sdk-async-java.md).
 
-[!INCLUDE [performance-tips-async-java](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
-
 Java Async SDK is provides access to Azure Cosmos DB SQL API.
 
 * [Introduction]
