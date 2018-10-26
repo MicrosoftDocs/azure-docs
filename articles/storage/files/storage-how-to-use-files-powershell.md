@@ -168,7 +168,8 @@ One additional useful task you can do with an Azure file share is to create shar
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
  You can create a share snapshot for a share by using the `Snapshot` method on PowerShell object for a file share, which is retrieved with the [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare) cmdlet. 
- ```azurepowershell-interactive
+
+```azurepowershell-interactive
 $share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
 $snapshot = $share.Snapshot()
 ```
