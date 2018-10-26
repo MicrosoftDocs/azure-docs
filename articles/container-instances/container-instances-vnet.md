@@ -114,7 +114,7 @@ az container create \
     --name appcontainer \
     --resource-group myResourceGroup \
     --image microsoft/aci-helloworld \
-    --vnet-name aci-vnet \
+    --vnet aci-vnet \
     --vnet-address-prefix 10.0.0.0/16 \
     --subnet aci-subnet \
     --subnet-address-prefix 10.0.0.0/24
@@ -150,7 +150,7 @@ az container create \
     --image alpine:3.5 \
     --command-line "wget $CONTAINER_GROUP_IP" \
     --restart-policy never \
-    --vnet-name aci-vnet \
+    --vnet aci-vnet \
     --subnet aci-subnet
 ```
 
