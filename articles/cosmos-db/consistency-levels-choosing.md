@@ -45,8 +45,9 @@ If your Cosmos DB account is configured with any consistency level other than th
 
 ## Next Steps
 
-Read more about the topic in the following articles:
+Read more about the consistency levels in the following articles:
 
-- [How to manage the session token for your application](how-to-manage-consistency.md#utilize-session-tokens)
-- [How to use the PBS metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
-- [Consistency levels and choice of Cosmos DB API](consistency-levels-across-apis.md)
+* [Consistency level mapping across Cosmos DB model APIs](consistency-levels-across-apis.md)
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+* [How to manage the session token for your application](how-to-manage-consistency.md#utilize-session-tokens)
+* [How to monitor the Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

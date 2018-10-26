@@ -43,5 +43,8 @@ The table below shows the mapping for "read concerns" of MongoDB 3.4 and Cosmos 
 
 ## Next Steps
 
-- [MongoDB feature support](mongodb-feature-support.md)
-- [Apache Cassandra feature support](cassandra-support.md)
+Read more about consistency levels and compatibility between Cosmos DB API’s with the open source APIs in the following articles:
+
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+* [MongoDB features supported by Cosmos DB MongoDB API](mongodb-feature-support.md)
+* [Apache Cassandra features supported by Cosmos DB Cassandra API](cassandra-support.md)
