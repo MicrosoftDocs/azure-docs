@@ -36,7 +36,7 @@ Before following the steps in this article, you should have two devices ready to
 
     Currently, only downstream devices with symmetric key authentication can connect through IoT Edge gateways. X.509 certificate authorities and X.509 self-signed certificates are not currently supported. 
 
-## What is a downstream device
+## Prepare a downstream device
 
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). For all practical purposes, a downstream device could even be an application running on the IoT Edge gateway device itself. 
 
@@ -44,8 +44,10 @@ To connect a downstream device to an IoT Edge gateway, you need two things:
 
 1. A device or application that's configured with an IoT Hub device connection string appended with information to connect it to the gateway. 
 
-    This simple step is part of the [Common concepts across all Azure IoT SDKs](#Common-concepts-across-all-azure-iot-sdks) described later in this article. 
+    The connection string is formatted like, `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;`. Append the **GatewayHostName** property with the hostname of the gateway device to the end of the connection string. The final string will look like, `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com`.
 
+    The value of **GatewayHostName** appended to the downstream device's connection string should match the value of **hostname** in the gateway device's config.yaml file. 
+    
 2. The device or application has to trust the gateway's **root CA** or **owner CA** certificate to validate the TLS connections to the gateway device. 
 
     This more complicated step is explained in detail in the rest of this article. This step can be performed one of two ways: by installing the CA certificate in the operating system's certificate store, or (for certain languages) at the application level.
