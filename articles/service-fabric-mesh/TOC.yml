@@ -47,7 +47,9 @@
     href: service-fabric-mesh-monitoring-diagnostics.md
   - name: Storing state
     href: service-fabric-mesh-storing-state.md
-
+  - name: Secrets
+    href: service-fabric-mesh-secrets-overview.md
+  
 - name: How-to guides
   items:
   - name: Set up your development environment
