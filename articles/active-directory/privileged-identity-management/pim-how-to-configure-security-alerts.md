@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 10/26/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -21,13 +21,15 @@ Azure Privileged Identity Management (PIM) generates alerts when there is suspic
 
 ![PIM dashboard security alerts - screenshot](./media/pim-how-to-configure-security-alerts/PIM_security_dash.png)
 
-| Alert | Severity | Trigger | Recommendation |
-| --- | --- | --- | --- |
-| **Roles are being assigned outside of PIM** |High |A user was permanently assigned a privileged role, outside of the PIM interface. |Review the users in the list and un-assign them from privileged roles assigned outside of PIM. |
-| **Roles are being activated too frequently** |Medium |There were too many reactivations of the same role within the time allowed in the settings. |Contact the user to see why they have activated the role so many times. Maybe the time limit is too short for them to complete their tasks, or maybe they're using scripts to automatically activate a role. Make sure the activation duration for their role is set long enough for them to perform their tasks. |
-| **Roles don't require multi-factor authentication for activation** |Medium |There are roles without MFA enabled in the settings. |We require MFA for the most highly privileged roles, but strongly encourage that you enable MFA for activation of all roles. |
-| **Users aren't using their privileged roles** |Low |There are eligible administrators that haven’t activated their roles recently. |Start an access review to determine the users that don't need access anymore. |
-| **There are too many global administrators** |Low |There are more global administrators than recommended. |If you have a high number of global administrators, it's likely that users are getting more permissions than they need. Move users to less privileged roles, or make some of them eligible for the role instead of permanently assigned. |
+| Alert | Severity | Why am I getting this? | How to fix? | Prevention | In Portal Mitigation Action |
+| --- | --- | --- | --- | --- | --- |
+| **Roles are being assigned outside of PIM** | High | Privileged role assignments made outside of PIM are not properly monitered and may indicate an active attack. | Review the users in the list and un-assign them from privileged roles assigned outside of PIM. | Investigate where users are being assigned privileged roles outside of PIM and prohibit future assignments from there. | Removes the account from their privileged role |
+| **Users aren't using their privileged roles** | Low | Assigning users to privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. | Review the users in the list and un-assign them from privileged roles they do not need. | Only assign privileged roles to users that have a business justification.</br>Schedule regular access reviews to verify that users still need their access | Removes the account from their privileged role |
+| **There are too many global administrators** | Low | Global Administrator is the highest privileged role. If  a Global Administrator is compromised, the attacker gains access to all of their permissions, putting your whole system at risk. | Review the users in the list and un-assign any that do not absolutely need the Global Administrator role.</br>Assign these users lower privilged roles | Assign users the least privileged role they need. | Removes the account from their privileged role |
+| **Roles are being activated too frequently** | Low | Multiple activations to the same privileged role by the same user is a sign of an attack. | Review the users in the list and ensure that the activation duration for their privileged role is set long enough for them to perform their tasks. (currently no command bar line fix action) | Ensure that the activation duration for privileged roles is set long enough for users to perform their tasks.</br>Require MFA for for privileged roles that have accounts shared by multiple administrators. | N/A |
+| **Roles don't require MFA for activation** | Low | Without MFA, compromised users can activate privileged roles. | Review the list of roles and require MFA for each of them | Require MFA for every role in role settings (link to role settings) | Makes MFA required for activation of the privileged role |
+| **Potential stale accounts in a privileged role** | Medium | Accounts that have not changed their password recently might be service or shared accounts that aren't being maintained. These accounts in privileged roles are vulnerable to attackers | Review the accounts in the list and if they no longer need access, un-assign them from their privileged roles. | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password.</br>Regularly review accounts with privileged roles using access reviews and remove role assignments which are no longer needed. | Removes the account from their privileged role |
+
 
 ### Severity
 * **High**: Requires immediate action because of a policy violation. 
