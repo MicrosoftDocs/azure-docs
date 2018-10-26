@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 
 1. Sign in to your Azure subscription using the steps listed in [Connect to Azure from the Azure classic CLI](/cli/azure/authenticate-azure-cli).
 
