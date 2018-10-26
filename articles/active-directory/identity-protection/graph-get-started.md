@@ -47,12 +47,14 @@ Before you get started, you’ll need:
    
     ![Creating an application](./media/graph-get-started/41.png)
 
+3. Click **Custom domain names**.
 
-3. In the **Manage** section, click **Properties**.
+    ![Custom domain names](./media/graph-get-started/71.png)
 
-    ![Creating an application](./media/graph-get-started/42.png)
+4. From the list of domain names, copy the domain name that is flagged as primary.
 
-4. Copy your domain name.
+    ![Custom domain names](./media/graph-get-started/72.png)
+
 
 
 ## Create a new app registration
