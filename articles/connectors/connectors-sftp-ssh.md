@@ -40,9 +40,8 @@ If you're new to logic apps, review
 > The SFTP-SSH connector can handle files up to *1 GB* in size. 
 > For larger messages, you can also use 
 > [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
->
-> Also, ***the SFTP-SSH connector supports these private SSH key 
-> formats but only the MD5 fingerprint***:
+> Also, ***the SFTP-SSH connector supports these private 
+> SSH key formats but only the MD5 fingerprint***:
 > 
 > * PuTTY-based RSA (Rivest Shamir Adleman), not open RSA
 > * DSA (Digital Signature Algorithm)

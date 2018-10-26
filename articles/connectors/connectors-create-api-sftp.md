@@ -36,11 +36,13 @@ the Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-The SFTP connector can read or write files up to 50 MB in size unless you use 
-[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
-For files up to 1 GB in size, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
-For files larger than 1 GB, you can use the SFTP-SSH connector and also 
-[chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+> [!NOTE]
+>
+> The SFTP connector can read or write files up to 50 MB in size unless you use 
+> [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+> For files up to 1 GB in size, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
+> For files larger than 1 GB, you can use the SFTP-SSH connector and also 
+> [chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## Prerequisites
 
