@@ -18,7 +18,7 @@ This article discusses the basics of IoT, talks about use cases, and briefly exp
 
 ## Introduction
 
-The main parts of an IoT solution are as follows: devices, back-end services, and the communication channel between the two. 
+The main parts of an IoT solution are as follows: devices, back-end services, and the communications between the two. 
 
 ### IoT devices
 
