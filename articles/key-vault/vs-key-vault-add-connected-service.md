@@ -69,10 +69,10 @@ Now, you can access your secrets in code. The next steps are different depending
 
 ## Access your secrets in code
 
-1. Install these 2 nuget packages 
+1. Install these two nuget packages 
 [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
 
-2. Open Program.cs file and update the code with this 
+2. Open Program.cs file and update the code with the following code: 
 ```
     public class Program
     {
