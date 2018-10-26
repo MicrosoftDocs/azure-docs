@@ -45,7 +45,7 @@ Valid matcher condition targets:
 - `SensorDevice`
 - `SensorSpace`
 
-The following example matcher will evaluate to true on any sensor telemetry event with `Temperature` as its data type value. You can create multiple matchers on a user-defined function.
+The following example matcher will evaluate to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function.
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/matchers
@@ -191,7 +191,7 @@ For a more complex UDF code sample, refer to [Check available spaces with fresh 
 
 We need to create a role assignment for the user-defined function to execute under. If we do not, it will not have the proper permissions to interact with the Management API to perform actions on graph objects. The actions that the user-defined function performs are not exempt from the role-based access control within the Digital Twins Management APIs. They can be limited in scope by specifying certain roles, or certain access control paths. For more information, see [Role Based Access Control](./security-role-based-access-control.md) documentation.
 
-- Query for roles and get the ID of the role you want to assign to the UDF; pass it to RoleId below.
+1. Query for roles and get the ID of the role you want to assign to the UDF; pass it to **RoleId** below.
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/system/roles
@@ -201,8 +201,9 @@ GET https://yourManagementApiUrl/api/v1.0/system/roles
 | --- | --- |
 | *yourManagementApiUrl* | The full URL path for your Management API  |
 
-- ObjectId will be the UDF ID that was created earlier
-- Find `Path` by querying the Spaces with their full path and copy the `spacePaths` value. Paste it in Path below when creating the UDF role assignment
+2. **ObjectId** will be the UDF ID that was created earlier.
+3. Find the value of **Path** by querying your spaces with `fullpath`.
+4. Copy the returned `spacePaths` value. You will use that below.
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
@@ -212,6 +213,8 @@ GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=ful
 | --- | --- |
 | *yourManagementApiUrl* | The full URL path for your Management API  |
 | *yourSpaceName* | The name of the space you wish to use |
+
+4. Now, paste the returned `spacePaths` value into **Path** to create a UDF role assignment.
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
