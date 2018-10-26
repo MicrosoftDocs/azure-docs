@@ -51,7 +51,7 @@ For details on the changes that Connected Services makes in your project to enab
 
    ![Adding connected service to project](media/vs-key-vault-add-connected-service/KeyVaultConnectedService4.PNG)
 
-1. Now, add a secret in your Key Vault in Azure. To get to the right place in the portal, click on the link for Manage secrets stored in this Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services**, under **Security**, choose **Key Vault**, then choose the Key Vault you just created.
+1. Now, add a secret in your Key Vault in Azure. To get to the right place in the portal, click on the link for Manage secrets stored in this Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services**, under **Security**, choose **Key Vault**, then choose the Key Vault you created.
 
    ![Navigating to the portal](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
 
@@ -59,7 +59,7 @@ For details on the changes that Connected Services makes in your project to enab
 
    ![Generate/Import a secret](media/vs-key-vault-add-connected-service/generate-secrets.jpg)
 
-1. Enter a secret, such as "MySecret", and give it any string value as a test, then choose the **Create** button.
+1. Enter a secret, such as "MySecret" and give it any string value as a test, then choose the **Create** button.
 
    ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
 
@@ -69,7 +69,7 @@ Now, you can access your secrets in code. The next steps are different depending
 
 ## Access your secrets in code
 
-1. Please install these 2 nuget packages 
+1. Install these 2 nuget packages 
 [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
 
 2. Open Program.cs file and update the code with this 
@@ -114,7 +114,7 @@ Now, you can access your secrets in code. The next steps are different depending
             _configuration = configuration;
         }
         ```
-    c. Update the OnGet method. Please update the placeholder value shown here with the secret name you created in the above commands
+    c. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands
         ```
         public void OnGet()
         {
