@@ -16,8 +16,8 @@
     href: detailed-troubleshoot-rdp.md
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
-  - name: Troubleshoot RDP fails
-    href: troubleshoot-rdp-fails.md
+  - name: Troubleshoot no license server errors
+    href: troubleshoot-rdp-no-license-server.md
   - name: Troubleshoot remote desktop services issues
     href: troubleshoot-remote-desktop-services-issues.md
 - name: SSH
