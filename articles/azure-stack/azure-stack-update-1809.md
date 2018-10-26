@@ -148,7 +148,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 - <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
-- <!-- 3139614 | IS --> If you've installed an OEM update by itself, you will not get the notification for available updates. You will need to monitor the updates notification yourself, and apply relevant updates. For more information, see [Manage updates in Azure Stack overview](azure-stack-updates.md).
+- <!-- 3139614 | IS --> If you've applied an update to Azure Stack from your OEM, the **Update available** notification may not appear in the Azure Stack Admin portal. To install the Microsoft update, download and import it manually using the instructions located here [Apply updates in Azure Stack](azure-stack-apply-updates.md).
 
 ### Post-update steps
 
