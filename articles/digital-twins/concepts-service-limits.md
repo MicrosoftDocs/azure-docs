@@ -6,7 +6,7 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: dwalthermsft
 ---
 
@@ -49,7 +49,7 @@ The request rate limits for your Management API are:
 The following limits set the total number of all user-defined function calls made to your Azure Digital Twins instance:
 
 - 400 client library calls per second
-- 100 SendNotification calls per second
+- 100 **SendNotification** calls per second
 
 > [!NOTE]
 > The following actions may cause additional rate limits to be applied temporarily:
