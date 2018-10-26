@@ -22,7 +22,7 @@ Azure Service Fabric is a high-availability platform that replicates the state a
 
 > [!NOTE]
 > It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
-> 
+> Microsoft recommends to configure Backup And Restore service (service-fabric-backuprestoreservice-configure-periodic-backup.md) for periodic backups and restore of Data.
 > 
 
 For example, a service may want to back up data in order to protect from the following scenarios:
