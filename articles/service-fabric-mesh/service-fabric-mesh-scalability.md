@@ -12,7 +12,7 @@ manager: timlt
 ---
 # Scaling Service Fabric Mesh applications
 
-One of the main advantages of deploying applications to Service Fabric Mesh is the ability for you to easily scale your services in or out. This should be used for handling varying amounts of load on your services, or improving availability. You can manually scale your services in or out or setup autoscaling polices.
+One of the main advantages of deploying applications to Service Fabric Mesh is the ability for you to easily scale your services in or out. This should be used for handling varying amounts of load on your services, or improving availability. You can manually scale your services in or out or setup autoscaling policies.
 
 ## Manual scaling instances
 
@@ -20,7 +20,7 @@ In the deployment template for the application resource, each service has a *rep
 
 For examples of manually scaling services instances, see [Manually scale your services in or out](service-fabric-mesh-tutorial-template-scale-services.md).
 
-## Auto-scaling service instances
+## Autoscaling service instances
 Auto scaling is an additional capability of Service Fabric to dynamically scale the number of your service instances (horizontal scaling). Auto scaling gives great elasticity and enables provisioning or removal of service instances based on CPU or memory utilization.  Auto scaling enables you to run the right number of service instances for your workload and optimize for cost.
 
 An auto scaling policy is defined per service in the service resource file. Each scaling policy consists of two parts:
@@ -29,7 +29,7 @@ An auto scaling policy is defined per service in the service resource file. Each
 
 - A scaling mechanism, which describes how scaling will be performed when it is triggered. *Scale increment* determines how many instances will be added or removed when the mechanism is triggered. *Maximum instance count* defines the upper limit for scaling. If the number of instances reaches this limit, then the service will not be scaled out regardless of the load. *Minimum instance count* defines the lower limit for scaling. If number of instances of the partition reaches this limit, then service will not be scaled in regardless of the load.
 
-To learn how to set an auto-scale policy for your service, read [auto-scale services](service-fabric-mesh-howto-auto-scale-services.md).
+To learn how to set an autoscale policy for your service, read [autoscale services](service-fabric-mesh-howto-auto-scale-services.md).
 
 ## Next steps
 
