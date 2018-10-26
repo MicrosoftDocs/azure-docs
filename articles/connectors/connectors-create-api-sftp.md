@@ -1,16 +1,16 @@
 ---
-title: Connect to SFTP account from Azure Logic Apps | Microsoft Docs
-description: Automate tasks and workflows that monitor, create, manage, send, and receive files for an SFTP server by using Azure Logic Apps
+title: Connect to SFTP account - Azure Logic Apps | Microsoft Docs
+description: Automate tasks and processes that monitor, create, manage, send, and receive files for an SFTP server through SSH by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 10/11/2018
+ms.date: 10/26/2018
 ---
 
 # Monitor, create, and manage SFTP files by using Azure Logic Apps
@@ -36,11 +36,11 @@ the Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> For files larger than 50 MB and up to 1 GB, 
-> use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
-> The SFTP connector supports only files that are 50 MB or smaller 
-> unless you use [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+The SFTP connector can read or write files up to 50 MB in size unless you use 
+[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+For files up to 1 GB in size, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
+For files larger than 1 GB, you can use the SFTP-SSH connector and also 
+[chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## Prerequisites
 
