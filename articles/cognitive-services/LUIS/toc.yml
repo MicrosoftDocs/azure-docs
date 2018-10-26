@@ -147,11 +147,11 @@
     href: luis-how-to-start-new-app.md
   - name: Build Model
     items:
-    - name: Add intents
+    - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add utterances
+    - name: Add entity to utterance 
       href: luis-how-to-add-example-utterances.md
-    - name: Add entities
+    - name: Add entity without utterance
       href: luis-how-to-add-entities.md
     - name: Use prebuilt models
       items:
