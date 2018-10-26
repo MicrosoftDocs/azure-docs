@@ -34,16 +34,7 @@ Docker must be configured to allow the containers to connect with and send billi
 
 The Face container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz) or faster, and 4 gigabytes (GB) of allocated memory, but we recommend at least 2 CPU cores and 6 GB of allocated memory.
 
-## Installation
-
-The Face container image is available from a private Docker container registry, named `containerpreview.azurecr.io`, in Azure Container Registry. To install and instantiate a container provided by Cognitive Services Containers, you must perform the following steps:
-
-1. [Request access to the private container registry](#request-access-to-the-private-container-registry)
-2. [Log in to the private container registry](#log-in-to-the-private-container-registry)
-3. [Download container images from the private container registry](#download-container-images-from-the-private-container-registry)
-4. [Instantiate a container from a downloaded container image](#instantiate-a-container-from-a-downloaded-container-image)
-
-### Request access to the private container registry
+## Request access to the private container registry
 
 You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Face container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
 
@@ -52,7 +43,7 @@ You must first complete and submit the [Cognitive Services Vision Containers Req
 
 If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
 
-### Log in to the private container registry
+## Log in to the private container registry
 
 There are several ways to authenticate with the private container registry for Cognitive Services Containers, but the recommended method from the command line is by using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
 
@@ -68,7 +59,7 @@ If you have secured your credentials in a text file, you can concatenate the con
   cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
   ```
 
-## Download container images from Microsoft Container Registry
+## Download container images from the private container registry
 
 The container image for the Face container is available from a private Docker container registry, named `containerpreview.azurecr.io`, in Azure Container Registry. The container image for the Face container must be downloaded from the repository to run the container locally.
 
