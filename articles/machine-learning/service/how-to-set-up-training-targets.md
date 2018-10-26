@@ -359,7 +359,7 @@ except ComputeTargetException:
 
 ## <a id="adla"></a>Azure Data Lake Analytics
 
-Azure Data Lake Analytics is a big data analytics platform in the Azure cloud.
+Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. It can be used as a compute target when training models with an Azure Machine Learning pipeline.
 
 > [!IMPORTANT]
 > An Azure Data Lake Analytics compute target can only be used in a Machine Learning pipeline.
@@ -398,6 +398,9 @@ except ComputeTargetException:
     
     adla_compute.wait_for_completion(True)
 ```
+
+> [!TIP]
+> Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) to copy the data before training.
 
 ## <a id="hdinsight"></a>Attach an HDInsight cluster 
 
