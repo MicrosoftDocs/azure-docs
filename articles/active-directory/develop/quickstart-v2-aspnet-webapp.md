@@ -83,6 +83,7 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
 >   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
 >   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >   - If your application supports **All Microsoft account users**, replace this value with `common`
+>
 > > [!TIP]
 > > To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
 
