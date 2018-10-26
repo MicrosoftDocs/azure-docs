@@ -39,7 +39,7 @@ The following sections describe the user limits for each role, the tasks the rol
 
 <sup>1</sup> Each account requires a unique Microsoft account, or work or school account.
 
-## Manage Enterprise hierarchy and permissions
+## Enterprise hierarchy and permissions by role
 
 |Tasks| Enterprise Administrator|Department Administrator|Account Owner|Service Administrator|
 |---|---|---|---|---|
@@ -52,7 +52,7 @@ The following sections describe the user limits for each role, the tasks the rol
 
 <sup>2</sup> Notification contacts are sent all the email communications about the Azure Enterprise Agreement.
 
-## Manage usage and costs
+## Usage and costs access by role
 
 |Tasks| Enterprise Administrator|Department Administrator|Account Owner|Service Administrator|
 |---|---|---|---|---|
@@ -68,14 +68,14 @@ The following sections describe the user limits for each role, the tasks the rol
 - <sup>4</sup> Requires that the Enterprise Admin enable **Account Owner can view charges** policy in the Azure portal. The Account Owner can then see details for the account.
 - <sup>5</sup> Service Administrators see the charges based on the retail pricing when viewing the forecast in the Azure portal.  The enterprise’s pricing is unavailable.
 
-## Access to portal and pricing tools
+## Portal and pricing access by role
 
 |Role|Azure portal|Enterprise portal|Pricing calculator with enterprise’s pricing |
 |---|---|---|---|
 |Enterprise Administrator|✔|✔|✔|
 |Department Administrator|✔|✔|✔<sup>6</sup>|
-|Account Owner|✔|✔|✔<sup>7</sup> |
-|Service Administrator|✔|✘|✘|
+|Account Owner|✓|✓|✓<sup>7</sup> |
+|Service Administrator|✓|✘|✘|
 
 - <sup>6</sup> Requires that the Enterprise Admin enable **Department Administrator can view charges** policy in the Azure portal.
 - <sup>7</sup> Requires that the Enterprise Admin enable **Account Owner can view charges** policy in the Azure portal.
