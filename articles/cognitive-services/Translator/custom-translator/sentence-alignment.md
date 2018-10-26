@@ -14,21 +14,21 @@ ms.topic: conceptual
 
 # Sentence pairing and alignment in parallel documents
 
-During the training execution, sentences present in parallel documents are
+During the training, sentences present in parallel documents are
 paired or aligned. Custom Translator reports the number of sentences it was
 able to pair as the Aligned Sentence Count in each of the data sets.
 
-Custom Translator learns translations one sentence at a time, by reading a
-sentence, the translation of this sentence. Then it aligns words and phrases
+Custom Translator learns translations of sentences one sentence at a time. It readings a
+sentence from source, and then the translation of this sentence from target. Then it aligns words and phrases
 in these two sentences to each other. This process enables it to create a map of the
-words and phrases in one sentence, to the equivalent words and phrases in the
+words and phrases in one sentence to the equivalent words and phrases in the
 translation of this sentence. Alignment tries to ensure that the system trains
 on sentences that are translations of each other.
 
 If you know you have parallel documents, you may override the
-sentence alignment by supplying pre-aligned text files: You can extract all
+sentence alignment by supplying pre-aligned text files. You can extract all
 sentences from both documents into text file, organized one sentence per line,
-and upload with an “.align” extension. The “.align” extension signals Custom
+and upload with an `.align` extension. The `.align` extension signals Custom
 Translator that it should skip sentence alignment.
 
 For best results, try to make sure that you have one sentence per line in your

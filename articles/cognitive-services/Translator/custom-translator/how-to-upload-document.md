@@ -1,7 +1,7 @@
 ---
-title: How to upload document? - Custom Translator
+title: How to upload document - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Using document upload feature you can upload parallel document for your trainings. Parallel documents are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.  
+description: Using the document upload feature you can upload parallel document for your trainings. Parallel documents are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.  
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,15 +9,15 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a custom translator user, I want to know how to upload document, so that I can start uploading my documents to train my model .
+#Customer intent: As a Custom Translator user, I want to know how to upload document, so that I can start uploading my documents to train my model .
 ---
 
-# Upload document
+# Upload a document
 
-[Custom Translator](https://portal.customtranslator.azure.ai) provides way to upload so that you can upload parallel document to train your translation models. [Parallel documents](what-are-parallel-documents.md) are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and
+In [Custom Translator](https://portal.customtranslator.azure.ai) you can upload parallel document to train your translation models. [Parallel documents](what-are-parallel-documents.md) are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and
 the other document contains these sentences translated into the target language.
 
-On [Custom Translator](https://portal.customtranslator.azure.ai) portal, click on “Documents” tab to go to documents page.
+From [Custom Translator](https://portal.customtranslator.azure.ai) portal, click on “Documents” tab to go to documents page.
 
 ![Document upload link](media/how-to/how-to-upload-1.png)
 
@@ -68,8 +68,10 @@ On [Custom Translator](https://portal.customtranslator.azure.ai) portal, click o
 
 ## View upload history
 
-On the [Custom Translator](https://portal.customtranslator.azure.ai) portal,
-click on the upload history tab to go to history page.
+In upload history page you can view history of all document uploads details like document type, language pair, upload status etc.
+
+From the [Custom Translator](https://portal.customtranslator.azure.ai) portal,
+click the upload history tab to view history.
 
 ![Upload history tab](media/how-to/how-to-upload-history-1.png)
 

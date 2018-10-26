@@ -10,7 +10,7 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-#Customer intent: As a custom translator user, I want to concept of a project, so that I can use it efficiently.
+#Customer intent: As a Custom Translator user, I want to concept of a project, so that I can use it efficiently.
 ---
 # What is a Custom Translator workspace?
 

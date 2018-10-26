@@ -1,7 +1,7 @@
 ---
 title: View model details - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Models tab under any project shows details of each model for that project.
+description: Models tab under any project shows details of each model such as model name, model status, BLEU score, training, tuning, testing sentence count.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,12 +9,14 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a custom translator user, I want to understand how to view model details, so that I can review details of each translation model.
+#Customer intent: As a Custom Translator user, I want to understand how to view model details, so that I can review details of each translation model.
 ---
 
 # View model details
 
-The Models tab under any project shows details of each model for that project.
+The Models tab under project shows all models in that project. Any model trained for that project are listed in this tab.
+
+For each model in the project, following model details are displayed.
 
 1.  Model Name: Shows the model name of a given model.
 
@@ -24,33 +26,29 @@ The Models tab under any project shows details of each model for that project.
     evaluation of your documents is complete the status will change to Running
     and you will be able the see the number of sentences that are part of the
     training, including the tuning and testing sets that are created for you
-    automatically.
+    automatically. Below is a list of model status that describes state of the models.
 
-3.  Below are the status list.
+    -  Submitted: Specifies that the backend is processing the documents for that model.
 
-    -  Submitted: Specifies that the backend is processing the documents.
+    -  TrainingQueued: Specifies that the training is being queued to MT system for that model.
 
-    -  Submitted: Specifies that the training request has been submitted to the queue.
+    -  Running: Specifies that the training is running in MT system for that model.
 
-    -  TrainingQueued: Specifies that the training is being queued to MT system.
+    -  Succeeded: Specifies that the training succeeded in MT system and a model is available. In this status a BLEU score is displayed for that model.
 
-    -  Running: Specifies that the training is running in MT system.
+    -  Deployed: Specifies that the successful trained model is submitted to MT system for deployment.
 
-    -  Succeeded: Specifies that the training succeeded in MT system. The user can see a BLEU score in this state.
+    -  Undeploying: Specifies that the deployed model is undeploying.
 
-    -  Deployed: Specifies that the successful training is submitted to MT system for deployment purpose.
-
-    -  Undeploying: Specifies that the deployed training is undeploying.
-
-    -  Undeployed: Specifies that the undeployment process of a training belonging to a removed project has completed successfully.
+    -  Undeployed: Specifies that the undeployment process of a model has been completed successfully.
 
     -  Training Failed: Specifies that the training failed. If a training failure occurs, retry the training job. If the error persists, contact us. Don't delete the failed model.
 
     - DataProcessingFailed: Specifies that data processing has failed for one or more documents belonging to the model.
 
-    - DeploymentFailed: Specifies that the Model deployment has failed.
+    - DeploymentFailed: Specifies that the model deployment has failed.
 
-    - MigratedDraft: Specifies that the Model is in draft state after migration from Hub to Custom Translator.
+    - MigratedDraft: Specifies that the model is in draft state after migration from Hub to Custom Translator.
 
 4.  BLEU Score: shows BLEU (Bilingual Evaluation Understudy) score of the model,
     indicating the quality of your translation system. This score tells you how

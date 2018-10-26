@@ -9,10 +9,16 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a custom translator user, I want to understand how to create project, so that I can build and manage a project.
+#Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
 # Create project
+
+A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair. 
+
+Creating project is the first step toward building a model. 
+
+## Create a project:
 
 1.  In the [Custom Translator](https://portal.customtranslator.azure.ai) portal,
     tap “New project”.
@@ -52,32 +58,31 @@ ms.topic: article
 
     ![Create project dialog](media/how-to/how-to-create-project-dialog.png)
 
-3.  Click on Create
+3.  Click Create
 
 ## View project details
 
-The Custom Translator landing page shows the first 10 projects in your workspace. It displays the project name, language pair, category, status, BLEU score.
+The Custom Translator landing page shows the first 10 projects in your workspace. It displays the project name, language pair, category, status, and BLEU score.
 
-Tap on an individual project to navigate to the project details page for that
-project.
+After selecting a project, you'll see the following on the project page:
 
--   CategoryID: A CategoryID is created by concatenating the WorkspaceId,
+- CategoryID: A CategoryID is created by concatenating the WorkspaceID,
     project label, and category code. You use the CategoryID with the Text
     Translator API to get custom translations.
 
--   Train button: Use this button to start a [training a model](how-to-train-model.md).
+- Train button: Use this button to start a [training a model](how-to-train-model.md).
 
--   Add documents button: Use this button to [upload documents](how-to-upload-document.md).
+- Add documents button: Use this button to [upload documents](how-to-upload-document.md).
 
--   Filter documents button: Use this button to filter and search for specific
+- Filter documents button: Use this button to filter and search for specific
     document(s).
 
--   Model tab: This tab shows all model in this project.
+-   >[!NOTE]Model tab: This tab shows all model in this project.
 
     ![View project details](media/how-to/how-to-view-project.png)
 
 
 ## Next steps
 
-- To manage your projects efficiently read [how to search, edit, delete project](how-to-search-edit-delete-projects.md).
-- [Upload document](how-to-upload-document.md) to start building translation models.
+- Learn [how to search, edit, delete project](how-to-search-edit-delete-projects.md).
+- Learn [how to upload document](how-to-upload-document.md) to build translation models.

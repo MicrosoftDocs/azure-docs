@@ -1,7 +1,7 @@
 ---
 title: What is a dictionary? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Dictionary is an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases.
+description: A dictionary is an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,7 +9,7 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a user, I want to concept of dictionary, so that I can build custom model using it.
+#Customer intent: As a Custom Translator, I want to understand how to use a dictionary to build a custom translation model..
 ---
 
 # What is a dictionary?

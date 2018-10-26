@@ -1,5 +1,5 @@
 ---
-title: Parallel documents in Custom Translator
+title: What are parallel documents? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Parallel documents are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.
 author: rajdeep-in
@@ -9,7 +9,7 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a user, I want to concept of parallel documents, so that I can build custom model using it.
+#Customer intent: As a Custom Translator, I want to understand how to use parallel documents to build a custom translation model.
 ---
 
 # What are parallel documents?
@@ -62,4 +62,4 @@ is reported as Extracted Sentence Count in Custom Translator.
 
 ## Next steps
 
-- Learn how to create a dictionary [dictionary](what-is-dictionary.md) in Custom Translator.
+- Learn how to create a [dictionary](what-is-dictionary.md) in Custom Translator.

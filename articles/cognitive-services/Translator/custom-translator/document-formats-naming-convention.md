@@ -1,5 +1,5 @@
 ---
-title: Document formats and naming convention - Custom Translator
+title: Document formats and naming conventions - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: This is a guide on document formats and naming convention in Custom Translator. This concept helps to manage documents names better abd avoid naming conflicts.
 author: rajdeep-in
@@ -9,7 +9,7 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-#Customer intent: As a custom translator user, I want to understand document format and naming convention so that I can prepare documents efficiently.
+#Customer intent: As a Custom Translator user, I want to understand how to format and name my documents.
 ---
 
 # Document formats and naming convention guidance
@@ -36,9 +36,10 @@ Documents can be grouped into a single zip file and uploaded. The Custom Transla
 
 Each document in the zip file must follow this naming convention:
 
-“\<document name\>_\<language code\>” where *“document name”* is the name of your document *“language code”* is the ISO LanguageID (two characters), indicating that the document contains sentences in that language. There must be an underscore (_) before the language code.
+{document name}\_{language code}
+where {document name} is the name of your document, {language code} is the ISO LanguageID (two characters), indicating that the document contains sentences in that language. There must be an underscore (_) before the language code.
 
->For example, to upload two parallel documents within a zip for an English to
+For example, to upload two parallel documents within a zip for an English to
 Spanish system, the files should be named “data_en” and “data_es”.
 
 

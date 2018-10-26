@@ -1,7 +1,7 @@
 ---
 title: View system test results and deployment - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: When your training is successful review system test results and analyze your training results. If you're happy with the training results deploy the trained model.
+description: When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,14 +9,14 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a custom translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
+#Customer intent: As a Custom Translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
 ---
 
 # View system test results
 
-When your training is successful, review test results and analyze your training. If you're happy with the training results, deploy the trained model.
+When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model. Go to specific project, go to models tab of that project, then go to appropriate model and select test tab.
 
-The test detail tab shows you,
+The test tab shows you:
 
 1.  System Test Results: The result of the test process in the trainings. The test process produces the BLEU score.
 
@@ -28,7 +28,7 @@ The test detail tab shows you,
 
         ![System test results](media/how-to/how-to-system-test-results.png)
 
-2.  Click on the “System test results”, and that will take you to test result details page. This page shows the machine translation of sentences that were part of the test dataset.
+2.  Click on the System test results, and that will take you to test result details page. This page shows the machine translation of sentences that were part of the test dataset.
 
 3.  The table on the test result details page has two columns - one for each
     language in the pair. The column for the source language shows the sentence
@@ -64,7 +64,7 @@ This downloaded zip archive contains three files.
 
 ## Deploy a model
 
-To request a deployment ,
+To request a deployment:
 
 1.  Click on the project name
 

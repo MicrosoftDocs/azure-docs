@@ -1,7 +1,7 @@
 ---
 title: Document details - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: The document details page displays the list of extracted sentences from the document.  
+description: The document list page shows the first 10 document in your workspace. For each of the documents, it displays the name, pairing, type, language, upload time stamp, and the email address of the user who uploaded the document.  
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,7 +9,7 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: how to edit a model
-#Customer intent: As a custom translator user, I want to understand how to view  document details, so that I can to review list of extracted sentences in a document.
+#Customer intent: As a Custom Translator user, I want to understand how to view  document details, so that I can to review list of extracted sentences in a document.
 ---
 
 # View document details
@@ -38,11 +38,8 @@ Click on an individual document to view the document details page. The document 
     ![Delete confirm](media/how-to/how-to-delete-document-confirm.png)
 
 
-[!Note] 
-- User must be a workspace owner to delete document
-- The document cannot be in use by a model that is in any part of the training process or any part of the deployment process.
-- 
+>[!NOTE] User must be a workspace owner to delete document to delete a document. A document can't be in use by a model, that is in any part of the training process or any part of the deployment process.
 
 ## Next steps
 
-- [How to train a model](how-to-train-model.md).
+- Learn [how to train a model](how-to-train-model.md).

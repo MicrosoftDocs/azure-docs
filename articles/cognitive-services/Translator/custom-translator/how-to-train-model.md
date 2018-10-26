@@ -1,7 +1,7 @@
 ---
 title: Train a model - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Training a model is the important step to building a translation model. Training happens based on documents you select for that trainings.
+description: Training a model is an important step when building a translation model. Training happens based on documents you select for that trainings.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,22 +9,23 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a custom translator user, I want to understand how to train, so that I can start start building my custom translation model.
+#Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
 
 # Train a model
 
-Training a model is the important step to building a translation model. Training happens based on documents you select for that trainings.
+Training a model is the important step to building a translation model, because without a training, model can't be built. Training happens based on documents you select for the trainings.
 
-To train a model,
+To train a model:
 
-1.  Select the project in which you want to build the model.
+1.  Select the project where you want to build a model.
 
-2.  The “Data” tab for the project will show all the relevant documents for the project language pair. Manually select the documents you want to use to train your model. You can select training, tuning, and testing documents from this screen. Also you just select the training set and have Custom Translator create the tuning and test sets for you.
+2.  The Data tab for the project will show all the relevant documents for the project language pair. Manually select the documents you want to use to train your model. You can select training, tuning, and testing documents from this screen. Also you just select the training set and have Custom Translator create the tuning and test sets for you.
 
-    -  Document name: Name of the documents.
+    -  Document name: Name of the document.
 
     -  Pairing: If this document is a parallel or monolingual document.
+
     - Monolingual documents are currently not supported for training.
 
     -  Document type: Can be training, tuning, testing, or dictionary.
@@ -39,11 +40,11 @@ To train a model,
 
     ![Train model](media/how-to/how-to-train-model.png)
 
-3.  Tap on the “Train” button.
+3.  Click Train button.
 
 4.  On the dialog, specify a name for your model.
 
-5.  Tap “Train model”.
+5.  Click Train model.
 
     ![Train model dialog](media/how-to/how-to-train-model-2.png)
 
@@ -55,7 +56,7 @@ To train a model,
 
 ## Edit a model
 
-You can edit a project using the Edit link on Model detail page.
+You can edit a model using the Edit link on the Model Details page.
 
 1.  Click on the Pencil icon
 
@@ -72,4 +73,4 @@ You can edit a project using the Edit link on Model detail page.
 
 ## Next steps
 
-- Read about [models details](how-to-view-model-details.md) to know about  analysis of a model and training.
+- Learn [how to view model details](how-to-view-model-details.md).

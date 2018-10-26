@@ -1,7 +1,7 @@
 ---
 title: View model training details - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: View model training details in Custom Translator
+description: When your training is complete, the details are displayed on Custom Translator trainings details page.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,18 +9,16 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a custom translator user, I want to understand how to view model training details, so that I can review the details of a training.
+#Customer intent: As a Custom Translator user, I want to understand how to view model training details, so that I can review the details of a training.
 ---
 
 # View model training details
 
-When your training is complete, you can review the details from Custom Translator trainings details page.
+When your training is complete, you can review the various details of the training from Custom Translator training details page. Go to specific project, then go to models tab and select appropriate model.
 
-Select any training from model page and it will take you to Training page.
+The model page has two tabs: Training details and Test.
 
-Training page has two tabs,
-
-1.  **Training Details:** This tab shows the list of document(s) used in the training,
+1.  **Training Details:** This tab shows the list of document(s) used in the training:
 
     -  Documents Name: This field shows the name of the document
 

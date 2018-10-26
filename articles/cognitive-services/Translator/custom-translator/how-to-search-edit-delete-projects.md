@@ -1,5 +1,5 @@
 ---
-title: How to search, edit, delete project? - Custom Translator
+title: How to search, edit, and delete project - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator provides various ways to manage your projects in efficient manner. You can create multiple projects, search based on your criteria, edit your projects. Deleting a project is also possible in Custom Translator.  
 author: rajdeep-in
@@ -9,14 +9,15 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a custom translator user, I want to understand how to search, edit, delete projects, so that I can manage my projects effeciently.
+#Customer intent: As a Custom Translator user, I want to understand how to search, edit, delete projects, so that I can manage my projects effeciently.
 ---
-# Search, edit, delete project
+# Search, edit, and delete projects
 
-Custom Translator provides various ways to manage your projects in efficient manner. You can create multiple projects, search based on your criteria, edit your projects. Deleting a project is also possible in Custom Translator.  
-
+Custom Translator provides multiple ways to manage your projects in efficient manner. You can create many projects, search based on your criteria, and edit your projects. Deleting a project is also possible in Custom Translator.  
 
 ## Search and filter projects
+
+The filter tool allows you to search projects by different filter conditions. It filters like project name, status, source and target language, and category of the project.
 
 1.  Click on the filter button.
 
@@ -34,6 +35,8 @@ Custom Translator provides various ways to manage your projects in efficient man
 
 ## Edit a project
 
+Custom Translator gives ability to edit name and the description of a project. Other project metadata like category, source, target language are not available for edit. Below steps describes how to edit a project.
+
 1.  Click on the pencil icon that appears when you hover over a project.
 
     ![Edit project](media/how-to/how-to-edit-project.png)
@@ -49,6 +52,8 @@ Custom Translator provides various ways to manage your projects in efficient man
 
 
 ## Delete a project
+
+You can delete a project when you no longer need it. Below steps describes how to delete a project.
 
 1.  Hover on any project record and click on the trash icon.
 
