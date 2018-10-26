@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: Compare Azure AD Domain Services to DIY domain
 description: Comparing Azure Active Directory Domain Services to DIY domain controllers
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # How to decide if Azure AD Domain Services is right for your use-case
