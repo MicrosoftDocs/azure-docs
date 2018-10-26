@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create a blob in object storage using the Azure portal | Microsoft Docs
+title: Azure Quickstart - Create a blob in object storage by using the Azure portal | Microsoft Docs
 description: In this quickstart, you use the Azure portal in object (Blob) storage. Then you use the Azure portal to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
@@ -12,7 +12,7 @@ ms.date: 10/22/2018
 ms.author: tamram
 ---
 
-# Quickstart: Upload, download, and list blobs using the Azure portal
+# Quickstart: Upload, download, and list blobs by using the Azure portal
 
 In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a container in Azure Storage, and to upload and download block blobs in that container.
 
@@ -28,10 +28,10 @@ To create a container in the Azure portal, follow these steps:
 
 1. Navigate to your new storage account in the Azure portal.
 2. In the left menu for the storage account, scroll to the **Blob service** section, then select **Blobs**.
-3. Click the **+ Container** button.
-4. Enter a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. See [Naming and referencing containers, blobs, and metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+3. Select the **+ Container** button.
+4. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 5. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
-6. Click **OK** to create the container.
+6. Select **OK** to create the container.
 
     ![Screenshot showing how to create a container in the Azure portal](media/storage-quickstart-blobs-portal/create-container.png)
 
@@ -43,8 +43,8 @@ To upload a block blob to your new container in the Azure portal, follow these s
 
 1. In the Azure portal, navigate to the container you created in the previous section.
 2. Select the container to show a list of blobs it contains. Since this container is new, it won't yet contain any blobs.
-3. Click the **Upload** button to upload a blob to the container.
-4. Browse your local file system to find a file to upload as a block blob, and click **Upload**.
+3. Select the **Upload** button to upload a blob to the container.
+4. Browse your local file system to find a file to upload as a block blob, and select **Upload**.
      
     ![Screenshot showing how to upload a blob from your local drive](media/storage-quickstart-blobs-portal/upload-blob.png)
 
@@ -60,7 +60,7 @@ You can download a block blob to display in the browser or save to your local fi
 
 ## Clean up resources
 
-To remove the resources you created in this quickstart, you can simply delete the container. All blobs in the container will also be deleted.
+To remove the resources you created in this quickstart, you can delete the container. All blobs in the container will also be deleted.
 
 To delete the container:
 
@@ -71,7 +71,7 @@ To delete the container:
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using Azure portal. To learn more about working with Blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage by using Azure portal. To learn more about working with Blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-dotnet-how-to-use-blobs.md)
