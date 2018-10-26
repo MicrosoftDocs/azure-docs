@@ -1,5 +1,5 @@
 ---
-title: Enable support for Avere vFXT
+title: Enable support for Avere vFXT - Azure
 description: How to enable support uploads from Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
@@ -8,10 +8,11 @@ ms.date: 10/31/2018
 ms.author: v-erkell
 ---
 
-
 # Enable support uploads
 
 The Avere vFXT for Azure can automatically upload support data about your cluster. These uploads let support staff provide the best possible customer service.
+
+## Steps to enable uploads
 
 Follow these steps from the Avere Control Panel to activate support. (Read [Access the vFXT cluster](avere-vfxt-cluster-gui.md) to learn how to open Avere Control Panel.)
 
@@ -31,7 +32,7 @@ Follow these steps from the Avere Control Panel to activate support. (Read [Acce
    ![Screenshot containing all the steps for enabling support](media/avere-vfxt-support-info-steps.png)
 
 
-## Next steps: Add storage and mount clients
+## Next steps
 
 If you need to add an on-premises storage system to the cluster, follow the instructions in [Configure storage](avere-vfxt-add-storage.md). 
 

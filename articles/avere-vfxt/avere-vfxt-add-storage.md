@@ -1,5 +1,5 @@
 ---
-title: Configure Avere vFXT storage
+title: Configure Avere vFXT storage - Azure
 description: How to add a back-end storage system to your Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt

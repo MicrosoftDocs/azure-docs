@@ -1,5 +1,5 @@
 ---
-title: Mount the Avere vFXT
+title: Mount the Avere vFXT - Azure
 description: How to mount clients with Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
@@ -111,7 +111,7 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 ``nointr``            | The option "nointr" is preferred for clients with legacy kernels (prior to April 2008) that support this option. Note that the option "intr" is the default.
 
 
-## Next steps 
+## Next steps
 
 After you have mounted clients, you can use them to populate the backend data storage (core filer). Refer to these documents to learn more about additional setup tasks:
 
