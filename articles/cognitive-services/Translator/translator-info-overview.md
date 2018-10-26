@@ -29,6 +29,7 @@ Learn more about the [Microsoft Translator service](https://www.microsoft.com/en
 ## Language support
 
 Microsoft Translator provides multi-language support for translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically using the [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-languages).  
+
 ## Language customization
 
 An extension of the core Microsoft Translator service, Custom Translator can be used in conjunction with the Translator Text API to help you customize the neural translation system and improve the translation for your specific terminology and style.
