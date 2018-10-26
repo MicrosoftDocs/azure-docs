@@ -16,15 +16,16 @@ ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
+
 This guide contains information about the intricacies of writing Azure Functions with JavaScript.
 
-A JavaScript function is an exported `function` that will execute when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). Each function is passed a `context` object which is used for receiving and sending binding data, logging, and communicating with the runtime.
+A JavaScript function is an exported `function` that will execute when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). Each function is passed a `context` object, which is used for receiving and sending binding data, logging, and communicating with the runtime.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). It is also recommended that you have followed a tutorial under "Quickstarts" to [create your first function](functions-create-first-function-vs-code.md).
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete the Functions quickstart to create your first function, using [Visual Studio Code](functions-create-first-function-vs-code.md) or [in the portal](functions-create-first-azure-function.md).
 
 ## Folder structure
 
-The required folder structure for a JavaScript project looks like the following. Note that this default can be changed: see the [scriptFile](functions-reference-node.md#using-scriptfile) section below for more details.
+The required folder structure for a JavaScript project looks like the following. This default can be changed. For more information, see the [scriptFile](#using-scriptfile) section below.
 
 ```
 FunctionsProject
@@ -50,7 +51,7 @@ The binding extensions required in [version 2.x](functions-versions.md) of the F
 
 ## Exporting a function
 
-JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). In the default case, your exported function should be the only export from its file, the export named `run`, or the export named `index`. The default location of your function is `index.js`, where `index.js` shares the same parent directory as the corresponding `function.json`. Note that the name of `function.json`'s parent directory is always the name of your function. 
+JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). In the default case, your exported function should be the only export from its file, the export named `run`, or the export named `index`. The default location of your function is `index.js`, where `index.js` shares the same parent directory as the corresponding `function.json`. The name of `function.json`'s parent directory is always the name of your function. 
 
 To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
 
@@ -63,6 +64,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
     context.done();
 };
 ```
+
 ```javascript
 // You can also use 'arguments' to dynamically handle inputs
 module.exports = async function(context) {
@@ -74,23 +76,26 @@ module.exports = async function(context) {
 };
 ```
 
-Triggers and input bindings (bindings of `direction === "in"`) can be passed to the function as parameters. They are passed to the function in the same order that they are defined in *function.json*. You can also dynamically handle inputs using the JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
+Data from triggers and input bindings (bindings of `direction === "in"`) is provided to function as parameters. They are passed to the function in the same order that they are defined in *function.json*. You can also dynamically handle inputs using the JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
 
-All bindings, regardless of direction, are also passed along on the `context` object using the `context.bindings` property.
+All bindings, regardless of direction, are also passed in the `context` object using the `context.bindings` property.
 
 ### Exporting an async function
-When using the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (not available with Functions v1.x), you do not explicitly need to call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function will complete when the exported async function/Promise completes.
 
-For example, this is a simple function that logs that it was triggered and immediately completes execution.
+When using the [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) in version 2.x of the Functions runtime, you do not need to explicitly call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function completes when the exported async function/Promise completes. For functions targeting the version 1.x runtime, you must still call [`context.done`](#contextdone-method) when your code is done executing.
+
+The following example is a simple function that logs that it was triggered and immediately completes execution.
+
 ``` javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
 ```
 
-When exporting an async function, you can also configure output bindings to take the `return` value. This is an alternative approach to assigning outputs using the [`context.bindings`](#contextbindings-property) property.
+When exporting an async function, you can also configure output bindings to take the `return` value. This approach provides an alternative to assigning outputs using the [`context.bindings`](#contextbindings-property) property.
 
 To assign an output using `return`, change the `name` property to `$return` in `function.json`.
+
 ```json
 {
   "type": "http",
@@ -98,7 +103,9 @@ To assign an output using `return`, change the `name` property to `$return` in `
   "name": "$return"
 }
 ```
-Your JavaScript function code could look like this:
+
+In this case, your function should look like the following example:
+
 ```javascript
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
@@ -110,9 +117,10 @@ module.exports = async function (context, req) {
 ```
 
 ## context object
+
 The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
 
-The `context` object is always the first parameter to a function and must be included because it has methods such as `context.done` and `context.log`, which are required to use the runtime correctly. You can name the object whatever you would like (for example, `ctx` or `c`).
+The `context` object is always the first parameter to a function. It's required because method like `context.done` and `context.log` are required by the runtime. In your code, you can name the object whatever you like, such as `c` or `ctx`.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -124,10 +132,11 @@ module.exports = function(ctx) {
 
 ### context.bindings property
 
-```
+```js
 context.bindings
 ```
-Returns a named object that contains all your input and output data. For example, the following binding definitions in your *function.json* lets you access the contents of a queue from `context.bindings.myInput` and assign outputs to a queue using `context.bindings.myOutput`.
+
+Returns a named object that contains all your input and output data. For example, the following binding definitions in your function.json let you access the contents of a queue from `context.bindings.myInput` and assign outputs to a queue using `context.bindings.myOutput`.
 
 ```json
 {
@@ -153,25 +162,28 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-Note that you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
+You can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
 
 ### context.bindingData property
 
-```
+```js
 context.bindingData
 ```
+
 Returns a named object that contains trigger metadata and function invocation data (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). For an example of trigger metadata, see this [event hubs example](functions-bindings-event-hubs.md#trigger---javascript-example).
 
 ### context.done method
-```
+
+```js
 context.done([err],[propertyBag])
 ```
 
-Informs the runtime that your code has finished. If your function uses the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration (available using Node 8+ in Functions version 2.x), you do not need to use `context.done()`. The `context.done` callback is implicitly called.
+Lets the runtime know that your code has completed. When your function uses the [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration, you do not need to use `context.done()`. The `context.done` callback is implicitly called. Async functions are available in Node 8 or a later version, which requires version 2.x of the Functions runtime.
 
-If your function is not an async function, **you must call** `context.done` to inform the runtime that your function is complete. The execution will time out if it is missing.
+>[!NOTE]
+>When your function is not an async function, you must call `context.done` to inform the runtime that your function is complete. If you don't do this, the execution times out.
 
-The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` will overwrite anything set on the `context.bindings` object.
+The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` overwrite anything set on the `context.bindings` object.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -185,9 +197,10 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 
 ### context.log method  
 
-```
+```js
 context.log(message)
 ```
+
 Allows you to write to the streaming function logs at the default trace level. On `context.log`, additional logging methods are available that let you write function logs at other trace levels:
 
 
@@ -203,6 +216,7 @@ The following example writes a log at the warning trace level:
 ```javascript
 context.log.warn("Something has happened."); 
 ```
+
 You can [configure the trace-level threshold for logging](#configure-the-trace-level-for-console-logging) in the host.json file. For more information on writing logs, see [writing trace outputs](#writing-trace-output-to-the-console) below.
 
 Read [monitoring Azure Functions](functions-monitoring.md) to learn more about viewing and querying function logs.
@@ -224,7 +238,7 @@ Options for `dataType` are: `binary`, `stream`, and `string`.
 
 ## Writing trace output to the console 
 
-In Functions, you use the `context.log` methods to write trace output to the console. In Functions v2.x, trace ouputs via `console.log` are captured at the Function App level. This means that outputs from `console.log` are not tied to a specific function invocation, and hence aren't displayed in a specific function's logs. They will, however, propagate to Application Insights. In Functions v1.x, you cannot use `console.log` to write to the console. 
+In Functions, you use the `context.log` methods to write trace output to the console. In Functions v2.x, trace outputs using `console.log` are captured at the Function App level. This means that outputs from `console.log` are not tied to a specific function invocation, and hence aren't displayed in a specific function's logs. They do, however, propagate to Application Insights. In Functions v1.x, you can't use `console.log` to write to the console.
 
 When you call `context.log()`, your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
 
@@ -262,12 +276,12 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### Configure the trace level for console logging
 
-Functions lets you define the threshold trace level for writing to the console, which makes it easy to control the way traces are written to the console from your functions. To set the threshold for all traces written to the console, use the `tracing.consoleLevel` property in the host.json file. This setting applies to all functions in your function app. The following example sets the trace threshold to enable verbose logging:
+Functions lets you define the threshold trace level for writing to the console, which makes it easy to control the way traces are written to the console from your function. To set the threshold for all traces written to the console, use the `tracing.consoleLevel` property in the host.json file. This setting applies to all functions in your function app. The following example sets the trace threshold to enable verbose logging:
 
 ```json
-{ 
-    "tracing": {      
-        "consoleLevel": "verbose"	  
+{
+    "tracing": {
+        "consoleLevel": "verbose"
     }
 }  
 ```
@@ -331,7 +345,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     ```
 + _[Response only]_ By calling `context.res.send(body?: any)`. An HTTP response is created with input `body` as the response body. `context.done()` is implicitly called.
 
-+ _[Response only]_ By calling `context.done()`. A special kind of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
++ _[Response only]_ By calling `context.done()`. A special type of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
 
     ```json
     {
@@ -422,13 +436,14 @@ When running locally, app settings are read from the [local.settings.json](funct
 
 ## Configure function entry point
 
-The `function.json` properties `scriptFile` and `entryPoint` can be used to configure the location and name of your exported function. These can be important if your JavaScript is transpiled.
+The `function.json` properties `scriptFile` and `entryPoint` can be used to configure the location and name of your exported function. These properties can be important when your JavaScript is transpiled.
 
 ### Using `scriptFile`
 
 By default, a JavaScript function is executed from `index.js`, a file that shares the same parent directory as its corresponding `function.json`.
 
-`scriptFile` can be used to get a folder structure that looks like this:
+`scriptFile` can be used to get a folder structure that looks like the following example:
+
 ```
 FunctionApp
  | - host.json
@@ -442,6 +457,7 @@ FunctionApp
 ```
 
 The `function.json` for `myNodeFunction` should include a `scriptFile` property pointing to the file with the exported function to run.
+
 ```json
 {
   "scriptFile": "../lib/nodeFunction.js",
@@ -455,7 +471,8 @@ The `function.json` for `myNodeFunction` should include a `scriptFile` property 
 
 In `scriptFile` (or `index.js`), a function must be exported using `module.exports` in order to be found and run. By default, the function that executes when triggered is the only export from that file, the export named `run`, or the export named `index`.
 
-This can be configured using `entryPoint` in `function.json`:
+This can be configured using `entryPoint` in `function.json`, as in the following example:
+
 ```json
 {
   "entryPoint": "logFoo",
@@ -465,13 +482,14 @@ This can be configured using `entryPoint` in `function.json`:
 }
 ```
 
-In Functions v2.x, which supports the `this` parameter in user functions, the function code could then be as follows:
+In Functions v2.x, which supports the `this` parameter in user functions, the function code could then be as in the following example:
+
 ```javascript
 class MyObj {
     constructor() {
         this.foo = 1;
     };
-    
+
     function logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
@@ -493,15 +511,17 @@ When you work with JavaScript functions, be aware of the considerations in the f
 When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs JavaScript functions more efficiently on single-vCPU VMs, and using larger VMs does not produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### TypeScript and CoffeeScript support
+
 Because direct support does not yet exist for auto-compiling TypeScript or CoffeeScript via the runtime, such support needs to be handled outside the runtime, at deployment time. 
 
 ### Cold Start
-When developing Azure Functions in the serverless hosting model, cold starts are a reality. "Cold start" refers to the fact that when your Function App starts for the first time after a period of inactivity, it will take longer to start up. For JavaScript functions with large dependency trees in particular, this can cause major slowdown. In order to hasten the process, if possible, [run your functions as a package file](run-functions-from-deployment-package.md). Many deployment methods opt into this model by default, but if you're experiencing large cold starts and are not running from a package file, this can be a massive improvement.
+
+When developing Azure Functions in the serverless hosting model, cold starts are a reality. *Cold start* refers to the fact that when your function app starts for the first time after a period of inactivity, it takes longer to start up. For JavaScript functions with large dependency trees in particular, cold start can be significant. To speed up the cold start process, [run your functions as a package file](run-functions-from-deployment-package.md) when possible. Many deployment methods use the run from package model by default, but if you're experiencing large cold starts and are not running this way, this change can offer a significant improvement.
 
 ## Next steps
+
 For more information, see the following resources:
 
-* [Best practices for Azure Functions](functions-best-practices.md)
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-
++ [Best practices for Azure Functions](functions-best-practices.md)
++ [Azure Functions developer reference](functions-reference.md)
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
