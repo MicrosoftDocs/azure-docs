@@ -134,6 +134,18 @@ function process(telemetry, executionContext) {
 }
 ```
 
+The `telemetry` parameter exposes a `SensorId` and `Message`. The `executionContext` parameter exposes the following attributes:
+
+```csharp
+var executionContext = new UdfExecutionContext
+{
+    EnqueuedTime = request.HubEnqueuedTime,
+    ProcessorReceivedTime = request.ProcessorReceivedTime,
+    UserDefinedFunctionId = request.UserDefinedFunctionId,
+    CorrelationId = correlationId.ToString(),
+};
+```
+
 Log a message if the sensor telemetry reading surpasses a pre-defined threshold. If your diagnostic settings are enabled on the Digital Twins instance, logs from user-defined functions will be forwarded:
 
 ```javascript
