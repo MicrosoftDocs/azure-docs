@@ -21,7 +21,7 @@ ms.custom: mvc, devcenter
 # Create autoscale policies for a Service Fabric Mesh application
 One of the main advantages of deploying applications to Service Fabric Mesh is the ability for you to easily scale your services in or out. This should be used for handling varying amounts of load on your services, or improving availability. You can manually scale your services in or out or set up autoscaling policies.
 
-[Auto scaling](service-fabric-mesh-scalability.md#auto-scaling-service-instances) allows you to dynamically scale the number of your service instances (horizontal scaling). Auto scaling gives great elasticity and enables provisioning or removal of service instances based on CPU or memory utilization.
+[Auto scaling](service-fabric-mesh-scalability.md#autoscaling-service-instances) allows you to dynamically scale the number of your service instances (horizontal scaling). Auto scaling gives great elasticity and enables provisioning or removal of service instances based on CPU or memory utilization.
 
 ## Options for creating an auto scaling policy, trigger, and mechanism
 An auto scaling policy is defined for each service you want to scale. The policy is defined in either in the YAML service resource file or the JSON deployment template. Each scaling policy consists of two parts: a trigger and a scaling mechanism.
