@@ -3,7 +3,7 @@ title: Add a symbols and markers with Azure Maps | Microsoft Docs
 description: How to add symbols and markers to a Javascript map
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/24/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -30,8 +30,8 @@ The data source and bubble layer are created and added to the map within the [ev
 
 ## Add point-based data using symbol layer
 
-<p data-height="500" data-theme-id="0" data-slug-hash="ZqJjRP" data-default-tab="js,result" data-user="azuremaps" data-pen-title="Switch pin location" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/azuremaps/pen/ZqJjRP/">Switch pin location</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe height='500' scrolling='no' title='Switch pin location' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Switch pin location</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 The first block of code above constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
