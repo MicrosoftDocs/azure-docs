@@ -274,4 +274,4 @@ while conflict:
 ## Next Steps
 
 - [How to manage consistency](./how-to-manage-consistency.md)
-- [How to manage database account](./how-to=manage-database-account.md)
+- [How to manage database account](./how-to-manage-database-account.md)
