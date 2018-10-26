@@ -35,7 +35,7 @@ Fundamentally there are 3 ways to authenticate to Key Vault
 2. **Using Service Principal and Certificate:** The 2nd option is to use a Service Principal and an associated certificate that has access to Key Vault. The onus of rotating the certificate is on the application owner or developer and hence this is not recommended
 3. **Using Service Principal and Secret:** The 3rd option (not preferred option) is to use a Service Principal and a secret to authenticate to Key Vault
 
-[!NOTE] The 3rd option above should not be used as it's hard to auto rotate the bootstrap secret used to authenticate to key vault
+[!NOTE] The 3rd option above should not be used as it's hard to auto rotate the bootstrap secret used to authenticate to Key Vault
 
 Here are some key terms:
 - **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used in an exact manner to refer to the set of Azure and Office 365 services for an organization.

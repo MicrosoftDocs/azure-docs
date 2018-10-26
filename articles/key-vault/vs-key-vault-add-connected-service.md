@@ -103,18 +103,18 @@ Now, you can access your secrets in code. The next steps are different depending
     }
 ```
 3. Next open About.cshtml.cs file and write the following code
-    a. Include a reference to Microsoft.Extensions.Configuration by this using statement
+    1. Include a reference to Microsoft.Extensions.Configuration by this using statement    
         ```
         using Microsoft.Extensions.Configuration
         ```
-    b. Add this constructor
+    2. Add this constructor
         ```
         public AboutModel(IConfiguration configuration)
         {
             _configuration = configuration;
         }
         ```
-    c. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands
+    3. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands
         ```
         public void OnGet()
         {
