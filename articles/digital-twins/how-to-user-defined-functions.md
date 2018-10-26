@@ -114,7 +114,7 @@ function process(telemetry, executionContext) {
 | Custom Attribute Name | Replace With |
 | --- | --- |
 | *yourSpaceIdentifier* | The space identifier  |
-| *yourMatcherIdentifier* | The id of the matcher you wish to use |
+| *yourMatcherIdentifier* | The ID of the matcher you wish to use |
 
 ### Example Functions
 
@@ -146,7 +146,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-Log a message if the sensor telemetry reading surpasses a pre-defined threshold. If your diagnostic settings are enabled on the Digital Twins instance, logs from user-defined functions will be forwarded:
+In the next example, we will log a message if the sensor telemetry reading surpasses a pre-defined threshold. If your diagnostic settings are enabled on the Digital Twins instance, logs from user-defined functions will also be forwarded:
 
 ```javascript
 function process(telemetry, executionContext) {
@@ -227,7 +227,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 | --- | --- |
 | *yourManagementApiUrl* | The full URL path for your Management API  |
 | *yourDesiredRoleIdentifier* | The identifier for the desired role |
-| *yourUserDefinedFunctionId* | The id for the UDF you want to use |
+| *yourUserDefinedFunctionId* | The ID for the UDF you want to use |
 | *yourAccessControlPath* | The access control path |
 
 ## Send telemetry to be processed
