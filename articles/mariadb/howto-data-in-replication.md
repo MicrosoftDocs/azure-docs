@@ -57,7 +57,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    Create a user account on the master server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MariaDB documentation to understand how to [add user accounts](https://mariadb.com/kb/en/library/create-user/) on your master server. 
 
-   In the commands below, the new replication role created is able to access the master from any machine, not just the machine that hosts the master itself. This is done by specifying "syncuser@'%'" in the create user command. See the MariaDB documentation to learn more about [specifying account names](https://mariadb.com/kb/en/library/create-user/#account-names).
+   In the commands below, the new replication role created is able to access the master from any machine, not just the machine that hosts the master itself. This is done by specifying "syncuser\@'%'" in the create user command. See the MariaDB documentation to learn more about [specifying account names](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **SQL Command**
 
