@@ -185,7 +185,7 @@ The response message must include the following application properties:
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 0xcc: No content – no more messages|  
+|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 204: No content – no more messages|  
 |statusDescription|string|No|Description of the status.|  
   
 The response message body must consist of an **amqp-value** section containing a **map** with the following entries:  
@@ -305,7 +305,7 @@ The response message must include the following application properties:
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 0xcc: No content – no more messages|  
+|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 204: No content – no more messages|  
 |statusDescription|string|No|Description of the status.|  
   
 The response message body must consist of an **amqp-value** section containing a map with the following entries:  
@@ -341,7 +341,7 @@ The response message must include the following application properties:
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 0xcc: No content – no more messages|  
+|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 204: No content – no more messages|  
 |statusDescription|string|No|Description of the status.|  
   
 The response message body must consist of an **amqp-value** section containing a map with the following entries:  
@@ -446,7 +446,7 @@ The response message must include the following application properties:
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 0xcc: No content – no more messages|  
+|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 204: No content – no more messages|  
 |statusDescription|string|No|Description of the status.|  
   
 The response message body must consist of an **amqp-value** section containing a **map** with the following entries:  

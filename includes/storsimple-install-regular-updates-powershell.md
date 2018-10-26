@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 <!--author=SharS last changed: 11/18/16-->
 
 #### To install regular updates via Windows PowerShell for StorSimple
