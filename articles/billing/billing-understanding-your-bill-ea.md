@@ -1,0 +1,75 @@
+---
+title: Understand your bill for Azure Enterprise | Microsoft Docs
+description: Learn how to read and understand your usage and bill for Azure customers with a Enterprise Agreement
+services: ''
+documentationcenter: ''
+author: adpick
+manager: dougeby
+editor: ''
+tags: billing
+
+ms.service: billing
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/26/2018
+ms.author: cwatson
+
+---
+# Understand your bill for Azure customers with an Enterprise Agreement
+
+Azure customers with an Enterprise Agreement (EA customers) may receive an invoice when usage charges exceed the credit or the organization used products or services that aren't covered by the credit.
+
+EA customers make an upfront monetary commitment or credit when they add Azure. But you can add more credit to your Enterprise Agreement by contacting your Microsoft account manager or reseller.  
+
+## Invoice when credit exceeded or doesn't apply
+
+You get one or more invoices for the following situations:
+
+- Service overage: Your organization's usage costs exceeds your credit balance.
+- Charges billed separately: The products or services your organization used aren't covered by the credit. You are invoiced for the following products or services regardless of your credit balance:
+    - Canonical
+    - Citrix XenApp Essentials
+    - Citrix XenDesktop 
+    - Registered User
+    - Openlogic
+    - Remote Access Rights XenApp Essentials Registered User
+    - Ubuntu Advantage
+    - Visual Studio Enterprise (Monthly)
+    - Visual Studio Enterprise (Annual)
+    - Visual Studio Professional (Monthly)
+    - Visual Studio Professional (Annual)
+- Marketplace or external services: These are resources that have been created by third-party software vendors. Usage of these resources aren't covered by your organization's credit.
+
+When you have charges due for both service overages and services not covered by the credit during the billing period, you get one invoice that includes both types of charges. Marketplace or external services charges are always invoiced separately.
+
+
+## Review charges
+
+To review and verify the charges on your invoice, you must be an Enterprise Administrator, or Account Owner or Department Admin with the view charges policy enabled. For more information, see Understand Azure Enterprise Agreement administrative roles in Azure. If you don't know who the Enterprise Admin is for your organization, contact support.
+
+### Review service overage invoice
+
+Compare your total usage amount from the Enterprise portal in **Reports** > **Usage Summary** with your service overage invoice. The amounts on the **Usage Summary** don't include tax.
+
+1. Sign in to the [Enterprise portal](https://ea.portal.com).
+1. Select **Reports**.
+1. On the top right-hand corner of the tab, switch the view from **M** to **C** to match the period on the invoice.
+1. The **Total Usage** amount should match the **Total Extended Amount** on your overage invoice. The **Total Extended Usage** amount is the total usage costs for the selected billing period before any credit is applied.
+1. The **Total Amount** on your invoice is the amount due after the credit is applied and taxes added.
+1. To get more information about your charges, go to **Download Usage** > **Advanced Report Download**. This report doesn't include taxes or charges for reservations or marketplace products.
+
+### Review marketplace invoice
+
+Compare your Azure marketplace total on **Reports** > **Usage Summary** in the Enterprise portal with your marketplace invoice. The amounts on the **Usage Summary** don't include tax. The **Usage Summary** may show usage-based or one-time charges depending on the product or service.
+
+1. Sign in to the [Enterprise portal](https://ea.portal.com).
+1. Select **Reports**.
+1. On the top right-hand corner of the tab, switch the view from **M** to **C** to match the period on the invoice.
+1. The **Azure Marketplace** total should match the **Total Sale** on your marketplace invoice.
+1. To get more information about your usage-based charges, go to **Download Usage**. Under **Marketplace Charges**, select **Download**. This report doesn't include taxes or show one-time purchases.
+
+## Need help? Contact support.
+
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
