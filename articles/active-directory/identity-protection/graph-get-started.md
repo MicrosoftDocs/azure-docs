@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
@@ -32,8 +32,11 @@ There are four steps to accessing Identity Protection data through Microsoft Gra
 
 Before you get started, you’ll need:
 
-* Administrator privileges to create the application in Azure AD
-* The name of your tenant's domain (for example, contoso.onmicrosoft.com)
+- An Azure AD P2 tenant
+
+- Administrator privileges to create the application in Azure AD
+
+- The name of your tenant's domain (for example, contoso.onmicrosoft.com)
 
 
 ## Retrieve your domain name 
