@@ -150,7 +150,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 </match>
 ```
 
-## Issue: Unable to connect through proxy to Log Analytics 
+## Issue: Unable to connect through proxy to Log Analytics
 
 ### Probable causes
 * The proxy specified during onboarding was incorrect
