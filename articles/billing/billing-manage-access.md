@@ -24,7 +24,7 @@ For most subscriptions, you can give billing information access to members of yo
 
 ## Give access to billing for most subscriptions
 
-You can grant access for Azure billing information to members of your team by assigning one of the following user roles to your subscription:
+All except EA customers can grant access to Azure billing information by assigning one of the following user roles to members of your team:
 
 - Account Administrator
 - Service Administrator
@@ -34,13 +34,13 @@ You can grant access for Azure billing information to members of your team by as
 - Reader
 - Billing Reader
 
-Those roles have access to billing information in the [Azure portal](https://portal.azure.com/). People that are assigned those roles can also use the [Billing APIs](billing-usage-rate-card-overview.md) to programmatically get invoices and usage details. For more information, see [Roles in Azure RBAC](../role-based-access-control/built-in-roles.md).
+To assign roles, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-The following sections describe how you can give members of your organization the ability to download invoices or grant read-only access to billing information.
+Those roles have access to billing information in the [Azure portal](https://portal.azure.com/). People that are assigned those roles can also use the [Billing APIs](billing-usage-rate-card-overview.md) to programmatically get invoices and usage details. For more information, see [Roles in Azure RBAC](../role-based-access-control/built-in-roles.md).
 
 ### <a name="opt-in"></a> Allow users to download invoices
 
-To allow members of your team with with the appropriate roles on the subscription to download invoices, the Account Administrator turns on the assess in the Azure portal. Invoices older than December 2016 are available only to the Account Administrator.
+After you assign the appropriate roles to members of your team, the Account Administrator must turn on  assess to download invoices in the Azure portal. Invoices older than December 2016 are available only to the Account Administrator.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. As the Account Administrator, select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.
@@ -55,11 +55,11 @@ To allow members of your team with with the appropriate roles on the subscriptio
 
 The Account Administrator can also configure to have invoices sent via email. To learn more, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md).
 
-### Allow read-only access to billing information
+## Give read-only access to billing information
 
 Assign the Billing Reader role to someone that needs read-only access to the subscription billing information but not the ability to manage or create Azure services. This role is appropriate for users in an organization who only perform financial and cost management for Azure subscriptions.
 
-If you're an EA customer and the Enterprise Administrator has enabled **Account Owner can view charges** or **Department Admin can view charges**, you can assign the read-only access to billing role.
+If you're an EA customer, an Account Owner or Department Admin can assign the Billing Reader role to team members. But for that Billing Reader to be able to view billing information for the department or account, the Enterprise Administrator must enable  **Account Owner can view charges** or **Department Admin can view charges** policies.
 
 The Billing Reader feature is in preview, and does not yet support non-global clouds.
 
@@ -77,11 +77,7 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 
     ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
-### Only Account Administrators can access the Account Center
-
-The Account Administrator is the legal owner of the subscription. By default, the person who signed up for or bought the Azure subscription is the Account Administrator, unless the [subscription ownership was transferred](billing-subscription-transfer.md) to somebody else. The Account Administrator can create subscriptions, cancel subscriptions, change the billing address for a subscription, and manage access policies for the subscription from the [Account Center](https://account.azure.com/Subscriptions).
-
-## Grant access to billing for EA customers
+## Allow Department Admin or Account Owner billing access for EA customers
 
 The Enterprise Admin can allow the Department Admins and Account Owners to view usage details and costs associated to the Departments and Accounts that they manage.
 
@@ -102,9 +98,14 @@ The Enterprise Admin can allow the Department Admins and Account Owners to view 
 
 For more information, see Understand Azure Enterprise Agreement administrative roles.
 
-## Adding users to other roles
+## Only Account Administrators can access the Account Center
 
-Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The Account Administrator is the legal owner of the subscription. By default, the person who signed up for or bought the Azure subscription is the Account Administrator, unless the [subscription ownership was transferred](billing-subscription-transfer.md) to somebody else. The Account Administrator can create subscriptions, cancel subscriptions, change the billing address for a subscription, and manage access policies for the subscription from the [Account Center](https://account.azure.com/Subscriptions).
+
+## Next steps
+
+- Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+- For more information about roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
 ## Need help? Contact support.
 
