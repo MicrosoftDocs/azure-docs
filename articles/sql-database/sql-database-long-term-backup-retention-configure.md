@@ -169,7 +169,7 @@ $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
-> Deleting LTR backup is non-reversable. You can set up notofications about each deletion using Azure Monitor. It has activity log which contains information on who and when made the request. See [Create activity log alerfts](./monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) for detailed instructions.
+> Deleting LTR backup is non-reversible. You can set up notifications about each delete in Azure Monitor by filtering for operation ‘Deletes a long term retention backup’. The activity log contains information on who and when made the request. See [Create activity log alerfts](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) for detailed instructions.
 >
 
 ### Restore from LTR backups
