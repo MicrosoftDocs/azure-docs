@@ -115,7 +115,7 @@ Add the prebuilt number entity back to the application.
 
 1. Select **Entities** from the left navigation menu.
 
-2. Select **Manage prebuilt entities** button.
+2. Select **Add prebuilt entity** button.
 
 3. Select **number** from the list of prebuilt entities then select **Done**.
 
