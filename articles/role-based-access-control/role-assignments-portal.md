@@ -1,6 +1,6 @@
 ---
 title: Manage access using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
+description: Learn how to manage access for users, groups, service principals, and managed identities, using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -53,7 +53,7 @@ A role definition is a collection of permissions that you use for role assignmen
 
 ## View role assignments
 
-When managing access, you want to know who has access, what are their permissions, and at what level. To list access for a user, group, or service principal, you view the role assignments.
+When managing access, you want to know who has access, what are their permissions, and at what level. To list access for a user, group, service principal, or managed identity, you view the role assignments.
 
 ### View role assignments for a single user
 
@@ -89,7 +89,7 @@ Follow these steps to view the access for a single user, group, or application a
 
 ## Add a role assignment
 
-In RBAC, to grant access, you assign a role to a user, group, or service principal. Follow these steps to grant access at different scopes.
+In RBAC, to grant access, you assign a role to a user, group, service principal, or managed identity. Follow these steps to grant access at different scopes.
 
 ### Assign a role at a scope
 

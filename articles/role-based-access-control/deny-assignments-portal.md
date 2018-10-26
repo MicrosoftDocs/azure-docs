@@ -1,6 +1,6 @@
 ---
 title: View deny assignments using the Azure portal | Microsoft Docs
-description: Learn how to view the users, groups, and service principals that have been denied access to specific actions at particular scope using the Azure portal.
+description: Learn how to view the users, groups, service principals, and managed identities that have been denied access to specific actions at particular scope using the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -36,7 +36,7 @@ Follow these steps to view deny assignments at the subscription or management gr
 
 1. Click the **Deny assignments** tab (or click the **View** button on the View deny assignments tile).
 
-    If there are any deny assignments at this scope, they will be listed.
+    If there are any deny assignments at this scope or inherited to this scope, they will be listed.
 
     ![Access control - Deny assignments tab](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
@@ -74,7 +74,7 @@ Follow these steps to view additional details about a deny assignment.
     | **Deny assignment applies to**  | Security principals that the deny assignment applies to. |
     | **Deny assignment excludes** | Security principals that are excluded from the deny assignment. |
 
-    **All principals** represents all users, groups, and service principals in an Azure AD directory.
+    **All principals** represents all users, groups, service principals, and managed identities in an Azure AD directory.
 
 1. To see a list of the permissions that are denied, click **Denied Permissions**.
 
