@@ -42,7 +42,7 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 ### New features and improvements 
 
 
-- Changed the  functionality of attribute write-back to ensure hosted voice-mail is working as expected.  When an Exchange, Skype for Business, or Azure VoiceMail Service user is enabled for hosted voice-mail, the mcExchUcVoicemailSettings attribute is populated with data and must be set for voice-mail to work.  Under certain scenarios, Azure AD was overwriting this attribute during write-back with a null value.  Azure AD will now no longer clear the on-premises value of this attribute if the cloud value is not set.
+- Changed the  functionality of attribute write-back to ensure hosted voice-mail is working as expected.  Under certain scenarios, Azure AD was overwriting an attribute during write-back with a null value.  Azure AD will now no longer clear the on-premises value of this attribute if the cloud value is not set.
 - Enhanced the handling of changed default rules. You are now notified if you have made changes to the default rules and are offered options to repair the default rules. 
 - Added diagnostics in the Azure AD Connect wizard to investigate and identify Azure AD Connectivity issues. These same diagnostics can also be run directly through Powershell using the Test- AdSyncAzureServiceConnectivity Cmdlet. For more information see [What is the ADConnectivityTool PowerShell Module?](how-to-connect-adconnectivitytools.md)
 - Added an AD schema version pre-check for Hybrid Azure Active Directory Join and device write-back 
