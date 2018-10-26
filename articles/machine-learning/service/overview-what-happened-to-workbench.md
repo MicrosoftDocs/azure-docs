@@ -41,9 +41,8 @@ You can continue to use your experimentation and model management accounts as we
 
 |Phase|Support details for earlier features|
 |:---:|----------------|
-|1|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI. The ability to create ML Compute Environments from the CLI also ends. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
-|2|The underlying APIs for creating old workspaces and projects in the desktop Workbench and with the CLI ends. You can still open existing projects, add additional scripts to it, run scripts in existing projects, and deploy web services to existing ML Compute Environments in this phase.|
-|3|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
+|1|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI ends. The ability to create ML Compute Environments from the CLI also ends. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
+|2|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
 
 [Start migrating](how-to-migrate.md) today. All of the latest capabilities are available using the new <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
 
