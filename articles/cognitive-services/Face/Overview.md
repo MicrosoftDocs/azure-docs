@@ -71,6 +71,10 @@ Face Storage allows a Standard subscription to store additional persisted faces 
 
 For example, if your account used 10,000 persisted faces each day for the first half of the month and none the second half, you would be billed only for the 10,000 faces for the days stored. Alternatively, if each day during the month you persist 1,000 faces for a few hours and then delete them each night, you would still be billed for 1,000 persisted faces each day.
 
+## Use containers
+
+[Use the Face container](face-how-to-install-containers.md) to detect, recognize, and identify faces, by installing a standardized Docker container closer to your data.
+
 ## Sample apps
 
 Take a look at these sample applications that make use of Face API.
