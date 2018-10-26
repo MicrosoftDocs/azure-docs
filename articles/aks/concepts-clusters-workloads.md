@@ -68,6 +68,27 @@ In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu 
 
 If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [acs-engine][acs-engine]. The upstream `acs-engine` releases features and provide configuration options before they are officially supported in AKS clusters. For example, if you wish to use Windows containers or a container runtime other than Docker, you can use `acs-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
+### Resource reservations
+
+You don't need to manage the core Kubernetes components on each node, such as the *kubelet*, *kube-proxy*, and *kube-dns*, but they do consume some of the available compute resources. To maintain node performance and functionality, the following compute resources are reserved on each node:
+
+- **CPU** - 60ms
+- **Memory** - 20% up to 4 GiB
+
+These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself contains. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core Kubernetes components. The resource reservations cannot be changed.
+
+For example:
+
+- **Standard DS2 v2** node size contains 2 vCPU and 7 GiB memory
+    - 20% of 7 GiB memory = 1.4 GiB
+    - A total of *(7 - 1.4) = 5.6 GiB* memory is available for the node
+    
+- **Standard E4s v3** node size contains 4 vCPU and 32 GiB memory
+    - 20% of 32 GiB memory = 6.4 GiB, but AKS only reserves a maximum of 4 GiB
+    - A total of *(32 - 4) = 28 GiB* is available for the node
+    
+The underlying node OS also requires some amount of CPU and memory resources to complete its own core functions.
+
 ### Node pools
 
 Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
