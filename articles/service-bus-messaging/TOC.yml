@@ -9,12 +9,43 @@
     maintainContext: true
 - name: Quickstarts
   items:
-  - name: Send messages - PowerShell
-    href: service-bus-quickstart-powershell.md
-  - name: Send messages - Portal
-    href: service-bus-quickstart-portal.md
-  - name: Send messages - CLI
-    href: service-bus-quickstart-cli.md
+  - name: Service Bus queues
+    items:     
+    - name: Send and receive messages - PowerShell
+      href: service-bus-quickstart-powershell.md
+    - name: Send and receive messages - Portal
+      href: service-bus-quickstart-portal.md
+    - name: Send and receive messages - CLI
+      href: service-bus-quickstart-cli.md
+    - name: Send and receive messages - .NET
+      href: service-bus-dotnet-get-started-with-queues.md
+    - name: Send and receive messages - Java
+      href: service-bus-java-how-to-use-queues.md
+    - name: Send and receive messages - Node.js
+      href: service-bus-nodejs-how-to-use-queues.md
+    - name: Send and receive messages - PHP
+      href: service-bus-php-how-to-use-queues.md
+    - name: Send and receive messages - Python
+      href: service-bus-python-how-to-use-queues.md
+    - name: Send and receive messages - Ruby
+      href: service-bus-ruby-how-to-use-queues.md
+    - name: Send and receive messages - REST
+      href: /rest/api/servicebus/queues    
+  - name: Services Bus topics and subscriptions
+    items:
+    - name: Publish and subscribe for messages - .NET
+      href: service-bus-dotnet-how-to-use-topics-subscriptions.md
+    - name: Publish and subscribe for messages - Java
+      href: service-bus-java-how-to-use-topics-subscriptions.md
+    - name: Publish and subscribe for messages - Node.js
+      href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+    - name: Publish and subscribe for messages - PHP
+      href: service-bus-php-how-to-use-topics-subscriptions.md
+    - name: Publish and subscribe for messages - Python
+      href: service-bus-python-how-to-use-topics-subscriptions.md
+    - name: Publish and subscribe for messages - Ruby
+      href: service-bus-ruby-how-to-use-topics-subscriptions.md      
+
 - name: Tutorials
   items:
   - name: Update inventory - PowerShell
@@ -29,7 +60,7 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
-  - name: Managed Service Identity (preview)
+  - name: Managed identities for Azure resources
     href: service-bus-managed-service-identity.md
   - name: Role-Based Access Control (preview)
     href: service-bus-role-based-access-control.md
@@ -48,37 +79,7 @@
 - name: How-to guides
   items:
   - name: Create a namespace
-    href: service-bus-create-namespace-portal.md
-  - name: Use queues
-    items:
-    - name: .NET
-      href: service-bus-dotnet-get-started-with-queues.md
-    - name: Java
-      href: service-bus-java-how-to-use-queues.md
-    - name: Node.js
-      href: service-bus-nodejs-how-to-use-queues.md
-    - name: PHP
-      href: service-bus-php-how-to-use-queues.md
-    - name: Python
-      href: service-bus-python-how-to-use-queues.md
-    - name: Ruby
-      href: service-bus-ruby-how-to-use-queues.md
-    - name: REST
-      href: /rest/api/servicebus/queues
-  - name: Use topics and subscriptions
-    items:
-    - name: .NET
-      href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-    - name: Java
-      href: service-bus-java-how-to-use-topics-subscriptions.md
-    - name: Node.js
-      href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-    - name: PHP
-      href: service-bus-php-how-to-use-topics-subscriptions.md
-    - name: Python
-      href: service-bus-python-how-to-use-topics-subscriptions.md
-    - name: Ruby
-      href: service-bus-ruby-how-to-use-topics-subscriptions.md      
+    href: service-bus-create-namespace-portal.md  
   - name: Develop
     items:
     - name: Message handling
@@ -116,8 +117,6 @@
         href: service-bus-amqp-overview.md
       - name: .NET
         href: service-bus-amqp-dotnet.md
-      - name: Java
-        href: service-bus-amqp-java.md
       - name: Java Message Service and AMQP
         href: service-bus-java-how-to-use-jms-api-amqp.md
       - name: AMQP protocol guide
@@ -203,6 +202,8 @@
   items:
   - name: FAQ
     href: service-bus-faq.md
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-service-bus
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog

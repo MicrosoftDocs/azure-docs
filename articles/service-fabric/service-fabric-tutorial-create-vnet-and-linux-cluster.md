@@ -13,14 +13,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/22/2018
+ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
 
 ---
 # Tutorial: Deploy a Linux Service Fabric cluster into an Azure virtual network
 
-This tutorial is part one of a series. You will learn how to deploy a Linux Service Fabric cluster into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) and [network security group (NSG)](../virtual-network/virtual-networks-nsg.md) using Azure CLI and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster using PowerShell, see [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+This tutorial is part one of a series. You will learn how to deploy a Linux Service Fabric cluster into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) using Azure CLI and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster using PowerShell, see [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 In this tutorial, you learn how to:
 
@@ -36,7 +36,7 @@ In this tutorial series you learn how to:
 > * Create a secure cluster on Azure
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Install the [Service Fabric CLI](service-fabric-cli.md)
-* Install the [Azure CLI 2.0](/cli/azure/install-azure-cli)
+* Install the [Azure CLI](/cli/azure/install-azure-cli)
 
 The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -74,14 +74,14 @@ This tutorial deploys a cluster with five nodes in a single node type. For any p
 
 Download the following Resource Manager template files:
 
-* [vnet-linuxcluster.json][template]
-* [vnet-linuxcluster.parameters.json][parameters]
+* [AzureDeploy.json][template]
+* [AzureDeploy.Parameters.json][parameters]
 
-The [vnet-linuxcluster.json][template] deploys a number resources, including the following.
+This template deploys a secure cluster of five virtual machines and a single node type into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The [AzureDeploy.json][template] deploys a number resources, including the following.
 
 ### Service Fabric cluster
 
-A Linux cluster is deployed with the following characteristics:
+In the **Microsoft.ServiceFabric/clusters** resource, a Linux cluster is deployed with the following characteristics:
 
 * a single node type
 * five nodes in the primary node type (configurable in the template parameters)
@@ -95,36 +95,25 @@ A Linux cluster is deployed with the following characteristics:
 
 ### Azure load balancer
 
-A load balancer is deployed and probes and rules setup for the following ports:
+In the **Microsoft.Network/loadBalancers** resource, a load balancer is configured and probes and rules setup for the following ports:
 
 * client connection endpoint: 19000
 * HTTP gateway endpoint: 19080
 * application port: 80
 * application port: 443
 
-### Virtual network, subnet, and network security group
+### Virtual network and subnet
 
-The names of the virtual network, subnet, and network security group are declared in the template parameters.  Address spaces of the virtual network and subnet are also declared in the template parameters:
+The names of the virtual network and subnet are declared in the template parameters.  Address spaces of the virtual network and subnet are also declared in the template parameters and configured in the **Microsoft.Network/virtualNetworks** resource:
 
 * virtual network address space: 10.0.0.0/16
 * Service Fabric subnet address space: 10.0.2.0/24
 
-The following inbound traffic rules are enabled in the network security group. You can change the port values by changing the template variables.
-
-* ClientConnectionEndpoint (TCP): 19000
-* HttpGatewayEndpoint (HTTP/TCP): 19080
-* SMB : 445
-* Internodecommunication - 1025, 1026, 1027
-* Ephemeral port range – 49152 to 65534 (need a min of 256 ports )
-* Ports for application use: 80 and 443
-* Application port range – 49152 to 65534 (used for service to service communication and unlike are not opened on the Load balancer )
-* Block all other ports
-
-If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource and the Microsoft.Network/networkSecurityGroups resource to allow the traffic in.
+If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource to allow the traffic in.
 
 ## Set template parameters
 
-The [vnet-cluster.parameters.json][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
+The [AzureDeploy.Parameters][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
 
 |Parameter|Example value|Notes|
 |---|---||
@@ -132,7 +121,7 @@ The [vnet-cluster.parameters.json][parameters] parameters file declares many val
 |adminPassword|Password#1234| Admin password for the cluster VMs.|
 |clusterName|mysfcluster123| Name of the cluster. |
 |location|southcentralus| Location of the cluster. |
-|certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
+|certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate SHA1 thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
 |certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
@@ -140,7 +129,9 @@ The [vnet-cluster.parameters.json][parameters] parameters file declares many val
 
 ## Deploy the virtual network and cluster
 
-Next, set up the network topology and deploy the Service Fabric cluster. The [vnet-linuxcluster.json][template] Resource Manager template creates a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
+Next, set up the network topology and deploy the Service Fabric cluster. The [AzureDeploy.json][template] Resource Manager template creates a virtual network (VNET) and a subnet for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
+
+### Create a cluster using an existing certificate
 
 The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command and template to deploy a new cluster secured with an existing certificate. The command also creates a new key vault in Azure and uploads your certificate.
 
@@ -163,7 +154,23 @@ az group create --name $ResourceGroupName --location $Location
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
    --certificate-password $Password --certificate-file $CertPath \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
-   --template-file vnet-linuxcluster.json --parameter-file vnet-linuxcluster.parameters.json
+   --template-file AzureDeploy.json --parameter-file AzureDeploy.Parameters.json
+```
+
+### Create a cluster using a new, self-signed certificate
+
+The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command and a template to deploy a new cluster in Azure. The cmcommand also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
+
+```azurecli
+ResourceGroupName="sflinuxclustergroup"
+ClusterName="sflinuxcluster"
+Location="southcentralus"
+Password="q6D7nN%6ck@6"
+VaultName="linuxclusterkeyvault"
+VaultGroupName="linuxclusterkeyvaultgroup"
+CertPath="C:\MyCertificates"
+
+az sf cluster create --resource-group $ResourceGroupName --location $Location --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com --vault-name $VaultName --vault-resource-group $ResourceGroupName
 ```
 
 ## Connect to the secure cluster
@@ -183,13 +190,7 @@ sfctl cluster health
 
 ## Clean up resources
 
-The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to delete the cluster to avoid incurring charges. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
-
-Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command.
-
-```azurecli
-az group delete --name $ResourceGroupName
-```
+The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to [delete the cluster](service-fabric-cluster-delete.md) to avoid incurring charges.
 
 ## Next steps
 
@@ -206,5 +207,5 @@ Next, advance to the following tutorial to learn how to scale your cluster.
 > [!div class="nextstepaction"]
 > [Scale a Cluster](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.json
-[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.Parameters.json

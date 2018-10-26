@@ -10,7 +10,8 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ---
-# How to find an address using the Azure Maps search service
+
+# Find an address using the Azure Maps search service
 
 The Maps search service is a set of RESTful APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the search can be used as parameters in other Maps services like route and traffic flow.
 
@@ -54,7 +55,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 4. Click **Send** and review the response body.
 
-    The ambiguous query string of "pizza" returned 10 [point of interest result](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
+    The ambiguous query string of "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
   
     The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
 
@@ -77,7 +78,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
     | lat | 47.620525 |
     | lon | -122.349274 |
 
-## Search for address properties and coordinates 
+## Search for address properties and coordinates
 
 You can pass a complete or partial street address to the search address API and receive a response that includes detailed address properties such as municipality or subdivision, as well as positional values in latitude and longitude.
 

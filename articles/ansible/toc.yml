@@ -30,6 +30,12 @@
     href: ./ansible-deploy-app-vmss.md
   - name: Create and configure AKS clusters
     href: ./ansible-create-configure-aks.md
+  - name: Create and configure Azure Application Gateway
+    href: ./ansible-create-configure-application-gateway.md
+  - name: Create and configure Azure DB for MySQL
+    href: ./ansible-create-configure-mysql.md
+  - name: Create and configure Azure Web Apps
+    href: ./ansible-create-configure-azure-web-apps.md
 - name: Reference
   items:
   - name: Playbook roles

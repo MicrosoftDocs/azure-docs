@@ -1,6 +1,6 @@
 ---
-title: Create an internal Basic Load Balancer - Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create an internal load balancer using the Azure CLI 2.0
+title: Create an internal Basic Load Balancer - Azure CLI | Microsoft Docs
+description: Learn how to create an internal load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
 ---
-# Create an internal load balancer to load balance VMs using Azure CLI 2.0
+# Create an internal load balancer to load balance VMs using Azure CLI
 
 This article shows you how to create an internal load balancer to load balance VMs. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server to load balance a web app.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -83,7 +83,7 @@ A health probe checks all virtual machine instances to make sure they can receiv
 
 ### Create the load balancer rule
 
-A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the frontend pool *myFrontEndPool* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myHTTPRule* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 ```azurecli-interactive
   az network lb rule create \

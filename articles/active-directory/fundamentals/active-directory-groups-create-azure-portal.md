@@ -1,6 +1,6 @@
 ---
-title: How to create a basic group and add members using the Azure AD portal | Microsoft Docs
-description: Learn how to create a basic group using the Azure Active Directory portal.
+title: How to create a basic group and add members using Azure Active Directory | Microsoft Docs
+description: Learn how to create a basic group using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -15,7 +15,7 @@ ms.reviewer: krbain
 ms.custom: it-pro                         
 ---
 
-# How to: Create a basic group and add members using the Azure Active Directory portal
+# How to: Create a basic group and add members using Azure Active Directory
 
 You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is added to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
 
@@ -23,15 +23,15 @@ You can create a basic group using the Azure Active Directory (Azure AD) portal.
 You can create a basic group and add your members at the same time.
 
 ### To create a basic group and add members
-1. Sign in to the [Azure AD portal](https://portal.azure.com) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, **Groups**, and then select **New group**.
 
-    ![Azure AD portal with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Azure AD with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
-3. In the **Group** blade, fill out the required information.
+3. In the **Group** page, fill out the required information.
 
-    ![New group blade, filled out with example info](media/active-directory-groups-create-azure-portal/new-group-blade.png)
+    ![New group page, filled out with example info](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
     - **Group type (required).** Select a pre-defined group type. This includes:
         
@@ -58,15 +58,15 @@ You can create a basic group and add your members at the same time.
 
     Your group is created and ready for you to add members.
 
-5. Select the **Members** area from the **Group** blade, and then begin searching for the members to add to your group from the **Select members** blade.
+5. Select the **Members** area from the **Group** page, and then begin searching for the members to add to your group from the **Select members** page.
 
     ![Selecting members for your group during the group creation process](media/active-directory-groups-create-azure-portal/select-members-create-group.png)
 
 6. When you're done adding members, choose **Select**.
 
-    The **Group Overview** blade updates to show the number of members who are now added to the group.
+    The **Group Overview** page updates to show the number of members who are now added to the group.
 
-    ![Group Overview blade with number of members highlighted](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
+    ![Group Overview page with number of members highlighted](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
 ## Next steps
 Now that you've added a group and at least one user, you can:

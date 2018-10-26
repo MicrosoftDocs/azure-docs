@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 09/26/2018
 ms.author: jingwang
 
 ---
@@ -154,7 +154,8 @@ To copy data from and to Dynamics, set the type property of the dataset to **Dyn
 | entityName | The logical name of the entity to retrieve. | No for source (if "query" in the activity source is specified), Yes for sink |
 
 > [!IMPORTANT]
->- When you copy data from Dynamics, the "structure" section is required in the Dynamics dataset. It defines the column name and data type for Dynamics data that you want to copy over. To learn more, see [Dataset structure](concepts-datasets-linked-services.md#dataset-structure) and [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
+>- When you copy data from Dynamics, the "structure" section is optional but recommanded in the Dynamics dataset to ensure a deterministic copy result. It defines the column name and data type for Dynamics data that you want to copy over. To learn more, see [Dataset structure](concepts-datasets-linked-services.md#dataset-structure) and [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
+>- When importing schema in authoring UI, ADF infer the schema by sampling the top rows from the Dynamics query result to initialize the structure construction, in which case columns with no values will be omitted. You can review and add more columns into the Dynamics dataset schema/structure as needed, which will be honored during copy runtime.
 >- When you copy data to Dynamics, the "structure" section is optional in the Dynamics dataset. Which columns to copy into is determined by the source data schema. If your source is a CSV file without a header, in the input dataset, specify the "structure" with the column name and data type. They map to fields in the CSV file one by one in order.
 
 **Example:**

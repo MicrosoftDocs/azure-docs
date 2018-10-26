@@ -1,17 +1,18 @@
 ---
-title: Create a Video Indexer account connected to Azure | Microsoft Docs
-description: This article shows how to create a Video Indexer account connected to Azure.
+title: Create a Video Indexer account in the Azure portal
+titlesuffix: Azure Cognitive Services
+description: This article shows how to create a Video Indexer account in the Azure portal.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: juliako
-
 ---
+
 # Create a Video Indexer account connected to Azure
 
 When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the Media Account related charges. 

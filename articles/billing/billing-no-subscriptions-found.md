@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 ---
 
 # No subscriptions found error in Azure portal or Azure account center

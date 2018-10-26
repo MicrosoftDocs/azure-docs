@@ -68,9 +68,11 @@ Follow the steps below to create a new API from an Azure Function App.
     > [!NOTE]
     > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*.
 
-7. Edit the pre-populated fields if needed. Click **Create**.
+7. Switch to the **Full** view and assign **Product** to your new API. If needed, edit other pre-populated fields.
 
     ![Add from Function App](./media/import-function-app-as-api/add-06.png)
+
+8. Click **Create**.
 
 ## <a name="append-azure-function-app-to-api"></a> Append Azure Function App to an existing API
 
