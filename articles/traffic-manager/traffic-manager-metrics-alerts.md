@@ -4,10 +4,6 @@ description: This article describes metrics available for Traffic Manager in Azu
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

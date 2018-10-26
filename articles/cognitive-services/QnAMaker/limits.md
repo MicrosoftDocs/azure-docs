@@ -21,7 +21,7 @@ Comprehensive list of limits across QnA Maker.
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum number of published knowledge bases allowed (Max indexes -- 1 (reserved for test)|2|14|49|199|199|2999|
+|Maximum number of published knowledge bases allowed (Max indexes -- 1 (reserved for test)|2|14|49|199|199|2,999|
 
 ## Extraction Limits
 * Maximum number of files that can be extracted and maximum file size: See [QnAMaker pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -32,12 +32,12 @@ Comprehensive list of limits across QnA Maker.
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum metadata fields per QnA Maker service (across all KBs)|1000|100*|1000|1000|1000|1000|
+|Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
 
 ## Knowledge Base content limits
 Overall limits on the content in the knowledge base:
-* Length of answer text: 250000
-* Length of question text: 1000
+* Length of answer text: 25,000
+* Length of question text: 1,000
 * Length of metadata key/value text: 100
 * Supported characters for metadata name: Alphabets, digits and _  
 * Supported characters for metadata value: All except : and | 
