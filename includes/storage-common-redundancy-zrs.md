@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Zone-redundant storage (ZRS) copies your data synchronously across three storage clusters in a single region. Each storage cluster is physically separated from the others and is located in its own availability zone (AZ). Each availability zone&mdash;and the ZRS cluster within it&mdash;is autonomous and includes separate utilities and networking capabilities.
+Zone-redundant storage (ZRS) copies your data synchronously across three storage clusters in a single region. Each storage cluster is physically separated from the others and is located in its own availability zone (AZ). Each availability zone&mdash;and the ZRS cluster within it&mdash;is autonomous and includes separate utilities and networking features.
 
 Storing your data in a ZRS account makes sure that you can access and manage your data if that a zone becomes unavailable. ZRS provides excellent performance and low latency. ZRS offers the same [scalability targets](../articles/storage/common/storage-scalability-targets.md) as [locally-redundant storage (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
 
