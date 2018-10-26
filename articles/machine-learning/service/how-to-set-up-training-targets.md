@@ -322,7 +322,11 @@ Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can
 To attach Azure Databricks as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
 
 * __Compute name__: The name you want to assign to this compute resource.
-* __Resource ID__: The resource ID of the Azure Databricks workspace. The format of the resource ID value is `/subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>`.
+* __Resource ID__: The resource ID of the Azure Databricks workspace. The following text is an example of the format for this value:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
 
     > [!TIP]
     > To get the resource ID, use the following Azure CLI command. Replace `<databricks-ws>` with the name of your Databricks workspace:
@@ -369,7 +373,11 @@ Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. I
 To attach Data Lake Analytics as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
 
 * __Compute name__: The name you want to assign to this compute resource.
-* __Resource ID__: The resource ID of the Data Lake Analytics account. The format of the resource ID value is `/subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>`.
+* __Resource ID__: The resource ID of the Data Lake Analytics account. The following text is an example of the format for this value:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
 
     > [!TIP]
     > To get the resource ID, use the following Azure CLI command. Replace `<datalakeanalytics>` with the name of your Data Lake Analytics account name:
