@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/19/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -25,10 +25,8 @@ In this tutorial, you create a storage account, a virtual machine, a virtual net
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Setup a secure environment
 > * Open a quickstart template
 > * Explore the template
-> * Edit the parameters file
 > * Deploy the template
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -38,8 +36,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension.  See [Install the extension
-](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* To prevent the password spray attacks, generate a password for the virtual machine administrator account. Here is a sample:
+](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* You need to specify a password for the virtual machine administrator account. To increase security, use a generated password. Here is a sample:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -126,22 +124,23 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ```bash
     cat azuredeploy.json
     ```
-7. From the Cloud shell, run the following PowerShell commands. To improve security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
+7. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
     ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
-    $adminPassword = Read-Host -Prompt "Enter the admin password"
-    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
-
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -adminUsername = $adminUsername `
-        -adminPassword = $adminPassword `
-        -dnsLabelPrefix = $dnsLabelPrefix `
-	    -TemplateFile azuredeploy.json 
+        -adminUsername $adminUsername `
+        -adminPassword $adminPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json 
     ```
 8. Run the following PowerShell command to list the newly created virtual machine:
 

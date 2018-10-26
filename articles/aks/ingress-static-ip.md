@@ -20,8 +20,8 @@ You can also:
 
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
-- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-- [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
+- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
+- [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a dynamic public IP address][aks-ingress-tls]
 
 ## Before you begin
 
@@ -331,6 +331,7 @@ You can also:
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
 - [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
+- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
 - [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
 
 <!-- LINKS - external -->
@@ -352,3 +353,4 @@ You can also:
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md
