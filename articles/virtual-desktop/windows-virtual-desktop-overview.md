@@ -34,6 +34,14 @@ As a Remote Desktop service, Windows Virtual Desktop makes it easy for users to 
 * Windows Virtual Desktop environments can be built with a variety of tools that make it easy to integrate into preexisting IT systems
     * These tools include REST APIs, PowerShell cmdlets, the Azure Marketplace tool, and an Azure portal experience for management and deployment
 
+## Prerequisites
+
+You'll need one of the following things to deploy Windows Virtual Desktop:
+
+* An Office 365 and Windows E3 or E6 license
+* An Office 365 Business F1 license
+* The Azure portal for Windows Virtual Desktop
+
 ## How does Windows Virtual Desktop work?
 
 Windows Virtual Desktop is a multi-tenant environment where infrastructure roles are deployed as PaaS services. The infrastructure consists of the following roles:
@@ -42,14 +50,6 @@ Windows Virtual Desktop is a multi-tenant environment where infrastructure roles
 * **Remote Desktop Diagnostics** is an event-based aggregator that marks each user action on the RDS deployment (end-user or administrator) as a success or failure. Later on, administrators can query the aggregation of events to identify failing components.
 * **Remote Desktop Gateway** securely connects users to their sessions over the Internet. Besides the session hosts themselves, Remote Desktop Gateway is the only other role used throughout the lifespan of a session.
 * **Remote Desktop Web** lists the apps and resources assigned to users. Remote Desktop clients query the Remote Desktop Web to find which apps users have been assigned and then launch those apps in the client itself. Remote Desktop Web has built-in caching capabilities to reduce the chance of throttling the Remote Desktop Broker and the database.
-
-You'll need the following items to deploy a Remote Desktop tenant:
-
-* Remote Desktop Broker URL
-* Remote Desktop Diagnostics URL
-* Remote Desktop Gateway URL
-* Remote DesktopWeb URL
-* Admin UPN
 
 ### Tenants
 
@@ -65,11 +65,11 @@ Once their Windows Virtual Desktop accounts are set up, users can connect to a W
 
 ## Solutions that benefit from Windows Virtual Desktop
 
-
+* Enterprises already using Microsoft Office 365 ProPlus or plan to drive adoption of Office 365 ProPlus
+* Enterprise customers looking for a multi-user solution that gives them the most value for the lowest cost
 
 ## Next steps
 
 To learn how to set up a tenant, see either Set up Windows Virutal Desktop tenants in Active Directory or Connect Windows Virtual Desktop to a Remote Desktop environment.
 
 To access the web client, etc.
-

@@ -102,7 +102,7 @@ To create a Resource Group and virtual network in the tenant’s environment:
 
 ### Create a virtual network and Active Directory virtual machines in the tenant’s environment
 
-You can use the following [Azure Quickstart ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain) to create an Active Directory Domain Services (AD DS) on a virtual machine in a virtual network.
+You can use the following [Azure Quickstart Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain) to create an Active Directory Domain Services (AD DS) on a virtual machine in a virtual network.
 
 1. Select **Deploy to Azure**.
 2. Enter the required information.
