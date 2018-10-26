@@ -166,7 +166,7 @@ The following types define major categories of search.  More than one category c
 Subcategories are passed the same way as `localCategories`. Subcategories are more specific categories. They are subordinate in the sense that if you specify a category C and one of its subcategories S in the same comma-delimited list, you will receive the same results as if you specified C alone.
 
 ### Eat Drink 
-| Category | Category | Category | Category |
+|  |  |  |  |
 | - | - | - | - |
 | BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants | AmericanRestaurants |
 | Bagels | BarbecueRestaurants | Taverns | SportsBars | 
@@ -184,7 +184,7 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 | ThaiRestaurants | TurkishRestaurants | VegetarianAndVeganRestaurants | VietnameseRestaurants|
  
 ### See Do 
-| Category | Category | Category |
+|  |  |  |
 | -- | -- | -- |
 | AmusementParks | Attractions | Carnivals |
 | Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
@@ -192,7 +192,7 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 | SightseeingTours | TouristInformation | Zoos |
  
 ### Shop 
-| Category | Category | Category |
+|  |  |  |
 | -- | -- | -- |
 | AntiqueStores | Bookstores | CDAndRecordStores |
 | ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
