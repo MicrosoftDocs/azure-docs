@@ -24,7 +24,7 @@ ms.custom: aaddev
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-You can use Microsoft Azure Active Directory (Azure AD) to:
+You can use Microsoft identity platform to:
 
 - Add authentication and authorization to your web applications and web APIs.
 - Require an access token to access a protected web API.
