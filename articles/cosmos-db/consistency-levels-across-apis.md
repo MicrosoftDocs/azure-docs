@@ -17,7 +17,7 @@ ms.author: mjbrown
 
 The five consistency models are natively supported by the SQL API, which is the default API when using Cosmos DB. In addition to the SQL API, Cosmos DB also provides native support for wire-protocol compatible APIs for popular databases such as MongoDB, Apache Cassandra, Gremlin, and Azure Tables. These databases offer neither precisely defined consistency models nor the SLA-backed guarantees for the consistency levels, and typically provide only a subset of the five consistency models that Cosmos DB offers. For SQL API, Gremlin API and Table API, the default consistency level configured on the Cosmos account is used.
 
-The following table shows the mapping between the data-consistency requested by an OSS client driver for Apache Cassandra 4.x and MongoDB 3.4 when using Cassandra API and MongoDB API, respectively, and the corresponding Cosmos DB consistency levels. In the future, Cosmos DB will provide its own versions of Apache Cassandra 4.x and MongoDB 3.4 client drivers, which will provide more direct/natural mapping.
+The following table shows the mapping between the data-consistency requested by an OSS client driver for Apache Cassandra 4.x and MongoDB 3.4 when using Cassandra API and MongoDB API, respectively, and the corresponding Cosmos DB consistency levels.
 
 ## <a id="cassandra-mapping"></a>Mapping Apache Cassandra and Cosmos DB consistency levels
 
