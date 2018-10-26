@@ -55,6 +55,9 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </a>
     </li>
     <li>
+ </ul>
+<ul class="panelContent cardsFTitle">
+     <li>
         <a href="/azure/storsimple/storsimple-ova-system-requirements">
         <div class="cardSize">
             <div class="cardPadding">
@@ -90,7 +93,8 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </div>
         </a>
     </li>
-	<li>
+ </ul>
+<ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/storsimple/storsimple-virtual-array-update-11-release-notes">
         <div class="cardSize">
@@ -110,7 +114,6 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </a>
     </li>
 	<li>
-    <li>
         <a href="/azure/storsimple/storsimple-update5-release-notes">
         <div class="cardSize">
             <div class="cardPadding">
@@ -142,7 +145,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">                       
-                        <p><a href="/azure/storsimple/storsimple-8000-">StorSimple 5000-7000 Series</a></p>
+                        <p><a href="/azure/storsimple/storsimple-8000-choose-storage-solution">Choosing the right storage solution</a></p>
                     </div>
                 </div>
             </div>
