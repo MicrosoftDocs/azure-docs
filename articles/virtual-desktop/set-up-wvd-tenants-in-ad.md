@@ -16,7 +16,6 @@ This section will tell you how to deploy Windows Virtual Desktop in Azure Active
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
 > * Access a CSP subscription for a customer
 > * Prepare Azure Active Directory for a Remote Desktop environment
 
@@ -35,7 +34,7 @@ If you're hosting for external customers, you should also have a Cloud Solution 
 
 ## Prepare the Azure subscription for the tenant’s environment
 
-Use the steps in this section to prepare a subscription for the tenant’s session hosts (RDSH or Windows 10 RS3) if you plan to employ Active Directory. Choose the section that best suits your needs.
+Follow the steps in this section to prepare a subscription for the tenant’s session hosts (RDSH or Windows 10 RS3) if you plan to employ Active Directory. Choose the section that best suits your needs.
 
 ### Alternative 1: Create a CSP subscription for a customer without an Azure AD tenant
 

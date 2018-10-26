@@ -170,7 +170,7 @@ The following object containment model is provided to help understand the delega
 
 **Figure 1** Object model
 
-![Object model](..\media\Object-model.png)
+![Object model](media\Object-model.png)
 
 #### Built-in Remote Desktop Services roles
 

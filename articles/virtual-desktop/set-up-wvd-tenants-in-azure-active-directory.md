@@ -269,7 +269,7 @@ This section will teach you how to create a host pool resource in Azure.
 
 Use the following procedure to create a resource group and one or more virtual machines for the host pool.
 
-1. Access the Azure subscription using the steps outlined in either Alterative 1 (CSP) or Alternative 2 (Enterprise) under the [Prepare the Azure subscription for the tenant's environment](set-up-wvd-tenants-in-ad.md#prepare-the-azure-subscription-for-the-tenant’s-environment) section.
+1. Access the Azure subscription using the steps outlined in either Alterative 1 (CSP) or Alternative 2 (Enterprise) under the [Prepare the Azure subscription for the tenant's environment](set-up-wvd-tenants-in-ad.md#prepare-the-azure-subscription-for-the-tenants-environment) section.
 2. Create a new Resource group.
 3. Navigate to the Resource group. On the **Resource group** blade, select **Add**.
 4. In the **Search Everything** field, enter and then select one of the following:

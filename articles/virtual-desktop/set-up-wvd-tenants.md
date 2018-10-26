@@ -25,6 +25,6 @@ Each host pool has one or more app groups. An app group is a logical grouping of
 
 Use the following guides to set up a tenant environment that lets end-users connect to published apps and desktops through Remote Desktop clients. If there are connection issues, your tenant admin can use the newly introduced diagnostics role service to identify what's causing the problem.
 
-To learn how to set up a Windows Virtual Desktop tenant on Azure Active Directory, see [Set up Windows Virtual Desktop tenants in Azure Active Directory](..\windows-virtual-desktop\set-up-wvd-tenants-in-ad.md).
+To learn how to set up a Windows Virtual Desktop tenant on Azure Active Directory, see [Set up Windows Virtual Desktop tenants in Azure Active Directory](set-up-wvd-tenants-in-ad.md).
 
-To learn how to connect an existing Remote Desktop tenant to Windows Virtual Desktop, see [Connect an existing Remote Desktop tenant environment to a new Windows Virtual Desktop deployment](..\windows-virtual-desktop\set-up-wvd-tenants-in-rd.md).
+To learn how to connect an existing Remote Desktop tenant to Windows Virtual Desktop, see [Connect an existing Remote Desktop tenant environment to a new Windows Virtual Desktop deployment](set-up-wvd-tenants-in-rd.md).

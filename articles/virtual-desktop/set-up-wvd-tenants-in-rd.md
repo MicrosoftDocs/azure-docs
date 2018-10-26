@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Tutorial: connect to an existing Remote Desktop environment
 
-You may have an existing RD tenant environment already connected to an existing Windows Virtual Desktop deployment that you want to connect to a different Windows Virtual Desktop deployment. You can reuse the RD tenant environment for a new connection by following these steps. This procedure assumes you're already familiar with how to set up a Windows Virtual Desktop environment on Active Directory, but if you need more specific instructions, see [Set up Windows Virtual Desktop tenants in Azure Active Directory](..\windows-virtual-desktop\set-up-wvd-tenants-in-ad.md).
+You may have an existing RD tenant environment already connected to an existing Windows Virtual Desktop deployment that you want to connect to a different Windows Virtual Desktop deployment. You can reuse the RD tenant environment for a new connection by following these steps. This procedure assumes you're already familiar with how to set up a Windows Virtual Desktop environment on Active Directory, but if you need more specific instructions, see [Set up Windows Virtual Desktop tenants in Azure Active Directory](set-up-wvd-tenants-in-ad.md).
 
 1. Give consent to allow the new Windows Virtual Desktop application to read the tenant’s Azure Active Directory.
 2. Create an RD tenant and host pool in the new Windows Virtual Desktop deployment.
@@ -25,7 +25,7 @@ You may have an existing RD tenant environment already connected to an existing 
 
 ## Validation scenarios
 
-The following scenarios are expected to work and should be verified through validation testing. Any issues should be reported with the new diagnostics role service. For more information, see [Introducing the new diagnostics role service](..\windows-virtual-desktop\introducing-the-new-diagnostics-role-service.md).
+The following scenarios are expected to work and should be verified through validation testing. Any issues should be reported with the new diagnostics role service. For more information, see [Introducing the new diagnostics role service](introducing-the-new-diagnostics-role-service.md).
 
 ### Validation scenarios for default desktop application group
 
