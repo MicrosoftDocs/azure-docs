@@ -142,7 +142,7 @@ Compute options supported are:
 2.	A remote machine in the cloud – [Azure Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) running Linux – You have a large dataset and want to scale up to a large machine that is available in the Azure Cloud. 
 3.	Azure Batch AI cluster –  A managed cluster that you can set up to scale out and run Automated ML iterations in parallel. 
 
-
+<a name='configure-experiment'/>
 ## Configure your experiment settings
 
 There are several knobs that you can use to configure your automated ML experiment. These parameters are set by instantiating an `AutoMLConfig` object.

@@ -4,7 +4,7 @@ description: Showcases the data exploration and modeling capabilities of the Spa
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4

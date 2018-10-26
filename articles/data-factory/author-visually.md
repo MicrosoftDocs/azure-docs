@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/23/2018
 ms.author: shlo
 
 ---
@@ -76,6 +76,20 @@ A configuration pane appears. For details about the configuration settings, see 
 ## Use a different Azure Active Directory tenant
 
 You can create an Azure Repos Git repo in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
+
+## Use your personal Microsoft account
+
+To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
+
+1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md).
+
+2. Log in to the Azure Portal with your personal Microsoft account. Then switch to your organization's Active Directory.
+
+3. Go to the Azure DevOps section, where you now see your personal repo. Select the repo and connect with Active Directory.
+
+After these configuration steps, your personal repo is available when you set up Git integration in the Data Factory UI.
+
+For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## Switch to a different Git repo
 

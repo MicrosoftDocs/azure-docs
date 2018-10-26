@@ -37,7 +37,7 @@ This app has intents, entities, and utterances related to the Human Resources do
 
 
 ## Add KeyPhrase prebuilt entity
-After importing the app, select **Entities**, then **Manage prebuilt entities**. Add the **KeyPhrase** entity. The KeyPhrase entity extracts key subject matter from the utterance.
+After importing the app, select **Entities**, then **Add prebuilt entity**. Add the **KeyPhrase** entity. The KeyPhrase entity extracts key subject matter from the utterance.
 
 ## Train and publish the app
 1. In the top, right navigation bar, select the **Train** button to train the LUIS app.
