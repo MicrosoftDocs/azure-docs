@@ -47,7 +47,7 @@ To resolve this problem, use one of the following solutions. Or try the solution
 
 1. Access the [Virtual Machine Serial Console on Azure](serial-console-windows.md) by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
-2. Create a new channel for a CMD instance. Enter **CMD** to start the channel to get the channel name.
+2. Create a new channel for a CMD instance. Enter **CMD** to start the channel and get the channel name.
 
 3. Switch to the channel that runs the CMD instance. In this case, it should be channel 1:
 
@@ -55,7 +55,7 @@ To resolve this problem, use one of the following solutions. Or try the solution
    ch -si 1
    ```
 
-4. Select **Enter** again and select a valid username and password, local or domain ID, for the VM.
+4. Select **Enter** again and enter a valid username and password, local or domain ID, for the VM.
 
 5. Query the status of the TermService service:
 
@@ -80,7 +80,7 @@ To resolve this problem, use one of the following solutions. Or try the solution
 [Back up the OS disk](../windows/snapshot-copy-managed-disk.md) and [attach the OS disk to a rescue VM](../windows/troubleshoot-recovery-disks-portal.md). Then open an elevated CMD instance and run the following scripts on the rescue VM:
 
 >[!NOTE]  
->We assume that the drive letter assigned to the attached OS disk is **F**. Replace it with the appropriate value in your VM. After that's done, detach the disk from the recovery VM and [re-create your VM](../windows/create-vm-specialized.md). For further troubleshooting, you can use **Solution 1** because the Serial Console has been enabled.
+>We assume that the drive letter assigned to the attached OS disk is **F**. Replace it with the appropriate value in your VM. After that's done, detach the disk from the recovery VM and [re-create your VM](../windows/create-vm-specialized.md). For further troubleshooting, you can use **solution 1** because the Serial Console has been enabled.
 
 ```
 reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
@@ -120,4 +120,4 @@ reg unload HKLM\BROKENSYSTEM
 
 ## Need help? Contact support
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved.
