@@ -42,6 +42,10 @@
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
     href: key-vault-overview-vnet-service-endpoints.md
+  - name: Authentication, requests and responses
+    href: authentication-requests-and-responses.md
+  - name: Common parameters and headers
+    href: common-parameters-and-headers.md
   - name: About keys, secrets and certificates
     href: about-keys-secrets-and-certificates.md
     items:
