@@ -209,7 +209,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a linked template. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+In this tutorial, you develop and deploy a linked template. To learn how to deploy virtual machine extensions to perform post deployment tasks, see
 
 > [!div class="nextstepaction"]
-> [Use Azure Deployment Manager](./deployment-manager-tutorial.md)
+> [Deploy virtual machine extensions](./deployment-manager-tutorial.md)
