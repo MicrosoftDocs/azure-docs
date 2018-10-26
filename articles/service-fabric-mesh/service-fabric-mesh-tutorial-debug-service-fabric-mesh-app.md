@@ -72,11 +72,7 @@ After the local deployment is finished, and Visual Studio is running your app, a
 
 ## Debugging tips
 
-You can configure Visual Studio to make debugging faster with settings available under **Tools** > **Options**  > **Service Fabric Tools** > **General**:
-
-**Automatically pull required Docker images on project open**  makes your first debugging run (F5) faster by starting the download process while the project is loading.  
-**Automatically start containers in background** can make your first debugging run (F5) much faster by deploying the Mesh app when the project is opened.  
-**Automatically kill containers on solution close** reclaims resources (CPU, RAM) the app was allocated on startup by removing the Mesh app when the project is closed.  
+Make your first debugging run (F5) much faster by following the instructions in [Optimize Visual Studio performance](service-fabric-mesh-howto-optimize-vs.md).
 
 There's currently an issue that causes the call to `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` to fail connect to the service. This can happen whenever your host IP address changes. To resolve this:
 
