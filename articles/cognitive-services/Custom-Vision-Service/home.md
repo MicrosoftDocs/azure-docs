@@ -17,7 +17,7 @@ ms.author: anroth
 
 The Azure Custom Vision API is a cognitive service that lets you build, deploy and improve custom image classifiers. An image classifier is an AI service that sorts images into classes (tags) according to certain characteristics. Unlike the [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) service, Custom Vision allows you to determine the classifications that are of interest.
 
-## How it works
+## What it does
 
 The Custom Vision service uses a machine learning algorithm. You, the developer, must submit groups of images that feature and lack the classification(s) in question. You specify the correct tags of the images at the time of submission. Then, the algorithm trains to your data and calculates its accuracy by testing on that data.
 
@@ -32,7 +32,7 @@ In general, the methods the Custom Vision service uses are robust to differences
 Additionally, you can choose from several varieties of the Custom Vision algorithm that are optimized for certain subject material, such as landmarks or retail items. See the [Build a classifier](getting-started-build-a-classifier.md) guide for more information on these.
 
 ## What it includes
-The Custom Vision Service provides a set of native SDKs as well as a web-based interface to upload images and train and test your model.
+The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision home page](https://customvision.ai/).
 
 ## Next steps
 
