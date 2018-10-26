@@ -47,7 +47,7 @@ To connect a downstream device to an IoT Edge gateway, you need two things:
     The connection string is formatted like, `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;`. Append the **GatewayHostName** property with the hostname of the gateway device to the end of the connection string. The final string will look like, `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com`.
 
     The value of **GatewayHostName** appended to the downstream device's connection string should match the value of **hostname** in the gateway device's config.yaml file. 
-    
+
 2. The device or application has to trust the gateway's **root CA** or **owner CA** certificate to validate the TLS connections to the gateway device. 
 
     This more complicated step is explained in detail in the rest of this article. This step can be performed one of two ways: by installing the CA certificate in the operating system's certificate store, or (for certain languages) at the application level.
@@ -176,3 +176,7 @@ This is a sample command which tests that everything has been set up correctly. 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## Next steps
+
+Learn how IoT Edge can extend [offline capabilities](offline-capabilities.md) to downstream devices. 
