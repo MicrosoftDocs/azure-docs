@@ -326,12 +326,6 @@
 
 ## [Troubleshoot](fundamentals/active-directory-troubleshooting-support-howto.md)
 
-## Deploy Azure AD Proof of Concept (PoC)
-### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
-### [PoC Playbook: Ingredients](active-directory-playbook-ingredients.md)
-### [PoC Playbook: Implementation](active-directory-playbook-implementation.md)
-### [PoC Playbook: Building Blocks](active-directory-playbook-building-blocks.md)
-
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)

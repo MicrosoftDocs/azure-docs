@@ -3,7 +3,7 @@ title: Overview of Azure Active Directory Domain Services | Microsoft Docs
 description: Overview of Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Azure Active Directory (AD) Domain Services

@@ -121,6 +121,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-playbook-intro.md",
+            "redirect_url": "http://aka.ms/aadpocplaybook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-playbook-ingredients.md",
+            "redirect_url": "http://aka.ms/aadpocplaybook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-playbook-implementation.md",
+            "redirect_url": "http://aka.ms/aadpocplaybook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-playbook-building-blocks.md",
+            "redirect_url": "http://aka.ms/aadpocplaybook",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
             "redirect_document_id": true

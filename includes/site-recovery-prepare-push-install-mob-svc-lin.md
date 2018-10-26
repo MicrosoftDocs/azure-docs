@@ -1,3 +1,10 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+---
 ### Prepare for a push installation on a Linux server
 
 1. Ensure that there's network connectivity between the Linux computer and the process server.
