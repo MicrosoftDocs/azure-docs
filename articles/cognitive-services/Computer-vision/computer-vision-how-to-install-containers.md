@@ -92,58 +92,11 @@ For a full description of available tags for the Recognize Text container, see [
 
 ### Instantiate a container from a downloaded container image
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command instantiates a container from the Face container image, allocating 1 CPU and 4 gigabytes (GB) of memory, exposing TCP port 5000 and allocating a pseudo-TTY for the container, and automatically removing the container after it exits.
-
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face
-  ```
-
-Once instantiated, you can perform operations with the container by using the container's host URI. For example, the following host URI represents the Face container that was instantiated in the previous example:
-
-  ```http
-  http://localhost:5000/
-  ```
-
-> **Important:** You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Face container that was instantiated in the previous example:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
-
-
-
-
-
-## Download container images from Microsoft Container Registry
-
-The container image for the Recognize Text container is available from Microsoft Container Registry, in the `mcr.microsoft.com/azure-cognitive-services/recognize-text` repository. The container image for the Recognize Text container must be downloaded from the repository to run the container locally.
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example, to download the latest Recognize Text container image from the repository, use the following command:
-
-  ```Docker
-  docker pull mcr.microsoft.com/azure-cognitive-services/recognize-text:latest
-  ```
-
-For a full description of available tags for the Recognize Text container, see [Recognize Text](https://go.microsoft.com/fwlink/?linkid=2018655) on Docker Hub.
-
-> [!TIP]
-> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
-
-## Instantiate a container from a downloaded container image
-
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command instantiates a container from the Recognize Text container image, allocating 1 CPU and 4 gigabytes (GB) of memory, exposing TCP port 5000 and allocating a pseudo-TTY for the container, and automatically removing the container after it exits.
 
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789
+  ```docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text
   ```
-
-> [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` command line options must be specified to instantiate the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
 Once instantiated, you can perform operations with the container by using the container's host URI. For example, the following host URI represents the Recognize Text container that was instantiated in the previous example:
 
@@ -151,8 +104,7 @@ Once instantiated, you can perform operations with the container by using the co
   http://localhost:5000/
   ```
 
-> [!TIP]
-> You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Recognize Text container that was instantiated in the previous example:
+> **Important:** You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Recognize Text container that was instantiated in the previous example:
 >
 >  ```http
 >  http://localhost:5000/swagger
