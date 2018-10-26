@@ -28,8 +28,8 @@ Follow these steps to deploy the client to your local PC.
    * Create a local folder for the client. For example, create a folder named "RDClient" on the desktop.
    * Extract the content of the .zip file to the local folder.
 2. If you have an earlier version of Windows, follow these additional steps:
-   * For Windows 7 and 8, install the [VC++ Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=53840) if you haven't already.
-   * For Windows 7, install the [Microsoft .Net Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653) if you haven't already.
+   * For Windows 7 and 8, install the [VC++ Redistributable Package](https://www.microsoft.com/download/details.aspx?id=53840) if you haven't already.
+   * For Windows 7, install the [Microsoft .Net Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) if you haven't already.
 
 ### Subscribe to a feed
 

@@ -80,7 +80,7 @@ On any major Windows Virtual Desktop updates, .NET, ASP.NET, or security updates
 
 #### App Service deployment
 
-You can find upgrade recommendations in [Set up staging environments in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/web-sites-staged-publishing).
+You can find upgrade recommendations in [Set up staging environments in Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing).
 
 CB instances are responsible for updating the DB schema if any changes are made. This should happen automatically on a CB update. Instances will take care not to update the DB multiple times and to lock down the DB during update. Updates will result in downtime, but the maximum downtime should be less than two hours.
 

@@ -15,7 +15,7 @@ ms.author: helohr
 
 >Guidance: Summarize relevant material from the scenario spec(s). Specify the customer, their problem or goal, and then specific outcomes the customer will achieve or how success would be measured. Avoid implementation details that may restrict solution choices or bias the measures!
 
-Customers of current Remote Desktop Services (RDS) have complained about the lack of ability to delegate administrative capabilities on an RDS deployment. All administrators must be domain admins and therefore have full control over the RDS 2016 deployment, making it impossible to delegate access to specific resources within the RDS deployment. Windows Virtual Desktop will address this issue by providing a delegated administrative capability, similar to [Azure’s Role-based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles).
+Customers of current Remote Desktop Services (RDS) have complained about the lack of ability to delegate administrative capabilities on an RDS deployment. All administrators must be domain admins and therefore have full control over the RDS 2016 deployment, making it impossible to delegate access to specific resources within the RDS deployment. Windows Virtual Desktop will address this issue by providing a delegated administrative capability, similar to [Azure’s Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 ## This feature supports the following scenario(s)
 
@@ -322,7 +322,7 @@ The RDS User role an be assigned to the following object.
 
 #### RDS roles as defined by Azure RBAC Custom Role Definition syntax
 
-The RDS roles can be defined in the format of a custom Azure RBAC role, as defined in [Custom roles in Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles), which is of the form:
+The RDS roles can be defined in the format of a custom Azure RBAC role, as defined in [Custom roles in Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles), which is of the form:
 Microsoft.<</span>ProviderName>/<</span>ChildResourceType>/<</span>action>
 
 In this example:
@@ -472,7 +472,7 @@ A single user account may have two or more roles on a given RD object; such as 0
 
 >Previous: none.
 
-Modeled after [New-AzureRmRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-4.3.1) with the SignInName and ServicePrincipalName parameter sets. Scope is replaced with the RD parameters common to other Windows Virtual Desktop PowerShell cmdlets, such as *TenantName*, *HostPoolName*, and *AppGroupName*. Three additional scopes added: Infrasturucture, Diagnostics/infra and Diagnostics/tenant. Simplified the parameter sets by dropping ObjectId as a subject of the assignment to support groups. (This will also be addressed in RS5 when we address groups for AppGroup user assignments.) Also simplified parameter sets by eliminating leaf objects from the scope.
+Modeled after [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-4.3.1) with the SignInName and ServicePrincipalName parameter sets. Scope is replaced with the RD parameters common to other Windows Virtual Desktop PowerShell cmdlets, such as *TenantName*, *HostPoolName*, and *AppGroupName*. Three additional scopes added: Infrasturucture, Diagnostics/infra and Diagnostics/tenant. Simplified the parameter sets by dropping ObjectId as a subject of the assignment to support groups. (This will also be addressed in RS5 when we address groups for AppGroup user assignments.) Also simplified parameter sets by eliminating leaf objects from the scope.
 
 SignInName parameter sets:
 
@@ -714,7 +714,7 @@ The following table lists an example error condition.
 
 >Previous: none.
 
-Modeled after [Remove-AzureRmRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-4.2.0) with the *SignInName* and *ServicePrincipalName* parameter sets.
+Modeled after [Remove-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-4.2.0) with the *SignInName* and *ServicePrincipalName* parameter sets.
 
 Syntax
 

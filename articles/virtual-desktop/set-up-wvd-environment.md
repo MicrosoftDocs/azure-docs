@@ -26,7 +26,7 @@ Following these guidelines will lead to successful Windows Virtual Desktop deplo
 * RD Web URL
 * Admin UPN
 
-For a visual outline of how to set up and run a Windows Virtual Desktop environment, download the [Windows Virtual Desktop planning poster](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-poster).
+For a visual outline of how to set up and run a Windows Virtual Desktop environment, download the [Windows Virtual Desktop planning poster](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-poster).
 
 ## Tenants
 

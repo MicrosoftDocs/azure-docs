@@ -92,7 +92,7 @@ Azure AD Domain Services (DS) can't be deployed in a CSP subscription at the mom
 To create a Resource Group and virtual network in the tenant’s environment:
 
 1. Access the Enterprise Azure subscription through the [Azure Portal](https://portal.azure.com).
-2. Follow the steps [here](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started) to create a Resource Group, virtual network, and Azure AD DS instance for the customer’s session host environment.
+2. Follow the steps [here](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) to create a Resource Group, virtual network, and Azure AD DS instance for the customer’s session host environment.
 
 >[!NOTE]
 >It may take several hours to create the Azure AD Domain Services. When adding users to Azure AD, it may take several minutes for the accounts to be synchronized to the Azure AD DS instance.
@@ -332,7 +332,7 @@ Use the following procedure to prepare each virtual machine in the host pool.
    >[!NOTE]
    >The registration token file was created in the Create4 Ne RD tenant and host pool section.
 2. There are a number of ways to install RD host agent, three of which are presented here.
-    1. Alternative 1: Use the command line. For the full set of msiexec command-line switches, see [this article](<https://msdn.microsoft.com/en-us/library/windows/desktop/aa367988(v=vs.85).aspx>).
+    1. Alternative 1: Use the command line. For the full set of msiexec command-line switches, see [this article](<https://msdn.microsoft.com/library/windows/desktop/aa367988(v=vs.85).aspx>).
       1. Open a PowerShell or CMD window as administrator.
       2. Enter the following cmdlet:
 
@@ -381,7 +381,7 @@ Use the following procedure to prepare each virtual machine in the host pool.
 
 1. Copy and paste **Microsoft.RDInfra.StackSxS.Installer-x64.msi** onto the virtual machine.
 2. Install the Side-by-Side stack one of the following two ways.
-   1. Alternative 1: Use the command line. For the full set of msiexec command-line switches, see [Command-line options](<https://msdn.microsoft.com/en-us/library/windows/desktop/aa367988(v=vs.85).aspx>).
+   1. Alternative 1: Use the command line. For the full set of msiexec command-line switches, see [Command-line options](<https://msdn.microsoft.com/library/windows/desktop/aa367988(v=vs.85).aspx>).
       1. Run a PowerShell or CMD window as administrator.
       1. Run the following cmdlet:
 
@@ -402,7 +402,7 @@ Use the following procedure to prepare each virtual machine in the host pool.
 
 You must have the RDSH role installed on each session host virtual machine before you install the side-by-side stack. If you install the side-by-side stack without the RDSH, you could potentially lose all forward connectivity to the virtual machine. If you've already installed the Side-by-Side stack without the RDSH, follow these steps to safely uninstall the stack before reinstalling with RDSH:
 
-1. Install [PSExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) on any machine that is the same network group as the virtual machine having issues.
+1. Install [PSExec](https://docs.microsoft.com/sysinternals/downloads/psexec) on any machine that is the same network group as the virtual machine having issues.
 1. Start the command prompt as admin and run the following commands:
 
     ```CMD
