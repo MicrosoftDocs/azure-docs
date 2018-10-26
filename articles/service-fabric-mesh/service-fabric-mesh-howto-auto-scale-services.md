@@ -84,5 +84,38 @@ The following example shows an autoscaling policy in a JSON deployment template.
 }
 ```
 
+## Define an auto-scale policy in a service.yaml resource file
+The following example shows an autoscaling policy in a service resource (YAML) file.  The autoscaling policy is declared as a property of the service to be scaled.  In this example, a CPU average load trigger is defined.  The mechanism will be triggered if the average CPU load of all the deployed instances drops below 20% or goes above 80%.  The CPU load is checked every 60 seconds.  The scaling mechanism is defined to add or remove instances if the policy is triggered.  Service instances will be added or removed in increments of one.  A minimum instance count of one and a maximum instance count of 40 is also defined.
+
+```yaml
+## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: WorkerApp
+  properties:
+    services:
+      - name: WorkerService
+        properties:
+          description: WorkerService description.
+          osType: Linux
+          codePackages:
+            ...
+          replicaCount: 1
+          autoScalingPolicies:
+            name: AutoScaleWorkerRule
+            trigger:
+                kind: AverageLoad
+                metricName: cpu
+                lowerLoadThreshold: 0.2
+                upperLoadThreshold: 0.8
+                scaleIntervalInSeconds: 60
+            mechanism:
+                kind: AddRemoveReplica
+                minCount: 1
+                maxCount: 40
+                scaleIncrement: 1
+          ...
+```
+
 ## Next steps
 Learn how to [manually scale a service](service-fabric-mesh-tutorial-template-scale-services.md)
