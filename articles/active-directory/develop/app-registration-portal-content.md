@@ -23,8 +23,8 @@ ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Azure Active Directory guided setup steps
 
-[!INCLUDE [active-directory-develop-guidedsetup-android-configure-arp.md](../../includes/active-directory-develop-guidedsetup-android-configure-arp.md)]
-[!INCLUDE [active-directory-develop-guidedsetup-aspnetwebapp-configure-arp.md](../../includes/active-directory-develop-guidedsetup-aspnetwebapp-configure-arp.md)]
-[!INCLUDE [active-directory-develop-guidedsetup-ios-configure-arp.md](../../includes/active-directory-develop-guidedsetup-ios-configure-arp.md)]
-[!INCLUDE [active-directory-develop-guidedsetup-javascriptspa-configure-arp.md](../../includes/active-directory-develop-guidedsetup-javascriptspa-configure-arp.md)]
-[!INCLUDE [active-directory-develop-guidedsetup-windesktop-configure-arp.md](../../includes/active-directory-develop-guidedsetup-windesktop-configure-arp.md)]
+[!INCLUDE [active-directory-develop-guidedsetup-android-configure-arp.md](../../../includes/active-directory-develop-guidedsetup-android-configure-arp.md)]
+[!INCLUDE [active-directory-develop-guidedsetup-aspnetwebapp-configure-arp.md](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-configure-arp.md)]
+[!INCLUDE [active-directory-develop-guidedsetup-ios-configure-arp.md](../../../includes/active-directory-develop-guidedsetup-ios-configure-arp.md)]
+[!INCLUDE [active-directory-develop-guidedsetup-javascriptspa-configure-arp.md](../../../includes/active-directory-develop-guidedsetup-javascriptspa-configure-arp.md)]
+[!INCLUDE [active-directory-develop-guidedsetup-windesktop-configure-arp.md](../../../includes/active-directory-develop-guidedsetup-windesktop-configure-arp.md)]
