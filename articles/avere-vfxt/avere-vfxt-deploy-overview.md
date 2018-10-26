@@ -1,5 +1,5 @@
 ---
-title: Avere vFXT deployment overview
+title: Deployment overview - Avere vFXT for Azure 
 description: Overview of deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
@@ -40,7 +40,7 @@ Here is an overview of all of the steps.
 
 1. Create a runtime role for the cluster nodes 
 
-   Azure uses [role-based access control](<https://docs.microsoft.com/en-us/azure/role-based-access-control/>) (RBAC) to authorize the cluster node VMs to perform certain tasks. For example, the cluster nodes need to be able to assigning or reassign IP addresses to other cluster nodes. Before you create the cluster, you must define a role that gives them adequate permissions.
+   Azure uses [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) to authorize the cluster node VMs to perform certain tasks. For example, the cluster nodes need to be able to assigning or reassign IP addresses to other cluster nodes. Before you create the cluster, you must define a role that gives them adequate permissions.
 
    The cluster controller's preinstalled software includes a prototype role for you to customize. Read [Create the cluster node access role](avere-vfxt-deploy.md#create-the-cluster-node-access-role) for instructions.
 

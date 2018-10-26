@@ -47,7 +47,7 @@ There are two workarounds if you do not want to give owner access to the users w
 
 ## Quota for the vFXT cluster
 
-You must have sufficient quota for the following Azure components. If needed, [request a quota increase](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request).
+You must have sufficient quota for the following Azure components. If needed, [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 > [!NOTE]
 > The virtual machines and SSD components listed here are for the vFXT cluster itself. You will need additional quota for the VMs and SSD you intend to use for your compute farm.  Make sure the quota is enabled for the region where you intend to run the workflow.

@@ -77,7 +77,7 @@ In the **SETTINGS** section:
 * Virtual network resource group, name, and subnet name - Type the names of existing resources (if using an existing vnet) or type new names if creating a new vnet
 * **Controller name** - Set a name for the controller VM
 * Controller administrator username - The default is `azureuser`
-* SSH key - Paste the public key to associate with the administrator username. Read [How to create and use SSH keys](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help.
+* SSH key - Paste the public key to associate with the administrator username. Read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help.
 
 Under **TERMS AND CONDITIONS**: 
 
@@ -117,7 +117,7 @@ In the first panel, fill in or confirm these basic options:
   * Select either Username/Password or SSH public key (recommended).
   
     > [!TIP] 
-    > An SSH key is more secure. Read [How to create and use SSH keys](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help. 
+    > An SSH key is more secure. Read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help. 
   * Specify the username 
   * Paste the SSH key, or enter and confirm the password
 * **Inbound port rules** - If using a public IP address, open port 22 (SSH)
@@ -153,7 +153,7 @@ Creation takes five or six minutes.
 
 ## Create a storage endpoint (if using Azure Blob)
 
-If you are using Azure Blob storage for your back-end data storage, you should create a storage service endpoint in your virtual network. This [service endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) keeps Azure Blob traffic local instead of routing it through the internet.
+If you are using Azure Blob storage for your back-end data storage, you should create a storage service endpoint in your virtual network. This [service endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) keeps Azure Blob traffic local instead of routing it through the internet.
 
 1. From the portal, click **Virtual networks** on the left.
 1. Select the vnet for your controller. 
@@ -209,7 +209,7 @@ To do the rest of the deployment steps, you need to connect to the cluster contr
 1. The method to connect to your cluster controller depends on your setup.
 
    * If the controller has a public IP address, SSH to the controller's IP as the administrator username you set (for example, ``ssh azureuser@40.117.136.91``).
-   * If the controller does not have a public IP, use an [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/) or a VPN connection to your vnet.
+   * If the controller does not have a public IP, use an [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) or a VPN connection to your vnet.
 
 1. After logging in to your controller, authenticate by running `az login`. Copy the authentication code supplied in the shell, then use a web browser to load [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and authenticate with the Microsoft system. Return to the shell for confirmation.
 
@@ -222,7 +222,7 @@ To do the rest of the deployment steps, you need to connect to the cluster contr
 > [!NOTE] 
 > If you are not a subscription owner, and the role has not already been created, have a subscription owner follow these steps or use the procedure in -Create the Avere vFXT cluster runtime access role without a controller- LINK REMOVED TEMPORARILY <!-- [Create the Avere vFXT cluster runtime access role without a controller](avere-vfxt-pre-role.md) -->.
 
-[Role-based access control](<https://docs.microsoft.com/en-us/azure/role-based-access-control/>) (RBAC)  gives the vFXT cluster nodes authorization to perform necessary tasks.  
+[Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC)  gives the vFXT cluster nodes authorization to perform necessary tasks.  
 
 As part of normal vFXT cluster operation, individual vFXT nodes need to do things like read Azure resource properties, manage storage, and control other nodes' network interface settings. 
 

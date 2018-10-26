@@ -1,5 +1,5 @@
 ---
-title: Plan your Avere vFXT system
+title: Plan your Avere vFXT system - Azure
 description: Explains planning to do before deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
@@ -66,8 +66,8 @@ Disk cache per node is configurable and can rage from 1000 GB to 8000 GB. 1 TB p
 
 For additional information about these VMs, read the following Microsoft Azure documents:
 
-* [General purpose virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-general)
-* [Memory optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory)
+* [General purpose virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
+* [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## Account quota
 
