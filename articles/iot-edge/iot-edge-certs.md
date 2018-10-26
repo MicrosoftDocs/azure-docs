@@ -73,7 +73,7 @@ Because manufacturer and operator processes are separated, there are a few impli
 
 ## Dev/Test implications
 
-To ease development and test scenarios, Microsoft provides a set of [convenience scripts](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) for generating non-production certificates suitable for IoT Edge in the transparent gateway scenario. For an example of how the script work, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md#certificate-creation).
+To ease development and test scenarios, Microsoft provides a set of [convenience scripts](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) for generating non-production certificates suitable for IoT Edge in the transparent gateway scenario. For examples of how the scripts work, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
 
 These scripts generate certificates that follow the certificate chain structure explained in this article. The following commands generate the "root CA certificate" and a single "intermediate CA certificate".
 
