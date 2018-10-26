@@ -1,3 +1,10 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+---
 With Azure Resource Manager, you can define parameters for the values to use when deploying the template. 
 The template includes a `parameters` section that contains all the parameter values. 
 Each parameter value is used by the template to define the resources that you want to deploy.

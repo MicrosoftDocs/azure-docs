@@ -83,7 +83,7 @@ Yes.
 
 
 ### Can I use DPM to back up apps in Azure Stack?
-No. You can use Azure Backup to protect Azure Stack, Azure Backup doesn't support support using DPM to back up apps in Azure Stack.
+No. You can use Azure Backup to protect Azure Stack, Azure Backup doesn't support using DPM to back up apps in Azure Stack.
 
 
 ### If I've installed Azure Backup agent to protect my files and folders, can I install System Center DPM to back up on-premises workloads to Azure?
