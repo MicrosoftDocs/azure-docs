@@ -101,7 +101,7 @@ In this section, you add a virtual machine extension resource to the existing te
 
 To understand the resource definition, see the [extension reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
 
-* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Child resources](./resource-manager-templates-resources#child-resources).
+* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Child resources](./resource-manager-templates-resources.md#child-resources).
 * **dependsOn**: The extension resource must be created after the virtual machine has been created.
 * **fileUris**: These are the locations where the script files are stored. If you choose not to use the one provided, you need to update the values.
 * **commandToExecute**: This is the command to invoke the script.  
