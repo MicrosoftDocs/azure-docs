@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 In addition to automatically connecting clients to the primary replica, a listener can be used to redirect read-only workloads to the secondaries. This use can improve the performance and scalability of your overall solution. For more information, see
 [Use ReadIntent Routing with Azure Always On availability group listener](http://go.microsoft.com/fwlink/?LinkId=522515).
 

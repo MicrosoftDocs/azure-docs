@@ -98,7 +98,7 @@ Export devices to get the connection details, Export creates a CSV file with  De
 1.  Select the devices that you want to export and then click the **Export** action.
 1.  Once the export completes, a success message is shown along with a link to download the generated file.
 1.  Click on the success message to download the file to a local folder on the disk.
-1.  The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamary/Secondar Keys, and Primary/Secondary certificate thumbrpints**
+1.  The exported CSV file will have the following columns information: **Device Id, Device Name, Device Primary/Secondary Keys, and Primary/Secondary certificate thumbprints**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY
