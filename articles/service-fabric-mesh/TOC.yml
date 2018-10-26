@@ -54,8 +54,6 @@
     href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
   - name: Set up Service Fabric Mesh CLI
     href: service-fabric-mesh-howto-setup-cli.md
-  - name: Define environment variables using Visual Studio
-    href: service-fabric-mesh-howto-debug-with-envvars.md 
   - name: Store state with Azure Files volume
     href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
   - name: Independently scale microservices in an app
