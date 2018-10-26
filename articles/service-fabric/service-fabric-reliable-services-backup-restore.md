@@ -25,7 +25,7 @@ Azure Service Fabric is a high-availability platform that replicates the state a
 > 
 
 > [!NOTE]
-> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-configure-periodic-backup.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
+> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
 > 
 
 
