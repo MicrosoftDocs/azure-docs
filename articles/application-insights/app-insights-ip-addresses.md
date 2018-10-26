@@ -1,4 +1,4 @@
-﻿---
+---
 title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
 description: Server firewall exceptions required by Application Insights
 services: application-insights
@@ -313,6 +313,7 @@ East US
 | Internal API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dynamic|443 |
 
 ## Log Analytics API
+
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | API |api.loganalytics.io<br/>*.api.loganalytics.io |dynamic |80,443 |
@@ -354,7 +355,7 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 ## Alert webhooks
 
 | Purpose | IP | Ports
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Alerting | 23.96.11.4 | 443 |
 
 ## Profiler
