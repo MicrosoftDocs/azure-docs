@@ -136,7 +136,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-playbook-building-blocks",
+            "source_path": "articles/active-directory/active-directory-playbook-building-blocks.md",
             "redirect_url": "http://aka.ms/aadpocplaybook",
             "redirect_document_id": false
         },
