@@ -3253,7 +3253,12 @@
         },
         {
             "source_path": "articles/application-insights/enable-profiler-cloud-services.md",
-            "redirect_url": "/azure/application-insights/enable-profiler-compute",
+            "redirect_url": "/azure/application-insights/app-insights-profiler-cloudservice",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-insights/enable-profiler-compute.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
             "redirect_document_id": false
         },
         {
