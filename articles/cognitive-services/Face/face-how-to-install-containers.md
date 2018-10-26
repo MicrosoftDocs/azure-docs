@@ -45,12 +45,12 @@ The Face container image is available from a private Docker container registry, 
 
 ### Request access to the private container registry
 
-You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Face container, which requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
+You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Face container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]
-> You must specify an email address associated with either a Microsoft Account or Azure Active Directory account.
+> You must specify an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (AAD) account in the form.
 
-If you are accepted, you will receive an email with instructions describing how to obtain your credentials and access the private container registry.
+If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
 
 ### Log in to the private container registry
 
