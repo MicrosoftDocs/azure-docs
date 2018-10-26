@@ -1,6 +1,6 @@
 ---
 title: Configure usage settings in classroom labs of Azure Lab Services | Microsoft Docs
-description: Learn how to configure the number of users for the lab, get them registered with the lab, control number of hours they can use the VM, and more. 
+description: Learn how to configure the number of users for the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -17,10 +17,10 @@ ms.author: spelluru
 
 ---
 # Configure usage settings and policies
-This article describes how to configure the number of users for the lab, get them registered with the lab, control number of hours they can use the VM, and more. 
+This article describes how to configure the number of users for the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 
 
-## Specify number of users allowed into the lab
+## Specify the number of users allowed into the lab
 
 1. Select **Usage policy**. 
 2. In the **Usage policy**, settings, enter the **number of users** allowed to use the lab.
