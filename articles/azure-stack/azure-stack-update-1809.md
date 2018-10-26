@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/27/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -35,6 +35,8 @@ The Azure Stack 1809 update build number is **1.1809.0.90**.
 ### New features
 
 This update includes the following improvements for Azure Stack:
+
+- With this release, Azure Stack integrated systems support configurations of 4-16 nodes.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
