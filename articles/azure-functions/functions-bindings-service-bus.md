@@ -612,6 +612,7 @@ This section describes the global configuration settings available for this bind
         "serviceBus": {
             "prefetchCount": 100,
             "messageHandlerOptions": {
+                "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
         }
@@ -621,9 +622,11 @@ This section describes the global configuration settings available for this bind
 
 |Property  |Default | Description |
 |---------|---------|---------| 
+|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
+|autoComplete|false|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.| 
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. | 
 |prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
-|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
+
 
 ## Next steps
 

@@ -44,7 +44,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |ControlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|
 |WorkItemQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued work item  queue messages.|
 |MaxConcurrentActivityFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
-|MaxConcurrentOrchestratorFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
+|MaxConcurrentOrchestratorFunctions |10X the number of processors on the current machine|The maximum number of orchestrator functions that can be processed concurrently on a single host instance.|
 |AzureStorageConnectionStringName |AzureWebJobsStorage|The name of the app setting that has the Azure Storage connection string used to manage the underlying Azure Storage resources.|
 |TraceInputsAndOutputs |false|A value indicating whether to trace the inputs and outputs of function calls. The default behavior when tracing function execution events is to include the number of bytes in the serialized inputs and outputs for function calls. This provides minimal information about what the inputs and outputs look like without bloating the logs or inadvertently exposing sensitive information to the logs. Setting this property to true causes the default function logging to log the entire contents of function inputs and outputs.|
 |LogReplayEvents|false|A value indicating whether to write orchestration replay events to Application Insights.|
