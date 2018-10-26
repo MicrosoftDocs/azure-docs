@@ -214,4 +214,4 @@ You must use the Cosmos DB metrics menu to see this metric. It will not show up 
 
 ## Next Steps
 
-- [How to manage database account](./how-to=manage-database-account.md)
+- [How to manage database account](./how-to-manage-database-account.md)
