@@ -1,5 +1,5 @@
 ---
-title: Optimize Visual Studio performance | Microsoft Docs
+title: Optimize Visual Studio performance for Azure Service Fabric Mesh projects | Microsoft Docs
 description: Optimize Visual Studio performance for Azure Service Fabric Mesh apps
 services: service-fabric-mesh
 keywords:  
