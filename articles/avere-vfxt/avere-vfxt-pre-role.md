@@ -17,7 +17,7 @@ To create it from the cluster controller, read -Create the cluster node access r
 
 ## Create an Azure RBAC role
 
-The Avere vFXT system uses [role-based access control](<https://docs.microsoft.com/en-us/azure/role-based-access-control/>) (RBAC) to authorize the vFXT cluster nodes to perform necessary tasks.  
+The Avere vFXT system uses [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) to authorize the vFXT cluster nodes to perform necessary tasks.  
 
 As part of normal vFXT cluster operation, individual vFXT nodes need to do things like read Azure resource properties, manage storage, and control other nodes' network interface settings. 
 
@@ -25,7 +25,7 @@ This role is used for the vFXT nodes only, not for the cluster controller VM.
 
 If you want to create the role before the controller, follow these steps: 
 
-1. Open the cloud shell in the Azure portal or browse to [https://shell.azure.com](https://shell.azure.com).
+1. Open the Azure Cloud Shell in the Azure portal or browse to [https://shell.azure.com](https://shell.azure.com).
 
 1. Use the Azure CLI command to switch to your vFXT subscription:
 
