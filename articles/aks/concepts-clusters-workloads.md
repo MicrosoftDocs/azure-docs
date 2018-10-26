@@ -68,6 +68,15 @@ In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu 
 
 If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [acs-engine][acs-engine]. The upstream `acs-engine` releases features and provide configuration options before they are officially supported in AKS clusters. For example, if you wish to use Windows containers or a container runtime other than Docker, you can use `acs-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
+### Resource reservations
+
+Each node runs some core AKS components such as the *kubelet*, *kube-proxy*, and *kube-dns*. You don't need to manage these components, but they do consume some of the available compute resources on the node. To maintain node performance and functionality, the following compute resources are reserved on each node:
+
+- **CPU** - 60ms
+- **Memory** - 20% up to 4GiB
+
+These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself provides. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core AKS components. The resource reservations cannot be changed.
+
 ### Node pools
 
 Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
