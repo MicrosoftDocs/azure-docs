@@ -209,7 +209,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a linked template. To learn how to deploy virtual machine extensions to perform post deployment tasks, see
+In this tutorial, you develop and deploy a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see
 
 > [!div class="nextstepaction"]
 > [Deploy virtual machine extensions](./deployment-manager-tutorial.md)
