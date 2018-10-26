@@ -12,15 +12,15 @@ ms.author: robinsh
 
 # What is Azure IoT?
 
-The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices and one or more back-end solutions running in the cloud that communicate with each other. 
+The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices and one or more back-end services running in the cloud that communicate with each other. 
 
 This article discusses the basics of IoT, talks about use cases, and briefly explains the eight separate services available. By understanding what's available, you can figure out what you want to look at more closely to help designing your scenario.
 
 ## Introduction
 
-The main parts of an IoT solution are as follows: devices, back-end services, the communication channel between the two. 
+The main parts of an IoT solution are as follows: devices, back-end services, and the communication channel between the two. 
 
-## IoT devices
+### IoT devices
 
 Devices are generally made up of a circuit board with censors attached that connect to the internet. Many devices communicate via a Wi-Fi chip. Here are some examples of IoT devices:
 
@@ -33,11 +33,11 @@ Two devices that are frequently used for prototyping are the basic MX Chip IoT D
 
 The [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) enable you to build apps that run on your devices so they can perform the tasks you need. With the SDKs, you can send telemetry to your IoT hub, receive messages and updates from the IoT Hub, and so on.
 
-## Communication
+### Communication
 
 Your device can communicate with back-end services in both directions. Here are some examples of ways that the device can communicate with the back-end solution.
 
-### Examples 
+#### Examples 
 
 * Your device may send temperature from a mobile refrigeration truck every 5 minutes to an IoT Hub. 
 
@@ -49,7 +49,7 @@ Your device can communicate with back-end services in both directions. Here are 
 
 These tasks, and more, can be implemented using the [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md).
 
-### Connection Considerations
+#### Connection Considerations
 
 Connecting devices securely and reliably is often the biggest challenge in IoT solutions. This is because IoT devices have different characteristics when compared to other clients such as browsers and mobile apps. Specifically, IoT devices:
 
@@ -65,7 +65,7 @@ Connecting devices securely and reliably is often the biggest challenge in IoT s
 
 * May need to use proprietary, custom, or industry-specific application protocols.
 
-## Back-end services 
+### Back-end services 
 
 Here are some of the functions a back-end service can provide.
 
@@ -97,7 +97,7 @@ Implementing this IoT solution made it possible for the company to check and tre
 
 ## IoT Services
 
-There are several IoT-related services in Azure and it can be confusing to figure out which one you want to use. Some provide templates to help you create your own solution. You can also fully develop your own solutions using other services available -- it all depends on how much help you want, and how much control. Here is a list of the services available, as well as what you may use them for.
+There are several IoT-related services in Azure and it can be confusing to figure out which one you want to use. Some, such as IoT Central and the IoT solution accelerators, provide templates to help you create your own solution and get started quickly. You can also fully develop your own solutions using other services available -- it all depends on how much help you want, and how much control. Here is a list of the services available, as well as what you may use them for.
 
 1. [**IoT Central**](../iot-central/overview-iot-central.md): This is a SaaS solution that helps you connect, monitor, and manage your ioT devices. To start, you select a template for your device type and create and test a basic IoT Central application that the operators of the device will use. The IoT Central application will also enable you to monitor the devices and provision new devices. This service is for straightforward solutions that don't require deep service customization. 
 
