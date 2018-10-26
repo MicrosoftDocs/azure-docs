@@ -41,7 +41,7 @@ az container create \
     --name mycontainer2 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
+    --environment-variables 'NumWords=5' 'MinLength=8'
 ```
 
 Once both containers' state shows as *Terminated* (use [az container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] to see the output.
