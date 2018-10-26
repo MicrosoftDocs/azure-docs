@@ -15,16 +15,25 @@ ms.author: anroth
 ---
 # What is Azure Custom Vision?
 
-The Azure Custom Vision API is a cognitive service that lets you build, deploy and improve custom image classifiers. An image classifier is an AI service that sorts images into classes (tags) according to certain characteristics. Unlike the [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) service, Custom Vision allows you, the developer, to determine which classifications are of interest.
+The Azure Custom Vision API is a cognitive service that lets you build, deploy and improve custom image classifiers. An image classifier is an AI service that sorts images into classes (tags) according to certain characteristics. Unlike the [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) service, Custom Vision allows you to determine the classifications that are of interest.
 
-The Custom Vision Service provides a REST API and a web interface to upload your images and train the classifier.
+## How it works
 
-## What does Custom Vision Service do well?
+The Custom Vision service uses a machine learning algorithm. You, the developer, must submit groups of images that feature and lack the classification(s) in question. You specify the correct tags of the images at the time of submission. Then, the algorithm trains to your data and calculates its accuracy by testing on that data.
 
-The Custom Vision Service works best when the item you're trying to classify is prominent in your image. 
+### Detection and classification
 
-Few images are required to create a classifier or detector. 50 images per class are enough to start your prototype. The methods Custom Vision Service uses are robust to differences, which allows you to start prototyping with a small amount of data. This means, however, that Custom Vision Service is not optimal for detecting subtle differences in images (for example, detecting minor cracks or dents in quality assurance scenarios).
+Custom Vision functionality can be divided into two groups. Image classification assigns to each image a distribution of classifications. Object detection is similar, but it also returns the coordinates in the image where applied tags can be found.
+
+### Optimization
+
+In general, the methods the Custom Vision service uses are robust to differences, which allows you to start prototyping with a small amount of data. 50 images per tag are generally a good start. This means, however, that the service is not optimal for detecting subtle differences in images (for example, detecting minor cracks or dents in quality assurance scenarios).
+
+Additionally, you can choose from several varieties of the Custom Vision algorithm that are optimized for certain subject material, such as landmarks or retail items. See the [Build a classifier](getting-started-build-a-classifier.md) guide for more information on these.
+
+## What it includes
+The Custom Vision Service provides a set of native SDKs as well as a web-based interface to upload images and train and test your model.
 
 ## Next steps
 
-[Learn how to build a classifier](getting-started-build-a-classifier.md)
+Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web, or complete an [Image classification tutorial](csharp-tutorial.md) to implement the scenario in code.
