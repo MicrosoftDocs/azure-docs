@@ -3,7 +3,7 @@ title: Azure Service Bus messaging samples overview | Microsoft Docs
 description: Describes Service Bus messaging samples with links to each
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
-ms.author: sethm
+ms.date: 09/21/2018
+ms.author: spelluru
 
 ---
 # Service Bus messaging samples
@@ -39,5 +39,4 @@ See the following topics for conceptual overviews of Service Bus.
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Service Bus architecture](service-bus-architecture.md)
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 

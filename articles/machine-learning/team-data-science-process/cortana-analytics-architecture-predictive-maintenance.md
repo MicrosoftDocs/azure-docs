@@ -4,10 +4,11 @@ description: Architecture diagram of the Microsoft Cortana Intelligence Solution
 services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 759746a5-388a-42cf-bccf-435bf9b53251
+ms.service: machine-learning
 ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na

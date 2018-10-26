@@ -13,26 +13,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/30/2018
 ms.author: milanga;cenkdin;juliako
 
 ---
 # Update Media Services after rolling storage access keys
 
-When you create a new Azure Media Services (AMS) account, you are also asked to select an Azure Storage account that is used to store your media content. You can add more than one storage accounts to your Media Services account. This topic shows how to rotate storage keys. It also shows how to add storage accounts to a media account. 
+When you create a new Azure Media Services (AMS) account, you are also asked to select an Azure Storage account that is used to store your media content. You can add more than one storage accounts to your Media Services account. This article shows how to rotate storage keys. It also shows how to add storage accounts to a media account. 
 
-To perform the actions described in this topic, you should be using [ARM APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media).  For more information, see [How to manage Azure resources with PowerShell and Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+To perform the actions described in this article, you should be using [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  For more information, see [How to manage Azure resources with PowerShell and Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
 
 ## Overview
 
 When a new storage account is created, Azure generates two 512-bit storage access keys, which are used to authenticate access to your storage account. To keep your storage connections more secure, it is recommended to periodically regenerate and rotate your storage access key. Two access keys (primary and secondary) are provided in order to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. This procedure is also called "rolling access keys".
 
-Media Services depends on a storage key provided to it. Specifically, the locators that are used to stream or download your assets depend on the specified storage access key. When an AMS account is created it takes a dependency on the primary storage access key by default but as a user you can update the storage key that AMS has. You must make sure to let Media Services know which key to use by following steps described in this topic.  
+Media Services depends on a storage key provided to it. Specifically, the locators that are used to stream or download your assets depend on the specified storage access key. When an AMS account is created, it takes a dependency on the primary storage access key by default but as a user you can update the storage key that AMS has. You must make sure to let Media Services know which key to use by following steps described in this article.  
 
 >[!NOTE]
 > If you have multiple storage accounts, you would perform this procedure with each storage account. The order in which you rotate storage keys is not fixed. You can rotate the secondary key first and then the primary key or vice versa.
 >
-> Before executing steps described in this topic on a production account, make sure to test them on a pre-production account.
+> Before executing steps described in this article on a production account, make sure to test them on a pre-production account.
 >
 
 ## Steps to rotate storage keys 
@@ -64,7 +64,7 @@ The following example demonstrates how to get the storage account and sync it wi
  
 ## Steps to add storage accounts to your AMS account
 
-The following topic shows how to add storage accounts to your AMS account: [Attach multiple storage accounts to a Media Services account](meda-services-managing-multiple-storage-accounts.md).
+The following article shows how to add storage accounts to your AMS account: [Attach multiple storage accounts to a Media Services account](meda-services-managing-multiple-storage-accounts.md).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

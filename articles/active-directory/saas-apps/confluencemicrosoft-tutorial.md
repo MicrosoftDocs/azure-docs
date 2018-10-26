@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon1.png)
 
-1. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/en-us/servicesagreement/). 
+1. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56503). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/). 
 	
 	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon12.png)
 

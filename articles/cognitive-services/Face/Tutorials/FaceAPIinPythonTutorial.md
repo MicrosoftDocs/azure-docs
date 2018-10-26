@@ -1,22 +1,23 @@
 ---
-title: Face API Python tutorial | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to use the Face API with the Python SDK to detect human faces in an image in Cognitive Services.
+title: "Tutorial: Detect and frame faces in an image - Face API, Python"
+titleSuffix: Azure Cognitive Services
+description: Learn how to use the Face API with the Python SDK to detect human faces in an image.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
 
-# Getting Started with Face API in Python Tutorial
+# Tutorial: Detect and frame faces with the Face API and Python 
 
 In this tutorial, you will learn to invoke the Face API via the Python SDK to detect human faces in an image.
 
-## <a name="prerequisites"></a> Prerequisites
+## Prerequisites
 
 To use the tutorial, you will need to do the following:
 
@@ -30,7 +31,7 @@ pip install cognitive_face
 
 - Obtain a [subscription key](https://azure.microsoft.com/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
 
-## <a name="sdk-example"></a> Detect a Face in an Image
+## Detect a Face in an Image
 
 ```python
 import cognitive_face as CF
@@ -88,7 +89,7 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> Further Exploration
+## Further Exploration
 
 To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/pages/downloads/) then run the commands below.
 
@@ -98,11 +99,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> Summary
+## Summary
 
 In this tutorial, you have learned the basic process for using the Face API via invoking the Python SDK. For more information on API details, please refer to the How-To and [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="related"></a> Related Topics
+## Related Topics
 
 - [Getting Started with Face API in CSharp](FaceAPIinCSharpTutorial.md)
 - [Getting Started with Face API in Java for Android](FaceAPIinJavaForAndroidTutorial.md)

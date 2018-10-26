@@ -3,7 +3,7 @@ title: Customize HDInsight clusters using script actions - Azure
 description: Add custom components to Linux-based HDInsight clusters using script actions. Script actions are Bash scripts  that can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -85,7 +85,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
 * Run with **root level privileges** on the cluster nodes.
 
-* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI v1.0**, or **HDInsight .NET SDK**
+* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure Classic CLI**, or **HDInsight .NET SDK**
 
 The cluster keeps a history of all scripts that have been ran. The history is useful when you need to find the ID of a script for promotion or demotion operations.
 
@@ -143,7 +143,7 @@ Script action scripts can be used through the following utilities:
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI v1.0
+* Azure Classic CLI
 * HDInsight .NET SDK
 
 HDInsight provides scripts to install the following components on HDInsight clusters:
@@ -288,10 +288,9 @@ Once the operation completes, you receive information similar to the following t
 
 ### Apply a script action to a running cluster from the Azure CLI
 
-Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI 1.0](../cli-install-nodejs.md).
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure Classic CLI](../cli-install-nodejs.md).
 
-> [!IMPORTANT]
-> HDInsight requires Azure CLI 1.0. Currently Azure CLI 2.0 does not provide commands for working with HDInsight.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. To switch to Azure Resource Manager mode, use the following command at the command line:
 
@@ -376,7 +375,7 @@ The following example script demonstrates using the cmdlets to promote, then dem
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### Using the Azure CLI
+### Using the Azure Classic CLI
 
 | Use the following... | To ... |
 | --- | --- |

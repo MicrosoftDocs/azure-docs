@@ -17,7 +17,7 @@ ms.author: sngun
 
 The Azure Cosmos DB change feed is a mechanism to get a continuous and incremental feed of records from an Azure Cosmos DB container as those records are being created or modified. Change feed support works by listening to container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. To learn more about change feed, see [working with change feed](change-feed.md) article. 
 
-This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization. You will analyze events such as a user viewing an item, adding an item to their cart, or purchasing an item. When one of these events occurs, a new record is created, and the change feed logs that record. Change feed then triggers a series of steps resulting in visualization of metrics that analyze the company performance and activity. Sample metrics that you can visualize include revenue, unique site visitors, most popular items, and average price of the items that are viewed versus added to a cart versus purchased. These sample metrics can help an e-commerce company evaluate its site popularity, develop its advertising and pricing strategies, and make decisions regarding what inventory to invest in.
+This article describes how change feed can be used by an e-commerce company to understand user patterns, perform real-time data analysis and visualization. You will analyze events such as a user viewing an item, adding an item to their cart, or purchasing an item. When one of these events occurs, a new record is created, and the change feed logs that record. Change feed then triggers a series of steps resulting in visualization of metrics that analyze the company performance and activity. Sample metrics that you can visualize include revenue, unique site visitors, most popular items, and average price of the items that are viewed versus added to a cart versus purchased. These sample metrics can help an e-commerce company evaluate its site popularity, develop its advertising and pricing strategies, and make decisions regarding what inventory to invest in.
 
 Interested in watching a video about the solution before getting started, see the following video:
 
@@ -312,7 +312,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
    * For Revenue, it would make sense to do a line chart with time as the axis and the sum of the prices as the value. The time window to display should be the largest possible in order to deliver as much information as possible.  
    * For Unique Visitors, it would make sense to do a card visualization with the number of unique visitors as the value.
 
-   This is how our dashboard looks with these charts:
+   This is how a sample dashboard looks with these charts:
 
    ![visualizations](./media/changefeed-ecommerce-solution/visualizations.png)
 

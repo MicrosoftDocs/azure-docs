@@ -34,11 +34,12 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to create, debug, and deploy a multi-service Azure Service Fabric Mesh app.
+    text: Learn how to build and deploy a Mesh app with Visual Studio or the Azure CLI.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Create, debug, and deploy a multi-service web application to Service Fabric Mesh</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Create, debug, deploy and upgrade a multi-service app to Service Fabric Mesh using Visual Studio.</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">Deploy, scale, and upgrade a Service Fabric Mesh app using a template.</a>
 - title: Reference
   items:
   - type: list

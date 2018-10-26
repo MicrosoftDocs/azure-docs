@@ -13,23 +13,19 @@
     href: container-registry-get-started-portal.md
   - name: Container Registry - PowerShell
     href: container-registry-get-started-powershell.md
+  - name: Events with Event Grid - CLI
+    href: container-registry-event-grid-quickstart.md
 - name: Tutorials
   items:
-  - name: Azure Container Instances
-    href: ../container-instances/container-instances-tutorial-prepare-app.md
-  - name: Azure Kubernetes Service (AKS)
-    href: ../aks/tutorial-kubernetes-prepare-app.md
-  - name: Service Fabric
-    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-  - name: Build container images (preview)
+  - name: Build container images
     items:
     - name: 1 - Build images in Azure
-      href: container-registry-tutorial-quick-build.md
+      href: container-registry-tutorial-quick-task.md
     - name: 2 - Automate image builds
       href: container-registry-tutorial-build-task.md
     - name: 3 - Base image update builds
       href: container-registry-tutorial-base-image-update.md
-  - name: Geo-replication
+  - name: Geo-replicate a registry
     items:
     - name: 1 - Prepare container registry
       href: container-registry-tutorial-prepare-registry.md
@@ -43,24 +39,28 @@
     href: container-registry-skus.md
   - name: Image storage
     href: container-registry-storage.md
-  - name: Build and patch with ACR Build
-    href: container-registry-build-overview.md
   - name: Geo-replication
     href: container-registry-geo-replication.md
   - name: Registry best practices
     href: container-registry-best-practices.md
 - name: How-to guides
   items:
-  - name: Push and pull an image
-    href: container-registry-get-started-docker-cli.md
-  - name: View repositories
-    href: container-registry-repositories.md
-  - name: Delete container images
-    href: container-registry-delete.md
-  - name: Upgrade a Classic registry
-    href: container-registry-upgrade.md
-  - name: Use ACR webhooks
-    href: container-registry-webhook.md
+  - name: Registry operations
+    items:
+    - name: Push and pull an image
+      href: container-registry-get-started-docker-cli.md
+    - name: View repositories
+      href: container-registry-repositories.md
+    - name: Delete container images
+      href: container-registry-delete.md
+    - name: Content trust (preview)
+      href: container-registry-content-trust.md
+    - name: Upgrade a Classic registry
+      href: container-registry-upgrade.md
+    - name: Use ACR webhooks
+      href: container-registry-webhook.md
+    - name: Helm chart repositories (preview)
+      href: container-registry-helm-repos.md
   - name: Authentication
     items:
     - name: Authentication overview
@@ -71,6 +71,22 @@
       href: container-registry-auth-aci.md
     - name: Azure Kubernetes Service (AKS)
       href: container-registry-auth-aks.md
+  - name: Build and patch
+    items:
+      - name: ACR Tasks
+        href: container-registry-tasks-overview.md
+      - name: Multi-step tasks (preview)
+        href: container-registry-tasks-multi-step.md
+      - name: Multi-step task reference (preview)
+        href: container-registry-tasks-reference-yaml.md
+  - name: Registries and other Azure services
+    items:
+      - name: Azure Container Instances
+        href: ../container-instances/container-instances-tutorial-prepare-app.md
+      - name: Azure Kubernetes Service (AKS)
+        href: ../aks/tutorial-kubernetes-prepare-app.md
+      - name: Service Fabric
+        href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -91,8 +107,13 @@
     href: /azure/templates/microsoft.containerregistry/registries
   - name: Webhook schema
     href: container-registry-webhook-reference.md
+  - name: Event Grid schema
+    href: ../event-grid/event-schema-container-registry.md
+    maintainContext: true
 - name: Resources
   items:
+  - name: Build your skill with Microsoft Learn
+    href: /learn/browse/?products=azure-container-registry
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

@@ -3,7 +3,7 @@ title: Connect to Azure Stack with CLI | Microsoft Docs
 description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
-ms.author: mabrigg
+ms.date: 09/08/2018
+ms.author: sethm
 ms.reviewer: sijuman
 
 ---
-# Use API version profiles with Azure CLI 2.0 in Azure Stack
+# Use API version profiles with Azure CLI in Azure Stack
 
 You can follow the steps in this article to set up the Azure Command-Line Interface (CLI) to manage Azure Stack Development Kit resources from Linux, Mac, and Windows client platforms.
 
 ## Install CLI
 
-Sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI. You can install that by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
+Sign in to your development workstation and install CLI. Azure Stack requires version 2.0 or later of Azure CLI. You can install that by using the steps described in the [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
 
 ```azurecli
 az --version
@@ -90,7 +90,7 @@ $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
 $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
 $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
 $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-$sha1Entry    = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
+$sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
 $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
 $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
 
@@ -157,12 +157,16 @@ Use the following steps to connect to Azure Stack:
 
    ```azurecli
    az cloud update \
-     --profile 2017-03-09-profile
+     --profile 2018-03-01-hybrid
    ```
+
+    >[!NOTE]  
+    >If you are running a version of the Azure Stack before the 1808 build, you will to have to use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
 
 1. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Sign in as a *user*: You can either specify the username and password directly within the `az login` command or authenticate by using a browser. You have to do the latter if your account has multi-factor authentication enabled.
+    * AAD Environments
+      * Sign in as a *user*: You can either specify the username and password directly within the `az login` command or authenticate by using a browser. You have to do the latter if your account has multi-factor authentication enabled.
 
       ```azurecli
       az login \
@@ -173,7 +177,7 @@ Use the following steps to connect to Azure Stack:
       > [!NOTE]
       > If your user account has multi-factor authentication enabled, you can use the `az login command` without providing the `-u` parameter. Running the command gives you a URL and a code that you must use to authenticate.
    
-   * Sign in as a *service principal*: Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
+      * Sign in as a *service principal*: Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
 
       ```azurecli
       az login \
@@ -182,6 +186,22 @@ Use the following steps to connect to Azure Stack:
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * AD FS Environments
+
+        * Sign in as a *service principal*: 
+          1.	Prepare the .pem file to be used for service principal login.
+                * On the client machine where the principal was created, export the service principal certificate as a pfx with the private key (located at cert:\CurrentUser\My; the cert name has the same name as the principal).
+
+                *	Convert the pfx to pem (Use OpenSSL Utility).
+
+          1.	Login to the CLI. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## Test the connectivity
 

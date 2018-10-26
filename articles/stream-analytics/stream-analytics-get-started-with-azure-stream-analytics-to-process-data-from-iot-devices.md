@@ -81,7 +81,7 @@ The simplest form of query is a pass-through query that archives all input data 
     ![Test results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### Query: Filter the data based on a condition
-Let’s try to filter the results based on a condition. We would like to show results for only those events that come from “sensorA.” The query is in the Filtering.txt file.
+Let’s try to filter the results based on a condition. We would like to show results for only those events that come from "sensorA." The query is in the Filtering.txt file.
 
 ![Filtering a data stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 

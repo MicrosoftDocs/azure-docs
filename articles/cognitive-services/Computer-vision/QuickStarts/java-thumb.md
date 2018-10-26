@@ -1,41 +1,63 @@
 ---
-title: Computer Vision API Java quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you generate a thumbnail from an image using Computer Vision with Java in Cognitive Services.
+title: "Quickstart: Generate a thumbnail - REST, Java - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you generate a thumbnail from an image using the Computer Vision API with Java.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/15/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: pafarley
 ---
-# Quickstart: Generate a thumbnail with Java
+# Quickstart: Generate a thumbnail using the REST API and Java in Computer Vision
 
-In this quickstart, you generate a thumbnail from an image using Computer Vision.
+In this quickstart, you generate a thumbnail from an image by using Computer Vision's REST API. With the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method, you can generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have [Java&trade; Platform, Standard Edition Development Kit 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 or 8) installed.
+- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Get Thumbnail request
+## Create and run the sample application
 
-With the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), you can generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
+To create and run the sample, do the following steps:
 
-To run the sample, do the following steps:
+1. Create a new Java project in your favorite IDE or editor. If the option is available, create the Java project from a command line application template.
+1. Import the following libraries into your Java project. If you're using Maven, the Maven coordinates are provided for each library.
+   - [Apache HTTP client](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
+   - [Apache HTTP core](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
+   - [JSON library](https://github.com/stleary/JSON-java) (org.json:json:20180130)
+1. Add the following `import` statements to the file that contains the `Main` public class for your project.  
 
-1. Create a new command-line app.
-1. Replace the Main class with the following code (keep any `package` statements).
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
-1. Optionally, change the `imageToAnalyze` value to another image.
-1. Download these libraries from the Maven Repository to the `lib` directory in your project:
-   * `org.apache.httpcomponents:httpclient:4.5.5`
-   * `org.apache.httpcomponents:httpcore:4.4.9`
-   * `org.json:json:20180130`
-1. Run 'Main'.
+   ```java
+   import java.awt.*;
+   import javax.swing.*;
+   import java.net.URI;
+   import java.io.InputStream;
+   import javax.imageio.ImageIO;
+   import java.awt.image.BufferedImage;
+   import org.apache.http.HttpEntity;
+   import org.apache.http.HttpResponse;
+   import org.apache.http.client.methods.HttpPost;
+   import org.apache.http.entity.StringEntity;
+   import org.apache.http.client.utils.URIBuilder;
+   import org.apache.http.impl.client.CloseableHttpClient;
+   import org.apache.http.impl.client.HttpClientBuilder;
+   import org.apache.http.util.EntityUtils;
+   import org.json.JSONObject;
+   ```
+
+1. Replace the `Main` public class with the following code, then make the following changes in code where needed:
+   1. Replace the value of `subscriptionKey` with your subscription key.
+   1. Replace the value of `uriBase` with the endpoint URL for the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)  method from the Azure region where you obtained your subscription keys, if necessary.
+   1. Optionally, replace the value of `imageToAnalyze` with the URL of a different image for which you want to generate a thumbnail.
+1. Save, then build the Java project.
+1. If you're using an IDE, run `Main`. Otherwise, open a command prompt window and then use the `java` command to run the compiled class. For example, `java Main`.
 
 ```java
 // This sample uses the following libraries:
@@ -43,22 +65,6 @@ To run the sample, do the following steps:
 //  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
 //  - JSON library (org.json:json:20180130).
 
-import java.awt.*;
-import javax.swing.*;
-import java.net.URI;
-import java.io.InputStream;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 
 public class Main {
     // **********************************************
@@ -68,12 +74,14 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // You must use the same region in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URI below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
     //
-    // Free trial subscription keys are generated in the westcentralus region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     private static final String uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail";
 
@@ -91,7 +99,7 @@ public class Main {
             uriBuilder.setParameter("height", "150");
             uriBuilder.setParameter("smartCropping", "true");
 
-            // Prepare the URI for the REST API call.
+            // Prepare the URI for the REST API method.
             URI uri = uriBuilder.build();
             HttpPost request = new HttpPost(uri);
 
@@ -104,7 +112,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Make the REST API call and get the response entity.
+            // Call the REST API method and get the response entity.
             HttpResponse response = httpClient.execute(request);
             HttpEntity entity = response.getEntity();
 
@@ -149,32 +157,17 @@ public class Main {
 }
 ```
 
-## Get Thumbnail response
+## Examine the response
 
-A successful response contains the thumbnail image binary. If the request fails, the response contains an error code and a message to help determine what went wrong. The following text is an example of a successful response.
+A successful response is returned as binary data, which represents the image data for the thumbnail. If the request succeeds, the thumbnail is generated from the binary data in the response and displayed in a separate window created by the sample application. If the request fails, the response is displayed in the console window. The response for the failed request contains an error code and a message to help determine what went wrong.
 
-```text
-Response:
+## Clean up resources
 
-StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
-{
-  Pragma: no-cache
-  apim-request-id: 131eb5b4-5807-466d-9656-4c1ef0a64c9b
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  x-content-type-options: nosniff
-  Cache-Control: no-cache
-  Date: Tue, 06 Jun 2017 20:54:07 GMT
-  X-AspNet-Version: 4.0.30319
-  X-Powered-By: ASP.NET
-  Content-Length: 5800
-  Content-Type: image/jpeg
-  Expires: -1
-}
-```
+When no longer needed, delete the Java project, including the compiled class and imported libraries.
 
 ## Next steps
 
-Explore a Java Swing application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a Java Swing application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Java Tutorial](../Tutorials/java-tutorial.md)

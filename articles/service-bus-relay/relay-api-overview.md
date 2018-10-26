@@ -3,7 +3,7 @@ title: Azure Relay API overview | Microsoft Docs
 description: Overview of available Azure Relay APIs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: sethm
+ms.author: spelluru
 ---
 
 # Available Relay APIs

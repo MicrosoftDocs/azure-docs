@@ -19,11 +19,6 @@ ms.author: govindk
 
 Azure Cosmos DB provides metrics for throughput, storage, consistency, availability, and latency. The [Azure portal](https://portal.azure.com) provides an aggregated view of these metrics; for more granular metrics, both the client SDK and the [diagnostic logs](./logging.md) are available.
 
-To get an overview of the new metrics and learn find hot partitions in your database, watch the following  Azure Friday video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Cosmos-DB-Get-the-Most-Out-of-Provisioned-Throughput/player]
-> 
-
 This article walks through common use cases and how Azure Cosmos DB metrics can be used to analyze and debug these issues. Metrics are collected every five minutes and are retained for seven days.
 
 ## Understanding how many requests are succeeding or causing errors
@@ -57,8 +52,7 @@ After identifying which partition key is causing the skew in distribution, you m
 ## Comparing data size against index size
 
 In Azure Cosmos DB, the total consumed storage is the combination of both the Data size and Index size. Typically, the index size is a fraction of the data size. In the Metrics blade in the [Azure portal](https://portal.azure.com), the Storage tab showcases the breakdown of storage consumption based on data and index. 
-Image (maybe)
-Alternatively, from the SDK, you can find the current storage usage through a collection read.
+
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 
@@ -73,7 +67,7 @@ In the SQL API SDKs, Azure Cosmos DB provides query execution statistics.
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
  UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
- “SELECT * FROM c WHERE c.city = ‘Seattle’”, 
+ "SELECT * FROM c WHERE c.city = 'Seattle'", 
  new FeedOptions 
  { 
  PopulateQueryMetrics = true, 

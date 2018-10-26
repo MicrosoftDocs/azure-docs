@@ -14,7 +14,7 @@ keywords: backups; vm backup
 ---
 # Back up Azure virtual machines to Recovery Services vault
 
-This article explains how to configuring protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
+This article explains how to configure protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
 
 * Azure Resource Manager-deployed VMs
 * Classic VMs
@@ -90,11 +90,11 @@ Use the following steps to configure the backup job from the Virtual Machine ope
 
   Until the initial backup has completed, **Last backup status** shows as **Warning(Initial backup pending)**. To see when the next scheduled backup job occurs, under **Summary** click the name of the policy. The Backup Policy menu opens and shows the time of the scheduled backup.
 
-10. To protect the virtual machine, click **Backup now**. 
+10. To protect the virtual machine, click **Backup now**.
 
   ![click Backup now to run the initial backup](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  The Backup Now menu opens. 
+  The Backup Now menu opens.
 
   ![shows the Backup Now blade](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -179,7 +179,7 @@ To edit the storage replication setting:
   ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. In the new vault's Management menu, use the vertical slide to scroll down to the Manage section, and click **Backup Infrastructure** to open the Backup Infrastructure menu.
- 
+
    ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. In the Backup Infrastructure menu, click **Backup Configuration** to open the **Backup Configuration** menu.
@@ -285,6 +285,11 @@ To run the initial backup job:
   ![set the last day the Backup Now recovery point is retained](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page. Depending on the size of your VM, creating the initial backup may take a while.
+
+  > [!NOTE]
+  > All the data being backed up by Azure Backup is encrypted at rest through [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  >
+  >
 
 6. To view or track the status of the initial backup, on the vault dashboard, on the **Backup Jobs** tile click **In progress**.
 

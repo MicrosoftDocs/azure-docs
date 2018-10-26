@@ -12,12 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Analyze data usage in Log Analytics
+
+> [!NOTE]
+> This article describes how to analyze data usage in Log Analytics.  Refer to the following articles for related information.
+> - [Manage cost by controlling data volume and retention in Log Analytics](log-analytics-manage-cost-storage.md) describes how to control your costs by changing your data retention period.
+> - [Monitoring usage and estimated costs](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
+
 Log Analytics includes information on the amount of data collected, which sources sent the data, and the different types of data sent.  Use the **Log Analytics Usage** dashboard to review and analyze data usage. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
 
 ## Understand the Usage dashboard
@@ -155,7 +161,7 @@ Use the following steps to reduce the volume of logs collected:
 | Solution data from computers that don't need the solution | Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers. |
 
 ### Check if there are more nodes than expected
-If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.<br><br> ![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
+If you are on the *per node (Log Analytics)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.<br><br> ![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Click on **See all...** to view the full list of computers sending data for the selected offer.
 

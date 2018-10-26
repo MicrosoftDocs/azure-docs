@@ -2,13 +2,12 @@
 title: Azure Container Registry SKUs
 description: Compare the different service tiers available in Azure Container Registry.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
-ms.author: marsma
+ms.date: 08/30/2018
+ms.author: danlep
 ---
 
 # Azure Container Registry SKUs
@@ -17,16 +16,14 @@ Azure Container Registry (ACR) is available in multiple service tiers, known as 
 
 | SKU | Managed | Description |
 | --- | :-------: | ----------- |
-| **Basic** | Yes | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (Azure Active Directory authentication integration, image deletion, and web hooks), however, there are size and usage constraints. |
-| **Standard** | Yes | Standard registries offer the same capabilities as Basic, with increased storage limits and image throughput. Standard registries should satisfy the needs of most production scenarios. |
-| **Premium** | Yes | Premium registries provide higher limits on constraints such as storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput capacity, Premium adds features like [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, maintaining a network-close registry to each deployment. |
-| Classic | No | The Classic registry SKU enabled the initial release of the Azure Container Registry service in Azure. Classic registries are backed by a storage account that Azure creates in your subscription, which limits the ability for ACR to provide higher-level capabilities such as increased throughput and geo-replication. Because of its limited capabilities, we plan to deprecate the Classic SKU in the future. |
+| **Basic** | Yes | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (Azure Active Directory authentication integration, image deletion, and web hooks). However, the included storage and image throughput are most appropriate for lower usage scenarios. |
+| **Standard** | Yes | Standard registries offer the same capabilities as Basic, with increased included storage and image throughput. Standard registries should satisfy the needs of most production scenarios. |
+| **Premium** | Yes | Premium registries provide the highest amount of included storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput, Premium adds features like [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, and [content trust (preview)](container-registry-content-trust.md) for image tag signing. |
+| Classic<sup>1</sup> | No | This SKU enabled the initial release of the Azure Container Registry service in Azure. Classic registries are backed by a storage account that Azure creates in your subscription, which limits the ability for ACR to provide higher-level capabilities such as increased throughput and geo-replication. |
+
+<sup>1</sup> The Classic SKU will be **deprecated** in **March 2019**. Use Basic, Standard, or Premium for all new container registries.
 
 Choosing a higher-level SKU provides more performance and scale, however, all managed SKUs provide the same programmatic capabilities. With multiple service tiers, you can get started with Basic, then convert to Standard and Premium as your registry usage increases.
-
-> [!NOTE]
-> Because of the planned deprecation of the Classic registry SKU, we recommend you use Basic, Standard, or Premium for all new registries. For information about converting your existing Classic registry, see [Upgrade a Classic registry][container-registry-upgrade].
->
 
 ## Managed vs. unmanaged
 
@@ -37,6 +34,9 @@ The Basic, Standard, and Premium SKUs are collectively known as *managed* regist
 Managed registries benefit from image storage managed entirely by Azure. That is, a storage account that stores your images does not appear within your Azure subscription. There are several benefits gained by using one of the managed registry SKUs, discussed in-depth in [Container image storage in Azure Container Registry][container-registry-storage]. This article focuses on the managed registry SKUs and their capabilities.
 
 ### Unmanaged (Classic)
+
+> [!IMPORTANT]
+> The Classic SKU is being deprecated, and will be unavailable after March 2019. Use Basic, Standard, or Premium for all new registries.
 
 Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unmanaged registries, you can't switch between SKUs as your needs change (other than [upgrading][container-registry-upgrade] to a managed registry), and several features of managed registries are unavailable (for example, container image deletion, [geo-replication][container-registry-geo-replication], and [webhooks][container-registry-webhook]).
 

@@ -1,14 +1,16 @@
 ---
-title: Call API from an app - Azure Cognitive Services | Microsoft Docs
-description: How to get started with Azure Custom Decision Service if you call the APIs from a smartphone app.
+title: Call API from an app - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: How to call the Custom Decision Service APIs from a smartphone app.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
 ---
 
 # Call API from an app

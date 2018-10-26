@@ -1,6 +1,6 @@
 ---
-title: Getting started guide for Azure IT operators | Microsoft Docs
-description: Getting started guide for Azure IT operators
+title: Get started guide for Azure IT operators | Microsoft Docs
+description: Get started guide for Azure IT operators
 services:
 documentationcenter:
 author: themichaelbender-ms
@@ -14,32 +14,31 @@ ms.devlang:
 ms.topic:
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/24/2018
 ms.author: mibender
 ---
 
-# Introduction to cloud computing and Microsoft Azure
+# Get started for Azure IT operators
 
 This guide introduces core concepts related to the deployment and management of a Microsoft Azure infrastructure. If you are new to cloud computing, or Azure itself, this guide helps quickly get you started with concepts, deployment, and management details. Many sections of this guide discuss an operation such as deploying a virtual machine, and then provide a link for in-depth technical detail.
-
 
 ## Cloud computing overview
 
 Cloud computing provides a modern alternative to the traditional on-premises datacenter. Public cloud vendors provide and manage all computing infrastructure and the underlying management software. These vendors provide a wide variety of cloud services. A cloud service in this case might be a virtual machine, a web server, or cloud-hosted database engine. As a cloud provider customer, you lease these cloud services on an as-needed basis. In doing so, you convert the capital expense of hardware maintenance into an operational expense. A cloud service also provides these benefits:
 
--   Rapid deployment of large compute environments
+- Rapid deployment of large compute environments
 
--   Rapid deallocation of systems that are no longer required
+- Rapid deallocation of systems that are no longer required
 
--   Easy deployment of traditionally complex systems like load balancers
+- Easy deployment of traditionally complex systems like load balancers
 
--   Ability to provide flexible compute capacity or scale when needed
+- Ability to provide flexible compute capacity or scale when needed
 
--   More cost-effective computing environments
+- More cost-effective computing environments
 
--   Access from anywhere with a web-based portal or programmatic automation
+- Access from anywhere with a web-based portal or programmatic automation
 
--   Cloud-based services to meet most compute and application needs
+- Cloud-based services to meet most compute and application needs
 
 With on-premises infrastructure, you have complete control over the hardware and software that is deployed. Historically, this has led to hardware procurement decisions that focus on scaling up. An example is purchasing a server with more cores to meet peak performance needs. Unfortunately, this infrastructure might be underutilized outside a demand window. With Azure, you can deploy only the infrastructure that you need, and adjust this up or down at any time. This leads to a focus on scaling out through the deployment of additional compute nodes to satisfy a performance need. Scaling out cloud services is more cost-effective than scaling up through expensive hardware.
 
@@ -49,27 +48,30 @@ For small businesses, Azure allows for a low-cost entry point, with the ability 
 
 For more information on the available Azure regions, see [Azure regions](https://azure.microsoft.com/regions/).
 
-### Cloud computing is classified into three categories: SaaS, PaaS, and IaaS.
+### Cloud computing model
 
-#### SaaS: Software as a service
-
-SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription.
-
-Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
-
-#### PaaS: Platform as a service
-
-With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development.
-
-Azure provides several PaaS compute offerings, including the Web Apps feature of Azure App Service and Azure Cloud Services (web and worker roles). In either case, developers have multiple ways to deploy their application without knowing anything about the nuts and bolts that support it. Developers don’t have to create virtual machines (VMs), use Remote Desktop Protocol (RDP) to sign in to each one, or install the application. They just hit a button (or close to it), and the tools provided by Microsoft provision the VMs and then deploy and install the application on them.
+Azure uses a cloud computing model based on categories of service provided to customers. The three categories of service include Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Vendors share some or all of the responsibility for components in the computing stack in each of these categories. Let's take a look at each of the categories for cloud computing.
+![Cloud Computing Stack Comparison](./media/cloud-computing-comparison.png)
 
 #### IaaS: Infrastructure as a service
 
-An IaaS cloud vendor runs and manages all physical compute resources and the required software to enable computer virtualization. A customer of this service deploys virtual machines in these hosted datacenters. Although the virtual machines are located in an offsite datacenter, the IaaS consumer has control over the configuration and management of them.
+An IaaS cloud vendor runs and manages all physical compute resources and the required software to enable computer virtualization. A customer of this service deploys virtual machines in these hosted datacenters. Although the virtual machines are located in an offsite datacenter, the IaaS consumer has control over the configuration and management of the operating system leaving the underlying infrastructure to the cloud vendor.
 
 Azure includes several IaaS solutions including virtual machines, virtual machine scale sets, and the related networking infrastructure. Virtual machines are a popular choice for initially migrating services to Azure because it enables a “lift and shift” migration model. You can configure a VM like the infrastructure currently running your services in your datacenter, and then migrate your software to the new VM. You might need to make configuration updates, such as URLs to other services or storage, but you can migrate many applications in this way.
 
 Virtual machine scale sets are built on top of Azure Virtual Machines and provide an easy way to deploy clusters of identical VMs. Virtual machine scale sets also support autoscaling so that new VMs can be deployed automatically when required. This makes virtual machine scale sets an ideal platform to host higher-level microservice compute clusters, such as Azure Service Fabric and Azure Container Service.
+
+#### PaaS: Platform as a service
+
+With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development and data management.
+
+Azure provides several PaaS compute offerings, including the Web Apps feature of Azure App Service and Azure Cloud Services (web and worker roles). In either case, developers have multiple ways to deploy their application without knowing anything about the nuts and bolts that support it. Developers don’t have to create virtual machines (VMs), use Remote Desktop Protocol (RDP) to sign in to each one, or install the application. They just hit a button (or close to it), and the tools provided by Microsoft provision the VMs and then deploy and install the application on them.
+
+#### SaaS: Software as a service
+
+SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription. SaaS software typically is licensed through a monthly or annual subscription. SaaS software vendors are responsible for all components of the software stack so all you manage is the services provided.
+
+Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
 
 ## Azure services
 
@@ -79,57 +81,57 @@ Azure offers many services in its cloud computing platform. These services inclu
 
 Services for hosting and running application workload:
 
--   Azure Virtual Machines—both Linux and Windows
+- Azure Virtual Machines—both Linux and Windows
 
--   App Services (Web Apps, Mobile Apps, Logic Apps, API Apps, and Function Apps)
+- App Services (Web Apps, Mobile Apps, Logic Apps, API Apps, and Function Apps)
 
--   Azure Batch (for large-scale parallel and batch compute jobs)
+- Azure Batch (for large-scale parallel and batch compute jobs)
 
--   Azure Service Fabric
+- Azure Service Fabric
 
--   Azure Container Service
+- Azure Container Service
 
 ### Data services
 
 Services for storing and managing data:
 
--   Azure Storage (comprises the Azure Blob, Queue, Table, and File services)
+- Azure Storage (comprises the Azure Blob, Queue, Table, and File services)
 
--   Azure SQL Database
+- Azure SQL Database
 
--   Azure Cosmos DB
+- Azure Cosmos DB
 
--   Microsoft Azure StorSimple
+- Microsoft Azure StorSimple
 
--   Azure Redis Cache
+- Azure Redis Cache
 
 ### Application services
 
 Services for building and operating applications:
 
--   Azure Active Directory (Azure AD)
+- Azure Active Directory (Azure AD)
 
--   Azure Service Bus for connecting distributed systems
+- Azure Service Bus for connecting distributed systems
 
--   Azure HDInsight for processing big data
+- Azure HDInsight for processing big data
 
--   Azure Scheduler
+- Azure Scheduler
 
--   Azure Media Services
+- Azure Media Services
 
 ### Network services
 
 Services for networking both within Azure and between Azure and on-premises datacenters:
 
--   Azure Virtual Network
+- Azure Virtual Network
 
--   Azure ExpressRoute
+- Azure ExpressRoute
 
--   Azure-provided DNS
+- Azure-provided DNS
 
--   Azure Traffic Manager
+- Azure Traffic Manager
 
--   Azure Content Delivery Network
+- Azure Content Delivery Network
 
 For detailed documentation on Azure services, see [Azure service documentation](https://docs.microsoft.com/azure).
 
@@ -143,11 +145,11 @@ One of the beneﬁts of using Azure is that you can deploy your applications int
 
 ### Azure portal
 
-The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at https://portal.azure.com. It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### Resources
 
-Azure resources are individual compute, networking, data, or app hosting services that have been deployed into an Azure subscription. Some common resources are virtual machines, storage accounts, or SQL databases. Azure services often consist of several related Azure resources. For instance, an Azure virtual machine might include a VM, storage account, network adapter, and public IP address. These resourcres can be created, managed, and deleted individually or as a group. Azure resources are covered in more detail later in this guide.
+Azure resources are individual compute, networking, data, or app hosting services that have been deployed into an Azure subscription. Some common resources are virtual machines, storage accounts, or SQL databases. Azure services often consist of several related Azure resources. For instance, an Azure virtual machine might include a VM, storage account, network adapter, and public IP address. These resources can be created, managed, and deleted individually or as a group. Azure resources are covered in more detail later in this guide.
 
 ### Resource groups
 
@@ -161,20 +163,25 @@ An Azure Resource Manager template is a JavaScript Object Notation (JSON) file t
 
 In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure command-line interface (CLI).
 
-**Azure PowerShell**
+#### Azure PowerShell
 
 Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-**Azure command-line interface**
+#### Azure command-line interface
 
-The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli.md).
+The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-**REST APIs**
+#### REST APIs
+
 Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index).
+
+### Azure Cloud Shell
+
+Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## Azure subscriptions
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through RBAC.
+A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
 ### Select and enable an Azure subscription
 
@@ -194,13 +201,9 @@ If you exceed the credit amount, your service are disabled until the next month 
 
 ### Grant administrative access to an Azure subscription
 
-Multiple account administrator roles are available and can be changed at any time. Two key roles are:
+RBAC has several built-in roles that you can use to assign permissions. To make a user an administrator of an Azure subscription, assign them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others.
 
--   **Service administrator**: This role is authorized to manage Azure services. By default, it's granted access to the same account as the account administrator.
-
--   **Co-administrator**: This role has the same access as the service administrator. However, this role cannot change the association of a subscription to Azure directories.
-
-For more information, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md).
+For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### View billing information in the Azure portal
 
@@ -212,19 +215,15 @@ For more information, see [How to download your Azure billing invoice and daily 
 
 In addition to viewing the billing in the portal, you can access the billing information by using a script or program through the Azure Billing REST APIs:
 
--   You can use the Azure Usage API to retrieve your usage data. You can fine-tune the billing usage information by tagging related Azure resources. For example, you can tag each of the resources in a resource group with a department name or project name, and then track the costs specifically for that one tag.
+- You can use the Azure Usage API to retrieve your usage data. You can fine-tune the billing usage information by tagging related Azure resources. For example, you can tag each of the resources in a resource group with a department name or project name, and then track the costs specifically for that one tag.
 
--   You can use the Azure Rate Card API to list all the available resources, along with the metadata and pricing information about each of those resources.
+- You can use the Azure Rate Card API to list all the available resources, along with the metadata and pricing information about each of those resources.
 
 For more information, see [Gain insights into your Microsoft Azure resource consumption](../../billing/billing-usage-rate-card-overview.md).
 
 ### Forecast cost with the pricing calculator
 
 The pricing for each service in Azure is different. Many Azure services provide Basic, Standard, and Premium tiers. Usually, each tier has several price and performance levels. By using the [online pricing calculator](http://azure.microsoft.com/pricing/calculator), you can create pricing estimates. The calculator includes flexibility to estimate cost on a single resource or a group of resources.
-
-### Set up billing alerts
-
-After you have deployed your application or solution on Azure, you can create alerts that send you email when you approach spending limits defined in the alert. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](../../billing/billing-set-up-alerts.md).
 
 ## Azure Resource Manager
 
@@ -234,35 +233,35 @@ Resource Manager also includes deployment capabilities that allow for customizab
 
 Resource Manager provides several benefits:
 
--   You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.
+- You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.
 
--   You can repeatedly deploy your solution throughout the development lifecycle and have confidence that your resources are deployed in a consistent state.
+- You can repeatedly deploy your solution throughout the development lifecycle and have confidence that your resources are deployed in a consistent state.
 
--   You can manage your infrastructure through declarative templates rather than scripts.
+- You can manage your infrastructure through declarative templates rather than scripts.
 
--   You can define the dependencies between resources so they are deployed in the correct order.
+- You can define the dependencies between resources so they are deployed in the correct order.
 
--   You can apply access control to all services in your resource group because RBAC is natively integrated into the management platform.
+- You can apply access control to all services in your resource group because RBAC is natively integrated into the management platform.
 
--   You can apply tags on resources to logically organize all the resources in your subscription.
+- You can apply tags on resources to logically organize all the resources in your subscription.
 
--   You can clarify your organization’s billing by viewing costs for a group of resources that share the same tag.
+- You can clarify your organization’s billing by viewing costs for a group of resources that share the same tag.
 
 ### Tips for creating resource groups
 
 When you’re making decisions about your resource groups, consider these tips:
 
--   All the resources in a resource group should have the same lifecycle.
+- All the resources in a resource group should have the same lifecycle.
 
--   You can assign a resource to only one group at a time.
+- You can assign a resource to only one group at a time.
 
--   You can add or remove a resource from a resource group at any time. Every resource must belong to a resource group. So if you remove a resource from one group, you must add it to another.
+- You can add or remove a resource from a resource group at any time. Every resource must belong to a resource group. So if you remove a resource from one group, you must add it to another.
 
--   You can move most types of resources to a different resource group at any time.
+- You can move most types of resources to a different resource group at any time.
 
--   The resources in a resource group can be in different regions.
+- The resources in a resource group can be in different regions.
 
--   You can use a resource group to control access for the resources in it.
+- You can use a resource group to control access for the resources in it.
 
 ### Building Resource Manager templates
 
@@ -270,21 +269,21 @@ Resource Manager templates declaratively define the resources and resource confi
 
 A Resource Manager template consists of four sections:
 
--   **Parameters**: These are inputs to the deployment. Parameter values can be provided by a human or an automated process. An example parameter might be an admin user name and password for a Windows VM. The parameter values are used throughout the deployment when they’re specified.
+- **Parameters**: These are inputs to the deployment. Parameter values can be provided by a human or an automated process. An example parameter might be an admin user name and password for a Windows VM. The parameter values are used throughout the deployment when they’re specified.
 
--   **Variables**: These are used to hold values that are used throughout the deployment. Unlike parameters, a variable value is not provided at deployment time. Instead, it’s hard coded or dynamically generated.
+- **Variables**: These are used to hold values that are used throughout the deployment. Unlike parameters, a variable value is not provided at deployment time. Instead, it’s hard coded or dynamically generated.
 
--   **Resources**: This section of the template defines the resources to be deployed, such as virtual machines, storage accounts, and virtual networks.
+- **Resources**: This section of the template defines the resources to be deployed, such as virtual machines, storage accounts, and virtual networks.
 
--   **Output**: After a deployment has finished, Resource Manager can return data such as dynamically generated connection strings.
+- **Output**: After a deployment has finished, Resource Manager can return data such as dynamically generated connection strings.
 
 The following mechanisms are available for deployment automation:
 
--   **Functions**: You can use several functions in Resource Manager templates. These include operations such as converting a string to lowercase, deploying multiple instances of a defined resource, and dynamically returning the target resource group. Resource Manager functions help build dynamic deployments.
+- **Functions**: You can use several functions in Resource Manager templates. These include operations such as converting a string to lowercase, deploying multiple instances of a defined resource, and dynamically returning the target resource group. Resource Manager functions help build dynamic deployments.
 
--   **Resource dependencies**: When you’re deploying multiple resources, some resources will have a dependency on others. To facilitate deployment, you can use a dependency declaration so that dependent resources are deployed before the others.
+- **Resource dependencies**: When you’re deploying multiple resources, some resources will have a dependency on others. To facilitate deployment, you can use a dependency declaration so that dependent resources are deployed before the others.
 
--   **Template linking**: From within one Resource Manager template, you can link to another template. This allows deployment decomposition into a set of targeted, purpose-specific templates.
+- **Template linking**: From within one Resource Manager template, you can link to another template. This allows deployment decomposition into a set of targeted, purpose-specific templates.
 
 You can build Resource Manager templates in any text editor. However, the Azure SDK for Visual Studio includes tools to help you. By using Visual Studio, you can add resources to the template through a wizard, then deploy and debug the template directly from within Visual Studio. For more information, see [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md).
 
@@ -296,21 +295,21 @@ You can grant operational access to user accounts at a specified scope: subscrip
 
 To grant access, you assign a role to the user or user group. There are many predefined roles. You can also define your own custom roles.
 
-Here are a few example roles built into Azure:
+Here are a few example [built-in roles in Azure](../../role-based-access-control/built-in-roles.md):
 
--   **Owner**: A user with this role can manage everything, including access.
+- **Owner**: A user with this role can manage everything, including access.
 
--   **Reader**: A user with this role can read resources of all types (except secrets) but can’t make changes.
+- **Reader**: A user with this role can read resources of all types (except secrets) but can’t make changes.
 
--   **Virtual machine contributor**: A user with this role can manage virtual machines but can’t manage the virtual network to which they are connected or the storage account where the VHD file resides.
+- **Virtual Machine Contributor**: A user with this role can manage virtual machines but can’t manage the virtual network to which they are connected or the storage account where the VHD file resides.
 
--   **SQL DB contributor**: A user with this role can manage SQL databases but not their security-related policies.
+- **SQL DB Contributor**: A user with this role can manage SQL databases but not their security-related policies.
 
--   **SQL security manager**: A user with this role can manage the security-related policies of SQL servers and databases.
+- **SQL Security Manager**: A user with this role can manage the security-related policies of SQL servers and databases.
 
--   **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
+- **Storage Account Contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -328,19 +327,19 @@ Because Azure virtual machines offer complete control over configuration, they a
 
 You can deploy Azure virtual machines by using the Azure portal, by using automation with the Azure PowerShell module, or by using automation with the cross-platform CLI.
 
-**Portal**
+#### Portal
 
 Deploying a virtual machine by using the Azure portal requires only an active Azure subscription and access to a web browser. You can select many different operating system images with varying configurations. All storage and networking requirements are configured during the deployment. For more information, see “Create a virtual machine in the Azure portal” for [Windows](../../virtual-machines/windows/quick-create-portal.md) and [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 In addition to deploying a virtual machine from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-**PowerShell**
+#### PowerShell
 
 Deploying an Azure virtual machine by using PowerShell allows for complete deployment automation of all related virtual machine resources, including storage and networking. For more information, see [Create a Windows VM using Resource Manager and PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
 In addition to deploying Azure compute resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
-**Command-line interface (CLI)**
+#### Command-line interface (CLI)
 
 As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. When you’re using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
 
@@ -360,31 +359,31 @@ Azure Storage is a Microsoft-managed service that provides durable, scalable, an
 
 Azure storage accounts can be configured with different levels of redundancy:
 
--   **Locally redundant storage** provides high availability by ensuring that three copies of all data are made synchronously before a write is deemed successful. These copies are stored in a single facility in a single region. The replicas reside in separate fault domains and upgrade domains. This means the data is available even if a storage node that’s holding your data fails or is taken offline to be updated.
+- **Locally redundant storage** provides high availability by ensuring that three copies of all data are made synchronously before a write is deemed successful. These copies are stored in a single facility in a single region. The replicas reside in separate fault domains and upgrade domains. This means the data is available even if a storage node that’s holding your data fails or is taken offline to be updated.
 
--   **Geo-redundant storage** makes three synchronous copies of the data in the primary region for high availability, and then asynchronously makes three replicas in a paired region for disaster recovery.
+- **Geo-redundant storage** makes three synchronous copies of the data in the primary region for high availability, and then asynchronously makes three replicas in a paired region for disaster recovery.
 
--   **Read-access geo-redundant storage** is geo-redundant storage plus the ability to read the data in the secondary region. This ability makes it suitable for partial disaster recovery. If there’s a problem with the primary region, you can change your application to have read-only access to the paired region.
+- **Read-access geo-redundant storage** is geo-redundant storage plus the ability to read the data in the secondary region. This ability makes it suitable for partial disaster recovery. If there’s a problem with the primary region, you can change your application to have read-only access to the paired region.
 
 ### Use cases
 
 Each storage type has a different use case.
 
-**Blob storage**
+#### Blob storage
 
 The word *blob* is an acronym for *binary large object*. Blobs are unstructured files like those that you store on your computer. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage. Azure Blob storage also holds Azure Virtual Machines data disks.
 
 Azure Storage supports three kinds of blobs:
 
--   **Block blobs** are used to hold ordinary files up to 195 GB in size (4 MB × 50,000 blocks). The primary use case for block blobs is the storage of files that are read from beginning to end, such as media files or image files for websites. They are named block blobs because files larger than 64 MB must be uploaded as small blocks. These blocks are then consolidated (or committed) into the final blob.
+- **Block blobs** are used to hold ordinary files up to 195 GB in size (4 MB × 50,000 blocks). The primary use case for block blobs is the storage of files that are read from beginning to end, such as media files or image files for websites. They are named block blobs because files larger than 64 MB must be uploaded as small blocks. These blocks are then consolidated (or committed) into the final blob.
 
--   **Page blobs** are used to hold random-access files up to 1 TB in size. Page blobs are used primarily as the backing storage for the VHDs that provide durable disks for Azure Virtual Machines, the IaaS compute service in Azure. They are named page blobs because they provide random read/write access to 512-byte pages.
+- **Page blobs** are used to hold random-access files up to 1 TB in size. Page blobs are used primarily as the backing storage for the VHDs that provide durable disks for Azure Virtual Machines, the IaaS compute service in Azure. They are named page blobs because they provide random read/write access to 512-byte pages.
 
--   **Append blobs** consist of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources to the same blob. For example, you might write all of your trace logging to the same append blob for an application that’s running on multiple VMs. A single append blob can be up to 195 GB.
+- **Append blobs** consist of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources to the same blob. For example, you might write all of your trace logging to the same append blob for an application that’s running on multiple VMs. A single append blob can be up to 195 GB.
 
 For more information, see [Get started with Azure Blob storage using .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
-**File storage**
+#### File storage
 
 Azure File storage is a service that offers file shares in the cloud by using the standard Server Message Block (SMB) protocol. The service supports both SMB 2.1 and SMB 3.0. With Azure File storage, you can migrate applications that rely on file shares to Azure quickly and without costly rewrites. Applications running on Azure virtual machines, in cloud services, or from on-premises clients can mount a file share in the cloud. This is similar to how a desktop application mounts a typical SMB share. Any number of application components can then mount and access the File storage share simultaneously.
 
@@ -392,7 +391,7 @@ Because a File storage share is a standard SMB file share, applications running 
 
 For more information, see [Get started with Azure File storage on Windows](../../storage/files/storage-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
-**Table storage**
+#### Table storage
 
 Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schema-less design. Because Table storage is schema-less, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
 
@@ -400,7 +399,7 @@ You can use Table storage to store flexible datasets, such as user data for web 
 
 For more information, see [Get started with Azure Table storage](../../cosmos-db/table-storage-how-to-use-dotnet.md).
 
-**Queue storage**
+#### Queue storage
 
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
@@ -410,19 +409,19 @@ For more information, see [Get started with Azure Queue storage](../../storage/q
 
 There are several options for deploying a storage account.
 
-**Portal**
+#### Portal
 
-Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
 
 In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-**PowerShell**
+#### PowerShell
 
 Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
-**Command-line interface (CLI)**
+#### Command-line interface (CLI)
 
 As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/common/storage-azure-cli.md)
 
@@ -432,66 +431,55 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 
 Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries.
 
-**Virtual machine disks**
+#### Virtual machine disks
 
 When you’re deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see “Manage Azure disks” for [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) and [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
-**Storage tools**
+#### Storage tools
 
 Azure storage accounts can be accessed through many different storage explorers, such as Visual Studio Cloud Explorer. These tools let you browse through storage accounts and data. For more information and a list of available storage explorers, see [Azure Storage client tools](../../storage/common/storage-explorers.md).
 
-**Storage API**
+#### Storage API
 
 Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management and automatic retries. For more information, see [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
-**Storage access keys**
+#### Storage access keys
 
 Each storage account has two authentication keys, a primary and a secondary. Either can be used for storage access operations. These storage keys are used to help secure a storage account and are required for programmatically accessing data. There are two keys to allow occasional rollover of the keys to enhance security. It is critical to keep the keys secure because their possession, along with the account name, allows unlimited access to any data in the storage account.
 
-**Shared access signatures**
+#### Shared access signatures
 
 If you need to allow users to have controlled access to your storage resources, you can create a shared access signature. A shared access signature is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource that it points to with the permissions that it specifies, for the period of time that it’s valid. For more information, see [Using shared access signatures](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ## Azure Virtual Network
 
+Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. Azure supports different uses cases: cloud-only networks or hybrid virtual networks.
 
-Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. By using a VPN gateway or an ExpressRoute circuit, you can connect Azure virtual networks to your on-premises networks.
-
-### Use cases
-
-There are different use cases for Azure networking.
-
-**Cloud-only virtual networks**
+### Cloud-only virtual networks
 
 An Azure virtual network, by default, is accessible only to resources stored in Azure. Resources connected to the same virtual network can communicate with each other. You can associate virtual machine network interfaces and load balancers with a public IP address to make the virtual machine accessible over the Internet. You can help secure access to the publicly exposed resources by using a network security group.
 
-**Cross-premises virtual networks**
+![Azure Virtual Network for a 2-tier Web Application](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+
+### Hybrid virtual networks
 
 You can connect an on-premises network to an Azure virtual network by using ExpressRoute or a site-to-site VPN connection. In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
+![Hybrid Virtual Network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Because the Azure virtual network is connected to your on-premises network, cross-premises virtual networks must use a unique portion of the address space that your organization uses. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend your network.
-
-### Deploying a virtual network
-
 There are several options for deploying a virtual network.
 
-**Portal**
+- [Portal](../..//virtual-network/quick-create-portal.md)
 
-Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. For more information, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
+- [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-In addition to deploying an Azure virtual network from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any virtual network resources. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+- [Command-Line Interface (CLI)](../../virtual-network/quick-create-cli.md)
 
-**PowerShell**
+- Azure Resource Manager Templates
 
-Deploying an Azure virtual network by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Create a virtual network by using PowerShell](../../virtual-network/quick-create-powershell.md).
+>**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters.
 
-In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
-
-**Command-line interface (CLI)**
-
-As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **network vnet create** command to create a virtual network. For more information, see [Create a virtual network by using the Azure CLI](../../virtual-network/quick-create-cli.md).
-
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+>**Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
 ### Access and security for virtual networks
 
@@ -499,5 +487,5 @@ You can help secure Azure virtual networks by using a network security group. NS
 
 ## Next steps
 
-- [Create a Windows VM](/virtual-machines/windows/quick-create-portal.md)
+- [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md)
 - [Create a Linux VM](../../virtual-machines/linux/quick-create-portal.md)

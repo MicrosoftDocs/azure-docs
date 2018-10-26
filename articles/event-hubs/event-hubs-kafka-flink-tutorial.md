@@ -3,14 +3,14 @@ title: Use Apache Flink with Azure Event Hubs for Apache Kafka | Microsoft Docs
 description: Connecting Apache Flink to a Kafka enabled event hub
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: basilhariri
 manager: timlt
 
 ms.service: event-hubs
 ms.topic: article
 ms.custom: mvc
-ms.date: 06/06/2018
-ms.author: shvija
+ms.date: 08/06/2018
+ms.author: bahariri
 
 ---
 
@@ -25,6 +25,9 @@ In this tutorial, you learn how to:
 > * Clone the example project
 > * Run Flink producer 
 > * Run Flink consumer
+
+> [!NOTE]
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink)
 
 ## Prerequisites
 
@@ -46,11 +49,11 @@ An Event Hubs namespace is required to send or receive from any Event Hubs servi
 
 ## Clone the example project
 
-Now that you have a Kafka-enabled Event Hubs connection string, clone the Azure Event Hubs repository and navigate to the `flink` subfolder:
+Now that you have a Kafka-enabled Event Hubs connection string, clone the Azure Event Hubs for Kafka repository and navigate to the `flink` subfolder:
 
 ```shell
-git clone https://github.com/Azure/azure-event-hubs.git
-cd azure-event-hubs/samples/kafka/flink
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/flink
 ```
 
 ## Run Flink producer
@@ -126,7 +129,10 @@ In this tutorial, your learned how to connect Apache Flink to Kafka-enabled even
 > * Run Flink producer 
 > * Run Flink consumer
 
-Advance to the next article to learn more about Event Hubs for Apache Kafka:
+To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
 
-> [!div class="nextstepaction"]
-> [Use Akka Streams with Azure Event Hubs for Kafka](event-hubs-kafka-akka-streams-tutorial.md)
+* [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Explore more samples on the Event Hubs for Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Learn how to stream into Kafka enabled Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md) or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

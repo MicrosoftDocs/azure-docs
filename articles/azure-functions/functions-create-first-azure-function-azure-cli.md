@@ -1,38 +1,70 @@
 ---
-title: Create your first function from the Azure CLI | Microsoft Docs 
-description: Learn how to create your first Azure Function for serverless execution using the Azure CLI.
+title: Create your first function using the Azure CLI
+description: Learn how to create your first Azure Function for serverless execution using the Azure CLI and Azure Functions Core Tools.
 services: functions 
 keywords: 
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 01/24/2018
+ms.date: 09/10/2018
 ms.topic: quickstart
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: cfowler
+manager: jeconnoc
 ---
 
-# Create your first function using the Azure CLI
+# Create your first function from the command line
 
-This quickstart topic walks you through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
+This quickstart topic walks you through how to create your first function from the command line or terminal. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/solutions/serverless/) infrastructure that hosts your function. The function code project is generated from a template by using the [Azure Functions Core Tools](functions-run-local.md), which is also used to deploy the function app project to Azure.
 
-You can follow the steps below using a Mac, Windows, or Linux computer. 
+You can follow the steps below using a Mac, Windows, or Linux computer.
 
-## Prerequisites 
+## Prerequisites
 
 Before running this sample, you must have the following:
 
-+ An active [GitHub](https://github.com) account. 
++ Install [Azure Core Tools version 2.x](functions-run-local.md#v2).
+
++ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
+
 + An active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Create the local function app project
 
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. A GitHub repo is also created in `MyFunctionProj`.
 
+```bash
+func init MyFunctionProj
+```
+
+When prompted, select a worker runtime from the following language choices:
+
++ `dotnet`: creates a .NET class library project (.csproj).
++ `node`: creates a JavaScript project.
+
+When the command executes, you see something like the following output:
+
+```output
+Writing .gitignore
+Writing host.json
+Writing local.settings.json
+Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
+```
+
+Use the following command to navigate to the new `MyFunctionProj` project folder.
+
+```bash
+cd MyFunctionProj
+```
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -45,11 +77,11 @@ You must have a function app to host the execution of your functions. The functi
 In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. The _deployment-source-url_ parameter is a sample repository in GitHub that contains a "Hello World" HTTP triggered function.
 
 ```azurecli-interactive
-az functionapp create --deployment-source-url https://github.com/Azure-Samples/functions-quickstart  \
---resource-group myResourceGroup --consumption-plan-location westeurope \
+az functionapp create --resource-group myResourceGroup --consumption-plan-location westeurope \
 --name <app_name> --storage-account  <storage_name>  
 ```
-Setting the _consumption-plan-location_ parameter means that the function app is hosted in a Consumption hosting plan. In this plan, resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
+
+Setting the _consumption-plan-location_ parameter means that the function app is hosted in a Consumption hosting plan. In this serverless plan, resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md).
 
 After the function app has been created, the Azure CLI shows information similar to the following example:
 
@@ -70,6 +102,20 @@ After the function app has been created, the Azure CLI shows information similar
     // Remaining output has been truncated for readability.
 }
 ```
+
+## Configure the function app
+
+Core Tools version 2.x creates projects using templates for the Azure Functions 2.x runtime. Because of this, you need to make sure that the version 2.x runtime is used in Azure. Setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `~2` pins the function app to the latest 2.x version. Set application settings with the [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) command.
+
+In the following Azure CLI command, `<app_name> is the name of your function app.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~2
+```
+
+[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

@@ -3,15 +3,11 @@ title: Durable Functions publishing to Azure Event Grid (preview)
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: glenga
 ---
@@ -32,7 +28,7 @@ Following are some scenarios where this feature is useful:
 
 * Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc or later in your Durable Functions project.
 * Install [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
-* Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* Install [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## Create a custom Event Grid topic
 
@@ -136,9 +132,11 @@ A function with the following code is created:
 #r "Newtonsoft.Json"
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-public static void Run(JObject eventGridEvent, TraceWriter log)
+using Microsoft.Extensions.Logging;
+
+public static void Run(JObject eventGridEvent, ILogger log)
 {
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
+    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
 }
 ```
 
@@ -163,6 +161,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace LifeCycleEventSpike
 {
@@ -185,9 +184,9 @@ namespace LifeCycleEventSpike
         }
 
         [FunctionName("Sample_Hello")]
-        public static string SayHello([ActivityTrigger] string name, TraceWriter log)
+        public static string SayHello([ActivityTrigger] string name, ILogger log)
         {
-            log.Info($"Saying hello to {name}.");
+            log.LogInformation($"Saying hello to {name}.");
             return $"Hello {name}!";
         }
 
@@ -195,11 +194,11 @@ namespace LifeCycleEventSpike
         public static async Task<HttpResponseMessage> HttpStart(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
             [OrchestrationClient]DurableOrchestrationClient starter,
-            TraceWriter log)
+            ILogger log)
         {
             // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync("Sample", null);
-            log.Info($"Started orchestration with ID = '{instanceId}'.");
+            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
             return starter.CreateCheckStatusResponse(req, instanceId);
         }
     }

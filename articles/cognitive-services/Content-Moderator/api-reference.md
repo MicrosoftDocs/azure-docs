@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator API reference | Microsoft Docs
+title: API reference - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Learn about the content moderation and review APIs for Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
 ---

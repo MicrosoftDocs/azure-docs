@@ -51,6 +51,9 @@ default  myResourceGroup  1.9.9            1.9.9              1.10.3, 1.10.5, 1.
 
 Use the [az aks upgrade][] command to upgrade the AKS cluster. The following example upgrades the cluster to Kubernetes version *1.10.6*.
 
+> [!NOTE]
+> You can only upgrade one minor version at a time. For example, you can upgrade from *1.9.6* to *1.10.3*, but cannot upgrade from *1.9.6* to *1.11.x* directly. To upgrade from *1.9.6* to *1.11.x*, first upgrade from *1.9.6* to *1.10.3*, then perform another upgrade from *1.10.3* to *1.11.x*.
+
 ```azurecli
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.6
 ```
@@ -96,6 +99,17 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.10.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
+## Delete the cluster
+
+As this is the last part of the tutorial series, you may want to delete the AKS cluster. As the Kubernetes nodes run on Azure virtual machines (VMs), they continue to incur charges even if you don't use the cluster. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+> [!NOTE]
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+
 ## Next steps
 
 In this tutorial, you upgraded Kubernetes in an AKS cluster. You learned how to:
@@ -120,3 +134,5 @@ Follow this link to learn more about AKS.
 [az aks get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az aks upgrade]: /cli/azure/aks#az-aks-upgrade
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-group-delete]: /cli/azure/group#az-group-delete
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

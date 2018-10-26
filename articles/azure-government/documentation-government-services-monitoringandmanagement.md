@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/11/2018
+ms.date: 08/15/2018
 ms.author: gsacavdm
 
 ---
@@ -63,7 +63,7 @@ The following Site Recovery features are not currently available in Azure Govern
 
 | Site Recovery | Classic | Resource Manager |
 | --- | --- | --- |
-| VMWare/Physical  | GA | GA |
+| VMware/Physical  | GA | GA |
 | Hyper-V | GA | GA |
 | Site to Site | GA | GA |
 
@@ -152,7 +152,6 @@ The following Log Analytics features and solutions are not currently available i
 * Features that are in preview in public Azure, including:
   * Export of data to Power BI
 * Azure metrics and Azure diagnostics
-* Operations Management Suite mobile application
 
 The URLs for Log Analytics are different in Azure Government:
 
@@ -163,14 +162,15 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.blob.core.windows.net |\*.blob.core.usgovcloudapi.net |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
-| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#advanced-analytics-portal) |
-| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#advanced-analytics-portal) |
-| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#advanced-analytics-portal) |
+| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page) |
+| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page) |
+| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page) |
 | \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../log-analytics/log-analytics-concept-hybrid.md#network-firewall-requirements) |
+| N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../log-analytics/log-analytics-concept-hybrid.md#network-firewall-requirements) |
 
 The following Log Analytics features behave differently in Azure Government:
 
-* To connect your System Center Operations Manager management server to Log Analytics, you need to download and import updated management packs.
+* To connect your System Center Operations Manager management group to Log Analytics, you need to download and import updated management packs.
   + System Center Operations Manager 2016
     1. Install [Update Rollup 2 for System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
     2. Import the management packs included as part of Update Rollup 2 into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/library/hh212691.aspx).
@@ -186,7 +186,7 @@ The following Log Analytics features behave differently in Azure Government:
 ### Frequently asked questions
 * Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
   * No. It is not possible to move data or your workspace from Microsoft Azure to Azure Government.
-* Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite Log Analytics portal?
+* Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite portal?
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).

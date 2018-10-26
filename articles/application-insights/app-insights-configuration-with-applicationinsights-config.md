@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
 
@@ -239,7 +239,30 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
    </ApplicationInsights>
 ```
 
+#### Local forwarder
 
+[Local forwarder](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. When coupled with the Application Insights Java SDK the local forwarder provides full support for [Live Metrics](app-insights-live-stream.md) and adaptive sampling.
+
+```xml
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+
+<!-- The properties below are optional. The values shown are the defaults for each property -->
+
+<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
+
+If you are using SpringBoot starter, add the following to your configuration file (application.properties):
+
+```yml
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
+azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
+```
+
+Default values are the same for SpringBoot application.properties and applicationinsights.xml configuration.
 
 ## InstrumentationKey
 This determines the Application Insights resource in which your data appears. Typically you create a separate resource, with a separate key, for each of your applications.

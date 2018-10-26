@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to build Apache Spark machine lear
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018

@@ -52,7 +52,7 @@ Here are the typical steps to create a data factory pipeline with a Spark activi
 * Create a pipeline with Spark activity that refers to the HDInsight linked service you created. The activity is configured with the dataset you created in the previous step as an output dataset. The output dataset is what drives the schedule (hourly, daily). Therefore, you must specify the output dataset even though the activity doesn't really produce an output.
 
 ### Prerequisites
-1. Create a general-purpose storage account by following the instructions in [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Create a general-purpose storage account by following the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
 
 1. Create a Spark cluster in HDInsight by following the instructions in the tutorial [Create a Spark cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associate the storage account you created in step 1 with this cluster.
 
@@ -105,7 +105,7 @@ In this step, you link your storage account to your data factory. A dataset you 
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Replace **account name** and **account key** with the name and access key of your storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Replace **account name** and **account key** with the name and access key of your storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
 
 1. To deploy the linked service, select **Deploy** on the command bar. After the linked service is deployed successfully, the Draft-1 window disappears. You see **AzureStorageLinkedService** in the tree view on the left.
 

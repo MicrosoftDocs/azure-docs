@@ -3,7 +3,8 @@ title: Provision a Linux (Ubuntu) Data Science Virtual Machine on Azure | Micros
 description: Configure and create a Data Science Virtual Machine For Linux (Ubuntu) on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
 
 
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
 
 ---
 
@@ -51,7 +51,7 @@ The Data Science Virtual Machine for Linux also contains popular tools for data 
 * Machine learning tools
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation
-  * [Rattle](http://rattle.togaware.com/): A graphical tool that makes getting started with data analytics and machine learning in R easy
+  * [Rattle](https://togaware.com/rattle/): A graphical tool that makes getting started with data analytics and machine learning in R easy
   * [LightGBM](https://github.com/Microsoft/LightGBM): A fast, distributed, high-performance gradient boosting framework
 * Azure SDK in Java, Python, node.js, Ruby, PHP
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
@@ -79,13 +79,14 @@ Before you can create a Data Science Virtual Machine for Linux, you must have an
 ## Create your Data Science Virtual Machine for Linux
 Here are the steps to create an instance of the Data Science Virtual Machine for Linux:
 
-1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
+1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). You may be prompted to login to your Azure account if you are not already signed in. 
 1. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
    
    a. **Basics**:
    
    * **Name**: Name of your data science server you are creating.
+   * **VM Disk Type**: Choose **Premium SSD** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard HDD**. 
    * **User Name**: First account sign-in ID.
    * **Password**: First account password (you can use SSH public key instead of password).
    * **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
@@ -94,23 +95,17 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
    
    b. **Size**:
    
-   * Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes. Select an NC or ND-class VM for GPU training. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page lists the regions with GPUs.
+   * Select one of the server types that meets your functional requirement and cost constraints. Select an NC or ND-class VM for GPU based VM instances. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page lists the regions with GPUs.
    
    c. **Settings**:
    
-   * **Disk Type**: Choose **Premium** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard**. GPU VMs require a Standard disk.
-   * **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
-   * **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
+   * In most cases, you can just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
    
    d. **Summary**:
    
-   * Verify that all information you entered is correct.
+   * Verify that all information you entered is correct. A link is provided to the terms of use. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. To start the provisioning, click **Create**. 
    
-   e. **Buy**:
-   
-   * To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
-
-The provisioning should take about 5-10 minutes. The status of the provisioning is displayed on the Azure portal.
+The provisioning should take about 5 minutes. The status of the provisioning is displayed on the Azure portal.
 
 ## How to access the Data Science Virtual Machine for Linux
 
@@ -147,7 +142,7 @@ After you sign in to the VM by using either the SSH client or XFCE graphical des
 
 The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multi-user Jupyter server. To connect, browse to https://your-vm-ip:8000 on your laptop or desktop, enter the username and password that you used to create the VM, and log in. Many sample notebooks are available for you to browse and try out.
 
-JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, log in to JupyterHub, then browse to the URL https://your-vm-ip:8000/lab. You can set JupyterLab as the default notebook server by adding this line to /etc/jupyterhub/jupyterhub_config.py:
+JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, log in to JupyterHub, then browse to the URL https://your-vm-ip:8000/user/your-username/lab. You can set JupyterLab as the default notebook server by adding this line to /etc/jupyterhub/jupyterhub_config.py:
 
     c.Spawner.default_url = '/lab'
 
@@ -434,6 +429,6 @@ Here's how you can continue your learning and exploration:
 
 * The [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
-* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.
+* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](http://aka.ms/tdsp).
+* Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
 

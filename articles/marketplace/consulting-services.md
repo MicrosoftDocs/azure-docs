@@ -70,7 +70,7 @@ For more information, see [competencies through Microsoft Partner Network](https
 The launch of Azure Marketplace consulting services will go live in specific geo-region. First launch will be: United States, Canada, the United Kingdom, and Australia. The catalogs for other countries will go live after a meaningful number and compelling selection of service offerings have been submitted by partners and approved by Microsoft.
 
 ## How To Register For Consulting Services in Azure Marketplace
-Start by registering your consulting services with [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Publishers can reference [Become a Publisher in the Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), for a complete check-list of registration requirements. 
+Start by registering your consulting services with [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Publishers can reference [Become a Publisher in the Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), for a complete check-list of registration requirements. 
 
 **What To Expect After Registration**
 The Onboarding Team will reach out in 1-3 business days with a welcome email which will include your Cloud Partner Portal (CPP) login information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions. 
@@ -149,7 +149,7 @@ When reviewing Offer Descriptions and Offer Summaries, the team will apply the f
 |**Proof of Concept**    |    Articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement     | Optimize your offer summary with your top Search Engine Optimization keywords        |
 |**Workshop**    |   Include a detailed agenda daily, weekly, or monthly, depending on the chosen duration of your offering. Articulate what the learning goals or other deliverables are of your workshop     |   Optimize your offer summary with your top Search Engine optimization keywords      |
 
-Within Cloud Partner Portal, you can add formatting to your listing by using [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). This is a lightweight design language that will help add polish to your listing. 
+Within Cloud Partner Portal, you can add formatting to your listing by using [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). This is a lightweight design language that will help add polish to your listing. 
 
 **Sample Markdown Notes**
 *	Add * at beginning and end of copy block - with no space to create italics (Ex: *content*)

@@ -35,7 +35,7 @@ default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.
 We have three versions available for upgrade: 1.9.1, 1.9.2 and 1.9.6. We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, AKS will add a new node to the cluster, then carefully [cordon and drain][kubernetes-drain] one node at a time to minimize disruption to running applications.
 
 > [!NOTE]
-> When upgrading an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between 1.8.x -> 1.9.x or 1.9.x -> 1.10.x are allowed, however 1.8 -> 1.10 is not.
+> When upgrading an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between 1.8.x -> 1.9.x or 1.9.x -> 1.10.x are allowed, however 1.8 -> 1.10 is not. To upgrade, from 1.8 -> 1.10, you need to upgrade first from 1.8 -> 1.9 and then another do another upgrade from 1.9 -> 1.10
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

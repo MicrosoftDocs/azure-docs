@@ -1,23 +1,24 @@
 ---
-title: Cognitive Services Speech Devices SDK Third Party Notice
-titleSuffix: "Microsoft Cognitive Services"
-description: Information about third party tools
+title: Cognitive Services Speech Devices SDK third-party notice
+titleSuffix: Azure Cognitive Services
+description: Information about third-party tools
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ---
-# THIRD-PARTY SOFTWARE
+# Third-party software
 
-Do Not Translate or Localize
+*Do not translate or localize*
 
-This file provides informationregarding components that are being relicensed to you by Microsoft under Microsoft's software licensing terms.  Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+This file provides information regarding components that are being relicensed to you by Microsoft under Microsoft's software licensing terms.  Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-Microsoft is offering you a license to use the following components with Speech Devices SDKsubject to the terms of the Microsoft software license terms for Speech Devices SDK products (the “Microsoft Program”).
+Microsoft is offering you a license to use the following components with Speech Devices SDK subject to the terms of the Microsoft software license terms for Speech Devices SDK products (the “Microsoft Program”).
 
 1.	kgabis/parson version b87a27c
 2.	Azure/azure-c-shared-utility version ed84cdb

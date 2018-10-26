@@ -4,7 +4,7 @@ description: Learn how to use Zeppelin to run Hive queries.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP 
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,

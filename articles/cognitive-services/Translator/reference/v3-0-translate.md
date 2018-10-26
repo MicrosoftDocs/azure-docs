@@ -1,19 +1,19 @@
 ---
-title: Microsoft Translator Text API Translate Method | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Use the Microsoft Translator Text API Translate method.
+title: Translator Text API Translate Method
+titleSuffix: Azure Cognitive Services
+description: Use the Translator Text API Translate method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Translate
+# Translator Text API 3.0: Translate
 
 Translates text.
 

@@ -4,7 +4,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -20,8 +20,8 @@ In Analysis Services, service principals are used with Azure Automation, PowerSh
  
 Service principals can be created in the Azure portal or by using PowerShell. To learn more, see:
 
-[Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Create service principal - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## Store credential and certificate assets in Azure Automation
 

@@ -4,7 +4,7 @@ description: Learn how to use Python in streaming MapReduce jobs. Hadoop provide
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017

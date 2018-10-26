@@ -2,18 +2,12 @@
 title: Copy data to  your Microsoft Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to copy data to your Azure Data Box Disk
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -25,17 +19,14 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Copy data to Data Box Disk
-> * Verify data integrity
+> * Verify data
 
 ## Prerequisites
 
 Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
-- Your disks are unpacked and turned on.
-- You have a host computer to copy data to the disks. Your host computer must
-    - Run a [Supported operating system](data-box-disk-system-requirements.md).
-    - Have [Windows PowerShell 4 installed](https://www.microsoft.com/download/details.aspx?id=40855).
-    - Have [.NET Framework 4.5 installed](https://www.microsoft.com/download/details.aspx?id=30653).
+- Your disks are unlocked and connected to a client computer.
+- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md).
 
 
 ## Copy data to disks
@@ -54,6 +45,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
     Follow the Azure naming requirements for container and blob names.
 
+    #### Azure naming conventions for container and blob names
     |Entity   |Conventions  |
     |---------|---------|
     |Container names block blob and page blob     |Must start with a letter or number, and can contain only lowercase letters, numbers, and the hyphen (-). Every hyphen (-) must be immediately preceded and followed by a letter or number. Consecutive hyphens are not permitted in names. <br>Must be a valid DNS name, which is 3 to 63 characters long.          |
@@ -71,8 +63,8 @@ Perform the following steps to connect and copy data from your computer to the D
     
     |Parameters/Options  |Description |
     |--------------------|------------|
-    |<Source>            | Specifies the path to the source directory.        |
-    |<Destination>       | Specifies the path to the destination directory.        |
+    |Source            | Specifies the path to the source directory.        |
+    |Destination       | Specifies the path to the destination directory.        |
     |/E                  | Copies subdirectories including empty directories. |
     |/MT[:N]             | Creates multi-threaded copies with N threads where N is an integer between 1 and 128. <br>The default value for N is 8.        |
     |/R: <N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |
@@ -160,17 +152,89 @@ Perform the following steps to connect and copy data from your computer to the D
 > -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md). 
 > - If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
 
-## Verify data integrity
+### Split and copy data to disks
 
-To verify the data integrity, perform the following steps.
+This optional procedure may be used when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. The Data Box Split Copy tool helps split and copy the data on a Windows computer.
 
-1. Run the `AzureExpressDiskService.ps1` for checksum validation. In File Explorer, go to the *AzureImportExport* folder of the drive. Right-click and select **Run with PowerShell**. 
+1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool was downloaded when you downloaded the Data Box Disk toolset for Windows.
+2. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk. 
 
-    ![Run checksum](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
+     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+ 
+3. Identify the source data to copy. For instance, in this case:
+    - Following block blob data was identified.
 
-2. Depending upon your data size, this step may take a while. A summary of the data integrity check process along with time to complete the process is displayed when the script has completed. You can press **Enter** to exit out of the command window.
+         ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+
+    - Following page blob data was identified.
+
+         ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+ 
+4. Go to the folder where the software is extracted. Locate the SampleConfig.json file in that folder. This is a read-only file that you can modify and save.
+
+   ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+ 
+5. Modify the SampleConfig.json file.
+ 
+    - Provide a job name. This creates a folder in the Data Box Disk and eventually becomes the container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions. 
+    - Supply a source path making note of the path format in the SampleConfigFile.json. 
+    - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
+    - Provide a path for the log files. By default, it is sent to the current directory where the .exe is located.
+
+     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+
+6. To validate the file format, go to JSONlint. Save the file as ConfigFile.json. 
+
+     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+ 
+7. Open a Command Prompt window. 
+
+8. Run the DataBoxDiskSplitCopy.exe. Type
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
+
+     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+ 
+9. Enter to continue the script.
+
+    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+  
+10. When the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented. A sample output is shown below.
+
+    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+ 
+11. Verify that the data is split across the target disks. 
+ 
+    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+	 
+    If you examine the contents of n: drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
+    
+     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+
+12. If the copy session fails, then to recover and resume, use the following command:
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
+
+
+After the data copy is complete, next step is to validate data. 
+
+
+## Validate data 
+
+To verify the data, perform the following steps.
+
+1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *AzureImportExport* folder of your drive. 
+    
+    ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
+
+2. Choose the appropriate option. **We recommend that you always validate the files and generate checksums by selecting option 2**. Depending upon your data size, this step may take a while. Once the script has completed, exit out of the command window. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - Reset the tool beween two runs.
+    > - Use option 1 to validate the files only dealing with large data set containing small files (~ KBs). In these instances, checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
 

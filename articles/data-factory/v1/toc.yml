@@ -186,7 +186,7 @@
 - name: Reference
   items: 
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
+    href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
     href: /powershell/module/azurerm.datafactories
   - name: .NET

@@ -1,15 +1,22 @@
 ---
 title: FPGA package for hardware acceleration for Azure Machine Learning
 description: Learn about the python packages available for Azure Machine Learning users. 
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: reference
+
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
+
+ROBOTS: NOINDEX
 ---
 # Azure Machine Learning Hardware Acceleration package
+
+>[!Note]
+>**This article is deprecated.** This FPGA package was deprecated. Support for this functionality was added to the Azure ML SDK. Support for this package will end incrementally. [View the support timeline](overview-what-happened-to-workbench.md#timeline). Learn about updated [FPGA support](concept-accelerate-with-fpgas.md).
 
 The Azure Machine Learning Hardware Acceleration package is a Python pip-installable extension for Azure Machine Learning that enables data scientists and AI developers to quickly:
 
@@ -23,7 +30,7 @@ The Azure Machine Learning Hardware Acceleration package is a Python pip-install
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. You must create an Azure Machine Learning Model Management account. For more information on creating the account, see the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) document. 
+1. An Azure Machine Learning Model Management account. For more information on creating the account, see the [Azure Machine Learning Quickstart and Workbench installation](../desktop-workbench/quickstart-installation.md) document. 
 
 1. The package must be installed. 
 
@@ -34,18 +41,18 @@ The Azure Machine Learning Hardware Acceleration package is a Python pip-install
 
 2. Install [Anaconda (Python 3.6)](https://conda.io/miniconda.html)
 
-3. To download a pre-configured Anaconda environment, use the following command from the Git prompt:
+   To download a pre-configured Anaconda environment, use the following command from the Git prompt:
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. To create the environment, open an **Anaconda Prompt** and use the following command:
+1. To create the environment, open an **Anaconda Prompt** and use the following command:
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. To activate the environment, use the following command:
+1. To activate the environment, use the following command:
 
     ```
     conda activate amlrealtimeai
@@ -137,7 +144,7 @@ This sample code walks you through using the SDK to deploy a model to an FPGA.
 
 ## Reporting issues
 
-Use the [forum](https://aka.ms/aml-forum) to report any issues you encounter with the package.
+Use the [forum](https://aka.ms/aml-forum-service) to report any issues you encounter with the package.
 
 ## Next steps
 

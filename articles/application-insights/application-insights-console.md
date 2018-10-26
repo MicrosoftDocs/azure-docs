@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
 
@@ -41,7 +41,7 @@ telemetryClient.TrackTrace("Hello World!");
 You may initialize and configure Application Insights from the code or using `ApplicationInsights.config` file. Make sure initialization happens as early as possible. 
 
 > [!NOTE]
-> Instructions referring to **ApplicationInsights.config** are only applicable to apps that are targeting .NET Standard, and do not apply to .NET Core applications. 
+> Instructions referring to **ApplicationInsights.config** are only applicable to apps that are targeting the .NET Framework, and do not apply to .NET Core applications.
 
 ### Using config file
 
@@ -54,7 +54,9 @@ TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads Applicat
 You may also specify path to the config file.
 
 ```csharp
-TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
+using System.IO;
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration(File.ReadAllText("C:\\ApplicationInsights.config"));
+var telemetryClient = new TelemetryClient(configuration);
 ```
 
 For more information, see [configuration file reference](app-insights-configuration-with-applicationinsights-config.md).

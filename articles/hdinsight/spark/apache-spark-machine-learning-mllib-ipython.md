@@ -4,7 +4,7 @@ description: Learn how to use Spark MLlib to create a machine learning app that 
 keywords: spark machine learning, spark machine learning example
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017

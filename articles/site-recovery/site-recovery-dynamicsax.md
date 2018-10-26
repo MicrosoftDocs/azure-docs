@@ -95,7 +95,7 @@ You can select the VM in the replicated items to configure the network settings,
 
 * If you're using a static IP, specify the IP that you want the VM to take in the **Target IP** text box.
 
-    ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### 5. Create a recovery plan

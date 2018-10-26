@@ -10,14 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
 ---
 # Create resource groups in Azure Resource Manager templates
 
-To create a resource group in an Azure Resource Manager template, define a **Microsoft.Resources/resourceGroups** resource with a name and location for the resource group. Deploy the template to your Azure subscription. You can also deploy resources to that resource group in the same template.
+To create a resource group in an Azure Resource Manager template, define a **Microsoft.Resources/resourceGroups** resource with a name and location for the resource group. Deploy the template to your Azure subscription. For more information about subscription level deployments, see [Deploy resources to an Azure subscription](deploy-to-subscription.md).
 
-This article uses Azure CLI to deploy the templates. Currently, PowerShell doesn't support deploying a template to a subscription.
+You can also deploy resources to that resource group in the same template.
+
+This article uses Azure CLI and PowerShell to deploy the templates.
 
 ## Create empty resource group
 
@@ -25,7 +27,7 @@ The following example creates an empty resource group.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "rgName": {
@@ -59,13 +61,24 @@ az deployment create \
   --parameters rgName=demoRG rgLocation=northcentralus
 ```
 
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
+```
+
 ## Create several resource groups
 
 Use the [copy element](resource-group-create-multiple.md) with resource groups to create more than one resource group. 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "rgNamePrefix": {
@@ -106,6 +119,18 @@ az deployment create \
   --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
 ```
 
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgNamePrefix demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
+```
+
 ## Create resource group and deploy resource
 
 To create the resource group and deploy resources to it, use a nested template. The nested template defines the resources to deploy to the resource group. Set the nested template as dependent on the resource group to make sure the resource group exists before deploying the resources.
@@ -114,7 +139,7 @@ The following example creates a resource group, and deploys a storage account to
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "rgName": {
@@ -141,7 +166,7 @@ The following example creates a resource group, and deploys a storage account to
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
+            "apiVersion": "2018-05-01",
             "name": "storageDeployment",
             "resourceGroup": "[parameters('rgName')]",
             "dependsOn": [
@@ -185,7 +210,20 @@ az deployment create \
   --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
 ```
 
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
+
 ## Next steps
+* To learn about subscription level deployments, see [Deploy resources to an Azure subscription](deploy-to-subscription.md).
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
 * For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).

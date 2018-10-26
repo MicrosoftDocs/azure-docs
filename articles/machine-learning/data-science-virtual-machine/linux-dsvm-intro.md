@@ -35,7 +35,7 @@ The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine t
   * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
-  * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
+  * [Rattle](https://togaware.com/rattle/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
 * Azure SDK in Java, Python, node.js, Ruby, PHP
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -60,7 +60,7 @@ An [Ubuntu](dsvm-ubuntu-intro.md) image is also available, with many of the same
 Before you can create a Linux Data Science Virtual Machine, you must have the following:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
-* **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, if you do not want to use an existing account, the storage account can be created as part of the process of creating the VM.
+* **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-quickstart-create-account.md). Alternatively, if you do not want to use an existing account, the storage account can be created as part of the process of creating the VM.
 
 ## Create your Linux Data Science Virtual Machine
 Here are the steps to create an instance of the Linux Data Science Virtual Machine:

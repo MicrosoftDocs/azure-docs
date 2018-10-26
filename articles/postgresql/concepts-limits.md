@@ -41,10 +41,7 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 - Decreasing server storage size is currently not supported.
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported.
-
-### Subscription management
-- Dynamically moving servers across subscriptions and resource groups is currently not supported.
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
 
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.

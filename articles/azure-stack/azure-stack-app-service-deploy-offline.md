@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
 
 ---
@@ -22,7 +22,7 @@ ms.author: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1804 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.2.
+> Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.3.
 >
 >
 
@@ -134,7 +134,17 @@ To deploy App Service in a disconnected environment, you must first create an of
     > [!NOTE]
     > The installer attempts to test connectivity to the SQl Server before proceeding.  However, if you chose to deploy in an existing Virtual Network, the installer might not be able to connect to the SQL Server and displays a warning asking whether you want to continue.  Verify the SQL Server information and continue if they are correct.
     >
-    >
+    > From Azure App Service on Azure Stack 1.3 onwards, the installer will check that the SQL Server has database containment enabled at the SQL Server level.  If it is not, you will be prompted with the following exception:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Refer to the [release notes for Azure App Service on Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) for more details.
    
    ![App Service Installer][12]
 
@@ -156,7 +166,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Installer][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.**
+    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.  Azure App Service on Azure Stack requires that Microsoft.Net 3.5.1 SP1 is activated on the image used for deployment.   Marketplace syndicated Windows Server 2016 images do not have this feature enabled.**
 
 14. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
@@ -212,7 +222,7 @@ You *must* have a tenant subscription to create applications that use App Servic
 >
 As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
 
-1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
+1. In the Azure Stack tenant portal, click **+ Create a resource** > **Web + Mobile** > **Web App**.
 
 2. On the **Web App** blade, type a name in the **Web app** box.
 

@@ -1,6 +1,6 @@
 ---
-title: How to containerize your Azure Service Fabric microservices on Windows
-description: Azure Service Fabric has added new functionality to containerize your Service Fabric microservices on Windows
+title: Containerize your Azure Service Fabric services on Windows
+description: Learn how to containerize your Service Fabric Reliable Services and Reliable Actors services on Windows.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -16,7 +16,7 @@ ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
 ---
-# How to containerize your Service Fabric Reliable Services and Reliable Actors on Windows
+# Containerize your Service Fabric Reliable Services and Reliable Actors on Windows
 
 Service Fabric supports containerizing Service Fabric microservices (Reliable Services, and Reliable Actor based services). For more information, see [service fabric containers](service-fabric-containers-overview.md).
 
@@ -98,7 +98,7 @@ This document provides guidance to get your service running inside a Windows con
 </Policies>
  ```
 
-9. For configuring container isolation mode, see [Configure isolation mode]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows supports two isolation modes for containers: process and Hyper-V. The following snippets show how the isolation mode is specified in the application manifest file.
+9. For configuring container isolation mode, see [Configure isolation mode]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows supports two isolation modes for containers: process and Hyper-V. The following snippets show how the isolation mode is specified in the application manifest file.
 
  ```xml
 <Policies>

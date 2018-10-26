@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/13/2018
+ms.date: 09/25/2018
 ms.author: ryanwi
 
 ---
@@ -44,6 +44,8 @@ The following operating system versions are supported for development:
 >
 
 ## Install the SDK and tools
+Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+
 ### To use Visual Studio 2017
 The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
 In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime using Web Platform Installer.
@@ -60,12 +62,15 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.2.162
-* Service Fabric runtime 6.3.162
+* Service Fabric SDK and Tools 3.2.187
+* Service Fabric runtime 6.3.187
 * Service Fabric Tools for Visual Studio 2015 2.3.10710.3
 * Visual Studio 2017 15.7 includes Service Fabric Tools for Visual Studio 2.3.10710.1 
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
+
+> [!NOTE]
+> Single machine clusters (OneBox) are not supported for Application or Cluster upgrades; delete the OneBox cluster and recreate it if you need to perform a Cluster upgrade, or have any issues performing an Application upgrade. 
 
 ## Enable PowerShell script execution
 Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
@@ -73,24 +78,22 @@ Service Fabric uses Windows PowerShell scripts for creating a local development 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
+## Install Docker (optional)
+[Service Fabric is a container orchestrator](service-fabric-containers-overview.md) for deploying microservices across a cluster of machines. To run Windows container applications on your local development cluster, you must first install Docker for Windows. Get [Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
 ## Next steps
 Now that you've finished setting up your development environment, start building and running apps.
 
 * [Create your first Service Fabric application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Learn how to deploy and manage applications on your local cluster](service-fabric-get-started-with-a-local-cluster.md)
-* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
-* [Periodic backup and restore in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-* [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Learn about [Service Fabric support options](service-fabric-support.md)
-* [Automate operating system patching on your Cluster](service-fabric-patch-orchestration-application.md)
 
-[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"
-[2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI link"
-[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI link"
-[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI link"
+[1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"
+[2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
+[full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI link"
+[full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI link"
+[core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI link"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
