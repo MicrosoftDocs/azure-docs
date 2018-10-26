@@ -269,15 +269,15 @@ This section will teach you how to create a host pool resource in Azure.
 
 Use the following procedure to create a resource group and one or more virtual machines for the host pool.
 
-1. Access the Azure subscription using the steps outlined in either Alterative 1 (CSP) or Alternative 2 (Enterprise) under the [Prepare the Azure subscription for the tenant's environment](..\windows-virtual-desktop\set-up-wvd-tenants-in-ad.md) section.
+1. Access the Azure subscription using the steps outlined in either Alterative 1 (CSP) or Alternative 2 (Enterprise) under the [Prepare the Azure subscription for the tenant's environment](set-up-wvd-tenants-in-ad.md#prepare-the-azure-subscription-for-the-tenant’s-environment) section.
 2. Create a new Resource group.
 3. Navigate to the Resource group. On the **Resource group** blade, select **Add**.
 4. In the **Search Everything** field, enter and then select one of the following:
     1. Windows Server 2016 Remote Desktop Session Host.
-    1. Windows Server Remote Desktop Session Host on Windows Server 2012 R2.
-    1. Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus (this gallery image is recommended if you plan to validate scenarios involving Microsoft Office applications).
-    1. Windows Server 2016 Datacenter.
-    1. (add info about Win10 RS4 image).
+    2. Windows Server Remote Desktop Session Host on Windows Server 2012 R2.
+    3. Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus (this gallery image is recommended if you plan to validate scenarios involving Microsoft Office applications).
+    4. Windows Server 2016 Datacenter.
+    5. (add info about Win10 RS4 image).
 5. Select **Create** (Recommendation: Select **Resource Manager**).
 6. On the **Create virtual machine** blades, enter the required information.
 
@@ -413,4 +413,4 @@ You must have the RDSH role installed on each session host virtual machine befor
     ```
 1. Restart the virtual machine with Azure Portal.
 
-Need help learning how to publish RemoteApps and manage assignments? Check out [this article](..\windows-virtual-desktop\manage-app-groups-for-wvd.md).
+Need help learning how to publish RemoteApps and manage assignments? Check out [Manage app groups for Windows Virtual Desktop](manage-app-groups-for-wvd.md).
