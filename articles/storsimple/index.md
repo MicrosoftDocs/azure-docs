@@ -136,7 +136,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
 
 ---
 
-## Other storage solutions
+## Solutions for on-premises data transfer to Azure
 
 <ul class="panelContent cardsW">
 	<li>
@@ -144,8 +144,13 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
                     <div class="cardText">                       
-                        <p><a href="/azure/storsimple/storsimple-8000-choose-storage-solution">Choosing the right storage solution</a></p>
+                        <p><a href="/azure/storsimple/storsimple-8000-choose-storage-solution">Choose the right storage solution for on-premises data transfer to Azure</a></p>
                     </div>
                 </div>
             </div>
