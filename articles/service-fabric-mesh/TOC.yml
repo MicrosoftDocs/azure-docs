@@ -52,6 +52,8 @@
   items:
   - name: Set up your development environment
     href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+  - name: Optimize Visual Studio performance
+    href: service-fabric-mesh-howto-optimize-vs.md
   - name: Set up Service Fabric Mesh CLI
     href: service-fabric-mesh-howto-setup-cli.md
   - name: Define environment variables using Visual Studio
