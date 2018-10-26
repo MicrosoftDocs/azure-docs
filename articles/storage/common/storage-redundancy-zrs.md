@@ -14,7 +14,7 @@ ms.component: common
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## Support coverage and regional availability
-ZRS currently supports standard general-purpose v2 account types. For more information on storage account types, see [Azure storage account overview](storage-account-overview.md).
+ZRS currently supports standard general-purpose v2 account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
 ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
 
@@ -51,33 +51,33 @@ A manual migration can result in some application downtime and sometimes you can
 Live migration comes with the following restrictions:
 
 - While Microsoft addresses your live migration request promptly, there's no guarantee as to when the migration will complete. If you need your data to be in ZRS by a certain time, then you should do a manual migration. Generally, the more data you have in your account, the longer it takes to migrate that data. 
-- You may only perform a live migration from an account using LRS or GRS replication. If your account uses RA-GRS, then you need to first migrate to one of these replication types before proceeding. This intermediary step removes the secondary read-only endpoint&mdash;which RA-GRS provides&mdash; before migration.
+- You may only perform a live migration from an account by using LRS or GRS replication. If your account uses RA-GRS, then you need to first migrate to one of these replication types before proceeding. This intermediary step removes the secondary read-only endpoint&mdash;which RA-GRS provides&mdash; before migration.
 - Your account must contain data.
 - You can only migrate data within the same region. If you want to migrate your data into a ZRS account located in a region different than the source account, then you must perform a manual migration.
 - You can only use standard storage account types. 
 - You can't migrate from a premium storage account.
 
 Live migration requests go through the Azure Support portal. From the portal, you select the storage account you want to convert to ZRS.
-1. Click **New Support Request**
+1. Select **New Support Request**
 2. Complete the Basics based on your account information. In the **Service** section, select **Storage Account Management** and the resource you want to convert to ZRS. 
-3. Click **Next**. 
+3. Select **Next**. 
 4. In the **Problem** section, 
     - **Severity**: Leave the default value as-is.
     - **Problem Type**: Select **Data Migration**.
     - **Category**: Select **Migrate to ZRS within a region**.
     - **Title**: Type a descriptive title, for example, **ZRS account migration**.
     - **Details**: Type additional details in the **Details** box, for example, I would like to migrate to ZRS from [LRS, GRS] in the ______ region. 
-5. Click **Next**.
+5. Select **Next**.
 6. Verify that the contact information is correct on the **Contact information** blade.
-7. Click **Create**.
+7. Select **Create**.
 
-A support person will contact you. That person will provide any assistance you require. 
+A support person will contact you and provide any assistance you need. 
 
 ## ZRS Classic: A legacy option for block blobs redundancy
 > [!NOTE]
 > Microsoft will deprecate and migrate ZRS Classic accounts on March 31, 2021. More details will be provided to ZRS Classic customers before deprecation. 
 >
-> When ZRS becomes [generally available](#support-coverage-and-regional-availability) in a region, customers won't be able to create ZRS Classic accounts from the portal in that region. Using Microsoft PowerShell and Azure CLI to create ZRS Classic accounts is supported until ZRS Classic is deprecated.
+> When ZRS becomes [generally available](#support-coverage-and-regional-availability) in a region, customers won't be able to create ZRS Classic accounts from the portal in that region. Using Microsoft PowerShell and Azure CLI to create ZRS Classic accounts is an option until ZRS Classic is deprecated.
 
 ZRS Classic asynchronously replicates data across data centers within one to two regions. Replicated data may not be available unless Microsoft initiates failover to the secondary. A ZRS Classic account can't be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also don't have metrics or logging features.
 
