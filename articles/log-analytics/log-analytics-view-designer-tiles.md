@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Reference guide to View Designer tiles in Log Analytics

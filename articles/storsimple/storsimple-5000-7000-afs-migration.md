@@ -53,8 +53,7 @@ Before you begin, ensure you have:
 - StorSimple volumes are mounted on the host and contain file shares.
 - The host has sufficient local storage to hold your locally cached data.
 - Owner level access to the Azure subscription that you will use to deploy Azure File Sync. You may experience issues when creating a cloud endpoint for your sync group if you do not have owner or admin level permissions.
-- Access to a [General Purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-options) with an Azure File Share that you want to sync to. For more information, go to 
- - How to [Create a General Purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account).
+- Access to a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) with an Azure File Share that you want to sync to. For more information, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
  - How to [Create an Azure File Share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
 
 ## Migration process

@@ -1,6 +1,6 @@
 ---
-title: Create a network security group (classic) using the Azure CLI 1.0 | Microsoft Docs
-description: Learn how to create and deploy a network security group (classic) using the Azure CLI 1.0.
+title: Create a network security group (classic) using the Azure classic CLI | Microsoft Docs
+description: Learn how to create and deploy a network security group (classic) using the Azure classic CLI.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -18,7 +18,7 @@ ms.date: 02/02/2016
 ms.author: genli
 
 ---
-# Create a network security group (classic) using the Azure CLI 1.0
+# Create a network security group (classic) using the Azure classic CLI
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -33,7 +33,7 @@ The following sample Azure CLI commands expect a simple environment already crea
 
 ## Create an NSG for the front-end subnet
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/cli/azure/install-cli-version-1.0).
 2. Switch to classic mode:
 
     ```azurecli

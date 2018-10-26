@@ -4,7 +4,7 @@ description: Follow the steps of this quickstart to create a new Azure Media Ser
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: azure media services, stream
 
@@ -12,17 +12,15 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 10/16/2018
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
 # Quickstart: Stream video files - .NET
 
-> [!NOTE]
-> The latest version of Azure Media Services is in Preview and may be referred to as v3. To start using v3 APIs, you should create a new Media Services account, as described in this quickstart. 
-
-This quickstart shows you how easy it is to start streaming videos on a wide variety of browsers and devices using Azure Media Services. The sample in this topic encodes content that you make accessible via a HTTPS URL. 
+This quickstart shows you how easy it is to encode and start streaming videos on a wide variety of browsers and devices using Azure Media Services. An input content can be specified using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage.
+The sample in this topic encodes content that you make accessible via an HTTPS URL. Note that currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
 
 By the end of the quickstart you will be able to stream a video.  
 

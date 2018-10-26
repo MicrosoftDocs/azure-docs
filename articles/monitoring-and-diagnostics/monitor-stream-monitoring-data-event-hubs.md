@@ -70,7 +70,7 @@ Azure resources emit two types of monitoring data:
 Both types of data are sent to an event hub using a resource diagnostic setting. [Follow this guide](./monitoring-stream-diagnostic-logs-to-event-hubs.md) to set up a resource diagnostic setting on a particular resource. Set a resource diagnostic setting on each resource from which you want to collect logs.
 
 > [!TIP]
-> You can use Azure Policy to ensure that every resource within a certain scope is always set up with a diagnostic setting [by using the DeployIfNotExists effect in the policy rule](../azure-policy/policy-definition.md#policy-rule). Today DeployIfNotExists is only supported on built-in policies.
+> You can use Azure Policy to ensure that every resource within a certain scope is always set up with a diagnostic setting [by using the DeployIfNotExists effect in the policy rule](../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## Guest OS data
 

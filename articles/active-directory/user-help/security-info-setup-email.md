@@ -42,7 +42,7 @@ Depending on your organization’s settings, you may be prompted to add an email
 
 3. In the **Keep your account secure** page, select **Done**.
 
-    Your security info is updated to use your email address to verify your identity when using two-step verification.
+    Your security info is updated to use your email address to verify your identity when using password reset.
 
 ## Additional security info options
 

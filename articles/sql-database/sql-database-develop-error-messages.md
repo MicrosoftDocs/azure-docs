@@ -3,14 +3,16 @@ title: SQL error codes - database connection error | Microsoft Docs
 description: 'Learn about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. '
 keywords: sql error code,access sql,database connection error,sql error codes
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: 
+ms.devlang:
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
 
@@ -106,7 +108,7 @@ The following errors are related to creating and using elastic pools:
 | 40857 |EX_USER |Elastic pool not found for server: '%ls', elastic pool name: '%ls'. |name of server; elastic pool name |Specified elastic pool does not exist in the specified server. |Provide a valid elastic pool name. |
 | 40858 |EX_USER |Elastic pool '%ls' already exists in server: '%ls' |elastic pool name, server name |Specified elastic pool already exists in the specified logical server. |Provide new elastic pool name. |
 | 40859 |EX_USER |Elastic pool does not support service tier '%ls'. |elastic pool service tier |Specified service tier is not supported for elastic pool provisioning. |Provide the correct edition or leave service tier blank to use the default service tier. |
-| 40860 |EX_USER |Elastic pool '%ls' and service objective '%ls' combination is invalid. |elastic pool name; service level objective name |Elastic pool and service objective can be specified together only if service objective is specified as 'ElasticPool'. |Specify correct combination of elastic pool and service objective. |
+| 40860 |EX_USER |Elastic pool '%ls' and service objective '%ls' combination is invalid. |elastic pool name; service tier |Elastic pool and service tier can be specified together only if resource type is specified as 'ElasticPool'. |Specify correct combination of elastic pool and service tier. |
 | 40861 |EX_USER |The database edition '%.*ls' cannot be different than the elastic pool service tier which is '%.*ls'. |database edition, elastic pool service tier |The database edition is different than the elastic pool service tier. |Do not specify a database edition which is different than the elastic pool service tier.  Note that the database edition does not need to be specified. |
 | 40862 |EX_USER |Elastic pool name must be specified if the elastic pool service objective is specified. |None |Elastic pool service objective does not uniquely identify an elastic pool. |Specify the elastic pool name if using the elastic pool service objective. |
 | 40864 |EX_USER |The DTUs for the elastic pool must be at least (%d) DTUs for service tier '%.*ls'. |DTUs for elastic pool; elastic pool service tier. |Attempting to set the DTUs for the elastic pool below the minimum limit. |Retry setting the DTUs for the elastic pool to at least the minimum limit. |

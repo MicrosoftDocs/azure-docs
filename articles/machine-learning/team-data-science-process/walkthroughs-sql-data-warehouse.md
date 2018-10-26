@@ -4,7 +4,7 @@ description: Examples that walk through the use of SQL Data Warehouse to do pred
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 

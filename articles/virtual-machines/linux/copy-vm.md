@@ -20,15 +20,14 @@ ms.author: cynthn
 			   
 # Create a copy of a Linux VM by using Azure CLI and Managed Disks
 
-
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Azure CLI 2.0 and the Azure Resource Manager deployment model. 
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Azure CLI and the Azure Resource Manager deployment model. 
 
 You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Prerequisites
 
 
--   Install [Azure CLI 2.0](/cli/azure/install-az-cli2)
+-   Install [Azure CLI](/cli/azure/install-az-cli2)
 
 -   Sign in to an Azure account with [az login](/cli/azure/reference-index#az_login).
 

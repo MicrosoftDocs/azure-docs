@@ -30,7 +30,7 @@ At present, the Active Directory connected service does not support ASP.NET Core
 
 ### Connect to Azure Active Directory using the Connected Services dialog
 
-1. In Visual Studio, create or open an ASP.NET MVC project, or an ASP.NET Web API project. You can use the MVC, Web API, Single Page Application, Azure API App, Azure Mobile App, and Azure Mobile Service templates.
+1. In Visual Studio, create or open an ASP.NET MVC project, or an ASP.NET Web API project. You can use the MVC, Web API, Single-Page Application, Azure API App, Azure Mobile App, and Azure Mobile Service templates.
 
 1. Select the **Project > Add Connected Service...** menu command, or double-click the **Connected Services** node found under the project in Solution Explorer.
 

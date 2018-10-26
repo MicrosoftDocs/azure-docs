@@ -34,7 +34,7 @@ Before you start, make sure you have the following:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).  
 * Log in to the [Azure portal](https://portal.azure.com/).  
-* Download the phone call event generator app [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center or you can get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Download the phone call event generator app [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center or you can get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
 
 ## Create an Azure Event Hub 
 
@@ -86,7 +86,7 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 
 Before you start the TelcoGenerator app, you should configure it to send data to the Azure Event Hubs you created earlier.
 
-1. Extract the contents of [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.  
+1. Extract the contents of [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.  
 2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice (There is more than one .config file, so be sure that you open the right one.)  
 
 3. Update the <appSettings> element in the config file with the following details:
@@ -98,12 +98,12 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 5. Next open a command window, change to the folder where you have is unzipped the TelcoGenerator application and enter the following command:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    This command takes the following parameters:
    * **Number of call data records per hour**.  
-   * **Percentage of fraud Probability** - that is how often, the app should simulate a fraudulent call. The value .2 means that about 20% of the call records will look fraudulent.  
+   * **Percentage of fraud Probability** - that is how often, the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.  
    * **Duration in hours** - the number of hours that the app should run. You can also stop the app any time by ending the process (Ctrl+C) at the command line.
 
    After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub. The phone call data contains the following fields:
@@ -225,7 +225,7 @@ You can test a query from the query editor and you need sample data to test a qu
 
 3. Set **Minutes** to 3 and select **OK**. Three minutes worth of data is sampled from the input stream and notifies you when the sample data is ready. You can view the status of sampling from the notification bar. 
 
-   The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data. As an alternative, you can get a .json file that has sample data in it from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json), and then upload that .json file to use as sample data for the CallStream input.  
+   The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data. As an alternative, you can get a .json file that has sample data in it from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), and then upload that .json file to use as sample data for the CallStream input.  
 
 4. Select **Test** to test the query, you should see output results as shown in this screenshot:  
 
@@ -257,9 +257,9 @@ You can test a query from the query editor and you need sample data to test a qu
 
 ## Embedding your PowerBI Dashboard in a Web Application
 
-For this part of the tutorial, you'll use a sample [ASP.NET](http://asp.net/) web application created by the PowerBI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
+For this part of the tutorial, you'll use a sample [ASP.NET](https://asp.net/) web application created by the PowerBI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
 
-In this tutorial, we'll follow the steps for the user owns data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code located in the [GitHub repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+In this tutorial, we'll follow the steps for the user owns data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code located in the [GitHub repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Once you've got the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
 1. Select **Sign in to Power BI**, which grants the application access to the dashboards in your PowerBI account.  

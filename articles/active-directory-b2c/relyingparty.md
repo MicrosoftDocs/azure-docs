@@ -92,7 +92,7 @@ The `DefaultUserJourney` element specifies a reference to the identifier of the 
 
 ```XML
 <UserJourneys>
-  <UserJourney Id="SignOrSignIn">
+  <UserJourney Id="SignUpOrSignIn">
   ...
 ```
 

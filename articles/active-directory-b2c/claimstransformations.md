@@ -22,12 +22,14 @@ The **ClaimsTransformations** element contains a list of claims transformation f
 To include the list of claims transformation functions that can be used in the user journeys, a ClaimsTransformations XML element must be declared under the BuildingBlocks section of the policy.
 
 ```xml
-<ClaimsTransformations Id="<identifier>" TransformationMethod="<method>">
-  ...
-</ClaimsTransformation>
+<ClaimsTransformations>
+  <ClaimsTransformation Id="<identifier>" TransformationMethod="<method>">
+    ...
+  </ClaimsTransformation>
+</ClaimsTransformations>
 ```
 
-The **ClaimsTransformations** element conatains the following attributes:
+The **ClaimsTransformation** element conatains the following attributes:
 
 | Attribute |Required | Description |
 | --------- |-------- | ----------- |

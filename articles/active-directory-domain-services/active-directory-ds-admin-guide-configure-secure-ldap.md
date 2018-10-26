@@ -3,7 +3,7 @@ title: Configure Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft Doc
 description: Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
-ms.author: maheshu
+ms.date: 09/25/2018
+ms.author: ergreenl
 
 ---
 # Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
@@ -77,12 +77,12 @@ On your Windows computer, open a new PowerShell window as **Administrator** and 
 
 ```powershell
 $lifetime=Get-Date
-New-SelfSignedCertificate -Subject *.contoso100.com `
+New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
-In the preceding sample, replace '*.contoso100.com' with the DNS domain name of your managed domain. For example, if you created a managed domain called 'contoso100.onmicrosoft.com', replace '*.contoso100.com' in the preceding script with '*.contoso100.onmicrosoft.com').
+In the preceding sample, replace 'contoso100.com' with the DNS domain name of your managed domain. For example, if you created a managed domain called 'contoso100.onmicrosoft.com', replace 'contoso100.com' in the Subject attribute with 'contoso100.onmicrosoft.com' and '*.contoso100.com' in the DnsName attribute with '*.contoso100.onmicrosoft.com').
 
 ![Select Azure AD Directory](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

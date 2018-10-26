@@ -106,7 +106,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [**J2EE**](app-insights-java-live.md)
 * **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
   * [Visual Studio](app-insights-asp-net.md) 2013 update 2 or later.
-  * Java in [Eclipse](app-insights-java-eclipse.md) or [other tools](app-insights-java-get-started.md)
+  * [Java](app-insights-java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
   * [Other platforms](app-insights-platforms.md)
 * **[Instrument your web pages](app-insights-javascript.md)** for page view, AJAX and other client-side telemetry.

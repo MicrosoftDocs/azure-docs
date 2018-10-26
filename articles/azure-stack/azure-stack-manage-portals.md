@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 
 ---
@@ -36,6 +36,8 @@ To access the administrator portal, browse to the portal URL and sign in by usin
 | | |
 
  ![The administrator portal](media/azure-stack-manage-portals/admin-portal.png)
+
+Note that the default time zone for all Azure Stack deployments is set to Coordinated Universal Time (UTC). You can select a time zone when installing Azure Stack, however it automatically reverts to UTC as the default during installation.
 
 In the administrator portal, you can do things such as:
 
@@ -67,6 +69,8 @@ The administrator and user portals are backed by separate instances of Azure Res
 ### Customize the dashboard
 
 The dashboard contains a set of default tiles. You can select **Edit dashboard** to modify the default dashboard, or select **New dashboard** to add a custom dashboard. You can easily add tiles to a dashboard. For example, you can select **+ Create a resource**, right-click **Offers + Plans**, and then select **Pin to dashboard**.
+
+Sometimes, you might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, and then right click and select **Reset to default state**.
 
 ### Quick access to online documentation
 
