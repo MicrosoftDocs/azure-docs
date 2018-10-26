@@ -1,6 +1,6 @@
 ---
-title: Choose Azure storage solutions | Microsoft Docs
-description: Learn how to choose the right Azure storage solution for your needs
+title: Choose Azure Storage solutions | Microsoft Docs
+description: Learn how to choose the right Azure Storage solution for your needs
 services: storsimple
 author: alkohli
 
@@ -10,7 +10,7 @@ ms.date: 10/26/2018
 ms.author: alkohli
 ---
 
-# Choosing the right Azure Storage on-premises solution 
+# Choosing the right Azure Storage on-premises solution
  
 This document provides an overview of the on-premises Azure Storage solutions, comparing: Data Box Edge vs Azure File Sync (AFS) vs StorSimple 8000 series.
 
@@ -18,7 +18,7 @@ This document provides an overview of the on-premises Azure Storage solutions, c
 - **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide.md)** – Azure File Sync can be used to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. General availability of AFS was announced earlier in 2018.
 - **[StorSimple](/azure/storsimple/storsimple-overview.md)** – StorSimple is a hybrid device that helps enterprises consolidate their storage infrastructure for primary storage, data protection, archiving, and disaster recovery on a single solution by tightly integrating with Azure storage. The product lifecycle for StorSimple can be found [here](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
-# Solution comparison
+## Comparison of Azure Storage solutions
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge (Preview)                |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
@@ -31,3 +31,7 @@ This document provides an overview of the on-premises Azure Storage solutions, c
 |Protocol support |iSCSI          |SMB, NFS    | SMB or NFS      |
 |Pricing          |[StorSimple pricing](https://azure.microsoft.com/pricing/details/storsimple/) |[AFS pricing](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge pricing](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
+## Next steps
+
+- Learn about [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview.md) and [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview.md)
+- Learn about [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide.md)

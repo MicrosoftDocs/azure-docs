@@ -47,7 +47,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about StorSimple 8000 series</h3>
+                        <h3>Learn about the StorSimple 8000 series</h3>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with StorSimple Virtual Array</h3>
+                        <h3>Get started with StorSimple Virtual Array</h3>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with StorSimple 8000 series</h3>
+                        <h3>Get started with StorSimple 8000 series</h3>
                     </div>
                 </div>
             </div>
@@ -152,5 +152,3 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </div>
     </li>
 </ul>
-
-
