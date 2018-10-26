@@ -18,12 +18,14 @@
     href: /azure/iot-hub
   - name: IoT Hub Device Provisioning Service
     href: /azure/iot-dps
+  - name: Azure Digital Twins
+    href: /azure/digital-twins
   - name: Azure Maps
     href: /azure/azure-maps
-  - name: Service SDKs
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
   - name: Time Series Insights
     href: /azure/time-series-insights
+  - name: Service SDKs
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
 - name: Edge
   items:
   - name: IoT Edge

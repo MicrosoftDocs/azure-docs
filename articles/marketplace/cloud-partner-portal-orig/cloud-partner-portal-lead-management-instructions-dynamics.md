@@ -93,7 +93,7 @@ Use the following steps to configure Azure Active Directory for Dynamics CRM.
 
 ### Office 365
 
-If you don't want to use Azure Active Directory, you can register a new user on the Office 365 Admin portal. You'll be be required to update your username/password every 90 days to continue getting leads.
+If you don't want to use Azure Active Directory, you can register a new user on the Office 365 Admin portal. You'll be required to update your username/password every 90 days to continue getting leads.
 
 Use the following steps to configure Office 365 for Dynamics CRM.
 

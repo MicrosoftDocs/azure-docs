@@ -139,7 +139,7 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
-  - name: Azure portal
+  - name: Azure portal customization
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Resource Manager
@@ -318,12 +318,16 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
-  - name: Data Box
-    tocHref: /azure/databox/
-    topicHref: /azure/databox/ 
-  - name: Data Box Edge/Data Box Gateway
-    tocHref: /azure/databox-online/
-    topicHref: /azure/databox-online/ 
+  - name: Data Box family
+    tocHref: /azure/databox-family/
+    topicHref: /azure/databox-family/
+    items:
+    - name: Data Box offline transfer
+      tocHref: /azure/databox/
+      topicHref: /azure/databox/
+    - name: Data Box online transfer
+      tocHref: /azure/databox-online/
+      topicHref: /azure/databox-online/ 
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -476,6 +480,9 @@
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
+      - name: Video Indexer
+        tocHref: /azure/media-services/video-indexer/
+        topicHref: /azure/media-services/video-indexer/        
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/
