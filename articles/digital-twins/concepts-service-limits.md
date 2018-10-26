@@ -12,16 +12,16 @@ ms.author: dwalthermsft
 
 # Public preview service limits
 
-During Public Preview, Azure Digital Twins will have temporary subscription, instance, and rate limits that are described below.
+During **Public Preview**, Azure Digital Twins will have temporary subscription, instance, and rate limits that are described below.
 
 These constraints exist to help simplify learning about the new service and its many features.
 
 > [!NOTE]
-> These limits will be increased and/or removed by General Availability (GA).
+> These limits will be increased and/or removed by **General Availability** (**GA**).
 
 ## Per-Subscription limits
 
-During Public Preview, each Azure subscription can create or have running exactly one Azure Digital Twins instance at a time.
+During **Public Preview**, each Azure subscription can create or have running exactly one Azure Digital Twins instance at a time.
 
 > [!TIP]
 > Deleting your instance will allow you to create a new one.
@@ -30,9 +30,9 @@ During Public Preview, each Azure subscription can create or have running exactl
 
 In turn, each Azure Digital Twins instance can have:
 
-- One `IoTHub` Resource
-- One `EventHub` endpoint for event type DeviceMessage
-- Up to three `EventHub`, `ServiceBus`, or `EventGrid` endpoints of event type `SensorChange`, `SpaceChange`, `TopologyOperation`, or `UdfCustom`
+- One **IoTHub** Resource
+- One **EventHub** endpoint for event type **DeviceMessage**
+- Up to three **EventHub**, **ServiceBus**, or **EventGrid** endpoints of event type **SensorChange**, **SpaceChange**, **TopologyOperation**, or **UdfCustom**
 
 ## Management API limits
 
