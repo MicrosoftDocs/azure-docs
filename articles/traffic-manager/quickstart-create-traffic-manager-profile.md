@@ -4,10 +4,7 @@ description: This quickstart article describes how to create a Traffic Manager p
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
-editor: ''
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
-ms.assetid:
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
