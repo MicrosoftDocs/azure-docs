@@ -114,7 +114,7 @@ Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-i
 
 In the portal, select the VM and in the overview of the VM, use the Click to copy button to the right of the IP address to copy it and paste it into a browser tab. The default IIS welcome page will open, and should look like this:
 
-![Azure Resource Manager deploy vm extensions customer script IIS web server](./media/resource-manager-tutorial-deploy-vm-extensions-templates/resource-manager-template-deploy-extensions-customer-script-web-server.png)
+![Azure Resource Manager deploy vm extensions customer script IIS web server](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
 
 ## Clean up resources
