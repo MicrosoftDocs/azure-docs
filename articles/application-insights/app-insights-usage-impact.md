@@ -3,7 +3,7 @@ title:  Azure Application Insights Usage Impact | Microsoft docs
 description: Analyze how different properties potentially impact conversion rates for parts of your apps.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,8 +11,9 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/25/2018
-ms.reviewer: daviste
-ms.author: mbullwin
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
 ---
 
 # Impact analysis with Application Insights
@@ -64,7 +65,7 @@ In this case, the results no longer fit into a continuous x-axis model as they d
 
 ## How does the Impact tool calculate these conversion rates?
 
-Under the hood, the Impact tool relies on the [Pearson correlation coefficient] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing zero correlation and 1 representing a positive correlation.
+Under the hood, the Impact tool relies on the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing zero correlation and 1 representing a positive correlation.
 
 The basic breakdown of how Impact Analysis works is as follows:
 

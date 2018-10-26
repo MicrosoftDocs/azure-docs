@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
 
 # As an IT Pro, I want to try out a cloud-based solution to understand how I can use predictive maintenance with my IoT devices.
@@ -19,7 +19,7 @@ This quickstart shows you how to deploy the Azure IoT Predictive Maintenance sol
 
 In the simulation, Fabrikam is a regional airline that focuses on great customer experience at competitive prices. One cause of flight delays is maintenance issues and aircraft engine maintenance is particularly challenging. Fabrikam must avoid engine failure during flight at all costs, so it inspects its engines regularly and schedules maintenance according to a plan. However, aircraft engines don't always wear the same. Some unnecessary maintenance is done on engines. More importantly, issues arise which can ground an aircraft until maintenance is done. These issues can be especially costly if an aircraft is at a location where the right technicians or spare parts aren't available.
 
-The engines of Fabrikam's aircraft are instrumented with sensors that monitor engine conditions during flight. After accumulating years of engine operational and failure data, Fabrikam's data scientists have developed a model to predict the Remaining Useful Life (RUL) of an aircraft engine. The model uses a correlation between data from four of the engine sensors and engine wear that leads to eventual failure. While Fabrikam continues regular inspections to ensure safety, it can now use the models to compute the RUL for each engine after every flight. Fabrikam can now predict future points of failure and plan for maintenance to minimize aircraft ground time and reduce operating costs while ensuring the safety of passengers and crew.
+The engines of Fabrikam's aircraft are instrumented with sensors that monitor engine conditions during flight. Fabrikam has years of engine operational and failure data from these sensors. Fabrikam's data scientists used this data to develop a model to predict the Remaining Useful Life (RUL) of an aircraft engine. The model uses a correlation between data from four of the engine sensors and the engine wear that leads to eventual failure. While Fabrikam continues to do regular safety inspections, it can now use the models to compute the RUL for each engine after every flight. Fabrikam can now predict future points of failure and plan for maintenance to minimize aircraft ground time. This process reduces operating costs while ensuring the safety of passengers and crew.
 
 To complete this quickstart, you need an active Azure subscription.
 
@@ -29,11 +29,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 When you deploy the solution accelerator to your Azure subscription, you must set some configuration options.
 
-Sign in to [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) using your Azure account credentials.
+Navigate to [Microsoft Azure IoT solution accelerators](https://www.azureiotsolutions.com) and sign in using your Azure account credentials.
 
-Click **Try Now** on the **Predictive Maintenance** tile.
+Click the **Predictive Maintenance** tile. On the **Predictive Maintenance** page, click **Try Now**:
 
-![Choose Predictive Maintenance](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
+![Try now](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
 On the **Create Predictive Maintenance solution** page, enter a unique **Solution name** for your Predictive Maintenance solution accelerator. For this quickstart, we're using **MyPredictiveMaintenance**.
 

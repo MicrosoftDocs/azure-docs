@@ -19,6 +19,16 @@
         href: quickstart-v1-update-azure-ad-app.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
+      - name: Register an app (Preview)
+        href: quickstart-register-app.md
+      - name: Configure app to access web APIs (Preview)
+        href: quickstart-configure-app-access-web-apis.md
+      - name: Configure app to expose web APIs (Preview)
+        href: quickstart-configure-app-expose-web-apis.md
+      - name: Modify accounts supported by an app (Preview)
+        href: quickstart-modify-supported-accounts.md
+      - name: Remove an app (Preview)
+        href: quickstart-remove-app.md
     - name: Single-page apps
       items:
       - name: AngularJS
@@ -233,6 +243,16 @@
         href: quickstart-v1-update-azure-ad-app.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
+      - name: Register an app (Preview)
+        href: quickstart-register-app.md
+      - name: Configure app to access web APIs (Preview)
+        href: quickstart-configure-app-access-web-apis.md
+      - name: Configure app to expose web APIs (Preview)
+        href: quickstart-configure-app-expose-web-apis.md
+      - name: Modify accounts supported by an app (Preview)
+        href: quickstart-modify-supported-accounts.md
+      - name: Remove an app (Preview)
+        href: quickstart-remove-app.md
     - name: Single-page apps
       items:
       - name: JavaScript
