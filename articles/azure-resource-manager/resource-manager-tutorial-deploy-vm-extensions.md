@@ -45,7 +45,7 @@ To complete this article, you need:
     Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Prepare a PowerShell script
-A PowerShell script is called from the template that you deploy. You need to first create this script and make the script accessible from the template deployment.
+A PowerShell script is called from the template that you deploy. You need to first create this script and make the script accessible to the template deployment.
 
 1. Use a text editor to create a text file with the following PowerShell script:
 
@@ -56,7 +56,7 @@ A PowerShell script is called from the template that you deploy. You need to fir
     The script installs IIS Web server on Windows
 2. Save the file to your local computer with the file name **installWebServer.ps1**.
 
-This file has been deployed to [https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1). If you choose to publish the file to your own location, you must update the template later in the tutorial.
+This PowerShell is uploaded to [https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
 ## Open a Quickstart template
 
@@ -101,7 +101,7 @@ In this section, you add a virtual machine extension resource to the existing te
 
 To understand the resource definition, see the [extension reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
 
-* **name**: Because the extension resource is nested inside the virtual machine object, the name must have the virtual machine name prefix.
+* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Child resources](./azure-resource-manager/resource-manager-templates-resources#child-resources).
 * **dependsOn**: The extension resource must be created after the virtual machine has been created.
 * **fileUris**: These are the locations where the script files are stored. If you choose not to use the one provided, you need to update the values.
 * **commandToExecute**: This is the command to invoke the script.  
@@ -115,7 +115,6 @@ Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-i
 In the portal, select the VM and in the overview of the VM, use the Click to copy button to the right of the IP address to copy it and paste it into a browser tab. The default IIS welcome page will open, and should look like this:
 
 ![Azure Resource Manager deploy vm extensions customer script IIS web server](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
-
 
 ## Clean up resources
 
