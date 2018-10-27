@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Download the application
 
-1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
+1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html** and open it in a text editor.
 3. Search for the string `Insert your key here`, and replace it with the **Primary Key** value obtained in the preceding section.
 
@@ -53,6 +53,8 @@ Log in to the [Azure portal](https://portal.azure.com/).
 5. Move your mouse over the list of addresses/locations that appear below the search box, and notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown.
 
     ![Interactive Search web application](./media/quick-demo-map-app/interactive-search.png)
+
+[See this sample live](https://azuremapscodesamples.azurewebsites.net/?sample=Interactive%20Search%20Quickstart)
 
 ## Clean up resources
 
