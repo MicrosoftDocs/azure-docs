@@ -29,8 +29,35 @@ This portal-based tutorial walks you through programmatically creating and publi
 
 1. Sign in to the [QnA Maker](https://www.qnamaker.ai) portal. 
 1. Select **Create a knowledge base** from the top menu.
-1. 
+    ![Step 1 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
+1. Because you already have a QnA Maker Service, skip to step 2 in the portal. 
+1. In the next step, select the existing settings:  
 
+    |Setting|Purpose|
+    |--|--|
+    |Microsoft Azure Directory Id|The Microsoft Azure Directory Id is associated with the account you use to sign into the Azure portal and the QnA Maker portal. |
+    |Azure Subscription name|The billing account you created the QnA Maker resource in.|
+    |Azure QnA Service|The existing QnA Maker resource.|
+
+    ![Step 2 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-2.png)
+
+1. In the next step, Enter your knowledge base name, `My tutorial kb`.
+
+    ![Step 3 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-3.png)
+
+1. In the next step, populate your kb with the following settings:  
+
+    |Setting name|Setting value|Purpose|
+    |--|--|--|
+    |URL|[`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs`](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs) |If you look at the contents of that page, you see that the page is formatted in a question-then-answer style. QnA Maker can interpret this style to pull extract questions and the associated answers.|
+    |File|none|This uploads files and processes the files for questions and answers. See [Data sources supported](../Concepts/data-sources-supported.md) for more information. 
+    |Chit-chat personality|**The friend**|This gives [personality](../Concepts/best-practices.md#chit-chat) to the responses which are friendly and casual. |
+
+    ![Step 4 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
+
+1. Select **Create your KB** to finish the creation process.
+
+    ![Step 5 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-5.png)
 
 ## Add questions and answers
 
