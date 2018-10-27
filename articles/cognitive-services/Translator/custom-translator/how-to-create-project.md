@@ -77,10 +77,10 @@ After selecting a project, you'll see the following on the project page:
 - Filter documents button: Use this button to filter and search for specific
     document(s).
 
--   >[!NOTE]Model tab: This tab shows all model in this project.
-
     ![View project details](media/how-to/how-to-view-project.png)
 
+>[!NOTE] 
+Model tab: This tab shows all model in this project.
 
 ## Next steps
 
