@@ -40,7 +40,7 @@ Please start with this list:
 
 ## <a name="common-issues-workarounds"></a>Common Issues and Workarounds
 
-### Network Issues, `io.netty.handler.timeout.ReadTimeoutException`, low throughput, high latency
+### Network Issues, low throughput, high latency, 
 
 1. Make sure the app is running on the same region as your cosmosdb endpoint. 
 2. Check the CPU usage on the app Host. If it is 90% or more maybe it is time to run your app on a host with higher spec or distribute the load on more hosts.
@@ -63,110 +63,96 @@ Two workarounds to avoid Azure SNAT limitation:
 for example the following code snippet shows that if you some work on the netty thread which takes more than a few milliseconds you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException
 
 ```java
-    @Test(groups = { "simple" })
-    public void badcode() throws Exception {
-        int requestTimeoutInSeconds = 10;
+@Test
+public void badCodeWithReadTimeoutException() throws Exception {
+    int requestTimeoutInSeconds = 10;
 
-        ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setRequestTimeoutInMillis(requestTimeoutInSeconds * 1000);
+    ConnectionPolicy policy = new ConnectionPolicy();
+    policy.setRequestTimeoutInMillis(requestTimeoutInSeconds * 1000);
 
-        AsyncDocumentClient testClient = new AsyncDocumentClient.Builder()
-                .withServiceEndpoint(TestConfigurations.HOST)
-                .withMasterKeyOrResourceToken(TestConfigurations.MASTER_KEY)
-                .withConnectionPolicy(policy)
-                .build();
+    AsyncDocumentClient testClient = new AsyncDocumentClient.Builder()
+            .withServiceEndpoint(TestConfigurations.HOST)
+            .withMasterKeyOrResourceToken(TestConfigurations.MASTER_KEY)
+            .withConnectionPolicy(policy)
+            .build();
 
-        int numberOfCpuCores = Runtime.getRuntime().availableProcessors();
-        int numberOfConcurrentWork = numberOfCpuCores + 1;
-        CountDownLatch latch = new CountDownLatch(numberOfConcurrentWork);
-        AtomicInteger failureCount = new AtomicInteger();
+    int numberOfCpuCores = Runtime.getRuntime().availableProcessors();
+    int numberOfConcurrentWork = numberOfCpuCores + 1;
+    CountDownLatch latch = new CountDownLatch(numberOfConcurrentWork);
+    AtomicInteger failureCount = new AtomicInteger();
 
-        for (int i = 0; i < numberOfConcurrentWork; i++) {
-            Document docDefinition = getDocumentDefinition();
-            Observable<ResourceResponse<Document>> createObservable = testClient
-                    .createDocument(getCollectionLink(), docDefinition, null, false);
-            createObservable.subscribe(r -> {
-                        try {
-                            // time consuming work: e.g., writing to a file, computationally heavy work, or just sleep
-                            // basically anything which takes more than a few milliseconds
-                            TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
-                        } catch (Exception e) {
-                        }
-                    },
+    for (int i = 0; i < numberOfConcurrentWork; i++) {
+        Document docDefinition = getDocumentDefinition();
+        Observable<ResourceResponse<Document>> createObservable = testClient
+                .createDocument(getCollectionLink(), docDefinition, null, false);
+        createObservable.subscribe(r -> {
+                    try {
+                        // time consuming work: e.g., writing to a file, computationally heavy work, or just sleep
+                        // basically anything which takes more than a few milliseconds
+                        // doing this on the IO netty thread without a proper scheduler,
+                        // will cause problems.
+                        // the subscriber will get ReadTimeoutException
+                        TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
+                    } catch (Exception e) {
+                    }
+                },
 
-                    exception -> {
-                        //will be io.netty.handler.timeout.ReadTimeoutException
-                        exception.printStackTrace();
-                        failureCount.incrementAndGet();
-                        latch.countDown();
-                    },
-                    () -> {
-                        latch.countDown();
-                    });
-        }
-
-        latch.await();
-        assertThat(failureCount.get()).isGreaterThan(0);
+                exception -> {
+                    //will be io.netty.handler.timeout.ReadTimeoutException
+                    exception.printStackTrace();
+                    failureCount.incrementAndGet();
+                    latch.countDown();
+                },
+                () -> {
+                    latch.countDown();
+                });
     }
+
+    latch.await();
+    assertThat(failureCount.get()).isGreaterThan(0);
+}
 ```
 
-the workaround is to change the thread on which you are doing additional work, e.g.
+the workaround is to change the thread on which you are doing additional work.
+
+Define a singleton instance of Scheduler for your app:
 
 ```java
-    @Test
-    public void workaround() throws Exception {
-        int requestTimeoutInSeconds = 10;
-
-        ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setRequestTimeoutInMillis(requestTimeoutInSeconds * 1000);
-
-        AsyncDocumentClient testClient = new AsyncDocumentClient.Builder()
-                .withServiceEndpoint(TestConfigurations.HOST)
-                .withMasterKeyOrResourceToken(TestConfigurations.MASTER_KEY)
-                .withConnectionPolicy(policy)
-                .build();
-
-        //have a singleton instance of executor
-        ExecutorService ex  = Executors.newFixedThreadPool(30);
-        Scheduler customScheduler = Schedulers.from(ex);
-
-        int numberOfCpuCores = Runtime.getRuntime().availableProcessors();
-        int numberOfConcurrentWork = numberOfCpuCores + 1;
-        CountDownLatch latch = new CountDownLatch(numberOfConcurrentWork);
-
-        AtomicInteger failureCount = new AtomicInteger();
-
-        for (int i = 0; i < numberOfConcurrentWork; i++) {
-            Document docDefinition = getDocumentDefinition();
-            Observable<ResourceResponse<Document>> createObservable = testClient
-                    .createDocument(getCollectionLink(), docDefinition, null, false);
-            createObservable.observeOn(customScheduler).subscribe(r -> {
-                        try {
-                            // time consuming work: e.g., writing to a file, computationally heavy work, or just sleep
-                            // basically anything which takes more than a few milliseconds
-                            TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
-                        } catch (Exception e) {
-                        }
-                    },
-
-                    exception -> {
-                        failureCount.incrementAndGet();
-                        latch.countDown();
-                    },
-                    () -> {
-                        latch.countDown();
-                    });
-
-        }
-
-        latch.await();
-        assertThat(failureCount.get()).isEqualTo(0);
-    }
+//have a singleton instance of executor
+ExecutorService ex  = Executors.newFixedThreadPool(30);
+Scheduler customScheduler = Schedulers.from(ex);
 ```
 
-### `CollectionPoolExhausted` 
+now whenever you need to do time taking work (e.g., computationally heavy work, blocking IO), switch the thread to a worker provided by your `customScheduler`.
 
-this is a client side failure. if you get this failure often, that's indication that your app workload is higher than what the connection pool size can serve. Trying to increase connection pool size or distributing the load on multiple apps may help.
+```java
+Observable<ResourceResponse<Document>> createObservable = client
+        .createDocument(getCollectionLink(), docDefinition, null, false);
+
+// doing 
+createObservable
+        .observeOn(null)
+        .subscribe(r -> {
+            try {
+                // time consuming work: e.g., writing to a file, computationally heavy work, or just sleep
+                // basically anything which takes more than a few milliseconds
+                TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
+            } catch (Exception e) {
+            }
+        },
+
+        exception -> {
+            failureCount.incrementAndGet();
+            latch.countDown();
+        },
+        () -> {
+            latch.countDown();
+        });
+```
+
+### Connection Pool Exhausted Issue
+
+Getting `PoolExhaustedException` a client side failure. If you get this failure often, that's indication that your app workload is higher than what the SDK connection pool can serve. Trying to increase connection pool size or distributing the load on multiple apps may help.
 
 
 ### Request Rate Too Large.
