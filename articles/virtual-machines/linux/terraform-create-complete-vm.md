@@ -30,7 +30,7 @@ Let's go through each section of a Terraform template. You can also see the full
 The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). 
 
 > [!TIP]
-> If you create environment variables for the values or are using the [Azure Cloud Shell Bash experience](/azure/cloud-shell/overview) , you don't need to include the variable declarations in this section.
+> It is recommended to create environment variables for the values or use the [Azure Cloud Shell Bash experience](/azure/cloud-shell/overview) , so you don't need to included the provider section with hardcoded credentials.
 
 ```tf
 provider "azurerm" {
@@ -449,6 +449,29 @@ If everything looks correct and you are ready to build the infrastructure in Azu
 
 ```bash
 terraform apply
+```
+
+This will generate an output similar to the plan above. The apply will ask for confirmation and only accepts a `yes`.
+
+```bash
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + azurerm_resource_group.myterraform
+      <snip>
+  + azurerm_virtual_network.myterraformnetwork
+      <snip>
+ 
+Plan: 7 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value:
 ```
 
 Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
