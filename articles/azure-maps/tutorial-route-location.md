@@ -76,7 +76,7 @@ The following steps show you how to create a static HTML page embedded with the 
     </html>
     ```
     
-    Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the `onload` event on the body of the page which will call the `GetMap` function when the body of the page has loaded. This function will contain the inline JavaScript code to access the Azure Maps APIs. 
+    Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the `onload` event on the body of the page, which will call the `GetMap` function when the body of the page has loaded. This function will contain the inline JavaScript code to access the Azure Maps APIs. 
 
 3. Add the following JavaScript code to the `GetMap` function. Replace the string **\<Your Azure Maps Key\>** with the primary key that you copied from your Maps account.
 
@@ -96,7 +96,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
 ## Define how the route will be rendered
 
-In this tutorial a simple route will be rendered using a symbol icon for the start and end of the route, and a line for the route path.
+In this tutorial, a simple route will be rendered using a symbol icon for the start and end of the route, and a line for the route path.
 
 1. In the GetMap function, after initializing the map, add the following JavaScript code.
 
@@ -132,9 +132,9 @@ In this tutorial a simple route will be rendered using a symbol icon for the sta
     });
     ```
     
-    A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store the route line as well as the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. The route line will be rendered a nice shade of blue with a width of 5 pixels and rounded line joins and caps. A filter is added ensure this layer only renders GeoJSON LineString data. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each point object. 
+    A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store the route line as well as the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. The route line will be rendered a nice shade of blue with a width of 5 pixels and rounded line joins and caps. A filter is added to ensure this layer only renders GeoJSON LineString data. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each point object. 
     
-2. For this tutorial, set the start point as Microsoft, and the end point as a gas station in Seattle. In the map load event handler add the following code.
+2. For this tutorial, set the start point as Microsoft, and the end point as a gas station in Seattle. In the map load event handler, add the following code.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -163,7 +163,8 @@ In this tutorial a simple route will be rendered using a symbol icon for the sta
         padding: 100
     });
     ```
-    The start and end points are added to the data source. The bounding box which contains the start and end points is calculated using the `atlas.data.BoundingBox.fromData` function. This bounding box is used to set the map cameras view over the start and end point using the **map.setCamera** function. A padding is added to compensate for the pixel dimensions of the symbol icons.
+    
+    The start and end points are added to the data source. The bounding box for the start and end points is calculated using the `atlas.data.BoundingBox.fromData` function. This bounding box is used to set the map cameras view over the start and end point using the **map.setCamera** function. A padding is added to compensate for the pixel dimensions of the symbol icons.
 
 3. Save the **MapRoute.html** file and refresh your browser. Now the map is centered over Seattle, and you can see the round blue pin marking the start point and the blue pin marking the finish point.
 
