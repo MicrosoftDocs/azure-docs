@@ -1,24 +1,18 @@
 ---
 title: Create web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
-description: Create web APIs & REST APIs to  call your APIs, services, or systems from logic app workflows for system integrations
-keywords: web APIs, REST APIs, workflows, system integrations
+description: Create web APIs & REST APIs to call your APIs, services, or systems for system integrations in Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: anneta
-editor: ''
-documentationcenter: ''
-
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
 ---
 
-# Create custom APIs that you can call from logic app workflows
+# Create custom APIs you can call from Azure Logic Apps
 
 Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
 that you can use in logic app workflows, you might want to call APIs, 
@@ -41,9 +35,9 @@ a platform-as-a-service (PaaS) offering that provides one of the best, easiest,
 and most scalable ways for API hosting. 
 
 For custom APIs to work with logic apps, your API can provide 
-[*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+[*actions*](./logic-apps-overview.md#logic-app-concepts) 
 that perform specific tasks in logic app workflows. Your API can also act as a 
-[*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+[*trigger*](./logic-apps-overview.md#logic-app-concepts) 
 that starts a logic app workflow when new data or an event meets a specified condition. 
 This topic describes common patterns that you can follow 
 for building actions and triggers in your API, 
@@ -66,7 +60,8 @@ easy API hosting.
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/app-service-web-get-started-python.md)
+> * [Python](../app-service/containers/quickstart-python.md)
+> * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > For API App samples built for logic apps, visit the 
 > [Azure Logic Apps GitHub repository](http://github.com/logicappsio) 
@@ -118,7 +113,7 @@ so that your Swagger file works well with logic apps.
 ## Action patterns
 
 For logic apps to perform tasks, your custom API should provide 
-[*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+[*actions*](./logic-apps-overview.md#logic-app-concepts). 
 Each operation in your API maps to an action. A basic action is a 
 controller that accepts HTTP requests and returns HTTP responses. 
 So for example, a logic app sends an HTTP request to your web app or API app. 
@@ -283,7 +278,7 @@ Your API can then unregister the callback URL and stop any processes as necessar
 
 ## Trigger patterns
 
-Your custom API can act as a [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+Your custom API can act as a [*trigger*](./logic-apps-overview.md#logic-app-concepts) 
 that starts a logic app when new data or an event meets a specified condition. 
 This trigger can either check regularly, or wait and listen, 
 for new data or events at your service endpoint. 

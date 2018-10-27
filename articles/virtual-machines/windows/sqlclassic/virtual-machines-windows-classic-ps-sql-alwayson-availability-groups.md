@@ -4,7 +4,7 @@ description: This tutorial uses resources that were created with the classic dep
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 

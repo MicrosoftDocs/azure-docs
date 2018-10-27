@@ -1,19 +1,22 @@
 ---
-title: Get started with the Microsoft Speech Recognition API by using REST | Microsoft Docs
+title: Get started with the Bing Speech Recognition API by using REST | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use REST to access the Speech Recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
-ms.date: 15/09/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
-# Get started with speech recognition by using the REST API
 
-With cloud-based Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
+# Quickstart: Use the Bing Speech recognition REST API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+With the cloud-based Bing Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
 
 ## Prerequisites
 
@@ -24,7 +27,9 @@ The Speech API is part of Cognitive Services (previously Project Oxford). You ca
 > [!IMPORTANT]
 >* Get a subscription key. Before you can access the REST API, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Use your subscription key. In the following REST samples, replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
+>* Use your subscription key. In the following REST samples, replace YOUR_SUBSCRIPTION_KEY with your own subscription key. 
+>
+>* Refer to the [authentication](../how-to/how-to-authentication.md) page for how to get a subscription key.
 
 ### Prerecorded audio file
 
@@ -100,7 +105,7 @@ $SpeechServiceURI =
 # $OAuthToken is the authorization token returned by the token service.
 $RecoRequestHeader = @{
   'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY';
-  'Transfer-Encoding' = 'chunked'
+  'Transfer-Encoding' = 'chunked';
   'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
 }
 
@@ -117,6 +122,9 @@ $RecoResponse
 # [curl](#tab/curl)
 
 The example uses curl on Linux with bash. If it's not available on your platform, you might need to install curl. The example also works on Cygwin on Windows, Git Bash, zsh, and other shells.
+
+> [!NOTE]
+> Keep the `@` before the audio file name when replacing `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, as it indicates that the value of `--data-binary` is a file name instead of data.
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
@@ -135,7 +143,7 @@ request.ContentType = @"audio/wav; codec=audio/pcm; samplerate=16000";
 request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
 
 // Send an audio file by 1024 byte chunks
-using (fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
+using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
 {
 
     /*

@@ -41,7 +41,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 2. [Collect data](#collect)
 3. [Mitigate the issue](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) gives you various options at each step.
+[App Service Web Apps](app-service-web-overview.md) gives you various options at each step.
 
 <a name="observe" />
 

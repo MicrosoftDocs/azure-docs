@@ -3,9 +3,9 @@ title: Register the current user for push notifications by using Web API | Micro
 description: Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API.
 services: notification-hubs
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # Register the current user for push notifications by using ASP.NET
@@ -95,7 +95,7 @@ This topic shows you how to request push notification registration with Azure No
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present is you have already completed the [Get Started with Notification Hubs] tutorial.
+    The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present if you have already completed the [Get Started with Notification Hubs] tutorial.
 7. In PushToUserAppDelegate.m, implement the method **didRegisterForRemoteNotificationsWithDeviceToken** in your AppDelegate and add the following code:
    
         self.deviceInfo.deviceToken = deviceToken;
@@ -103,12 +103,12 @@ This topic shows you how to request push notification registration with Azure No
     This sets the device token for the request.
    
    > [!NOTE]
-   > At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) tutorial, you must comment-out or remove that call.
+   > At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial, you must comment-out or remove that call.
    > 
    > 
 8. In the PushToUserAppDelegate.m file, add the following handler method:
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+   * (void) application:(UIApplication *) application didReceiveRemoteNotification:(NSDictionary *)userInfo {
        NSLog(@"%@", userInfo);
        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
                              [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
@@ -220,6 +220,6 @@ Now that the client app has been updated, return to the [Notify users with Notif
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Get Started with Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md

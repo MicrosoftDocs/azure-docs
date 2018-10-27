@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2017
+ms.date: 2/23/2018
 ms.author: subramar
 ---
 # Docker Compose deployment support in Azure Service Fabric (Preview)
@@ -62,7 +62,7 @@ Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Co
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
 
 ```powershell
-Get-ServiceFabricComposeDeploymentUpgrade -Deployment TestContainerApp
+Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 ```
 
 ### Use Azure Service Fabric CLI (sfctl)
@@ -87,13 +87,13 @@ sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 
 To start a Compose deployment upgrade, use the following command:
 
-```powershell
+```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
 
-```powershell
+```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
@@ -117,6 +117,15 @@ This preview supports a subset of the configuration options from the Compose ver
 * Volume & Deploy > Volume
 
 Set up the cluster for enforcing resource limits, as described in [Service Fabric resource governance](service-fabric-resource-governance.md). All other Docker Compose directives are unsupported for this preview.
+
+### Ports section
+
+Specify either the http or https protocol in the Ports section that will be used by the Service Fabric service listener. This will ensure that the endpoint protocol is published correctly with the naming service to allow reverse proxy to forward the requests:
+* To route to unsecure Service Fabric Compose services, specify **/http**. For example, - **"80:80/http"**.
+* To route to secure Service Fabric Compose services, specify **/https**. For example, - **"443:443/https"**.
+
+> [!NOTE]
+> The /http and /https Ports section syntax is specific to Service Fabric to register the correct Service Fabric listener URL.  If the Docker compose file syntax is programmatically validated, it may cause a validation error.
 
 ## ServiceDnsName computation
 

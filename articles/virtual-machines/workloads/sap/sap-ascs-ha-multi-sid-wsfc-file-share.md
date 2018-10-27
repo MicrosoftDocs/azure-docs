@@ -4,7 +4,7 @@ description:  Multi-SID high availability for SAP ASCS/SCS instances with Window
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -223,6 +223,7 @@ _**Figure 1:** An SAP ASCS/SCS instance and SOFS deployed in two clusters_
 > [!IMPORTANT]
 > The setup must meet the following conditions:
 > * The SAP ASCS/SCS instances must share the same WSFC cluster.
+> * Different SAP Global Hosts file shares belonging to different SAP SIDs must share the same SOFS cluster.
 > * Each database management system (DBMS) SID must have its own dedicated WSFC cluster.
 > * SAP application servers that belong to one SAP system SID must have their own dedicated VMs.
 

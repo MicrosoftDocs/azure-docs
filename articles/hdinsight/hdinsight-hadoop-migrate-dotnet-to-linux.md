@@ -1,22 +1,15 @@
 ---
-title: Use .NET with Hadoop MapReduce on Linux-based HDInsight - Azure | Microsoft Docs
+title: Use .NET with Hadoop MapReduce on Linux-based HDInsight - Azure 
 description: Learn how to use .NET applications for streaming MapReduce on Linux-based HDInsight.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 'dotnet'
-ms.topic: article
-ms.tgt_pltfrm: 'na'
-ms.workload: big-data
-ms.date: 10/04/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 02/27/2018
+ms.author: jasonh
 
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight
@@ -25,7 +18,7 @@ Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mon
 
 ## Mono compatibility with .NET
 
-Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To install a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
+Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To install a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
 
 For more information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 

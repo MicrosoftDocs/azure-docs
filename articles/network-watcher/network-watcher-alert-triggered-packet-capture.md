@@ -1,4 +1,4 @@
----
+﻿---
 title: Use packet capture to do proactive network monitoring with alerts and Azure Functions | Microsoft Docs
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
@@ -62,7 +62,7 @@ This scenario does the following:
 
 The first step is to create an Azure function to process the alert and create a packet capture.
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Compute** > **Function App**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Compute** > **Function App**.
 
     ![Creating a function app][1-1]
 
@@ -286,7 +286,7 @@ The following example is PowerShell code that can be used in the function. There
             #Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            Connect-AzureRmAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
             #Get the VM that fired the alert

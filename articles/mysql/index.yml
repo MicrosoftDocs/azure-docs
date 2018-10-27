@@ -15,7 +15,7 @@ metadata:
   ms.date: 04/13/2017
   ms.author: carolz
 abstract:
-  description: Azure Database for MySQL is a relational database service based on the open source MySQL Server engine.  It is a fully managed database as a service offering capable of handing mission-critical workload with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples.
+  description: Azure Database for MySQL is a relational database service based on the open source MySQL Server engine.  It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:

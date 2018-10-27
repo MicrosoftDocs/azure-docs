@@ -3,10 +3,9 @@ title: Create a serverless API using Azure Functions | Microsoft Docs
 description: How to create a serverless API using Azure Functions
 services: functions
 author: mattchenderson
-manager: cfowler
+manager: jeconnoc
 
-ms.service: functions
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/04/2017
@@ -50,7 +49,7 @@ By default, your HTTP-triggered function is configured to accept any HTTP method
 
 1. Click **Save**.
 
-You can learn more about customizing HTTP functions in [Azure Functions HTTP and webhook bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+You can learn more about customizing HTTP functions in [Azure Functions HTTP bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
 
 ### Test your API
 
@@ -64,7 +63,7 @@ Next, test your function to see it working with the new API surface.
 
 ## Proxies overview
 
-In the next section, you will surface your API through a proxy. Azure Functions Proxies is a preview feature that allows you to forward requests to other resources. You define an HTTP endpoint just like with HTTP trigger, but instead of writing code to execute when that endpoint is called, you provide a URL to a remote implementation. This allows you to compose multiple API sources into a single API surface which is easy for clients to consume. This is particularly useful if you wish to build your API as microservices.
+In the next section, you will surface your API through a proxy. Azure Functions Proxies allows you to forward requests to other resources. You define an HTTP endpoint just like with HTTP trigger, but instead of writing code to execute when that endpoint is called, you provide a URL to a remote implementation. This allows you to compose multiple API sources into a single API surface which is easy for clients to consume. This is particularly useful if you wish to build your API as microservices.
 
 A proxy can point to any HTTP resource, such as:
 - Azure Functions 
@@ -72,7 +71,7 @@ A proxy can point to any HTTP resource, such as:
 - Docker containers in [App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Any other hosted API
 
-To learn more about proxies, see [Working with Azure Functions Proxies (preview)].
+To learn more about proxies, see [Working with Azure Functions Proxies].
 
 ## Create your first proxy
 
@@ -94,7 +93,7 @@ Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azu
 ### Creating a proxy on the frontend
 
 1. Navigate back to your frontend function app in the portal.
-1. In the left-hand navigation, click the plus sign '+' next to "Proxies (preview)".
+1. In the left-hand navigation, click the plus sign '+' next to "Proxies".
     ![Creating a proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Use proxy settings as specified in the table. 
 
@@ -183,10 +182,10 @@ In this tutorial, you learned how to build and customize an API on Azure Functio
 
 The following references may be helpful as you develop your API further:
 
-- [Azure Functions HTTP and webhook bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Working with Azure Functions Proxies (preview)]
+- [Azure Functions HTTP bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [Working with Azure Functions Proxies]
 - [Documenting an Azure Functions API (preview)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Working with Azure Functions Proxies (preview)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Working with Azure Functions Proxies]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

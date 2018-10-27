@@ -2,21 +2,14 @@
 title: Power BI Workspace Collections FAQ
 description: Frequently asked questions related to Power BI Workspace Collections.
 services: power-bi-embedded
-documentationcenter: ''
-author: guyinacube
-manager: erikre
-editor: ''
-tags: ''
-
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
+ms.author: maghan
 
 ---
 # Power BI Workspace Collections FAQ

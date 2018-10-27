@@ -1,20 +1,23 @@
 ---
-title: Bing single-page News search app | Microsoft Docs
+title: "Tutorial: Bing News Search single-page app"
+titlesuffix: Azure Cognitive Services
 description: Explains how to use the Bing News Search API in a single-page Web application.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-news-search
-ms.topic: article
+ms.component: bing-news-search
+ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
 ---
 # Tutorial: Single-page News Search app
 The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
 
+<!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
+-->
 
 > [!NOTE]
 > The JSON and HTTP headings at the bottom of the page when clicked show the JSON response and HTTP request information. These details can be useful when exploring the service.
@@ -61,7 +64,7 @@ API_KEY_COOKIE   = "bing-search-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
 
 // Bing Search API endpoint
-BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
+BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/news";
 
 // ... omitted definitions of storeValue() and retrieveValue()
 // Browsers differ in their support for persistent storage by 
@@ -114,14 +117,16 @@ function bingSearchOptions(form) {
     options.push("mkt=" + form.where.value);
     options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
     if (form.when.value.length) options.push("freshness=" + form.when.value);
-    var category = "all";
+
     for (var i = 0; i < form.category.length; i++) {
         if (form.category[i].checked) {
             category = form.category[i].value;
             break;
         }
     }
-    options.push("category=" + category);
+    if (category.valueOf() != "all".valueOf()) { 
+        options.push("category=" + category); 
+        }
     options.push("count=" + form.count.value);
     options.push("offset=" + form.offset.value);
     return options.join("&");
@@ -145,7 +150,18 @@ function bingNewsSearch(query, options, key) {
     hideDivs("results", "related", "_json", "_http", "paging1", "paging2", "error");
 
     var request = new XMLHttpRequest();
-    var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+     if (category.valueOf() != "all".valueOf()) {
+        var queryurl = BING_ENDPOINT + "/search?" + "?q=" + encodeURIComponent(query) + "&" + options;
+    }
+    else
+    {
+        if (query){
+        var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+        }
+        else {
+            var queryurl = BING_ENDPOINT + "?" + options;
+        }
+    }
 
     // open the request
     try {
@@ -208,7 +224,6 @@ function handleBingResponse() {
         if (clientid) retrieveValue(CLIENT_ID_COOKIE, clientid);
         if (json.length) {
             if (jsobj._type === "News") {
-                if (jsobj.nextOffset) document.forms.bing.nextoffset.value = jsobj.nextOffset;
                 renderSearchResults(jsobj);
             } else {
                 renderErrorMessage("No search results in JSON response");
@@ -304,7 +319,7 @@ The Bing News Search API returns up to four different kinds of related results, 
 
 As previously seen in `renderSearchResults()`, we render only the `relatedItems` suggestions and place the resulting links in the page's sidebar.
 
-##Rendering result items
+## Rendering result items
 
 In the JavaScript code the object, `searchItemRenderers`, contains *renderers:* functions that generate HTML for each kind of search result.
 

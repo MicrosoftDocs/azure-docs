@@ -3,16 +3,17 @@ title: Send user context IDs to enable usage experiences in Azure Application In
 description: Track how users move through your service by assigning each of them a unique, persistent ID string in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: abgreg
+author: NumberByColors
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: mbullwin
+ms.reviewer: abgreg;mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
 ---
 
 #  Send user context IDs to enable usage experiences in Azure Application Insights
@@ -49,7 +50,7 @@ Create a telemetry initializer, as described in detail [here](https://docs.micro
 
 This example sets the user ID to an identifier that expires after the session. If possible, use a user ID that persists across sessions.
 
-```C#
+```csharp
 
     using System;
     using System.Web;

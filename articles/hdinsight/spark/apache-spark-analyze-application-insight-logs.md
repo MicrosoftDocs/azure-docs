@@ -1,22 +1,14 @@
 ---
-title: Analyze Application Insight logs with Spark - Azure HDInsight | Microsoft Docs
+title: Analyze Application Insight logs with Spark - Azure HDInsight 
 description: Learn how to export Application Insight logs to blob storage, and then analyze the logs with Spark on HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 883beae6-9839-45b5-94f7-7eb0f4534ad5
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/10/2017
-ms.author: larryfr
-
+ms.topic: conceptual
+ms.date: 05/09/2018
 ---
 # Analyze Application Insights telemetry logs with Spark on HDInsight
 
@@ -369,7 +361,6 @@ For more examples of using Spark to work with data and services in Azure, see th
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 For information on creating and running Spark applications, see the following documents:

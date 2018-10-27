@@ -1,0 +1,58 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Virtual Machine Scale Sets Documentation
+metadata:
+  title: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs. Learn how to create, configure, manage, and autoscale virtual machine scale sets with our quickstarts, tutorials, and samples.
+  services: virtual-machine-scale-sets
+  author: carolz
+  manager: czeumault
+  ms.service: virtual-machine-scale-sets
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/14/2018
+  ms.author: carolz
+abstract:
+  description: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs. Learn how to create, configure, manage, and autoscale virtual machine scale sets with our quickstarts, tutorials, and samples.
+sections:
+- title: Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to deploy a web server on a virtual machine scale set.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/virtual-machine-scale-sets/quick-create-portal
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/virtual-machine-scale-sets/quick-create-cli
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/virtual-machine-scale-sets/quick-create-powershell 
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to deploy, manage, and autoscale virtual machine scale sets on Azure.
+  - type: list
+    style: ordered
+    items:
+    - html: Create and manage a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a>
+    - html: Use data disks with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a>
+    - html: Use a custom VM image with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
+    - html: Deploy apps to a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
+    - html: Autoscale a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Example deployments for virtual machine scale sets.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Azure CLI</a>
+    - html: <a href="/azure/virtual-machine-scale-sets/powershell-samples">Azure PowerShell</a>

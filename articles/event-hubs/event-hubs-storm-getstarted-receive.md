@@ -3,7 +3,7 @@ title: Receive events from Azure Event Hubs using Apache Storm | Microsoft Docs
 description: Get started receiving from Event Hubs using Apache Storm
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/15/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 ---
 
 # Receive events from Event Hubs using Apache Storm
@@ -127,7 +127,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
 	}
 	```
     
-    This Storm bolt logs the content of the received events. This can easily be extended to store tuples in a storage service. The [HDInsight sensor analysis tutorial] uses this same approach to store data into HBase.
+    This Storm bolt logs the content of the received events. This can easily be extended to store tuples in a storage service. The [HDInsight Storm with Event Hub example] uses this same approach to store data into Azure Storage and Power BI.
 11. Create a class called **LogTopology** with the following code:
     
 	```java
@@ -244,7 +244,7 @@ You can learn more about Event Hubs by visiting the following links:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight sensor analysis tutorial]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[HDInsight Storm with Event Hub example]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

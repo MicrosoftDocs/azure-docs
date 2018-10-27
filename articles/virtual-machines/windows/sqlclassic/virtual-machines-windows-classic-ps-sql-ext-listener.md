@@ -4,7 +4,7 @@ description: This tutorial walks you through steps of creating an Always On Avai
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 
@@ -33,7 +33,7 @@ This topic shows you how to configure a listener for an Always On Availability G
 Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](../classic/portal-sql-alwayson-availability-groups.md) but have not configured a listener.
 
 ## Guidelines and limitations for external listeners
-Note the following guidelines about the availability group listener in Azure when you are deploying using the cloud service pubic VIP address:
+Note the following guidelines about the availability group listener in Azure when you are deploying using the cloud service public VIP address:
 
 * The availability group listener is supported on Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.
 * The client application must reside on a different cloud service than the one that contains your availability group VMs. Azure does not support direct server return with client and server in the same cloud service.

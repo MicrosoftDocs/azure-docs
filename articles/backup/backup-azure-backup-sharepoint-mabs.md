@@ -1,22 +1,15 @@
 ---
-title: Use Azure Backup server to back up a SharePoint farm to Azure | Microsoft Docs
+title: Use Azure Backup server to back up a SharePoint farm to Azure
 description: Use Azure Backup Server to back up and restore your SharePoint data. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
 services: backup
-documentationcenter: ''
 author: pvrk
 manager: shivamg
-editor: ''
-
-ms.assetid: 34ba87a4-91f1-4054-a4a1-272af1e15496
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2017
+ms.topic: conceptual
+ms.date: 6/8/2018
 ms.author: pullabhk
-
 ---
+
 # Back up a SharePoint farm to Azure
 You back up a SharePoint farm to Microsoft Azure by using Microsoft Azure Backup Server (MABS) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
@@ -34,13 +27,13 @@ There are a few things you need to confirm before you back up a SharePoint farm 
 Before you proceed, make sure that you have [installed and prepared the Azure Backup Server](backup-azure-microsoft-azure-backup.md) to protect workloads.
 
 ### Protection agent
-The Protection agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  The one exception is that you install the agent only on a single web front end (WFE) server. DPM needs the agent on one WFE server only to serve as the entry point for protection.
+The Azure Backup agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  The one exception is that you install the agent only on a single web front end (WFE) server. Azure Backup Server needs the agent on one WFE server only to serve as the entry point for protection.
 
 ### SharePoint farm
 For every 10 million items in the farm, there must be at least 2 GB of space on the volume where the MABS folder is located. This space is required for catalog generation. For MABS to recover specific items (site collections, sites, lists, document libraries, folders, individual documents, and list items), catalog generation creates a list of the URLs that are contained within each content database. You can view the list of URLs in the recoverable item pane in the **Recovery** task area of MABS Administrator Console.
 
 ### SQL Server
-MABS runs as a LocalSystem account. To back up SQL Server databases, MABS needs sysadmin privileges on that account for the server that's running SQL Server. Set NT AUTHORITY\SYSTEM to *sysadmin* on the server that's running SQL Server before you back it up.
+Azure Backup Server runs as a LocalSystem account. To back up SQL Server databases, MABS needs sysadmin privileges on that account for the server that's running SQL Server. Set NT AUTHORITY\SYSTEM to *sysadmin* on the server that's running SQL Server before you back it up.
 
 If the SharePoint farm has SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that MABS will protect.
 
@@ -233,5 +226,7 @@ A: Yes, the item can be recovered to the original SharePoint site.
 Q: Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?<br>
 A: Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group is removed. As a result, MABS cannot restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
 
-## Next steps
-* Learn more about MABS Protection of SharePoint - see [Video Series - DPM Protection of SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+## Next Steps
+
+See the [Back up Exchange server](backup-azure-exchange-mabs.md) article.
+See the [Back up SQL Server](backup-azure-sql-mabs.md) article.

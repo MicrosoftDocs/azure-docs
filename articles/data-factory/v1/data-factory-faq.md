@@ -1,26 +1,26 @@
-﻿---
+---
 title: Azure Data Factory - Frequently Asked Questions
 description: Frequently asked questions about Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex
 ---
 # Azure Data Factory - Frequently Asked Questions
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [frequently asked question - Data Factory version 2](../frequently-asked-questions.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [frequently asked question - Data Factory](../frequently-asked-questions.md).
 
 ## General questions
 ### What is Azure Data Factory?
@@ -38,7 +38,7 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 * For a tutorial on how to **copy/move data** using Copy Activity, see [Copy data from Azure Blob Storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * For a tutorial on how to **transform data** using HDInsight Hive Activity. See [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)
 
-### What is the Data Factory’s region availability?
+### What is the Data Factory's region availability?
 Data Factory is available in **US West** and **North Europe**. The compute and storage services used by data factories can be in other regions. See [Supported regions](data-factory-introduction.md#supported-regions).
 
 ### What are the limits on number of data factories/pipelines/activities/datasets?
@@ -205,9 +205,9 @@ If you really want to stop all the executions immediately, the only way would be
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories
+[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/set-azurermdatafactoryslicestatus
+[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

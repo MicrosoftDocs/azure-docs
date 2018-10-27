@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2017
+ms.date: 10/23/2018
 ms.author: cherylmc
 
 ---
@@ -34,7 +34,7 @@ This article helps you create and manage routing configuration for an ExpressRou
 
 ## Configuration prerequisites
 
-* Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflow](expressroute-workflows.md) pages before you begin configuration.
 * You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the commands in this article.
 
@@ -52,8 +52,6 @@ This section helps you create, get, update, and delete the Microsoft peering con
 > 
 
 ### To create Microsoft peering
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. Install the latest version of Azure CLI. Use the latest version of the Azure Command-line Interface (CLI).* Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
@@ -316,7 +314,7 @@ az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGro
 You can remove your peering configuration by running the following example:
 
 > [!WARNING]
-> You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this example. 
+> You must ensure that all virtual networks and ExpressRoute Global Reach connections are removed before running this example. 
 > 
 > 
 

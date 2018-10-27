@@ -1,4 +1,4 @@
-﻿---
+---
 title: Explore .NET trace logs in Application Insights
 description: Search logs generated with Trace, NLog, or Log4Net.
 services: application-insights
@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
 
@@ -61,7 +61,7 @@ Use this method if your project type isn't supported by the Application Insights
 
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
    * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
-   * Microsoft.ApplicationInsights.EtwListener (to capture ETW events)
+   * Microsoft.ApplicationInsights.EtwCollector (to capture ETW events)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
@@ -96,7 +96,7 @@ For each source, you can set the following parameters:
 You can configure [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) events to be sent to Application Insights as traces. First, install the [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) file.
 
 ```xml
-    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+    <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
       <Sources>
         <Add Name="MyDiagnosticSourceName" />
       </Sources>

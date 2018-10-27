@@ -42,7 +42,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 2. [Collect data](#collect)
 3. [Mitigate the issue](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) gives you various options at each step.
+[App Service Web Apps](app-service-web-overview.md) gives you various options at each step.
 
 <a name="observe" />
 
@@ -80,18 +80,14 @@ To set it up, see [Monitor apps in Azure App Service](web-sites-monitor.md).
 Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) for a video on endpoint monitoring.
 
 #### Application performance monitoring using Extensions
-You can also monitor your application performance by using *site extensions*.
+You can also monitor your application performance by using a *site extension*.
 
 Each App Service web app provides an extensible management end point that allows you to use a powerful set of tools deployed as site extensions. Extensions include: 
 
-- Source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Source code editors like [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Management tools for connected resources such as a MySQL database connected to a web app.
 
-[Azure Application Insights](/services/application-insights/) and [New Relic](/marketplace/partners/newrelic/newrelic/) are two of the performance monitoring site extensions that are available. To use New Relic, you install an agent at runtime. To use Azure Application Insights, you rebuild your code with an SDK, and you can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail.
-
-To use Application Insights, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
-
-To use New Relic, see [New Relic Application Performance Management on Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -159,7 +155,7 @@ Some of the things that Kudu provides are:
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
 
 For more information on features available in Kudu, see
-[Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+[Azure DevOps tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 

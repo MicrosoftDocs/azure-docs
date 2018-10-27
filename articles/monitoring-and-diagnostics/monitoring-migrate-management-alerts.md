@@ -1,21 +1,13 @@
 ---
-title: Migrate Azure Alerts on Management Events to Activity Log Alerts | Microsoft Docs
+title: Migrate Azure alerts on management events to Activity Log alerts
 description: Alerts on management events will be removed on October 1. Prepare by migrating exisiting alerts.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
-
+ms.component: alerts
 ---
 # Migrate Azure alerts on management events to Activity Log alerts
 
@@ -35,7 +27,7 @@ Azure Monitor (formerly Azure Insights) offered a capability to create an alert 
 The following PowerShell script returns a list of all alerts on management events that you have in your subscription, as well as the conditions set on each alert.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $alerts = $null
 foreach ($rg in Get-AzureRmResourceGroup ) {
   $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName

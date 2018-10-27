@@ -2,17 +2,13 @@
 title: Eternal orchestrations in Durable Functions - Azure
 description: Learn how to implement eternal orchestrations by using the Durable Functions extension for Azure Functions.
 services: functions
-author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+author: kashimiz
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -37,6 +33,8 @@ When `ContinueAsNew` is called, the instance enqueues a message to itself before
 
 One use case for eternal orchestrations is code that needs to do periodic work indefinitely.
 
+#### C#
+
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
 public static async Task Run(
@@ -46,39 +44,30 @@ public static async Task Run(
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
-    await context.CreateTimer<string>(nextCleanup);
+    await context.CreateTimer(nextCleanup, CancellationToken.None);
 
-    context.ContinueAsNew();
+    context.ContinueAsNew(null);
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("DoCleanup");
+
+    // sleep for one hour between cleanups
+    const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
+    yield context.df.createTimer(nextCleanup);
+
+    context.df.continueAsNew(undefined);
+});
 ```
 
 The difference between this example and a timer-triggered function is that cleanup trigger times here are not based on a schedule. For example, a CRON schedule that executes a function every hour will execute it at 1:00, 2:00, 3:00 etc. and could potentially run into overlap issues. In this example, however, if the cleanup takes 30 minutes, then it will be scheduled at 1:00, 2:30, 4:00, etc. and there is no chance of overlap.
-
-## Counter example
-
-Here is a simplified example of a *counter* function that listens for *increment* and *decrement* events eternally.
-
-```csharp
-[FunctionName("SimpleCounter")]
-public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    int counterState = context.GetInput<int>();
-
-    string operation = await context.WaitForExternalEvent<string>("operation");
-
-    if (operation == "incr")
-    {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
-    }
-    
-    context.ContinueAsNew(counterState);
-}
-```
 
 ## Exit from an eternal orchestration
 
@@ -90,6 +79,3 @@ If an orchestrator function is in an infinite loop and needs to be stopped, use 
 
 > [!div class="nextstepaction"]
 > [Learn how to implement singleton orchestrations](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [Run a sample eternal orchestration](durable-functions-counter.md)
