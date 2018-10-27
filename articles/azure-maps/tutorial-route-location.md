@@ -88,7 +88,7 @@ The following steps show you how to create a static HTML page embedded with the 
     map = new atlas.Map('myMap');
     ```
 
-    The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
+    The `atlas.Map` provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
 4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further.
 
@@ -132,7 +132,7 @@ In this tutorial a simple route will be rendered using a symbol icon for the sta
     });
     ```
     
-    A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store the route line as well as the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. The route line will be rendered a nice shade of blue with a width of 5 pixels and rounded line joins and caps. A filter is added ensure this layer only renders GeoJSON LineString data. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each waypoint object. 
+    A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store the route line as well as the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. The route line will be rendered a nice shade of blue with a width of 5 pixels and rounded line joins and caps. A filter is added ensure this layer only renders GeoJSON LineString data. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each point object. 
     
 2. For this tutorial, set the start point as Microsoft, and the end point as a gas station in Seattle. In the map load event handler add the following code.
 
@@ -149,7 +149,7 @@ In this tutorial a simple route will be rendered using a symbol icon for the sta
     });    
     ```
 
-    This code creates two [GeoJSON Point objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route. A title and icon property is added to each point.
+    This code creates two [GeoJSON Point objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route. A `title` and `icon` property is added to each point.
     
 3. Next, add the following JavaScript code to add the pins for the start and end points to the map:
 
