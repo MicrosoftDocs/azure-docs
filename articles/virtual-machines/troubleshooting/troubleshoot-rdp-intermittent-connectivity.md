@@ -34,9 +34,9 @@ This problem may occur if the RDP Listener is misconfigured. Typically, this pro
 
 ## Solution
 
-Before you follow these steps, [take a snapshot of the system disk](../windows/snapshot-copy-managed-disk.md) of the affected VM as a backup. 
+Before you follow these steps, [take a snapshot of the OS disk](../windows/snapshot-copy-managed-disk.md) of the affected VM as a backup. 
 
-To troubleshoot this issue, use Serial control or [repair the VM offline](#repair-the-vm-offline) by attaching the system disk of the VM to a recovery VM.
+To troubleshoot this issue, use Serial control or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
 
 ### Serial control
 
@@ -87,12 +87,12 @@ To troubleshoot this issue, use Serial control or [repair the VM offline](#repai
 
 ### Repair the VM offline
 
-1. [Attach the system disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
-2. After the system disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached system disk.
-3. On the system disk that you attached, navigate to the **\windows\system32\config** folder. Copy all the files in this folder as a backup, in case a rollback is required.
+1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+2. After the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
+3. On the OS disk that you attached, navigate to the **\windows\system32\config** folder. Copy all the files in this folder as a backup, in case a rollback is required.
 4. Start Registry Editor (regedit.exe).
 5. Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
-6. Browse to the **\windows\system32\config\SYSTEM** folder on the system disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key. Then load the software hive **\windows\system32\config\SOFTWARE** under the **HKEY_LOCAL_MACHINE** key. For the name of the hive software, enter **BROKENSOFTWARE**. 
+6. Browse to the **\windows\system32\config\SYSTEM** folder on the OS disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key. Then load the software hive **\windows\system32\config\SOFTWARE** under the **HKEY_LOCAL_MACHINE** key. For the name of the hive software, enter **BROKENSOFTWARE**. 
 7. Open an elevated Command Prompt window (**Run as administrator**), and run commands in the remaining steps to reset the RDP configurations. 
 8. Lower the RDP Security Layer to 0 so that communications between the server and client use the native RDP Encryption:
 
