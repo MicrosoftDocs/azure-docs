@@ -29,6 +29,10 @@ In this tutorial, you learn how to:
 > [!NOTE] 
 > The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
+## Prerequisites
+
+This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). 
+
 ## Create a knowledge base 
 
 1. Sign in to the [QnA Maker](https://www.qnamaker.ai) portal. 
@@ -37,15 +41,15 @@ In this tutorial, you learn how to:
 
     ![Step 1 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
 
-1. See [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) to learn how to create a QnA Maker resource in the Azure portal. 
+1. Skip the first step because you will use your existing QnA Maker service. 
 
-1. In the next step, select the existing settings:  
+1. In the next step, select your existing settings:  
 
     |Setting|Purpose|
     |--|--|
-    |Microsoft Azure Directory Id|The Microsoft Azure Directory Id is associated with the account you use to sign into the Azure portal and the QnA Maker portal. |
-    |Azure Subscription name|The billing account you created the QnA Maker resource in.|
-    |Azure QnA Service|The existing QnA Maker resource.|
+    |Microsoft Azure Directory Id|Your _Microsoft Azure Directory Id_ is associated with the account you use to sign into the Azure portal and the QnA Maker portal. |
+    |Azure Subscription name|Your billing account you created the QnA Maker resource in.|
+    |Azure QnA Service|Your existing QnA Maker resource.|
 
     ![Step 2 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-2.png)
 
@@ -57,9 +61,9 @@ In this tutorial, you learn how to:
 
     |Setting name|Setting value|Purpose|
     |--|--|--|
-    |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |The contents of that FAQ at that URL are formatted in a question-then-answer style. QnA Maker can interpret this style to extract questions and the associated answers.|
-    |File (not used in this tutorial)||This uploads files for questions and answers. See [Data sources supported](../Concepts/data-sources-supported.md) for more information. 
-    |Chit-chat personality|The friend|This gives a friendly and casual [personality](../Concepts/best-practices.md#chit-chat) to common questions and answers. You can edit these questions and answers later. |
+    |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |The contents of the FAQ at that URL are formatted with a question followed by an answer. QnA Maker can interpret this format to extract questions and the associated answers.|
+    |File |_not used in this tutorial_|This uploads files for questions and answers. |
+    |Chit-chat personality|The friend|This gives a friendly and casual personality to common questions and answers. You can edit these questions and answers later. |
 
     ![Step 4 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -75,9 +79,9 @@ In this tutorial, you learn how to:
 
 1. Select the last page of questions and answers from the bottom of the table. The page shows questions and answers from the Chit-chat personality. 
 
-    ![View filters](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+1. From the toolbar above the list of questions and answers, select the gear. This shows the filters for each question and answer. The Chit-chat questions have the **editorial: chit-chat** filter already set. This filter is returned to the client application along with the selected answer. The client application, such as a chat bot, can use this filter to determine additional processing or interactions with the user.
 
-1. From the toolbar above the list of questions and answers, select the gear. This shows the filters for each question and answer. The Chit-chat questions have the **editorial: chit-chat** filter already set. This filter is returned to the client application along with the selected answer. The client application, such as a chat bot, can use this filter to determine the type of answer returned and add to or change the answer based on the filter.
+    ![View filters](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Select **Save and train** in the top menu bar.
 
@@ -99,7 +103,7 @@ After the KB is published, the endpoint is displayed
 
 1. Copy the text of the **Curl** tab and execute in a Curl-enabled terminal or command-line. The authorization header's value includes the text `Endpoint ` with a trailing space then the key.
 
-1. Replace `<Your question>` with `How large can my KB be?`.   
+1. Replace `<Your question>` with `How large can my KB be?`. This is close to the question, `How large a knowledge base can I create?`, but not exactly the same.     
 
 1. Execute the CURL command and receive the JSON response including the score and answer. 
 
@@ -122,6 +126,8 @@ After the KB is published, the endpoint is displayed
     }
     
     ```
+
+    QnA Maker is somewhat confident with the score of 42.81.  
 
 ## Use curl to query for a Chit-chat answer
 
@@ -161,9 +167,11 @@ After the KB is published, the endpoint is displayed
    
     ```
 
+    Because the question of `Thank you` exactly matched a question, QnA Maker is completely confident with the score of 100. QnA Maker also returns all the related questions as well as the metadata property containing the Chit-chat filter information.  
+
 ## Use curl to query for the default answer
 
-Any question that QnA Maker is not confident in an answer receives the default answer. This answer is configured in the Azure portal. For more information about this, see [No match found](../Concepts/confidence-score.md#no-match-found). 
+Any question that QnA Maker is not confident in an answer receives the default answer. This answer is configured in the Azure portal. 
 
 1. In the Curl-enabled terminal, replace `Thank you` with `x`. 
 
@@ -184,8 +192,16 @@ Any question that QnA Maker is not confident in an answer receives the default a
       ]
     }
     ```
+    
+    QnA Maker returned a score of 0 which means no confidence but it also returned the default answer. 
 
 ## Next steps
 
+See [Data sources supported](../Concepts/data-sources-supported.md) for more information about support file formats. 
+
+Learn more about Chit-chat [personalities](../Concepts/best-practices.md#chit-chat).
+
+For more information about the default answer, see [No match found](../Concepts/confidence-score.md#no-match-found). 
+
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Knowledge base concepts](../Concepts/knowledge-base.md)
