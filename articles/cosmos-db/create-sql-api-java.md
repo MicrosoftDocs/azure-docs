@@ -102,7 +102,7 @@ This step is optional. If you're interested in learning how the database resourc
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.setId(collectionName);
 
-    ...
+    //...
 
     client.createCollection(databaseLink, collectionDefinition, requestOptions)
             .toCompletable()
@@ -120,9 +120,9 @@ This step is optional. If you're interested in learning how the database resourc
     // More properties
 
     String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    client.createCollection(collectionLink, family, null, true)
-        .toCompletable()
-        .await();
+    client.createDocument(collectionLink, family, null, true)
+            .toCompletable()
+            .await();
 
     ```
 
@@ -135,20 +135,20 @@ This step is optional. If you're interested in learning how the database resourc
     queryOptions.setMaxDegreeOfParallelism(-1);
 
     String collectionLink = String.format("/dbs/%s/colls/%s",
-        databaseName, 
-        collectionName);
+            databaseName,
+            collectionName);
     Iterator<FeedResponse<Document>> it = client.queryDocuments(
-        collectionLink,
-        "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
-        queryOptions).toBlocking().getIterator();
+            collectionLink,
+            "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+            queryOptions).toBlocking().getIterator();
 
     System.out.println("Running SQL query...");
-    while(it.hasNext()) {
+    while (it.hasNext()) {
         FeedResponse<Document> page = it.next();
         System.out.println(
-            String.format("\tRead a page of results with %d items", 
-                page.getResults().size()));
-        for(Document doc: page.getResults()) {
+                String.format("\tRead a page of results with %d items",
+                        page.getResults().size()));
+        for (Document doc : page.getResults()) {
             System.out.println(String.format("\t doc %s", doc));
         }
     }
