@@ -257,7 +257,7 @@ The parameter goes though all partitions and encrypts them as long as they meet 
 - Is not an LVM volume
 - Is mounted
 
-Encrypt the disks that compose a RAID or LVM volume rather than the RAID or LVM volume.
+Encrypt the disks that compose the RAID or LVM volume rather than the RAID or LVM volume.
 
 ### <a name="bkmk_EFAPSH"> </a> Use the EncryptFormatAll parameter with Azure CLI
 Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) command to enable encryption on a running IaaS virtual machine in Azure.
