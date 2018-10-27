@@ -42,7 +42,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html** and open it in a text editor.
-3. Search for the string `Insert your key here`, and replace it with the **Primary Key** value obtained in the preceding section.
+3. Search for the string `<insert-key>`, and replace it with the **Primary Key** value obtained in the preceding section.
 
 ## Launch the application
 
