@@ -3,7 +3,7 @@ title: Multiple routes with Azure Maps | Microsoft Docs
 description: Find routes for different modes of travel using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/25/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -83,7 +83,7 @@ The following steps show you how to create a static HTML page embedded with the 
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
-4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further. 
+4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further.
 
    ![View basic map](./media/tutorial-prioritized-routes/basic-map.png)
 
