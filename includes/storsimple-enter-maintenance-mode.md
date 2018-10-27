@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 <!--author=SharS last changed: 12/01/15-->
 
 #### To enter Maintenance mode

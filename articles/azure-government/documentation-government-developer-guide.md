@@ -71,7 +71,7 @@ For more information on Azure Government Compliance, refer to the [compliance do
 
 ## Endpoint mapping
 
-To learn about mapping global Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
+The following table shows the mapping between some Azure services and Azure Government endpoints.
 
 > [!NOTE]
 > The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
@@ -91,6 +91,7 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
 | Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
+| LUIS Portal | https://luis.azure.us | https://luis.ai
 
 ## Next steps
 For more information about Azure Government, see the following resources:

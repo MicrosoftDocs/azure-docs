@@ -29,7 +29,7 @@ To enter single user mode, you will need to enter GRUB when your VM is booting u
 ## General GRUB access
 To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout. 
 
-You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. Distro-specific information is available below.
+You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. Distro-specific information is available below and at [this link](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
 ### Reboot your VM to access GRUB in Serial Console
 Rebooting your VM with the serial console blade open can be done with a SysRq `'b'` command if [SysRq](./serial-console-nmi-sysrq.md) is enabled, or by clicking the Restart button in the Overview blade (open the VM in a new browser tab to reboot without closing the serial console blade). Follow the distro-specific instructions below to learn what to expect from GRUB when you reboot.
@@ -182,6 +182,7 @@ Follow the instructions for RHEL above to enable single user mode in Oracle Linu
 
 ## Next steps
 * The main serial console Linux documentation page is located [here](serial-console-linux.md).
+* Learn how to use Serial Console to [enable GRUB in various distros](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Use Serial Console for [NMI and SysRq calls](serial-console-nmi-sysrq.md)
 * The Serial Console is also available for [Windows](serial-console-windows.md) VMs
 * Learn more about [boot diagnostics](boot-diagnostics.md)

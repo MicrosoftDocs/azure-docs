@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
@@ -26,7 +26,7 @@ Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure ser
 Azure Stack is offered in two deployment options to meet your needs.
 
 ## Azure Stack integrated systems
-Azure Stack integrated systems are offered through a partnership of Microsoft and [hardware partners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), creating a solution that offers cloud-paced innovation and computing management simplicity. Because Azure Stack is offered as an integrated hardware and software system, you have the flexibility and control you need, along with the ability to innovate from the cloud. Azure Stack integrated systems range in size from 4-12 nodes, and are jointly supported by the hardware partner and Microsoft.  Use Azure Stack integrated systems to create new scenarios and deploy new solutions for your production workloads.
+Azure Stack integrated systems are offered through a partnership of Microsoft and [hardware partners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), creating a solution that offers cloud-paced innovation and computing management simplicity. Because Azure Stack is offered as an integrated hardware and software system, you have the flexibility and control you need, along with the ability to innovate from the cloud. Azure Stack integrated systems range in size from 4-16 nodes, and are jointly supported by the hardware partner and Microsoft.  Use Azure Stack integrated systems to create new scenarios and deploy new solutions for your production workloads.
 
 ## Azure Stack Development Kit
 

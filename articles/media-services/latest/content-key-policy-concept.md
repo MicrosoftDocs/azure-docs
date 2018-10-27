@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 
@@ -25,16 +25,16 @@ In Azure Media Services v3, Content Key Policies enable you to specify how the c
 
 The following table shows the ContentKeyPolicy's properties and gives their definitions.
 
-|Name|Type|Description|
-|---|---|---|
-|id|string|Fully qualified resource ID for the resource.|
-|name|string|The name of the resource.|
-|properties.created	|string|The creation date of the Policy|
-|properties.description	|string|A description for the Policy.|
-|properties.lastModified	|string|The last modified date of the Policy|
-|properties.options	|ContentKeyPolicyOption[]|The Key Policy options.|
-|properties.policyId	|string|The legacy Policy ID.|
-|type	|string|The type of the resource.|
+|Name|Description|
+|---|---|
+|id|Fully qualified resource ID for the resource.|
+|name|The name of the resource.|
+|properties.created	|The creation date of the Policy|
+|properties.description	|A description for the Policy.|
+|properties.lastModified|The last modified date of the Policy|
+|properties.options	|The Key Policy options.|
+|properties.policyId	|The legacy Policy ID.|
+|type	|The type of the resource.|
 
 For the full definition, see [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
@@ -94,7 +94,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/contentkeypolicies_list)
+For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
 ## Next steps
 

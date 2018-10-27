@@ -64,6 +64,7 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -75,13 +76,13 @@ namespace CosmosDBSamplesV2
             collectionName: "Items",
             ConnectionStringSetting = "CosmosDBConnection",
             LeaseCollectionName = "leases",
-            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents,
-            TraceWriter log)
+            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents, 
+            ILogger log)
         {
             if (documents != null && documents.Count > 0)
             {
-                log.Info($"Documents modified: {documents.Count}");
-                log.Info($"First document Id: {documents[0].Id}");
+                log.LogInformation($"Documents modified: {documents.Count}");
+                log.LogInformation($"First document Id: {documents[0].Id}");
             }
         }
     }
@@ -117,12 +118,12 @@ Here's the C# script code:
     using System;
     using Microsoft.Azure.Documents;
     using System.Collections.Generic;
+    using Microsoft.Extensions.Logging;
 
-
-    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    public static void Run(IReadOnlyList<Document> documents, ILogger log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.LogInformation("Documents modified " + documents.Count);
+      log.LogInformation("First document Id " + documents[0].Id);
     }
 ```
 
@@ -238,7 +239,7 @@ The attribute's constructor takes the database name and collection name. For inf
     public static void Run(
         [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
     IReadOnlyList<Document> documents,
-        TraceWriter log)
+        ILogger log)
     {
         ...
     }
@@ -343,6 +344,7 @@ namespace CosmosDBSamplesV2
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -356,17 +358,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{ToDoItemId}")]ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
+            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
         }
     }
@@ -385,6 +387,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -399,17 +402,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{Query.id}")] ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
             return new OkResult();
         }
@@ -429,6 +432,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -443,17 +447,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{id}")] ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
             return new OkResult();
         }
@@ -477,6 +481,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -490,13 +495,13 @@ namespace CosmosDBSamplesV2
                 ConnectionStringSetting = "CosmosDBConnection",
                 SqlQuery = "select * from ToDoItems r where r.id = {id}")]
                 IEnumerable<ToDoItem> toDoItems,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             foreach (ToDoItem toDoItem in toDoItems)
             {
-                log.Info(toDoItem.Description);
+                log.LogInformation(toDoItem.Description);
             }
             return new OkResult();
         }
@@ -517,6 +522,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -532,12 +538,12 @@ namespace CosmosDBSamplesV2
                 ConnectionStringSetting = "CosmosDBConnection",
                 SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")]
                 IEnumerable<ToDoItem> toDoItems,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
             foreach (ToDoItem toDoItem in toDoItems)
             {
-                log.Info(toDoItem.Description);
+                log.LogInformation(toDoItem.Description);
             }
             return new OkResult();
         }
@@ -560,6 +566,7 @@ using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -576,9 +583,9 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             var searchterm = req.Query["searchterm"];
             if (string.IsNullOrWhiteSpace(searchterm))
@@ -588,7 +595,7 @@ namespace CosmosDBSamplesV2
 
             Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
 
-            log.Info($"Searching for: {searchterm}");
+            log.LogInformation($"Searching for: {searchterm}");
 
             IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
                 .Where(p => p.Description.Contains(searchterm))
@@ -598,7 +605,7 @@ namespace CosmosDBSamplesV2
             {
                 foreach (ToDoItem result in await query.ExecuteNextAsync())
                 {
-                    log.Info(result.Description);
+                    log.LogInformation(result.Description);
                 }
             }
             return new OkResult();
@@ -744,7 +751,7 @@ Here's the *function.json* file:
       "Id": "{Query.id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
@@ -752,18 +759,19 @@ Here's the C# script code:
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+         log.LogInformation($"ToDo item not found");
     }
     else
     {
-        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+        log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -814,18 +822,19 @@ Here's the C# script code:
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+         log.LogInformation($"ToDo item not found");
     }
     else
     {
-        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+        log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -875,14 +884,15 @@ Here's the C# script code:
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     foreach (ToDoItem toDoItem in toDoItems)
     {
-        log.Info(toDoItem.Description);
+        log.LogInformation(toDoItem.Description);
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -935,10 +945,11 @@ Here's the C# script code:
 using System.Net;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
     string searchterm = req.GetQueryNameValuePairs()
@@ -950,7 +961,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
         return req.CreateResponse(HttpStatusCode.NotFound);
     }
 
-    log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
+    log.LogInformation($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
     IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
         .Where(p => p.Description.Contains(searchterm))
         .AsDocumentQuery();
@@ -959,7 +970,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
     {
         foreach (ToDoItem result in await query.ExecuteNextAsync())
         {
-            log.Info(result.Description);
+            log.LogInformation(result.Description);
         }
     }
     return req.CreateResponse(HttpStatusCode.OK);
@@ -1056,7 +1067,7 @@ Here's the *function.json* file:
       "Id": "{Query.id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
@@ -1533,6 +1544,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 
 namespace CosmosDBSamplesV2
@@ -1546,12 +1558,12 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
-            TraceWriter log)
+            ILogger log)
         {
             document = new { Description = queueMessage, id = Guid.NewGuid() };
 
-            log.Info($"C# Queue trigger function inserted one row");
-            log.Info($"Description={queueMessage}");
+            log.LogInformation($"C# Queue trigger function inserted one row");
+            log.LogInformation($"Description={queueMessage}");
         }
     }
 }
@@ -1567,6 +1579,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -1580,13 +1593,13 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]
                 IAsyncCollector<ToDoItem> toDoItemsOut,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+            log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
 
             foreach (ToDoItem toDoItem in toDoItemsIn)
             {
-                log.Info($"Description={toDoItem.Description}");
+                log.LogInformation($"Description={toDoItem.Description}");
                 await toDoItemsOut.AddAsync(toDoItem);
             }
         }
@@ -1651,10 +1664,11 @@ Here's the C# script code:
 
     using Microsoft.Azure.WebJobs.Host;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+    public static void Run(string myQueueItem, out object employeeDocument, ILogger log)
     {
-      log.Info($"C# Queue trigger function processed: {myQueueItem}");
+      log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
       dynamic employee = JObject.Parse(myQueueItem);
 
@@ -1713,14 +1727,15 @@ Here's the C# script code:
 
 ```cs
 using System;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+    log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
 
     foreach (ToDoItem toDoItem in toDoItemsIn)
     {
-        log.Info($"Description={toDoItem.Description}");
+        log.LogInformation($"Description={toDoItem.Description}");
         await toDoItemsOut.AddAsync(toDoItem);
     }
 }
@@ -1828,6 +1843,7 @@ Here's the F# code:
 ```fsharp
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
+    open Microsoft.Extensions.Logging
 
     type Employee = {
       id: string
@@ -1836,8 +1852,8 @@ Here's the F# code:
       address: string
     }
 
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
+      log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
       employeeDocument <-
         { id = sprintf "%s-%s" employee?name employee?employeeId
