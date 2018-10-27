@@ -1,5 +1,5 @@
 ---
-title: 'Steps to configure an OpenID/OAuth application from the Azure AD app gallery | Microsoft Docs'
+title: 'Configure an OpenID/OAuth application from the Azure AD app gallery | Microsoft Docs'
 description: Steps to configure an OpenID/OAuth application from the Azure AD app gallery.
 services: active-directory
 documentationCenter: na
@@ -17,7 +17,7 @@ ms.date: 05/25/2018
 ms.author: jeedes
 
 ---
-# Steps to configure an OpenID/OAuth application from the Azure AD app gallery
+# Configure an OpenID/OAuth application from the Azure AD app gallery
 
 ## Process of adding an OpenID application from the gallery
 
@@ -44,7 +44,7 @@ ms.author: jeedes
 
 5. When you select the sign-up link, you're redirected to the Azure Active Directory (Azure AD) page for sign-in credentials.
 
-6. After successful authentication, you accept the consent from the consent page. After that, the application home page is displayed.
+6. After successful authentication, you accept the consent from the consent page. After that, the application home page appears.
 
 	> [!NOTE]
     > You can add only one instance of the application. If you have already added one and tried to provide the consent again, it will not be added again in the tenant. So logically, you can use only one app instance in the tenant.
@@ -97,7 +97,7 @@ The following steps show you how the consent experience works for the applicatio
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
-2. Consider that your application’s permissions have been updated. The application is running, and a user is about to use it for the first time. First the application needs to obtain an authorization code from the Azure AD /authorize endpoint. The authorization code can then be used to acquire a new access and refresh token.
+2. Consider that your application’s permissions have been updated. The application is running, and a user is about to use it for the first time. First the application needs to get an authorization code from the Azure AD /authorize endpoint. The authorization code can then be used to acquire a new access and refresh token.
 
 3. If the user is not already authenticated, the Azure AD /authorize endpoint prompts for sign-in.
 
@@ -122,7 +122,7 @@ As an administrator, you can also consent to an application's delegated permissi
 
 App-only permissions always require a tenant administrator’s consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message appears. The message says the user isn’t able to consent.
 
-If your application uses permissions that require admin consent, you need to have a gesture such as a button or link where the admin can initiate the action. The request that your application sends for this action is the usual OAuth2/OpenID Connect authorization request. This request includes the *prompt=admin_consent* query string parameter. 
+If your application uses permissions that require admin consent, you need to have a gesture such as a button or link where the admin can start the action. The request that your application sends for this action is the usual OAuth2/OpenID Connect authorization request. This request includes the *prompt=admin_consent* query string parameter. 
 
 After the admin has consented and the service principal is created in the customer’s tenant, later sign-in requests don't need the *prompt=admin_consent* parameter. Because the administrator has decided that the requested permissions are acceptable, no other users in the tenant are prompted for consent from that point forward.
 
@@ -130,4 +130,4 @@ A tenant administrator can disable the ability for regular users to consent to a
 
 The *prompt=admin_consent* parameter can also be used by applications that request permissions that don't require admin consent. An example is an application that requires an experience where the tenant admin “signs up” one time, and no other users are prompted for consent from that point on.
 
-Imagine that an application requires admin consent, and an admin signs in without the *prompt=admin_consent* parameter being sent. When the admin successfully consents to the application, it applies only for their user account. Regular users will still not be able to sign in or consent to the application. This feature is useful if you want to give the tenant administrator the ability to explore your application before allowing other users' access.
+Imagine that an application requires admin consent, and an admin signs in without the *prompt=admin_consent* parameter being sent. When the admin successfully consents to the application, it applies only for their user account. Regular users will still be unable to sign in or consent to the application. This feature is useful if you want to give the tenant administrator the ability to explore your application before allowing other users' access.
