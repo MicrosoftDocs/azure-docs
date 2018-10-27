@@ -114,13 +114,13 @@ The output is similar to the following example:
 Terraform has been successfully initialized!
 ```
 
-You can preview the actions to be completed by the Terraform script with `terraform plan`. When ready to create the resource group, apply your Terraform plan as follows:
+You can preview the actions to be completed by the Terraform script with `terraform plan`. When ready to create the resource group, start the application of your Terraform plan as follows:
 
 ```bash
 terraform apply
 ```
 
-The output is similar to the following example:
+The apply command will generate another plan and request confirmation. It accepts only `yes` to continue. The output is similar to the following example:
 
 ```bash
 An execution plan has been generated and is shown below.
@@ -134,7 +134,19 @@ Terraform will perform the following actions:
       location: "westus"
       name:     "testResourceGroup"
       tags.%:   <computed>
+      
+Plan: 1 to add, 0 to change, 0 to destroy.
 
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value:
+```
+
+Typing `yes` here continues the application with output similar to this:
+
+```bash
 azurerm_resource_group.rg: Creating...
   location: "" => "westus"
   name:     "" => "testResourceGroup"
