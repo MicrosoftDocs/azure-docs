@@ -58,4 +58,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 ## Next steps
 
-[Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_0/)
+Next you can learn about scaling throughput in the following article:
+
+* [Scaling throughput](scaling-throughput.md)
+
