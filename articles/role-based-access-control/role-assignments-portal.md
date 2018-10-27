@@ -19,7 +19,7 @@ ms.reviewer: bagovind
 
 # Manage access using RBAC and the Azure portal
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and the Azure portal.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, service principals, and managed identities using RBAC and the Azure portal.
 
 ## Open Access control (IAM)
 
@@ -57,7 +57,7 @@ When managing access, you want to know who has access, what are their permission
 
 ### View role assignments for a single user
 
-Follow these steps to view the access for a single user, group, or application at a particular scope.
+Follow these steps to view the access for a single user, group, service principal, or managed identity at a particular scope.
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view access.
 
@@ -105,7 +105,7 @@ In RBAC, to grant access, you assign a role to a user, group, service principal,
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
-1. In the **Select** list, select a user, group, or application. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+1. In the **Select** list, select a user, group, service principal, or managed identity. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
 
 1. Click **Save** to assign the role.
 
