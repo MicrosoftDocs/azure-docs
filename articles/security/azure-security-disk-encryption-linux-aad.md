@@ -196,7 +196,7 @@ The parameter goes though all partitions and encrypts them as long as they meet 
 - Is not a LVM volume
 - Is mounted
 
-Encrypt the disks composing a RAID or LVM volume rather than the resulting volume.
+Encrypt the disks composing a RAID or LVM volume rather than the RAID or LVM volume.
 
 ### <a name="bkmk_EFATemplate"> </a> Use the EncryptFormatAll parameter with a template
 To use the EncryptFormatAll option, use any pre-existing Azure Resource Manager template that encrypts a Linux VM and change the **EncryptionOperation** field for the AzureDiskEncryption resource.
