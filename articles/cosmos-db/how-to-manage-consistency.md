@@ -216,5 +216,5 @@ You must use the Cosmos DB metrics menu to see this metric. It will not show up 
 
 You can learn more about managing data conflicts or move to the next key concept in Cosmos DB using the following docs:
 
-* [How to manage conflicts](how-to-manage-conflicts.md)
+* [How to manage conflicts between regions](how-to-manage-conflicts.md)
 * [Partitioning and data distribution](partition-data.md)

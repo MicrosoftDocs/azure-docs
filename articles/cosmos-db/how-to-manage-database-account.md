@@ -265,5 +265,5 @@ az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-
 You can learn about managing consistency levels and data conflicts in Cosmos DB using the following docs:
 
 * [How to manage consistency](how-to-manage-consistency.md)
-* [How to manage conflicts](how-to-manage-conflicts.md)
+* [How to manage conflicts between regions](how-to-manage-conflicts.md)
 
