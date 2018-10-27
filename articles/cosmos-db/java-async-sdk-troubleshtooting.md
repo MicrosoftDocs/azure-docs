@@ -23,7 +23,7 @@ Java Async SDK is provides access to Azure Cosmos DB SQL API.
 * [Best Practices For Prod]
 * [Common Problems]
   * [Request Rate too Large]
-  * [Network  ]
+  * [Network ]
   * [Monitoring availability]
   * [Cosmos DB Emulator Issues]
   * [Accessing Cosmos DB Emulator]
@@ -33,12 +33,12 @@ Java Async SDK is provides access to Azure Cosmos DB SQL API.
 Java Async SDK provides client-side logical representation for accessing Azure Cosmos DB SQL API. We provide a few different tools and approaches for helping you if you face any problem.
 
 Please start with this list:
-    1. Take a look at the [commons issues](common-issue) in this article.
+    1. Take a look at the [commons issues](common-issues-workarounds) in this article.
     2. Our SDK is [open-source on github](https://github.com/Azure/azure-cosmosdb-java) and we have issues section that we actively monitor. Check if there is any similar issue already filed and if there is a workaround: [Our GitHub Issues](https://github.com/Azure/azure-cosmosdb-java/issues)
     3. Review [Performance Tips](performance-tips-async-java.md) and follow the suggested practices.
     4. Follow the rest of this article, if you didn't find a solution, file a [GitHub issue](https://github.com/Azure/azure-cosmosdb-java/issues).
 
-## <a name="common-issues"></a>Common Issues and Workarounds
+## <a name="common-issues-workarounds"></a>Common Issues and Workarounds
 
 ### Network Issues, `io.netty.handler.timeout.ReadTimeoutException`, low throughput, high latency
 
