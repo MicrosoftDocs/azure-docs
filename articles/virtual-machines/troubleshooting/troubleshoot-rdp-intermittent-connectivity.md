@@ -92,7 +92,7 @@ To troubleshoot this issue, use Serial control or [repair the VM offline](#repai
 3. On the system disk that you attached, navigate to the **\windows\system32\config** folder. Copy all the files in this folder as a backup, in case a rollback is required.
 4. Start Registry Editor (regedit.exe).
 5. Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
-6. Browse to the **\windows\system32\config\SYSTEM** folder on the system disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key. Then load the software hive  **\windows\system32\config\SOFTWARE** under the **HKEY_LOCAL_MACHINE** key. For the name of the hive software, enter **BROKENSOFTWARE**. 
+6. Browse to the **\windows\system32\config\SYSTEM** folder on the system disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key. Then load the software hive **\windows\system32\config\SOFTWARE** under the **HKEY_LOCAL_MACHINE** key. For the name of the hive software, enter **BROKENSOFTWARE**. 
 7. Open an elevated Command Prompt window (**Run as administrator**), and run commands in the remaining steps to reset the RDP configurations. 
 8. Lower the RDP Security Layer to 0 so that communications between the server and client use the native RDP Encryption:
 
