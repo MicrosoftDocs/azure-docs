@@ -8,8 +8,6 @@
     href: allocation-failure-classic.md
 - name: RDP
   items:
-  - name: Connection disconnects frequently
-    href: troubleshoot-rdp-intermittent-connectivity.md
   - name: Reset RDP
     href: reset-rdp.md
   - name: RDP troubleshooting
@@ -23,7 +21,9 @@
   - name: Troubleshoot remote desktop services issues
     href: troubleshoot-remote-desktop-services-issues.md
   - name: Troubleshoot An internal error
-    href: troubleshoot-rdp-internal-error.md
+    href: Troubleshoot-rdp-internal-error.md
+  - name: Troubleshoot connection disconnects frequently
+    href: troubleshoot-rdp-intermittent-connectivity.md
 - name: SSH
   items:
   - name: SSH troubleshooting
