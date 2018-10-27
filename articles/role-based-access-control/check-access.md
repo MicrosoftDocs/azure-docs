@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/23/2018
+ms.date: 10/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -36,7 +36,7 @@ Follow these steps to view the role assignments for a single user, group, or app
 
 1. Click the **Check access** tab.
 
-    ![Access control - Check access tab](./media/check-access/access-control-tasks.png)
+    ![Access control - Check access tab](./media/check-access/access-control-check-access.png)
 
 1. In the **Check Access for** list, select the type of security principal you want to check access for.
 
@@ -46,9 +46,9 @@ Follow these steps to view the role assignments for a single user, group, or app
 
 1. Click the security principal to open the **assignments** pane.
 
-    ![assignments pane](./media/check-access/check-access-permissions-roles.png)
+    ![assignments pane](./media/check-access/check-access-assignments.png)
 
-    On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments, they will also be listed.
+    On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
 
 ## Next steps
 
