@@ -1,3 +1,10 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+---
 > [!div class="op_single_selector"]
 > * [Raspberry Pi web simulator](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)   
 > * [Simulated device with .NET](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)
