@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 10/29/2018
 ms.author: diberry
 #Customer intent: As an model designer, new to the QnA Maker service, I want to understand all the process requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
@@ -18,9 +18,13 @@ ms.author: diberry
 
 This portal-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 
-## Prerequisites
+In this tutorial, you learn how to: 
 
-* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). 
+> [!div class="checklist"]
+* Create a knowledge base
+* Review, save, and train the knowledge base
+* Publish the knowledge base
+* Use Curl to query the knowledge base
 
 > [!NOTE] 
 > The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -33,7 +37,7 @@ This portal-based tutorial walks you through programmatically creating and publi
 
     ![Step 1 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
 
-1. Because you already have a QnA Maker Service, skip to step 2 in the portal. 
+1. See [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) to learn how to create a QnA Maker resource in the Azure portal. 
 
 1. In the next step, select the existing settings:  
 
