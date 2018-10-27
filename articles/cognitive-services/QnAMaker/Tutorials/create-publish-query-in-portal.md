@@ -73,7 +73,7 @@ In this tutorial, you learn how to:
 
     ![Save and train](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb.png)
 
-1. Select the last page of quesitons and answers from the bottom of the table. The page shows questions and answers from the Chit-chat personality. 
+1. Select the last page of questions and answers from the bottom of the table. The page shows questions and answers from the Chit-chat personality. 
 
     ![View filters](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
@@ -97,7 +97,7 @@ After the KB is published, the endpoint is displayed
 
     ![Curl command](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Copy the text of the **Curl** tab and execute in a Curl-enabled terminal or command-line. Note that the authorization header's value includes the text `Endpoint ` with a trailing space then the key.
+1. Copy the text of the **Curl** tab and execute in a Curl-enabled terminal or command-line. The authorization header's value includes the text `Endpoint ` with a trailing space then the key.
 
 1. Replace `<Your question>` with `How large can my KB be?`.   
 
@@ -163,7 +163,7 @@ After the KB is published, the endpoint is displayed
 
 ## Use curl to query for the default answer
 
-Any question that QnA Maker is not confident in an answer receives the default answer. This answer is configured in the Azure portal. See [No match found](../Concepts/confidence-score.md#no-match-found) for more information. 
+Any question that QnA Maker is not confident in an answer receives the default answer. This answer is configured in the Azure portal. For more information about this, see [No match found](../Concepts/confidence-score.md#no-match-found). 
 
 1. In the Curl-enabled terminal, replace `Thank you` with `x`. 
 
