@@ -14,37 +14,19 @@ ms.topic: article
 
 # What is a dictionary?
 
-A dictionary is an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases. You can think of the dictionary as a brute force “copy and replace” for all the terms you list. Your dictionary should not contain multiple translations of the same word. 
+A dictionary is an aligned pair of documents that specifies a list of phrases or sentences and their translations that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases. You can think of the dictionary as a brute force “copy and replace” for all the terms you list. Your dictionary should not contain multiple translations of the same word.
 
-The dictionary determines the translation of phrases or sentences with 100% probability. Use phrase dictionary to define proper names and product names exactly the way you want to see them translated. Use sentence dictionaries, when you want to translate entire sentence exactly into the corresponding dictionary entry.
+Use a phrase dictionary to define proper names and product names exactly the way you want to see them translated. Use sentence dictionaries when you want to translate an entire sentence exactly into the corresponding dictionary entry. In order for your translations to use your sentence dictionary, the sentence must not contain any additional words or clauses that didn't appear in your specified source sentence. You can create a dictionary only training, or include a dictionary with the rest of your training files.
 
-You can specify a dictionary of terms that Microsoft Translator should use in translation, in addition to your training data for the translation system.
+Use of a dictionary has the potential to degrade the quality of your translations. Here are some guidelines and hints:
 
-Use of a dictionary has the potential to degrade the quality of your
-translations. Here are some guidelines and hints:
+-   Training documents showing the terms used in context are better than a plain dictionary. Terms used in sentence form teach the system correct inflection and agreement better than a dictionary can. Thus, try to minimize your usage of terms in the dictionary to terms the system doesn't already learn from the training documents. 
 
--   Training documents showing the terms used in context are better than a plain
-    dictionary. Terms used in sentence form teach the system the correct
-    inflection and agreement, better than a dictionary can.
+-   The dictionary works well for compound nouns like product names (“Microsoft SQL Server”), proper names (“City of Hamburg”), or features of the product (“pivot table”). It doesn’t work equally well for verbs or adjectives because these are typically highly inflected in the source or in the target language. Avoid dictionary entries for anything but compound nouns.
 
--   The dictionary maps the dictionary term or phrase exactly to the given
-    translated form.
+-   When using a dictionary, capitalization and punctuation in your translations will reflect the capitalization and punctuation provided in your target file. Capitalization and punctuation are ignored when trying to identify matches between your input sentence and the source sentences in your dictionary file. For example, let’s say we trained an English to Spanish system that used a dictionary that specified “City of Hamburg” in the source file, and “Ciudad de Hamburg” in the target file. If I requested translation of a sentence that included the phrase “city of Hamburg”, then “city of Hamburg” would match to my dictionary file for the entry “City of Hamburg”, and would map to “Ciudad de Hamburg” in my final translation.
 
--   Try to minimize the dictionary to the terms that the system does not already
-    learn from the training documents. If the system can learn the term from
-    prose with context in the regular training data, do not add it as a
-    dictionary term.
-
--   The dictionary works well for compound nouns like product names (“Microsoft
-    SQL Server”), proper names (“City of Hamburg”), or features of the product
-    (“pivot table”). It doesn’t work well for verbs or adjectives
-    because these are typically highly inflected in the source or in the target
-    language. Avoid dictionary entries for anything but compound nouns.
-
--   Both sides of the dictionary are case-sensitive. Each casing situation
-    requires an individual entry into the dictionary.
-
--   You may create dictionary entries for longer phrases and expressions.
+-   If a word appears more than once in a dictionary file, the system will always use the last entry provided (and the casing and punctuation found in the target phrase.
 
 
 ## How to create a dictionary file?
