@@ -110,7 +110,7 @@ The Map Control API is a convenient client library that allows you to easily int
    </html>
    ```
 
-   Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the `onload` event on the body of the page which will call the `GetMap` function when the body of the page has loaded. This function will contain the inline JavaScript code to access the Azure Maps APIs.
+   Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the `onload` event on the body of the page, which will call the `GetMap` function when the body of the page has loaded. This function will contain the inline JavaScript code to access the Azure Maps APIs.
 
 3. Add the following JavaScript code to the `GetMap` function of the HTML file. Replace the string **\<Your Azure Maps Key\>** with the primary key that you copied from your Maps account.
 
@@ -156,7 +156,7 @@ The Map Control API is a convenient client library that allows you to easily int
    });
    ```
 
-   A load event is added to the map which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case with a dark blue round pin icon that is centered over the results coordinate and which allows other icons to overlap. 
+   A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case with a dark blue round pin icon that is centered over the results coordinate and which allows other icons to overlap. 
 
 <a id="usesearch"></a>
 
@@ -166,14 +166,14 @@ This section shows how to use the Maps Search API to find a point of interest on
 
 ### Service Module
 
-1. In the map load event handler instantiate the client service by add the following Javascript code.
+1. In the map load event handler, instantiate the client service by add the following Javascript code.
 
     ```JavaScript
     //Create an instance of the services client.
 	 client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. Next add the following script block to build the search query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like addresses, places and points of interest (POI). This code searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and added to the data source, which automatically results in the data being rendered on the map via the symbol layer. The last part of the script sets the maps camera view using the bounding box of the results using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property. Note that a padding is added to compensate for the pixel dimensions of the symbol icons as the bounding box is calculated based on the coordinates. 
+2. Next add the following script block to build the search query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like addresses, places, and points of interest (POI). This code searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and added to the data source, which automatically results in the data being rendered on the map via the symbol layer. The last part of the script sets the maps camera view using the bounding box of the results using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property. A padding is added to compensate for the pixel dimensions of the symbol icons as the bounding box is calculated based on the coordinates. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.
