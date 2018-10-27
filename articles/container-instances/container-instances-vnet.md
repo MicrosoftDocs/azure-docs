@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/26/2018
 ms.author: danlep
 ---
 
@@ -52,7 +52,7 @@ While this feature is in preview, the following limitations apply when deploying
 
 ## Required network resources
 
-There are three Azure Virtual Network resources required for deploying container groups to a virtual network: the [virtual network](#virtual-network) itself, a [delegated subnet](#subnet-delegated) within the virtual network, and a [network profile](#network-profile).
+There are three Azure Virtual Network resources required for deploying container groups to a virtual network: the [virtual network](#virtual-network) itself, a [delegated subnet](#subnet-delegated) within the virtual network, and for some deployment methods a [network profile](#network-profile).
 
 ### Virtual network
 
@@ -66,7 +66,9 @@ The subnet that you use for container groups may contain only container groups. 
 
 ### Network profile
 
-A network profile is a network configuration template for Azure resources. It specifies certain network properties for the resource, for example, the subnet into which it should be deployed. The first time you deploy a container group to a subnet (and thus a virtual network), Azure creates a network profile for you. You can then use that network profile for future deployments to the subnet.
+A network profile is a network configuration template for Azure resources. It specifies certain network properties for the resource, for example, the subnet into which it should be deployed. When you use the [az container create][az-container-create] command to deploy a container group to a subnet (and thus a virtual network), Azure creates a network profile for you. You can then use that network profile for future deployments to the subnet. 
+
+To use a Resource Manager template, YAML file, or a programmatic method to deploy a container group to a subnet, you need to provide the full Resource Manager resource ID of a network profile. To get a profile ID from a subnet previously used to deploy a container group, use the [az network profile list][az-network-profile-list] command. 
 
 In the following diagram, several container groups have been deployed to a subnet delegated to Azure Container Instances. Once you've deployed one container group to a subnet, you can deploy additional container groups to it by specifying the same network profile.
 
