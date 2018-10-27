@@ -12,21 +12,12 @@ ms.devlang: java
 ms.component: cosmosdb-sql
 ms.custom: troubleshoot java async sdk
 ms.topic: troubleshoot
-
+---
 
 ## Overview
 This article covers commons problems, diagnosing and troubleshooting issues when working with Azure Cosmos DB Java Async SDK. [SQL Java API](sql-api-sdk-async-java.md).
 
 Java Async SDK is provides access to Azure Cosmos DB SQL API.
-
-* [Introduction]
-* [Best Practices For Prod]
-* [Common Problems]
-  * [Request Rate too Large]
-  * [Network ]
-  * [Monitoring availability]
-  * [Cosmos DB Emulator Issues]
-  * [Accessing Cosmos DB Emulator]
 
 ## <a name="introduction"></a>Introduction
 
@@ -40,16 +31,19 @@ Please start with this list:
 
 ## <a name="common-issues-workarounds"></a>Common Issues and Workarounds
 
-### Network Issues, low throughput, high latency, 
+### Network Issues, Netty Read Timeout Failure, Low throughput, High latency
 
-1. Make sure the app is running on the same region as your cosmosdb endpoint. 
+1. Make sure the app is running on the same region as your Cosmos DB Endpoint. 
 2. Check the CPU usage on the app Host. If it is 90% or more maybe it is time to run your app on a host with higher spec or distribute the load on more hosts.
 3. Some Linux systems (like Red Hat) have an upper limit on the number of open files and as sockets in Linux are implemented as files, so this number controls the total number of connection.
 run the following command
+
 ```bash
 ulimit -a
 ```
+
 The number of open files (nofile) needs to be large enough (at least as double as your connection pool size) to have enough room for your configured connection pool size and other open files by the OS. More explaination here in (perf tips)[performance-tips-async-java.md]
+
 4. If your app is deployed on Azure VM, you should ensure that Cosmos DB Endpoit is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the sdk to the cosmos db endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)
 
 Two workarounds to avoid Azure SNAT limitation:
@@ -113,14 +107,14 @@ public void badCodeWithReadTimeoutException() throws Exception {
 }
 ```
 
-the workaround is to change the thread on which you are doing additional work.
+The workaround is to change the thread on which you are doing time taking work.
 
 Define a singleton instance of Scheduler for your app:
 
 ```java
-//have a singleton instance of executor
+//have a singleton instance of executor and scheduler
 ExecutorService ex  = Executors.newFixedThreadPool(30);
-Scheduler customScheduler = Schedulers.from(ex);
+Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
 
 now whenever you need to do time taking work (e.g., computationally heavy work, blocking IO), switch the thread to a worker provided by your `customScheduler`.
@@ -129,13 +123,14 @@ now whenever you need to do time taking work (e.g., computationally heavy work, 
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
 
-// doing 
+// by using observeOn(customScheduler) you are releasing the netty IO thread and switching the thread to your own custom thread provided by customScheduler. This will solve the problem in the above, and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure.
+
 createObservable
-        .observeOn(null)
+        .observeOn(customScheduler)
         .subscribe(r -> {
             try {
                 // time consuming work: e.g., writing to a file, computationally heavy work, or just sleep
-                // basically anything which takes more than a few milliseconds
+                // will be executed on the worker thread provided by the customScheduler
                 TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
             } catch (Exception e) {
             }
