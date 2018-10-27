@@ -51,6 +51,11 @@ Get the credentials for your AKS cluster using the [az aks get-credentials][az-a
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
+Add the NVIDIA device plugin for Kubernetes:
+
+```azurecli
+kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.10/nvidia-device-plugin.yml
+```
 ## Confirm that GPUs are schedulable
 
 With your AKS cluster created, confirm that GPUs are schedulable in Kubernetes. First, list the nodes in your cluster using the [kubectl get nodes][kubectl-get] command:
