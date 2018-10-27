@@ -3,7 +3,7 @@ title: 'Enable Azure Active Directory Domain Services using PowerShell | Microso
 description: Enable Azure Active Directory Domain Services using PowerShell
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Enable Azure Active Directory Domain Services using PowerShell

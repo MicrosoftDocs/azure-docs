@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 
 * The conversion requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. 
 

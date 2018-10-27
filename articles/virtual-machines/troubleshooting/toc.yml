@@ -8,6 +8,8 @@
     href: allocation-failure-classic.md
 - name: RDP
   items:
+  - name: Connection disconnects frequently
+    href: troubleshoot-rdp-intermittent-connectivity.md
   - name: Reset RDP
     href: reset-rdp.md
   - name: RDP troubleshooting
