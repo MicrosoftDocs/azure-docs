@@ -262,4 +262,8 @@ az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-
 
 ## Next Steps
 
-- [Partition data](./partition-data.md)
+You can learn about managing consistency levels and data conflicts in Cosmos DB using the following docs:
+
+* [How to manage consistency](how-to-manage-consistency.md)
+* [How to manage conflicts](how-to-manage-conflicts.md)
+
