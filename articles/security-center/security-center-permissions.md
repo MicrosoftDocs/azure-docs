@@ -4,7 +4,7 @@ description: This article explains how Azure Security Center uses role-based acc
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2017
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 
@@ -41,7 +41,7 @@ The following table displays roles and allowed actions in Security Center. An X 
 | Role | Edit security policy | Apply security recommendations for a resource | Dismiss alerts and recommendations | View alerts and recommendations |
 |:--- |:---:|:---:|:---:|:---:|
 | Subscription Owner | X | X | X | X |
-| Subscription Contributor | X | X | X | X |
+| Subscription Contributor | -- | X | X | X |
 | Resource Group Owner | -- | X | -- | X |
 | Resource Group Contributor | -- | X | -- | X |
 | Reader | -- | -- | -- | X |

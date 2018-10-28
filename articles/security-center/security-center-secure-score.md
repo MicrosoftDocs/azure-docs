@@ -13,17 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
 
 ---
 # Improve your secure score in Azure Security Center
 
 
-With so many services offering security benefits, it's often hard to know what steps to take first to secure and harden your workload. The Azure Security Center secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first, helping you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a measurement tool that helps you harden your security to achieve a secure workload.
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
-
+With so many services offering security benefits, it's often hard to know what steps to take first to secure and harden your workload. The Azure secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first, helping you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is an tool that helps you assess your workload security posture.
 
 ![Secure score dashboard](./media/security-center-secure-score/secure-score-dashboard.png)
 
@@ -32,14 +29,11 @@ With so many services offering security benefits, it's often hard to know what s
 Security Center mimics the work of the security analyst, reviewing your security recommendations and applying advanced algorithms to determine how crucial each recommendation is.
 Azure Security center constantly reviews you active recommendations and calculates your secure score based on them, the score of a recommendation is derived from it’s severity and security best practices that will affect your workload security the most.
 
-The **secure score** is a calculation based on the ratio between your healthy resources and your total resources. If the number of healthy resources is equal to the total number of resources, you get the maximum secure score of 50. To try to get your secure score closer to the max score, fix the unhealthy resources by following the recommendations.
+Security Center also provides you with an **Overall secure score**. 
 
-Security Center also provides you with an Overall secure score. 
-
-**Overall secure score** is an accumulation of all your recommendations. You can view your overall secure score across your subscriptions or management groups, depending on what you select. The score will vary based on subscription selected and the active recommendations on these subscriptions.
+**Overall secure score** is an accumulation of all your recommendation scores. You can view your overall secure score across your subscriptions or management groups, depending on what you select. The score will vary based on subscription selected and the active recommendations on these subscriptions.
 
  
-
 To check which recommendations are impact your secure score most, you can view the top 3 most impactful recommendations in the Security Center dashboard or you can sort the recommendations in the recommendations list blade using the **Secure score impact** column.
 
 
@@ -55,7 +49,7 @@ To view your overall secure score:
 
 In addition, to view individual secure scores, you can find these within the individual recommendation blade.  
 
-The **Recommendation secure score** is a calculation based on the ratio between your healthy resources and your total resources. If the number of healthy resources is equal to the total number of resources, you get the maximum secure score of the recommendation. To try to get your secure score closer to the max score, fix the unhealthy resources by following the remediation steps.
+The **Recommendation secure score** is a calculation based on the ratio between your healthy resources and your total resources. If the number of healthy resources is equal to the total number of resources, you get the maximum secure score of the recommendation of 50. To try to get your secure score closer to the max score, fix the unhealthy resources by following the recommendations.
 
 The **Recommendation impact** lets you know how much your secure score will improve if you apply the recommendation steps. For example if your secure score is 42 and the **Recommendation impact** is +3, if you perform the steps outlined in the recommendation your secure score will improve to become 45.
 
