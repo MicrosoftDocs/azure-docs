@@ -25,7 +25,7 @@ We guarantee at least 99.99% of the time, you have connectivity between your Mic
 
 ## Can I control when patching downtime occurs
 
-No. The impact of patching is generally not noticable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app.
+No. The impact of patching is generally not noticeable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app.
 
 ## What is the new vCore-based purchasing model for Azure SQL Database
 
