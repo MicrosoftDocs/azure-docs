@@ -1,6 +1,6 @@
 ---
-title: Run a failback to an on-premises site for Hyper-v virtual machines | Microsoft Docs
-description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failback from Azure to on-premises datacenter.
+title: Run a failback during disaster of  Hyper-v VMs from Azure to on-premises | Microsoft Docs
+description: Learn how to fail back Hyper-V VMs to an on-premises site during disaster recovery to Azure with the Azure Site Recovery service.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
