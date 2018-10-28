@@ -16,12 +16,12 @@ ms.author: diberry
 
 # Quickstart: Create a knowledge base then answer question via the QnA Maker portal
 
-This portal-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
+This tutorial walks you through creating and publishing a knowledge base, then answering a question from the knowledge base.
 
 In this tutorial, you learn how to: 
 
 > [!div class="checklist"]
-* Create a knowledge base
+* Create a knowledge base in the QnA Maker portal
 * Review, save, and train the knowledge base
 * Publish the knowledge base
 * Use Curl to query the knowledge base
@@ -87,7 +87,7 @@ This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker
 
 ## Publish to get KB endpoints
 
-Select the **Publish** button from the top menu.
+Select the **Publish** button from the top menu. Once you are on the publish page, select **Publish**, next to the **Cancel** button.
 
 ![Publish](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-1.png)
 
@@ -103,7 +103,7 @@ After the KB is published, the endpoint is displayed
 
 1. Copy the text of the **Curl** tab and execute in a Curl-enabled terminal or command-line. The authorization header's value includes the text `Endpoint ` with a trailing space then the key.
 
-1. Replace `<Your question>` with `How large can my KB be?`. This is close to the question, `How large a knowledge base can I create?`, but not exactly the same.     
+1. Replace `<Your question>` with `How large can my KB be?`. This is close to the question, `How large a knowledge base can I create?`, but not exactly the same. QnA Maker applies natural language processing to determine that the two questions are the same.     
 
 1. Execute the CURL command and receive the JSON response including the score and answer. 
 
@@ -127,11 +127,11 @@ After the KB is published, the endpoint is displayed
     
     ```
 
-    QnA Maker is somewhat confident with the score of 42.81.  
+    QnA Maker is somewhat confident with the score of 42.81%.  
 
 ## Use curl to query for a Chit-chat answer
 
-1. In the Curl-enabled terminal, replace `How large can my KB be?`.   
+1. In the Curl-enabled terminal, replace `How large can my KB be?` with an bot conversation-ending statement from the user, such as `Thank you`.   
 
 1. Execute the CURL command and receive the JSON response including the score and answer. 
 
@@ -167,7 +167,7 @@ After the KB is published, the endpoint is displayed
    
     ```
 
-    Because the question of `Thank you` exactly matched a question, QnA Maker is completely confident with the score of 100. QnA Maker also returns all the related questions as well as the metadata property containing the Chit-chat filter information.  
+    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions as well as the metadata property containing the Chit-chat filter information.  
 
 ## Use curl to query for the default answer
 
