@@ -21,6 +21,9 @@ ms.author: lizross
 
 The Microsoft Authenticator app helps you keep your accounts secure through two-step verification after you enter your password. But did you know that it can replace the password for your personal Microsoft account entirely? Learn about, set up, and use the Microsoft Authenticator app.
 
+Using your device's fingerprint or facial recognition capabilities
+Your organization might require a PIN to complete your identity verification. You can set up the Microsoft Authenticator app to use your device's fingerprint or facial recognition capabilities instead of a PIN. You can set this up the first time you use the authenticator app to verify your account, by selecting the option to use your device biometric capabilities as identification instead of your PIN.
+
 |Article |Description |
 |------|------------|
 |[Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)|Describes where and how to get and install the Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).|
