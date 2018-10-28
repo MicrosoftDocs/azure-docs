@@ -36,15 +36,9 @@ the Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE] 
-> The SFTP-SSH connector can handle files up to *1 GB* in size. 
-> For larger messages, you can also use 
-> [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
-> Also, ***the SFTP-SSH connector supports these private 
-> SSH key formats but only the MD5 fingerprint***:
-> 
-> * PuTTY-based RSA (Rivest Shamir Adleman), not open RSA
-> * DSA (Digital Signature Algorithm)
+The SFTP-SSH connector can read or write files up to *1 GB* in size. 
+For files larger than 1 GB, you can use the SFTP-SSH connector plus  
+[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## SFTP-SSH versus SFTP
 
@@ -54,6 +48,14 @@ connector provides these capabilities:
 
 * Uses the <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> library, 
 which is an open-source Secure Shell (SSH) library that supports .NET. 
+
+  > [!NOTE]
+  >
+  > The SFTP-SSH connector supports these private 
+  > SSH key formats ***but only the MD5 fingerprint***:
+  > 
+  > * PuTTY-based RSA (Rivest Shamir Adleman), not open RSA
+  > * DSA (Digital Signature Algorithm)
 
 * Reads or writes files up to *1 GB* in size compared 
 to the SFTP connector. For files larger than 1 GB, use 
@@ -82,6 +84,7 @@ and reduces the number of attempts at connecting to the server.
 which let your logic app access your SFTP account 
 
   > [!IMPORTANT] 
+  >
   > The SFTP-SSH connector supports these private SSH key 
   > formats ***but only the MD5 fingerprint***: 
   > 
@@ -102,9 +105,9 @@ which let your logic app access your SFTP account
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * The logic app where you want to access your SFTP account. 
-To start with an SFTP - SSH trigger, 
+To start with an SFTP-SSH trigger, 
 [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-To use an SFTP - SSH action, start your logic app with another trigger, 
+To use an SFTP-SSH action, start your logic app with another trigger, 
 for example, the **Recurrence** trigger.
 
 ## Connect to SFTP with SSH
@@ -133,6 +136,7 @@ select the trigger you want.
 1. Provide the necessary details for your connection.
 
    > [!IMPORTANT] 
+   >
    > When you enter your SSH private key in the 
    > **SSH private key** property, follow these 
    > additional steps, which help make sure you 
@@ -143,7 +147,7 @@ select the trigger you want.
    steps that show how to correctly copy and paste your key 
    by using Notepad.exe as an example.
     
-   1. Open the SSH private key file in a text editor. 
+   1. Open your SSH private key file in a text editor. 
    These steps use Notepad as the example.
 
    1. On Notepad's **Edit** menu, select **Select All**.
@@ -161,7 +165,7 @@ choose **Create**.
 1. Now provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.
 
-## SFTP-SSH trigger polling
+## Trigger limits
 
 The SFTP-SSH triggers work by polling the SFTP file system 
 and looking for any file that was changed since the last poll. 

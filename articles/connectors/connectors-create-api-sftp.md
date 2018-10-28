@@ -15,17 +15,18 @@ ms.date: 10/26/2018
 
 # Monitor, create, and manage SFTP files by using Azure Logic Apps
 
-With Azure Logic Apps and the SFTP connector, 
-you can automate tasks and processes that 
-monitor, create, send, and receive files on an 
-[SFTP](https://www.ssh.com/ssh/sftp/) server 
-along with other actions, for example:
+With Azure Logic Apps and the SFTP (SSH File Transfer Protocol) connector, 
+you can automate tasks and processes that monitor, create, send, and receive 
+files on an [SFTP](https://www.ssh.com/ssh/sftp/) server plus other actions, 
+for example:
 
 * Monitor when files are added or changed.
 * Get, create, copy, update, list, and delete files.
 * Get file content and metadata.
 * Extract archives to folders.
 
+SFTP is a network protocol taht provides file access, file transfer, 
+and file management over any reliable data stream. 
 You can use triggers that get responses from your SFTP server and 
 make the output available to other actions. You can use actions in 
 your logic apps to perform tasks with files on your SFTP server. 
@@ -36,13 +37,11 @@ the Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
->
-> The SFTP connector can read or write files up to 50 MB in size unless you use 
-> [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
-> For files up to 1 GB in size, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
-> For files larger than 1 GB, you can use the SFTP-SSH connector and also 
-> [chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+The SFTP connector can read or write files up to 50 MB in size unless you use 
+[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+For files up to 1 GB in size, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
+For files larger than 1 GB, you can use the SFTP-SSH connector plus 
+[chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## Prerequisites
 
@@ -51,6 +50,24 @@ If you're new to logic apps, review
 
 * Your SFTP server address and account credentials, 
 which let your logic app access your SFTP account
+
+  > [!IMPORTANT]
+  >
+  > The SFTP connector supports these private SSH key formats:
+  > 
+  > * OpenSSH
+  > * ssh.com
+  > * PuTTY
+  >
+  > When you're creating your logic app, after you add 
+  > the SFTP trigger or action you want, you'll need 
+  > to provide connection information for your SFTP server. 
+  > If you're using an SSH private key, make sure you 
+  > ***copy*** the key from your SSH private key file, 
+  > and ***paste*** that key into the connection details, 
+  > ***Don't manually enter or edit the key***, 
+  > which might cause the connection to fail. 
+  > For more information, see the later steps in this article.
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -84,11 +101,59 @@ select the trigger you want.
    Choose the plus sign (**+**) that appears, 
    and then select **Add an action**.
 
-1. Provide the necessary details for your connection, 
-and then choose **Create**.
+1. Provide the necessary details for your connection.
+
+   > [!IMPORTANT] 
+   >
+   > When you enter your SSH private key in the 
+   > **SSH private key** property, follow these 
+   > additional steps, which help make sure you 
+   > provide the complete and correct value for this property. 
+   > An invalid key causes the connection to fail.
+   
+   Although you can use any text editor, here are sample 
+   steps that show how to correctly copy and paste your key 
+   by using Notepad.exe as an example.
+    
+   1. Open your SSH private key file in a text editor. 
+   These steps use Notepad as the example.
+
+   1. On Notepad's **Edit** menu, select **Select All**.
+
+   1. Select **Edit** > **Copy**.
+
+   1. When you provide the connection details for the 
+  SFTP trigger or action's **SSH private key** property, 
+  ***make sure you paste*** the key. ***Don't manually enter 
+  or edit the key***.
+
+1. When you're done entering the connection details, 
+choose **Create**.
 
 1. Provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.
+
+## Trigger limits
+
+The SFTP triggers work by polling the SFTP file system 
+and looking for any file that was changed since the last poll. 
+Some tools let you preserve the timestamp when the files change. 
+In these cases, you have to disable this feature so your trigger 
+can work. Here are some common settings:
+
+| SFTP client | Action | 
+|-------------|--------| 
+| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
+| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** | 
+||| 
+
+When a trigger finds a new file, the trigger checks that the new file is complete, 
+and not partially written. For example, a file might have changes in progress when 
+the trigger checks the file server. To avoid returning a partially written file, 
+the trigger notes the timestamp for the file that has recent changes, but doesn't 
+immediately return that file. The trigger returns the file only when polling the 
+server again. Sometimes, this behavior might cause a delay that is up to twice 
+the trigger's polling interval. 
 
 ## Examples
 
