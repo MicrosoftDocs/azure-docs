@@ -82,7 +82,7 @@ The ingress controller is now accessible through the FQDN.
 The NGINX ingress controller supports TLS termination. There are several ways to retrieve and configure certificates for HTTPS. This article demonstrates using [cert-manager][cert-manager], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
 > [!NOTE]
-> This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
+> This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme-v01.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
 
 To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command:
 
@@ -119,7 +119,7 @@ metadata:
   name: letsencrypt-staging
 spec:
   acme:
-    server: https://acme-staging.api.letsencrypt.org/directory
+    server: https://acme-staging-v01.api.letsencrypt.org/directory
     email: user@contoso.com
     privateKeySecretRef:
       name: letsencrypt-staging
