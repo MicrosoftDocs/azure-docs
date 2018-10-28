@@ -97,6 +97,8 @@
       href: protect-with-aes128.md    
     - name: With DRM - .NET
       href: protect-with-drm.md
+  - name: Configure Postman
+    href: media-rest-apis-with-postman.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
