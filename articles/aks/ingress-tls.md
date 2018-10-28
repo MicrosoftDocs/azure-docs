@@ -119,7 +119,7 @@ metadata:
   name: letsencrypt-staging
 spec:
   acme:
-    server: https://acme-staging-v01.api.letsencrypt.org/directory
+    server: https://acme-staging.api.letsencrypt.org/directory
     email: user@contoso.com
     privateKeySecretRef:
       name: letsencrypt-staging
