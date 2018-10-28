@@ -4,7 +4,7 @@
   - name: About Durable Functions
     href: durable-functions-overview.md
   - name: Serverless comparison
-    href: ../functions-compare-logic-apps-ms-flow-webjobs.md
+    href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -61,7 +61,7 @@
     items:
     - name: Create in Azure portal
     - name: Manage connections
-      href: ../manage-connections.md
+      href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Error handling
       href: durable-functions-error-handling.md
     - name: Unit testing
@@ -71,11 +71,11 @@
   - name: Deploy
     items:
     - name: Continuous deployment
-      href: ../functions-continuous-deployment.md
+      href: ../functions-continuous-deployment.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Zip deployment
-      href: ../deployment-zip-push.md
+      href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Run from package
-      href: ../run-functions-from-deployment-package.md
+      href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
   - name: Manage
     items:
     - name: Instance management
@@ -83,7 +83,7 @@
   - name: Monitor
     items:
     - name: Monitor functions
-      href: functions-monitoring.md
+      href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json 
     - name: Custom orchestration status
       href: durable-functions-custom-orchestration-status.md
   - name: Troubleshoot
