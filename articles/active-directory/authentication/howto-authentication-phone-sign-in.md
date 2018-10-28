@@ -34,6 +34,10 @@ For public preview, an admin must first add a policy via powershell to allow use
 
 ### Steps to enable
 
+> [NOTE]
+> Uninstall the older Azure Active Directory V2 Powershell Module before you install the understanding. Else you cloud have problems running the powershell command.
+>
+
 1. Install the [public preview release of the Azure Active Directory V2 PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview/).  
 2. In PowerShell, run two commands:
    1. `Connect-AzureAD`
