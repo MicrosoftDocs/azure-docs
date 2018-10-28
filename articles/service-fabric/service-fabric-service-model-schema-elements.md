@@ -52,7 +52,7 @@ Defines a mechanism for adding or removing named partitions.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of partitions by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of partitions by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -79,7 +79,7 @@ The maximum number of partitions.
 |use|required|
 
 #### ScaleIncrement
-The number of partitions by wich to perform the upshift/downshift.
+The number of partitions by which to perform the upshift/downshift.
 |Attribute|Value|
 |---|---|
 |name|ScaleIncrement|
@@ -3464,7 +3464,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of instances by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of instances by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -3491,7 +3491,7 @@ The maximum number of instances..
 |use|required|
 
 #### ScaleIncrement
-The number of instances by wich to perform the upshift/downshift.
+The number of instances by which to perform the upshift/downshift.
 |Attribute|Value|
 |---|---|
 |name|ScaleIncrement|
