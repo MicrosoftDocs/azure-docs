@@ -69,7 +69,7 @@ This section configures the Postman.
 
 ## Get Azure AD Token 
 
-The first step you need to perform before manipulating AMS v3 resources is get Azure AD Token for Service Principal Authentication.
+Before you start manipulating AMS v3 resources you need to get and set Azure AD Token for Service Principal Authentication.
 
 1. In the left window of the Postman, select "Step 1: Get AAD Auth token".
 2. Then, select "Get Azure AD Token for Service Principal Authentication".
