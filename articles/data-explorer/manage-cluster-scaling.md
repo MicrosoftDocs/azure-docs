@@ -58,4 +58,4 @@ The following graphic shows the flow of the next several steps. We provide more 
 
 You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. This enables your cluster to scale dynamically based on utilization metrics that you specify.
 
-If you need assistance with cluster scaling issues, please open a support request in the [Azure portal](https://portal.azure.com).
+If you need assistance with cluster scaling issues, please open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
