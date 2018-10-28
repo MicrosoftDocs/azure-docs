@@ -34,7 +34,7 @@ Orchestrator functions are the heart of a durable function.  Orchestrator functi
 
 An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 
-An orchestrator is started by an [orchestrator client](#client-functions) which could itself be triggered from any source (HTTP, queues, event streams).  Each instance of an orchestration has an instance identifier, which can be auto-generated (recommended) or user-generated.  This identifier can be used to [manage instances](durable-functions-instance-management.md) of the orchestration.
+An orchestrator is started by an [orchestrator client](#client-functions) which could itself be triggered from any source (HTTP, queues, event streams).  Each instance of an orchestration has an instance identifier, which can be auto-generated (recommended) or user-generated.  This identifier can be used to [manage instances](durable/durable-functions-instance-management.md) of the orchestration.
 
 More information and examples can be found in the [Durable Functions binding article](durable-functions-bindings.md#orchestration-triggers).
 
