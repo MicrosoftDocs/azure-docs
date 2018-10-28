@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 10/28/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -92,7 +92,11 @@ To customize your Azure-SSIS IR, you need the following things:
 
        ![Copy and save the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    1.  When you provision or reconfigure your Azure-SSIS IR with PowerShell, before you start your Azure-SSIS IR, run the `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter. For example:
+    1.  When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, before you start your Azure-SSIS IR, enter the SAS URI of your container in the appropriate field:
+
+       ![Enter the Shared Access Signature](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
+
+       When you provision or reconfigure your Azure-SSIS IR with PowerShell, before you start your Azure-SSIS IR, run the `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter. For example:
 
        ```powershell
        Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -137,7 +141,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        1. An `MSDTC` folder, which contains a custom setup to modify the network and security configurations for the Microsoft Distributed Transaction Coordinator (MSDTC) service on each node of your Azure-SSIS IR. To ensure that MSDTC is started, please add Execute Process Task at the beginning of control flow in your packages to execute the following command: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
-       1. An `ORACLE ENTERPRISE` folder, which contains a custom setup script (`main.cmd`) and silent install config file (`client.rsp`) to install the Oracle OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination. First, download the latest Oracle client - for example, `winx64_12102_client.zip` - from [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) and then upload it together with `main.cmd` and `client.rsp` into your container. If you use TNS to connect to Oracle, you also need to download `tnsnames.ora`, edit it, and upload it into your container, so it can be copied into the Oracle installation folder during setup.
+       1. An `ORACLE ENTERPRISE` folder, which contains a custom setup script (`main.cmd`) and silent install config file (`client.rsp`) to install the Oracle connectors and OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination. First, download Microsoft Connectors v5.0 for Oracle (`AttunitySSISOraAdaptersSetup.msi` and `AttunitySSISOraAdaptersSetup64.msi`) from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) and the latest Oracle client - for example, `winx64_12102_client.zip` - from [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), then upload them all together with `main.cmd` and `client.rsp` into your container. If you use TNS to connect to Oracle, you also need to download `tnsnames.ora`, edit it, and upload it into your container, so it can be copied into the Oracle installation folder during setup.
 
        1. An `ORACLE STANDARD` folder, which contains a custom setup script (`main.cmd`) to install the Oracle ODP.NET driver on each node of your Azure-SSIS IR. This setup lets you use the ADO.NET Connection Manager, Source, and Destination. First, download the latest Oracle ODP.NET driver - for example, `ODP.NET_Managed_ODAC122cR1.zip` - from [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), and then upload it together with `main.cmd` into your container.
 
