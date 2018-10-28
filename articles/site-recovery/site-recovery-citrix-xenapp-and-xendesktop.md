@@ -1,25 +1,17 @@
 ---
-title: Replicate a multi-tier Citrix XenDesktop and XenApp deployment using Azure Site Recovery | Microsoft Docs
-description: This article describes how to protect and recover Citrix XenDesktop and XenApp deployments using Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Set up disaster recovery for a multi-tier Citrix XenDesktop and XenApp deployment using Azure Site Recovery | Microsoft Docs
+description: This article describes how to set up disaster recovery fo Citrix XenDesktop and XenApp deployments using Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
 
 ---
-# Replicate a multi-tier Citrix XenApp and XenDesktop deployment using Azure Site Recovery
+# set up disaster recovery for a multi-tier Citrix XenApp and XenDesktop deployment
 
-## Overview
+
 
 Citrix XenDesktop is a desktop virtualization solution that delivers desktops and applications as an ondemand service to any user, anywhere. With FlexCast delivery technology, XenDesktop can quickly and
 securely deliver applications and desktops to users.
