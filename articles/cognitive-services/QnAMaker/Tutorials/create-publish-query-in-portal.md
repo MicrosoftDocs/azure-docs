@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As an model designer, new to the QnA Maker service, I want to understand all the process requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
 
-# Quickstart: Create a knowledge base then answer question via the QnA Maker portal
+# Tutorial: Create a knowledge base then answer question via the QnA Maker portal
 
 This tutorial walks you through creating and publishing a knowledge base, then answering a question from the knowledge base.
 
