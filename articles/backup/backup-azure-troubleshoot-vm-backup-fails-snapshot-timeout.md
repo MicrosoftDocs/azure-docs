@@ -96,7 +96,7 @@ To resolve the issue, try one of the following methods:
 
 ##### Allow access to Azure storage that corresponds to the region
 
-You can use [service tags](../virtual-network/security-overview.md#service-tags) to allow connections to storage of the specific region. Ensure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access. 
+You can use [service tags](../virtual-network/security-overview.md#service-tags) to allow connections to storage of the specific region. Ensure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access.
 
 ![Network security group with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
@@ -107,7 +107,7 @@ To understand the step by step procedure to configure service tags, watch [this 
 
 If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
 
-Furthermore, if your subnet doesn't have a route for internet outbound traffic, you need to add a service endpoint with service tag "Microsoft.Storage" to your subnet. 
+Furthermore, if your subnet doesn't have a route for internet outbound traffic, you need to add a service endpoint with service tag "Microsoft.Storage" to your subnet.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 
@@ -119,7 +119,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 4. If the Windows Guest Agent appears in **Programs and Features**, uninstall the Windows Guest Agent.
 5. Download and install the [latest version of the agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 6. Verify that the Windows Guest Agent services appear in services.
-7. Run an on-demand backup: 
+7. Run an on-demand backup:
 	* In the portal, select **Backup Now**.
 
 Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. .NET 4.5 is required for the VM agent to communicate with the service.
@@ -180,7 +180,7 @@ To uninstall the extension:
 4. Select **Vmsnapshot Extension**.
 5. Select **Uninstall**.
 
-For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the backup. 
+For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the backup.
 
 Completing these steps causes the extension to be reinstalled during the next backup.
 
@@ -189,19 +189,23 @@ This issue is specific to managed VMs in which the user locks the resource group
 
 #### Solution
 
-To resolve the issue, remove the lock from the resource group and complete the following steps to remove the restore point collection: 
+To resolve the issue, remove the lock from the resource group and complete the following steps to remove the restore point collection:
  
-1. Remove the lock in the resource group in which the VM is located. 
-2. Install ARMClient by using Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Sign in to ARMClient: <br>
+1. Remove the lock in the resource group in which the VM is located.
+2. To install ARMClient, open a PowerShell window with Administrator privileges.
+3. Use `Set-ExecutionPolicy Unrestricted` to remove any restrictions. <br>
+4. Run the following command to download the Azure Resource Manager Client package from chocolately.org. <br>
+    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+5. Use the following command to install the Azure Resource Manager API Client. <br>
+   `choco.exe install armclient`
+6. Sign in to ARMClient: <br>
 	`.\armclient.exe login`
 4. Get the restore point collection that corresponds to the VM: <br>
    	`.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
     Example: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
 5. Delete the restore point collection: <br>
-	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 6. The next scheduled backup automatically creates a restore point collection and new restore points.
 
-Once done, you can again put back the lock on the VM resource group. 
+Once done, you can again put back the lock on the VM resource group.
