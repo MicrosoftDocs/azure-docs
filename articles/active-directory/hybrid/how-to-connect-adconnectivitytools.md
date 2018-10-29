@@ -24,7 +24,7 @@ The tool is located in: **C:\Program Files\Microsoft Azure Active Directory Conn
 
 ## ADConnectivityTool during installation
 
-On the **Connect your directories** page, in the Azure AD Connect Wizard, if a network issue occurs, the ADConnectivityTool will automatically use one of it's functions to determine what is going on.  Any of the following can be considered network issues:
+On the **Connect your directories** page, in the Azure AD Connect Wizard, if a network issue occurs, the ADConnectivityTool will automatically use one of its functions to determine what is going on.  Any of the following can be considered network issues:
 
 - The name of the Forest the user provided was typed wrongly, or said Forest doesn’t exist 
 - UDP port 389 is closed in the Domain Controllers associated with the Forest the user provided
@@ -40,7 +40,7 @@ Whenever any of these issues are found, a related error message is displayed in 
 
 For example, when we are attempting to add a directory on the **Connect your directories** screen, Azure AD Connect needs to verify this and expects to be able to communicate with a domain controller over port 389.  If it cannot, we will see the error that is shown in the screenshot above.  
 
-What is actually happening behind the scenes, is that Azure AD Connect is calling the `Start-NetworkConnectivityDiagnosisTools` function.  This function is the one Azure AD Connect will call when the validation of the AD Credentials fail due to a network connectivity issue. A series of tests are run.
+What is actually happening behind the scenes, is that Azure AD Connect is calling the `Start-NetworkConnectivityDiagnosisTools` function.  This function is called when the validation of credentials fails due to a network connectivity issue.
 
 Finally, a detailed log file is generated whenever the tool is called from the wizard. The log is located in **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
 
@@ -60,7 +60,7 @@ The connectivity validation consists of the following steps:
 -	Validate that, if the user selected ‘Create new AD account’, these credentials belong to the Enterprise Administrators group
 -	Get Forest FQDN object
 -	Confirm that at least one domain associated with the previously obtained Forest FQDN object is reachable
--	Verify that the functional level of the Forest FQDN object equal or more than WindowsServer2003.
+-	Verify that the functional level of the forest is Windows Server 2003 or greater.
 
 The user will be able to add a Directory if all these actions were executed successfully.
 
