@@ -21,7 +21,7 @@ Follow these steps to connect client machines to your vFXT cluster.
 To help balance client requests among all the nodes in the cluster, you should mount clients to the full range of client-facing IP addresses. There are several simple ways to automate this task.
 
 > [!TIP] 
-> Other load balancing methods might be appropriate for large or complicated systems; -open a support ticket- LINK REMOVED TEMPORARILY <!-- [open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) -->for help.)
+> Other load balancing methods might be appropriate for large or complicated systems; open a support ticket <!--LINK REMOVED TEMPORARILY  [open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) -->for help.)
 > 
 > If you prefer to use a DNS server for automatic server-side load balancing, you must set up and manage your own DNS server within Azure. In that case, you can configure round-robin DNS for the vFXT cluster according to this document: [Avere cluster DNS configuration](avere-vfxt-configure-dns.md).
 
