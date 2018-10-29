@@ -9,16 +9,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 10/29/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to understand all the programming requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
 
-# Quickstart: Using C#, create knowledge base then answer question
+# Tutorial: Using C#, create knowledge base then answer question
 
 This tutorial walks you through programmatically creating and publishing a knowledge base (KB), then answering a customer question with the knowledge base. 
 
+> [!div class="checklist"]
+* Create a knowledge base 
+* Check creation status
+* Train and publish the knowledge base
+* Get endpoint information
+* Use Curl to query the knowledge base
+
+
 This quickstart calls QnA Maker APIs:
+
 * [Create Knowledge base (kb)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 * [Get Knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
@@ -155,7 +164,7 @@ The body of the request needs to pass the proper JSON:
 }
 ```
 
-## Get KB Details
+## Get KB details
 Add the following method to get the KB details. These details contain the host name of the KB. The host name is the name of the QnA Maker azure web service you entered when creating the QnA Maker resource. 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
@@ -181,7 +190,7 @@ This API call returns a JSON response:
 }
 ```
 
-## Get KB Endpoints
+## Get KB endpoints
 Add the following method to get the QnA Maker's primary endpoints. These endpoints are not tied to the KB, they are valid for all KBs associated with the QnA Maker resource keys from the Azure portal.  
 
 [!code-csharp[Get KB Endpoints](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=274-289 "Get KB Endpoints")]
@@ -197,7 +206,7 @@ This API call returns a JSON response:
 }
 ```
 
-## Get Answer
+## Get an answer
 Add the following method to get an answer to the user's question. 
 
 [!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-315 "Get Answer")]
