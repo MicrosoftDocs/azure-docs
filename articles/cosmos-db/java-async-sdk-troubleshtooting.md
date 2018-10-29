@@ -138,7 +138,7 @@ This modification will solve the problem, and you won't get `io.netty.handler.ti
 `PoolExhaustedException` is a client-side failure. If you get this failure often, that's indication that your app workload is higher than what the SDK connection pool can serve. Increasing connection pool size or distributing the load on multiple apps may help.
 
 ### Request Rate Too Large.
-This failure is a service side failure indicating that you consumed your provisioned throughput and should retry later. If you get this failure often, consider increasing the collection throughput.
+This failure is a server side failure indicating that you consumed your provisioned throughput and should retry later. If you get this failure often, consider increasing the collection throughput.
 
 ### Failure in connecting to Cosmos DB Emulator
 
@@ -147,7 +147,7 @@ Cosmos DB emulator HTTPS certificate is self-signed. For SDK to work with emulat
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
 
-The async Java SDK uses SLF4j as the logging facade. SFL4J is the logging interface, which makes logging into popular logging frameworks (log4j, logback, etc.) possible.
+The async Java SDK uses SLF4j as the logging facade which supports logging into popular logging frameworks such as log4j and logback.
 
 For example, if you want to use log4j as the logging framework, add the following libs in your Java classpath:
 
