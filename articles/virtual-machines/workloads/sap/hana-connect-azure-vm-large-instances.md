@@ -28,7 +28,7 @@ Looking closer at the Azure virtual network side, we realize the need for:
 
 - The definition of an Azure virtual network into which you're going to deploy the VMs of the SAP application layer.
 - The definition of a default subnet in the Azure virtual network that is really the one into which the VMs are deployed.
-- The Azure virtual network that's created needs to have at least one VM subnet and one ExpressRoute virtual network gateway subnet. These subnets should be assigned the IP address ranges as specified and discussed in the following sections.
+- The Azure virtual network that's created needs to have at least one VM subnet and one Azure ExpressRoute virtual network gateway subnet. These subnets should be assigned the IP address ranges as specified and discussed in the following sections.
 
 Let's look a bit closer at the Azure virtual network creation for HANA Large Instances.
 
@@ -136,7 +136,7 @@ So  we recommend that you keep the address space tightly aligned with the actual
 After the IP address ranges have been defined, the following things need to happen:
 
 1. Submit the IP address ranges for the Azure virtual network address space, the ER-P2P connectivity, and server IP pool address range, together with other data that has been listed at the beginning of the document. At this point, you could also start to create the virtual network and the VM subnets. 
-2. An Express Route circuit is created by Microsoft between your Azure subscription and the HANA Large Instance stamp.
+2. An ExpressRoute circuit is created by Microsoft between your Azure subscription and the HANA Large Instance stamp.
 3. A tenant network is created on the Large Instance stamp by Microsoft.
 4. Microsoft configures networking in the SAP HANA on Azure (Large Instances) infrastructure to accept IP addresses from your Azure virtual network address space that communicates with HANA Large Instances.
 5. Depending on the specific SAP HANA on Azure (Large Instances) SKU that you bought, Microsoft assigns a compute unit in a tenant network, allocates and mounts storage, and installs the operating system (SUSE or Red Hat Linux). IP addresses for these units are taken out of the Server IP Pool address range that you submitted to Microsoft.
