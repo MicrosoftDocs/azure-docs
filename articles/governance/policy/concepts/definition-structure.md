@@ -257,8 +257,8 @@ The following fields are supported:
 
 Policy supports the following types of effect:
 
-- **Deny**: generates an event in the audit log and fails the request
-- **Audit**: generates a warning event in audit log but does not fail the request
+- **Deny**: generates an event in the activity log and fails the request
+- **Audit**: generates a warning event in activity log but does not fail the request
 - **Append**: adds the defined set of fields to the request
 - **AuditIfNotExists**: enables auditing if a resource does not exist
 - **DeployIfNotExists**: deploys a resource if it does not already exist.
