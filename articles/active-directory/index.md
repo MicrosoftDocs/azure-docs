@@ -88,14 +88,14 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-														<h3><a href="manage-apps/index.yml">Application management</a></h3>
+														<h3>Application management<a href="manage-apps/index.yml">(See more ...)</a></h3>
                                                         <p>
                                                             <a href="manage-apps/add-application-portal.md">Add an application</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on (SSO)</a><br>
 												            <a href="manage-apps/application-proxy.md">Application Proxy for on-premises apps</a><br>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="authentication/index.yml">Authentication</a></h3>
+                                                        <h3>Authentication<a href="authentication/index.yml">(See more ...)</a></h3>
                                                         <p>
                                                             <a href="authentication/tutorial-mfa-applications.md">Enable MFA for Azure portal</a><br>
                                                             <a href="authentication/quickstart-sspr.md">Enable self-service password reset</a><br>
