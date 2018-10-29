@@ -1,18 +1,17 @@
 ---
-title: 'Common questions - VMware to Azure replication with Azure Site Recovery | Microsoft Docs'
-description: This article summarizes common questions when you replicate on-premises VMware VMs to Azure using Azure Site Recovery
-services: site-recovery
+title: 'Common questions - VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+description: This article summarizes common questions when you set up disaster recovery of on-premises VMware VMs to Azure using Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/19/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
 
 ---
 # Common questions - VMware to Azure replication
 
-This article provides answers to common questions we see when replicating on-premises VMware VMs to Azure. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+This article provides answers to common questions we see when deploying disaster recovery of on-premises VMware VMs to Azure. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## General
