@@ -58,12 +58,6 @@ The preceding commands use the following information:
 - **Definition** – The policy definition, based on which you're using to create the assignment. In this case, it is the ID of policy definition *Audit VMs that do not use managed disks*.
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. Be sure to replace &lt;scope&gt; with the name of your resource group.
 
-The **Scope** parameter on `New-AzureRmPolicyAssignment` also works with subscriptions and management groups. The parameter uses a full resource path, which the **ResourceId** property on `Get-AzureRmResourceGroup` returns. The pattern for **Scope** for each container is as follows.  Replace `{rgName}`, `{subId}`, and `{mgName}` with your resource group name, subscription ID, and management group name, respectively.
-
-- Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
-- Subscription - `/subscriptions/{subId}/`
-- Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
-
 You’re now ready to identify non-compliant resources to understand the compliance state of your
 environment.
 

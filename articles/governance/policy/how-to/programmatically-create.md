@@ -4,7 +4,7 @@ description: This article walks you through programmatically creating and managi
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -84,6 +84,12 @@ CLI, and HTTP requests.
    ```
 
    Replace _ContosoRG_ with the name of your intended resource group.
+
+   The **Scope** parameter on `New-AzureRmPolicyAssignment` also works with subscriptions and management groups. The parameter uses a full resource path, which the **ResourceId** property on `Get-AzureRmResourceGroup` returns. The pattern for **Scope** for each container is as follows.  Replace `{rgName}`, `{subId}`, and `{mgName}` with your resource group name, subscription ID, and management group name, respectively.
+
+   - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Subscription - `/subscriptions/{subId}/`
+   - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 For more information about managing resource policies using the Azure Resource Manager PowerShell module, see [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 
