@@ -2,12 +2,12 @@
 title: 'Prepare the target environment for VMware replication to Azure | Microsoft Docs'
 description: This article describes how to prepare your target Azure environment for VMware VM replication to Azure.
 services: site-recovery
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: bsiva
+ms.date: 10/29/2018
+ms.author: ramamill
 ---
 
 # Prepare the target environment for VMware replication to Azure
