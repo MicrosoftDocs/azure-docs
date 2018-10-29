@@ -1,5 +1,5 @@
 ---
-title: Fail over and fail back Hyper-V VMs replicated to a secondary data center during disaster recovery with Site Recovery | Microsoft Docs
+title: Fail over and fail back Hyper-V VMs replicated to a secondary data center during disaster recovery with Azure Site Recovery | Microsoft Docs
 description: Learn how to fail over Hyper-V VMs to your secondary on-premises site and fail back to primary site, during disaster recovery with Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
