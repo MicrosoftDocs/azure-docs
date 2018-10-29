@@ -31,23 +31,35 @@ Start with this list:
 
 ### Network Issues, Netty Read Timeout Failure, Low Throughput, High Latency
 
-1. Make sure the app is running on the same region as your Cosmos DB Endpoint. 
-2. Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
-3. Some Linux systems (like Red Hat) have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
+#### General Suggestion
+* Make sure the app is running on the same region as your Cosmos DB Endpoint. 
+* Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
+
+#### Connection Throttling
+
+#### Linux ulimit 
+* Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
 Run the following command
 ```bash
 ulimit -a
 ```
-The number of open files (nofile) needs to be large enough (at least as double as your connection pool size) to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
+The number of open files ("nofile") needs to be large enough (at least as double as your connection pool size) to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
 
-4. If your app is deployed on Azure VM, you should ensure that Cosmos DB Service Endpoint is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the VM to the Cosmos DB endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+#### Azure SNAT
+
+* If your app is deployed on Azure VM, you should ensure that Cosmos DB Service Endpoint is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the VM to the Cosmos DB endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
     1.  Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
     2. As Azure SNAT limitation is only applicable when your Azure VM has a private IP address, the other workaround is to assign a public IP to your Azure VM.
 
-5. If you are using an HttpProxy, make sure your HttpProxy is capable of supporting the number of connections configured in the SDK `ConnectionPolicy`.
+#### Http Proxy
 
-6. The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
+If you are using an HttpProxy, make sure your HttpProxy is capable of supporting the number of connections configured in the SDK `ConnectionPolicy`.
+If your HttpProxy fails to serve the required number of connections you may face connection issues.
+
+#### Invalid Coding Pattern, Blocking Netty IO Thread
+
+The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
 
    For example the following code snippet shows that if you perform long lasting work (which takes more than a few milliseconds) on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException:
 ```java
@@ -102,7 +114,7 @@ public void badCodeWithReadTimeoutException() throws Exception {
 ```
    The workaround is to change the thread on which you are doing time taking work. Define a singleton instance of Scheduler for your app:
 ```java
-//have a singleton instance of executor and scheduler
+// have a singleton instance of executor and scheduler
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
@@ -110,12 +122,10 @@ Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
-
-//by using observeOn(customScheduler) you are releasing the netty IO thread 
-//and switching the thread to your own custom thread provided by customScheduler. 
-//This will solve the problem in the above,
-//and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure.
-
+// by using observeOn(customScheduler) you are releasing the netty IO thread 
+// and switching the thread to your own custom thread provided by customScheduler. 
+// This will solve the problem in the above,
+// and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure.
 createObservable
         .observeOn(customScheduler)
         .subscribe(
@@ -126,7 +136,6 @@ createObservable
 ### Connection Pool Exhausted Issue
 
 Getting `PoolExhaustedException` is a client-side failure. If you get this failure often, that's indication that your app workload is higher than what the SDK connection pool can serve. Trying to increase connection pool size or distributing the load on multiple apps may help.
-
 
 ### Request Rate Too Large.
 This failure is a service side failure indicating that you consumed your provisioned throughput and should retry later. If you get this failure often, it is an indication that you should increase the collection throughput.
