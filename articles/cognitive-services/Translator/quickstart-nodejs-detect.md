@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
 ---
-# Quickstart: Use the Translator Text API to detect text language using Node.js
+# Quickstart: Use the Translator Text API to detect text language with Node.js
 
 In this quickstart, you'll learn how to detect the language of provided text using Node.js and the Translator Text REST API.
 

@@ -12,7 +12,7 @@ ms.date: 06/21/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to translate a string using Node.js
+# Quickstart: Use the Translator Text API to translate a string with Node.js
 
 In this quickstart, you'll learn how to translate a text string from English to Italian and German using Node.js and the Translator Text REST API.
 

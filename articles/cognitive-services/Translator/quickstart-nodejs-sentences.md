@@ -12,7 +12,7 @@ ms.date: 10/29/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to determine sentence length using Node.js
+# Quickstart: Use the Translator Text API to determine sentence length with Node.js
 
 In this quickstart, you'll learn how to determine sentence lengths (in characters) using Node.js and the Translator Text REST API.
 

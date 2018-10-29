@@ -12,7 +12,7 @@ ms.date: 10/29/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to transliterate text using Node.js
+# Quickstart: Use the Translator Text API to transliterate text with Node.js
 
 In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Node.js and the Translator Text REST API. In the sample provided, Japanese is transliterated to use the Latin alphabet.
 

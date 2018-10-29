@@ -12,7 +12,7 @@ ms.date: 10/29/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to get a list of supported languages using Node.js
+# Quickstart: Use the Translator Text API to get a list of supported languages with Node.js
 
 In this quickstart, you'll learn how to make a GET request that returns a list of supported languages using Node.js and the Translator Text REST API.
 

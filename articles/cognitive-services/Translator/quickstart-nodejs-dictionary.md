@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
 ---
-# Quickstart: Use the Translator Text API to get alternate translations using Node.js
+# Quickstart: Use the Translator Text API to get alternate translations with Node.js
 
 In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Node.js and the Translator Text REST API.
 
