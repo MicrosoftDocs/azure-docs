@@ -1,6 +1,6 @@
 ---
 title: How to use user-defined functions in Azure Digital Twins | Microsoft Docs
-description: Guideline on how to create user-defined functions, matchers and role assignments with Azure Digital Twins.
+description: Guideline on how to create user-defined functions, matchers, and role assignments with Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -12,40 +12,40 @@ ms.author: alinast
 
 # How to use user-defined functions in Azure Digital Twins
 
-[User-defined functions](./concepts-user-defined-functions.md) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing the user to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
+With [user-defined functions](./concepts-user-defined-functions.md), the user can run custom logic against incoming telemetry messages and spatial graph metadata. Then the user can send events to predefined endpoints. In this guide, we walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
-In the examples below, `https://yourManagementApiUrl` refers to the URI of the Digital Twins APIs:
+In the following examples, `https://yourManagementApiUrl` refers to the URI of the Azure Digital Twins APIs:
 
 ```plaintext
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 ```
 
-| Custom Attribute Name | Replace With |
+| Custom attribute name | Replace with |
 | --- | --- |
-| *yourInstanceName* | The name of your Azure Digital Twins instance |
-| *yourLocation* | Which server region your instance is hosted on |
+| **yourInstanceName** | The name of your Azure Digital Twins instance |
+| **yourLocation** | Which server region your instance is hosted on |
 
 ## Client library reference
 
-The functions that are available as helper methods in the user-defined functions runtime are enumerated in the following [Client Reference](#Client-Reference).
+The functions that are available as helper methods in the user-defined functions runtime are enumerated in the [client reference](#Client-Reference) section.
 
 ## Create a matcher
 
-Matchers are graph objects, which determine what user-defined functions will be executed for a given telemetry message.
+Matchers are graph objects that determine what user-defined functions run for a given telemetry message.
 
-Valid matcher condition comparisons:
+- Valid matcher condition comparisons:
 
-- `Equals`
-- `NotEquals`
-- `Contains`
+  - `Equals`
+  - `NotEquals`
+  - `Contains`
 
-Valid matcher condition targets:
+- Valid matcher condition targets:
 
-- `Sensor`
-- `SensorDevice`
-- `SensorSpace`
+  - `Sensor`
+  - `SensorDevice`
+  - `SensorSpace`
 
-The following example matcher will evaluate to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function.
+The following example matcher evaluates to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function:
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/matchers
@@ -63,31 +63,31 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 }
 ```
 
-| Custom Attribute Name | Replace With |
+| Custom attribute name | Replace with |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
-| *yourSpaceIdentifier* | Which server region your instance is hosted on |
+| **yourManagementApiUrl** | The full URL path for your management API  |
+| **yourSpaceIdentifier** | Which server region your instance is hosted on |
 
 ## Create a user-defined function (UDF)
 
-After the matchers have been created, upload the function snippet with the following POST call:
+After the matchers are created, upload the function snippet with the following **POST** call:
 
 > [!IMPORTANT]
-> - In the Headers, set the following `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
-> - The Body is multi-part:
->   - The first part is about metadata needed for UDF.
->   - The second part is the javascript compute logic.
-> - Replace in `userDefinedBoundary` section `SpaceId` and `Machers` Guids.
+> - In the headers, set the following `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
+> - The body is multipart:
+>   - The first part is about metadata needed for the UDF.
+>   - The second part is the JavaScript compute logic.
+> - In the `userDefinedBoundary` section, replace the `SpaceId` and `Machers` GUIDs.
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
 
-| Custom Attribute Name | Replace With |
+| Custom attribute name | Replace with |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
+| **yourManagementApiUrl** | The full URL path for your management API  |
 
-Body:
+### Body
 
 ```plaintext
 --userDefinedBoundary
@@ -111,12 +111,12 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
-| Custom Attribute Name | Replace With |
+| Custom attribute name | Replace with |
 | --- | --- |
-| *yourSpaceIdentifier* | The space identifier  |
-| *yourMatcherIdentifier* | The ID of the matcher you wish to use |
+| **yourSpaceIdentifier** | The space identifier  |
+| **yourMatcherIdentifier** | The ID of the matcher you wish to use |
 
-### Example Functions
+### Example functions
 
 Set the sensor telemetry reading directly for the sensor with data type **Temperature**, which is `sensor.DataType`:
 
@@ -134,7 +134,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-The *telemetry* parameter exposes the **SensorId** and **Message** attributes (corresponding to a message sent by a sensor). The *executionContext* parameter exposes the following attributes:
+The **telemetry** parameter exposes the **SensorId** and **Message** attributes, corresponding to a message sent by a sensor. The **executionContext** parameter exposes the following attributes:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -146,7 +146,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-In the next example, we will log a message if the sensor telemetry reading surpasses a pre-defined threshold. If your diagnostic settings are enabled on the Digital Twins instance, logs from user-defined functions will also be forwarded:
+In the next example, we log a message if the sensor telemetry reading surpasses a predefined threshold. If your diagnostic settings are enabled on the Azure Digital Twins instance, logs from user-defined functions are also forwarded:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -161,7 +161,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-The following code will trigger a notification if the temperature level rises above the pre-defined constant.
+The following code triggers a notification if the temperature level rises above the predefined constant:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -185,36 +185,36 @@ function process(telemetry, executionContext) {
 }
 ```
 
-For a more complex UDF code sample, refer to [Check available spaces with fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)
+For a more complex UDF code sample, refer to [Check available spaces with fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## Create a role assignment
 
-We need to create a role assignment for the user-defined function to execute under. If we do not, it will not have the proper permissions to interact with the Management API to perform actions on graph objects. The actions that the user-defined function performs are not exempt from the role-based access control within the Digital Twins Management APIs. They can be limited in scope by specifying certain roles, or certain access control paths. For more information, see [Role Based Access Control](./security-role-based-access-control.md) documentation.
+We need to create a role assignment for the user-defined function to run under. If we don't, it won't have the proper permissions to interact with the management API to perform actions on graph objects. The actions that the user-defined function performs aren't exempt from the role-based access control within the Azure Digital Twins management APIs. They can be limited in scope by specifying certain roles or certain access control paths. For more information, see [role-based access control](./security-role-based-access-control.md) documentation.
 
-1. Query for roles and get the ID of the role you want to assign to the UDF; pass it to **RoleId** below.
+1. Query for roles and get the ID of the role you want to assign to the UDF. Pass it to **RoleId**:
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/system/roles
 ```
 
-| Custom Attribute Name | Replace With |
+| Custom attribute name | Replace with |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
+| **yourManagementApiUrl** | The full URL path for your management API  |
 
 2. **ObjectId** will be the UDF ID that was created earlier.
 3. Find the value of **Path** by querying your spaces with `fullpath`.
-4. Copy the returned `spacePaths` value. You will use that below.
+4. Copy the returned `spacePaths` value. You'll use that in the following code:
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
 ```
 
-| Custom Attribute Name | Replace With |
+| Custom attribute name | Replace with |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
-| *yourSpaceName* | The name of the space you wish to use |
+| **yourManagementApiUrl** | The full URL path for your management API  |
+| **yourSpaceName** | The name of the space you want to use |
 
-4. Now, paste the returned `spacePaths` value into **Path** to create a UDF role assignment.
+4. Paste the returned `spacePaths` value into **Path** to create a UDF role assignment:
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -226,16 +226,16 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 }
 ```
 
-| Custom Attribute Name | Replace With |
+| Custom attribute name | Replace with |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
-| *yourDesiredRoleIdentifier* | The identifier for the desired role |
-| *yourUserDefinedFunctionId* | The ID for the UDF you want to use |
-| *yourAccessControlPath* | The access control path |
+| **yourManagementApiUrl** | The full URL path for your management API  |
+| **yourDesiredRoleIdentifier** | The identifier for the desired role |
+| **yourUserDefinedFunctionId** | The ID for the UDF you want to use |
+| **yourAccessControlPath** | The access control path |
 
 ## Send telemetry to be processed
 
-Telemetry generated by the sensor described in the graph should trigger the execution of the user-defined function that was uploaded. Once the telemetry is picked up by the data processor, an execution plan is created for the invocation of the user-defined function.
+Telemetry generated by the sensor described in the graph should trigger the execution of the user-defined function that was uploaded. Once the telemetry is picked up by the data processor, a run plan is created for the invocation of the user-defined function.
 
 1. Retrieve the matchers for the sensor the reading was generated off of.
 1. Depending on what matchers evaluated successfully, retrieve the associated user-defined functions.
@@ -245,190 +245,190 @@ Telemetry generated by the sensor described in the graph should trigger the exec
 
 ### getSpaceMetadata(id) ⇒ `space`
 
-Given a space identifier, retrieves the space from the graph.
+Given a space identifier, it retrieves the space from the graph.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
-| ------ | ------------------- | ------------ |
-| *id*  | `guid` | space identifier |
+| Parameter  | Type                | Description  |
+| ---------- | ------------------- | ------------ |
+| **id**  | `guid` | Space identifier |
 
 ### getSensorMetadata(id) ⇒ `sensor`
 
-Given a sensor identifier, retrieves the sensor from the graph.
+Given a sensor identifier, it retrieves the sensor from the graph.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
-| ------ | ------------------- | ------------ |
-| *id*  | `guid` | sensor identifier |
+| Parameter  | Type                | Description  |
+| ---------- | ------------------- | ------------ |
+| **id**  | `guid` | Sensor identifier |
 
 ### getDeviceMetadata(id) ⇒ `device`
 
-Given a device identifier, retrieves the device from the graph.
+Given a device identifier, it retrieves the device from the graph.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *id* | `guid` | device identifier |
+| **id** | `guid` | Device identifier |
 
 ### getSensorValue(sensorId, dataType) ⇒ `value`
 
-Given a sensor identifier and its data type, retrieve the current value for that sensor.
+Given a sensor identifier and its data type, they retrieve the current value for that sensor.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *sensorId*  | `guid` | sensor identifier |
-| *dataType*  | `string` | sensor data type |
+| **sensorId**  | `guid` | Sensor identifier |
+| **dataType**  | `string` | Sensor data type |
 
 ### getSpaceValue(spaceId, valueName) ⇒ `value`
 
-Given a space identifier and the value name, retrieve the current value for that space property.
+Given a space identifier and the value name, they retrieve the current value for that space property.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *spaceId*  | `guid` | space identifier |
-| *valueName* | `string` | space property name |
+| **spaceId**  | `guid` | Space identifier |
+| **valueName** | `string` | Space property name |
 
 ### getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
-Given a sensor identifier and its data type, retrieve the historical values for that sensor.
+Given a sensor identifier and its data type, they retrieve the historical values for that sensor.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | sensor identifier |
-| *dataType* | `string` | sensor data type |
+| **sensorId** | `guid` | Sensor identifier |
+| **dataType** | `string` | Sensor data type |
 
 ### getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
-Given a space identifier and the value name, retrieve the historical values for that property on the space.
+Given a space identifier and the value name, they retrieve the historical values for that property on the space.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | space identifier |
-| *valueName* | `string` | space property name |
+| **spaceId** | `guid` | Space identifier |
+| **valueName** | `string` | Space property name |
 
 ### getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
-Given a space identifier, retrieve the child spaces for that parent space.
+Given a space identifier, it retrieves the child spaces for that parent space.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | space identifier |
+| **spaceId** | `guid` | Space identifier |
 
 ### getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
-Given a space identifier, retrieve the child sensors for that parent space.
+Given a space identifier, it retrieves the child sensors for that parent space.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | space identifier |
+| **spaceId** | `guid` | Space identifier |
 
 ### getSpaceChildDevices(spaceId) ⇒ `device[]`
 
-Given a space identifier, retrieve the child devices for that parent space.
+Given a space identifier, it retrieves the child devices for that parent space.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | space identifier |
+| **spaceId** | `guid` | Space identifier |
 
 ### getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
-Given a device identifier, retrieve the child sensors for that parent device.
+Given a device identifier, it retrieves the child sensors for that parent device.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *deviceId* | `guid` | device identifier |
+| **deviceId** | `guid` | Device identifier |
 
 ### getSpaceParentSpace(childSpaceId) ⇒ `space`
 
-Given a space identifier, retrieve its parent space.
+Given a space identifier, it retrieves its parent space.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *childSpaceId* | `guid` | space identifier |
+| **childSpaceId** | `guid` | Space identifier |
 
 ### getSensorParentSpace(childSensorId) ⇒ `space`
 
-Given a sensor identifier, retrieve its parent space.
+Given a sensor identifier, it retrieves its parent space.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *childSensorId* | `guid` | sensor identifier |
+| **childSensorId** | `guid` | Sensor identifier |
 
 ### getDeviceParentSpace(childDeviceId) ⇒ `space`
 
-Given a device identifier, retrieve its parent space.
+Given a device identifier, it retrieves its parent space.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *childDeviceId* | `guid` | device identifier |
+| **childDeviceId** | `guid` | Device identifier |
 
 ### getSensorParentDevice(childSensorId) ⇒ `space`
 
-Given a sensor identifier, retrieve its parent device.
+Given a sensor identifier, it retrieves its parent device.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *childSensorId* | `guid` | sensor identifier |
+| **childSensorId** | `guid` | Sensor identifier |
 
 ### getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
-Given a space identifier, retrieve the property and its value from the space.
+Given a space identifier, it retrieves the property and its value from the space.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | space identifier |
-| *propertyName* | `string` | space property name |
+| **spaceId** | `guid` | space identifier |
+| **propertyName** | `string` | Space property name |
 
 ### getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
-Given a sensor identifier, retrieve the property and its value from the sensor.
+Given a sensor identifier, it retrieves the property and its value from the sensor.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | sensor identifier |
-| *propertyName* | `string` | sensor property name |
+| **sensorId** | `guid` | Sensor identifier |
+| **propertyName** | `string` | Sensor property name |
 
 ### getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
-Given a device identifier, retrieve the property and its value from the device.
+Given a device identifier, it retrieves the property and its value from the device.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *deviceId* | `guid` | device identifier |
-| *propertyName* | `string` | device property name |
+| **deviceId** | `guid` | Device identifier |
+| **propertyName** | `string` | Device property name |
 
 ### setSensorValue(sensorId, dataType, value)
 
