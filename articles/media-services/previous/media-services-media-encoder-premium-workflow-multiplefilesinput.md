@@ -430,7 +430,7 @@ An example of multiple audio language encoding workfkow is available in [GitHub]
 
 This folder contains a sample workflow which can be used to encode a MXF file to a multi MP4 files asset with multiple audio tracks.
 
-This workflow assumes that the MXF file contains one audio track ; the additional audio tracks should be passed as seperate audio files (WAV or MP4...).
+This workflow assumes that the MXF file contains one audio track ; the additional audio tracks should be passed as separate audio files (WAV or MP4...).
 
 To encode, please follow these steps:
 

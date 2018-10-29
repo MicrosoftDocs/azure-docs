@@ -127,7 +127,7 @@ A successful token response will look like:
 | Parameter | Format | Description |
 | --------- | ------ | ----------- |
 |`token_type` | String| Always "Bearer. |
-|`scope` | Space seperated strings | If an access token was returned, this lists the scopes the access token is valid for. |
+|`scope` | Space separated strings | If an access token was returned, this lists the scopes the access token is valid for. |
 |`expires_in`| int | Number of seconds before the included access token is valid for. |
 |`access_token`| Opaque string | Issued for the [scopes](v2-permissions-and-consent.md) that were requested.  |
 |`id_token`   | JWT | Issued if the original `scope` parameter included the `openid` scope.  |

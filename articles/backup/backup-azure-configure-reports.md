@@ -6,16 +6,23 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
 ---
 # Configure Azure Backup reports
 This article shows steps to follow to configure reports for Azure Backup by using a Recovery Services vault. It also shows how to access reports by using Power BI. After you finish these steps, you can go directly to Power BI to view, customize, and create reports.
 
+> [!IMPORTANT]
+> From 1st November, 2018, some customers may see issues in loading the data in Azure Backup App in Power BI, saying “We found extra characters at the end of JSON input. The exception was raised by the IDataReader interface.”
+This is due to a change in the format in which data is loaded into the storage account.
+Please upgrade the App to the latest version to avoid this issue.
+>
+>
+
 ## Supported scenarios
 - Azure Backup reports are supported for Azure virtual machine backup and file and folder backup to the cloud by using the Azure Recovery Services Agent.
-- Reports for Azure SQL Database, Data Protection Manager, and Azure Backup server aren't supported at this time.
+- Reports for Azure SQL Database, Azure File Shares, Data Protection Manager, and Azure Backup server aren't supported at this time.
 - You can view reports across vaults and subscriptions, if the same storage account is configured for each of the vaults. The storage account selected must be in the same region as the Recovery Services vault.
 - The frequency of scheduled refresh for the reports is 24 hours in Power BI. You also can perform an ad-hoc refresh of the reports in Power BI. In this case, the latest data in the customer storage account is used to render reports.
 
