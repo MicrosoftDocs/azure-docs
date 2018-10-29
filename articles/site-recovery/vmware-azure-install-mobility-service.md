@@ -1,14 +1,14 @@
 ---
-title: Install Mobility Service (VMware or physical to Azure) | Microsoft Docs
-description: Learn how to install the Mobility Service agent to protect your on-premises VMware VMs and physical servers with Azure Site Recovery.
+title: Install the Mobility Service for disaster recovery of VMware VMs and physical servers to Azure | Microsoft Docs
+description: Learn how to install the Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
 ---
 
-# Install the Mobility service 
+# Install the Mobility service for disaster recovery of VMware VMs and physical servers
 
 Azure Site Recovery Mobility Service is installed on VMware VMs and physical servers that you want to replicate to Azure. The service captures data writes on a computer and then forwards them to the process server. Deploy Mobility Service to every computer (VMware VM or physical server) that you want to replicate to Azure. You can deploy the Mobility Service on the servers and VMware VMs you want to protect using the following methods:
 
