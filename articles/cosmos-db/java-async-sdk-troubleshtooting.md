@@ -36,7 +36,7 @@ Start with this list:
 * Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
 
 #### Connection Throttling
-Connection throttling can be done either due to [Connection Limit on Host Machine], or due to [Azure SNAT Port Exhaustion](managing-snat):
+Connection throttling can be done either due to [Connection Limit on Host Machine], or due to [Azure SNAT Port Exhaustion](snat):
 
 ##### <a name="connection-limit-on-host"></a>Connection Limit on Host Machine
 Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files. Sockets in Linux are implemented as files, so this number limits the total number of connections too.
@@ -47,7 +47,7 @@ ulimit -a
 ```
 The number of open files ("nofile") needs to be large enough (at least as double as your connection pool size);  to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
 
-##### <a name="managing-snat"></a>Managing SNAT (PAT) Port Exhaustion
+##### <a name="snat"></a>Azure SNAT (PAT) Port Exhaustion
 
 If your app is deployed on Azure VM, by default for establishing connections to endpoints outside of your VM [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used . The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
@@ -204,6 +204,6 @@ If there are many connections to Cosmos DB endpoint in `CLOSE_WAIT` state (more 
 [Common Issues and Workarounds]: #common-issues-workarounds
 [Enable Client SDK Logging]: #enable-client-sice-logging
 [Connection Limit on Host Machine]: #connection-limit-on-host
-[Managing SNAT (PAT) Port Exhaustion]: #managing-snat
+[Azure SNAT (PAT) Port Exhaustion]: #snat
 
 
