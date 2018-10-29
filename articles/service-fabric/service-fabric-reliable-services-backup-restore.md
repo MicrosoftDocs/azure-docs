@@ -17,13 +17,17 @@ ms.date: 11/6/2017
 ms.author: mcoskun
 
 ---
-# Back up and restore Reliable Services and Reliable Actors
+# Backup and restore Reliable Services and Reliable Actors
 Azure Service Fabric is a high-availability platform that replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
 
 > [!NOTE]
 > It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
 > 
+
+> [!NOTE]
+> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
 > 
+
 
 For example, a service may want to back up data in order to protect from the following scenarios:
 
