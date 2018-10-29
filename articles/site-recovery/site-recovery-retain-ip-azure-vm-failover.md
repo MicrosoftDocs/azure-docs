@@ -1,17 +1,14 @@
 ---
-title: Retain IP addresses when failing over Azure virtual machines to another Azure region | Microsoft Docs
-description: Describes how to retain IP addresses for Azure to Azure failover scenarios with Azure Site Recovery
+title: Retain IP addresses for Azure VM failover | Microsoft Docs
+description: Describes how to retain IP addresses when failing over Azure VMs for disaster recovery to a secondary region with Azure Site Recovery
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 
 ---
-# IP address retention for Azure virtual machine failover
+# IP address retention for Azure VM failover
 
 Azure Site Recovery enables disaster recovery for Azure VMs. When failing over from one Azure region to another, customers often require retention of their IP configurations. Site Recovery, by default, mimics source virtual network and subnet structure when creating these resources on the target region. For Azure VMs configured with static private IP addresses, Site Recovery also makes a best effort attempt to provision the same private IP on the target VM, if that IP is not already blocked by an Azure resource or a replicated VM.
 

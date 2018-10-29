@@ -8,6 +8,8 @@
     items:
     - name: Recent updates
       href: azure-stack-servicing-policy.md#update-package-release-cadence 
+    - name: 1809 update 
+      href: azure-stack-update-1809.md
     - name: 1808 update 
       href: azure-stack-update-1808.md 
     - name: 1807 update 
@@ -127,8 +129,6 @@
       href: azure-stack-region-management.md
     - name: Using the administrator portal
       href: azure-stack-manage-portals.md
-    - name: Connect to Azure Stack
-      href: azure-stack-connect-azure-stack.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN

@@ -1,16 +1,15 @@
 ---
 title: Deploy the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
-description: This article describes how to deploy a configuration server for VMware disaster recovery with Azure Site Recovery
-services: site-recovery
+description: This article describes how to deploy a configuration server for VMware disaster recovery to Azure with Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ---
 
-# Deploy a configuration server
+# Deploy a configuration server for VMware disaster recovery to Azure
 
 You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication. This article walks you through the steps needed to deploy the configuration server when you're replicating VMware VMs to Azure. [Follow this article](physical-azure-set-up-source.md) if you need to set up a configuration server for physical server replication.
 

@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/25/2018
 ms.author: adgera
 ---
 
@@ -40,8 +40,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourInstanceName` | The name of your Azure Digital Twins instance |
-| `yourLocation` | Which server region your instance is hosted on |
+| *yourInstanceName* | The name of your Azure Digital Twins instance |
+| *yourLocation* | Which server region your instance is hosted on |
 
 ## Reference material
 
@@ -108,10 +108,10 @@ To read more about Azure Digital Twins object models and spatial intelligence gr
 To learn how to authenticate with your Management API, read [Authenticating with APIs](./security-authenticating-apis.md).
 
 <!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.png
-[2]: media/how-to-use-swagger/swagger_management_models.png
-[3]: media/how-to-use-swagger/swagger_management_model.png
-[4]: media/how-to-use-swagger/swagger_management_endpoints.png
-[5]: media/how-to-use-swagger/swagger_management_try.png
-[6]: media/how-to-use-swagger/swagger_management_tried.png
-[7]: media/how-to-use-swagger/swagger_management_response.png
+[1]: media/how-to-use-swagger/swagger_management_top.PNG
+[2]: media/how-to-use-swagger/swagger_management_models.PNG
+[3]: media/how-to-use-swagger/swagger_management_model.PNG
+[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
+[5]: media/how-to-use-swagger/swagger_management_try.PNG
+[6]: media/how-to-use-swagger/swagger_management_tried.PNG
+[7]: media/how-to-use-swagger/swagger_management_response.PNG
