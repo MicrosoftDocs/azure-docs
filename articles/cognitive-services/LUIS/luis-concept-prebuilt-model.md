@@ -1,7 +1,7 @@
 ---
 title: Prebuilt models - Entity, Intent, Domain - LUIS
 titleSuffix: Azure Cognitive Services
-description:
+description: Prebuilt models provide domains, intents, utterances, and entities. You can start your app with a prebuilt domain or add a relevant domain to your app later. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
