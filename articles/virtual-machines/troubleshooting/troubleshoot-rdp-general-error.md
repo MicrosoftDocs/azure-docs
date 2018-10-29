@@ -42,7 +42,12 @@ This problem may occur because of the following causes:
 
 ### Cause 1
 
-The RDP component is disabled in the component level, listener level, terminal server, or Remote Desktop Session Host role.
+The RDP component is disabled as follows:
+
+- In the component level
+- In the listener level
+- On the terminal server
+- On the Remote Desktop Session Host role
 
 ### Cause 2
 
@@ -54,7 +59,7 @@ The RDP listener is misconfigured.
 
 ## Solutions
 
-To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md), and [attach the OS disk to a rescue VM](troubleshoot-recovery-disks-portal-windows.md), and then follow the solution options accordingly, or try the solutions one by one.
+To resolve this problem, [back up the operating system disk](../windows/snapshot-copy-managed-disk.md), and [attach the operating system disk to a rescue VM](troubleshoot-recovery-disks-portal-windows.md), and then follow the solution options accordingly, or try the solutions one by one.
 
 ### Solution 1: Using the Serial Console
 
@@ -86,16 +91,16 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-   If the domain policy exists, the setup on the local policy is overwritten.
+      If the domain policy exists, the setup on the local policy is overwritten.
 
-      - If the domain policy states that RDP is disabled (1), then update the AD policy.
-      - If the domain policy states that RDP is enabled (0), then no update is needed.
+         - If the domain policy states that RDP is disabled (1), then update the AD policy.
+         - If the domain policy states that RDP is enabled (0), then no update is needed.
 
-   If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command:
+      If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command:
 
-      ```
-      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-      ```
+         ```
+         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+         ```
 
    2. Check the current configuration of the terminal server.
 
@@ -109,7 +114,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
       ```
 
-   4. The Terminal Server module is set to drain mode if the server is on a terminal server farm (RDS or citrix). Check the current mode of the Terminal Server module.
+   4. The Terminal Server module is set to drain mode if the server is on a terminal server farm (RDS or Citrix). Check the current mode of the Terminal Server module.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
@@ -121,13 +126,13 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
       ```
 
-   6. Check the logon process of the terminal server.
+   6. Check whether you can connect to the terminal server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
       ```
 
-   7. If the command returns 1, the terminal server is set to disabled logon process. Then, enable the logon as follows:
+   7. If the command returns 1, you can't connect to the terminal server. Then, enable the connection as follows:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
@@ -145,13 +150,13 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
       ```
 
-   10. Check the logon process of the RDP listener.
+   10. Check whether you can connect to the RDP listener.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
       ```
 
-   11. If the command returns 1, the RDP listener is set to disabled logon process. Then, enable the logon as follows:
+   11. If the command returns 1, you can't connect to the RDP listener. Then, enable the connection as follows:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
@@ -166,7 +171,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 ### Solution 2: offline approaches
 
 > [!NOTE]  
-> We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. The SYSTEM and SOFTWARE hives needs to be unmounted and then mounted.
+> We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. The SYSTEM and SOFTWARE hives need to be unmounted and then mounted.
 
 1. Open an elevated CMD instance and run the following scripts on the rescue VM:
 
@@ -230,7 +235,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
    ```
 
 7. If this key is set to 1, RDP is turn off. Change the key value to 0.
-8. Detach the disk from the rescue VM and wait about two minutes for Azure to release the disk.
+8. Detach the disk from the rescue VM.
 9. [Create a new VM from the disk](../windows/create-vm-specialized.md).
 
 ## Additional resources
