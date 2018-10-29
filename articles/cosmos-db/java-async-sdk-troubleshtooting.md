@@ -113,25 +113,24 @@ public void badCodeWithReadTimeoutException() throws Exception {
 }
 ```
    The workaround is to change the thread on which you are doing time taking work. Define a singleton instance of Scheduler for your app:
-```java
+   ```java
 // have a singleton instance of executor and scheduler
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
-```
+   ```
    Whenever you need to do time taking work (for example, computationally heavy work, blocking IO), switch the thread to a worker provided by your `customScheduler` using `.observeOn(customScheduler)` API.
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
-// by using observeOn(customScheduler) you are releasing the netty IO thread 
-// and switching the thread to your own custom thread provided by customScheduler. 
-// This will solve the problem in the above,
-// and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure.
+
 createObservable
-        .observeOn(customScheduler)
+        .observeOn(customScheduler) // switches the thread
         .subscribe(
             // ...
         );
 ```
+By using observeOn(customScheduler) you are releasing the netty IO thread and switching the thread to your own custom thread provided by customScheduler. 
+This will solve the problem in the above, and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
 ### Connection Pool Exhausted Issue
 
