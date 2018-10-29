@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+---
 ### Open TCP ports in the Windows firewall for the default instance of the Database Engine
 1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
 2. Once signed in, at the Start screen, type **WF.msc**, and then hit ENTER.

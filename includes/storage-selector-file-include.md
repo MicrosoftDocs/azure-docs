@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/storage/files/storage-dotnet-how-to-use-files.md)
 > * [C++](../articles/storage/files/storage-c-plus-plus-how-to-use-files.md)

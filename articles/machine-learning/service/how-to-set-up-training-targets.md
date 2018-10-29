@@ -172,6 +172,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     run_config.environment.docker.enabled = True
 
     # Use CPU base image
+    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -289,7 +290,6 @@ run_config.environment.docker.enabled = True
 
 # set Docker base image to the default CPU-based image
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
 
 # use conda_dependencies.yml to create a conda environment in the Docker image
 run_config.environment.python.user_managed_dependencies = False

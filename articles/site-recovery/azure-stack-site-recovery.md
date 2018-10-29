@@ -6,12 +6,12 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/09/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ---
 # Replicate Azure Stack VMs to Azure
 
-This article shows you how to set up disaster recovery to Azure for Azure Stack VMs, using the [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+This article shows you how to set up disaster recovery Azure Stack VMs to Azure, using the [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
 Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy. The service ensures that your VM workloads remain available when expected and unexpected outages occur.
 
@@ -183,7 +183,7 @@ Now install the configuration server:
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> The configuration server can also be installed from the command line. [Learn more](http://aka.ms/installconfigsrv).
+> The configuration server can also be installed from the command line. [Learn more](physical-manage-configuration-server.md#install-from-the-command-line).
 
 > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, select **Configuration Servers** > ***server name*** > **Refresh Server**.
 
