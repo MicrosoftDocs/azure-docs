@@ -267,7 +267,7 @@
       href: apache-hadoop-on-premises-migration-best-practices-storage.md
       maintainContext: true
     - name: Best practices - data migration
-      href: apache-hadoop-on-premises-migration-best-practices-datamigration.md
+      href: apache-hadoop-on-premises-migration-best-practices-data-migration.md
       maintainContext: true
     - name: Best practices - security and DevOps
       href: apache-hadoop-on-premises-migration-best-practices-security-devops.md
