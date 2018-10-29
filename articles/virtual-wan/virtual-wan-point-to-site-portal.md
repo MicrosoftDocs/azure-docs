@@ -108,7 +108,7 @@ A P2S configuration defines the parameters for connecting remote clients.
 
 1. On the page for your virtual WAN, click **Hubs**.
 2. Select the hub that you want to assign the point-to-site configuration to.
-3. Click **...** and pick **Edit virtual hub**
+3. Click **"..."** and pick **Edit virtual hub**
 4. Check **Include point-to-site gateway**.
 5. Pik the **Gateway sale units** and the **Point-to-site configuration** along with an **Address pool** for the clients.
 6. Click **Confirm**. 
@@ -133,7 +133,7 @@ Use the VPN profile to configure your clients.
 
 1. On the page for your virtual WAN, click **Hubs**.
 2. Select the hub that you want to download the profile for.
-3. Click **...** and pick **Download profile**. 
+3. Click **"..."** and pick **Download profile**. 
 4. Once the file has finished creating, you can click the link to download it.
 4. Use the profile file to configure the point-to-site clients.
 
