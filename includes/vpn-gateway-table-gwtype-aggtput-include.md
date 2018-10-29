@@ -21,9 +21,7 @@
 
 * These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
 
-* Aggregate Throughput Benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
-
-  Because the Aggregate Throughput Benchmark for a VPN Gateway is S2S + P2S combined, if you have a lot of P2S connections, it can negatively impact a S2S connection due to throughput limitations.
+* Aggregate Throughput Benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors. Because the Aggregate Throughput Benchmark for a VPN Gateway is S2S + P2S combined, if you have a lot of P2S connections, it can negatively impact a S2S connection due to throughput limitations.
 
 * Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
 
