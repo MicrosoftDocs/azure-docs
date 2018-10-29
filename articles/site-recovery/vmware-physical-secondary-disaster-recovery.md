@@ -1,7 +1,6 @@
 ---
 title: Set up disaster recovery of VMware VMs or physical servers to a secondary site with Azure Site Recovery | Microsoft Docs
 description: Learn how to set up disaster recovery of VMware VMs, or Windows and Linux physical servers, to a secondary site with Azure Site Recovery.
-services: site-recover
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
