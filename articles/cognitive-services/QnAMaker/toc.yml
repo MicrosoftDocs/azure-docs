@@ -53,6 +53,7 @@
   - name: Best practices
     href: Concepts/best-practices.md
   - name: Confidence score
+    displayName: DefaultAnswer, Default answer  
     href: Concepts/confidence-score.md
   - name: Data sources supported
     href: Concepts/data-sources-supported.md
