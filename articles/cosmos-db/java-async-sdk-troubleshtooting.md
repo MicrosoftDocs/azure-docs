@@ -23,33 +23,33 @@ Java Async SDK provides client-side logical representation for accessing Azure C
 
 Start with this list:
     1. Take a look at the [Common Issues and Workarounds] in this article.
-    2. Our SDK is [open-source on github](https://github.com/Azure/azure-cosmosdb-java) and we have [issues section](https://github.com/Azure/) that we actively monitor. Check if there is any similar issue already filed and if there is a workaround.
+    2. Our SDK is [open-source on github](https://github.com/Azure/azure-cosmosdb-java) and we have [issues section](https://github.com/Azure/azure-cosmosdb-java/issues) that we actively monitor. Check if there is any similar issue already filed and if there is a workaround.
     3. Review [Performance Tips](performance-tips-async-java.md) and follow the suggested practices.
     4. Follow the rest of this article, if you didn't find a solution, file a [GitHub issue](https://github.com/Azure/azure-cosmosdb-java/issues).
 
 ## <a name="common-issues-workarounds"></a>Common Issues and Workarounds
 
-### Network Issues, Netty Read Timeout Failure, Low throughput, High latency
+### Network Issues, Netty Read Timeout Failure, Low Throughput, High Latency
 
 1. Make sure the app is running on the same region as your Cosmos DB Endpoint. 
-2. Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more hosts.
+2. Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
 3. Some Linux systems (like Red Hat) have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
-run the following command
+Run the following command
 ```bash
 ulimit -a
 ```
 The number of open files (nofile) needs to be large enough (at least as double as your connection pool size) to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
 
-4. If your app is deployed on Azure VM, you should ensure that Cosmos DB Service Endpoint is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the SDK to the Cosmos DB endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)
-Two workarounds to avoid Azure SNAT limitation:
+4. If your app is deployed on Azure VM, you should ensure that Cosmos DB Service Endpoint is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the VM to the Cosmos DB endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+There are two workarounds to avoid Azure SNAT limitation:
     1.  Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
     2. As Azure SNAT limitation is only applicable when your Azure VM has a private IP address, the other workaround is to assign a public IP to your Azure VM.
 
 5. If you are using an HttpProxy, make sure your HttpProxy is capable of supporting the number of connections configured in the SDK `ConnectionPolicy`.
 
-6. The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If app after receiving results on the netty thread performs a long lasting operation on the netty thread that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
+6. The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
 
-For example the following code snippet shows that if you perform some work on the netty thread, which takes more than a few milliseconds you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException
+   For example the following code snippet shows that if you perform long lasting work (which takes more than a few milliseconds) on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException:
 
 ```java
 @Test
@@ -102,9 +102,7 @@ public void badCodeWithReadTimeoutException() throws Exception {
 }
 ```
 
-The workaround is to change the thread on which you are doing time taking work.
-
-Define a singleton instance of Scheduler for your app:
+   The workaround is to change the thread on which you are doing time taking work. Define a singleton instance of Scheduler for your app:
 
 ```java
 //have a singleton instance of executor and scheduler
@@ -112,7 +110,7 @@ ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
 
-Whenever you need to do time taking work (for example, computationally heavy work, blocking IO), switch the thread to a worker provided by your `customScheduler` using `.observeOn(customScheduler)` API.
+   Whenever you need to do time taking work (for example, computationally heavy work, blocking IO), switch the thread to a worker provided by your `customScheduler` using `.observeOn(customScheduler)` API.
 
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
@@ -140,14 +138,14 @@ This failure is a service side failure indicating that you consumed your provisi
 
 ### Failure in Connecting to Cosmos DB Emulator
 
-Cosmos DB emulator https certificate is self-signed. For SDK to work with emulator you should import the emulator certificate to Java TrustStore. As explained [here](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator-export-ssl-certificates).
+Cosmos DB emulator HTTPS certificate is self-signed. For SDK to work with emulator you should import the emulator certificate to Java TrustStore. As explained [here](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator-export-ssl-certificates).
 
 
 ## <a name="enable-client-sice-logging"></a>Enable Client SDK Logging
 
-The async Java SDK uses slf4j as the logging facade. SFL4J is the logging interface, which makes logging into popular logging frameworks (log4j, logback, etc.) possible.
+The async Java SDK uses SLF4j as the logging facade. SFL4J is the logging interface, which makes logging into popular logging frameworks (log4j, logback, etc.) possible.
 
-For example, if you want to use log4j as the logging framework, you need to have the following libs in your Java classpath:
+For example, if you want to use log4j as the logging framework, add the following libs in your Java classpath:
 
 ```xml
 <dependency>
@@ -162,7 +160,7 @@ For example, if you want to use log4j as the logging framework, you need to have
 </dependency>
 ```
 
-Also a log4j config file in place:
+In addition to the log4j libs, you also need to put a log4j config in place:
 ```
 # this is a sample log4j configuration
 
