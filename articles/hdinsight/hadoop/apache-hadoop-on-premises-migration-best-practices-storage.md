@@ -1,6 +1,6 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - storage best practices
-description: Learn storage best-practices for migrating on-premises Hadoop clusters to Azure HDInsight.
+description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -16,7 +16,7 @@ This article gives recommendations for data storage in Azure HDInsight systems. 
 
 ## Choose the right storage system for HDInsight clusters
 
-The on-premises Hadoop File System (HDFS) directory structure can be re-created in Azure Storage or Azure Data Lake Storage. You can then safely delete HDInsight clusters that are used for computation without losing user data. Both services can be used as both the default file system and an additional file system for an HDInsight cluster. The HDInsight cluster and the storage account must be hosted in the same region.
+The on-premises Apache Hadoop File System (HDFS) directory structure can be re-created in Azure Storage or Azure Data Lake Storage. You can then safely delete HDInsight clusters that are used for computation without losing user data. Both services can be used as both the default file system and an additional file system for an HDInsight cluster. The HDInsight cluster and the storage account must be hosted in the same region.
 
 ### Azure storage
 
@@ -164,7 +164,7 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 There are three important things to remember regarding the use of SAS Tokens in Azure:
 
 1. When SAS tokens are created with "READ + LIST" permissions, users who access the Blob container with that SAS token won't be able to "write and delete" data. Users who access the Blob container with that SAS token and try a write or delete operation, will receive a message like `"This request is not authorized to perform this operation"`.
-2. When the SAS tokens are generated with "READ + LIST + WRITE" permissions (to restrict "DELETE" only), the commands like "hadoop fs -put" first write to a "\_COPYING\_" file and then try to rename the file. This maps to a "copy+delete" for WASB. Since the "DELETE" permission was not provided, the "put" would fail. The "\_COPYING\_" operation is a Hadoop feature intended to provide some concurrency control. Currently there is no way to restrict just the "DELETE" operation without affecting "WRITE" operations as well.
+2. When the SAS tokens are generated with `READ + LIST + WRITE` permissions (to restrict `DELETE` only), commands like `hadoop fs -put` first write to a `\_COPYING\_` file and then try to rename the file. This HDFS operation maps to a `copy+delete` for WASB. Since the `DELETE` permission was not provided, the "put" would fail. The `\_COPYING\_` operation is a Hadoop feature intended to provide some concurrency control. Currently there is no way to restrict just the "DELETE" operation without affecting "WRITE" operations as well.
 3. Unfortunately, the hadoop credential provider and decryption key provider (ShellDecryptionKeyProvider) currently do not work with the SAS tokens and so it currently cannot be protected from visibility.
 
 For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
@@ -200,10 +200,8 @@ For more information, see the following articles:
 - [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md)
 - [Attach additional Azure storage accounts to the cluster](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
-## Next Steps
+## Next steps
 
-- [Motivation and benefits of on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-motivation.md)
-- [Architecture best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
-- [Infrastructure best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
+Read the next article in this series:
+
 - [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
-- [Security and DevOps best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)

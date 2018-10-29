@@ -1,6 +1,6 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices
-description: Learn architecture best-practices for migrating on-premises Hadoop clusters to Azure HDInsight.
+description: Learn architecture best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -14,9 +14,9 @@ ms.author: hrasheed
 
 This article gives recommendations for the architecture of Azure HDInsight systems. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
-## Use multiple workload-optimized clusters rather than using a single large cluster
+## Use multiple workload-optimized clusters
 
-Many on-premises Hadoop deployments consist of a single large cluster that supports many workloads. This single cluster can be complex and may require compromises to the individual services to make everything work together. Migrating to Azure HDInsight requires a change in approach.
+Many on-premises Apache Hadoop deployments consist of a single large cluster that supports many workloads. This single cluster can be complex and may require compromises to the individual services to make everything work together. Migrating on-premises Hadoop clusters to Azure HDInsight requires a change in approach.
 
 Azure HDInsight clusters are designed for a specific type of compute usage. Because storage can be shared across multiple clusters, it is possible to create multiple workload-optimized compute clusters to meet the needs of different jobs. Each cluster type has the optimal configuration for that specific workload. The following table lists the supported cluster types in HDInsight and the corresponding workloads.
 
@@ -39,8 +39,8 @@ The following table shows the different methods that can be used to create an HD
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
 |[.NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
-|Python SDK||||X|
-|Java SDK||||X|
+|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
+|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 For more information, see the article [Cluster types in HDInsight](../hadoop/apache-hadoop-introduction.md)
@@ -51,9 +51,7 @@ HDInsight clusters may go unused for long periods of time. To help save on resou
 
 When you delete a cluster, the associated storage account and external metadata are not removed. The cluster can later be re-created using the same storage accounts and meta-stores.
 
-Azure Data Factory can be used to schedule creation of on-demand HDInsight clusters.
-
-For more information, see the article [Create on-demand Hadoop clusters in HDInsight using Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)
+Azure Data Factory can be used to schedule creation of on-demand HDInsight clusters. For more information, see the article [Create on-demand Hadoop clusters in HDInsight using Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
 
 ## Decouple storage from compute
 
@@ -65,43 +63,43 @@ On HDInsight clusters, storage does not need to be colocated with compute and ca
 - Use of transient clusters since the data isn't dependent on cluster
 - Reduced storage cost
 - Scaling storage and compute separately
-- Data replication across Regions
+- Data replication across regions
 
-Compute clusters are created close to storage account resources in the Azure region to mitigate performance cost of separating compute and storage. High-speed networks make it efficient for the compute nodes to access the data inside Azure storage.
+Compute clusters are created close to storage account resources in an Azure region to mitigate performance cost of separating compute and storage. High-speed networks make it efficient for the compute nodes to access the data inside Azure storage.
 
-## Use external metadata stores with HDInsight clusters
+## Use external metadata stores
 
 There are two main metastores that work with HDInsight clusters: Hive and Oozie. The Hive metastore is the central schema repository that can be used by data processing engines including Hadoop, Spark, LLAP, Presto, and Pig. The Oozie metastore stores details about scheduling and the status of in progress and completed Hadoop jobs.
 
 HDInsight uses Azure SQL Database for Hive and Oozie metastores. There are two ways to set up a metastore in HDInsight clusters:
 
-- Default metastore
+1. Default metastore
 
     - No additional cost
     - Metastore is deleted when the cluster is deleted
     - Metastore can't be shared among different clusters
     - Uses basic Azure SQL DB, which has a five DTU limit.
 
-- Custom external metastore
+1. Custom external metastore
 
     - specify an external Azure SQL Database as the metastore.
     - Clusters can be created and deleted without losing metadata including Hive schema Oozie job details.
     - Single metastore db can be shared with different types of clusters
     - Metastore can be scaled up as needed
 
-For more information, see the article: [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md)
+For more information, see the article: [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
 
 ## Best practices for Hive Metastore
 
 Some HDInsight Hive metastore best practices are as follows:
 
-- Use a custom external metastore, to separate compute resources and metadata.
+- Use a custom external metastore to separate compute resources and metadata.
 - Start with an S2 tier Azure SQL instance, which provides 50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
 - Don't share the metastore created for one HDInsight cluster version with clusters of a different version. Different Hive versions use different schemas. For example, a metastore can't be shared with both Hive 1.2 and Hive 2.1 clusters.
 - Back up the custom metastore periodically.
 - Keep the metastore and HDInsight cluster in the same region.
 - Monitor the metastore for performance and availability using Azure SQL Database Monitoring tools, like Azure portal or Azure Log Analytics.
-- Execute the "Analyze table" command as required to generate statistics for tables and columns, for example: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
+- Execute the **ANALYZE TABLE** command as required to generate statistics for tables and columns. For example, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
 
 ## Best practices for different types of workloads
 
@@ -116,10 +114,8 @@ Some HDInsight Hive metastore best practices are as follows:
 - Consider using Ranger RBAC on Hive tables and auditing
 - Consider using CosmosDB in place of MongoDB or Cassandra
 
-## Next Steps
+## Next steps
 
-- [Motivation and benefits of on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-motivation.md)
+Read the next article in this series:
+
 - [Infrastructure best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
-- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
-- [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
-- [Security and DevOps best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)

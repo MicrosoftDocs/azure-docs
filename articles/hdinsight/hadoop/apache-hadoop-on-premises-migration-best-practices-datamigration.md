@@ -1,6 +1,6 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - data migration best practices
-description: Learn data migration best-practices for migrating on-premises Hadoop clusters to Azure HDInsight.
+description: Learn data migration best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -49,38 +49,58 @@ The following table has approximate data transfer duration based on the data vol
 |1 PB|6 years|3 years|97 days|10 days|
 |2 PB|12 years|5 years|194 days|19 days|
 
-Tools native to Azure like DistCp, Azure Data Factory, and AzureCp can be used to transfer data over the network. The third-party tool WANDisco can also be used for the same purpose. Kafka Mirrormaker and Sqoop can be used for ongoing data transfer from on-premises to Azure storage systems.
+Tools native to Azure, like DistCp, Azure Data Factory, and AzureCp, can be used to transfer data over the network. The third-party tool WANDisco can also be used for the same purpose. Kafka Mirrormaker and Sqoop can be used for ongoing data transfer from on-premises to Azure storage systems.
 
 ## Performance considerations when using Apache DistCp
 
-DistCp is an Apache project and uses a MapReduce Map job to transfer data, handle errors, and recover. It assigns a list of source files to Map tasks, each of which will copy them to the destination. The following techniques can improve the performance of DistCp:
+DistCp is an Apache project that uses a MapReduce Map job to transfer data, handle errors, and recover from those errors. It assigns a list of source files to each Map task. The Map task then copies all of its assigned files to the destination. There are several techniques can improve the performance of DistCp.
 
-1. Increase the number of Mappers. DistCp tries to create map tasks so that each one copies roughly the same number of bytes. By default, DistCp jobs use 20 mappers. Using more Mappers for Distcp (with the 'm' parameter at command line) increases parallelism during the data transfer process and decreases the length of the data transfer. However, there are two things to consider while increasing the number of Mappers.
+### Increase the number of Mappers
 
-    - DistCp's lowest granularity is a single file. Specifying a number of Mappers more than the number of source files does not help and will waste the available cluster resources.
-    - Consider the available Yarn memory on the cluster to determine the number of Mappers. Each Map task is launched as a Yarn container. Assuming that no other heavy workloads are running on the cluster, the number of Mappers can be determined by the following formula: m = (number of worker nodes \* YARN memory for each worker node) / YARN container size. However, If other applications are using memory, then choose to only use a portion of YARN memory for DistCp jobs.
+DistCp tries to create map tasks so that each one copies roughly the same number of bytes. By default, DistCp jobs use 20 mappers. Using more Mappers for Distcp (with the 'm' parameter at command line) increases parallelism during the data transfer process and decreases the length of the data transfer. However, there are two things to consider while increasing the number of Mappers:
 
-1. When the size of the dataset to be moved is larger than 1 TB, use more than one DistCp job. Using more than one job limits the impact of failures. If any job fails, you only need to restart that specific job rather than all of the jobs.
-1. If there are a small number of large files, then consider splitting them into 256-MB file chunks to get more potential concurrency with more Mappers.
-1. Consider using `strategy = dynamic` parameter in the command line. The default value of the `strategy` parameter is `uniform size`, in which case each map copies roughly the same number of bytes. When this parameter is changed to `dynamic`, the listing file is split into several "chunk-files". The number of chunk-files is a multiple of the number of maps. Each map task is assigned one of the chunk-files. After all the paths in a chunk are processed, the current chunk is deleted and a new chunk is acquired. The process continues until no more chunks are available. This "dynamic" approach allows faster map-tasks to consume more paths than slower ones, thus speeding up the DistCp job overall.
-1. See if increasing the `-numListstatusThreads` parameter improves performance. This parameter controls the number of threads to use for building file listing and 40 is the maximum value.
-1. See if passing the parameter `-Dmapreduce.fileoutputcommitter.algorithm.version=2` improves DistCp performance. This output committer algorithm has optimizations around writing output files to the destination. The following command is an example that shows the usage of different parameters:
+1. DistCp's lowest granularity is a single file. Specifying a number of Mappers more than the number of source files does not help and will waste the available cluster resources.
+1. Consider the available Yarn memory on the cluster to determine the number of Mappers. Each Map task is launched as a Yarn container. Assuming that no other heavy workloads are running on the cluster, the number of Mappers can be determined by the following formula: m = (number of worker nodes \* YARN memory for each worker node) / YARN container size. However, If other applications are using memory, then choose to only use a portion of YARN memory for DistCp jobs.
+
+### Use more than one DistCp job
+
+When the size of the dataset to be moved is larger than 1 TB, use more than one DistCp job. Using more than one job limits the impact of failures. If any job fails, you only need to restart that specific job rather than all of the jobs.
+
+### Consider splitting files
+
+If there are a small number of large files, then consider splitting them into 256-MB file chunks to get more potential concurrency with more Mappers.
+
+### Use the 'strategy' command-line parameter
+
+Consider using `strategy = dynamic` parameter in the command line. The default value of the `strategy` parameter is `uniform size`, in which case each map copies roughly the same number of bytes. When this parameter is changed to `dynamic`, the listing file is split into several "chunk-files". The number of chunk-files is a multiple of the number of maps. Each map task is assigned one of the chunk-files. After all the paths in a chunk are processed, the current chunk is deleted and a new chunk is acquired. The process continues until no more chunks are available. This "dynamic" approach allows faster map-tasks to consume more paths than slower ones, thus speeding up the DistCp job overall.
+
+### Increase the number of threads
+
+See if increasing the `-numListstatusThreads` parameter improves performance. This parameter controls the number of threads to use for building file listing and 40 is the maximum value.
+
+### Use the output committer algorithm
+
+See if passing the parameter `-Dmapreduce.fileoutputcommitter.algorithm.version=2` improves DistCp performance. This output committer algorithm has optimizations around writing output files to the destination. The following command is an example that shows the usage of different parameters:
 
 ```bash
 hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatusThreads 30 -m 100 -strategy dynamic hdfs://nn1:8020/foo/bar wasb://<container_name>@<storage_account_name>.blob.core.windows.net/foo/
 ```
 
-## Metadata Migration
+## Metadata migration
 
 ### Hive
 
-The hive metastore can be migrated either by using the scripts or by using the DB Replication
-- Hive metastore migration using scripts
+The hive metastore can be migrated either by using the scripts or by using the DB Replication.
+
+#### Hive metastore migration using scripts
+
 - Generate the Hive DDLs from on-prem Hive metastore. This step can be done using a [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
 - Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS urls
 - Run the updated DDL on the metastore from the HDI cluster
 - Make sure that the Hive metastore version is compatible between on-premises and cloud
-- Hive metastore migration using DB Replication
+
+#### Hive metastore migration using DB replication
+
 - Set up Database Replication between on-premises Hive metastore DB and HDI metastore DB
 - Use the "Hive MetaTool" to replace HDFS url with WASB/ADLS/ABFS urls, for example:
 
@@ -94,10 +114,8 @@ The hive metastore can be migrated either by using the scripts or by using the D
 - Transform on-prem specific HDFS-based paths to WASB/ADLS using a tool like XSLT
 - import the policies on to Ranger running on HDI
 
-## Next Steps
+## Next steps
 
-- [Motivation and benefits of on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-motivation.md)
-- [Architecture best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
-- [Infrastructure best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
-- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
+Read the next article in this series:
+
 - [Security and DevOps best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-security-devops.md)

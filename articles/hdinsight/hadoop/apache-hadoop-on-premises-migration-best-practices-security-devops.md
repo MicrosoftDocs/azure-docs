@@ -35,7 +35,7 @@ Use the following steps to deploy the Domain-joined HDInsight cluster:
     > [!Note]
     > The service account does not need to be AD domain admin account
 
-- Deploy HDInsight ESP cluster by passing the following parameters:
+- Deploy HDInsight ESP cluster by setting the following parameters:
     - **Domain name**: The domain name that's associated with Azure AD DS.
     - **Domain user name**: The service account in the Azure AD DS DC-managed domain that you created in the previous section, for example: `hdiadmin@contoso.onmicrosoft.com`. This domain user will be the administrator of this HDInsight cluster.
     - **Domain password**: The password of the service account.
@@ -56,17 +56,17 @@ For more information, see the following articles:
 
 End to end enterprise security can be achieved using the following controls:
 
-- **Private and protected data pipeline** (Perimeter level Security):
+- **Private and protected data pipeline** (perimeter level security):
     - Perimeter level Security can be achieved through Azure Virtual Networks, Network Security Groups, and Gateway service
 
-- **Authentication and authorization for Data Access**
+- **Authentication and authorization for data access**
     - Create Domain-joined HDI cluster using Azure Active Directory Domain Services. (Enterprise Security Package)
     - Use Ambari to provide Role-based access to cluster resources for AD users
-    - Use Apache Ranger to set access control policies for Hive at the table / column / row level. 
+    - Use Apache Ranger to set access control policies for Hive at the table / column / row level.
     - SSH access to the cluster can be restricted only to the administrator.
 
 - **Auditing**
-    - View and report all access to the HDInsight cluster resources and data. 
+    - View and report all access to the HDInsight cluster resources and data.
     - View and report all changes to the access control policies
 
 - **Encryption**
@@ -141,7 +141,7 @@ This section provides template questionnaires to help gather important informati
 |Edge Nodes configuration|m/y, cpu, disk, etc.|
 |HDFS Encryption?|Yes|
 |High Availability|HDFS HA, Metastore HA|
-|Disaster Recovery / Backup|Backup cluster?|  
+|Disaster Recovery / Back up|Backup cluster?|  
 |Systems that are dependent on Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Third-party integrations|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**Topic**: **Security**|||
@@ -238,10 +238,6 @@ This section provides template questionnaires to help gather important informati
 |Use ADF for data orchestration?|No||
 |HDI vs HDP on IaaS?|HDI||
 
-## Next Steps
+## Next steps
 
-- [Motivation and benefits of on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-motivation.md)
-- [Architecture best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-architecture.md)
-- [Infrastructure best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
-- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
-- [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
+- Read more about [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
