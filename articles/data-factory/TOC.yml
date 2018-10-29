@@ -244,7 +244,7 @@
       href: connector-postgresql.md
     - name: Presto
       href: connector-presto.md
-    - name: QuickBooks
+    - name: QuickBooks Online
       href: connector-quickbooks.md
     - name: Salesforce
       href: connector-salesforce.md
