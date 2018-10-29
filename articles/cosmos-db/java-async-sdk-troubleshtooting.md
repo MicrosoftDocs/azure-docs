@@ -49,7 +49,7 @@ The number of open files ("nofile") needs to be large enough (at least as double
 
 ##### <a name="snat"></a>Azure SNAT (PAT) Port Exhaustion
 
-If your app is deployed on Azure VM, by default for establishing connections to endpoints outside of your VM [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used . The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure VM, by default for establishing connections to endpoints outside of your VM [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used. The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
     * Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
     * This limitation is only applicable when your Azure VM has a private IP address. Therefore the other workaround is to assign a public IP to your Azure VM.
