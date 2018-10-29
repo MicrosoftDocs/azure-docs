@@ -3,8 +3,6 @@
 - name: Overview
   items:
   - name: Introduction
-    href: iot-introduction-new.md
-  - name: Introduction-old
     href: iot-introduction.md
   - name: Azure IoT services and technologies
     href: iot-services-and-technologies.md    
