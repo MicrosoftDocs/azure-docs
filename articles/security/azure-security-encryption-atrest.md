@@ -251,33 +251,34 @@ Support for server encryption is currently provided through the SQL feature call
 
 Client-side encryption of Azure SQL Database data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
 
-|                                  |                    | **Encryption Model and Key Management** |                   |                    |
-|----------------------------------|--------------------|--------------------|--------------------|--------------------|
-|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed in Key Vault**             |  **Server-Side Using Customer-Managed On-premises**                  | **Client Using Client-Managed**      |
-| **Storage and Databases**        |                    |                    |                    |                    |                    |
-| Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | Yes               | -                  |
-| SQL Server (IaaS)                | Yes                | Yes, RSA 2048-bit  | Yes                | Yes                |
-| Azure SQL (Database/Data Warehouse) | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |
-| Azure Storage (Block/Page Blobs) | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |
-| Azure Storage (Files)            | Yes                | Yes, RSA 2048-bit  | -                  | -                  |
-| Azure Storage (Tables, Queues)   | Yes                | -                  | -                  | Yes                |
-| Cosmos DB (Document DB)          | Yes                | -                  | -                  | -                  |
-| StorSimple                       | Yes                | -                  | -                  | Yes                |
-| Backup                           | -                  | -                  | -                  | Yes                |
-| **Intelligence and Analytics**   |                    |                    |                    |                    |
-| Azure Data Factory               | Yes                | -                  | -                  | -                  |
-| Azure Machine Learning           | -                  | Preview, RSA 2048-bit | -                  | -                  |
-| Azure Stream Analytics           | Yes                | -                  | -                  | -                  |
-| HDInsight (Azure Blob Storage)   | Yes                | -                  | -                  | -                  |
-| HDInsight (Data Lake Storage)    | Yes                | -                  | -                  | -                  |
-| Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  | -                  |
-| Azure Data Catalog               | Yes                | -                  | -                  | -                  |
-| Power BI                         | Yes                | -                  | -                  | -                  |
-| **IoT Services**                 |                    |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | -                  | Yes                |
-| Service Bus                      | Yes                | -                  | -                  | Yes                |
-| Event Hubs                       | Yes                | -                  | -                  | -                  |
-| Event Grid                       | Yes                | -                  | -                  | -                  |
+|                                  |                    | **Encryption Model and Key Management** |                    |
+|----------------------------------|--------------------|-----------------------------------------|--------------------|
+|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed in Key Vault**             | **Client-Side Using Client-Managed**      |
+| **Storage and Databases**        |                    |                    |                    |                    |
+| Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | -                  |
+| SQL Server (IaaS)                | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure SQL (Database/Data Warehouse) | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure Storage (Block/Page Blobs) | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure Storage (Files)            | Yes                | Yes, RSA 2048-bit  | -                  |
+| Azure Storage (Tables, Queues)   | Yes                | -                  | Yes                |
+| Cosmos DB (Document DB)          | Yes                | -                  | -                  |
+| StorSimple                       | Yes                | -                  | Yes                |
+| Backup                           | -                  | -                  | Yes                |
+| **Intelligence and Analytics**   |                    |                    |                    |
+| Azure Data Factory               | Yes                | -                  | -                  |
+| Azure Machine Learning           | -                  | Preview, RSA 2048-bit | -                  |
+| Azure Stream Analytics           | Yes                | -                  | -                  |
+| HDInsight (Azure Blob Storage)   | Yes                | -                  | -                  |
+| HDInsight (Data Lake Storage)    | Yes                | -                  | -                  |
+| Apache Kafka for HDInsight       | Yes                | Preview, All RSA Lengths | -                  |
+| Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  |
+| Power BI                         | Yes                | -                  | -                  |
+| **IoT Services**                 |                    |                    |                    |
+| IoT Hub                          | -                  | -                  | Yes                |
+| Service Bus                      | Yes                | -                  | Yes                |
+| Event Hubs                       | Yes                | -                  | -                  |
+| Event Grid                       | Yes                | -                  | -                  |
 
 
 ## Conclusion
