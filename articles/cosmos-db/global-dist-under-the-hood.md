@@ -16,7 +16,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB is a foundational service of Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds. Within a data center, we deploy and manage the Azure Cosmos DB service on massive “stamps” of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains.
 
-![System Topology](./media/global-dist-under-the-hood/figure1.png)
+![System Topology](./media/global-dist-under-the-hood/distributed-system-topology.png)
 **System Topology**
 
 Global distribution in Azure Cosmos DB is turn-key: at any time, with a few clicks or programmatically with a single API call customer can add or remove the geographical regions associated with their Cosmos database. A Cosmos database in turn consists of a set of Cosmos containers. In Cosmos DB, containers serve as the logical units of distribution and scalability. The collections, tables, and graphs you create are (internally) just Cosmos containers. Containers are completely schema agnostic and provide a scope for a query. All data in a Cosmos container is automatically indexed upon ingestion. Automatic indexing enables users to query the data without having to deal with schema or hassles of index management, especially in a globally distributed setup.  
@@ -47,7 +47,7 @@ A resource partition is materialized as a self-managed and dynamically load-bala
 
 A group of resource partitions, one from each of the configured with the Cosmos database regions, is composed to manage the same set of keys replicated across all configured regions. This higher coordination primitive is called a partition-set - a geographically distributed dynamic overlay of resource partitions managing a given set of keys. While a given resource partition (a replica-set) is scoped within a cluster, a partition-set can span clusters, data centers, and geographical regions as shown in the following image:  
 
-![Partition Sets](./media/global-dist-under-the-hood/figure3.png)
+![Partition Sets](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
 **Partition-set is a dynamic overlay of resource partitions**
 
 You can think of a partition-set as a geographically dispersed “super replica-set”, which is composed of multiple replica-sets owning the same set of keys. Similar to a replica-set, a partition-set’s membership is also dynamic – it fluctuates based on implicit resource partition management operations to add/remove new partitions to/from a given partition-set (for instance, when you scale out throughput on a container, add/remove a region to your Cosmos database, or when failures occur) By virtue of having each of the partitions (of a partition-set) manage the partition-set membership within its own replica-set, the membership is fully decentralized and highly available. During the reconfiguration of a partition-set, the topology of the overlay between resource partitions is also established. The topology is dynamically selected based on consistency level, geographical distance, and available network bandwidth between the source and the target resource partitions.  
