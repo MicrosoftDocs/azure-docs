@@ -190,8 +190,9 @@ Specify the port mapping in the appropriate format. For this article, you need t
    </ServiceManifestImport>
 ```	
 
-Rererence [link](
-https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-container-registry-authentication) to encrypt credentials and configure cluster-wide credentials
+### Configure cluster-wide credentials
+Refer to [how to specify a default container repository for the cluster and how to use it in applications](
+https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#Configure-cluster-wide-credentials)
 
 
 ## Configure isolation mode

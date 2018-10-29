@@ -327,7 +327,11 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 </ServiceManifestImport>
 ```
 
-If there are multiple apps on a cluster with same credentials, you can configure cluster-wide credentials by adding a "UseDefaultRepositoryCredentials" attribute to ContainerHostPolicies in ApplicationManifest.xml with a "true/false" Boolean value.
+### Configure cluster-wide credentials
+
+Starting v6.3, Service Fabric allow user to configure cluster-wide credentials which can be used as default repository credentials by applications.
+
+You can enable/disable the feature by adding a "UseDefaultRepositoryCredentials" attribute to ContainerHostPolicies in ApplicationManifest.xml with a "true/false" Boolean value.
 
 ```xml
 <ServiceManifestImport>
