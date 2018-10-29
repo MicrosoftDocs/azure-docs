@@ -267,8 +267,9 @@ To demonstrate this approach, we first create a queue trigger function that we w
 
 	```cs
     using System;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+    public static void Run(TimerInfo myTimer, out String myQueue, ILogger log)
     {
         String newUser =
         "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";

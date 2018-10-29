@@ -17,7 +17,7 @@ You can download the PostgreSQL server error logs by using the command-line inte
 ## Prerequisites
 To step through this how-to guide, you need:
 - [Azure Database for PostgreSQL server](quickstart-create-server-database-azure-cli.md)
-- The [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or Azure Cloud Shell in the browser
+- The [Azure CLI](/cli/azure/install-azure-cli) command-line utility or Azure Cloud Shell in the browser
 
 ## Configure logging for Azure Database for PostgreSQL
 You can configure the server to access query logs and error logs. Error logs can have auto-vacuum, connection, and checkpoint information.

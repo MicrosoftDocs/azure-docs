@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator - Start moderation jobs using .NET | Microsoft Docs
-description: How to initiate moderation jobs using Azure Content Moderator SDK for .NET
+title: "Quickstart: Start moderation jobs using .NET - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: How to initiate moderation jobs using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
 ---
 
-# Start moderation jobs using .NET
+# Quickstart: Start moderation jobs using .NET
 
-This article provides information and code samples to help you get started using 
-the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
  
 - Start a moderation job to scan and create reviews for human moderators
 - Get the status of the pending review
@@ -122,7 +123,7 @@ Add the following code to create a Content Moderator client for your subscriptio
             // Create and initialize an instance of the Content Moderator API wrapper.
             ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-            client.BaseUrl = AzureBaseURL;
+            client.Endpoint = AzureBaseURL;
             return client;
         }
     }
@@ -151,7 +152,7 @@ Add the following constants and static fields to the **Program** class in Progra
 	/// </summary>
 	/// <remarks>This must be the team name you used to create your 
 	/// Content Moderator account. You can retrieve your team name from
-	/// the Conent Moderator web site. Your team name is the Id associated 
+	/// the Content Moderator web site. Your team name is the Id associated 
 	/// with your subscription.</remarks>
 	private const string TeamName = "***";
 
@@ -164,7 +165,7 @@ Add the following constants and static fields to the **Program** class in Progra
 	/// <summary>
 	/// The name of the log file to create.
 	/// </summary>
-	/// <remarks>Relative paths are ralative the execution directory.</remarks>
+	/// <remarks>Relative paths are relative to the execution directory.</remarks>
 	private const string OutputFile = "OutputLog.txt";
 
 	/// <summary>
@@ -176,7 +177,7 @@ Add the following constants and static fields to the **Program** class in Progra
     /// <summary>
     /// The callback endpoint for completed reviews.
     /// </summary>
-    /// <remarks>Revies show up for reviewers on your team. 
+    /// <remarks>Reviews show up for reviewers on your team. 
     /// As reviewers complete reviews, results are sent to the
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "";
@@ -196,7 +197,7 @@ Start by adding the following code to the **Main** method.
         	writer.WriteLine("Create review job for an image.");
         	var content = new Content(ImageUrl);
 		
-			// The WorkflowName contains the nameof the workflow defined in the online review tool.
+			// The WorkflowName contains the name of the workflow defined in the online review tool.
            	// See the quickstart article to learn more.
            	var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
             		TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);

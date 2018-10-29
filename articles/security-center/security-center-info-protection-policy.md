@@ -1,5 +1,5 @@
 ---
-title: Customizing the information protection policy in Azure Security Center | Microsoft Docs
+title: Customizing the SQL information protection policy in Azure Security Center | Microsoft Docs
 description: Learn how to customize information protection policies in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
 
 ---
-# Customize the information protection policy in Azure Security Center (Preview)
+# Customize the SQL information protection policy in Azure Security Center (Preview)
  
-An information protection policy can be defined and customized for your entire Azure tenant, in Azure Security Center.
+A SQL information protection policy can be defined and customized for your entire Azure tenant, in Azure Security Center.
 
 Information protection is an advanced security capability for discovering, classifying, labeling and protecting sensitive data in your Azure data resources. Discovering and classifying your most sensitive data (business, financial, healthcare, PII, etc.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
 - Helping meet data privacy standards and regulatory compliance requirements

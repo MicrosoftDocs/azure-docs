@@ -36,7 +36,7 @@ To follow the steps from this article, you must:
 
 + Have an APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-+ Understand the concept of [Capacity of an Azure API Management instance] (api-management-capacity.md).
++ Understand the concept of [Capacity of an Azure API Management instance](api-management-capacity.md).
 
 ## Upgrade and scale  
 
@@ -64,5 +64,5 @@ You can upgrade and downgrade to and from any tier. Note that upgrading or downg
 
 ## Next steps
 
-*[How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
-*[How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
+- [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
+- [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)

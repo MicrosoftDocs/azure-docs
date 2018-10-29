@@ -2,14 +2,16 @@
 title: Troubleshoot common connection issues to Azure SQL Database
 description: Steps to identify and resolve common connection errors for Azure SQL Database.
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: dalechen
 ms.author: daleche
-
+ms.reviewer: 
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Troubleshoot connection issues to Azure SQL Database
 When the connection to Azure SQL Database fails, you receive [error messages](sql-database-develop-error-messages.md). This article is a centralized topic that helps you troubleshoot Azure SQL Database connectivity issues. It introduces [the common causes](#cause) of connection issues, recommends [a troubleshooting tool](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) that helps you identity the problem, and provides troubleshooting steps to solve [transient errors](#troubleshoot-transient-errors) and [persistent or non-transient errors](#troubleshoot-persistent-errors). 
@@ -54,7 +56,7 @@ This error occurs when the Azure database is being moved (or reconfigured) and y
 
 1. Check the [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) for any known outages that occurred during the time during which the errors were reported by the application.
 2. Applications that connect to a cloud service such as Azure SQL Database should expect periodic reconfiguration events and implement retry logic to handle these errors instead of surfacing these as application errors to users. Review the [Transient errors](sql-database-connectivity-issues.md) section and the best practices and design guidelines at [SQL Database Development Overview](sql-database-develop-overview.md) for more information and general retry strategies. Then, see code samples at [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) for specifics.
-3. As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Troubleshooting Performance Issues](sql-database-troubleshoot-performance.md).
+3. As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Resource limits](sql-database-resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
 4. If connectivity problems continue, or if the duration for which your application encounters the error exceeds 60 seconds or if you see multiple occurrences of the error in a given day, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
 
 ## Troubleshoot persistent errors
@@ -71,7 +73,6 @@ If the application persistently fails to connect to Azure SQL Database, it usual
 4. Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
 
 ## Next steps
-* [Troubleshoot Azure SQL Database performance issues](sql-database-troubleshoot-performance.md)
 * [Search the documentation on Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [View the latest updates to the Azure SQL Database service](http://azure.microsoft.com/updates/?service=sql-database)
 

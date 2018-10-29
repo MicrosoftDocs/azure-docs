@@ -1,6 +1,7 @@
 ---
-title: Send queries to the Bing Image Search API | Microsoft Docs
-description: Learn about sending and customizing search queries sent to the Bing Image Search API.
+title: Send image queries - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Learn about customizing search queries sent to the Bing Image Search API.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -97,7 +98,7 @@ The following shows an example of the pivot queries.
 
 ## Expand the query
 
-If Bing can expand the query to narrow the original search, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object contains the `queryExpansions` field. For example, if the query was *Microsoft Surface*, the expanded queries might be: 
+If Bing can expand the query to narrow the original search, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object contains the `queryExpansions` field. For example, if the query was *Microsoft Surface*, the expanded queries might be:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.

@@ -17,10 +17,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
+
+ROBOTS: NOINDEX
 ---
 
 
+
 # Sentiment Analysis using Deep Learning with Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Sentiment analysis is a well-known task in the realm of natural language processing. Given a set of texts, the aim is to determine the sentiment of that text. The objective of this solution is to use Deep Learning for predicting sentiment from movie reviews.
 
@@ -42,7 +49,7 @@ To get value from sentiment analysis, businesses must have the ability to mine v
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 
-* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [quick start installation guide](../service/quickstart-installation.md) to install the program and create a workspace.
+* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [quick start installation guide](quickstart-installation.md) to install the program and create a workspace.
 
 * For operationalization, it is best if you have Docker engine installed and running locally. If not, you can use the cluster option. However, running an Azure Container Service (ACS) can be expensive.
 

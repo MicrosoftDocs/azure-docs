@@ -21,6 +21,9 @@ ms.custom: aaddev
 ---
 
 # Service to service calls using client credentials (shared secret or certificate)
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
 The OAuth 2.0 Client Credentials Grant Flow permits a web service (*confidential client*) to use its own credentials instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or web site. For a higher level of assurance, Azure AD also allows the calling service to use a certificate (instead of a shared secret) as a credential.
 
 ## Client credentials grant flow diagram
@@ -57,7 +60,7 @@ When using a shared secret, a service-to-service access token request contains t
 | resource |required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **App registrations**, click the service application, and then click **Settings** and **Properties**. |
 
 #### Example
-The following HTTP POST requests an access token for the https://service.contoso.com/ web service. The `client_id` identifies the web service that requests the access token.
+The following HTTP POST requests an [access token](access-tokens.md) for the https://service.contoso.com/ web service. The `client_id` identifies the web service that requests the access token.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1

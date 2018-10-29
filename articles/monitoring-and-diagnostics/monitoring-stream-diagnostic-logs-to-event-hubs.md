@@ -10,7 +10,7 @@ ms.author: johnkem
 ms.component: ""
 ---
 # Stream Azure Diagnostic Logs to an event hub
-**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Event Hub Authorization Rule ID in a diagnostic setting via the Azure PowerShell Cmdlets or Azure CLI 2.0.
+**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Event Hub Authorization Rule ID in a diagnostic setting via the Azure PowerShell Cmdlets or Azure CLI.
 
 ## What you can do with diagnostics logs and Event Hubs
 Here are just a few ways you might use the streaming capability for Diagnostic Logs:
@@ -85,9 +85,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 The Event Hub Authorization Rule ID is a string with this format: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. You cannot currently select a particular event hub name with PowerShell.
 
-### Via Azure CLI 2.0
+### Via Azure CLI
 
-To enable streaming via the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), you can use the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
+To enable streaming via the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), you can use the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

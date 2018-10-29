@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -236,10 +236,9 @@ In some scenarios, failover requires additional processing. Processing takes 8 t
 Run an actual failover for the EC2 instances to migrate them to Azure VMs:
 
 1. In **Protected items** > **Replicated items**, select the AWS instances, and then select **Failover**.
-2. In **Failover**, select a **Recovery Point** to failover to. Select the latest recovery point.
-3. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
-4. Ensure that the VM appears in **Replicated items**.
-5. Right-click each VM, and then select **Complete Migration**. This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+2. In **Failover**, select a **Recovery Point** to failover to. Select the latest recovery point, and start the failover. You can follow the failover progress on the **Jobs** page.
+1. Ensure that the VM appears in **Replicated items**.
+2. Right-click each VM, and then select **Complete Migration**. This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
 
     ![Complete migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

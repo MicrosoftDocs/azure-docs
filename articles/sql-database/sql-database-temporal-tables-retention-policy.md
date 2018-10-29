@@ -2,14 +2,16 @@
 title: Manage historical data in Temporal Tables with retention policy | Microsoft Docs
 description: Learn how to use temporal retention policy to keep historical data under your control.
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Manage historical data in Temporal Tables with retention policy
 Temporal Tables may increase database size more than regular tables, especially if you retain historical data for a longer period of time. Hence, retention policy for historical data is an important aspect of planning and managing the lifecycle of every temporal table. Temporal Tables in Azure SQL Database come with easy-to-use retention mechanism that helps you accomplish this task.

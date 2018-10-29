@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Create and publish a product
 > * Add an API to the product
 
-![add product](media/api-management-howto-add-products/added-product.png)
+![Add product tutorial](media/api-management-howto-add-products/added-product.png)
 
 ## Prerequisites
 
@@ -36,10 +36,10 @@ In this tutorial, you learn how to:
 
 ## Create and publish a product
 
+![Add product](media/api-management-howto-add-products/02-create-publish-product-01.png)
+
 1. Click on **Products** in the menu on the left to display the **Products** page.
 2. Click **+ Add**.
-
-    ![added product](media/api-management-howto-add-products/add-product.png)
 
     When you add a product, you need to supply the following information: 
 
@@ -73,7 +73,7 @@ Developers must first subscribe to a product to get access to the API. When they
 
 ### Add an API to an existing product
 
-![add product API](media/api-management-howto-add-products/add-product-api.png)
+![add product API](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. From the **Products** tab, select a product.
 2. Navigate to the **APIs** tab.
