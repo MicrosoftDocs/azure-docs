@@ -139,7 +139,7 @@ The RDP client uses TLS 1.0 as the default protocol. However, this can be change
         sc config gpsvc start= auto sc start gpsvc
 
         gpupdate /force
-    If the change is reverted, it means that there's an Active Directory policy in your company domain. You have to change that policy to avoid this proble from occurring again.
+    If the change is reverted, it means that there's an Active Directory policy in your company domain. You have to change that policy to avoid this problem from occurring again.
 
 ### Repair the VM Offline
 
