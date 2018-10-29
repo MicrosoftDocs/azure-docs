@@ -5,7 +5,6 @@ description: Learn more about troubleshooting strategies
 keywords: troubleshooting, error, debugging
 services: microsoft-genomics
 author: ruchir
-manager: jhubbard
 editor: jasonwhowell
 ms.author: ruchir
 ms.service: microsoft-genomics
@@ -29,7 +28,7 @@ You can locate the error messages associated with the workflow by:
 2. Examining the contents of standardoutput.txt.
 
 
-### 1. MSGEN STATUS
+### 1. Using the command line  -msgen status
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -76,7 +75,7 @@ Bases Processed : 1,348,613,600 (1 GBase)
 
 
 
-### 2. STANDARDOUTPUT.TXT 
+### 2.  Examine the contents of standardoutput.txt 
 Locate the output container for the workflow in question. MSGEN creates a,   `[workflowfilename].logs.zip` folder after every workflow execution. Unzip the folder to view its contents:
 
 * outputFileList.txt - a list of the output files produced during the workflow
