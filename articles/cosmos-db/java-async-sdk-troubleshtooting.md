@@ -36,8 +36,9 @@ Start with this list:
 * Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
 
 #### Connection Throttling
+Connection throttling can be done either due to [Connection Limit on Host Machine], or due to [Managing SNAT (PAT) Port Exhaustion]:
 
-#### Linux ulimit 
+##### <a name="connection-limit-on-host"></a>Connection Limit on Host Machine
 Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
 Run the following command
 ```bash
@@ -45,7 +46,7 @@ ulimit -a
 ```
 The number of open files ("nofile") needs to be large enough (at least as double as your connection pool size) to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
 
-#### Azure SNAT Exhaustion
+##### <a name="managing-snat"></a>Managing SNAT (PAT) Port Exhaustion
 
 If your app is deployed on Azure VM, you should ensure that Cosmos DB Service Endpoint is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the VM to the Cosmos DB endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
@@ -55,13 +56,13 @@ There are two workarounds to avoid Azure SNAT limitation:
 #### Http Proxy
 
 If you are using an HttpProxy, make sure your HttpProxy is capable of supporting the number of connections configured in the SDK `ConnectionPolicy`.
-If your HttpProxy fails to serve the required number of connections you may face connection issues.
+If your HttpProxy fails to serve the required number of connections, you will face connection issues.
 
 #### Invalid Coding Pattern: Blocking Netty IO Thread
 
 The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
 
-   For example the following code snippet shows that if you perform long lasting work (which takes more than a few milliseconds) on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException:
+   For example, the following code snippet shows that if you perform long lasting work (which takes more than a few milliseconds) on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException:
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -129,8 +130,8 @@ createObservable
             // ...
         );
 ```
-By using `observeOn(customScheduler)` you are releasing the netty IO thread and switching the thread to your own custom thread provided by customScheduler. 
-This will solve the problem in the above, and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
+By using `observeOn(customScheduler)`, you are releasing the netty IO thread and switching the thread to your own custom thread provided by customScheduler. 
+This modification will solve the problem in the above, and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
 ### Connection Pool Exhausted Issue
 
@@ -183,12 +184,25 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 
 Review [sfl4j logging manual](https://www.slf4j.org/manual.html) for more information.
 
+## <a name="netstats"></a>OS Network Statistics
+Run netstat command to get a sense of how many connections are in `Established` state, `CLOSE_WAIT`, etc.
+
+On Linux you can run the following command:
+```bash
+netstat -nap
+```
+
+You should filter the result to only connections to Cosmos DB endpoint.
+
+Apparantly, the number of connections to Cosmos DB endpoint in `Established` state should be not greater than your configured connection pool size.
+
+If there are many connections to Cosmos DB endpoint in `CLOSE_WAIT` state (more than 1000 connections), that's an indication of connections are established and teared down very quickly which may potentially cause problems. Review [Common Issues and Workarounds] section for more detail.
+
  <!--Anchors-->
 [Introduction]: #introduction
 [Common Issues and Workarounds]: #common-issues-workarounds
 [Enable Client SDK Logging]: #enable-client-sice-logging
-
-
-
+[Connection Limit on Host Machine]: #connection-limit-on-host
+[Managing SNAT (PAT) Port Exhaustion]: #managing-snat
 
 
