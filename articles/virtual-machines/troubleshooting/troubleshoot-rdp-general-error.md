@@ -24,17 +24,15 @@ This article describes a general error you may experience when you make a Remote
 
 When you make an RDP connection to a Window VM in Azure, you may receive the following general error message:
 
-```
-Remote Desktop can't connect to the remote computer for one of these reasons:
+**Remote Desktop can't connect to the remote computer for one of these reasons:**
 
-1. Remote access to the server is not enabled
+**1. Remote access to the server is not enabled**
 
-2. The remote Computer is turned off
+**2. The remote Computer is turned off**
 
-3. The remote computer is not available on the network
+**3. The remote computer is not available on the network**
 
-Make sure the remote computer is turned on and connected to the network, and that remote access is enabled.
-```
+**Make sure the remote computer is turned on and connected to the network, and that remote access is enabled.**
 
 ## Cause
 
@@ -44,8 +42,8 @@ This problem may occur because of the following causes:
 
 The RDP component is disabled as follows:
 
-- In the component level
-- In the listener level
+- At the component level
+- At the listener level
 - On the terminal server
 - On the Remote Desktop Session Host role
 
