@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: reference
-ms.date: 05/11/2018
+ms.date: 10/29/2018
 
 ms.author: mimart
 author: msmimart
@@ -66,16 +66,13 @@ To block a guest user's access to the [Azure portal](https://portal.azure.com), 
 ### Does Azure AD B2B collaboration support multi-factor authentication and consumer email accounts?
 Yes. Multi-factor authentication and consumer email accounts are both supported for Azure AD B2B collaboration.
 
-### Do you plan to support password reset for Azure AD B2B collaboration users?
-Yes. Here are the important details for self-service password reset (SSPR) for a B2B user who is invited from a partner organization:
+### Do you support password reset for Azure AD B2B collaboration users?
+If your Azure AD tenant is the home directory for a user, you can [reset the user's password](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal#how-to-reset-the-password-for-a-user) from the Azure portal. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Azure AD directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
  
-* SSPR occurs only in the identity tenant of the B2B user.
-* If the identity tenant is a Microsoft account, the Microsoft account SSPR mechanism is used.
-* If the identity tenant is a just-in-time (JIT) or "viral" tenant, a password reset email is sent.
-* For other tenants, the standard SSPR process is followed for B2B users. Like member SSPR for B2B users, in the context of the resource, tenancy is blocked. 
-
-### Is password reset available for guest users in a just-in-time (JIT) or "viral" tenant who accepted invitations with a work or school email address, but who didn't have a pre-existing Azure AD account?
-Yes. A password reset mail can be sent that allows a user to reset their password in the JIT tenancy.
+* Guest users who sign in with a Microsoft account (for example guestuser@live.com) can reset their own passwords using Microsoft account self-service password reset (SSPR). See [How to reset your Microsoft account password](https://support.microsoft.com/en-us/help/4026971/microsoft-account-how-to-reset-your-password).
+* Guest users who sign in with a Google account or another external identity provider can reset their own passwords using their identity provider’s SSPR method. For example, a guest user with the Google account guestuser@gmail.com can reset their password by following the instructions in [Change or reset your password](https://support.google.com/accounts/answer/41078).
+* If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it’s an separate, unmanaged Azure tenant), only the user or an administrator in the user’s home Azure tenant can reset the user's password.
+* If the guest user's home directory is your Azure AD tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Azure portal.
 
 ### Does Microsoft Dynamics 365 provide online support for Azure AD B2B collaboration?
 Yes, Dynamics 365 (online) provides support for Azure AD B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Azure AD B2B collaboration](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
