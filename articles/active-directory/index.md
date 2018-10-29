@@ -107,6 +107,7 @@ ms.author: mtillman
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Add guest users in the portal</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">Bulk invite guest users</a><br>
                                                             <a href="b2b/b2b-tutorial-require-mfa.md">Require MFA for guest users</a>
+															<a href="b2b/index.yml">See more ... </a><br>
                                                         </p>
 														<br><br>
                                                         <h3><a href="/azure/active-directory-b2c/index">Business-to-Customer (B2C)</a></h3>
@@ -115,6 +116,9 @@ ms.author: mtillman
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Enable a web app to authenticate</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a>
                                                         </p>
+														<p>
+														    <a href="/azure/active-directory-b2c/index">See more ..."</a>
+														</p>
 														<br><br>
                                                         <h3><a href="conditional-access/index.yml">Conditional access</a></h3>
                                                         <p>
