@@ -14,7 +14,7 @@ ms.custom: troubleshoot java async sdk
 ms.topic: troubleshoot
 ---
 
-## Overview
+##  Diagnose, and troubleshoot Azure Cosmos DB Java Async SDK
 This article covers common issues you may encounter, workarounds, diagnosing and troubleshooting approaches when working with [Azure Cosmos DB Java Async SDK for SQL API](sql-api-sdk-async-java.md).
 
 ## <a name="introduction"></a>Introduction
@@ -31,7 +31,7 @@ Start with this list:
 
 ### Network Issues, Netty Read Timeout Failure, Low Throughput, High Latency
 
-#### General Suggestion
+#### General Suggestions
 * Make sure the app is running on the same region as your Cosmos DB Endpoint. 
 * Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
 
@@ -40,7 +40,8 @@ Connection throttling can be done either due to [Connection Limit on Host Machin
 
 ##### <a name="connection-limit-on-host"></a>Connection Limit on Host Machine
 Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
-Run the following command
+Run the following command:
+
 ```bash
 ulimit -a
 ```
@@ -88,11 +89,12 @@ public void badCodeWithReadTimeoutException() throws Exception {
                 .createDocument(getCollectionLink(), docDefinition, null, false);
         createObservable.subscribe(r -> {
                     try {
-                        // time consuming work: e.g., writing to a file, computationally heavy work, or just sleep
+                        // time consuming work. For example:
+                        // writing to a file, computationally heavy work, or just sleep
                         // basically anything which takes more than a few milliseconds
-                        // doing this on the IO netty thread without a proper scheduler,
-                        // will cause problems.
-                        // the subscriber will get ReadTimeoutException
+                        // doing such operation on the IO netty thread
+                        // without a proper scheduler, will cause problems.
+                        // The subscriber will get ReadTimeoutException failure.
                         TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
                     } catch (Exception e) {
                     }
