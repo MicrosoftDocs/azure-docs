@@ -4,7 +4,7 @@ description: Provides information about upgrades for the Azure Migrate Collector
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/29/2018
 ms.author: hamusa
 services: azure-migrate
 ---
@@ -17,6 +17,18 @@ The Azure Migrate Collector is a lightweight appliance that's used to discover a
 
 
 ## One-time discovery: Upgrade versions
+
+### Version 1.0.9.16 (Released on 10/29/2018)
+
+Contains fixes for PowerCLI issues faced while setting up the appliance. 
+
+Hash values for upgrade [package 1.0.9.16](https://aka.ms/migrate/col/upgrade_9_16)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | d2c53f683b0ec7aaf5ba3d532a7382e1
+SHA1 | e5f922a725d81026fa113b0c27da185911942a01
+SHA256 | a159063ff508e86b4b3b7b9a42d724262ec0f2315bdba8418bce95d973f80cfc
 
 ### Version 1.0.9.14
 

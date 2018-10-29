@@ -148,7 +148,6 @@ Check that the OVA file is secure before you deploy it:
 For OVA version 1.0.9.15 (Released on 10/23/2018)
 
 **Algorithm** | **Hash value**
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 --- | ---
 MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
 SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
