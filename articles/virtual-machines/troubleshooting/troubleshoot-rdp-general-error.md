@@ -64,9 +64,9 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
 3. Switch to the channel that running the CMD instance, in this case it should be channel 1.
 
-  ```
-  ch -si 1
-  ```
+   ```
+   ch -si 1
+   ```
 
 4. Enable Remote Desktop through the GPO policy by changing the following policy:
 
@@ -78,13 +78,13 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
    1. Make sure that the RDP component is enabled.
 
-   ```
-   REM Get the local policy
-   reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
+      ```
+      REM Get the local policy
+      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
 
-   REM Get the domain policy if any
-   reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
-   ```
+      REM Get the domain policy if any
+      reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
+      ```
 
    If the domain policy exists, the setup on the local policy is overwritten.
 
@@ -93,69 +93,69 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
    If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command:
 
-   ```
-   reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   ```
+      ```
+      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+      ```
 
    2. Check the current configuration of the terminal server.
 
-   ```
-   reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
-   ```
+      ```
+      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
+      ```
 
    3. If the command returns 0, the terminal server is disabled. Then, enable the terminal server as follows:
 
-   ```
-   reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
-   ```
+      ```
+      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
+      ```
 
    4. The Terminal Server module is set to drain mode if the server is on a terminal server farm (RDS or citrix). Check the current mode of the Terminal Server module.
 
-   ```
-   reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
-   ```
+      ```
+      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
+      ```
 
    5. If the command returns 1, the Terminal Server module is set to drain mode. Then, set the module to working mode as follows:
 
-   ```
-   reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
-   ```
+      ```
+      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
+      ```
 
    6. Check the logon process of the terminal server.
 
-   ```
-   reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
-   ```
+      ```
+      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
+      ```
 
    7. If the command returns 1, the terminal server is set to disabled logon process. Then, enable the logon as follows:
 
-   ```
-   reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
-   ```
+      ```
+      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
+      ```
 
    8. Check the current configuration of the RDP listener.
 
-   ```
-   reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
-   ```
+      ```
+      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
+      ```
 
    9. If the command returns 0, the RDP listener is disabled. Then, enable the listener as follows:
 
-   ```
-   reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
-   ```
+      ```
+      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
+      ```
 
    10. Check the logon process of the RDP listener.
 
-   ```
-   reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
-   ```
+      ```
+      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
+      ```
 
    11. If the command returns 1, the RDP listener is set to disabled logon process. Then, enable the logon as follows:
 
-   ```
-   reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
-   ```
+      ```
+      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
+      ```
 
 6. Restart the VM.
 
@@ -211,23 +211,23 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
 3. If the virtual machine is domain joined, RDP could be disabled at a policy level. To validate if it is the case, check the following registry key:
 
-```
-HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
-```
+   ```
+   HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+   ```
 
 4. If this key value is set to 1, RDP is disabled by the policy.
 
 5. Enable Remote Desktop through the GPO policy by changing the following policy:
 
-```
-Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-```
+   ```
+   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
+   ```
 
 6. If this registry key doesn't exist, check the following registry key:
 
-```
-HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
-```
+   ```
+   HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
+   ```
 
 7. If this key is set to 1, RDP is turn off. Change the key value to 0.
 8. Detach the disk from the rescue VM and wait about two minutes for Azure to release the disk.
