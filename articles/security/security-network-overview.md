@@ -152,9 +152,15 @@ Azure networking supports the following secure remote access scenarios:
 
 ### Connect individual workstations to a virtual network
 
-You might want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For example, let's say you need access to a virtual machine on a virtual network. But your security policy does not allow RDP or SSH remote access to individual virtual machines. In this case, you can use a point-to-site VPN connection.
+You might want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For example, let's say you need access to a virtual machine on a virtual network. But your security policy does not allow RDP or SSH remote access to individual virtual machines. In this case, you can use a [point-to-site VPN](../vpn-gateway/point-to-site-about.md) connection.
 
-The point-to-site VPN connection uses the [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocol to enable you to set up a private and secure connection between the user and the virtual network. When the VPN connection is established, the user can RDP or SSH over the VPN link into any virtual machine on the virtual network. (This assumes that the user can authenticate and is authorized.)
+The point-to-site VPN connection enables you to set up a private and secure connection between the user and the virtual network. When the VPN connection is established, the user can RDP or SSH over the VPN link into any virtual machine on the virtual network. (This assumes that the user can authenticate and is authorized.) Point-to-site VPN supports:
+
+* Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
+
+* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
+
+* [OpenVPN](https://azure.microsoft.com/updates/openvpn-support-for-azure-vpn-gateways/)
 
 Learn more:
 
@@ -379,7 +385,7 @@ Azure virtual network TAP (Terminal Access Point) allows you to continuously str
 
 Learn more:
 
-* [Virtual network TAP](../virtual-network/virtual-network-tap-overvie.mdw#virtual-network-tap-partner-solutions)
+* [Virtual network TAP](../virtual-network/virtual-network-tap-overview.md)
 
 ### Logging
 
