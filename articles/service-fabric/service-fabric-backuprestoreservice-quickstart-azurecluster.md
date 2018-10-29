@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2018
+ms.date: 10/29/2018
 ms.author: hrushib
 
 ---
@@ -27,14 +27,14 @@ Service Fabric is a distributed systems platform that makes it easy to develop a
 
 Service Fabric replicates the state across multiple nodes to ensure that the service is highly available. Even if one node in the cluster fails, the service continues to be available. In certain cases, however, it is still desirable for the service data to be reliable against broader failures.
  
-For example, service may want to backup its data in order to protect from the following scenarios:
+For example, service may want to back up its data in order to protect from the following scenarios:
 - In the event of the permanent loss of an entire Service Fabric cluster.
 - Permanent loss of a majority of the replicas of a service partition
 - Administrative errors whereby the state accidentally gets deleted or corrupted. For example, an administrator with sufficient privilege erroneously deletes the service.
 - Bugs in the service that cause data corruption. For example, this may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state.
 - Offline data processing. It might be convenient to have offline processing of data for business intelligence that happens separately from the service that generates the data.
 
-Service Fabric provides an inbuilt API to do point in time [backup and restore](service-fabric-reliable-services-backup-restore.md). Application developers may use these APIs to back up the state of the service periodically. Additionally, if service administrators want to trigger a backup from outside of the service at a specific time, like before upgrading the application, developers need to expose backup (and restore) as an API from the service. Maintaining the backups is an additional cost above this. For example, you may want to take 5 incremental backups every half hour, followed by a full backup. After the full backup, you can delete the prior incremental backups. This approach requires additional code leading to additional cost during application development.
+Service Fabric provides an inbuilt API to do point in time [backup and restore](service-fabric-reliable-services-backup-restore.md). Application developers may use these APIs to back up the state of the service periodically. Additionally, if service administrators want to trigger a backup from outside of the service at a specific time, like before upgrading the application, developers need to expose backup (and restore) as an API from the service. Maintaining the backups is an additional cost above this. For example, you may want to take five incremental backups every half hour, followed by a full backup. After the full backup, you can delete the prior incremental backups. This approach requires additional code leading to additional cost during application development.
 
 The Backup and Restore service in Service Fabric enables easy and automatic backup of information stored in stateful services. Backing up application data on a periodic basis is fundamental for guarding against data loss and service unavailability. Service Fabric provides an optional backup and restore service, which allows you to configure periodic backup of stateful Reliable Services (including Actor Services) without having to write any additional code. It also facilitates restoring previously taken backups. 
 
@@ -51,7 +51,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 - Retention management of backups (upcoming)
 
 ## Prerequisites
-* Service Fabric cluster with Fabric version 6.2 and above. The cluster should be setup on Windows Server. Refer [article](service-fabric-cluster-creation-via-arm.md) for steps to create Service Fabric cluster using Azure resource template.
+* Service Fabric cluster with Fabric version 6.2 and above. The cluster should be set up on Windows Server. Refer to this [article](service-fabric-cluster-creation-via-arm.md) for steps to create Service Fabric cluster using Azure resource template.
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-cluster-creation-via-arm.md) to know how to get or create an X.509 certificate.
 * Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
 * Create Azure Storage account for storing application backups.
