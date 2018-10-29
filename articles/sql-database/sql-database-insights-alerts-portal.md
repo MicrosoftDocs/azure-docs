@@ -38,15 +38,11 @@ You can configure and get information about alert rules using
 
 ## Create an alert rule on a metric with the Azure portal
 1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it.
-2. This step is different for SQL DB and elastic pools versus SQL DW: 
-
-   - **SQL DB & Elastic pools ONLY**: Select **Alerts (Classic)** under the MONITORING section. The text and icon may vary slightly for different resources.  
+2. Select **Alerts (Classic)** under the MONITORING section. The text and icon may vary slightly for different resources.  
    
      ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SQL DW ONLY**: Click the **DWU Usage** graph. Select **View classic alerts**
-      
-     ![DWU Usage](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsDWUUsage.jpg)
 
 3. Select the **Add metric alert (classic)** button and fill in the fields.
    
