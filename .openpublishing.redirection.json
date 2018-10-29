@@ -30140,6 +30140,11 @@
             "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-troubleshooting.md",
             "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-troubleshooting",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/governance/policy/samples/audit-trans-data-enc-status.md",
+            "redirect_url": "/azure/governance/policy/samples/sql-database-encryption-audit",
+            "redirect_document_id" : true
         }
     ]
 }
