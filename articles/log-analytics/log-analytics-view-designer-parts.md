@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Reference guide to View Designer visualization parts in Log Analytics

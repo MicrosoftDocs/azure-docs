@@ -1,18 +1,19 @@
 ---
-title: Use Azure Video Indexer API | Microsoft Docs
+title: Use the Video Indexer API
+titlesuffix: Azure Cognitive Services
 description: This article shows how to get started using the Video Indexer API.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: femila
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 10/20/2018
 ms.author: juliako
-
 ---
-# Use Azure Video Indexer API
+
+# Use the Video Indexer API
 
 > [!Note]
 > The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
@@ -46,6 +47,9 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	Once you subscribe, you will be able to see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They should not be available on the client side (.js, .html, etc.).
 
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
+
+> [!TIP]
+> Video Indexer user can use a single subscription key to connect to multiple Video Indexer accounts. You can then link these Video Indexer accounts to different Media Services accounts.
 
 ## Obtain access token using the Authorization API
 

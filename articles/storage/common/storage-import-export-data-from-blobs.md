@@ -55,7 +55,7 @@ Perform the following steps to create an export job in the Azure portal.
 3. In **Job details**:
 
     - Select the storage account where the data to be exported resides. Use a storage account close to where you are located.
-    - The drop-off location is automatically populated based on the region of the storage account selected. 
+    - The dropoff location is automatically populated based on the region of the storage account selected. 
     - Specify the blob data you wish to export from your storage account to your blank drive or drives. 
     - Choose to **Export all** blob data in the storage account.
     

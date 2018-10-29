@@ -12,23 +12,82 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/18/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Log Analytics FAQ
 This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Azure. If you have any additional questions about Log Analytics, go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
+
+## New Logs experience
+
+### Q: What's the difference between the new Logs experience and Log Analytics?
+
+A: They are the same thing. [Log Analytics is being integrated as a feature in Azure Monitor](../azure-monitor/azure-monitor-rebrand.md) to provide a more unified monitoring experience. The new Logs experience in Azure Monitor is exactly the same as the Log Analytics queries that many customers have already been using.
+
+### Q: Can I still use Log Search? 
+
+A: Log Search is currently still available in the OMS portal and in the Azure portal under the name **Logs (classic)**. The OMS portal will be officially retired on January 15, 2019. The classic Logs experience in Azure portal will be gradually retired and replaced the new Logs experience. 
+
+### Q. Can I still use Advanced Analytics Portal? 
+The new Logs experience in the Azure portal is based on the [Advanced Analytics Portal](https://portal.loganalytics.io/), but it still can be accessed outside of the Azure portal. The roadmap for retiring this external portal will be announced soon.
+
+### Q. Why can't I see Query Explorer and Save buttons in the new Logs experience?
+
+**Query Explorer**, **Save** and **Set Alert** buttons are not available when exploring Logs in the context of a specific resource. To create alerts, save or load a query, Logs must be scoped to a workspace. To open Logs in workspace context, select **All services** > **Monitor** > **Logs**. The last used workspace is selected, but you can select any other workspace. See [Viewing and analyzing data in Log Analytics](../log-analytics/log-analytics-log-search-portals.md) for more information.
+
+### Q. How do I extract Custom Fields in the new Logs experience? 
+
+A: Custom Fields extraction are currently supported in the classic Logs experience. 
+
+### Q. Where do I find List view in the new Logs? 
+
+A: List view is not available in the new Logs. There is an arrow to the left of each record in the results table. Click this arrow to open the details for a specific record. 
+
+### Q. After running a query, a list of suggested filters shows up, but it doesn’t include all filters. How can I see the rest? 
+
+A: What you currently see is a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
+
+### Q. Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" in Logs, after drilling-in from VM? 
+
+A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal) for more information.
+
+### Q. Why am I am getting no access error message when accessing Logs from a VM page? 
+
+A: To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
+
+### Q. Why can I can access my workspace in OMS portal, but I get the error “You have no access” in the Azure portal?  
+
+A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](../log-analytics/log-analytics-oms-portal-transition.md) for more information.
+
+### Q. Why can't I can’t see View Designer entry in Logs? 
+A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
+
+### Q. Can I still use the Analytics portal outside of Azure?
+A. Yes, the Logs page in Azure and the [Advanced Analytics portal](https://portal.loganalytics.io) are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+
+
+
 ## General
+
+### Q. How can I see my views and solutions in Azure portal? 
+
+A: The list of views and installed solutions are available in Azure portal. Click **All services**. In the list of resources, select **Monitor**, then click **...More**. The last used workspace is selected, but you can select any other workspace. 
+
+### Q. Why I can’t create workspaces in West Central US region? 
+
+A: This region is at temporary capacity limit. The limit is planned to be addressed in the first half of 2019.
+
 
 ### Q. Does Log Analytics use the same agent as Azure Security Center?
 
-A. In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-platform-migration-faq.md).
+A: In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-platform-migration-faq.md).
 
 ### Q. What checks are performed by the AD and SQL Assessment solutions?
 
-A. The following query shows a description of all checks currently performed:
+A: The following query shows a description of all checks currently performed:
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
@@ -36,7 +95,7 @@ A. The following query shows a description of all checks currently performed:
 
 The results can then be exported to Excel for further review.
 
-### Q: Why do I see something different than OMS in the System Center Operations Manager console?
+### Q. Why do I see something different than OMS in the System Center Operations Manager console?
 
 A: Depending on what Update Rollup of Operations Manager you are on, you may see a node for *System Center Advisor*, *Operational Insights*, or *Log Analytics*.
 

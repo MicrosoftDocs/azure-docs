@@ -1,19 +1,21 @@
 ---
 title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs 
 description: This article discusses the T-SQL differences between Azure SQL Database Managed Instance and SQL Server. 
-services: sql-database 
+services: sql-database
+ms.service: sql-database
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 author: jovanpop-msft
-ms.reviewer: carlrab, bonova 
-ms.service: sql-database 
-ms.custom: managed instance
-ms.topic: conceptual 
-ms.date: 0813/2018 
 ms.author: jovanpop 
+ms.reviewer: carlrab, bonova 
 manager: craigg 
+ms.date: 10/24/2018 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 
-Azure SQL Database Managed Instance (preview) provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
+Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
  - [T-SQL differences and unsupported features](#Differences)
  - [Features that have different behavior in Managed Instance](#Changes)
  - [Temporary limitations and known issues](#Issues)
@@ -95,7 +97,7 @@ See [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### CLR 
@@ -332,14 +334,15 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 ### SQL Server Agent
 
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
-- Jobs - T-SQL job steps are currently supported
-- Other types of job steps are not currently supported (more step types will be added during public preview).
-  - Replication jobs not supported including:
+- Jobs
+ - T-SQL job steps are supported.
+ - The following replication jobs are supported:
     - Transaction-log reader.  
     - Snapshot.
-    - Distributor.  
-    - Merge.  
-  - SSIS is not yet supported. 
+    - Distributor.
+ - SSIS is supported. 
+- Other types of job steps are not currently supported, including:
+  - Merge replication job step is not supported.  
   - Queue Reader is not supported.  
   - Command shell is not yet supported. 
   - Managed Instance cannot access external resources (for example, network shares via robocopy).  
@@ -403,21 +406,64 @@ In this example existing databases will continue to work and can grow without an
 ### Incorrect configuration of SAS key during database restore
 
 `RESTORE DATABASE` that reads .bak file might be constantly retrying to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
-Make sure that you remove leading `?` from the SAS key generated using Azure portal.
+Make sure that you remove the leading `?` from the SAS key that is generated using Azure portal.
 
 ### Tooling
 
 SQL Server Management Studio and SQL Server Data Tools might have some issues while accessing Managed Instance. All tooling issues will be addressed before General Availability.
 
-### Incorrect database names
+### Incorrect database names in some views, logs, and messages
 
-Managed Instance might show guid value instead of database name during restore or in some error messages. These issues will be corrected before General Availability.
+Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Do not rely on these GUID identifiers because they would be replaced with actual database names in the future.
 
 ### Database mail profile
 There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`. This is a temporary limitation that will be removed soon.
+
+### Error logs are not-persisted
+Error logs that are available in managed instance are not persisted and their size is not included in the max storage limit. Error logs might be automatically erased in case of failover.
+
+### Error logs are verbose
+Managed Instance places verbose information in error logs and many of them are not relevant. The amount of information in error logs will be decreased in the future.
+
+**Workaround**: Use a custom procedure for reading error logs that filter-out some non-relevant entries. For details, see [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### Transaction Scope on two databases within the same instance is not supported
+`TransactionScope` class in .Net does not work if two queries are sent to the two databases within the same instance under the same transaction scope:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Although this code works with data within the same instance it required MSDTC.
+
+**Workaround**: Use [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use other database in connection context instead of using two connections.
+
+### CLR modules and linked servers sometime cannot reference local IP address
+CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This is transient error.
+
+**Workaround**: Use context connections in CLR module if possible.
 
 ## Next steps
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-get-started.md).
+- For a quickstart showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-get-started.md).

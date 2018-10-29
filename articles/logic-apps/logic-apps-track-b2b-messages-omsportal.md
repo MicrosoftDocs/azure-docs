@@ -50,10 +50,10 @@ and [how to set up monitoring and logging for that account](../logic-apps/logic-
 > If you don't have a Log Analytics workspace, 
 > learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## Add the Logic Apps B2B solution to Log Analytics
+## Add the Logic Apps B2B solution to Azure
 
 To have Log Analytics track B2B messages for your logic app, 
-you must add the **Logic Apps B2B** solution to the OMS portal. 
+you must add the **Logic Apps B2B** solution to Log Analytics. 
 Learn more about [adding solutions to Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. In the [Azure portal](https://portal.azure.com), choose **All Services**. 
@@ -65,7 +65,7 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Select your Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Under **Management**, choose **Overview**.
+3. Under **Management**, choose **Workspace summary**.
 
    ![Choose Log Analytics portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 

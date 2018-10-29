@@ -11,33 +11,38 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: create Azure Resource Manager templates with dependent resources
+# Tutorial: Create Azure Resource Manager templates with dependent resources
 
 Learn how to create an Azure Resource Manager template to deploy multiple resources.  After you create the template, you deploy the template using the Cloud shell from the Azure portal.
 
-Some of the resources cannot be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in Azure Resource Manager Templates](./resource-group-define-dependencies.md).
+In this tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Some of the resources cannot be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in Azure Resource Manager Templates](./resource-group-define-dependencies.md).
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Explore the template
 > * Deploy the template
 
-The instructions in this tutorial create a virtual machine, a virtual network, and some other dependent resources. 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Tools extension.  See [Install the extension
-](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension.  See [Install the extension
+](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* You need to specify a password for the virtual machine administrator account. To increase security, use a generated password. Here is a sample:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Open a Quickstart template
 
@@ -66,7 +71,7 @@ When you explore the template in this section, try to answer these questions:
     ![Visual Studio Code Azure Resource Manager templates](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     There are five resources defined by the template.
-2. Expand the first resource. It is a storage account. The definition shall be identical to the one used at the begining of the last tutorial.
+2. Expand the first resource. It is a storage account. The definition shall be identical to the one used at the beginning of the last tutorial.
 
     ![Visual Studio Code Azure Resource Manager templates storage account definition](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
@@ -98,19 +103,15 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Select **Cloud Shell** from the upper right corner as shown in the following image:
-
-    ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
-3. Select **PowerShell** from the upper left corner of the Cloud shell.  You use PowerShell in this tutorial.
-4. Select **Restart**
-5. Select **Upload file** from the Cloud shell:
+1. Sign in to the [Cloud Shell](https://shell.azure.com). 
+2. Select **PowerShell** from the upper left corner of the Cloud shell, and then select **Confirm**.  You use PowerShell in this tutorial.
+3. Select **Upload file** from the Cloud shell:
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-6. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file will be overwritten without any notification.
-7. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
+4. Select the template you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file is overwritten without any notification.
+5. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
 
-    ```shell
+    ```bash
     ls
     ```
 
@@ -118,49 +119,39 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 
     The file name shown on the screenshot is azuredeploy.json.
 
-8. From the Cloud shell run the following command to verify the content of the JSON file:
+6. From the Cloud shell run the following command to verify the content of the JSON file:
 
-    ```shell
+    ```bash
     cat azuredeploy.json
     ```
-9. From the Cloud shell, run the following PowerShell commands:
+7. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
-    ```powershell
-    $resourceGroupName = "<Enter the resource group name>"
-    $location = "<Enter the Azure location>"
-    $vmAdmin = "<Enter the admin username>"
-    $vmPassword = "<Enter the password>"
-    $dnsLabelPrefix = "<Enter the prefix>"
-
+    ```azurepowershell
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-    New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-	    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-	    -dnsLabelPrefix $dnsLabelPrefix
+    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+        -ResourceGroupName $resourceGroupName `
+        -adminUsername $adminUsername `
+        -adminPassword $adminPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json 
     ```
-    Here is the screenshot for a sample deployment:
+8. Run the following PowerShell command to list the newly created virtual machine:
 
-    ![Azure portal Cloud shell deploy template](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
-
-    On the screenshot, these values are used:
-
-    * **$resourceGroupName**: myresourcegroup0710. 
-    * **$location**: eastus2
-    * **&lt;DeployName>**: mydeployment0710
-    * **&lt;TemplateFile>**: azuredeploy.json
-    * **Template parameter**s:
-
-        * **adminUsername**: JohnDole
-        * **adminPassword**: Pass@word123
-        * **dnsLabelPrefix**: myvm0710
-
-10. Run the following PowerShell command to list the newly created virtual machine:
-
-    ```powershell
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName <ResourceGroupName>
+    ```azurepowershell
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     The virtual machine name is hard-coded as **SimpleWinVM** inside the template.
+
+9. Sign in to the virtual machine to test the administrator's credentials. 
 
 ## Clean up resources
 
@@ -173,4 +164,9 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to deploy Azure resources based on conditions, see:
+
+
+> [!div class="nextstepaction"]
+> [Use conditions](./resource-manager-tutorial-use-conditions.md)
+

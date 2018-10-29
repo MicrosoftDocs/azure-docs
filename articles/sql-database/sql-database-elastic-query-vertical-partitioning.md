@@ -2,15 +2,16 @@
 title: Query across cloud databases with different schema | Microsoft Docs
 description: how to set up cross-database queries over vertical partitions
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Query across cloud databases with different schemas (preview)
 ![Query across tables in different databases][1]

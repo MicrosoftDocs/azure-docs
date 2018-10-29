@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/25/2018
+ms.date: 09/24/2018
 ms.author: crdun
 ---
 # Create a Xamarin.Forms app with Azure
@@ -176,7 +176,9 @@ This action sends a post request to the new Mobile Apps back end that's hosted i
 
 ## Troubleshooting
 
-If you have problems building the solution, run the NuGet package manager and update to the latest version of Xamarin.Forms, and in the Android project, update the Xamarin.Android support packages. Quickstart projects might not always include the latest versions.
+If you have problems building the solution, run the NuGet package manager and update to the latest version of `Xamarin.Forms`, and in the Android project, update the `Xamarin.Android` support packages. Quickstart projects might not always include the latest versions.
+
+Please note that all the support packages referenced in your Android project must have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
 ## Next steps
 

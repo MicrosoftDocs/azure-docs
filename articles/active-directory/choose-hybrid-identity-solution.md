@@ -21,16 +21,18 @@ ms.assetid:
 #ms.tgt_pltfrm:
 ms.custom: it-pro
 ---
-
 # Microsoft hybrid identity solutions
+
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrid identity solutions enable you to synchronize on-premises directory objects with Azure AD while still managing your users on-premises. The first decision to make when planning to synchronize your on-premises Windows Server Active Directory with Azure AD is whether you want to use synchronized identity or federated identity. Synchronized identities, and optionally password hashes, enable your users to use the same password to access both on-premises and cloud-based organizational resources. For more advanced scenario requirements, such as single-sign-on (SSO) or on-premises MFA, you need to deploy Active Directory Federation Services (AD FS) to federate identities. 
 
 There are several options available for configuring hybrid identity. This article provides information to help you choose the best one for your organization based on ease of deployment and your specific identity and access management needs. As you consider which identity model best fits your organization’s needs, you also need to think about time, existing infrastructure, complexity, and cost. These factors are different for every organization, and might change over time. However, if your requirements do change, you also have the flexibility to switch to a different identity model.
 
 > [!TIP]
 > These solutions are all delivered by [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+>
 
 ## Synchronized identity 
+
 Synchronized identity is the simplest way to synchronize on-premises directory objects (users and groups) with Azure AD. 
 
 ![Synchronized hybrid identity](./media/choose-hybrid-identity-solution/synchronized-identity.png)
@@ -41,8 +43,10 @@ For most organizations who only need to enable their users to sign in to Office 
 
 > [!TIP]
 > User passwords are stored in on-premises Windows Server Active Directory in the form of a hash value that represents the actual user password. A hash value is a result of a one-way mathematical function (the hashing algorithm). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network. When you opt to synchronize passwords, Azure AD Connect extracts password hashes from the on-premises Active Directory and applies extra security processing to the password hash before it is synchronized to Azure AD. Password synchronization can also be used together with password write-back to enable self-service password reset in Azure AD. In addition, you can enable single sign-on (SSO) for users on domain-joined computers that are connected to the corporate network. With single sign-on, enabled users only need to enter a username to securely access cloud resources. 
+>
 
 ## Pass-through authentication
+
 [Azure AD pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) provides a simple password validation solution for Azure AD-based services using your on-premises Active Directory. If security and compliance policies for your organization do not permit sending users' passwords, even in a hashed form, and you only need to support desktop SSO for domain joined devices, it is recommended that you evaluate using pass-through authentication. Pass-through authentication does not require any deployment in the DMZ, which simplifies the deployment infrastructure when compared with AD FS. When users sign in using Azure AD, this authentication method validates users' passwords directly against your on-premises Active Directory.
 
 ![Pass-through authentication](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
@@ -55,6 +59,7 @@ Pass-through authentication is configured with Azure AD Connect, which uses a si
 - Joined to a domain in the forest through which users are validated
 
 ## Federated identity (AD FS)
+
 For more control over how users access Office 365 and other cloud services, you can set up directory synchronization with single sign-on (SSO) using [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). Federating your user's sign-ins with AD FS delegates authentication to an on-premises server that validates user credentials. In this model, on-premises Active Directory credentials are never passed to Azure AD.
 
 ![Federated identity](./media/choose-hybrid-identity-solution/federated-identity.png)
@@ -63,9 +68,10 @@ Also called identity federation, this sign-in method ensures that all user authe
 
 > [!TIP]
 > If you decide to use Federation with Active Directory Federation Services (AD FS), you can optionally set up password synchronization as a backup in case your AD FS infrastructure fails.
-
+>
 
 ## Common scenarios and recommendations
+
 Here are some common hybrid identity and access management scenarios with recommendations as to which hybrid identity option (or options) might be appropriate for each.
 
 |I need to:|PWS and SSO<sup>1</sup>| PTA and SSO<sup>2</sup> | AD FS<sup>3</sup>|
@@ -79,19 +85,17 @@ Here are some common hybrid identity and access management scenarios with recomm
 |Support smartcard authentication for my users<sup>4</sup>| | |![Recommended](./media/choose-hybrid-identity-solution/ic195031.png)|
 |Display password expiry notifications in the Office Portal and on the Windows 10 desktop| | |![Recommended](./media/choose-hybrid-identity-solution/ic195031.png)|
 
-> <sup>1</sup> Password synchronization with single sign-on. 
-
+> <sup>1</sup> Password synchronization with single sign-on.
+>
 > <sup>2</sup> Pass-through authentication and single sign-on. 
-
+>
 > <sup>3</sup> Federated single sign-on with AD FS.
-
+>
 > <sup>4</sup> AD FS can be integrated with your enterprise PKI to allow sign-in using certificates. These certificates can be soft-certificates deployed via trusted provisioning channels such as MDM or GPO or smartcard certificates (including PIV/CAC cards) or Hello for Business (cert-trust). For more information about smartcard authentication support, see [this blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
-
+>
 
 ## Next steps
+
 [Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
-
 [Install Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-
 [Monitor hybrid identity synchronization](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)
-

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 10/26/2018
 ms.author: sethm
 
 ---
@@ -37,7 +37,7 @@ Depending on how you have deployed Azure Stack, you start by creating a service 
 
 ## Create service principal for Azure AD
 
-If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure. This section shows you how to perform the steps through the portal. Check that you have the [required Azure AD permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
+If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure. This section shows you how to perform the steps through the portal. Check that you have the [required Azure AD permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) before beginning.
 
 ### Create service principal
 In this section, you create an application (service principal) in Azure AD that represents your application.
@@ -73,6 +73,13 @@ The script is run from the privileged endpoint on an ERCS virtual machine.
 
 Requirements:
 - A certificate is required.
+
+Certificate Requirements:
+ - The Cryptographic Service Provider (CSP) must be legacy key provider.
+ - The certificate format must be in PFX file, as both the public and private keys are required. Windows servers use .pfx files that contain the public key file (SSL certificate file) and the associated private key file.
+ - For production, the certificate must be issued from either an internal Certificate Authority or a Public Certificate Authority. If you use a public certificate authority, you must included the authority in the base operating system image as part of the Microsoft Trusted Root Authority Program. You can find the full list at [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+ - Your Azure Stack infrastructure must have network access to the certificate authority's Certificate Revocation List (CRL) location published in the certificate. This CRL must be an HTTP endpoint.
+
 
 #### Parameters
 

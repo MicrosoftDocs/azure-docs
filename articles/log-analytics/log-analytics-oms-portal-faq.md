@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 10/18/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Common questions for transition from OMS portal to Azure portal for Log Analytics users
@@ -79,7 +79,7 @@ Manage most Connected Source settings the  in the **Advanced settings** menu for
 | Azure Storage     | **Advanced settings** menu for the workspace. |
 | System Center     | **Advanced settings** menu for the workspace. |
 | Office 365        | See the [documentation for Office 365 management solution](../operations-management-suite/oms-solution-office-365.md) for configuration details. |
-| Windows Telemetry | Not yet available in Azure portal. |
+| Windows Telemetry | Settings menu for the solution. See [Windows Analytics in the Azure portal](/windows/deployment/update/windows-analytics-azure-portal) for configuration details. |
 | ITSM Connector    | See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) for instructions on connecting your ITSM service with Log Analytics. |
 
 ### Data
@@ -109,7 +109,7 @@ In the OMS portal, you install management solutions from the Solutions Gallery a
 Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). See [How to extend alerts from Log Analytics into Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) for details on configuring and using alerts in the Azure portal.
 
 ## How do I access my dashboards?
-[Dashboards](../log-analytics/log-analytics-dashboards.md) in Log Analytics have been deprecated.  You can visualize data in Log Analytics using [View Designer](../log-analytics/log-analytics-view-designer.md) which has additional functionality and pin query and views to Azure dashboards.
+The [My Dashboard](../log-analytics/log-analytics-dashboards.md) feature in Log Analytics has been deprecated. This feature allowed you to have a private collection of View Designer parts, and is superseded by the built-in Azure Dashboard functionality. You can continue to visualize data in Log Analytics using [View Designer](../log-analytics/log-analytics-view-designer.md) for shared views. You can also pin visualizations from these views or for [individual queries](../log-analytics/log-analytics-tutorial-dashboards.md) to Azure Dashboards.
 
 ## How do I check my usage?
 You can now easily view and manage your usage and cost of Log Analytics by selecting **Usage and estimated costs** in your workspace.

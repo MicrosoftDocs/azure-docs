@@ -1,0 +1,48 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Database for MariaDB Documentation
+metadata:
+  title: Azure MariaDB Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Azure Database for MariaDB is a relational database service in the Microsoft cloud built for developers based on the open source MariaDB database engine.
+  author: czeumault
+  manager: carolz
+  ms.service: mariadb
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/13/2017
+  ms.author: carolz
+abstract:
+  description: Azure Database for MariaDB is a relational database service based on the open source MariaDB Server engine.  It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MariaDB leveraging the open source tools and platform of your choice. Learn how to use Azure Database for MariaDB with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create a MariaDB database on Azure using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to design your database and develop apps:'
+  - type: list
+    style: ordered
+    items:
+    - html: Design a Database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure portal</a> 
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/mariadb">Azure CLI</a></p>

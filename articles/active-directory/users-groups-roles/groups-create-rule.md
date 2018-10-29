@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -26,7 +26,7 @@ This article details how to set up a rule in the Azure portal for dynamic member
 
 ## To create a group membership rule
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global Administrator, Intune Service Administrator, or User Account Administrator role in the tenant.
 2. Select **Groups**.
 3. Select **All groups**, and select **New group**.
 

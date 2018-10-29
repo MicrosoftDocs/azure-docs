@@ -47,6 +47,19 @@ sections:
     - html: <a href="/azure/virtual-network/tutorial-create-route-table-portal">Route network traffic</a>
     - html: <a href="/azure/virtual-network/tutorial-restrict-network-access-to-resources">Restrict network access to resources</a>
     - html: <a href="/azure/virtual-network/tutorial-connect-virtual-networks-portal">Connect virtual networks</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Introduction to Azure networking
+      href: /learn/modules/intro-to-azure-networking/
+      image: 
+        src: /learn/achievements/intro-to-azure-networking.svg
+        href: /learn/modules/intro-to-azure-networking/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

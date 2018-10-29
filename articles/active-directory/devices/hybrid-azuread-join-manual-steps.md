@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -90,6 +90,8 @@ If your organization is planning to use Seamless SSO, then the following URLs ne
 If your organization uses managed (non-federated) setup with on-premises AD and does not use ADFS to federate with Azure AD, then hybrid Azure AD join on Windows 10 relies on the computer objects in AD to be sync'ed to Azure AD. Make sure that any Organizational Units (OU) that contain the computer objects that need to be hybrid Azure AD joined are enabled for sync in the Azure AD Connect sync configuration.
 
 For Windows 10 devices on version 1703 or earlier, if your organization requires access to the Internet via an outbound proxy, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD. 
+
+Beginning with Windows 10 1803, even if hybrid Azure AD join attempt by a device in a federated domain using AD FS fails, and if Azure AD Connect is configured to sync the computer/device objects to Azure AD, then the device will attempt to complete the hybrid Azure AD join using the synced computer/device.
 
 ## Configuration steps
 

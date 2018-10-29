@@ -1,37 +1,39 @@
 ---
-title: Call endpoint by using Java - Bing Custom Search - Microsoft Cognitive Services 
+title: "Quickstart: Call endpoint by using Java - Bing Custom Search"
+titlesuffix: Azure Cognitive Services
 description: This quickstart shows how to request search results from your custom search instance by using Java to call the Bing Custom Search endpoint. 
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
-# Call Bing Custom Search endpoint (Java)
+# Quickstart: Call Bing Custom Search endpoint (Java)
 
-This quickstart shows how to request search results from your custom search instance by using Java to call the Bing Custom Search endpoint. 
+This quickstart shows how to request search results from your custom search instance using Java to call the Bing Custom Search endpoint. 
 
 ## Prerequisites
+
 To complete this quickstart, you need:
-- A custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
 
+- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
 - [Java](https://www.java.com) installed.
-
-- A [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## Run the code
 
-To call the Bing Custom Search endpoint, follow these steps:
+To run this example, follow these steps:
 
-1. Using your Java IDE of choice create a package.
-2. Create the file CustomSrchJava.java and copy the following code to it.
-3. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
-
-    ``` Java
+1. Using your Java IDE of choice, create a package.  
+  
+2. Create a file named CustomSrchJava.java in the package and copy the following code into it. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your subscription key and configuration ID.  
+  
+    ```java
     import java.io.InputStream;
     import java.net.URL;
     import java.net.URLEncoder;
@@ -53,9 +55,9 @@ To call the Bing Custom Search endpoint, follow these steps:
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
         static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
     
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
     
-        public static SearchResults SearchImages (String searchQuery) throws Exception {
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -91,15 +93,15 @@ To call the Bing Custom Search endpoint, follow these steps:
     
         public static void main (String[] args) {
             if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Invalid Custom Search subscription key!");
                 System.out.println("Please paste yours into the source code.");
                 System.exit(1);
             }
     
             try {
-                System.out.println("Searching the Web for: " + searchTerm);
+                System.out.println("Searching your slice of the Web for: " + searchTerm);
     
-                SearchResults result = SearchImages(searchTerm);
+                SearchResults result = SearchWeb(searchTerm);
     
                 System.out.println("\nRelevant HTTP Headers:\n");
                 for (String header : result.relevantHeaders.keySet())
@@ -125,8 +127,8 @@ To call the Bing Custom Search endpoint, follow these steps:
         }
     
     }
-    
-    ```
+    ```  
+  
 4. Run the program.
     
 ## Next steps

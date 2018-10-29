@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/3/2018
+ms.date: 10/23/2018
 ms.author: osamaz, jaredr80
 
 ---
@@ -306,7 +306,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 You can remove your peering configuration by running the following example:
 
 > [!WARNING]
-> You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this example. 
+> You must ensure that all virtual networks and ExpressRoute Global Reach connections are removed before running this example. 
 > 
 > 
 

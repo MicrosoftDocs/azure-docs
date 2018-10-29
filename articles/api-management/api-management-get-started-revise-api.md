@@ -38,6 +38,8 @@ In this tutorial, you learn how to:
 
 ## Add a new revision
 
+![Add API revision](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
+
 1. Select **APIs** page.
 2. Select **Demo Conference API** from the API list (or other API to which you want to add revisions).
 3. Click the **Revisions** tab from the menu near the top of the page.
@@ -45,8 +47,6 @@ In this tutorial, you learn how to:
 
     > [!TIP]
     > You can also choose **Add Revision** in the context menu (**...**) of the API.
-    
-    ![Revisions menu near top of screen](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 5. Provide a description for your new revision, to help remember what it will be used for.
 6. Select **Create**
@@ -56,6 +56,8 @@ In this tutorial, you learn how to:
     > Your original API remains in **Revision 1**. This is the revision your users continue to call, until you choose to make a different revision current.
 
 ## Make non-breaking changes to your revision
+
+![Modify revision](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
 
 1. Select **Demo Conference API** from the API list.
 2. Select the **Design** tab near the top of the screen.
@@ -75,6 +77,7 @@ In this tutorial, you learn how to:
 1. Select the **Revisions** tab from the menu near the top of the page.
 
     ![The revision menu on the revision screen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+
 2. Open the context menu (**...**) for **Revision 2**.
 3. Select **Make Current**.
 4. Check **Post to Public Change log for this API**, if you want to post notes about this change. Provide a description for your change that developers see, for example: **Testing revisions. Added new "test" operation.**

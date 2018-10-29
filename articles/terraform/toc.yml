@@ -39,6 +39,10 @@
       items:
         - name: Install the Terraform Visual Studio Code extension
           href: terraform-vscode-extension.md
+        - name: Create a Terraform base template using Yeoman
+          href: terraform-vscode-module-generator.md
+        - name: Test Terraform modules using Terratest
+          href: terratest-in-terraform-modules.md
 - name: Samples
   items:
     - name: Configuration templates

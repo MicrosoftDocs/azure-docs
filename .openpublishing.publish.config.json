@@ -22,6 +22,9 @@
     }
   ],
   "notification_subscribers": [],
+  "sync_notification_subscribers": [
+    "tysonn@microsoft.com"
+  ],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
   "git_repository_branch_open_to_public_contributors": "master",
@@ -156,15 +159,27 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "acr-tasks",
+      "url": "https://github.com/Azure-Samples/acr-tasks",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "iot-samples-node",
       "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
       "branch": "master",
       "branch_mapping": {}
     },
     {
+      "path_to_root": "iot-samples-c",
+      "url": "https://github.com/Azure/azure-iot-sdk-c",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "docs-201807",
+      "branch": "docs-201809",
       "branch_mapping": {}
     },
     {
@@ -172,7 +187,7 @@
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts",
       "branch": "master",
       "branch_mapping": {}
-    },  
+    },
     {
       "path_to_root": "media-services-v3-dotnet-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials",
@@ -196,7 +211,19 @@
       "url": "https://github.com/Azure-Samples/media-services-v3-rest-postman",
       "branch": "master",
       "branch_mapping": {}
-    }    
+    },
+    {
+      "path_to_root": "remote-monitoring-webui",
+      "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-nodejs",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
+      "branch": "master",
+      "branch_mapping": {}
+    }
   ],
   "branch_target_mapping": {
     "live": [
@@ -217,9 +244,9 @@
     ]
   },
   "need_generate_pdf_url_template": true,
-  "Targets": {
+  "targets": {
     "Pdf": {
-      "template_folder": "_themes.pdf"
+      "template_folder": "_themes.pdf"	
     }
   }
 }

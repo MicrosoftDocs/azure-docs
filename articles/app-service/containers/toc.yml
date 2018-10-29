@@ -39,8 +39,8 @@
       href: tutorial-php-mysql-app.md 
     - name: Node.js with MongoDB
       href: tutorial-nodejs-mongodb-app.md
-    - name: Python custom container with Postgres
-      href: tutorial-docker-python-postgresql-app.md
+    - name: Python with Postgres
+      href: tutorial-python-postgresql-app.md
   - name: Multi-container app
     href: tutorial-multi-container-app.md
   - name: Custom Docker image
@@ -67,6 +67,8 @@
     href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service Environment
     href: ../environment/intro.md
+  - name: Java developer guide
+    href: app-service-linux-java.md
   - name: Inbound and outbound IPs
     href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authentication and authorization
@@ -77,8 +79,10 @@
     href: ../app-service-diagnostics.md
 - name: How-To guides
   items:
-  - name: Configure application
+  - name: Configure app
     items:
+    - name: Python image
+      href: how-to-configure-python.md
     - name: Use app settings
       href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Deploy to Azure
