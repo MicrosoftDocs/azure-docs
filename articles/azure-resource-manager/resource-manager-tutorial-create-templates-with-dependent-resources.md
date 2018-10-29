@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/25/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -25,7 +25,7 @@ In this tutorial, you create a storage account, a virtual machine, a virtual net
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Explore the template
 > * Deploy the template
 
@@ -131,16 +131,16 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
-    $adminPassword = Read-Host -Prompt "Enter the admin password"
-    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
-
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -adminUsername = $adminUsername `
-        -adminPassword = $adminPassword `
-        -dnsLabelPrefix = $dnsLabelPrefix `
-	    -TemplateFile azuredeploy.json 
+        -adminUsername $adminUsername `
+        -adminPassword $adminPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json 
     ```
 8. Run the following PowerShell command to list the newly created virtual machine:
 
