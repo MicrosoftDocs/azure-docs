@@ -154,8 +154,6 @@
         href: samples/sql-database-encryption-audit.md
       - name: Audit SQL DB level audit setting
         href: samples/audit-sql-db-audit-setting.md
-      - name: Audit transparent data encryption status
-        href: samples/audit-trans-data-enc-status.md
   - name: Storage
     items:
     - name: Allowed SKUs for storage account and VMs
