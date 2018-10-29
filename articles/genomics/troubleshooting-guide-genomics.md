@@ -18,8 +18,6 @@ ms.date: 10/29/2018
 Here are a few troubleshooting tips for some of the common issues that you might face when using the Microsoft Genomics service, MSGEN.
 
  For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.md).
-
-
 ## Step 1: Locate error codes associated with the workflow
 
 You can locate the error messages associated with the workflow by:
@@ -27,8 +25,7 @@ You can locate the error messages associated with the workflow by:
 1. Using the command line and typing in  `msgen status`
 2. Examining the contents of standardoutput.txt.
 
-
-### 1. Using the command line  -msgen status
+### 1. Using the command line `msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -42,39 +39,33 @@ There are three required arguments:
 
     * Alternatively you can include the path to the config file instead of directly entering the URL and KEY. Note that if you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.
 * ID - the workflow ID
+    * To  find your workflow ID type in `msgen list` command. Assuming your config file is in the same location as your msgen exe, this will look like this: Be sure to include the  URI and keys in the config file :
 
-**Note:**
+        ```bash
+        msgen list -f "config.txt"
+        ```
 
-* To  find your workflow ID type in msgen list command: assuming your config file is in the same location as your msgen exe, this will look like this: Be sure to include the  URI and keys in the config file :
-
-```bash
-msgen list -f "config.txt"
-```
-
-A Sample output from this command will look like this:
-
-```bash
-c:\Python27\Scripts> msgen list -f "config.txt"
-Microsoft Genomics command-line client v0.7.4
-Copyright (c) 2018 Microsoft. All rights reserved.
-
-Workflow List
--------------
-Total Count  : 1
-
-Workflow ID     : 10001
-Status          : Completed successfully
-Message         :
-Process         : snapgatk-20180730_1
-Description     :
-Created Date    : Mon, 27 Aug 2018 20:27:24 GMT
-End Date        : Mon, 27 Aug 2018 20:55:12 GMT
-Wall Clock Time : 0h 27m 48s
-Bases Processed : 1,348,613,600 (1 GBase)
-```
-
-
-
+        A Sample output from this command will look like this:
+        
+        ```bash
+        c:\Python27\Scripts> msgen list -f "config.txt"
+        Microsoft Genomics command-line client v0.7.4
+        Copyright (c) 2018 Microsoft. All rights reserved.
+        
+        Workflow List
+        -------------
+        Total Count  : 1
+        
+        Workflow ID     : 10001
+        Status          : Completed successfully
+        Message         :
+        Process         : snapgatk-20180730_1
+        Description     :
+        Created Date    : Mon, 27 Aug 2018 20:27:24 GMT
+        End Date        : Mon, 27 Aug 2018 20:55:12 GMT
+        Wall Clock Time : 0h 27m 48s
+        Bases Processed : 1,348,613,600 (1 GBase)
+        ```
 ### 2.  Examine the contents of standardoutput.txt 
 Locate the output container for the workflow in question. MSGEN creates a,   `[workflowfilename].logs.zip` folder after every workflow execution. Unzip the folder to view its contents:
 
@@ -88,37 +79,29 @@ For troubleshooting, examine the contents of standardoutput.txt and note any err
 
 ## Step 2: Try recommended resolutions for common error codes
 
-This section briefly highlights common errors and the strategies you can use to resolve them
-Note: All errors have the word 'Error Code [ErrorCode Number]' at the beginning. This will help you determine what went wrong, and what do to about it.
+This section briefly highlights common errors and the strategies you can use to resolve them.
 
-### DEBUGGING MSGEN WORKFLOW ERRORS
 
-The Microsoft Genomics Service (msgen) can throw the following two kinds of errors:
+### Debugging Microsoft Genomics service (msgen) workflow errors
+
+The Microsoft Genomics service (msgen) can throw the following two kinds of errors:
 
 1. Internal Service Errors: Errors that are internal to the service, that may not be resolved by fixing parameters or input files. Sometimes resubmitting the workflow might fix these errors.
 2. Input Errors: Errors that can be resolved by using the correct arguments or fixing file formats.
 
 The following section describes these errors in detail
 
-### INTERNAL SERVICE ERRORS
+### Internal service errors
 
-If you get an internal service error the first time, try resubmitting the workflow. If you get these error messages repeatedly event after resubmitting the workflow, please contact Microsoft Genomics support by creating a support support [ticket](file-support-ticket-genomics.md ).
+An Internal service error is not user actionable. You may resubmit the workflow but if that does not work, contact Microsoft Genomics support
 
-| Type of error              | Error code       | Error message                                                                                                                            | Recommended troubleshooting steps                                                                                                                                   |
-|----------------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Internal service error | >=400 | An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md ). |
-| Internal service error   | 6                | The process machine ran out of disk space when writing output files.                                                                   | Unzip the input files and submit FASTQ files. If you see this error again, contact Microsoft Genomics support for assistance by creating a  ticket support [ticket](file-support-ticket-genomics.md ). |                                                                                                                                                                     |
+| Error message                                                                                                                            | Recommended troubleshooting steps                                                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md ). |
 
-**Note:**
-We have successfully run submissions up to 200x coverage.  A memory consumption problem may arise if:
+### Input errors
 
-* The input files are corrupted, OR
-* The workflow submits very large files (150x or more coverage), OR
-* The variant file is very complex.
-
-### INPUT ERRORS
-
-These errors are user actionable and you can use the listed troubleshooting steps to successfully submit your workflow.
+These errors are user actionable. Based on the type of file, and error code, Microsoft Genomics service outputs distinct error codes. Follow the recommended troubleshooting steps listed below.
 
 | Type of file | Error code | Error message                                                                           | Recommended troubleshooting steps                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
