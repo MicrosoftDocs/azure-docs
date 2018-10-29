@@ -21,33 +21,28 @@ ms.author: spelluru
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
+In this quickstart, you take the following steps: 
+
+- Create a topic by using the Azure portal
+- Create three subscriptions for the topic by using the Azure portal
+- Write Java code to send messages to the topic
+- Write Java code to receive messages from subscriptions
+
+## Prerequisites
+
+- An Azure subscription. If you don't have one, [create a free account][] before you begin.
+- [Azure SDK for Java][Azure SDK for Java]. 
 
 ## What are Service Bus topics and subscriptions?
-Service Bus topics and subscriptions support a *publish/subscribe*
-messaging communication model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other; instead they exchange messages via a topic, which acts as an
-intermediary.
+Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with
+each other; instead they exchange messages via a topic, which acts as an intermediary.
 
 ![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
 
-In contrast with Service Bus queues, in which each message is processed by a
-single consumer, topics and subscriptions provide a one-to-many form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
+In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a one-to-many form of communication, using a publish/subscribe pattern. It is possible to
+register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently. A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to filter or restrict which messages to a topic are received by which topic subscriptions.
 
-A subscription to a topic resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter or restrict which messages to a topic are received by which topic
-subscriptions.
-
-Service Bus topics and subscriptions enable you to scale to process a
-large number of messages across a large number of users and
-applications.
+Service Bus topics and subscriptions enable you to scale to process a large number of messages across a large number of users and applications.
 
 ## Create a Service Bus namespace
 
@@ -72,7 +67,7 @@ Creating a new namespace automatically generates an initial Shared Access Signat
 3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
 4. In the **Policy: RootManageSharedAccessKey** window, click the **Copy** button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
 
-    ![connection-string][connection-string]
+    ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
 5. Repeat the previous step, copying and pasting the value of **Primary Key** to a temporary location for later use.
 
 ## Create a topic 
@@ -86,7 +81,7 @@ To create a Service Bus topic, specify the namespace under which you want it cre
 
 
 ## Create subscriptions for the topic
-1. Select the topic you just created.
+1. Select the **topic** you just created.
 2. Click on **+ Subscription**, enter the subscription name **Subscription1**, and leave all other values with their defaults.
 3. Repeat the previous step twice more, creating subscriptions named **Subscription2** and **Subscription3**.
 
@@ -102,7 +97,7 @@ You also need to add the following JARs to the Java Build Path:
 - commons-cli-1.4.jar
 - proton-j-0.21.0.jar
 
-Add a class with a Main method, and then add the following `import` statements at the top of the Java file:
+Add a class with a **Main** method, and then add the following `import` statements at the top of the Java file:
 
 ```java
 import com.google.gson.reflect.TypeToken;
@@ -119,7 +114,11 @@ import org.apache.commons.cli.DefaultParser;
 ```
 
 ## Send messages to a topic
-Update the main method to create a TopicClient object, and invoke a helper method that asynchronously sends sample messages to the Service Bus topic.
+Update the **main** method to create a **TopicClient** object, and invoke a helper method that asynchronously sends sample messages to the Service Bus topic.
+
+> [!NOTE] 
+> - Replace `<NameOfServiceBusNamespace>` with the name of your Service Bus namespace. 
+> - Replace `<AccessKey>` with the access key for your namespace.
 
 ```java
 public class MyServiceBusTopicClient {
@@ -130,7 +129,7 @@ public class MyServiceBusTopicClient {
 		// TODO Auto-generated method stub
 
 		TopicClient sendClient;
-		String connectionString = "Endpoint=sb://spsbusns1025.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=nen7Hlnmp/iWGmlhwELWSPWpouEvHt1e9C1S/Uwe5jE=";
+		String connectionString = "Endpoint=sb://<NameOfServiceBusNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<AccessKey>";
         sendClient = new TopicClient(new ConnectionStringBuilder(connectionString, "BasicTopic"));       
         sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
 	}
@@ -176,7 +175,7 @@ Service Bus topics support a maximum message size of 256 KB in the [Standard tie
 held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB.
 
 ## How to receive messages from a subscription
-Update the main method to create three SubscriptionClient objects for three subscriptions, and invoke a helper method that asynchronously receives messages from the Service Bus topic.
+Update the **main** method to create three **SubscriptionClient** objects for three subscriptions, and invoke a helper method that asynchronously receives messages from the Service Bus topic. The sample code assumes that you created a topic named **BasicTopic** and three subscriptions named **Subscription1**, **Subscription2**, and **Subscription3**. If you used different names for them, update the code before testing it. 
 
 ```java
 public class MyServiceBusTopicClient {
