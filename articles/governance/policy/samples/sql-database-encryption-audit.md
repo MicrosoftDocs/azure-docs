@@ -8,7 +8,7 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 10/29/2018
 ms.author: dacoulte
-ms.custom: mvc 
+ms.custom: mvc
 ---
 # Audit SQL database encryption
 
