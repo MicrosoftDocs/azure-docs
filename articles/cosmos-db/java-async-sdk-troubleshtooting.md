@@ -36,7 +36,7 @@ Start with this list:
 * Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
 
 #### Connection Throttling
-Connection throttling can be done either due to [Connection Limit on Host Machine], or due to [Managing SNAT (PAT) Port Exhaustion]:
+Connection throttling can be done either due to [Connection Limit on Host Machine], or due to [Azure SNAT Port Exhaustion](managing-snat):
 
 ##### <a name="connection-limit-on-host"></a>Connection Limit on Host Machine
 Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
@@ -49,7 +49,7 @@ The number of open files ("nofile") needs to be large enough (at least as double
 
 ##### <a name="managing-snat"></a>Managing SNAT (PAT) Port Exhaustion
 
-If your app is deployed on Azure VM, you should ensure that Cosmos DB Service Endpoint is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the VM to the Cosmos DB endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure VM, by default Azure SNAT ports will be used for establishing any connection to an endpoint ouside of your VM. The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
     * Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
     * As Azure SNAT limitation is only applicable when your Azure VM has a private IP address, the other workaround is to assign a public IP to your Azure VM.
@@ -195,9 +195,9 @@ netstat -nap
 ```
 You should filter the result to only connections to Cosmos DB endpoint.
 
-Apparantly, the number of connections to Cosmos DB endpoint in `Established` state should be not greater than your configured connection pool size.
+Apparently, the number of connections to Cosmos DB endpoint in `Established` state should be not greater than your configured connection pool size.
 
-If there are many connections to Cosmos DB endpoint in `CLOSE_WAIT` state (more than 1000 connections), that's an indication of connections are established and teared down very quickly which may potentially cause problems. Review [Common Issues and Workarounds] section for more detail.
+If there are many connections to Cosmos DB endpoint in `CLOSE_WAIT` state (more than 1000 connections), that's an indication of connections are established and torn down very quickly which may potentially cause problems. Review [Common Issues and Workarounds] section for more detail.
 
  <!--Anchors-->
 [Introduction]: #introduction
