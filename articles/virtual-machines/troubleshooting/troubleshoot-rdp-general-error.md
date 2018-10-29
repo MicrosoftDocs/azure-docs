@@ -16,7 +16,7 @@ ms.date: 10/30/2018
 ms.author: genli
 ---
 
-# Troubleshoot an RDP general error to a Windows VM in Azure
+# Troubleshoot an RDP general error in Azure VM
 
 This article describes a general error you may experience when you make a Remote Desktop Protocol (RDP) connection to a Windows Virtual Machine (VM) in Azure.
 
@@ -55,11 +55,13 @@ Remote Desktop Services (TermService) isn't running.
 
 The RDP listener is misconfigured.
 
-## Solutions
+## Solution
 
 To resolve this problem, [back up the operating system disk](../windows/snapshot-copy-managed-disk.md), and [attach the operating system disk to a rescue VM](troubleshoot-recovery-disks-portal-windows.md), and then follow the solution options accordingly, or try the solutions one by one.
 
-### Solution 1: Using the Serial Console
+### Serial Console
+
+#### Step 1: Turn on remote desk
 
 1. Access the [Serial Console](serial-console-windows.md) by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
@@ -166,7 +168,19 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
 8. Restart the VM by typing `restart`.
 
-### Solution 2: offline approaches
+If the problem still happens, move to the step 2.
+
+#### Step 2: Enable remote desktop services
+
+For more information, see [Remote Desktop Services isn't starting on an Azure VM](troubleshoot-remote-desktop-services-issues.md).
+
+#### Step 3: Reset RDP listener
+
+For more information, see [Remote Desktop disconnects frequently in Azure VM](troubleshoot-rdp-intermittent-connectivity.md).
+
+### Offline repair
+
+#### Step 1: Turn on remote desk
 
 > [!NOTE]  
 > We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. The SYSTEM and SOFTWARE hives need to be unmounted and then mounted.
@@ -236,11 +250,15 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 8. Detach the disk from the rescue VM.
 9. [Create a new VM from the disk](../windows/create-vm-specialized.md).
 
-## Additional resources
+If the problem still happens, move to the step 2.
 
-[Remote Desktop Services isn't starting on an Azure VM](troubleshoot-remote-desktop-services-issues.md)
+#### Step 2: Enable remote desktop services
 
-[Remote Desktop disconnects frequently in Azure VM](troubleshoot-rdp-intermittent-connectivity.md)
+For more information, see [Remote Desktop Services isn't starting on an Azure VM](troubleshoot-remote-desktop-services-issues.md).
+
+#### Step 3: Reset RDP listener
+
+For more information, see [Remote Desktop disconnects frequently in Azure VM](troubleshoot-rdp-intermittent-connectivity.md).
 
 ## Need help? Contact support
 
