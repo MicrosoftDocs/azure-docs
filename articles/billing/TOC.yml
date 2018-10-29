@@ -17,6 +17,8 @@
   items:
   - name: Prevent unexpected costs
     href: billing-getting-started.md
+  - name: View Enterprise pricing
+    href: billing-ea-pricing.md
   - name: Use resource tags
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Start analyzing costs - EA only
