@@ -87,8 +87,8 @@ for the desired scope with a REST API **POST** command using the following URI s
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-The call returns a **202 Accepted** status. Included in the results is a **Location** property with
-the following format:
+The call returns a **202 Accepted** status. Included in the response header is a **Location**
+property with the following format:
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
