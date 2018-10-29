@@ -14,7 +14,7 @@ ms.custom: H1Hack27Feb2017
 This article shows steps to follow to configure reports for Azure Backup by using a Recovery Services vault. It also shows how to access reports by using Power BI. After you finish these steps, you can go directly to Power BI to view, customize, and create reports.
 
 > [!IMPORTANT]
-> Starting 1st November, 2018, some customers may see issues in loading the data in Azure Backup App in Power BI, saying “We found extra characters at the end of JSON input. The exception was raised by the IDataReader interface.”
+> From 1st November, 2018, some customers may see issues in loading the data in Azure Backup App in Power BI, saying “We found extra characters at the end of JSON input. The exception was raised by the IDataReader interface.”
 This is due to a change in the format in which data is loaded into the storage account.
 Please upgrade the App to the latest version to avoid this issue.
 >
