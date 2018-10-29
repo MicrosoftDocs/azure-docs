@@ -386,7 +386,7 @@ GROUP BY <group_by_element>
 Currently, the GROUP BY clause is only supported when querying device twins.
 
 > [!IMPORTANT]
-> The term `group` is currently treated as a special keywork in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+> The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
 >
 
