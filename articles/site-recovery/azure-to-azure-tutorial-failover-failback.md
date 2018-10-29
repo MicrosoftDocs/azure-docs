@@ -1,12 +1,12 @@
 ---
-title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery
-description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery
+title: Fail over and fail back Azure IaaS VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
+description: Learn how to fail over and fail back Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
 ---

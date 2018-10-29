@@ -1,12 +1,12 @@
 ---
-title: Migrate VMs from AWS to Azure with Azure Site Recovery | Microsoft Docs
-description: This article describes how to migrate Windows VMs running in Amazon Web Services (AWS) to Azure by using Azure Site Recovery.
+title: Migrate AWS VMs to Azure with the Azure Site Recovery service | Microsoft Docs
+description: This article describes how to migrate Windows VMs running in Amazon Web Services (AWS) to Azure using Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
 
