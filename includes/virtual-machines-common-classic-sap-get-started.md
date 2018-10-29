@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 
 ## Planning and Implementation
 Title: SAP NetWeaver on Azure Virtual Machines – Planning and Implementation Guide

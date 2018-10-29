@@ -1,18 +1,10 @@
 ---
 title: Map virtual networks between two Azure regions in Azure Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers. Learn about failover to Azure or to a secondary datacenter.
-services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
-editor: ''
-
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 10/16/2018
 ms.author: mayg
 
