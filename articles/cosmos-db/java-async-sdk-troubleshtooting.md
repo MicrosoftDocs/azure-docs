@@ -59,7 +59,7 @@ Otherwise, you face connection issues.
 
 #### Invalid coding pattern: blocking Netty IO thread
 
-The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread, that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
+The SDK uses [Netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have Async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread, that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
 
    For example, the following code snippet shows that if you perform long lasting work, which takes more than a few milliseconds, on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you get ReadTimeoutException:
 ```java
@@ -131,7 +131,7 @@ createObservable
         );
 ```
 By using `observeOn(customScheduler)`, you are releasing the netty IO thread and switching the thread to your own custom thread provided by customScheduler. 
-This modification will solve the problem in the above, and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
+This modification will solve the problem, and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
 ### Connection Pool Exhausted Issue
 
