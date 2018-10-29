@@ -43,7 +43,7 @@ There are two workarounds if you do not want to give owner access to the users w
     * Blob storage
     * Network elements
  
-* A user with no owner privileges can create vFXT clusters if an extra access role is created and assigned to the user ahead of time. However, this role gives significant permissions to these users. -This article- LINK REMOVED TEMPORARILY <!-- [This article](avere-vfxt-non-owner.md) -->explains how to authorize non-owners to create clusters.
+* A user with no owner privileges can create vFXT clusters if an extra access role is created and assigned to the user ahead of time. However, this role gives significant permissions to these users. [This article](avere-vfxt-non-owner.md) explains how to authorize non-owners to create clusters.
 
 ## Quota for the vFXT cluster
 

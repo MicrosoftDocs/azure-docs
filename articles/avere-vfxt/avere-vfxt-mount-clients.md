@@ -21,7 +21,7 @@ Follow these steps to connect client machines to your vFXT cluster.
 To help balance client requests among all the nodes in the cluster, you should mount clients to the full range of client-facing IP addresses. There are several simple ways to automate this task.
 
 > [!TIP] 
-> Other load balancing methods might be appropriate for large or complicated systems; open a support ticket <!--LINK REMOVED TEMPORARILY  [open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) -->for help.)
+> Other load balancing methods might be appropriate for large or complicated systems; [open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) for help.)
 > 
 > If you prefer to use a DNS server for automatic server-side load balancing, you must set up and manage your own DNS server within Azure. In that case, you can configure round-robin DNS for the vFXT cluster according to this document: [Avere cluster DNS configuration](avere-vfxt-configure-dns.md).
 
@@ -115,6 +115,6 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 
 After you have mounted clients, you can use them to populate the backend data storage (core filer). Refer to these documents to learn more about additional setup tasks:
 
-* -Move data to the cluster core filer- LINK REMOVED TEMPORARILY <!-- [Move data to the cluster core filer](avere-vfxt-data-ingest.md) --> - How to use multiple clients and threads to efficiently upload your data
-* -Customize cluster tuning- LINK REMOVED TEMPORARILY <!-- [Customize cluster tuning](avere-vfxt-tuning.md) --> - Tailor the cluster settings to suit your workload
-* -Manage the cluster- LINK REMOVED TEMPORARILY <!-- [Manage the cluster](avere-vfxt-manage-cluster.md) --> - How to start or stop the cluster and manage nodes
+* [Move data to the cluster core filer](avere-vfxt-data-ingest.md) - How to use multiple clients and threads to efficiently upload your data
+* [Customize cluster tuning](avere-vfxt-tuning.md) - Tailor the cluster settings to suit your workload
+* [Manage the cluster](avere-vfxt-manage-cluster.md) - How to start or stop the cluster and manage nodes

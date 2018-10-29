@@ -52,17 +52,17 @@ Here is an overview of all of the steps.
 
    Connect to the Avere vFXT configuration interface (Avere Control Panel) to customize the cluster's settings. Opt in for support monitoring, and add your storage system if you are using an on-premises data center.
 
-   * -Access the vFXT cluster- LINK REMOVED TEMPORARILY <!-- [Access the vFXT cluster](avere-vfxt-cluster-gui.md) -->
-   * -Enable support- LINK REMOVED TEMPORARILY <!-- [Enable support](avere-vfxt-enable-support.md) -->
-   * -Configure storage- LINK REMOVED TEMPORARILY <!-- [Configure storage](avere-vfxt-add-storage.md) --> (if needed)
+   * [Access the vFXT cluster](avere-vfxt-cluster-gui.md)
+   * [Enable support](avere-vfxt-enable-support.md)
+   * [Configure storage](avere-vfxt-add-storage.md) (if needed)
 
 1. Mount clients
 
-   Follow the guidelines in Mount the Avere vFXT cluster LINK REMOVED TEMPORARILY <!-- [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md) --> to learn about load balancing and how client machines should mount the cluster.
+   Follow the guidelines in [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md) to learn about load balancing and how client machines should mount the cluster.
 
 1. Add data (if needed)
 
-   Because the Avere vFXT is a scalable multi-client cache, the best way to move data to a new back-end storage container is with multi-client, multithreaded file copy strategy. Read -Moving data to the vFXT cluster- LINK REMOVED TEMPORARILY <!-- [Moving data to the vFXT cluster](avere-vfxt-data-ingest.md) --> for details.
+   Because the Avere vFXT is a scalable multi-client cache, the best way to move data to a new back-end storage container is with multi-client, multithreaded file copy strategy. Read [Moving data to the vFXT cluster](avere-vfxt-data-ingest.md) for details.
 
 ## Next steps
 

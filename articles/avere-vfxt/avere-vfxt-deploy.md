@@ -33,7 +33,7 @@ Before starting, make sure you have addressed these prerequisites:
 1. [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 
-Optionally, you can create the cluster node role -before- LINK REMOVED TEMPORARILY <!-- [before](avere-vfxt-pre-role.md) --> creating the cluster controller, but it is simpler to do it afterward.
+Optionally, you can create the cluster node role [before](avere-vfxt-pre-role.md) creating the cluster controller, but it is simpler to do it afterward.
 
 ## Create the cluster controller VM
 
@@ -220,7 +220,7 @@ To do the rest of the deployment steps, you need to connect to the cluster contr
 ## Create the cluster node access role
 
 > [!NOTE] 
-> If you are not a subscription owner, and the role has not already been created, have a subscription owner follow these steps or use the procedure in -Create the Avere vFXT cluster runtime access role without a controller- LINK REMOVED TEMPORARILY <!-- [Create the Avere vFXT cluster runtime access role without a controller](avere-vfxt-pre-role.md) -->.
+> If you are not a subscription owner, and the role has not already been created, have a subscription owner follow these steps or use the procedure in [Create the Avere vFXT cluster runtime access role without a controller](avere-vfxt-pre-role.md).
 
 [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC)  gives the vFXT cluster nodes authorization to perform necessary tasks.  
 
@@ -295,6 +295,6 @@ When the script completes, copy the management IP address, which is needed for c
 
 ![Command line output of the script displaying the management IP address near the end](media/avere-vfxt-mgmt-ip.png)
 
-### Next step: Access the cluster configuration tool
+### Next step
 
-Now that the cluster is running and you know its management IP address, you can -connect to the cluster configuration tool- LINK REMOVED TEMPORARILY <!-- [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) --> to enable support and add storage if needed.
+Now that the cluster is running and you know its management IP address, you can [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) to enable support and add storage if needed.
