@@ -1,14 +1,12 @@
 ---
-title: Troubleshoot Mobility Service push installation failures during Enable Replication(VMware to Azure) | Microsoft Docs
-description: Troubleshoot mobility service/push installation errors when you replicate Azure virtual machines.
-services: site-recovery
+title: Troubleshoot Mobility Service push installation failures when enabling replication for disaster recovery | Microsoft Docs
+description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.author: ramamill
-ms.date: 09/19/2018
+ms.date: 10/29/2018
 
 
 ---

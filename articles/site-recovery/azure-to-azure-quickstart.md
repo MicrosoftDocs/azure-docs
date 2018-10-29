@@ -1,16 +1,16 @@
 ---
-title: Replicate an Azure VM to another Azure region
-description: This quickstart provides the steps required to replicate an Azure VM in one Azure region to a different region.
+title: Set up disaster recovery for an Azure IaaS VM to a secondary Azure region
+description: This quickstart provides the steps required for disaster recovery of an Azure IaaS VM between Azure regions, using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
 ---
-# Replicate an Azure VM to another Azure region
+# Set up disaster recovery to a secondary Azure region for an Azure VM 
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running, during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 

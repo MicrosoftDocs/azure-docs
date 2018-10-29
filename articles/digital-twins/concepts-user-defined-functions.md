@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
 ---
 
@@ -20,7 +20,7 @@ Once devices send telemetry data to Digital Twins, developers can process data i
 
 ![Digital Twins Data Processing Flow][1]
 
-1. The _validate_ phase transforms the incoming telemetry message to a commonly understood [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) format. This phase also executes device and sensor validation.
+1. The _validate_ phase transforms the incoming telemetry message to a commonly understood [**data transfer object**](https://en.wikipedia.org/wiki/Data_transfer_object) format. This phase also executes device and sensor validation.
 1. The _match_ phase finds the appropriate User-Defined Function(s) to run. Predefined matchers will find the User-Defined Function(s) based on the device, sensor, and space information from the incoming telemetry message.
 1. The _compute_ phase runs the User-Defined Function(s) matched in the previous phase. These function(s) may read and update computed values on spatial graph nodes, and can emit custom notifications.
 1. The _dispatch_ phase routes any custom notifications from the compute phase to endpoints defined in the graph.
@@ -35,11 +35,11 @@ Data processing in Azure Digital Twins consists of defining three objects: _matc
 
 _Matchers_ define a set of conditions that evaluate what actions will take place based on incoming sensor telemetry. These conditions to determine the match could include properties from the sensor, the sensor's parent device, and the sensor's parent space. The conditions are expressed as comparisons against a [JSON path](http://jsonpath.com/) as outlined in the example below:
 
-- All sensors of datatype `Temperature`.
+- All sensors of datatype **Temperature**.
 - Having `01` in their port.
-- Which belong to devices with the extended property key `Manufacturer` set to the value `GoodCorp`.
-- Which belong to spaces of type `Venue`.
-- Which are descendants of parent `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
+- Which belong to devices with the extended property key **Manufacturer** set to the value `"GoodCorp"`.
+- Which belong to spaces of type `"Venue"`.
+- Which are descendants of parent **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {

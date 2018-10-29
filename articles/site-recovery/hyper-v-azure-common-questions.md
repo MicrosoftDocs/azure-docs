@@ -1,16 +1,16 @@
 ---
-title: 'Common questions - Hyper-V to Azure replication with Azure Site Recovery | Microsoft Docs'
-description: This article summarizes common questions about replicating on-premises Hyper-V VMs to Azure using Azure Site Recovery.
+title: 'Common questions - Hyper-V to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: raynew
 
 ---
-# Common questions - Hyper-V to Azure replication
+# Common questions - Hyper-V to Azure disaster recovery
 
 This article provides answers to common questions we see when replicating on-premises Hyper-V VMs to Azure. 
 

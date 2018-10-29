@@ -18,14 +18,14 @@ ms.author: jgao
 
 # Tutorial: Use condition in Azure Resource Manager templates
 
-Learn how to deploy Azure resources based on conditions. 
+Learn how to deploy Azure resources based on conditions.
 
-The scenario used in this tutorial is similar to the one used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). In that tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created.
+In the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created.
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Modify the template
 > * Deploy the template
 > * Clean up resources

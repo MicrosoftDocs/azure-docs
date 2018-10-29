@@ -699,7 +699,7 @@ When you stop protection for a SQL Server database, Azure Backup requests whethe
 * Stop all future backup jobs and delete all recovery points.
 * Stop all future backup jobs, but leave the recovery points.
 
-There's a cost to leave the recovery points. The recovery points for SQL incur the SQL protected instance pricing charge, plus the storage consumed. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/). 
+If you choose Stop backup with retain data, recovery points will be cleaned up as per the backup policy. You will incur the SQL protected instance pricing charge, plus the storage consumed till all recovery points are cleaned. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/). 
 
 To stop protection for a database:
 
