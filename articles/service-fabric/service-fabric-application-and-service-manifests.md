@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 10/29/2018
 ms.author: ryanwi
 
 ---
 # Service Fabric application and service manifests
-This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
+This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  For more detailed examples, see [application and service manifest examples](service-fabric-manifest-examples.md).  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
 
 ## Describe a service in ServiceManifest.xml
-The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. A service manifest can contain multiple code, configuration, and data packages, which can be versioned independently. Here is a service manifest for the ASP.NET Core web front end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. A service manifest can contain multiple code, configuration, and data packages, which can be versioned independently. Here is a service manifest for the ASP.NET Core web front end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -104,7 +104,7 @@ For more information about other features supported by service manifests, refer 
 ## Describe an application in ApplicationManifest.xml
 The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
 
-Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is the application manifest for the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is the application manifest for the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
