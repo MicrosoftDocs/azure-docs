@@ -110,7 +110,7 @@ A P2S configuration defines the parameters for connecting remote clients.
 2. Select the hub that you want to assign the point-to-site configuration to.
 3. Click **"..."** and pick **Edit virtual hub**
 4. Check **Include point-to-site gateway**.
-5. Pik the **Gateway sale units** and the **Point-to-site configuration** along with an **Address pool** for the clients.
+5. Pick the **Gateway scale units** and the **Point-to-site configuration** along with an **Address pool** for the clients.
 6. Click **Confirm**. 
 7. The operation will can take upto 30 minutes to complete.
 
