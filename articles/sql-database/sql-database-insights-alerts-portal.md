@@ -45,6 +45,8 @@ You can configure and get information about alert rules using
      ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SQL DW ONLY**: Click the **DWU Usage** graph. Select **View classic alerts**
+      
+     ![DWU Usage](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsDWUUsage.jpg)
 
 3. Select the **Add metric alert (classic)** button and fill in the fields.
    
