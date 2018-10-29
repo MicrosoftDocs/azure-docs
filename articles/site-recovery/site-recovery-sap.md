@@ -4,8 +4,11 @@ description: This article describes how to set up disaster recovery for SAP NetW
 author: asgang
 manager: rochakm
 ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: asgang
 
 ---
@@ -50,7 +53,7 @@ We recommend that you establish this infrastructure before you deploy Site Recov
 
 This reference architecture shows running SAP NetWeaver in a Windows environment on Azure with high availability.  This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization’s needs.
 
-![Diagram of a typical SAP deployment pattern](./media/site-recovery-sap/reference_sap.png)
+![Diagram of a typical SAP deployment pattern](./media/site-recovery-sap/sap-netweaver_latest.png)
 
 ## Disaster Recovery considerations
 

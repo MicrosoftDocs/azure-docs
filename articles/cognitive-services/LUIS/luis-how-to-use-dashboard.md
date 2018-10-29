@@ -1,5 +1,6 @@
 ---
-title: Application dashboard for LUIS apps | Microsoft Docs
+title: Application dashboard for Language Understanding apps
+titleSuffix: Azure Cognitive Services
 description: Learn about the application dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
 services: cognitive-services
 author: diberry
