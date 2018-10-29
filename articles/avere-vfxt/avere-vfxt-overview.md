@@ -71,6 +71,6 @@ The Avere vFXT uses the following Azure resources:
 
 Here are some links to start creating your own Avere vFXT deployment. 
 
-* -Planning your system- LINK REMOVED TEMPORARILY <!-- [Planning your system](avere-vfxt-deploy-plan.md) -->
-* -Deployment overview- LINK REMOVED TEMPORARILY <!-- [Deployment overview](avere-vfxt-deploy-overview.md) -->
-* -Create the vFXT- LINK REMOVED TEMPORARILY <!-- [Create the vFXT](avere-vfxt-deploy.md) -->
+* [Planning your system](avere-vfxt-deploy-plan.md)
+* [Deployment overview](avere-vfxt-deploy-overview.md)
+* [Create the vFXT](avere-vfxt-deploy.md)

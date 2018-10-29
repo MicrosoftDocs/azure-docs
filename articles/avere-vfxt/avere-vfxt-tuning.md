@@ -1,5 +1,5 @@
 ---
-title: Avere vFXT cluster tuning
+title: Avere vFXT cluster tuning - Azure
 description: Overview of custom settings to optimize performance in Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt

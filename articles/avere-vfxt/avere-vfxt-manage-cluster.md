@@ -47,7 +47,7 @@ The Avere Control Panel can be used for these tasks:
 
 Avere Control Panel prioritizes data integrity, so it attempts to write any changed data to backend storage before a possibly destructive operation. This makes it a safer option than the Avere portal. 
 
-Access Avere Control Panel from a web browser. Follow the instructions in -Access the vFTX cluster- LINK TO avere-vfxt-cluster-gui.md REMOVED TEMPORARILY <!-- [Access the vFXT cluster](avere-vfxt-cluster-gui.md) --> if you need help.
+Access Avere Control Panel from a web browser. Follow the instructions in [Access the vFXT cluster](avere-vfxt-cluster-gui.md) if you need help.
 
 ### Manage nodes with Avere Control Panel
 
@@ -76,7 +76,7 @@ The vfxt.py script can be used for these cluster management tasks:
 
 Like Avere Control Panel, vfxt.py operations try to make sure changed data is stored permanently on back-end storage before shutting down or destroying the cluster or node. This makes it a safer option than the Avere portal.
 
-vfxt.py is preinstalled on the cluster controller VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx not public repo ??? -->
+vfxt.py is preinstalled on the cluster controller VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 A complete vfxt.py usage guide is available on GitHub: <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 
 

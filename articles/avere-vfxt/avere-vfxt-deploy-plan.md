@@ -82,9 +82,9 @@ If you want to use Azure Blob storage for the back end, you should create a new 
 > [!NOTE]
 > Only empty Blob storage containers can be used as core filers for the Avere vFXT system. The vFXT must be able to manage its object store without needing to preserve existing data. 
 >
-> Read Moving data to the vFXT cluster LINK REMOVED TEMPORARILY <!-- [Moving data to the vFXT cluster](avere-vfxt-data-ingest.md) --> to learn how to copy data to the cluster's new container efficiently by using client machines and the Avere vFXT cache.
+> Read [Moving data to the vFXT cluster](avere-vfxt-data-ingest.md) to learn how to copy data to the cluster's new container efficiently by using client machines and the Avere vFXT cache.
 
-If you want to use an existing on-premises storage system, you must add it to the vFXT cluster after it is created. The ``create-minimal-cluster`` deployment script creates a vFXT cluster with no back-end storage. Read Configure storage LINK REMOVED TEMPORARILY <!-- [Configure storage](avere-vfxt-add-storage.md) --> for detailed instructions about how to add an existing storage system to the Avere vFXT cluster. 
+If you want to use an existing on-premises storage system, you must add it to the vFXT cluster after it is created. The ``create-minimal-cluster`` deployment script creates a vFXT cluster with no back-end storage. Read [Configure storage](avere-vfxt-add-storage.md) for detailed instructions about how to add an existing storage system to the Avere vFXT cluster. 
 
 ## Next step: Understand the deployment process
 

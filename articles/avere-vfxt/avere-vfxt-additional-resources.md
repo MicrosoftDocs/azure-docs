@@ -1,6 +1,6 @@
 ---
-title: Avere vFXT references
-description: Links to additional information about Avere vFXTfor Azure
+title: Additional links about Avere vFXT for Azure
+description: Links to additional information about Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual

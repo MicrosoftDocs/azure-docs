@@ -1,5 +1,5 @@
 ---
-title: Avere vFXT non-owner workaround
+title: Avere vFXT non-owner workaround - Azure
 description: Workaround to allow users without subscription owner permission to deploy Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
@@ -12,11 +12,11 @@ ms.author: v-erkell
 
 These instructions are a workaround that allows a user without subscription owner privileges to create an Avere vFXT for Azure system.
 
-(The recommended way to deploy the Avere vFXT system is to have a user with owner privileges do the creation steps, as explained in -Prepare to create the Avere vFXT- LINK REMOVED TEMPORARILY <!-- [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md) -->.)  
+(The recommended way to deploy the Avere vFXT system is to have a user with owner privileges do the creation steps, as explained in [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md).)  
 
 The workaround involves creating an additional access role that gives its users sufficient permissions to install the cluster. The role must be created by a subscription owner, and an owner must assign it to appropriate users. 
 
-A subscription owner also must -accept the terms of use- LINK REMOVED TEMPORARILY <!--  [accept the terms of use](avere-vfxt-prereqs.md) --> for the Avere vFXT marketplace images. 
+A subscription owner also must [accept the terms of use](avere-vfxt-prereqs.md) for the Avere vFXT marketplace image. 
 
 > [!IMPORTANT] 
 > All of these steps must be taken by a user with owner privileges on the subscription that will be used for the cluster.

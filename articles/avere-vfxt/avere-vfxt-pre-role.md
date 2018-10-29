@@ -1,5 +1,5 @@
 ---
-title: Create Avere role with no controller
+title: Create Avere role with no controller - Avere vFXT for Azure
 description: Method to create the required RBAC role without a cluster controller VM
 author: ekpgh
 ms.service: avere-vfxt
@@ -13,7 +13,7 @@ ms.author: v-erkell
 
 This document shows a method to create the cluster node access role from the command line before you create the cluster controller VM. 
 
-To create it from the cluster controller, read -Create the cluster node access role- LINK TO avere-vfxt-deploy.md REMOVED TEMPORARILY <!-- [Create the cluster node access role](avere-vfxt-deploy.md#create-the-cluster-node-access-role) -->. The controller image includes a role prototype file. You can update the file with your subscription ID and use it to define the role locally on the controller VM.
+To create it from the cluster controller, read [Create the cluster node access role](avere-vfxt-deploy.md#create-the-cluster-node-access-role). The controller image includes a role prototype file. You can update the file with your subscription ID and use it to define the role locally on the controller VM.
 
 ## Create an Azure RBAC role
 
