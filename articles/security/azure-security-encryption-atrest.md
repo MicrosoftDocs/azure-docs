@@ -34,7 +34,7 @@ Encryption at Rest is the encoding (encryption) of data when it is persisted. Th
 - A symmetric encryption key is used to encrypt data as it is written to storage. 
 - The same encryption key is used to decrypt that data as it is readied for use in memory.
 - Data may be partitioned, and different keys may be used for each partition.
-- Keys must be stored in a secure location with identity based access control and audit policies. Data encryption keys are often encrypted with asymmetric encryption to further limit access.
+- Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with asymmetric encryption to further limit access.
 
 In practice, key management and control scenarios, as well as scale and availability assurances, require additional constructs. Microsoft Azure Encryption at Rest concepts and components are described below.
 
@@ -42,13 +42,13 @@ In practice, key management and control scenarios, as well as scale and availabi
 
 Encryption at rest provides data protection for stored data (at rest). Attacks against data at-rest include attempts to obtain physical access to the hardware on which the data is stored, and then compromise the contained data. In such an attack, a server’s hard drive may have been mishandled during maintenance allowing an attacker to remove the hard drive. Later the attacker would put the hard drive into a computer under their control to attempt to access the data. 
 
-Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. If an attacker obtains a hard drive with such encrypted data, and no access to the encryption keys, the attacker would not compromise the data without great difficulty. In such a scenario, an attacker must defeat the data encryption, which is much more complex and resource consuming than accessing unencrypted data on a hard drive. For this reason, encryption at rest is highly recommended and is a high priority requirement for many organizations. 
+Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. If an attacker obtains a hard drive with encrypted data but not the encryption keys, the attacker must defeat the encryption to read the data. This attack is much more complex and resource consuming than accessing unencrypted data on a hard drive. For this reason, encryption at rest is highly recommended and is a high priority requirement for many organizations. 
 
 Encryption at rest may also be required by an organization’s need for data governance and compliance efforts. Industry and government regulations such as HIPAA, PCI and FedRAMP, lay out specific safeguards regarding data protection and encryption requirements. Encryption at rest is a mandatory measure required for compliance with some of those regulations.
 
-In addition to compliance and regulatory requirements, encryption at rest should be perceived as a defense-in-depth platform capability. While Microsoft provides a compliant platform for services, applications, and data, comprehensive facility and physical security, data access control and auditing, it is important to provide additional “overlapping” security measures in case one of the other security measures fails. Encryption at rest provides such an additional defense mechanism.
+In addition to satisfying compliance and regulatory requirements, encryption at rest provides defense-in-depth protection. Microsoft Azure provides a compliant platform for services, applications, and data. It also provides comprehensive facility and physical security, data access control, and auditing. However, it's important to provide additional “overlapping” security measures in case one of the other security measures fails and encryption at rest provides such a security measure
 
-Microsoft is committed to providing encryption at rest options across cloud services and to provide customers suitable manageability of encryption keys and access to logs showing when encryption keys are used. Additionally, Microsoft is working towards the goal of making all customer data encrypted at rest by default.
+Microsoft is committed to encryption at rest options across cloud services and giving customers control of encryption keys and logs of key use. Additionally, Microsoft is working towards encrypting all customer data at rest by default.
 
 ## Azure Encryption at Rest Components
 
