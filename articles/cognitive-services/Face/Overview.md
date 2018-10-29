@@ -15,7 +15,7 @@ ms.author: sbowles
 
 # What is the Azure Face API?
 
-The Azure Face API is a cognitive service that provides algorithms for detecting, recognizing, and analyzing human faces in images and video. This page outlines the different kinds of tasks that the Face API can perform.
+The Azure Face API is a cognitive service that provides algorithms for detecting, recognizing, and analyzing human faces in images. This page outlines the different kinds of tasks that the Face API can perform.
 
 ## What it does
 The Face API has two main functions: face detection with attributes and face recognition.
@@ -64,14 +64,12 @@ After a database has been created and trained, identification can be performed a
 
 For more information about person identification, see the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-
 ## Sample apps
 
 The following sample applications showcase a few ways that the Face API can be used.
 
 - [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows) - a WPF app that demonstrates several scenarios of Face detection, analysis and identification.
 - [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes) - a Universal Windows Platform (UWP) app that uses face identification along with speech, Cortana, ink, and camera in a family note-sharing scenario.
-- [Video Frame Analysis Sample](https://github.com/microsoft/cognitive-samples-videoframeanalysis) - a Win32 app that shows analyzing live video streams in near real time using the Face, Computer Vision, and Emotion APIs.
 
 ## Tutorials
 The following tutorials demonstrate the Face API's basic functionalities and subscriptions processes:
