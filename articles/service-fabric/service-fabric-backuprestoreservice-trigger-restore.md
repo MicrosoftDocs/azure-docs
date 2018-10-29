@@ -17,7 +17,7 @@ ms.date: 10/30/2018
 ms.author: aagup
 
 ---
-# Quickstart: Periodic backup and restore in Azure Service Fabric 
+#  Restoring Backup in Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -82,7 +82,7 @@ EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumb
 LsnOfLastBackupRecord   : 3334
 CreationTimeUtc         : 2018-04-06T20:55:16Z
 FailureError            : 
-
+*
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
 ApplicationName         : fabric:/SampleApp
@@ -94,7 +94,7 @@ EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumb
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            : 
-
+*
 BackupId                : 69436834-c810-4163-9386-a7a800f78359
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
 ApplicationName         : fabric:/SampleApp
@@ -110,7 +110,7 @@ FailureError            :
 
 
 
-For triggering the restore we need to choose the desired backup. Let our desired backup for the current Disaster Recovery (DR) be the following backup
+For triggering the restore we need to choose the desired backup. Let the desired backup for the current Disaster Recovery (DR) be the following backup
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -126,7 +126,7 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            : 
 ```
 
-For the restore API we need to provide the Backup Id and Backup Location Details. 
+For the restore API we need to provide the __BackupId__ and __BackupLocation__ Details. 
 The partition informations for the backup cluster are mapped to the original cluster. 
 The desired partition in backup cluster is choosen as per the Partition Load Distribution Policy
 
