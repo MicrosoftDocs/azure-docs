@@ -31,7 +31,7 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ### <a id="configure-clients-multi-homing-dotnet"></a>.NET
 
-```C#
+```csharp
 // Create a new Connection Policy
 ConnectionPolicy policy = new ConnectionPolicy
     {
