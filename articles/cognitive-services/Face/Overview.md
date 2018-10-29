@@ -71,13 +71,7 @@ The following sample applications showcase a few ways that the Face API can be u
 - [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows) - a WPF app that demonstrates several scenarios of Face detection, analysis and identification.
 - [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes) - a Universal Windows Platform (UWP) app that uses face identification along with speech, Cortana, ink, and camera in a family note-sharing scenario.
 
-## Tutorials
-The following tutorials demonstrate the Face API's basic functionalities and subscriptions processes:
-- [Getting Started with Face API in CSharp Tutorial](Tutorials/FaceAPIinCSharpTutorial.md)
-- [Getting Started with Face API in Java for Android Tutorial](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
-- [Getting Started with Face API in Python Tutorial](Tutorials/FaceAPIinPythonTutorial.md)
-
 ## Next steps
 
-Try a quickstart to implement a simple Face API scenario.
-- [Quickstart: Detect faces in an image using C#](quickstarts/csharp.md) (other languages available)
+Follow a quickstart to implement a simple face detection scenario.
+- [Quickstart: Detect faces in an image using the .NET SDK with C#](quickstarts/csharp.md) (other languages available)
