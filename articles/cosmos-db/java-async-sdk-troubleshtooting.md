@@ -50,7 +50,6 @@ There are two workarounds to avoid Azure SNAT limitation:
 6. The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
 
    For example the following code snippet shows that if you perform long lasting work (which takes more than a few milliseconds) on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException:
-
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -101,17 +100,13 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-
    The workaround is to change the thread on which you are doing time taking work. Define a singleton instance of Scheduler for your app:
-
 ```java
 //have a singleton instance of executor and scheduler
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
-
    Whenever you need to do time taking work (for example, computationally heavy work, blocking IO), switch the thread to a worker provided by your `customScheduler` using `.observeOn(customScheduler)` API.
-
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
