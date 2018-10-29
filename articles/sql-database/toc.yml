@@ -330,10 +330,10 @@
       items:
       - name: Tuning advisors
         items:
-        - name: Query Performance Insight
-          href: sql-database-query-performance.md
         - name: Tuning actions and recommendations
           href: sql-database-performance.md
+        - name: Query Performance Insight
+          href: sql-database-query-performance.md
         - name: Database advisor performance recommendations
           href: sql-database-advisor.md
         - name: Apply performance recommendations
