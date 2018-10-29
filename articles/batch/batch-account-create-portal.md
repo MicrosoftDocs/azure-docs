@@ -87,7 +87,7 @@ When creating your first Batch account in user subscription mode, you need to re
 
     ![Register Microsoft.Batch provider][register_provider]
 
-1. In the **Subscription** page, select **Access control (IAM)** > **Add**.
+1. In the **Subscription** page, select **Access control (IAM)** > **Role assignments** > **Add role assignment**.
 
     ![Subscription access control][subscription_access]
 

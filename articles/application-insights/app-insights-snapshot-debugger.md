@@ -198,7 +198,7 @@ Subscription owners should assign the `Application Insights Snapshot Debugger` r
 
 1. Navigate to the Application Insights resource in the Azure portal.
 1. Click **Access Control (IAM)**.
-1. Click the **+Add** button.
+1. Click the **+Add role assignment** button.
 1. Select **Application Insights Snapshot Debugger** from the **Roles** drop-down list.
 1. Search for and enter a name for the user to add.
 1. Click the **Save** button to add the user to the role.
