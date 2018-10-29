@@ -183,7 +183,7 @@ To ensure the fastest Windows container startup time, use one of the **three mos
 
 ### Windows containers slow network readiness
 
-On initial creation, Windows containers may have no inbound or outbound connectivity for up to 30 seconds (or longer, in rare cases). After initial setup, container networking should resume appropriately.
+On initial creation, Windows containers may have no inbound or outbound connectivity for up to 30 seconds (or longer, in rare cases). If your container application needs an Internet connection, add delay and retry logic to allow 30 seconds to establish Internet connectivity. After initial setup, container networking should resume appropriately.
 
 ## Resource not available error
 
