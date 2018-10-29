@@ -200,10 +200,10 @@ Completing these steps causes the extension to be reinstalled during the next ba
 
 ### <a name="clean_up_restore_point_collection"></a>Clean up restore point collection
 * Trigger an ad-hoc/manual backup. This operation will fail; however, it will automatic clean up of restore points to ensure your next scheduled backup succeeds.
+
 	> [!NOTE]
-	> Automatically clean up will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup also fails with the same error, then as a last resort you can manually delete the restore point collection using the steps listed [here](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
->
->
+	> Automatically clean up will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup also fails with the same error, then as a last resort you can manually delete the restore point collection using the steps listed [here](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
+
 
 > [!NOTE]
 > We recommend that customers should do only 1 backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time
