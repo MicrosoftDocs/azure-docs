@@ -224,9 +224,8 @@ The restore request following the following order
         RestoredLsn          24 
         ```
         
-    * __Failure__ - The restore state as Failure symbolizes the failure of the restore request. The cause of the failure will be stated in request. 
-      
-    *__Timeout__ - The restore state has timedout symbolizing the default timeout of 10 minutes wasn’t enough to complete restore. The state of the partition is unknown. Initiating a new restore request with greater timeout in Restore Request will be the correct way to restore partition. 
+  * __Failure__ - The restore state as Failure symbolizes the failure of the restore request. The cause of the failure will be stated in request. 
+  *__Timeout__ - The restore state has timedout symbolizing the default timeout of 10 minutes wasn’t enough to complete restore. The state of the partition is unknown. Initiating a new restore request with greater timeout in Restore Request will be the correct way to restore partition. 
         ```
         RestoreState Timeout
         Code FABRIC_E_TIMEOUT
