@@ -29,7 +29,7 @@ When you try to connect to a VM, you experience the following scenarios:
 
   - The remote session was disconnected because there are no Remote Desktop license servers available to provide a license.
 
-  - No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and has not contacted at least a valid Windows Server 2008 license server. Click this message to open RD Session Host Server Configuration to use Licensing Diagnosis.
+  - No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and has not contacted at least a valid Windows Server 2008 license server. Select this message to open RD Session Host Server Configuration to use Licensing Diagnosis.
 
 However, you can connect to the VM normally by using an administrative session:
 
@@ -61,7 +61,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
     1. Access the Serial Console by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
-    2. Create a new channel for a CMD instance. Type **CMD** to start the channel and get the channel name.
+    2. Create a new channel for a CMD instance. Enter **CMD** to start the channel and get the channel name.
 
     3. Switch to the channel that runs the CMD instance. In this case, it should be channel 1:
 
