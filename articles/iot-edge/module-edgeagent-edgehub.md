@@ -4,7 +4,7 @@ description: Review the specific properties and their values for the edgeAgent a
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -41,6 +41,7 @@ The module twin for the Edge agent is called `$edgeAgent` and coordinates the co
 | systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | This property is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 | modules.{moduleId}.version | A user-defined string representing the version of this module. | Yes |
 | modules.{moduleId}.type | Has to be "docker" | Yes |
+| modules.{moduleId}.status | {"running" \| "stopped"} | Yes |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Yes |
 | modules.{moduleId}.settings.image | The URI to the module image. | Yes |
 | modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options][lnk-docker-create-options] | No |
@@ -104,9 +105,9 @@ The module twin for the Edge hub is called `$edgeHub` and coordinates the commun
 | lastDesiredVersion | This integer refers to the last version of the desired properties processed by the Edge hub. |
 | lastDesiredStatus.code | This is the status code referring to last desired properties seen by the Edge hub. Allowed values: `200` Success, `400` Invalid configuration, `500` Failed |
 | lastDesiredStatus.description | Text description of the status |
-| clients.{device or module identity}.status | The connectivity status of this device or module. Possible values {"connected" \| "disconnected"}. Only module identities can be in disconnected state. Downstream devices connecting to Edge hub appear only when connected. |
-| clients.{device or module identity}.lastConnectTime | Last time the device or module connected |
-| clients.{device or module identity}.lastDisconnectTime | Last time the device or module disconnected |
+| clients.{device or moduleId}.status | The connectivity status of this device or module. Possible values {"connected" \| "disconnected"}. Only module identities can be in disconnected state. Downstream devices connecting to Edge hub appear only when connected. |
+| clients.{device or moduleId}.lastConnectTime | Last time the device or module connected |
+| clients.{device or moduleId}.lastDisconnectTime | Last time the device or module disconnected |
 
 ## Next steps
 

@@ -1,14 +1,15 @@
 ---
-title: Examine the Azure Video Indexer output produced by v2 API | Microsoft Docs
+title: Examine the Video Indexer output produced by v2 API
+titlesuffix: Azure Cognitive Services
 description: This topic examines the Video Indexer output produced by v2 API.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: femila
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/15/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 10/08/2018
 ms.author: juliako
 ---
 
@@ -327,13 +328,13 @@ Example:
 |Name|Description|
 |---|---|
 |id|The face ID.|
-|name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
+|name|The name of the face. It can be 'Unknown #0, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
 |thumbnalId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
-|referenceType|Currently just Bing.|
+|referenceType|Currently, just Bing.|
 |title|If it is a celebrity, its title (for example "Microsoft's CEO").|
 |imageUrl|If it is a celebrity, its image url.|
 |instances|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |

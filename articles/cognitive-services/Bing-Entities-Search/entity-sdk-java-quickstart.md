@@ -1,17 +1,18 @@
 ---
-title: Bing Entity Search SDK Java quickstart | Microsoft Docs
+title: "Quickstart: Bing Entity Search SDK, Java"
+titlesuffix: Azure Cognitive Services
 description: Set up the Bing Entity Search SDK console application.
-titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
 ---
-# Bing Entity Search SDK Java quickstart
+# Quickstart: Bing Entity Search SDK with Java
 
 The Bing Entity Search SDK provides the REST API functionality for entity queries and parsing results. 
 

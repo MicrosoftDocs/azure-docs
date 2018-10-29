@@ -1,17 +1,17 @@
 ---
-title: Protect Active Directory and DNS with Azure Site Recovery | Microsoft Docs
-description: This article describes how to implement a disaster recovery solution for Active Directory by using Azure Site Recovery.
+title: Set up disaster recovery for Active Directory and DNS with Azure Site Recovery | Microsoft Docs
+description: This article describes how to implement a disaster recovery solution for Active Directory and DNS with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/19/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
-# Use Azure Site Recovery to protect Active Directory and DNS
+# Set up disaster recovery for Active Directory and DNS
 
 Enterprise applications such as SharePoint, Dynamics AX, and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you set up disaster recovery for applications,  you often need to recover Active Directory and DNS before you recover other application components, to ensure correct application functionality.
 

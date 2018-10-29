@@ -16,6 +16,9 @@ ms.author: glenga
 
 # Mobile Apps bindings for Azure Functions 
 
+> [!NOTE]
+> Azure Mobile Apps bindings are only available to Azure Functions 1.x. They are not supported in Azure Functions 2.x.
+
 This article explains how to work with [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindings in Azure Functions. Azure Functions supports input and output bindings for Mobile Apps.
 
 The Mobile Apps bindings let you read and update data tables in mobile apps.
@@ -27,12 +30,6 @@ The Mobile Apps bindings let you read and update data tables in mobile apps.
 Mobile Apps bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## Packages - Functions 2.x
-
-Mobile Apps bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub repository.
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## Input
 

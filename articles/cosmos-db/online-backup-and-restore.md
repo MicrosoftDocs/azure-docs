@@ -14,7 +14,7 @@ ms.author: govindk
 
 ---
 # Automatic online backup and restore with Azure Cosmos DB
-Azure Cosmos DB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your Cosmos DB container and later require data recovery or a disaster recovery solution.  
+Azure Cosmos DB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your Cosmos DB container and later require data recovery.  
 
 This article starts with a quick recap of the data redundancy and availability in Cosmos DB, and then discusses backups. 
 
@@ -43,11 +43,18 @@ The following image illustrates periodic full backups of all Cosmos DB entities 
 ## Backup retention period
 As described above, Azure Cosmos DB takes snapshots of your data every four hours at the partition level. At any given time, only the last two snapshots are retained. However, if the container/database is deleted, Azure Cosmos DB retains the existing snapshots for all of the deleted partitions within the given container/database for 30 days.
 
-For SQL API, If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups.
+For SQL API, If you want to maintain your own snapshots, you can do so by using the following options:
+
+* Use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups.
+
+* Use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data periodically.
+
+* Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for full backup and separately for incremental change and move to your blob destination. 
+
+* For managing warm backups, it is possible to read data periodically from change feed and delay its writing to another collection. This will ensure you do not have to restore the data and you can immediately look at the data for issue. 
 
 > [!NOTE]
-> If you "Provision throughput for a set of containers at Database level" – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidently deleted your container. Data can't be restored if you don't contact the support team within 8 hours. 
-
+> If you "Provision throughput for a set of containers at Database level" – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidentally delete your container. Data can't be restored if you don't contact the support team within 8 hours.
 
 ## Restoring a database from an online backup
 
@@ -55,18 +62,24 @@ If you accidentally delete your database or container, you can [file a support t
 
 If you need to restore your database because of data corruption issue (includes cases where documents within a container are deleted), see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from overwriting the existing backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.
 
+> [!NOTE]
+> Collections or databases can be restored only on explicit customer requests. It is the customer's responsibility to delete the container or database immediately after reconciling the data. If you don't delete the restored databases or collections, they will incur cost for request units, storage and egress.
+
 ## Handling data corruption
 
 Azure Cosmos DB retains the last two backups of every partition in the database account. This model works well when a container (collection of documents, graph, table) or a database is accidentally deleted since one of the last versions can be restored. However, in the case when users may introduce a data corruption issue, Azure Cosmos DB may be unaware of the data corruption, and it is possible that the corruption may have overwritten the existing backups. 
 
-As soon as corruption is detected, reach out to customer support with database account and container information with approximate time of corruption. Another action the user can do in case of corrupted(data deletion/updation) the user should delete the corrupted container (collection/graph/table) so that backups are protected from being overwritten with corrupted data.  
+As soon as corruption is detected, the user should delete the corrupted container (collection/graph/table) so that backups are protected from being overwritten with corrupted data. And most importantly reach out to Microsoft Support and raise a ticket with specific request of Severity 2. 
 
 The following image illustrates the support request creation for container(collection/graph/table) restore via Azure portal for accidental deletion or updating of data within a container
 
 ![Restore a container for mistaken update or delete of data in Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. 
+When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. User who is subscription admin or coadmin can see this restored account.
 
+
+> [!NOTE]
+> If you restore the data for fixing corruption issue or just for testing, please plan to remove them soon as your task is done as restored containers or a database will cost extra - based on provisioned throughput. 
 ## Next steps
 
 To replicate your database in multiple data centers, see [distribute your data globally with Cosmos DB](distribute-data-globally.md). 

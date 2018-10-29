@@ -1,18 +1,18 @@
 ---
-title: Translator Text identify language from text with C# | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you identify the language of the source text using the Translator Text API with C# in Cognitive Services.
+title: "Quickstart: Identify language from text, C# - Translator Text API"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you identify the language of the source text using the Translator Text API with C#.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Identify language from text with C&#35;
+
+# Quickstart: Identify language from text with the Translator Text REST API (C#)
 
 In this quickstart, you identify the language of the source text using the Translator Text API.
 
@@ -23,6 +23,9 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
 ## Detect request
+
+> [!TIP]
+> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 The following code identifies the language of the source text using the [Detect](./reference/v3-0-detect.md) method.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -57,7 +57,7 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 2. Select **Entities** from the left menu.
 
-3. Select the ellipsis ***(...)*** button to the right of the number entity in the list. Select **Delete**. 
+3. Select the checkbox to the left of the number entity in the list. Select **Delete**. 
 
 ## Add utterances to MoveEmployee intent
 
@@ -115,7 +115,7 @@ Add the prebuilt number entity back to the application.
 
 1. Select **Entities** from the left navigation menu.
 
-2. Select **Manage prebuilt entities** button.
+2. Select **Add prebuilt entity** button.
 
 3. Select **number** from the list of prebuilt entities then select **Done**.
 
@@ -244,6 +244,10 @@ The locations in this example, such as `a-1234`, follow a specific format of one
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## Hierarchical entities versus roles
+
+For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Next steps
 This tutorial created a new intent and added example utterances for the contextually-learned data of origin and destination locations. Once the app is trained and published, a client-application can use that information to create a move ticket with the relevant information.

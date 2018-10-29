@@ -11,26 +11,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/10/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: create multiple resource instances using Resource Manager templates
+# Tutorial: Create multiple resource instances using Resource Manager templates
 
 Learn how to iterate in your Azure Resource Manager template to create multiple instances of an Azure resource. In the last tutorial, you modified an existing template to create an encrypted Azure Storage account. In this tutorial,  you modify the same template to create three storage account instances.
 
 > [!div class="checklist"]
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Edit the template
 > * Deploy the template
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Tools extension. To install, see [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## Open a Quickstart template
 
@@ -47,13 +48,13 @@ The template used in this quickstart is called [Create a standard storage accoun
 
 ## Edit the template
 
-The goal of this tutorial is to use resource iteration to create three storage accounts.  The sample template only creates one storage account. 
+The existing template only creates one storage account. The goal of this tutorial is to use resource iteration to create three storage accounts.  
 
 From Visual Studio Code, make the following four changes:
 
 ![Azure Resource Manager create multiple instances](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. Add a `copy` element to the storage account resource definition. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and can't exceed 800.
+1. Add a `copy` element to the storage account resource definition. In the copy element, you specify the number of iterations and a variable for this loop. The count value must be a positive integer and can't exceed 800.
 2. The `copyIndex()` function returns the current iteration in the loop. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the copyIndex() function. For example, *copyIndex(1)*.
 3. Delete the **variables** element, because it is not used anymore.
 4. Delete the **outputs** element.
@@ -115,14 +116,17 @@ Refer to the [Deploy the template](./resource-manager-quickstart-create-template
 To list all three storage accounts, omit the --name parameter:
 
 # [CLI](#tab/CLI)
-```cli
-az storage account list --resource-group <ResourceGroupName>
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az storage account list --resource-group $resourceGroupName
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```powershell
-Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---

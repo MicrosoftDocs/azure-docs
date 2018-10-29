@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Understand design concepts for large LUIS apps.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
 ---

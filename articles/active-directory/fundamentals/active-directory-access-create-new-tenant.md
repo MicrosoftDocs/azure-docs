@@ -21,20 +21,13 @@ In this quickstart, you'll learn how to get to the Azure portal and Azure Active
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Prerequisites
-Before you begin, you'll need to:
-
-- Make sure your organization has a valid Azure AD license.
-
-- Make sure you're a Global administrator.
-
 ## Sign in to the Azure portal
 Sign in to your organization's [Azure portal](https://portal.azure.com/) using a Global administrator account.
 
 ![Azure portal screen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## Create a new tenant for your organization
-After you sign in to the Azure AD portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
+After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
 
 ### To create a new tenant
 1. Select **Azure Active Directory**, select **Create resources**, select **Identity**, and then select **Azure Active Directory**.
@@ -72,3 +65,5 @@ If you’re not going to continue to use this application, you can delete the te
 - Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
 - Learn about [role-based access using Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) and [Conditional access](../../role-based-access-control/conditional-access-azure-management.md) to help manage your organization's application and resource access.
+
+- Learn about Azure AD, including [basic licensing information, terminology, and associated features](active-directory-whatis.md).

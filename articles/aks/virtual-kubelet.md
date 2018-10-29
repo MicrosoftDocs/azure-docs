@@ -32,7 +32,7 @@ To install the Virtual Kubelet, [Helm](https://docs.helm.sh/using_helm/#installi
 
 ### For RBAC-enabled clusters
 
-If your AKS cluster is RBAC-enabled, you must create a service account and role binding for use with Tiller. For more information, see [Helm Role-based access control][helm-rbac]. To create a service account and role binding, create a file named *rbac-virtualkubelet.yaml* and paste the following definition:
+If your AKS cluster is RBAC-enabled, you must create a service account and role binding for use with Tiller. For more information, see [Helm Role-based access control][helm-rbac]. To create a service account and role binding, create a file named *rbac-virtual-kubelet.yaml* and paste the following definition:
 
 ```yaml
 apiVersion: v1
@@ -41,7 +41,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -55,7 +55,7 @@ subjects:
     namespace: kube-system
 ```
 
-Apply the service account and binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtualkubelet.yaml* file, as shown in the following example:
+Apply the service account and binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtual-kubelet.yaml* file, as shown in the following example:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -114,12 +114,15 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 Create a file named `virtual-kubelet-linux.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name of the Linux Virtual Kubelet node. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -159,12 +162,15 @@ aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.
 Create a file named `virtual-kubelet-windows.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name of the Windows Virtual Kubelet node. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nanoserver-iis
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -178,7 +184,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 

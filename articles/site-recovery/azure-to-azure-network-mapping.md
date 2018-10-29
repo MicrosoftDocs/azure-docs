@@ -1,20 +1,12 @@
 ---
 title: Map virtual networks between two Azure regions in Azure Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers. Learn about failover to Azure or to a secondary datacenter.
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
-editor: ''
-
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
 # Map virtual networks in different Azure regions
@@ -102,7 +94,7 @@ If the source subnet and the target subnet have different address spaces, the ne
 The failed-over VM would be assigned with - The next available IP from the end of the subnet address range that is: 10.0.0.254 </br>
 
 **Note:** The terminology **production vNet** is referred to the 'Target network' mapped during the disaster recovery configuration.
-####2. If the target network chosen is not the production vNet but has the same subnet range as production network 
+#### 2. If the target network chosen is not the production vNet but has the same subnet range as production network
 
 - The recovery IP (Target IP) will be a static IP with the **same IP address** (i.e., configured static IP address) as reserved for Failover. Provided the same IP address is available.
 - If the configured static IP is already assigned to some other VM/device, then the recovery IP will be the next available IP from the end of the subnet address range.

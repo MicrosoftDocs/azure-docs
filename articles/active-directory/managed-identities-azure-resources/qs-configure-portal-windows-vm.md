@@ -42,10 +42,15 @@ In this section, you learn how to enable and disable the system-assigned managed
 
 ### Enable system-assigned managed identity during creation of a VM
 
-Currently, the Azure portal does not support enabling system-assigned identity during the creation of a VM. Instead, refer to one of the following VM creation Quickstart articles to first create a VM, and then proceed to the next section for details on enabling system-assigned identity on the VM:
+To enable system-assigned managed identity during the creation of a VM, under the **Management** tab in the **Identity** section, switch **Managed service identity** to **On**.  
 
-- [Create a Windows virtual machine with the Azure portal](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+![Enable system-assigned identity during VM creation](./media/msi-qs-configure-portal-windows-vm/enable-system-assigned-identity-vm-creation.png)
+
+Refer to the following Quickstarts to create a VM: 
+
+- [Create a Windows virtual machine with the Azure portal](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) 
+- [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+
 
 ### Enable system-assigned managed identity on an existing VM
 

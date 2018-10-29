@@ -50,8 +50,6 @@ The Azure DevOps Project creates a CI/CD pipeline in Azure DevOps Services.  You
 
 1. Create a **new** free Azure DevOps Services organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  Select your **Azure subscription**, **location**, and choose a **name** for your application.  When you're done, choose **Done**.
 
-    ![Enter Azure DevOps info](_img/azure-devops-project-aspnet-core/vstsazureinfo.png)
-
 1. In a few minutes, the **DevOps Project dashboard** loads in the Azure portal.  A sample application is set up in a repository in your Azure DevOps Services organization, a build executes, and your application deploys to Azure.  This dashboard provides visibility into your **code repository**, **Azure DevOps Services CI/CD pipeline**, and your **application in Azure**.  On the right side of the dashboard, select **Browse** to view your running application.
 
    	![Dashboard view](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 

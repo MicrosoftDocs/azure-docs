@@ -159,7 +159,7 @@ It's crucial to not only know who is using your applications, but also to preven
 
 	>**When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
 
-    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/azure-ad-developers-guide.md).
+    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
 
 -   **App Service Authentication**: When you choose App Service to host your app, you also get built-in    authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
 
@@ -261,7 +261,7 @@ As developers, we like to dive right into the code and try to get started as fas
 
 ### What is an Azure account?
 
-To be able to create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that is trusted by Azure AD. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
+To be able to create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that is trusted by Azure AD. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -291,7 +291,7 @@ given task.
 
 -   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
 
-	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory application and service principal](../../resource-group-create-service-principal-portal.md).
+	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory application and service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### Tags
 
@@ -312,9 +312,3 @@ Azure provides a set of Billing REST APIs that give access to resource consumpti
 Although it's challenging to estimate costs ahead of time, Azure has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) that you can use when you estimate the cost of deployed resources. You can also use the Billing blade in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
 
 >**Get started**: See [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
-
-#### Set up billing alerts
-
-After you’ve deployed your application or solution on Azure, you can create alerts that send you email when you approach the spending limits that are defined in the alert.
-
->**Get started**: To learn more, see [Set up billing alerts for your Microsoft Azure subscriptions](../../billing-set-up-alerts.md).

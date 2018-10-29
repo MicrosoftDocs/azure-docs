@@ -11,6 +11,8 @@ ms.topic: conceptual
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
 
+*This topic applies to administrators.*
+
 ![Power BI solution template pipeline](media/howto-connect-powerbi/iot-continuous-data-export.png)
 
 Use the Azure IoT Central Analytics Power BI solution template to create a powerful Power BI dashboard to monitor the performance of your IoT devices. In your Power BI dashboard, you can:
@@ -20,14 +22,14 @@ Use the Azure IoT Central Analytics Power BI solution template to create a power
 - Observe historical trends of device measurements
 - Identify problematic devices that send lots of critical events
 
-This solution template sets up the pipeline that takes the data in your Azure Blob storage account from [continuous data export](howto-export-data.md). This data flows through to Azure Functions, Azure Data Factory, and Azure SQL Database which process and transform the data to be visualized and analyzed in a Power BI report that you can download as a PBIX file. All of these resources are created in your Azure subscription, so you can customize each component to suit your needs. This solution template is completely open-sourced, so you can learn more about the architecture and extend the solution by visiting the [Github repo](https://aka.ms/iotcentralgithubpowerbisolutiontemplate).
+This solution template sets up the pipeline that takes the data in your Azure Blob storage account from [Continuous data export](howto-export-data.md). This data flows through to Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. The output can be visualized and analyzed in a Power BI report that you can download as a PBIX file. All of these resources are created in your Azure subscription, so you can customize each component to suit your needs. This solution template is completely open-sourced, so you can learn more about the architecture and extend the solution by visiting the [GitHub repo](https://aka.ms/iotcentralgithubpowerbisolutiontemplate).
 
-**[Get the Azure IoT Central Analytics solution template from Microsoft AppSource.](https://aka.ms/iotcentralpowerbisolutiontemplate)**
+## Get the [Azure IoT Central Analytics solution template](https://aka.ms/iotcentralpowerbisolutiontemplate) from Microsoft AppSource
 
 ## Prerequisites
 Setting up the template requires the following:
 - Access to an Azure subscription
-- Exported data using [continuous data export](howto-export-data.md) from your IoT Central app. We recommend you turn on measurements, devices, and device template streams to get the most out of the Power BI dashboard.
+- Exported data using [Continuous data export](howto-export-data.md) from your IoT Central app. We recommend you turn on measurements, devices, and device template streams to get the most out of the Power BI dashboard.
 - Power BI Desktop (latest version)
 - Power BI Pro (if you want to share the dashboard with others)
 
@@ -47,7 +49,7 @@ The second report dives deeper into events and shows a historical view of errors
 
 Visit AppSource to get the [Azure IoT Central Analytics solution template](https://aka.ms/iotcentralpowerbisolutiontemplate).
 
-Visit the [Github repo](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) to learn more about the architecture and extend the solution.
+Visit the [GitHub repo](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) to learn more about the architecture and extend the solution.
 
 ## Next steps
 

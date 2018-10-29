@@ -25,77 +25,67 @@ ms.reviewer: raluthra
 Azure Active Directory detects [risk event types](../reports-monitoring/concept-risk-events.md#risk-event-types) in real-time and offline. Each risk event that has been detected for a sign-in of a user contributes to a logical concept called risky sign-in. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account.
 
 
-## Sign-in risk level
+## What is the sign-in risk policy?
 
-A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account.
+Azure AD analyzes each sign-in of a user. The objective of the analysis is to detect suspicious actions that come along with the sign-in. For example, is the sign-in done using an anonymous IP address, or is the sign-in initiated from an unfamiliar location? In Azure AD, the suspicious actions the system can detect are also known as risk events. Based on the risk events that have been detected during a sign-in, Azure AD calculates a value. The value represents the probability (low, medium, high) that the sign-in is not performed by the legitimate user. The probability is called **sign-in risk level**.
 
-## Mitigating sign-in risk events
+The sign-in risk policy is an automated response you can configure for a specific sign-in risk level. In your response, you can block access to your resources or require passing a multi-factor authentication (MFA) challenge to gain access.
 
-A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
-
-To mitigate risky sign-ins automatically, you can configure sign-in risk security policies. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity.
-
-## Sign-in risk security policy
-A sign-in risk policy is a conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
-
+   
+## How do I access the sign-in risk policy?
+   
+The sign-in risk policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
 ![Sign-in risk policy](./media/howto-sign-in-risk-policy/1014.png "Sign-in risk policy")
 
-Azure AD Identity Protection helps you manage the mitigation of risky sign-ins by enabling you to:
 
-* Set the users and groups the policy applies to:
+## Policy settings
 
-    ![Sign-in risk policy](./media/howto-sign-in-risk-policy/1015.png "Sign-in risk policy")
-* Set the sign-in risk level threshold (low, medium, or high) that triggers the policy:
+When you configure the sign-in risk policy, you need to set:
 
-    ![Sign-in risk policy](./media/howto-sign-in-risk-policy/1016.png "Sign-in risk policy")
-* Set the controls to be enforced when the policy triggers:  
+- The users and groups the policy applies to:
 
-    ![Sign-in risk policy](./media/howto-sign-in-risk-policy/1017.png "Sign-in risk policy")
-* Switch the state of your policy:
+    ![Users and groups](./media/howto-sign-in-risk-policy/11.png)
 
-    ![MFA Registration](./media/howto-sign-in-risk-policy/403.png "MFA Registration")
-* Review and evaluate the impact of a change before activating it:
+- The sign-in risk level that triggers the policy:
 
-    ![Sign-in risk policy](./media/howto-sign-in-risk-policy/1018.png "Sign-in risk policy")
+    ![Sign-in risk level](./media/howto-sign-in-risk-policy/12.png)
 
-## What you need to know
-You can configure a sign-in risk security policy to require multi-factor authentication:
+- The type of access you want to be enforced when your sign-in risk level has been met:  
 
-![Sign-in risk policy](./media/howto-sign-in-risk-policy/1017.png "Sign-in risk policy")
+    ![Access](./media/howto-sign-in-risk-policy/13.png)
 
-However, for security reasons, this setting only works for users that have already been registered for multi-factor authentication. If the condition to require multi-factor authentication is satisfied for a user who is not yet registered for multi-factor authentication, the user is blocked.
+- The state of your policy:
 
-As a best practice, if you want to require multi-factor authentication for risky sign-ins, you should:
+    ![Enforce policy](./media/howto-sign-in-risk-policy/14.png)
+
+
+The policy configuration dialog provides you with an option to estimate the impact of reconfiguration.
+
+![Estimated impact](./media/howto-sign-in-risk-policy/15.png)
+
+## What you should know
+
+You can configure a sign-in risk security policy to require MFA:
+
+![Require MFA](./media/howto-sign-in-risk-policy/16.png)
+
+However, for security reasons, this setting only works for users that have already been registered for MFA. Identity protection blocks users with an MFA requirement if they are not registered for MFA yet.
+
+If you want to require MFA for risky sign-ins, you should:
 
 1. Enable the [multi-factor authentication registration policy](#multi-factor-authentication-registration-policy) for the affected users.
-2. Require the affected users to login in a non-risky session to perform a MFA registration
+
+2. Require the affected users to sign in to a non-risky session to perform an MFA registration.
 
 Completing these steps ensures that multi-factor authentication is required for a risky sign-in.
 
-## Best practices
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.  
-
-However, it excludes **Low** and **Medium** sign-ins flagged for risk from the policy, which may not block an attacker from exploiting a compromised identity.
-
-When setting the policy,
-
-* Exclude users who do not/cannot have multi-factor authentication
-* Exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
-* Exclude users who are likely to generate a lot of false-positives (developers, security analysts)
-* Use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
-* Use a **Low**  threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
-
-The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
-
 The sign-in risk policy is:
 
-* Applied to all browser traffic and sign-ins using modern authentication.
-* Not applied to applications using older security protocols by disabling the WS-Trust endpoint at the federated IDP, such as ADFS.
+- Applied to all browser traffic and sign-ins using modern authentication.
 
-The **Risk Events** page in the Identity Protection console lists all events:
+- Not applied to applications using older security protocols by disabling the WS-Trust endpoint at the federated IDP, such as ADFS.
 
-* This policy was applied to
-* You can review the activity and determine whether the action was appropriate or not
 
 For an overview of the related user experience, see:
 
@@ -103,11 +93,27 @@ For an overview of the related user experience, see:
 * [Risky sign-in blocked](flows.md#risky-sign-in-blocked)  
 * [Sign-in experiences with Azure AD Identity Protection](flows.md)  
 
-**To open the related configuration dialog**:
+## Best practices
 
-- On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Sign-in risk policy**.
+Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.  
 
-    ![User risk policy](./media/howto-sign-in-risk-policy/1014.png "User risk policy")
+However, it excludes **Low** and **Medium** sign-ins flagged for risk from the policy, which may not block an attacker from exploiting a compromised identity.
+
+When setting the policy,
+
+- Exclude users who do not/cannot have multi-factor authentication
+
+- Exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+
+- Exclude users who are likely to generate many false-positives (developers, security analysts)
+
+- Use a **High** threshold during initial policy roll-out, or if you must minimize challenges seen by end users.
+
+- Use a **Low**  threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
+
+The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
+
+
 
 
 

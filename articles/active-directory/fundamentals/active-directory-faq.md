@@ -68,7 +68,7 @@ Additionally, Azure AD paid services like Enterprise Mobility + Security complem
 
 **A:** You can connect your on-premises directory to Azure AD by using Azure AD Connect.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **Q: How do I set up SSO between my on-premises directory and my cloud applications?**
@@ -77,7 +77,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (AD FS), or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **Q: Does Azure AD provide a self-service portal for users in my organization?**
@@ -91,7 +91,7 @@ For more information, see [Introduction to the Access Panel](../user-help/active
 
 **A:** Yes. The Azure AD Premium edition provides you with Azure AD Connect Health. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
 
-For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../connect-health/active-directory-aadconnect-health.md).  
+For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/whatis-hybrid-identity-health.md).  
 
 - - -
 ## Password management
@@ -117,7 +117,7 @@ For more answers to password-related questions, see [Password management frequen
 
 **A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](../authentication/howto-sspr-deployment.md).
 
-For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
 For Azure AD accounts, admins can reset passwords by using one of the following:
 

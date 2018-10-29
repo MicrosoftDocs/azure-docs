@@ -72,6 +72,10 @@ Standalone clusters allow you to deploy Service Fabric cluster on-premises or in
 
 Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of three primary node type nodes.
 
+> [!WARNING]
+> We recommend that you do not lower the node count below the [Cluster Size of the Reliability Tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) for the cluster. This will interfere with the ablility of the Service Fabric System Services to be replicated across the cluster, and will destabilize or possibly destroy the cluster.
+>
+
 When scaling a standalone cluster, keep the following guidelines in mind:
 - The replacement of primary nodes should be performed one node after another, instead of removing and then adding in batches.
 - Before removing a node type, check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).

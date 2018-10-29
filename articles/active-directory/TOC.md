@@ -25,23 +25,23 @@
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](fundamentals/active-directory-architecture.md)
-### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
-### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Claims mapping in Azure Active Directory](develop/active-directory-claims-mapping.md)
+### [Deploy a hybrid identity solution](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Determine requirements
-##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
-##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-##### [Multi-factor auth](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-##### [Identity lifecycle strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-#### [Plan for data security](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-##### [Data protection](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-##### [Content management](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-##### [Access control](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-##### [Incident response](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+##### [Identity](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
+##### [Directory sync](hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-factor auth](hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Identity lifecycle strategy](hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Plan for data security](hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Data protection](hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Content management](hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Access control](hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Incident response](hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 #### Plan your identity lifecycle
-##### [Tasks](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-##### [Adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-#### [Next steps](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-#### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+##### [Tasks](hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Adoption strategy](hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Next steps](hybrid/plan-hybrid-identity-design-considerations-nextsteps.md)
+#### [Tools comparison](hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Manage users
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -91,11 +91,13 @@
 ### [Users at risk](reports-monitoring/concept-user-at-risk.md)
 ### [Risky sign-ins](reports-monitoring/concept-risky-sign-ins.md)
 ### [Risk events](reports-monitoring/concept-risk-events.md)
-### [Monitoring logs using Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Monitoring logs using Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [FAQ](reports-monitoring/reports-faq.md)
 
 ### Tasks
-#### [Configure named locations](active-directory-named-locations.md)
+#### [Download a sign-in report](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Download an audit report](reports-monitoring/quickstart-download-audit-report.md)
+#### [Configure named locations](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Find activity reports](reports-monitoring/howto-find-activity-reports.md)
 #### [Use the Azure AD Power BI Content Pack](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Remediate users flagged for risk](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
@@ -103,6 +105,7 @@
 #### [Archive activity logs to an Azure storage account](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrate activity logs with Splunk using Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [Integrate activity logs with SumoLogic using Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [Integrate activity logs with Log Analytics using Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### Reference
 #### [Retention](reports-monitoring/reference-reports-data-retention.md)
@@ -198,7 +201,7 @@
 #### [Tenant restrictions](manage-apps/tenant-restrictions.md)
 #### [Use SCIM provision users](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Understanding Azure AD application consent experiences](application-consent-experience.md)
+### [Understanding Azure AD application consent experiences](develop/application-consent-experience.md)
 
 ### Troubleshoot
 
@@ -241,7 +244,6 @@
 
 #### Conditional Access
 ##### [Customer did not meet Device Registration pre-reqs](active-directory-conditional-access.md)
-##### [Tenant is getting blocked due to incorrect setting of Conditional Access policies](active-directory-conditional-access-device-remediation.md)
 ##### [How and when do off corpnet rules take effect?](https://aka.ms/calocation)
 ##### [How to increase the number of devices that user is allowed to register in Azure AD?](active-directory-azureadjoin-setup.md)
 ##### [How to set up Conditional Access for Exchange Online?](https://aka.ms/csforexchange)
@@ -264,7 +266,6 @@
 
 #### Permissions
 ##### [Choose permissions for an API](develop/perms-for-given-api.md)
-##### [Grant permissions to my app](develop/registration-config-grant-permissions-how-to.md)
 ##### [Delegated vs application permissions](develop/delegated-and-app-perms.md)
 ##### [Application consent](develop/consent-framework.md)
 
@@ -307,37 +308,23 @@
 
 
 ## Manage your directory
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
-### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+### [Integrate on-premises identities using Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
-
-### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
-
-### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
+### [Configure token lifetimes](develop/active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
+## [Deploy AD FS in Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
 ## [Troubleshoot](fundamentals/active-directory-troubleshooting-support-howto.md)
-
-## Deploy Azure AD Proof of Concept (PoC)
-### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
-### [PoC Playbook: Ingredients](active-directory-playbook-ingredients.md)
-### [PoC Playbook: Implementation](active-directory-playbook-implementation.md)
-### [PoC Playbook: Building Blocks](active-directory-playbook-building-blocks.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
@@ -347,8 +334,8 @@
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](./connect/active-directory-aadconnect.md)
-## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
+## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
+## [Azure AD Connect Health](hybrid/whatis-hybrid-identity-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 

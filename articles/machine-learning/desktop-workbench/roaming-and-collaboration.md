@@ -11,15 +11,21 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017 
+
+ROBOTS: NOINDEX
 ---
 
+
 # Roaming and collaboration in Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 This article describes how you can use Azure Machine Learning Workbench to set up projects for roaming between computers and collaborate with team members. 
 
 When you create an Azure Machine Learning project that has a remote Git repository (repo) link, the project metadata and snapshots are stored in the cloud. You can use the cloud link to access the project from a different computer (roaming). You can also collaborate with team members by giving them access to the project. 
 
 ## Prerequisites
-1. Install the Machine Learning Workbench app. Ensure that you have access to an Azure Machine Learning Experimentation account. For more information, see the [installation guide](../service/quickstart-installation.md).
+1. Install the Machine Learning Workbench app. Ensure that you have access to an Azure Machine Learning Experimentation account. For more information, see the [installation guide](quickstart-installation.md).
 
 2. Access [Azure DevOps](https://www.visualstudio.com) and then create a repo to link your project to. For more information, see [Using a Git repo with a Machine Learning Workbench project](using-git-ml-project.md).
 

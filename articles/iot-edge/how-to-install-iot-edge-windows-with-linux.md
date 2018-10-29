@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
 ---
-# Install Azure IoT Edge runtime on Windows to use with Linux containers
+# Install the Azure IoT Edge runtime on Windows to use with Linux containers
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. 
 
@@ -102,6 +102,10 @@ And, list running modules with:
 ```powershell
 iotedge list
 ```
+
+## Tips and suggestions
+
+If your network has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md) to install and start the IoT Edge runtime.
 
 ## Next steps
 
