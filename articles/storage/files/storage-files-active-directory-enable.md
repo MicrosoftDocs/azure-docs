@@ -84,7 +84,11 @@ The following image shows how to enable Azure AD authentication over SMB for you
   
 ### PowerShell  
 
-To enable Azure AD authentication over SMB from Azure PowerShell, first install the `AzureRM.Storage 6.0.0-preview` module. For information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+To enable Azure AD authentication over SMB from Azure PowerShell, first install the `AzureRM.Storage` module, version `6.0.0-preview`, as follows. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps):
+
+```powershell
+Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+```
 
 Next, create a new storage account, then call [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) and set the **EnableAzureFilesAadIntegrationForSMB** parameter to **true**. In the example below, remember to replace the placeholder values with your own values.
 
