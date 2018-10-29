@@ -134,7 +134,7 @@ For the restore API we need to provide the __BackupId__ and __BackupLocation__ D
 The partition informations for the backup cluster are mapped to the original cluster. 
 The partition in backup cluster is choosen as per the [partition scheme](service-fabric-concepts-partitioning.md#get-started-with-partitioning). 
 
-The partition id on Backup Cluster is identified as 1c42c47f-439e-4e09-98b9-88b8f60800c6 which maps to the original cluster partition id 974bd92a-b395-4631-8a7f-53bd4ae9cf22 by comparing the High Key and Low Key for partition scheme. 
+The partition id on Backup Cluster is identified as 1c42c47f-439e-4e09-98b9-88b8f60800c6 which maps to the original cluster partition id 974bd92a-b395-4631-8a7f-53bd4ae9cf22 by comparing the high key and low key for Ranged partitioning (UniformInt64Partition), name for NamedPartitioning.
 
 The restore is requested against partition of backup cluster by the following Restore API 
 
