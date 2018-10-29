@@ -64,6 +64,10 @@
     href: Concepts/confidence-score.md
   - name: Data sources supported
     href: Concepts/data-sources-supported.md
+- name: Tutorials
+  items: 
+  - name: Create and answer from KB using C#
+    href: Tutorials/create-publish-answer.md
 - name: How-to guides
   items:
   - name: Set up a QnA Maker service
