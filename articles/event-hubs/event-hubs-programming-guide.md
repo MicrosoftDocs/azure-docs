@@ -51,7 +51,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## Send events to an event hub
 
-You send events to an event hub by creating an [EventHubClient][] instance and sending it asynchronously via the [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) method. This method takes a single [EventData][] instance parameter and synchronously sends it to an event hub.
+You send events to an event hub by creating an [EventHubClient][] instance and sending it asynchronously via the [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) method. This method takes a single [EventData][] instance parameter and asynchronously sends it to an event hub.
 
 ## Event serialization
 
