@@ -64,7 +64,7 @@ scope=user.read%20openid%20profile
 
 ### Device authorization response
 
-A succesful response will be a JSON object containing the required information to allow the user to sign in.  
+A successful response will be a JSON object containing the required information to allow the user to sign in.  
 
 | Parameter | Format | Description |
 | ---              | --- | --- |
@@ -109,7 +109,7 @@ Because the device code flow is a polling protocol, your client must expect to r
 | `expired_token`|  At least `expires_in` seconds have passed, and authentication is no longer possible with this `device_code`. | Stop polling, and revert to an unauthenticated state. |
 
 
-### Succesful authentication response
+### Successful authentication response
 
 A successful token response will look like:
 
