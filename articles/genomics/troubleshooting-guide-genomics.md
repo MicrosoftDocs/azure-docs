@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics troubleshooting guide'
+title: 'Microsoft Genomics:Troubleshooting Guide | Microsoft Docs'
 titleSuffix: Azure
 description: Learn more about troubleshooting strategies
 keywords: troubleshooting, error, debugging
@@ -11,12 +11,12 @@ ms.author: ruchir
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 07/21/2018
+ms.date: 10/29/2018
 
 ---
-# Troubleshooting guide for Microsoft Genomics
+# Troubleshooting guide
 
-This overview describes strategies to address common issues when using the Microsoft Genomics service, MSGEN.
+Here are a few troubleshooting tips for some of the common issues that you might face when using the Microsoft Genomics service, MSGEN.
 
  For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.md).
 
@@ -94,7 +94,6 @@ Note: All errors have the word 'Error Code [ErrorCode Number]' at the beginning.
 
 ### DEBUGGING MSGEN WORKFLOW ERRORS
 
-
 The Microsoft Genomics Service (msgen) can throw the following two kinds of errors:
 
 1. Internal Service Errors: Errors that are internal to the service, that may not be resolved by fixing parameters or input files. Sometimes resubmitting the workflow might fix these errors.
@@ -104,16 +103,12 @@ The following section describes these errors in detail
 
 ### INTERNAL SERVICE ERRORS
 
-You can get one of the following two kinds of internal service errors
-
-1. Undetermined service errors - If you get these error messages repeatedly even after resubmitting the workflow, please contact Microsoft Genomics Support
-2. Actionable service errors - Typically you can do something to fix them
+If you get an internal service error the first time, try resubmitting the workflow. If you get these error messages repeatedly event after resubmitting the workflow, please contact Microsoft Genomics support by creating a support support [ticket](file-support-ticket-genomics.md ).
 
 | Type of error              | Error code       | Error message                                                                                                                            | Recommended troubleshooting steps                                                                                                                                   |
 |----------------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Undetermined service error | >400 | An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md ). |
-| Actionable service error   | 400              | Insufficient buffer space                                                                                                              | Increase the expansion factor by setting -xf to 2, 3, or 4 in 'process_args' in the workflow config file. Unzip the input files and submit FASTQ files. |
-| Actionable service error   | 6                | The process machine ran out of disk space when writing output files.                                                                   | *Increase the expansion factor by setting -xf to 2, 3, or 4 in 'process_args' in the workflow config file.  or,  Unzip the input files and submit FASTQ files. |                                                                                                                                                                     |
+| Internal service error | >=400 | An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md ). |
+| Internal service error   | 6                | The process machine ran out of disk space when writing output files.                                                                   | Unzip the input files and submit FASTQ files. If you see this error again, contact Microsoft Genomics support for assistance by creating a  ticket support [ticket](file-support-ticket-genomics.md ). |                                                                                                                                                                     |
 
 **Note:**
 We have successfully run submissions up to 200x coverage.  A memory consumption problem may arise if:
@@ -121,9 +116,6 @@ We have successfully run submissions up to 200x coverage.  A memory consumption 
 * The input files are corrupted, OR
 * The workflow submits very large files (150x or more coverage), OR
 * The variant file is very complex.
-
-If these errors persist contact Microsoft Genomics Support.
-For more information on how to create a support ticket for the Microsoft Genomics service, please see [here](file-support-ticket-genomics.md).
 
 ### INPUT ERRORS
 
@@ -157,5 +149,5 @@ These errors are user actionable and you can use the listed troubleshooting step
 If you continue to have job failures, or if you have any other questions, contact Microsoft Genomics support from the Azure portal. Additional information on how to submit a support request can be found [here](file-support-ticket-genomics.md).
 
 ## Next steps
-In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
 
+In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
