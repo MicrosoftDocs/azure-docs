@@ -30149,17 +30149,17 @@
         {
             "source_path": "articles/key-vault/vs-key-vault-aspnet-core-what-happened.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
-            "redirect_document_id" : true
+            "redirect_document_id" : false
         },
         {
             "source_path": "articles/key-vault/vs-key-vault-aspnet-get-started.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
-            "redirect_document_id" : true
+            "redirect_document_id" : false
         },
         {
             "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
-            "redirect_document_id" : true
+            "redirect_document_id" : false
         }
     ]
 }
