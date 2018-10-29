@@ -296,7 +296,7 @@ The properties for Webhook action resources are described in the following table
 
 ## Sample
 
-Following is a sample of a solution that includes that includes the following resources:
+Following is a sample of a solution that includes the following resources:
 
 - Saved search
 - Schedule

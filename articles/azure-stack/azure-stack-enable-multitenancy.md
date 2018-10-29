@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/24/2018
 ms.author: patricka
 
 ---
@@ -41,8 +41,6 @@ There are a few pre-requisites to account for before you configure multi-tenancy
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ````
-
- - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) access to Azure Stack. 
 
 ### Configure Azure Stack directory
 

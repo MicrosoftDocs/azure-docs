@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
@@ -41,15 +41,15 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later     |.NET Framework 4.5 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 and later     |.NET Framework 4.5.1 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS does not have out of the box.         |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 14.04 LTS and 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
-### .NET 4.5
+### .NET 4.5.1
 
-The .NET framework check, verifies if the system has a minimum of [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) present.
+The .NET framework check, verifies if the system has a minimum of [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653) present.
 
 ### WMF 5.1
 
@@ -65,7 +65,7 @@ This check, determines if you're using TLS 1.2 to encrypt your communications. T
 
 This check determines if the agent can properly communicate with the agent service.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### Operations endpoint
 
