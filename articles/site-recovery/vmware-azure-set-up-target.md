@@ -9,7 +9,7 @@ ms.date: 09/28/2018
 ms.author: bsiva
 ---
 
-# Prepare the target environment for disaster recovery of VMware VMs and physical servers to Azure
+# Prepare the target environment for disaster recovery of VMware VMs or physical servers to Azure
 
 This article describes how to prepare your target Azure environment to start replicating VMware virtual machines or physical servers to Azure.
 
