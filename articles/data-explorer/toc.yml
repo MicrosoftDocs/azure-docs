@@ -16,6 +16,8 @@
       href: ingest-data-event-hub.md
     - name: Batching data - Python
       href: python-ingest-data.md
+    - name: Batching data - Node SDK
+      href: node-ingest-data.md
   - name: Query data
     expanded: true
     items:
@@ -61,8 +63,14 @@
     href: /azure/kusto/management/
   - name: APIs
     href: /azure/kusto/api/
+  - name: Tools
+    href: /azure/kusto/tools/
+  - name: Concepts
+    href: /azure/kusto/concepts/
 - name: Resources
   items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/tag/azure-data-explorer/
   - name: Forums
     items:
     - name: Stack Overflow
@@ -72,12 +80,10 @@
     - name: MSDN forum
       href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
   - name: Product feedback
-    href: https://feedback.azure.com/forums/335175-kusto
+    href: http://aka.ms/adefeedback
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-explorer/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/updates/
+  - name: Cost Estimator
+    href: http://aka.ms/adecostestimator
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer

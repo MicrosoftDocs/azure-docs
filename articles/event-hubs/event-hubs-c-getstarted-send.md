@@ -13,26 +13,24 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 10/16/2018
 ms.author: shvija
 ---
 
 # Send events to Azure Event Hubs using C
 
 ## Introduction
-Event Hubs is a highly scalable ingestion system that can ingest millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into an event hub, you can transform and store data using any real-time analytics provider or storage cluster.
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-For more information, please see the [Event Hubs overview](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
+This tutorial describes how to send events to an event hub using a console application in C. 
 
-This tutorial describes how to send events to an event hub using a console application in C. To learn about receiving events, click the appropriate receiving language in the left-hand table of contents.
-
+## Prerequisites
 To complete this tutorial, you need the following:
 
 * A C development environment. This tutorial assumes the gcc stack on an Azure Linux VM with Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## Send messages to Event Hubs
+## Write code to send messages to Event Hubs
 In this section shows how to write a C app to send events to your event hub. The code uses the Proton AMQP library from the [Apache Qpid project](http://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP from C as shown [in this sample](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). For more information, see the [Qpid Proton documentation](http://qpid.apache.org/proton/index.html).
 
 1. From the [Qpid AMQP Messenger page](https://qpid.apache.org/proton/messenger.html), follow the instructions to install Qpid Proton, depending on your environment.
@@ -146,12 +144,13 @@ In this section shows how to write a C app to send events to your event hub. The
 	> [!NOTE]
 	> This code uses an outgoing window of 1 to force the messages out as soon as possible. It is recommended that your application try to batch messages to increase throughput. See the [Qpid AMQP Messenger page](https://qpid.apache.org/proton/messenger.html) for information about how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).
 
+Run the application to send messages to the event hub. 
+
+Congratulations! You have now sent messages to an event hub.
 
 ## Next steps
-You can learn more about Event Hubs by visiting the following links:
+To learn about receiving events from the event hub, click the appropriate receiving language under **Receive events from an event hub** node in the table of contents.
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png

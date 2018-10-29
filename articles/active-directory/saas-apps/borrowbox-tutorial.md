@@ -9,11 +9,12 @@ ms.reviewer: joflore
 
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/26/2018
 ms.author: jeedes
 
 ---
@@ -58,15 +59,15 @@ To configure the integration of BorrowBox into Azure AD, you need to add BorrowB
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![image](./media/borrowbox-tutorial/selectazuread.png)
+	![image](./common/selectazuread.png)
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![image](./media/borrowbox-tutorial/a_select_app.png)
+	![image](./common/a_select_app.png)
 	
 3. To add new application, click **New application** button on the top of dialog.
 
-	![image](./media/borrowbox-tutorial/a_new_app.png)
+	![image](./common/a_new_app.png)
 
 4. In the search box, type **BorrowBox**, select **BorrowBox** from result panel then click **Add** button to add the application.
 
@@ -94,21 +95,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the [Azure portal](https://portal.azure.com/), on the **BorrowBox** application integration page, select **Single sign-on**.
 
-    ![image](./media/borrowbox-tutorial/B1_B2_Select_SSO.png)
+    ![image](./common/B1_B2_Select_SSO.png)
 
-2. Click **Change single sign-on mode** on top of the screen to select the **SAML** mode.
+2. On the **Select a Single sign-on method** dialog, select **SAML** mode to enable single sign-on.
 
-	  ![image](./media/borrowbox-tutorial/b1_b2_saml_ssso.png)
+    ![image](./common/b1_b2_saml_sso.png)
 
-3. On the **Select a Single sign-on method** dialog, select **SAML** mode to enable single sign-on.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **Basic SAML Configuration** dialog.
 
-    ![image](./media/borrowbox-tutorial/b1_b2_saml_sso.png)
+	![image](./common/b1-domains_and_urlsedit.png)
 
-4. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **Basic SAML Configuration** dialog.
-
-	![image](./media/borrowbox-tutorial/b1-domains_and_urlsedit.png)
-
-5. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url.png)
 
@@ -120,13 +117,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url1.png)
 
 	> [!NOTE]
-	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [BorrowBox Client support team](mailto:borrowbox@bolinda.com) to get the value. 
+	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [BorrowBox Client support team](mailto:borrowbox@bolinda.com) to get the value.
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the appropriate certificate as per your requirement and save it on your computer.
+5. BorrowBox application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes & Claims** dialog.
+
+	![image](./media/borrowbox-tutorial/i4-attribute.png)
+
+6. In the **User Claims** section on the **User Attributes & Claims** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+    
+	a. Click on **Edit icon** to open the **Manage user claims** dialog.
+
+	![image](./media/borrowbox-tutorial/i2-attribute.png)
+
+	![image](./media/borrowbox-tutorial/i3-attribute.png)
+
+	b. From the **Source attribute** list, select **user.mail**.
+
+	c. Click **Save**. 
+
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the appropriate certificate as per your requirement and save it on your computer.
 
 	![image](./media/borrowbox-tutorial/tutorial_borrowbox_certificate.png) 
 
-7. To configure single sign-on on **BorrowBox** side, you need to send the certificate/metadata which you have downloaded from Azure portal to [BorrowBox support team](mailto:borrowbox@bolinda.com). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **BorrowBox** side, you need to send the certificate/metadata which you have downloaded from Azure portal to [BorrowBox support team](mailto:borrowbox@bolinda.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -134,15 +147,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    ![image](./media/borrowbox-tutorial/d_users_and_groups.png)
+    ![image](./common/d_users_and_groups.png)
 
 2. Select **New user** at the top of the screen.
 
-    ![image](./media/borrowbox-tutorial/d_adduser.png)
+    ![image](./common/d_adduser.png)
 
 3. In the User properties, perform the following steps.
 
-    ![image](./media/borrowbox-tutorial/d_userproperties.png)
+    ![image](./common/d_userproperties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
   
@@ -165,7 +178,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
 
-	![image](./media/borrowbox-tutorial/d_all_applications.png)
+	![image](./common/d_all_applications.png)
 
 2. In the applications list, select **BorrowBox**.
 
@@ -173,11 +186,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 3. In the menu on the left, select **Users and groups**.
 
-    ![image](./media/borrowbox-tutorial/d_leftpaneusers.png)
+    ![image](./common/d_leftpaneusers.png)
 
 4. Select the **Add** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![image](./media/borrowbox-tutorial/d_assign_user.png)
+    ![image](./common/d_assign_user.png)
 
 4. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 

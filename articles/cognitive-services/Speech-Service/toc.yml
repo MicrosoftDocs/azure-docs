@@ -1,10 +1,10 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Speech Service SDK Documentation
+- name: Speech Service Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: What is the Speech Service?
     href: overview.md
 - name: Quickstarts
   items:
@@ -111,7 +111,7 @@
     - name: From the Custom Speech service
       href: how-to-migrate-from-custom-speech-service.md
     - name: From the Translator Speech API
-      href: how-to-migrate-from-translator-speech-api.md   
+      href: how-to-migrate-from-translator-speech-api.md
 - name: Concepts
   items:
   - name: Speech to Text
@@ -129,7 +129,7 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Regions
     href: regions.md
@@ -194,7 +194,7 @@
     href: troubleshooting.md
   - name: Support
     href: support.md
-  - name: Pricing
+  - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning

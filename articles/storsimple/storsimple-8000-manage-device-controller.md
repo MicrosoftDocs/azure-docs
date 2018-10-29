@@ -144,7 +144,7 @@ In this section, we have summarized some of the frequently asked questions regar
 
 **Q.** How can you figure out if a controller was restarted or shut down?
 
-**A.** You can check the controller status on Controller blade. The controller status will indicate whether a controller is in the process of restarting or shutting down. Additionally, the **Alerts** blade contain an informational alert if the controller is restarted or shut down. The controller restart and shutdown operations are also recorded in the acitivity logs. For more information about acitivity logs, go to [View the activity logs](storsimple-8000-service-dashboard.md#view-the-activity-logs).
+**A.** You can check the controller status on Controller blade. The controller status will indicate whether a controller is in the process of restarting or shutting down. Additionally, the **Alerts** blade contain an informational alert if the controller is restarted or shut down. The controller restart and shutdown operations are also recorded in the activity logs. For more information about activity logs, go to [View the activity logs](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
 **Q.** Is there any impact to the I/O as a result of controller failover?
 

@@ -136,8 +136,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian sampling does not support any early termination policy (See [Specify an early termination policy](#specify-an-early-termination-policy)). When using Bayesian parameter sampling, set `early_termination_policy = None`, or leave off the `early_termination_policy` parameter.
-`
+> Bayesian sampling does not support any early termination policy (See [Specify an early termination policy](#specify-early-termination-policy)). When using Bayesian parameter sampling, set `early_termination_policy = None`, or leave off the `early_termination_policy` parameter.
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## Specify primary metric
 
@@ -153,9 +154,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Optimize the runs to maximize "accuracy".  Make sure to log this value in your training script.
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### Log metrics for hyperparameter tuning
 
-The training script for your model must log the relevant metrics during model training. When you configure the hyperparameter tuning, you specify the primary metric to use for evaluating run performance. (See [Specify a primary metric to optimize](#specify-a-primary-metric-to-optimize).)  In your  training script, you must log this metric so it is available to the hyperparameter tuning process.
+The training script for your model must log the relevant metrics during model training. When you configure the hyperparameter tuning, you specify the primary metric to use for evaluating run performance. (See [Specify a primary metric to optimize](#specify-primary-metric-to-optimize).)  In your  training script, you must log this metric so it is available to the hyperparameter tuning process.
 
 Log this metric in your training script with the following sample snippet:
 
@@ -166,6 +169,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 The training script calculates the `val_accuracy` and logs it as "accuracy", which is used as the primary metric. Each time the metric is logged it is received by the hyperparameter tuning service. It is up to the model developer to determine how frequently to report this metric.
+
+<a name='specify-early-termination-policy'/>
 
 ## Specify early termination policy
 
@@ -228,16 +233,18 @@ In this example, the early termination policy is applied at every interval start
 
 ### No termination policy
 
-If you want all training runs to run to completion, use NoTerminationPolicy. This will have the effect of not applying any early termination policy.
+If you want all training runs to run to completion, set policy to None. This will have the effect of not applying any early termination policy.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### Default policy
 
-If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
+If no policy is specified, the hyperparameter tuning service will let all training runs run to completion.
+
+>[!NOTE] 
+>If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 
 ## Allocate resources
 
@@ -292,7 +299,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning service work?](/concept-azure-machine-learning-architecture.md))
+`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning service work?](concept-azure-machine-learning-architecture.md))
 
 ## Visualize experiment
 
@@ -315,7 +322,7 @@ Additionally, you can visually identify the correlation between performance and 
 
 ![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track expirements](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal).
+You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ![hyperparameter tuning portal](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 
