@@ -25,7 +25,7 @@ In this tutorial, you create a storage account, a virtual machine, a virtual net
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Explore the template
 > * Deploy the template
 
