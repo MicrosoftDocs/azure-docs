@@ -28,7 +28,7 @@ As shown in the following image, the data within a container is distributed alon
 
 When an app using Cosmos DB elastically scales throughput (or consumes more storage) on a Cosmos container, Cosmos DB transparently handles partition management operations (split, clone, delete) across all the regions. Independent of the scale, distribution, or failures, Cosmos DB continues to provide a single system image of the data within the containers, which are globally distributed across any number of regions.  
 
-![Resource Partitions](./media/global-dist-under-the-hood/figure2.png)
+![Resource Partitions](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
 **Distribution of Resource Partitions**
 
 Physically, a resource partition is implemented by a group of replicas, called a replica-set. Each machine hosts hundreds of replicas corresponding to various resource partitions within a fixed set of processes as shown in the previous image. Replicas corresponding to the resource partitions are dynamically placed and load balanced across the machines within a cluster and data centers within a region.  
