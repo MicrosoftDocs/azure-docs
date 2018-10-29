@@ -205,11 +205,13 @@ The following JSON code is an example Resource Manager template. You can use it 
 1. Navigate to your Azure Cosmos DB Account and open the **"Replicate data globally"** menu.
 
 2. Click the **"Manual Failover"** button at the top of the menu.
+
    ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
 
 3. On the **"Manual Failover"** menu, select your new write region, and select the box to mark that you understand this will change your write region.
 
 4. Click "Ok" to trigger the failover.
+
    ![Manual failover portal menu](./media/how-to-manage-database-account/manual-failover.png)
 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
@@ -227,11 +229,13 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** pane. 
 
 2. Click the **"Automatic Failover"** button at the top of the pane.
+
    ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
 
 3. On the **"Automatic Failover"** pane, make sure the **Enable Automatic Failover** is set to **ON**. 
 
 4. Click save on the bottom of the menu.
+
    ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
 
 You can also set your failover priorities on this menu.
@@ -256,6 +260,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** pane. 
 
 2. Click the **"Automatic Failover"** button at the top of the pane.
+
    ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
 
 3. On the **"Automatic Failover"** pane, make sure the **Enable Automatic Failover** is set to **ON**. 
@@ -263,6 +268,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 4. You can modify the failover priority by clicking and dragging the read regions via the three dots on the left side of the row that appear when you hover over them. 
 
 5. Click save on the bottom of the menu.
+
    ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
 
 You cannot modify the write region on this menu. You must do a manual failover to change the write region manually.
