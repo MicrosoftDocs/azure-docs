@@ -345,13 +345,13 @@ You can enable/disable the feature by adding a "UseDefaultRepositoryCredentials"
 </ServiceManifestImport>
 ```
 
-This will tell Service Fabric to use the default repository credentials which you can specify in the ClusterManifest under the hosting section.  If UseDefaultRepositoryCredentials is set to true, service fabric will now read the following values in clustermanifest:
+This will tell Service Fabric to use the default repository credentials which you can specify in the ClusterManifest under the hosting section.  If UseDefaultRepositoryCredentials is set to true, Service Fabric will now read the following values in clustermanifest:
 
 * DefaultContainerRepositoryAccountName (string)
 * DefaultContainerRepositoryPassword (string)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 
-Here is an example of what you can add inside the Hosting section in ClusterManifestTemplate.json
+Here is an example of what you can add inside the Hosting section in ClusterManifestTemplate.json. More information about [how to configure cluster setting](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-fabric-settings)
 
 ```json
       {
