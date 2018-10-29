@@ -132,7 +132,29 @@ To access your secrets:
       <h3>@ViewBag.Secret2</h3>
    ```
 
-Congratulations, you have now confirmed that your web app can use Key Vault to access securely stored secrets.
+1. Run your app locally to verify that you can read the secret value you entered in the Azure portal, not the dummy value from your configuration file.
+
+Next, publish your app to Azure.
+
+## Publish to Azure App Service
+
+1. Right-click on the project node and choose **Publish**. A screen appears that says **Pick a Publish Target**. On the left, choose **App Service**, and then **Create New**.
+
+   ![Publish to App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. On the **Create App Service** screen, make sure that the subscription and resource group are the same ones that you created the Key Vault in, and choose **Create**.
+
+   ![Create App Service](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. After your web application is created, the **Publish** screen appears. Note the URL for your published web application, hosted in Azure. If you see **None** next to **Key Vault**, you still have to tell App Service what Key Vault to connect to. Choose the **Add Key Vault** link, and choose the Key Vault you created.
+
+   ![Add Key Vault](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   If you see **Manage Key Vault**, you can click that to view the current settings, edit permissions, or make changes to your secrets in the Azure Portal.
+
+1. Now, choose the Site URL link to visit your web application in the browser. Verify that you see the correct value from the Key Vault.
+
+Congratulations, you have confirmed that your web app can use Key Vault to access securely stored secrets when run in Azure.
 
 ## Clean up resources
 

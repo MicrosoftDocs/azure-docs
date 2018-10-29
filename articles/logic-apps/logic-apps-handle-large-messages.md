@@ -29,8 +29,9 @@ Logic Apps can consume large messages but *only* in chunks.
 This condition means connectors must also support chunking, or the underlying 
 HTTP message exchange between Logic Apps and these services must use chunking.
 
-This article shows how you can set up chunking 
-support for messages that are larger than the limit.
+This article shows how you can set up chunking for actions handling messages that are 
+larger than the limit. Logic App  triggers don't 
+support chunking because of the increased overhead of exchanging multiple messages. 
 
 ## What makes messages "large"?
 

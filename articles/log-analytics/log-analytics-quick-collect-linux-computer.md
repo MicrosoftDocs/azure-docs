@@ -32,7 +32,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Click **Create**, and then select choices for the following items:
 
-  * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
+  * Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. OMS workspaces are now referred to as Log Analytics workspaces.   
   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
   * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).  
@@ -40,12 +40,14 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
-3. After providing the required information on the **OMS Workspace** pane, click **OK**.  
+3. After providing the required information on the **Log Analytics workspace** pane, click **OK**.  
 
 While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu. 
 
 ## Obtain workspace ID and key
-Before installing the OMS agent for Linux, you need the workspace ID and key for your Log Analytics workspace.  This information is required by the agent wrapper script to properly configure the agent and ensure it can successfully communicate with Log Analytics.  
+Before installing the Log Analytics agent for Linux, you need the workspace ID and key for your Log Analytics workspace.  This information is required by the agent wrapper script to properly configure the agent and ensure it can successfully communicate with Log Analytics.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
@@ -57,7 +59,7 @@ Before installing the OMS agent for Linux, you need the workspace ID and key for
 The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud.  
 
 >[!NOTE]
->The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace.  
+>The Log Analytics agent for Linux cannot be configured to report to more than one Log Analytics workspace.  
 
 If your Linux computer needs to communicate through a proxy server to Log Analytics, the proxy configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`.  The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server. 
 

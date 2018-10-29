@@ -7,8 +7,8 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
 #Customer intent: Use speech service and get LUIS prediction information -- without calling LUIS directly.
@@ -37,7 +37,7 @@ This app has intents, entities, and utterances related to the Human Resources do
 
 
 ## Add KeyPhrase prebuilt entity
-After importing the app, select **Entities**, then **Manage prebuilt entities**. Add the **KeyPhrase** entity. The KeyPhrase entity extracts key subject matter from the utterance.
+After importing the app, select **Entities**, then **Add prebuilt entity**. Add the **KeyPhrase** entity. The KeyPhrase entity extracts key subject matter from the utterance.
 
 ## Train and publish the app
 1. In the top, right navigation bar, select the **Train** button to train the LUIS app.

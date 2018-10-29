@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -74,6 +74,8 @@ az eventgrid event-subscription create \
   --endpoint-type storagequeue \
   --endpoint $queueid
 ```
+
+The account that creates the event subscription must have write access to the queue storage.
 
 If you use the REST API to create the subscription, you pass the ID of the storage account and the name of the queue as a separate parameter.
 

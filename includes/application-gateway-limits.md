@@ -15,6 +15,7 @@
 | Request time out max |24 hrs | |
 | Number of sites |20 |1 per HTTP Listeners |
 | URL Maps per listener |1 | |
+| Concurrent WebSocket Connections |5000| |
 |Maximum URL length|8000|
 | Maximum file upload size Standard |2 GB | |
 | Maximum file upload size WAF |Medium WAF Gateways - 100 MB<br>Large WAF Gateways - 500 MB| |

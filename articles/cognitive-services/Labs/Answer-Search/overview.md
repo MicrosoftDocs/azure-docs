@@ -7,8 +7,8 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
 ---

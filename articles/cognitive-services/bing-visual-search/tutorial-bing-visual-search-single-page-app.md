@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
-ms.author: v-brapel
+ms.author: bking
 ---
 # Tutorial: Visual Search Single-page Web app
 

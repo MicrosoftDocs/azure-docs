@@ -51,7 +51,7 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 1. On the **DevTest Lab** page, select **+ Add** on the toolbar. 
 
 	![Add button](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. On the **Choose a base** page, search with **Ubuntu** keyword, and select one of the base images in the list. 
+1. On the **Choose a base** page, search with a keyword (for example: Windows, Ubuntu), and select one of the base images in the list. 
 1. On the **Virtual machine** page, do the following actions: 
     1. For **Virtual machine name**, enter a name for the virtual machine. 
     2. For **User name**, enter a name for the user that has access to the virtual machine. 
@@ -67,6 +67,9 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 
         ![VM creation status](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. After the VM is created, you see it in the list of **Claimable virtual machines** in the list. 
+
+    > [!NOTE] 
+    > When adding a Linux VM to a lab, you can enable SSH and RDP access to the VM. If you don't enable the access while creating the VM, you can manually add rules in the network security group associated with the VM to open ports for SSH and RDP.
 
 ## Add a user to the Lab User role
 

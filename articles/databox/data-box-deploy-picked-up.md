@@ -2,17 +2,11 @@
 title: Ship Microsoft Azure Data Box back| Microsoft Docs
 description: Learn how to ship your Azure Data Box to Microsoft
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/03/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.

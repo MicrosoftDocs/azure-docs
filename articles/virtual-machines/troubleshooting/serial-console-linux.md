@@ -40,7 +40,7 @@ For serial console documentation for Windows VMs, [click here](../windows/serial
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* For settings specific to Linux distros, see [Access the serial console for Linux](#Serial-Console-Linux-distro-availability)
+* For settings specific to Linux distros, see [Serial Console Linux distro availability](#serial-console-linux-distro-availability)
 
 
 
@@ -203,7 +203,7 @@ A. You must have contributor level access or higher to a VM in order to access t
 **Q. My serial console is not showing anything, what do I do?**
 
 A. Your image is likely misconfigured for serial console access. See 
-[Access Serial Console for Linux](#Access-Serial-Console-for-Linux) for details on configuring your image to enable serial console.
+[Serial Console Linux distro availability](#serial-console-linux-distro-availability) for details on configuring your image to enable serial console.
 
 **Q. Is serial console available for Virtual Machine Scale Sets?**
 
@@ -215,5 +215,6 @@ A. Yes. Serial console does not require SSH keys, so all you have to do is set u
 ## Next steps
 * Use Serial Console to [boot into GRUB and enter single user mode](serial-console-grub-single-user-mode.md)
 * Use Serial Console for [NMI and SysRq calls](serial-console-nmi-sysrq.md)
+* Learn how to use Serial Console to [enable GRUB in various distros](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * The Serial Console is also available for [Windows](../windows/serial-console.md) VMs
 * Learn more about [boot diagnostics](boot-diagnostics.md)

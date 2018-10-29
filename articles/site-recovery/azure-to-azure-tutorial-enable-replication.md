@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -21,6 +21,9 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Verify target resource settings
 > * Set up outbound access for VMs
 > * Enable replication for a VM
+
+> [!NOTE]
+> This tutorial is intended to guide the user through the steps to enable replication with minimum customization; in case you want to learn more about the various aspects associated with disaster recovery, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
 
 
 ## Prerequisites
@@ -228,7 +231,7 @@ Click 'Customize' next to encryption settings to override the defaults and selec
 
 ## Next steps
 
-In this tutorial, you configured disaster recovery for an Azure VM. Next step is to test your configuration.
+In this tutorial, you configured disaster recovery for an Azure VM. Next step is to test your configuration by initiating a DR drill.
 
 > [!div class="nextstepaction"]
 > [Run a disaster recovery drill](azure-to-azure-tutorial-dr-drill.md)

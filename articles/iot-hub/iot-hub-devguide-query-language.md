@@ -171,7 +171,7 @@ This query will return all module twins with the scanning status, but only on th
 ```sql
 Select * from devices.modules 
   where properties.reported.status = 'scanning' 
-  and deviceId IN ('device1', 'device2')  
+  and deviceId IN ['device1', 'device2']
 ```
 
 ### C# example

@@ -31,8 +31,8 @@ need to implement for your apps and infrastructure.
 ## Architecture components
 
 This architecture builds on the architecture described in the article, 
-[Architecture reference: Simple enterprise integration](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). 
-That architecture's [recommendations](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) 
+[Architecture reference: Simple enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). 
+That architecture's [recommendations](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) 
 also apply here, but for brevity, this article omits those 
 recommendations from the [Recommendations](#recommendations) section. 
 This enterprise integration architecture includes these components:
@@ -249,4 +249,4 @@ For more information, see [Event Grid security and authentication](../event-grid
 
 ## Next steps
 
-* Learn about [simple enterprise integration](logic-apps-architectures-simple-enterprise-integration.md)
+* Learn about [simple enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)

@@ -1,27 +1,22 @@
 ---
-# required metadata
 title: Add conditional statements to workflows - Azure Logic Apps | Microsoft Docs
 description: How to create conditions that control actions in workflows in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
-
-# optional metadata
 ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.topic: article
+ms.date: 10/09/2018
 ---
 
 # Create conditional statements that control workflow actions in Azure Logic Apps
 
 To run specific actions in your logic app only after passing a specified condition, 
-add a *conditional statement*. This structure compares the data in your 
-workflow against specific values or fields. 
-You can then define different actions that run based on 
-whether or not the data meets the condition. 
+add a *conditional statement*. This control structure compares the data in your 
+workflow against specific values or fields. You can then specify different actions 
+that run based on whether or not the data meets the condition. 
 You can nest conditions inside each other.
 
 For example, suppose you have a logic app that sends too 
@@ -44,24 +39,29 @@ when the new item includes a specific string.
 [create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 with an Outlook.com or Office 365 Outlook account.
 
-## Add a condition
+## Add condition
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 open your logic app in Logic App Designer.
 
-2. Add a condition at the location that you want. 
+1. Add a condition at the location that you want. 
 
    To add a condition between steps, move the pointer over the arrow where 
    you want to add the condition. Choose the **plus sign** (**+**) that appears, 
-   then choose **Add a condition**. For example:
+   then choose **Add an action**. For example:
 
-   ![Add condition between steps](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
+   ![Add action between steps](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
    When you want to add a condition at the end of your workflow, 
    at the bottom of your logic app, 
-   choose  **+ New step** > **Add a condition**.
+   choose  **New step** > **Add an action**.
 
-3. Under **Condition**, build your condition. 
+1. In the search box, enter "condition" as your filter. 
+Select this action: **Condition - Control**
+
+   ![Add condition](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
+
+1. In the **Condition** box, build your condition. 
 
    1. In the left box, specify the data or field that you want to compare.
 
@@ -71,17 +71,22 @@ open your logic app in Logic App Designer.
 
       ![Build your condition](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
-   2. In the middle list, select the operation to perform. 
+   1. In the middle box, select the operation to perform. 
    For this example, select "**contains**". 
 
-   3. In the right box, specify a value or field as your criteria. 
+   1. In the right box, specify a value or field as your criteria. 
    For this example, specify this string: **Microsoft**
 
    Here's the complete condition:
 
    ![Complete condition](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-5. Under **If true** and **If false**, add the steps to perform 
+   To add another row to your condition, choose **Add** > **Add row**. 
+   To add a group with subconditions, choose **Add** > **Add group**. 
+   To group existing rows, select the checkboxes for those rows, 
+   choose the ellipses (...) button for any row, and then choose **Make group**.
+
+1. Under **If true** and **If false**, add the steps to perform 
 based on whether the condition is met. For example:
 
    ![Condition with "If true" and "If false" paths](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
@@ -89,15 +94,13 @@ based on whether the condition is met. For example:
    > [!TIP]
    > You can drag existing actions into the **If true** and **If false** paths.
 
-6. Save your logic app.
+1. Save your logic app.
 
-Now this logic app only sends mail when the new 
-items in the RSS feed meet your condition.
+This logic app now sends mail only when the new items in the RSS feed meet your condition.
 
 ## JSON definition
 
-Now that you created a logic app using a conditional statement, 
-let's look at the high-level code definition behind the conditional statement.
+Here's the high-level code definition behind a conditional statement:
 
 ``` json
 "actions": {
@@ -112,7 +115,8 @@ let's look at the high-level code definition behind the conditional statement.
       "and": [ 
         { 
           "contains": [ 
-            "@triggerBody()?['summary']", "Microsoft"
+            "@triggerBody()?['summary']", 
+            "Microsoft"
           ]
         } 
       ]

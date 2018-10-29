@@ -56,7 +56,7 @@ No. In fact, we encourage data enthusiasts, anyone curious about data science, a
 
 * **Data Developers**, **Data Scientists**, **BI** and **Analytics Professionals**: those who are responsible for producing data and analytics content for others to consume
 * **Data Stewards**: those who have the knowledge about the data, what it means, and how it's intended to be used and for which purpose
-* **Students** & **Researchers:** those who are learning and gaining data-related skills via academic programs in universities, or participants in Massive Open Online Courses (MOOCs)
+* **Students** and **Researchers:** those who are learning and gaining data-related skills via academic programs in universities, or participants in Massive Open Online Courses (MOOCs)
 
 **Can I enter with my colleagues as a team?**
 

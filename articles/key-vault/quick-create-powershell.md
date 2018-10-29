@@ -51,7 +51,7 @@ Although we use “Contoso KeyVault2” as the name for our Key Vault throughout
 - **Location** East US.
 
 ```azurepowershell-interactive
-New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+New-AzureRmKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:

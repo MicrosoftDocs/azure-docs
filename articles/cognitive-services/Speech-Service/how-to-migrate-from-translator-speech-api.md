@@ -5,9 +5,10 @@ description: Use this topic to migrate your applications from the Translator Spe
 services: cognitive-services
 author: aahill
 manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
 ---
