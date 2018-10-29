@@ -38,16 +38,16 @@ Start with this list:
 #### Connection Throttling
 
 #### Linux ulimit 
-* Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
+Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
 Run the following command
 ```bash
 ulimit -a
 ```
 The number of open files ("nofile") needs to be large enough (at least as double as your connection pool size) to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
 
-#### Azure SNAT
+#### Azure SNAT Exhaustion
 
-* If your app is deployed on Azure VM, you should ensure that Cosmos DB Service Endpoint is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the VM to the Cosmos DB endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure VM, you should ensure that Cosmos DB Service Endpoint is added to your VM's VNET. Otherwise the number of connections Azure allows to be made from the VM to the Cosmos DB endpoint will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
     1.  Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
     2. As Azure SNAT limitation is only applicable when your Azure VM has a private IP address, the other workaround is to assign a public IP to your Azure VM.
@@ -57,7 +57,7 @@ There are two workarounds to avoid Azure SNAT limitation:
 If you are using an HttpProxy, make sure your HttpProxy is capable of supporting the number of connections configured in the SDK `ConnectionPolicy`.
 If your HttpProxy fails to serve the required number of connections you may face connection issues.
 
-#### Invalid Coding Pattern, Blocking Netty IO Thread
+#### Invalid Coding Pattern: Blocking Netty IO Thread
 
 The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
 
@@ -124,12 +124,12 @@ Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
 
 createObservable
-        .observeOn(customScheduler) // switches the thread
+        .observeOn(customScheduler) // switches the thread.
         .subscribe(
             // ...
         );
 ```
-By using observeOn(customScheduler) you are releasing the netty IO thread and switching the thread to your own custom thread provided by customScheduler. 
+By using `observeOn(customScheduler)` you are releasing the netty IO thread and switching the thread to your own custom thread provided by customScheduler. 
 This will solve the problem in the above, and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
 ### Connection Pool Exhausted Issue
