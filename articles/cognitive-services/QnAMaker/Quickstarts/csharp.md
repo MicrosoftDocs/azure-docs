@@ -1,7 +1,7 @@
 ---
 title: "REST API (V4) - C# - QnA Maker"
 titleSuffix: Azure Cognitive Services 
-description: Get REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
+description: Get C# REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun

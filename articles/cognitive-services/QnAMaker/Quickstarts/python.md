@@ -1,7 +1,7 @@
 ---
 title: "REST API (V4) - Python - QnA Maker"
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
+description: Get Python information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
