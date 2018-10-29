@@ -1,3 +1,10 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c 
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 To register your web application, use the settings specified in the table.

@@ -1,4 +1,4 @@
-- name: Azure Data Box for online transfer documentation
+- name: Azure Data Box Documentation - Online Transfer 
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway
@@ -59,8 +59,14 @@
       href: data-box-edge-deploy-add-shares.md
     - name: 5 - Configure compute
       href: data-box-edge-deploy-configure-compute.md
+  - name: How to
+    items:
+    - name: Develop C# module
+      href: data-box-edge-create-iot-edge-module.md
 - name: Resources
   items:
+  - name: Data Box Edge C# module samples (.NET)
+    href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
   - name: Data Box Edge/Gateway product  
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing

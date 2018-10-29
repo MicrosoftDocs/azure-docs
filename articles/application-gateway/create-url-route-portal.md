@@ -10,7 +10,7 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 10/25/2018
 ms.author: victorh
 
 ---
@@ -28,6 +28,8 @@ In this article, you learn how to:
 > * Create a path-based routing rule
 
 ![URL routing example](./media/create-url-route-portal/scenario.png)
+
+If you prefer, you can complete this tutorial using [Azure CLI](tutorial-url-route-cli.md) or [Azure PowerShell](tutorial-url-route-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

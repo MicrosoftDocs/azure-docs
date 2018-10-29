@@ -191,7 +191,7 @@ $selectedAgentJobs = @("agentJob1", "agentJob2")
 ### Create and start a migration task
 
 Use the `New-AzureRmDataMigrationTask` cmdlet to create and start a migration task. This cmdlet expects the following parameters:
-- *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database Managaged Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
+- *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
 - *Resource Group Name*. Name of Azure resource group in which to create the task.
 - *ServiceName*. Azure Database Migration Service instance in which to create the task.
 - *ProjectName*. Name of Azure Database Migration Service project in which to create the task. 

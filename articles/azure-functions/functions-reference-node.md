@@ -11,7 +11,7 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 03/04/2018
+ms.date: 10/26/2018
 ms.author: glenga
 
 ---
@@ -371,7 +371,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Note that you should define a `package.json` file at the root of your function app. Defining the file lets all functions in the app share the same cached packages, which gives the best performance. If a version conflict arises, you can resolve it by adding a `package.json` file in the folder of a specific function.  
+> [!NOTE]
+> You should define a `package.json` file at the root of your Function App. Defining the file lets all functions in the app share the same cached packages, which gives the best performance. If a version conflict arises, you can resolve it by adding a `package.json` file in the folder of a specific function.  
+
+When deploying Function Apps from source control, any `package.json` file present in your repo, will trigger an `npm install` in its folder during deployment. But when deploying via the Portal or CLI, you will have to manually install the packages.
 
 There are two ways to install packages on your Function App: 
 
@@ -393,13 +396,14 @@ There are two ways to install packages on your Function App:
     This action downloads the packages indicated in the package.json file and restarts the function app.
 
 ## Environment variables
-To get an environment variable or an app setting value, use `process.env`, as shown here in the `GetEnvironmentVariable` function:
+
+In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `process.env`, as shown here in the `GetEnvironmentVariable` function:
 
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
     context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
 
@@ -411,6 +415,10 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+When running locally, app settings are read from the [local.settings.json](functions-run-local.md#local-settings-file) project file.
 
 ## Configure function entry point
 

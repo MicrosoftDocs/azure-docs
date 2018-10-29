@@ -72,8 +72,9 @@
     - name: Resource model
       href: sql-api-resources.md
     - name: Global distribution
-      href: distribute-data-globally.md
       items:
+      - name: Introduction
+        href: distribute-data-globally.md
       - name: Key benefits
         href: distribute-data-globally-benefits.md
       - name: Enable global distribution
@@ -85,8 +86,9 @@
       - name: Conflict resolution
         href: multi-master-conflict-resolution.md  
     - name: Throughput
-      href: request-units.md
       items:
+      - name: Introduction
+        href: request-units.md
       - name: Get and set throughput
         href: set-throughput.md
     - name: Partitioning and data distribution
@@ -102,8 +104,9 @@
     - name: Unique keys
       href: unique-keys.md
     - name: Security
-      href: database-security.md
       items:
+        - name: Introduction
+          href: database-security.md
         - name: Data encryption
           href: database-encryption-at-rest.md
         - name: Secure access to data
@@ -193,6 +196,10 @@
             href: working-with-dates.md
           - name: Geospatial
             href: geospatial.md
+          - name: Bulk executor - .NET library
+            href: bulk-executor-dot-net.md
+          - name: Bulk executor - Java library
+            href: bulk-executor-java.md
       - name: Reference
         items:
         - name: .NET
@@ -365,6 +372,8 @@
         items:
           - name: .NET
             href: table-sdk-dotnet.md
+          - name: .NET Standard
+            href: table-sdk-dotnet-standard.md
           - name: Java
             href: table-sdk-java.md
           - name: Node.js
@@ -421,6 +430,12 @@
           href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
+    - name: Visualize Cosmos DB data
+      items:
+      - name: Use Power BI 
+        href: powerbi-visualize.md
+      - name: Use Qlik Sense
+        href: visualize-qlik-sense.md
     - name: Integrate with other Azure services
       items: 
       - name: Change feed Ecommerce solution
@@ -451,18 +466,12 @@
         href: spark-connector.md
       - name: Spark and Kafka
         href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
-      - name: Power BI connector
-        href: powerbi-visualize.md
       - name: ODBC driver 
         href: odbc-driver.md
     - name: Bulk executor library
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
-      - name: Bulk executor - .NET library
-        href: bulk-executor-dot-net.md
-      - name: Bulk executor - Java library
-        href: bulk-executor-java.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn
