@@ -1,5 +1,5 @@
 ---
-title: An internal error occurs when you remote desktop to Azure VM | Microsoft Docs
+title: An internal error occurs when you remote desktop to Azure Virtual Machines | Microsoft Docs
 description: Learn how to troubleshoot RDP internal errors in Microsoft Azure.| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -21,7 +21,7 @@ ms.author: genli
 This article describes an error that you may experience when you try to connect to a virtual machine (VM) in Microsoft Azure.
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes how to use the Resource Manager deployment model. We recommend that you use this model instead of the classic deployment model for new deployments.
+[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model. 
 
 ## Symptoms 
 
@@ -42,9 +42,9 @@ This issue may occur for the following reasons:
 
 ## Solution 
 
-Before you follow these steps, take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To troubleshoot this issue, use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the system disk of the VM to a recovery VM.
+To troubleshoot this issue, use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
 
 
 ### Use Serial control
@@ -143,10 +143,10 @@ The RDP client uses TLS 1.0 as the default protocol. However, this can be change
 
 ### Repair the VM Offline
 
-#### Attach the system disk to a recovery VM
+#### Attach the OS disk to a recovery VM
 
-1. [Attach the system disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
-2. After the system disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached system disk.
+1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+2. After the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 3. Start a Remote Desktop connection to the recovery VM.
 
 #### Enable dump log and Serial Console
@@ -156,7 +156,7 @@ To enable dump log and Serial Console, run the following script.
 1. Open an elevated command prompt session (**Run as administrator**).
 2. Run the following script:
 
-    In this script, we assume that the drive letter that is assigned to the attached system disk is F. Replace this drive letter with the appropriate value for your VM.
+    In this script, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
 
     ```powershell
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -200,7 +200,7 @@ To enable dump log and Serial Console, run the following script.
 
 #### Enable all supported TLS versions 
 
-1.	Open an elevated command prompt session (**Run as administrator**), and the run the following commands. The following script assumes that the driver letter is assigned to the attached system disk is F. Replace this drive letter with the appropriate value for your VM.
+1.	Open an elevated command prompt session (**Run as administrator**), and the run the following commands. The following script assumes that the driver letter is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
 2.	Check which TLS is enabled:
 
         reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
