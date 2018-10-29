@@ -1,5 +1,5 @@
 ---
-title: Set up Windows Virtual Desktop tenants in Azure Active Directory
+title: Tutorial: set up Windows Virtual Desktop tenants in Azure Active Directory
 description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
@@ -16,7 +16,6 @@ This section will tell you how to deploy Windows Virtual Desktop in Azure Active
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Set up 
 > * Set up and access a CSP subscription for a customer
 > * Prepare Azure Active Directory for a Remote Desktop environment
 
@@ -33,9 +32,9 @@ If you're hosting for external customers, you should also have a Cloud Solution 
 * Microsoft Partner Center (CSP) to create a CSP subscription.
 * Enterprise subscription with either the Owner or Contributor role assigned.
 
-## Prepare the Azure subscription for the tenant’s environment
+### Prepare the Azure subscription for the tenant’s environment
 
-Use the steps in this section to prepare a subscription for the tenant’s session hosts (RDSH or Windows 10 RS3) if you plan to employ Active Directory. Choose the section that best suits your needs.
+Follow the steps in this section to prepare a subscription for the tenant’s session hosts (RDSH or Windows 10 RS3) if you plan to employ Active Directory. Choose the section that best suits your needs.
 
 ### Create a CSP subscription for a customer without an Azure Active Directory tenant
 

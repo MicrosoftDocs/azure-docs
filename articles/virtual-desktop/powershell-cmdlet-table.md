@@ -1,6 +1,6 @@
 ---
 title: PowerShell cmdlets
-description: TBD.
+description: A list of PowerShell cmdlets that can be used for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 

@@ -1,6 +1,6 @@
 ---
 title: Hoster admin delegated administration
-description: TBD.
+description: How to delegate administrative capabilities on a Winows Virtual Desktop deployment, including examples.
 services: virtual-desktop
 author: Heidilohr
 
@@ -15,7 +15,7 @@ ms.author: helohr
 
 >Guidance: Summarize relevant material from the scenario spec(s). Specify the customer, their problem or goal, and then specific outcomes the customer will achieve or how success would be measured. Avoid implementation details that may restrict solution choices or bias the measures!
 
-Customers of current Remote Desktop Services (RDS) have complained about the lack of ability to delegate administrative capabilities on an RDS deployment. All administrators must be domain admins and therefore have full control over the RDS 2016 deployment, making it impossible to delegate access to specific resources within the RDS deployment. Windows Virtual Desktop will address this issue by providing a delegated administrative capability, similar to [Azure’s Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Customers of current Remote Desktop Services have complained about the lack of ability to delegate administrative capabilities on an Remote Desktop Services deployment. All administrators must be domain admins and therefore have full control over the Remote Desktop Services 2016 deployment, making it impossible to delegate access to specific resources within the Remote Desktop Services deployment. Windows Virtual Desktop will address this issue by providing a delegated administrative capability, similar to [Azure’s Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 ## This feature supports the following scenario(s)
 
@@ -126,9 +126,9 @@ The following table lists relevant requirements for your convenience. See sectio
 * See section 2.3 in [TenantEnvFunctionalSpec](https://microsoft.sharepoint.com/teams/RD20/_layouts/15/guestaccess.aspx?guestaccesstoken=CaNCB%2bThVhngdHHlXnMNAj%2b5Hca3xk3z%2fo9iHneVcjc%3d&docid=2_10084ffd2b4fb40169409b68d584c35b8&rev=1) for a more complete list. Relevant requirements are copied here for your convenience.
   * Release v1 into market quickly to get feedback and start iterating.
   * Focus on solving a few major cost issues such as multi-tenancy and multiple app groups and desktops from a single pool.
-  * Provide a secure, built-in delegated administration capability that supports the multi-tiered administration model typical in the RDS hosting channel. For example:
-     * HSP: infra admin (deploys and has full control over the RDS infra, including assigning permissions to other admins)
-     * HSP: ops engineer (reads diagnostics for the RDS infra and customers to troubleshoot problems)
+  * Provide a secure, built-in delegated administration capability that supports the multi-tiered administration model typical in the Remote Desktop Services hosting channel. For example:
+     * HSP: infra admin (deploys and has full control over the Remote Desktop Services infra, including assigning permissions to other admins)
+     * HSP: ops engineer (reads diagnostics for the Remote Desktop Services infra and customers to troubleshoot problems)
      * ISV: Admin for customers (creates and has full control over ISV’s customers, but cannot access customers of other ISVs)
      * ISV: Admin for customer environments (creates and has full control over session host environments for the ISV’s customers)
      * ISV: ops engineer (accesses diagnostics to troubleshoot problems within the ISV’s customers)
@@ -149,14 +149,14 @@ The following table lists relevant requirements for your convenience. See sectio
 
 The Windows Virtual Desktop delegated administration model is based on Azure’s RBAC and uses the following three Azure RBAC built-in roles and definitions:
 
-* RDS Contributor: can manage everything except access
-* RDS Owner: can manage everything including access
-* RDS Reader: can view everything but can't make changes
+* Remote Desktop Services Contributor: can manage everything except access
+* Remote Desktop Services Owner: can manage everything including access
+* Remote Desktop Services Reader: can view everything but can't make changes
 
 In addition, two Windows Virtual Desktop-specific built-in roles have been added:
 
-* RDS Tenant Creator: can create RD Tenant objects assigned at the RD Infra Level, but user cannot view settings of the RD Infra container object and cannot view RD Tenant objects created by others
-* RDS User: can access feed and the published apps and desktops within an AppGroup
+* Remote Desktop Services Tenant Creator: can create RD Tenant objects assigned at the RD Infra Level, but user cannot view settings of the RD Infra container object and cannot view RD Tenant objects created by others
+* Remote Desktop Services User: can access feed and the published apps and desktops within an AppGroup
 
 As with the Azure RBAC model, these built-in roles have a set of capabilities that is defined by Microsoft and cannot be changed by the customer. In Windows Virtual Desktop vFuture, we may extend to allow additional custom roles to be created, depending on feedback from customers and partners.
 PowerShell definitions to implement the scenarios covered in the specs are defined here.
@@ -178,10 +178,10 @@ The primary capabilities associated with each built-in Windows Virtual Desktop r
 
 |Role|Create|Modify|Read|Delete|Authorize|
 |---|---|---|---|---|---|
-|RDS Owner| X | X | X | X | X |
-|RDS Contributor| X | X | X | X | |
-|RDS Reader| | | X | | |
-|RDS Tenant Creator| X (Tenants under deployment.) | | | | |
+|Remote Desktop Services Owner| X | X | X | X | X |
+|Remote Desktop Services Contributor| X | X | X | X | |
+|Remote Desktop Services Reader| | | X | | |
+|Remote Desktop Services Tenant Creator| X (Tenants under deployment.) | | | | |
 
 >[!NOTE]
 >Following the Azure model capabilities for the built-in roles are fixed for each release but may change in a future release.
@@ -190,29 +190,29 @@ The following table maps roles to applicable objects and the PowerShell cmdlets 
 
 |Role|Applicable Objects|Permitted PowerShell and equivalent REST|
 |---|---|---|
-|RDS Owner|Deployment (assigned)|Get, Set-RdsDeployment $_ <br>Get, Set-RdsInfraRole $_ <br>New-RdsTenant<br>Get-RdsDiagnosticsActivities<br>New, Get, Remove-RdsRoleAssignment $_<br>
-|RDS Owner| Tenant (assigned or inherited) | Get, Set, Remove-RdsTenant $_ <br>New-RdsHostPool<br>New, Get, Remove-RdsRoleAssignment $_|
-|RDS Owner|HostPool (assigned or inherited)|Get, Set, Remove-RdsHostPool $_ <br>Get-RdsHostPoolAvailableApp $_ <br>New-RdsAppGroup<br>New-RdsRegistrationInfo<br>Get-RdsDiagnostics<br>New, Get, Remove-RdsRoleAssignment $_ |
-|RDS Owner|RegistrationInfo (inherited)|Get, Set, Remove-RdsRegistationInfo $_|
-|RDS Owner|SessionHost (inherited)|Get, Remove-RdsSessionHost $_|
-|RDS Owner|UserSession (inherited)|Get, Send, Invoke, Disconnect-RdsUserSession $_ |
-|RDS Owner|AppGroup (assigned or inherited)|Get, Set, Remove-RdsAppGroup $_ <br>New-RdsRemoteApp<br>New, Get, Remove-RdsRoleAssignment $_|
-|RDS Owner|RemoteApp (inherited)|Get, Set, Remove-RdsRemoteApp $_|
-|RDS Contributor|Same as RDS Owner|Same as RDS Owner, but without <br>New, Get, Remove-RdsRoleAssignment $_|
-|RDS Reader|Deployment (assigned)|Get-RdsDeployment $_ <br>Get-RdsInfraRole $_ <br>Get-RdsDiagnostics
-|RDS Reader|Tenant (assigned or inherited)|Get-RdsTenant $_<br> Get-RdsDiagnostics|
-|RDS Reader|HostPool (assigned or inherited)|Get-RdsHostPool $_ <br>Get-RdsHostPoolAvailableApp $_ <br>Get-RdsDiagnostics
-|RDS Reader|RegistrationInfo (inherited)|Get-RdsRegistationInfo $_|
-|RDS Reader|SessionHost (inherited)|Get-RdsSessionHost $_
-|RDS Reader|UserSession1 (inherited)|Get-RdsUserSession $_ 
-|RDS Reader|AppGroup (assigned or inherited)|Get-RdsAppGroup $_
-|RDS Reader|RemoteApp2 (inherited)|Get-RdsRemoteApp $_
-|RDS Tenant Creator|Deployment (assigned)|New-RdsTenant
-|RDS User|AppGroup|Allows user access to the feed and published items in the AppGroup
+|Remote Desktop Services Owner|Deployment (assigned)|Get, Set-RdsDeployment $_ <br>Get, Set-RdsInfraRole $_ <br>New-RdsTenant<br>Get-RdsDiagnosticsActivities<br>New, Get, Remove-RdsRoleAssignment $_<br>
+|Remote Desktop Services Owner| Tenant (assigned or inherited) | Get, Set, Remove-RdsTenant $_ <br>New-RdsHostPool<br>New, Get, Remove-RdsRoleAssignment $_|
+|Remote Desktop Services Owner|HostPool (assigned or inherited)|Get, Set, Remove-RdsHostPool $_ <br>Get-RdsHostPoolAvailableApp $_ <br>New-RdsAppGroup<br>New-RdsRegistrationInfo<br>Get-RdsDiagnostics<br>New, Get, Remove-RdsRoleAssignment $_ |
+|Remote Desktop Services Owner|RegistrationInfo (inherited)|Get, Set, Remove-RdsRegistationInfo $_|
+|Remote Desktop Services Owner|SessionHost (inherited)|Get, Remove-RdsSessionHost $_|
+|Remote Desktop Services Owner|UserSession (inherited)|Get, Send, Invoke, Disconnect-RdsUserSession $_ |
+|Remote Desktop Services Owner|AppGroup (assigned or inherited)|Get, Set, Remove-RdsAppGroup $_ <br>New-RdsRemoteApp<br>New, Get, Remove-RdsRoleAssignment $_|
+|Remote Desktop Services Owner|RemoteApp (inherited)|Get, Set, Remove-RdsRemoteApp $_|
+|Remote Desktop Services Contributor|Same as Remote Desktop Services Owner|Same as Remote Desktop Services Owner, but without <br>New, Get, Remove-RdsRoleAssignment $_|
+|Remote Desktop Services Reader|Deployment (assigned)|Get-RdsDeployment $_ <br>Get-RdsInfraRole $_ <br>Get-RdsDiagnostics
+|Remote Desktop Services Reader|Tenant (assigned or inherited)|Get-RdsTenant $_<br> Get-RdsDiagnostics|
+|Remote Desktop Services Reader|HostPool (assigned or inherited)|Get-RdsHostPool $_ <br>Get-RdsHostPoolAvailableApp $_ <br>Get-RdsDiagnostics
+|Remote Desktop Services Reader|RegistrationInfo (inherited)|Get-RdsRegistationInfo $_|
+|Remote Desktop Services Reader|SessionHost (inherited)|Get-RdsSessionHost $_
+|Remote Desktop Services Reader|UserSession1 (inherited)|Get-RdsUserSession $_ 
+|Remote Desktop Services Reader|AppGroup (assigned or inherited)|Get-RdsAppGroup $_
+|Remote Desktop Services Reader|RemoteApp2 (inherited)|Get-RdsRemoteApp $_
+|Remote Desktop Services Tenant Creator|Deployment (assigned)|New-RdsTenant
+|Remote Desktop Services User|AppGroup|Allows user access to the feed and published items in the AppGroup
 
 The following is a list of applicable objects for each role, and the PowerShell cmdlets (or equivalent REST APIs) that can be run under each Role-Object combination.
 
-The RDS Owner role can be mapped to the following applicable objects. Each object includes its permitted PowerShell and equivalent REST command.
+The Remote Desktop Services Owner role can be mapped to the following applicable objects. Each object includes its permitted PowerShell and equivalent REST command.
 
 * Deployment (assigned).
   ```PowerShell
@@ -260,13 +260,13 @@ The RDS Owner role can be mapped to the following applicable objects. Each objec
   Get, Set, Remove-RdsRemoteApp $_
   ```
 
-The RDS Contributor role can be assigned to the same objects as the RDS Owner role. However, this role isn't permitted to execute the following command.
+The Remote Desktop Services Contributor role can be assigned to the same objects as the Remote Desktop Services Owner role. However, this role isn't permitted to execute the following command.
 
 ```PowerShell
 New, Get, Remove-RdsRoleAssignment $_
 ```
 
-The RDS Reader role can be assigned to the following objects and commands.
+The Remote Desktop Services Reader role can be assigned to the following objects and commands.
 
 * Deployment (assigned).
   ```PowerShell
@@ -306,31 +306,31 @@ The RDS Reader role can be assigned to the following objects and commands.
   Get-RdsRemoteApp $_
   ```
 
-The RDS Tenant Creator role can be assigned to the following object.
+The Remote Desktop Services Tenant Creator role can be assigned to the following object.
 
 * Deployment (assigned)
   ```PowerShell
   New-RdsTenant
   ```
 
-The RDS User role an be assigned to the following object.
+The Remote Desktop Services User role an be assigned to the following object.
 
 * AppGroup: this object allows user acess to the feed and published items wtihin the AppGroup.
 
 >[!NOTE]
 >All implicitly created objects inherit. Leaf nodes always inherit to simplify.
 
-#### RDS roles as defined by Azure RBAC Custom Role Definition syntax
+#### Remote Desktop Services roles as defined by Azure RBAC Custom Role Definition syntax
 
-The RDS roles can be defined in the format of a custom Azure RBAC role, as defined in [Custom roles in Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles), which is of the form:
+The Remote Desktop Services roles can be defined in the format of a custom Azure RBAC role, as defined in [Custom roles in Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles), which is of the form:
 Microsoft.<</span>ProviderName>/<</span>ChildResourceType>/<</span>action>
 
 In this example:
 * ProviderName = WVD
-* ChildResourceType = RDS object class
+* ChildResourceType = Remote Desktop Services object class
 * Action = PowerShell verb or equivalent REST method
 
-RDS Owner:
+Remote Desktop Services Owner:
 
 ```JSON
 {
@@ -350,7 +350,7 @@ RDS Owner:
 }
 ```
 
-RDS Contributor:
+Remote Desktop Services Contributor:
 
 ```JSON
 {
@@ -372,7 +372,7 @@ RDS Contributor:
 }
 ```
 
-RDS Reader:
+Remote Desktop Services Reader:
 
 ```JSON
 {
@@ -392,7 +392,7 @@ RDS Reader:
 }
 ```
 
-RDS Tenant Creator:
+Remote Desktop Services Tenant Creator:
 
 ```JSON
 {
@@ -412,7 +412,7 @@ RDS Tenant Creator:
 }
 ```
 
-RDS AppGroup User:
+Remote Desktop Services AppGroup User:
 
 ```JSON
 {
@@ -440,19 +440,19 @@ The following table lists example assignment scenarios.
 
 |Assignment persona|Persona assigned to role on an object|Role|Object instance|
 |---|---|---|---|
-|Inherited|Admin1@hsp1.net|RDS Owner|Deployment (root)|
-|Admin1@hsp1.net|Admin2@hsp1.net|RDS Owner|Deployment|
-|Admin2@hsp1.net|Ops1@hsp1.net|RDS Reader|/Infrastructure/Diagnostics|
-|Admin2@hsp.net|AdminA@isv1.com|RDS Tenant Creator|Deployment|
-|AdminA@isv1.com|AdminB@isv1.com|RDS Owner|/Tenant (belonging to ISV1)|
-|AdminB@isv1.com|AdminC@isv1.com|RDS Owner|/Tenant/HostPool (belonging to ISV1)|
-|AdminB@isv1.com|OpsA@isv1.com|RDS Reader|/Tenant/Diagnostics|
-|AdminC@isv1.com|AdminX@customer1.org|RDS Owner|/Tenant/HostPool/AppGroup|
-|Admin2@hsp1.net|Admin99@reseller.com|RDS Owner|/Tenant/HostPool/AppGroup|
+|Inherited|Admin1@hsp1.net|Remote Desktop Services Owner|Deployment (root)|
+|Admin1@hsp1.net|Admin2@hsp1.net|Remote Desktop Services Owner|Deployment|
+|Admin2@hsp1.net|Ops1@hsp1.net|Remote Desktop Services Reader|/Infrastructure/Diagnostics|
+|Admin2@hsp.net|AdminA@isv1.com|Remote Desktop Services Tenant Creator|Deployment|
+|AdminA@isv1.com|AdminB@isv1.com|Remote Desktop Services Owner|/Tenant (belonging to ISV1)|
+|AdminB@isv1.com|AdminC@isv1.com|Remote Desktop Services Owner|/Tenant/HostPool (belonging to ISV1)|
+|AdminB@isv1.com|OpsA@isv1.com|Remote Desktop Services Reader|/Tenant/Diagnostics|
+|AdminC@isv1.com|AdminX@customer1.org|Remote Desktop Services Owner|/Tenant/HostPool/AppGroup|
+|Admin2@hsp1.net|Admin99@reseller.com|Remote Desktop Services Owner|/Tenant/HostPool/AppGroup|
 
 #### Inheritance rules
 
-When an object is explicitly created using PowerShell or REST, the creator’s account is automatically assigned the RDS Owner role on the object.
+When an object is explicitly created using PowerShell or REST, the creator’s account is automatically assigned the Remote Desktop Services Owner role on the object.
 
 All explicitly created objects can have users and roles assigned and removed using PowerShell or REST.
 
@@ -534,7 +534,7 @@ New-RdsRoleAssignment [-RoleDefinition] <string> -ServicePrincipalName <string> 
 New-RdsRoleAssignment [-RoleDefinition] <string> -Diagnostics -ServicePrincipalName <string> -TenantName <string> [-AadTenantId <string>]
 ```
 
-Use the **New-RdsRoleAssignment** cmdlet to grant access. Access is granted by assigning the appropriate RDS role to a user or an application at the specified RD object scope. To grant access to the entire RD Deployment, assign a role at the Infra Deployment scope. To grant access to a specific RD Tenant within an RD Deployment, assign a role at the RD Tenant scope, and so on down the tree of RD Objects.
+Use the **New-RdsRoleAssignment** cmdlet to grant access. Access is granted by assigning the appropriate Remote Desktop Services role to a user or an application at the specified RD object scope. To grant access to the entire RD Deployment, assign a role at the Infra Deployment scope. To grant access to a specific RD Tenant within an RD Deployment, assign a role at the RD Tenant scope, and so on down the tree of RD Objects.
 
 The subject of the assignment must be specified. To specify a user, use the *SignInName* parameter. To specify an application, use *ServicePrincipalName*.
 
@@ -549,7 +549,7 @@ Parameters:
 * *Diagnostics*: switch to indicate the diagnostics scope. (Must be paired with either the Infrastructure switch or the Tenant switch.)
 * *HostPoolName*: name of the RD HostPool.
 * *Infrastructure*: switch to indicate the infrastructure scope.
-* *RoleDefinitionName*: name of the RDS RBAC role that needs to be assigned to the user, group, or app; for example, RDS Owner, RDS Reader, and so on.
+* *RoleDefinitionName*: name of the Remote Desktop Services RBAC role that needs to be assigned to the user, group, or app; for example, Remote Desktop Services Owner, Remote Desktop Services Reader, and so on.
 * *ServerPrincipleName*: name of the Azure AD application.
 * *SignInName*: the email address or the user principal name of the user.
 * *TenantName*: name of the RD Tenant.
@@ -625,12 +625,12 @@ Console Output: list of return objects with blank line in between each.
 
 For example, a Windows Virtual Desktop Deployment (acmedeployment1) has two RD tenants (contosotenant1 and contosotenant2) and one RD host pool (hostpool1) under contosotenant1. The following users and roles are assigned:
 
-* jane@acme.com is assigned to the RDS Owner role on root of acmedeployment1
-* fred@acme.com is assigned to the RDS Contributor role on contosotenant1
-* john@acme.com is assigned RDS Contributor on contosotenant2
-* carmen@acme.com is assigned to the RDS Owner on hostpool1
-* brigitta@acme.com is assigned RDS Read access to the contosotenant1 diagnostics
-* AcmeScaling is a service principal assigned the RDS Contributor role on the root of acmedeployment1
+* jane@acme.com is assigned to the Remote Desktop Services Owner role on root of acmedeployment1
+* fred@acme.com is assigned to the Remote Desktop Services Contributor role on contosotenant1
+* john@acme.com is assigned Remote Desktop Services Contributor on contosotenant2
+* carmen@acme.com is assigned to the Remote Desktop Services Owner on hostpool1
+* brigitta@acme.com is assigned Remote Desktop Services Read access to the contosotenant1 diagnostics
+* AcmeScaling is a service principal assigned the Remote Desktop Services Contributor role on the root of acmedeployment1
 
 Jane@acme.com runs the following cmdlet with the following results.
 
@@ -916,8 +916,8 @@ The following table is a review checklist.
 
   VFuture: The subject of the assignment may be specified to filter the output. To specify a user, use SignInName or Azure AD ObjectId parameters. To specify a security group, use Azure AD ObjectId parameter. And to specify an Azure AD application, use ServicePrincipalName or ObjectId parameters.
 
-4. RDS Creator (simplified to just RDS Tenant Creator).
-5. RDS AppGroup Creator (Can be done by pre-creating an AppGroup, assigning user Owner of the AppGroup and then assigning user as Reader of HostPool).
+4. Remote Desktop Services Creator (simplified to just Remote Desktop Services Tenant Creator).
+5. Remote Desktop Services AppGroup Creator (Can be done by pre-creating an AppGroup, assigning user Owner of the AppGroup and then assigning user as Reader of HostPool).
 6. Removed AadTenantId from these cmdlets to simplify. This means we only support UPNs and ServicePrincipalNames from home AAD tenants. If we decide in future to add AadTenantId back in to support non-home AAD tenants, then we’ll also need to add AadTenantId to the Set-RdsContext cmdlet.
   
   >[!NOTE]

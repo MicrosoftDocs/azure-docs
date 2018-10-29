@@ -9,7 +9,7 @@
 - name: Tutorials
   items:
   - name: Set up Windows Virtual Desktop tenants
-    href: set-up-wvd-tenants.md
+    href: set-up-wvd-tenants-in-azure-active-directory.md
   - name: Create a host pool in Windows Virtual Desktop
     href: manage-host-pools.md
   - name: Connect to Microsoft Remote Services

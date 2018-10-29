@@ -1,6 +1,6 @@
 ---
 title: Create a host pool in Windows Virtual Desktop
-description: TBD.
+description: How to create a host pool in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 

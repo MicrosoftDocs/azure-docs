@@ -35,7 +35,7 @@ Follow these steps to deploy the client to your local PC.
 
 From the local PC, get the list of resources available to you by subscribing to the feed provided by your admin. Once you have the list, follow these steps:
 
-1. Start the RD client by running **RDClient.exe** from the folder you created above.
+1. Start the Remote Desktop client by running **RDClient.exe** from the folder you created above.
 2. Select **Add subscription**.
 3. Enter the URL provided by your admin.
 
