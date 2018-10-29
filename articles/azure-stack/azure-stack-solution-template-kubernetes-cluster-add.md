@@ -69,7 +69,7 @@ Add the following Ubuntu Server image to the Marketplace:
 
 1. Enter `UbuntuServer`.
 
-1. Select the newest version of the server. There are multiple 16.04 releases. Check the full version and ensure that you have that have the newest version:
+1. Select the newest version of the server. Check the full version and ensure that you have the newest version:
     - **Publisher**: Canonical
     - **Offer**: UbuntuServer
     - **Version**: 16.04.201806120
