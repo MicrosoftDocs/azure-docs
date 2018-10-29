@@ -40,17 +40,17 @@ You can configure and get information about alert rules using
 1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it.
 2. This step is different for SQL DB and elastic pools versus SQL DW: 
 
-   - **SQL DB & Elastic pools ONLY**: Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
+   - **SQL DB & Elastic pools ONLY**: Select **Alerts (Classic)** under the MONITORING section. The text and icon may vary slightly for different resources.  
    
-     ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertClassicButton.jpg)
   
    - **SQL DW ONLY**: Select **Monitoring** under the COMMON TASKS section. Click the **DWU Usage** graph.
 
      ![COMMON TASKS](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
 
-3. Select the **Add alert** command and fill in the fields.
+3. Select the **Add metric alert (classic)** button and fill in the fields.
    
-    ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.jpg)
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the **average** CPU has been above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the average CPU is below 80% over 5 minutes. The CPU measurement occurs every 1 minute. Consult the table below for supported time windows and the aggregation type that each alert uses- not all alerts use the average value.   
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
