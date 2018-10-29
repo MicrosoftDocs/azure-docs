@@ -20,7 +20,7 @@ Java Async SDK provides client-side logical representation to access Azure Cosmo
 
 Start with this list:
     1. Take a look at the [Common issues and workarounds] section in this article.
-    2. Our SDK is [open-source on github](https://github.com/Azure/azure-cosmosdb-java) and we have [issues section](https://github.com/Azure/azure-cosmosdb-java/issues) that we actively monitor. Check if there is any similar issue with a workaround already filed.
+    2. Our SDK is [open-source on github](https://github.com/Azure/azure-cosmosdb-java) and we have [issues section](https://github.com/Azure/azure-cosmosdb-java/issues) that we actively monitor. Check if you find any similar issue with a workaround already filed.
     3. Review [performance tips](performance-tips-async-java.md) and follow the suggested practices.
     4. Follow the rest of this article, if you didn't find a solution, file a [GitHub issue](https://github.com/Azure/azure-cosmosdb-java/issues).
 
@@ -42,7 +42,7 @@ Run the following command:
 ```bash
 ulimit -a
 ```
-The number of open files ("nofile") needs to be large enough, (at least as double as your connection pool size). Read more detail in [performance tips](performance-tips-async-java.md).
+The number of open files ("nofile") needs to be large enough (at least as double as your connection pool size). Read more detail in [performance tips](performance-tips-async-java.md).
 
 ##### <a name="snat"></a>Azure SNAT (PAT) Port Exhaustion
 
@@ -130,7 +130,7 @@ createObservable
             // ...
         );
 ```
-By using `observeOn(customScheduler)`, you are releasing the netty IO thread and switching the thread to your own custom thread provided by customScheduler. 
+By using `observeOn(customScheduler)`, you release the netty IO thread and switch to your own custom thread provided by customScheduler. 
 This modification will solve the problem, and you won't get `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
 ### Connection Pool Exhausted Issue
@@ -138,7 +138,7 @@ This modification will solve the problem, and you won't get `io.netty.handler.ti
 `PoolExhaustedException` is a client-side failure. If you get this failure often, that's indication that your app workload is higher than what the SDK connection pool can serve. Increasing connection pool size or distributing the load on multiple apps may help.
 
 ### Request Rate Too Large.
-This failure is a server side failure indicating that you consumed your provisioned throughput and should retry later. If you get this failure often, consider increasing the collection throughput.
+This failure is a server-side failure indicating that you consumed your provisioned throughput and should retry later. If you get this failure often, consider increasing the collection throughput.
 
 ### Failure in connecting to Cosmos DB Emulator
 
@@ -147,7 +147,7 @@ Cosmos DB emulator HTTPS certificate is self-signed. For SDK to work with emulat
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
 
-The async Java SDK uses SLF4j as the logging facade which supports logging into popular logging frameworks such as log4j and logback.
+The async Java SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
 
 For example, if you want to use log4j as the logging framework, add the following libs in your Java classpath:
 
