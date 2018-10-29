@@ -22,14 +22,14 @@ This article helps resolve the issue when you can't connect to an Azure virtual 
 
 ## Symptoms
 
-When you try to connect to a VM, you experience the following scenarios:
+When you try to connect to a virtual machine (VM), you experience the following scenarios:
 
-- The virtual machine (VM) screenshot shows that the operating system is fully loaded and waiting for credentials.
+- The VM screenshot shows that the operating system is fully loaded and waiting for credentials.
 - You receive the following error messages when you try to make a Microsoft Remote Desktop Protocol (RDP) connection:
 
   - The remote session was disconnected because there are no Remote Desktop license servers available to provide a license.
 
-  - No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and has not contacted at least a valid Windows Server 2008 license server. Select this message to open RD Session Host Server Configuration to use Licensing Diagnosis.
+  - No Remote Desktop license server is available. Remote Desktop Services will stop working because this computer is past its grace period and hasn't contacted at least a valid Windows Server 2008 license server. Select this message to open RD Session Host Server Configuration to use Licensing Diagnosis.
 
 However, you can connect to the VM normally by using an administrative session:
 
@@ -87,7 +87,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
         reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
        ```
 
-        If the **LicensingMode** value is set to any other value than 4, per user, then set the value to 4:
+        If the **LicensingMode** value is set to any value other than 4, per user, then set the value to 4:
 
          ```
         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode /t REG_DWORD /d 4
@@ -113,7 +113,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
         dism /ONLINE /Disable-feature /FeatureName:Licensing
        ```
 
-   5. Make sure that the VM can connect to the Remote Desktop license server. You can test the connectivity to the port 135 between the VM and the license server: 
+    5. Make sure that the VM can connect to the Remote Desktop license server. You can test the connectivity to the port 135 between the VM and the license server: 
 
        ```
        telnet <FQDN / IP License Server> 135
