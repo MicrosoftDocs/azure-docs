@@ -379,7 +379,7 @@ Azure virtual network TAP (Terminal Access Point) allows you to continuously str
 
 Learn more:
 
-* [Virtual network TAP](../virtual-network/virtual-network-tap-overview#virtual-network-tap-partner-solutions.md)
+* [Virtual network TAP](../virtual-network/virtual-network-tap-overvie.mdw#virtual-network-tap-partner-solutions)
 
 ### Logging
 
