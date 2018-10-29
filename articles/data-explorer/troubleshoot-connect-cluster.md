@@ -26,4 +26,4 @@ If you're not able to connect to a cluster in Azure Data Explorer, follow these 
 
     If the status isn't **Good** (green check mark), try connecting to the cluster after the status improves.
 
-1. If you still need assistance solving your issue, please open a support request in the [Azure portal](https://portal.azure.com).
+1. If you still need assistance solving your issue, please open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

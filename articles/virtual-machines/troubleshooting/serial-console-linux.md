@@ -215,5 +215,6 @@ A. Yes. Serial console does not require SSH keys, so all you have to do is set u
 ## Next steps
 * Use Serial Console to [boot into GRUB and enter single user mode](serial-console-grub-single-user-mode.md)
 * Use Serial Console for [NMI and SysRq calls](serial-console-nmi-sysrq.md)
+* Learn how to use Serial Console to [enable GRUB in various distros](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * The Serial Console is also available for [Windows](../windows/serial-console.md) VMs
 * Learn more about [boot diagnostics](boot-diagnostics.md)

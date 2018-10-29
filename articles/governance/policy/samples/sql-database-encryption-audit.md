@@ -6,7 +6,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.author: dacoulte
 ms.custom: mvc
 ---
@@ -20,33 +20,30 @@ This built-in policy audits if SQL database does not have transparent data encry
 
 ```json
 {
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Sql/servers/databases"
-      },
-      {
-        "field": "name",
-        "notEquals": "master"
-      }
-    ]
-  },
-  "then": {
-    "effect": "AuditIfNotExists",
-    "details": {
-      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-      "name": "current",
-      "existenceCondition": {
-        "allOf": [
-          {
-            "field": "Microsoft.Sql/transparentDataEncryption.status",
-            "equals": "enabled"
-          }
+    "if": {
+        "allOf": [{
+                "field": "type",
+                "equals": "Microsoft.Sql/servers/databases"
+            },
+            {
+                "field": "name",
+                "notEquals": "master"
+            }
         ]
-      }
+    },
+    "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "current",
+            "existenceCondition": {
+                "allOf": [{
+                    "field": "Microsoft.Sql/transparentDataEncryption.status",
+                    "equals": "enabled"
+                }]
+            }
+        }
     }
-  }
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Provision a simulated X.509 device to Azure IoT Hub using C# | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated X.509 device using C# device SDK for Azure IoT Hub Device Provisioning Service 
+description: Azure Quickstart - Create and provision a simulated X.509 device using C# device SDK for Azure IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/18
@@ -17,7 +17,13 @@ ms.custom: mvc
 
 These steps show you how to build the [Azure IoT Hub C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) simulated X.509 device sample on a development machine running Windows OS and connect the simulated device with the Device Provisioning Service and your IoT hub.
 
-If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article will demonstrate individual enrollments.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -38,8 +44,8 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
 
-* Self-signed certificates are for testing only, and should not to be used in production.
-* The default expiration date for a self-signed certificate is 1 year.
+* Self-signed certificates are for testing only, and should not be used in production.
+* The default expiration date for a self-signed certificate is one year.
 
 You will use sample code from the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) to create the certificate to be used with the individual enrollment entry for the simulated device.
 
@@ -61,7 +67,7 @@ You will use sample code from the [Azure IoT SDK for .NET](https://github.com/Az
     ![ Enter the PFX password](./media/quick-create-simulated-device-x509-csharp/generate-certificate.png)  
 
 
-4. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
+4. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
 5. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
@@ -91,7 +97,7 @@ You will use sample code from the [Azure IoT SDK for .NET](https://github.com/Az
     dotnet run <IDScope>
     ```
 
-3. When prompted enter the password for the PFX file that you created previously. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. 
+3. When prompted, enter the password for the PFX file that you created previously. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. 
 
     ![Sample device output](./media/quick-create-simulated-device-x509-csharp/sample-output.png) 
 
