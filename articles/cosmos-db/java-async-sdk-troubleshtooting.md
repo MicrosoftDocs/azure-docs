@@ -46,10 +46,11 @@ The number of open files ("nofile") needs to be large enough, (at least as doubl
 
 ##### <a name="snat"></a>Azure SNAT (PAT) Port Exhaustion
 
-If your app is deployed on Azure VM, by default [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used to establish connections to any endpoints outside of your VM. The number of connections allowed from the VM to the Cosmos DB endpoint is also limited by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
-There are two workarounds to avoid Azure SNAT limitation:
+If your app is deployed on Azure VM, by default [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used to establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Cosmos DB endpoint is limited by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+
+The Azure SNAT ports are used only when your Azure VM has a private IP address and a process from the VM attempts to establish a connection to a public IP address. So, there are two workarounds to avoid Azure SNAT limitation:
     * Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
-    * Assign a public IP to your Azure VM. The Azure SNAT ports are used only when your Azure VM has a private IP address.
+    * Assign a public IP to your Azure VM.
 
 #### Http Proxy
 
@@ -141,7 +142,7 @@ This failure is a service side failure indicating that you consumed your provisi
 
 ### Failure in connecting to Cosmos DB Emulator
 
-Cosmos DB emulator HTTPS certificate is self-signed. For SDK to work with emulator you should import the emulator certificate to Java TrustStore. As explained [here](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator-export-ssl-certificates).
+Cosmos DB emulator HTTPS certificate is self-signed. For SDK to work with emulator you should import the emulator certificate to Java TrustStore. As explained [here](local-emulator-export-ssl-certificates.md).
 
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
