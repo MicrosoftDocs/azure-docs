@@ -107,6 +107,8 @@
     href: receive-events.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
+  - name: Filter events
+    href: filter-events.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
