@@ -1,16 +1,15 @@
 ---
-title: 'Prepare the target environment (VMware/Physical to Azure) | Microsoft Docs'
-description: This article describes how to prepare your target Azure environment for VMware VM replication and Physical Servers replication to Azure.
-services: site-recovery
+title: Prepare the target environment for disaster recovery of VMware VMs and physical servers to Azure | Microsoft Docs'
+description: This article describes how to prepare your target Azure environment for disaster recovery of VMware VMs and physical servers to Azure.
 author: bsiva
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: bsiva
 ---
 
-# Prepare the target environment (VMware/Physical to Azure)
+# Prepare the target environment for disaster recovery of VMware VMs or physical servers to Azure
 
 This article describes how to prepare your target Azure environment to start replicating VMware virtual machines or physical servers to Azure.
 
