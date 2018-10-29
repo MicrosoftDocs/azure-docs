@@ -31,6 +31,9 @@ You can locate the error messages associated with the workflow by:
 msgen status -u URL -k KEY -w ID 
 ```
 
+
+
+
 There are three required arguments:
 
 * URL - the base URI for the API
@@ -39,17 +42,16 @@ There are three required arguments:
 
     * Alternatively you can include the path to the config file instead of directly entering the URL and KEY. Note that if you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.
 * ID - the workflow ID
-    * To  find your workflow ID type in `msgen list` command. Assuming your config file is in the same location as your msgen exe, this will look like this: Be sure to include the  URI and keys in the config file :
+> [!NOTE]
+> To  find your workflow ID type in `msgen list` command. Assuming your config file  contains the URL and your access keys, and is located is in the same location as your msgen exe, the command will look  like this: 
 
-        ```bash
-        msgen list -f "config.txt"
-        ```
+```bash
+msgen list -f "config.txt"
+```
+Output from this command will look like this :
 
-        A Sample output from this command will look like this:
-        
-        ```bash
-        c:\Python27\Scripts> msgen list -f "config.txt"
-        Microsoft Genomics command-line client v0.7.4
+```bash
+	Microsoft Genomics command-line client v0.7.4
         Copyright (c) 2018 Microsoft. All rights reserved.
         
         Workflow List
@@ -65,7 +67,8 @@ There are three required arguments:
         End Date        : Mon, 27 Aug 2018 20:55:12 GMT
         Wall Clock Time : 0h 27m 48s
         Bases Processed : 1,348,613,600 (1 GBase)
-        ```
+```
+
 ### 2.  Examine the contents of standardoutput.txt 
 Locate the output container for the workflow in question. MSGEN creates a,   `[workflowfilename].logs.zip` folder after every workflow execution. Unzip the folder to view its contents:
 
