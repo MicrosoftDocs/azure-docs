@@ -23,9 +23,6 @@ Azure Cosmos DB is a globally distributed, multi-model database service. You can
 
 Once an Azure Cosmos DB account is configured with a virtual network service endpoint, it can be accessed only from the specified subnet, all public/internet access is removed. To learn in detailed about service endpoints, refer to the Azure [Virtual network service endpoints overview](../virtual-network/virtual-network-service-endpoints-overview.md) article.
 
-> [!NOTE]
-> Currently Virtual Network service endpoints can be configured for Azure Cosmos DB SQL API or Mongo API accounts. Ability to configure service endpoints for other  APIs and sovereign clouds such as Azure Germany or Azure Government will be available soon. If you have an existing IP firewall configured for your Azure Cosmos DB account, please note the firewall configuration, remove the IP firewall and then configure the service endpoint ACL. After you configure service endpoint, you can re-enable the IP firewall if needed.
-
 ## Configure service endpoint by using Azure portal
 ### Configure service endpoint for an existing Azure virtual network and subnet
 
@@ -56,8 +53,8 @@ Now your Azure Cosmos DB account will only allow traffic from this chosen subnet
 
 1. From **All resources** blade, find the Azure Cosmos DB account you want to secure.  
 
-> [!NOTE]
-> If you have an existing IP firewall configured for your Azure Cosmos DB account, please note the firewall configuration, remove the IP firewall and then enable the Service endpoint. If you enable the Service endpoint without disbling the firewall, the traffic from that ip range will loose the virtual IP identity and it's dropped with an IP filter error message. So to prevent this error you should always disable the firewall rules, copy them, enable service endpoint from the subnet and finally ACL the subnet from Cosmos DB. After you configure service endpoint and add the ACL you can re-enable the IP firewall again if needed.
+   > [!NOTE]
+   > If you have an existing IP firewall configured for your Azure Cosmos DB account, please note the firewall configuration, remove the IP firewall and then enable the Service endpoint. If you enable the Service endpoint without disbling the firewall, the traffic from that ip range will loose the virtual IP identity and it's dropped with an IP filter error message. So to prevent this error you should always disable the firewall rules, copy them, enable service endpoint from the subnet and finally ACL the subnet from Cosmos DB. After you configure service endpoint and add the ACL you can re-enable the IP firewall again if needed.
 
 2. Before enabling virtual network service endpoint, copy the IP firewall information associated with your Azure Cosmos DB account for future usage. You can re-enable IP firewall after configuring service endpoint.  
 
@@ -77,7 +74,7 @@ After Azure Virtual Network service endpoints are enabled for your Azure Cosmos 
 
 If your Azure Cosmos DB account is used by other Azure services like Azure Search, or accessed from Stream analytics or Power BI, you allow access by checking **Allow access to Azure Services**.
 
-To ensure you have access to Azure Cosmos DB metrics from the portal, you need to enable **Allow access to Azure portal** options. To learn more about these options, see [connections from Azure portal](firewall-support.md#connections-from-the-azure-portal) and [connections from Azure PaaS services](firewall-support.md#connections-from-other-azure-paas-services) sections. After selecting access, select **Save** to save the settings.
+To ensure you have access to Azure Cosmos DB metrics from the portal, you need to enable **Allow access to Azure portal** options. To learn more about these options, see [connections from Azure portal](firewall-support.md#connections-from-the-azure-portal) and [connections from Azure PaaS services](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services) sections. After selecting access, select **Save** to save the settings.
 
 ## Remove a virtual network or subnet 
 
@@ -97,9 +94,8 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
 
 1. Install the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) and [Login](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Ensure you note the IP firewall settings and delete the IP firewall completely before enabling Service endpoint for the account.
 
-
-> [!NOTE]
-> If you have an existing IP firewall configured for your Azure Cosmos DB account, please note the firewall configuration, remove the IP firewall and then enable the Service endpoint. If you enable the Service endpoint without disbling the firewall, the traffic from that ip range will loose the virtual IP identity and it's dropped with an IP filter error message. So to prevent this error you should always disable the firewall rules, copy them, enable service endpoint from the subnet and finally ACL the subnet from Cosmos DB. After you configure service endpoint and add the ACL you can re-enable the IP firewall again if needed.
+  > [!NOTE]
+  > If you have an existing IP firewall configured for your Azure Cosmos DB account, please note the firewall configuration, remove the IP firewall and then enable the Service endpoint. If you enable the Service endpoint without disbling the firewall, the traffic from that ip range will loose the virtual IP identity and it's dropped with an IP filter error message. So to prevent this error you should always disable the firewall rules, copy them, enable service endpoint from the subnet and finally ACL the subnet from Cosmos DB. After you configure service endpoint and add the ACL you can re-enable the IP firewall again if needed.
 
 2. Before enabling virtual network service endpoint, copy the IP firewall information associated with your Azure Cosmos DB account for future usage. You will re-enable IP firewall after configuring service endpoint.  
 
@@ -122,16 +118,17 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
 4. Get ready for the enablement of ACL on the CosmosDB Account by making sure that the virtual network and subnet have service endpoint enabled for Azure Cosmos DB.
 
    ```powershell
-   $subnet = Get-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName  | Get-AzureRmVirtualNetworkSubnetConfig -Name $sname
-   $vnProp = Get-AzureRmVirtualNetwork `-Name $vnName  -ResourceGroupName $rgName
+   $vnProp = Get-AzureRmVirtualNetwork `
+     -Name $vnName  -ResourceGroupName $rgName
    ```
 
 5. Get properties of Azure Cosmos DB account by running the following cmdlet:  
 
    ```powershell
-   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+   $apiVersion = "2015-04-08"
+   $acctName = "<Azure Cosmos DB account name>"
+
+   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -141,15 +138,24 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $subnetName  
+   $subnetID = $vnProp.Id+"/subnets/" + $sname  
    $virtualNetworkRules = @(@{"id"=$subnetID})
    $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
    ```
@@ -163,8 +169,8 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
    $cosmosDBProperties['virtualNetworkRules'] = $virtualNetworkRules
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
-   Set-AzureRmResource ``
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+   Set-AzureRmResource `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName -Properties $CosmosDBProperties
@@ -174,7 +180,7 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -216,7 +222,7 @@ Yes, virtual networks created in different regions can access by the new capabil
 
 Yes, Virtual Network Service endpoint and a firewall can co-exist. In general, you should ensure that access to portal is always enabled before configuring a virtual network service endpoint to enable you to view the metrics associated with the container.
 
-### Can I "allow access to other Azure services from a given Azure region" when service endpoint access is enabled for Azure Cosmos DB?  
+### Can I "Accept connections from within public Azure datacenters" when service endpoint access is enabled for Azure Cosmos DB?  
 
 This is required only when you want your Azure Cosmos DB account to be accessed by other Azure first party services like Azure Data factory, Azure Search or any service that is deployed in given Azure region.
 
@@ -236,9 +242,9 @@ To learn more about NSG tags see [virtual network service tags](../virtual-netwo
 
 These two features complement each other to ensure isolation of Azure Cosmos DB assets and secure them. Using IP firewall ensures that static IPs can access Azure Cosmos DB account.  
 
-### Can an on-premise device’s IP address that is connected through Azure Virtual Network gateway(VPN) or Express route gateway access Azure Cosmos DB account?  
+### Can an on-premises device’s IP address that is connected through Azure Virtual Network gateway(VPN) or Express route gateway access Azure Cosmos DB account?  
 
-The on-premise device’s IP address or IP address range should be added to the list of static IPs’ in order to access the Azure Cosmos DB account.  
+The on-premises device’s IP address or IP address range should be added to the list of static IPs’ in order to access the Azure Cosmos DB account.  
 
 ### What happens if you delete a virtual network that has service endpoint setup for Azure Cosmos DB?  
 
@@ -260,7 +266,7 @@ When virtual network service endpoints are enabled, the source IP addresses of r
 
 Azure Cosmos DB is a multi-tenant service with a public IP address. When you restrict access to a subnet of an Azure Virtual network by using the service endpoint feature, access is restricted for your Azure Cosmos DB account through the given Azure Virtual Network and its subnet.  Azure Cosmos DB account does not reside in that Azure Virtual Network. 
 
-### What if anything will be logged in Log Analytics/OMS if it is enabled?  
+### What if anything will be logged in Log Analytics if it is enabled?  
 
 Azure Cosmos DB will push logs with IP address (without the last octet) with status 403 for request blocked by ACL.  
 

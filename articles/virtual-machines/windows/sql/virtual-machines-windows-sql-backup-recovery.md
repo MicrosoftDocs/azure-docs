@@ -18,7 +18,7 @@ ms.author: mikeray
 ---
 # Backup and Restore for SQL Server in Azure Virtual Machines
 
-This article provides guidance on the backup and restore options available for SQL Server running in Windows Azure Virtual Machines. Azure Storage maintains three copies of every Azure VM disk to guarantee protection against data loss or physical data corruption. Thus, unlike on-premises, you don't need to focus on hardware failures. However, you should still backup your SQL Server databases to protect against application or user errors, such as inadvertent data insertions or deletions. In this situation, it is important to be able to restore to a specific point in time.
+This article provides guidance on the backup and restore options available for SQL Server running in a Windows virtual machine in Azure. Azure Storage maintains three copies of every Azure VM disk to guarantee protection against data loss or physical data corruption. Thus, unlike on-premises, you don't need to focus on hardware failures. However, you should still backup your SQL Server databases to protect against application or user errors, such as inadvertent data insertions or deletions. In this situation, it is important to be able to restore to a specific point in time.
 
 The first part of this article provides an overview of the available backup and restore options. This is followed by sections that provide more information on each strategy.
 
@@ -36,7 +36,7 @@ The following sections describe each option in more detail. The final section of
 
 ## <a id="autoamted"></a> Automated Backup
 
-Automated Backup provides an automatic backup service for SQL Server Standard and Enterprise editions running in a Windows Azure VM. This service is provided by the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md), which is automatically installed on SQL Server Windows virtual machine images in the Azure portal.
+Automated Backup provides an automatic backup service for SQL Server Standard and Enterprise editions running in a Windows VM in Azure. This service is provided by the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md), which is automatically installed on SQL Server Windows virtual machine images in the Azure portal.
 
 All databases are backed up to an Azure storage account that you configure. Backups can be encrypted and retained for up to 30 days.
 
@@ -78,8 +78,8 @@ This Azure Backup solution for SQL VMs is currently in public preview. For more 
 
 If you want to manually manage backup and restore operations on your SQL VMs, there are several options depending on the version of SQL Server you are using. For an overview of backup and restore, see one of the following articles based on your version of SQL Server:
 
-- [Backup and Restore for SQL Server 2016 and later](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [Backup and Restore for SQL Server 2014](https://msdn.microsoft.com/en-us/library/ms187048%28v=sql.120%29.aspx)
+- [Backup and Restore for SQL Server 2016 and later](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [Backup and Restore for SQL Server 2014](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
 - [Backup and Restore for SQL Server 2012](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
 - [Backup and Restore for SQL Server SQL Server 2008 R2](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
 - [Backup and Restore for SQL Server 2008](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
@@ -99,7 +99,7 @@ Beginning with SQL Server 2012 SP1 CU2, you can back up and restore directly to 
 | 2016 Enhancement | Details |
 | --- | --- |
 | **Striping** |When backing up to Microsoft Azure blob storage, SQL Server 2016 supports backing up to multiple blobs to enable backing up large databases, up to a maximum of 12.8 TB. |
-| **Snapshot Backup** |Through the use of Azure snapshots, SQL Server File-Snapshot Backup provides nearly instantaneous backups and rapid restores for database files stored using the Azure Blob storage service. This capability enables you to simplify your backup and restore policies. File-snapshot backup also supports point in time restore. For more information, see [Snapshot Backups for Database Files in Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Snapshot Backup** |Through the use of Azure snapshots, SQL Server File-Snapshot Backup provides nearly instantaneous backups and rapid restores for database files stored using the Azure Blob storage service. This capability enables you to simplify your backup and restore policies. File-snapshot backup also supports point in time restore. For more information, see [Snapshot Backups for Database Files in Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
 For more information, see the one of the following articles based on your version of SQL Server:
 
@@ -138,7 +138,7 @@ The following table summarizes the capabilities of each backup and restore optio
 | Backup to attached disks on the VM |   |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Central customizable backup reports |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Consolidated email alerts for failures |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Customize monitoring based on OMS |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Customize monitoring based on Log Analytics |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Monitor backup jobs with SSMS or Transact-SQL scripts | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Restore databases with SSMS or Transact-SQL scripts | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 

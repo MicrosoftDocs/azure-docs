@@ -2072,7 +2072,7 @@ Declares service instances that are automatically created whenever an applicatio
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -2093,7 +2093,7 @@ Declares service instances that are automatically created whenever an applicatio
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -3505,7 +3505,7 @@ The upgrade domain of this node.
 |use|optional|
 
 ## FileStoreETWType complexType
-Describes a file store destination for ETW events. Works only in on-premise environment.
+Describes a file store destination for ETW events. Works only in on-premises environment.
 
 |Attribute|Value|
 |---|---|
@@ -3517,7 +3517,7 @@ Describes a file store destination for ETW events. Works only in on-premise envi
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FileStoreETWType">
     <xs:annotation>
-      <xs:documentation>Describes a file store destination for ETW events. Works only in on-premise environment.</xs:documentation>
+      <xs:documentation>Describes a file store destination for ETW events. Works only in on-premises environment.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="FileStoreType">

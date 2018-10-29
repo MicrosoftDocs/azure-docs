@@ -5,13 +5,13 @@ description: This describes how to change user settings such as forcing the user
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Manage user settings with Azure Multi-Factor Authentication in the cloud
@@ -72,4 +72,4 @@ The **Restore multi-factor authentication on all remembered devices** setting me
 
 - Get more information about how to [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
 
-- If your users need help, point them towards the [User guide for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+- If your users need help, point them towards the [User guide for two-step verification](../user-help/multi-factor-authentication-end-user.md)

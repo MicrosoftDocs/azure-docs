@@ -1,20 +1,20 @@
 ---
-title: Network topologies for Azure SQL DB Managed Instance migrations using the Azure Database Migration Service | Microsoft Docs
+title: Network topologies for Azure SQL Database Managed Instance migrations using the Azure Database Migration Service | Microsoft Docs
 description: Learn the source and target configurations for Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: 
 ms.reviewer: 
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 10/10/2018
 ---
 
 # Network topologies for Azure SQL DB Managed Instance migrations using the Azure Database Migration Service
-In this article, you will learn about various network topologies that the Azure Database Migration Service can work with to provide a seamless migration experience from on-premises SQL Servers to Azure SQL Database Managed Instance.
+This article discusses various network topologies that the Azure Database Migration Service can work with to provide a comprehensive migration experience from on-premises SQL Servers to Azure SQL Database Managed Instance.
 
 ## Azure SQL Database Managed Instance configured for Hybrid workloads 
 Use this topology if your Azure SQL Database Managed Instance is connected to your on-premises network. This approach provides the most simplified network routing and yields maximum data throughput during the migration.
@@ -35,7 +35,7 @@ Use this network topology if your environment requires one or more of the follow
 
 **Requirements**
 - The VNET that Azure Database Migration Service uses for this scenario must also be connected to the on-premises network by using either (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- You must set up [VNET network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the VNET used for Azure SQL Database Managed Instance and the Azure Database Migration Service.
+- Set up [VNET network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the VNET used for Azure SQL Database Managed Instance and the Azure Database Migration Service.
 
 
 ## Cloud-to-cloud migrations: shared VNET
@@ -57,7 +57,7 @@ Use this network topology if your environment requires one or more of the follow
 ![Network Topology for Cloud-to-Cloud migrations with an isolated vnet](media\resource-network-topologies\cloud-to-cloud-isolated.png)
 
 **Requirements**
-- You must set up [VNET network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the VNET used for Azure SQL Database Managed Instance and the Azure Database Migration Service.
+- Set up [VNET network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the VNET used for Azure SQL Database Managed Instance and the Azure Database Migration Service.
 
 
 ## See Also

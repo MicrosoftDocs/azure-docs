@@ -2,7 +2,7 @@
 title: "MongoDB, Angular, and Node tutorial for Azure - Part 6 | Microsoft Docs"
 description: Part 6 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
 services: cosmos-db
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
 
@@ -10,8 +10,8 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
-ms.author: sngun
+ms.date: 06/17/2018
+ms.author: jopapa
 ms.custom: mvc
 
 ---
@@ -50,7 +50,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
    ```javascript
    function postHero(req, res) {
-     const originalHero = { id: req.body.id, name: req.body.name, saying: req.body.saying };
+     const originalHero = { uid: req.body.uid, name: req.body.name, saying: req.body.saying };
      const hero = new Hero(originalHero);
      hero.save(error => {
        if (checkServerError(res, error)) return;
@@ -101,11 +101,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 1. In **routes.js**, add the `put` and `delete` routers after the post router.
 
     ```javascript
-    router.put('/hero/:id', (req, res) => {
+    router.put('/hero/:uid', (req, res) => {
       heroService.putHero(req, res);
     });
 
-    router.delete('/hero/:id', (req, res) => {
+    router.delete('/hero/:uid', (req, res) => {
       heroService.deleteHero(req, res);
     });
     ```
@@ -118,11 +118,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
    ```javascript
    function putHero(req, res) {
      const originalHero = {
-       id: parseInt(req.params.id, 10),
+       uid: parseInt(req.params.uid, 10),
        name: req.body.name,
        saying: req.body.saying
      };
-     Hero.findOne({ id: originalHero.id }, (error, hero) => {
+     Hero.findOne({ uid: originalHero.uid }, (error, hero) => {
        if (checkServerError(res, error)) return;
        if (!checkFound(res, hero)) return;
 
@@ -137,8 +137,8 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
    }
 
    function deleteHero(req, res) {
-     const id = parseInt(req.params.id, 10);
-     Hero.findOneAndRemove({ id: id })
+     const uid = parseInt(req.params.uid, 10);
+     Hero.findOneAndRemove({ uid: uid })
        .then(hero => {
          if (!checkFound(res, hero)) return;
          res.status(200).json(hero);

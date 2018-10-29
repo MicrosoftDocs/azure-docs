@@ -4,9 +4,9 @@ description: Learn how to use Ansible to manage your Azure dynamic inventories
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
 ---
 
@@ -26,6 +26,9 @@ Ansible can be used to pull inventory information from various sources (includin
 1. Open [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Create an Azure resource group to hold the virtual machines for this tutorial.
+
+    > [!IMPORTANT]	
+    > The Azure resource group you create in this step must have a name that is entirely lower-case. Otherwise, the generation of the dynamic inventory will fail.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -52,7 +55,7 @@ Ansible can be used to pull inventory information from various sources (includin
 ## Tag a virtual machine
 You can [use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories. 
 
-Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
+Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
 
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
@@ -129,25 +132,26 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 1. Insert the following code into the newly created `nginx.yml` file:
 
     ```yml
+    ---
     - name: Install and start Nginx on an Azure virtual machine
     hosts: azure
     become: yes
     tasks:
     - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+      apt: pkg=nginx state=installed
+      notify:
+      - start nginx
 
     handlers:
     - name: start nginx
-        service: name=nginx state=started
+      service: name=nginx state=started
     ```
 
 1. Run the `nginx.yml` playbook:
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook -i azure_rm.py nginx.yml
+    ```
 
 1. Once you run the playbook, you see results similar to the following output:
 
@@ -170,7 +174,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 ## Test Nginx installation
 This section illustrates one technique to test that Nginx is installed on your virtual machine.
 
-1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_ip_addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
+1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
     ```azurecli-interactive
     ssh `az vm list-ip-addresses \
@@ -178,7 +182,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. The [nginx -v](https://nginx.org/en/docs/switches.html) command is generally used to print the Nginx version. However, it can also be used to determine if Nginx is installed. Enter it while connected to the `ansible-inventory-test-vm1` virtual machine.
+1. While connected to the `ansible-inventory-test-vm1` virtual machine, run the [nginx -v](https://nginx.org/en/docs/switches.html) command to determine if Nginx is installed.
 
     ```azurecli-interactive
     nginx -v

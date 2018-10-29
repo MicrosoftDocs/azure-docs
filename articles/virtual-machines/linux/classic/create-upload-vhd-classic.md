@@ -3,7 +3,7 @@ title: Create and upload a Linux VHD to Azure | Microsoft Docs
 description: Create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system using the Classic deployment model
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System

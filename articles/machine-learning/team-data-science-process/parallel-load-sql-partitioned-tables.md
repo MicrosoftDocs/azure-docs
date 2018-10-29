@@ -166,7 +166,7 @@ The following PowerShell script is an example of parallel data loading using BCP
 
 ## Create indexes to optimize joins and query performance
 * If you extract data for modeling from multiple tables, create indexes on the join keys to improve the join performance.
-* [Create indexes](https://technet.microsoft.com/library/ms188783.aspx) (clustered or non-clustered) targeting the same filegroup for each partition, for for example:
+* [Create indexes](https://technet.microsoft.com/library/ms188783.aspx) (clustered or non-clustered) targeting the same filegroup for each partition, for example:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)

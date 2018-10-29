@@ -63,14 +63,10 @@ Azure Cosmos DB exposes resources through the REST APIs that can be called by an
 
 | Download | Documentation |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](http://azure.github.io/azure-documentdb-node/) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](/java/api/com.microsoft.azure.documentdb) |
-| [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript library](http://azure.github.io/azure-documentdb-js/) |
-| n/a |[Server-side JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python library](http://azure.github.io/azure-documentdb-python/) |
-| n/a | [API for MongoDB](mongodb-introduction.md)
-
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET reference docs](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java reference docs](/java/api/com.microsoft.azure.documentdb) |
+| [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) |[JavaScript reference docs](https://docs.microsoft.com/javascript/api/@azure/cosmos/?view=azure-node-latest) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python reference docs](https://github.com/Azure/azure-cosmos-python) |
 
 Using the [Azure Cosmos DB Emulator](local-emulator.md), you can develop and test your application locally with the SQL API, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 

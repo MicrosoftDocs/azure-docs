@@ -1,25 +1,22 @@
 ---
-title: 'How to get support for Azure Active Directory | Microsoft Docs'
-description: How to get support for Azure Active Directory
+title: How to get support for Azure Active Directory | Microsoft Docs
+description: Learn how to get support for Azure Active Directory.
 services: active-directory
 documentationcenter: na
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.component: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-
 ---
-# How to get support for Azure Active Directory
 
-
+# How to: Get support for Azure Active Directory
 Microsoft provides global technical, pre-sales, billing, and subscription support for Azure Active Directory (Azure AD). Support is available both online and by phone for Microsoft Azure paid and trial subscriptions. Phone support and online billing support are available in additional languages. 
 
 ## Find help without opening a support ticket

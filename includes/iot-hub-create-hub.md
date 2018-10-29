@@ -10,16 +10,17 @@
  ms.custom: include file
 ---
 
-1. Sign in to the [Azure portal][lnk-portal].
-1. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
-   
-    ![Screenshot of Azure portal navigation to IoT Hub][1]
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the **IoT hub** pane, enter the following information for your IoT hub:
+2. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
+   
+    ![Screenshot of Azure portal navigation to IoT Hub](./media/iot-hub-create-hub/create-iot-hub1.png)
+
+3. In the **IoT hub** pane, enter the following information for your IoT hub:
 
    * **Subscription**: Choose the subscription that you want to use to create this IoT hub.
 
-   * **Resource group**: Create a resource group to host the IoT hub or use an existing one. For more information, see [Use resource groups to manage your Azure resources][lnk-resource-groups].
+   * **Resource group**: Create a resource group to host the IoT hub or use an existing one. For more information, see [Use resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-portal.md).
 
    * **Region**: Select the closest location to you.
 
@@ -27,22 +28,14 @@
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![IoT Hub basics window][2]
+   ![IoT Hub basics window](./media/iot-hub-create-hub/create-iot-hub2.png)
 
-2. Select **Next: Size and scale** to continue creating your IoT hub. 
+4. Select **Next: Size and scale** to continue creating your IoT hub. 
 
-3. Choose your **Pricing and scale tier**. For this article, select the **F1 - Free** tier if it's still available on your subscription. For more information, see the [Pricing and scale tier][lnk-pricing].
+5. Choose your **Pricing and scale tier**. For this article, select the **F1 - Free** tier if it's still available on your subscription. For more information, see the [Pricing and scale tier](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![IoT Hub size and scale window][3]
+   ![IoT Hub size and scale window](./media/iot-hub-create-hub/create-iot-hub3.png)
 
-4. Select **Review + create**.
+6. Select **Review + create**.
 
-1. Review your IoT hub information, then click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
-<!-- Images -->
-[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-create-hub/create-iot-hub3.png
-<!-- Links -->
-[lnk-portal]: https://portal.azure.com/
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
+7. Review your IoT hub information, then click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.

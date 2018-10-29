@@ -1,8 +1,8 @@
 ---
 title: Supported connections with IT Service Management Connector in Azure Log Analytics | Microsoft Docs
-description: This article provides information about how to connect your ITSM products/services with the IT Service Management Connector (ITSMC) in OMS Log Analytics to centrally monitor and manage the ITSM work items.
+description: This article provides information about how to connect your ITSM products/services with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage the ITSM work items.
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
@@ -10,9 +10,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
+ms.component: 
 ---
 
 # Connect ITSM products/services with IT Service Management Connector
@@ -70,7 +71,7 @@ Use the following procedure to connect your System Center Service Manager instan
 | **Client Secret**   | Type the client secret, generated for this ID.   |
 | **Data Sync Scope**   | Select the Service Manager work items that you want to sync through ITSMC.  These work items are imported into Log Analytics. **Options:**  Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
-| **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
+| **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, Log Analytics creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
 ![Service manager connection](./media/log-analytics-itsmc/service-manager-connection.png)
 
@@ -186,14 +187,14 @@ Ensure the following prerequisites are met:
 **ServiceNow Admins must do the following in their ServiceNow instance**:
 - Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see the following information as required:
 
-    - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+    - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 	- [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Install the User App for Microsoft OMS integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Install the User App for Microsoft Log Analytics integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
 
 ### **Connection procedure**
@@ -215,7 +216,7 @@ Use the following procedure to create a ServiceNow connection:
 
 | **Field** | **Description** |
 | --- | --- |
-| **Connection Name**   | Type a name for the ServiceNow instance that you want to connect with ITSMC.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
+| **Connection Name**   | Type a name for the ServiceNow instance that you want to connect with ITSMC.  You use this name later in Log Analytics when you configure work items in this ITSM/ view detailed log analytics. |
 | **Partner type**   | Select **ServiceNow**. |
 | **Username**   | Type the integration user name that you created in the ServiceNow app to support the connection to ITSMC. More information: [Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app).|
 | **Password**   | Type the password associated with this user name. **Note**: User name and password are used for generating authentication tokens only, and are not stored anywhere within the ITSMC service.  |
@@ -241,6 +242,9 @@ Learn more: [Create ITSM work items from Azure alerts](log-analytics-itsmc-overv
 User the following procedure:
 
 1.	Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
+   
+   >[!NOTE]
+   >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS is now referred to as Log Analytics.     
 2.	After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
 3.	Click **Installation Checklist**.
 

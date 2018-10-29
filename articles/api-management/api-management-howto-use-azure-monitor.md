@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 ---
 # Monitor published APIs
@@ -32,8 +32,6 @@ In this tutorial, you learn how to:
 The following video shows how to monitor API Management using Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
 ## Prerequisites
 
@@ -51,15 +49,16 @@ API Management emits metrics every minute, giving you near real-time visibility 
 * Unauthorized Gateway Requests: the number of API requests that received HTTP response codes including 401, 403, and 429.
 * Other Gateway Requests: the number of API requests that received HTTP response codes that do not belong to any of the preceding categories (for example, 418).
 
+![metrics chart](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 To access metrics:
 
 1. Select **Metrics** from the menu near the bottom of the page.
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. From the drop-down, select metrics you are interested in (you can add multiple metrics).  
-    For example, select **Total Gateway Requests** and **Failed Gateway Requests** from the list of available metrics.
-3. The chart shows the total number of API calls. It also shows the number of API calls that failed.
+2. From the drop-down, select metrics you are interested in. For example, **Successful Gateway Requests**. You can also add more metrics to the chart.
+3. The chart shows the total number of successful API calls.
 
 ## Set up an alert rule for unauthorized request
 
@@ -96,12 +95,16 @@ Activity logs provide insight into the operations that were performed on your AP
 
 You can access activity logs in your API Management service, or access logs of all your Azure resources in Azure Monitor. 
 
+![activity logs](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 To view activity logs:
 
 1. Select your APIM service instance.
 2. Click **Activity log**.
 
     ![activity log](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Select desired filtering scope and click **Apply**.
 
 ## Diagnostic Logs
 
@@ -110,7 +113,7 @@ Diagnostic logs provide rich information about operations and errors that are im
 To configure diagnostic logs:
 
 1. Select your APIM service instance.
-2. Click **Diagnostic logs**.
+2. Click **Diagnostic settings**.
 
     ![diagnostic logs](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 

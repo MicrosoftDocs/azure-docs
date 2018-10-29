@@ -88,6 +88,7 @@ The service currently has the following limitations:
 - The StorSimple Data Manager currently does not work with volumes that are bitlocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
 - Some metadata of files (including ACLs) will not be retained in the transformed data.
 - This service works only with NTFS volumes.
+- File path lengths need to be less than 256 characters else the job will fail.
 
 ## Next steps
 

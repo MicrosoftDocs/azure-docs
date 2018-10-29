@@ -3,20 +3,31 @@ title: Explore data using the Azure Time Series Insights explorer | Microsoft Do
 description: This article describes how to use the Azure Time Series Insights explorer in your web browser to quickly see a global view of your big data and validate your IoT environment.
 ms.service: time-series-insights
 services: time-series-insights
-author: MarkMcGeeAtAquent
-ms.author: kfile
-manager: jhubbard
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ---
+
 # Azure Time Series Insights explorer
 This article explores the various features and options available within the Time Series Insights explorer web app. 
 You use Time Series Insights explorer in your web browser to create visualizations of your data.
  
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. The Time Series Insights explorer is currently in public preview.
+
+## Video:
+
+In this video, we cover querying data using the Time Series Insights explorer. 
+
+This video builds on Video Time Series Insights:  
+<span style="color:blue">Getting starts with Time Series Insights using an Azure IoT Solution Accelerator.</span>
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 ## Prerequisites
 

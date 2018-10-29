@@ -2,12 +2,16 @@
 title: Azure SQL Elastic Database Jobs | Microsoft Docs
 description: 'Use Elastic Database Jobs to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: overview
-ms.date: 06/14/2018
+author: srinia
 ms.author: srinia
+ms.reviewer: 
+manager: craigg
+ms.date: 07/26/2018
 ---
 # Manage groups of databases with Elastic Database Jobs
 
@@ -97,10 +101,28 @@ A *target group* defines the set of databases a job step will execute on. A targ
 - **Single database** - specify one or more individual databases to be part of the group.
 - **Shardmap** - databases of a shardmap.
 
+> [!TIP]
+> At the moment of job execution, *dynamic enumeration* re-evaluates the set of databases in target groups that include servers or pools. Dynamic enumeration ensures that **jobs run across all databases that exist in the server or pool at the time of job execution**. Re-evaluating the list of databases at runtime is specifically useful for scenarios where pool or server membership changes frequently.
+
 Pools and single databases can be specified as included or excluded from the group. This enables creating a target group with any combination of databases. For example, you can add a server to a target group, but exclude specific databases in an elastic pool (or exclude an entire pool).
 
 A target group can include databases in multiple subscriptions, and across multiple regions. Note that cross-region executions have higher latency than executions within the same region.
 
+The following examples show how different target group definitions are dynamically enumerated at the moment of job execution to determine which databases the job will run:
+
+![Target group examples](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+**Example 1** shows a target group that consists of a list of individual databases. When a job step is executed using this target group, the job step's action will be executed in each of those databases.<br>
+**Example 2** shows a target group that contains an Azure SQL Server as a target. When a job step is executed using this target group, the server is dynamically enumerated to determine the list of databases that are currently in the server. The job step's action will be executed in each of those databases.<br>
+**Example 3** shows a similar target group as *Example 2*, but an individual database is specifically excluded. The job step's action will *not* be executed in the excluded database.<br>
+**Example 4** shows a target group that contains an elastic pool as a target. Similar to *Example 2*, the pool will be dynamically enumerated at job run time to determine the list of databases in the pool.
+<br><br>
+
+
+![Target group examples](media/elastic-jobs-overview/targetgroup-examples2.png)
+
+**Example 5** and *Example 6* show advanced scenarios where Azure SQL Servers, elastic pools, and databases, can be combined using include and exclude rules.<br>
+**Example 7** shows that the shards in a shard map can also be evaluated at job run time.
 
 ### Job
 
@@ -108,8 +130,7 @@ A *job* is a unit of work that is executed on a schedule or as a one-time job. A
 
 #### Job step
 
-Each job step specifies a T-SQL script to execute, one or more target groups to run the T-SQL script against, and the credentials the job agent needs to connect to the target database. Each job step also specifies retry semantics, and output parameters.
-
+Each job step specifies a T-SQL script to execute, one or more target groups to run the T-SQL script against, and the credentials the job agent needs to connect to the target database. Each job step has customizable timeout and retry policies, and can optionally specify output parameters.
 
 #### Job output
 
@@ -123,8 +144,8 @@ Job execution history is stored in the *Job database*. A system cleanup job purg
 
 ### Create and configure the agent
 
-1. Create or identify an empty S0 or higher SQL database. The agent configures this as the *Job database* during Elastic Job agent creation.
-2. Create an Elastic Job agent. Create an Elastic Job agent in the portal, or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+1. Create or identify an empty S0 or higher SQL database. This will be used as the *Job database* during Elastic Job agent creation.
+2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent), or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
    ![Elastic Job agent create](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
@@ -176,16 +197,15 @@ Currently, the preview is limited to 100 concurrent jobs.
 
 To ensure resources aren't overburdened when running jobs against databases in a SQL elastic pool, jobs can be configured to limit the number of databases a job can run against at the same time.
 
-
 ##	Differences between Elastic Jobs and SQL Server Agent
 
-It is worth noting a couple of differences between SQL Server Agent (available on-premise and as part of SQL Database Managed Instance), and the Azure SQL Database Elastic Job agent (now available for SQL Database and SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Server Agent (available on-premises and as part of SQL Database Managed Instance), and the Azure SQL Database Elastic Job agent (now available for SQL Database and SQL Data Warehouse).
 
 
 |  |Elastic Jobs  |SQL Server Agent |
 |---------|---------|---------|
-|Scope     |  Any Azure SQL Database or data warehouse, spanning multiple logical servers, subscriptions, regions etc. <br>Target groups can be composed of individual database or data warehouses, servers, pools, all databases of a ShardMap.<br> Dynamically enumerate target groups (servers and pools) at runtime. |  The SQL Server instance. Jobs can be executed against databases only in that server instance.  |
-|Supported APIs and Tools     |  Portal, PowerShell, CLI, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
+|Scope     |  Any number of Azure SQL databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
+|Supported APIs and Tools     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 
 

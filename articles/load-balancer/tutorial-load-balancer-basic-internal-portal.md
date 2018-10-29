@@ -1,5 +1,5 @@
 ---
-title: Tutorial:Create a public Basic Load Balancer - Azure portal | Microsoft Docs
+title: Tutorial - Create a public Basic Load Balancer - Azure portal | Microsoft Docs
 description: This tutorial shows you how to create an internal Basic Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -39,6 +39,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
     - *myBackendSubnet* - for the subnet name.
 2. Click **Create** to create the virtual network.
 
+![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
 ## Create a Basic Load Balancer
 Create an internal Basic Load Balancer using the portal.
 
@@ -53,10 +55,7 @@ Create an internal Basic Load Balancer using the portal.
     - *myResourceGroupILB* - for the name of the new resource group that you create.
 3. Click **Create** to create the load balancer.
    
-    ![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## Create backend servers
+    ## Create backend servers
 
 In this section, you create two virtual machines for the backend pool of your Basic Load Balancer, and then install IIS on the virtual machines to help test the load balancer.
 
@@ -72,10 +71,10 @@ In this section, you create two virtual machines for the backend pool of your Ba
     - *myAvailabilitySet* - for the name of the new Availability set that you create.
     -  *myVNet* - ensure it is selected as the virtual network.
     - *myBackendSubnet* - ensure it is selected as the subnet.
-    - *myNetworkSecurityGroup* - for the name of the new network security group (firewall) that you must create.
+5. Under **Network Security Group**, select **Advanced**. Next, for **Network security group (firewall)**, select **None**.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailabilityset* as the Availability set, *myVnet* as the virtual network, *myBackendSubnet* as subnet, and *myNetworkSecurityGroup* as its Network Security Group, . 
+7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailabilityset* as the Availability set, *myVnet* as the virtual network, *myBackendSubnet* as subnet, and select **None** for the **Network security group (firewall)**. 
 
 ### Install IIS and customize the default web page
 
@@ -97,33 +96,6 @@ In this section, you create two virtual machines for the backend pool of your Ba
 5. Close the RDP connection with *myVM1*.
 6. Repeat steps 1-5 with *myVM2* to install IIS and customize the default web page.
 
-## Create NSG rules
-
-In this section, you create NSG rules to allow inbound connections using HTTP and RDP.
-
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myNetworkSecurityGroup** that is located in the **myResourceGroupLB** resource group.
-2. Under **Settings**, click **Inbound security rules**, and then click **Add**.
-3. Enter these values for the inbound security rule named *myHTTPRule* to allow for an inbound HTTP connections using port 80:
-    - *Service Tag* - for **Source**.
-    - *Internet* - for **Source service tag**
-    - *80* - for **Destination port ranges**
-    - *TCP* - for **Protocol**
-    - *Allow* - for **Action**
-    - *100* for **Priority**
-    - *myHTTPRule* for name
-    - *Allow HTTP* - for description
-4. Click **OK**.
- 
-5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
-    - *Service Tag* - for **Source**.
-    - *Internet* - for **Source service tag**
-    - *3389* - for **Destination port ranges**
-    - *TCP* - for **Protocol**
-    - *Allow* - for **Action**
-    - *200* for **Priority**
-    - *myRDPRule* for name
-    - *Allow RDP* - for description
-
 ## Create Basic Load Balancer resources
 
 In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
@@ -136,7 +108,7 @@ To distribute traffic to the VMs, a back-end address pool contains the IP addres
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
 3. On the **Add a backend pool** page, do the following:
-    - For name, type *myBackEndPool, as the name for your backend pool.
+    - For name, type *myBackEndPool*, as the name for your backend pool.
     - For **Associated to**, from the drop-down menu, click **Availability set**
     - For **Availability set**, click, **myAvailabilitySet**.
     - Click **Add a target network IP configuration** to add each virtual machine (*myVM1* & *myVM2*) that you created to the backend pool.

@@ -3,16 +3,14 @@ title: Azure Functions SendGrid bindings
 description: Azure Functions SendGrid bindings reference.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/29/2017
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 
@@ -100,8 +98,9 @@ Here's the C# script code:
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TraceWriter log, string input, out Mail message)
+public static void Run(ILogger log, string input, out Mail message)
 {
      message = new Mail
     {        

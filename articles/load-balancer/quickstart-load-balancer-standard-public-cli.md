@@ -18,13 +18,13 @@ ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: mvc
 ---
-# Quickstart: Create a Standard Load Balancer to load balance VMS using Azure CLI 2.0
+# Quickstart: Create a Standard Load Balancer to load balance VMS using Azure CLI
 
 This quickstart shows you how to create Standard Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between the two VMs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -143,7 +143,7 @@ Create a network security group rule to allow inbound connections through port 8
 ```
 ### Create NICs
 
-Create three network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create) and associate them with the Public IP address and the network security group. 
+Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -165,7 +165,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Create an Availability set
 
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -219,7 +219,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
+Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -238,7 +238,7 @@ It may take a few minutes for the VMs to get deployed.
 
 ## Test the load balancer
 
-To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copy the public IP address, and then paste it into the address bar of your browser.
 
 ```azurecli-interactive
   az network public-ip show \
@@ -251,7 +251,7 @@ To get the public IP address of the load balancer, use [az network public-ip sho
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupSLB

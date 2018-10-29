@@ -3,7 +3,7 @@ title: How to use Azure Service Bus topics and subscriptions with Node.js | Micr
 description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: sethm
+ms.date: 10/16/2018
+ms.author: spelluru
 
 ---
 # How to Use Service Bus topics and subscriptions with Node.js
@@ -62,7 +62,7 @@ communicate with the Service Bus REST services.
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
 3. You can manually run the **ls** command to verify that a
-   **node\_modules** folder was created. Inside that folder find the
+   **node\_modules** folder was created. Inside that folder, find the
    **azure** package, which contains the libraries you need to access
    Service Bus topics.
 
@@ -76,7 +76,7 @@ var azure = require('azure');
 ### Set up a Service Bus connection
 The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STRING` for the connection string that you obtained from the earlier step, "Obtain the credentials." If this environment variable is not set, you must specify the account information when calling `createServiceBusService`.
 
-For an example of setting the environment variables for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
+For an example of setting the environment variables for an Azure Cloud Service, see [Set environment variables](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -105,7 +105,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-The `createServiceBusService` method also supports additional options, which
+The `createTopicIfNotExists` method also supports additional options, which
 enable you to override default topic settings such as message time to
 live or maximum topic size. 
 
@@ -139,7 +139,7 @@ function (returnObject, finalCallback, next)
 
 In this callback, and after processing the `returnObject` (the response from the request to the server), the callback must either invoke next (if it exists) to continue processing other filters, or invoke `finalCallback` to end the service invocation.
 
-Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
+Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following code creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -272,7 +272,7 @@ var rule={
 }
 ```
 
-When a message is now sent to `MyTopic`, it will be delivered to
+When a message is now sent to `MyTopic`, it is delivered to
 receivers subscribed to the `AllMessages` topic subscription, and
 selectively delivered to receivers subscribed to the `HighMessages` and
 `LowMessages` topic subscriptions (depending upon the message content).
@@ -285,12 +285,11 @@ Messages sent to Service Bus topics are **BrokeredMessage** objects.
 `Label` and `TimeToLive`), a dictionary that is used to hold custom
 application-specific properties, and a body of string data. An
 application can set the body of the message by passing a string value to
-the `sendTopicMessage` and any required standard properties will be
-populated by default values.
+the `sendTopicMessage` and any required standard properties are populated by default values.
 
 The following example demonstrates how to send five test messages to
 `MyTopic`. The `messagenumber` property value of each
-message varies on the iteration of the loop (this determines which
+message varies on the iteration of the loop (this property determines which
 subscriptions receive it):
 
 ```javascript
@@ -328,12 +327,11 @@ deleting it from the subscription.
 
 The default behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
-which an application can tolerate not processing a message in the event
-of a failure. To understand this behavior, consider a scenario in which the
+which an application can tolerate not processing a message when there is a failure. To understand this behavior, consider a scenario in which the
 consumer issues the receive request and then crashes before processing
-it. Because Service Bus will have marked the message as being consumed,
+it. Because Service Bus has marked the message as being consumed,
 then when the application restarts and begins consuming messages again,
-it will have missed the message that was consumed prior to the crash.
+it has missed the message that was consumed prior to the crash.
 
 If the `isPeekLock` parameter is set to **true**, the receive becomes
 a two-stage operation, which makes it possible to support applications

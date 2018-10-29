@@ -2,13 +2,12 @@
 title: Deploy to Azure Container Instances from Azure Container Registry
 description: Learn how to deploy containers in Azure Container Instances using container images in an Azure container registry.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -156,5 +155,5 @@ For more information about Azure Container Registry authentication, see [Authent
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-create]: /cli/azure/container#az_container_create
+[az-container-create]: /cli/azure/container#az-container-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set

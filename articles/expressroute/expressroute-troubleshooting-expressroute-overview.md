@@ -173,7 +173,7 @@ After the service provider has completed the provisioning the ExpressRoute circu
 ### Verification via the Azure portal
 
 >[!NOTE]
->If layer 3 is provided by the service provider and the peerings are blank in the portal, refresh the Circuit configuration using the refresh button on the protal. This operation will apply the right routing configuration on your circuit. 
+>If layer 3 is provided by the service provider and the peerings are blank in the portal, refresh the Circuit configuration using the refresh button on the portal. This operation will apply the right routing configuration on your circuit. 
 >
 >
 

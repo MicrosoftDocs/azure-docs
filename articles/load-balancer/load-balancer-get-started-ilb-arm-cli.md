@@ -1,6 +1,6 @@
 ---
-title: Create an internal Basic Load Balancer - Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create an internal load balancer using the Azure CLI 2.0
+title: Create an internal Basic Load Balancer - Azure CLI | Microsoft Docs
+description: Learn how to create an internal load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 06/27/2018
 ms.author: kumud
 ---
-# Create an internal load balancer to load balance VMs using Azure CLI 2.0
+# Create an internal load balancer to load balance VMs using Azure CLI
 
 This article shows you how to create an internal load balancer to load balance VMs. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server to load balance a web app.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -41,7 +41,7 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -83,7 +83,7 @@ A health probe checks all virtual machine instances to make sure they can receiv
 
 ### Create the load balancer rule
 
-A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the frontend pool *myFrontEndPool* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myHTTPRule* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -102,36 +102,9 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
 
 Before you deploy some VMs and can test your load balancer, create the supporting virtual network resources.
 
-###  Create a network security group
-Create network security group to define inbound connections to your virtual network.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### Create a network security group rule
-
-Create a network security group rule to allow inbound connections through port 80.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 300
-```
 ### Create NICs
 
-Create two network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create) and associate them with the private IP address and the network security group. 
+Create two network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the private IP address. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +113,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done
@@ -152,7 +124,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ### Create an Availability set
 
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -206,7 +178,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
+Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -243,14 +215,14 @@ To get the private IP address of the load balancer, use [az network lb show](/cl
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![Test load balancer](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupILB

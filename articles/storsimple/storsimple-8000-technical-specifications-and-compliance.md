@@ -37,9 +37,9 @@ The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The
 | Maximum inrush current |20 A |20 A |
 | Power factor correction |>95% nominal input voltage |>95% nominal input voltage |
 | Harmonics |Meets EN61000-3-2 |Meets EN61000-3-2 |
-| Output |5V Standby voltage @ 2.0 A |5V Standby voltage @ 2.7 A |
-| +5V @ 42 A |+5V @ 40 A | |
-| +12V @ 38 A |+12V @ 38 A | |
+| Output |5V Standby voltage \@ 2.0 A |5V Standby voltage \@ 2.7 A |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
 | Hot pluggable |Yes |Yes |
 | Switches and LEDs |AC ON/OFF switch and four status indicator LEDs |AC ON/OFF switch and six status indicator LEDs |
 | Enclosure cooling |Axial cooling fans with variable fan speed control |Axial cooling fans with variable fan speed control |

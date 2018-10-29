@@ -1,3 +1,10 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+---
 ﻿## Prepare to authenticate Azure Resource Manager requests
 You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure this is to use PowerShell or Azure CLI.
 
@@ -5,7 +12,7 @@ Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you contin
 
 The following steps show how to set up password authentication for an AD application using PowerShell. You can run these commands in a standard PowerShell session.
 
-1. Log in to your Azure subscription using the following command:
+1. Sign in to your Azure subscription using the following command:
 
     ```powershell
     Connect-AzureRmAccount

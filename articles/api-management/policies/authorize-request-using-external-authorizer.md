@@ -24,7 +24,7 @@ This article shows an Azure API management policy sample that demonstrates how t
 
 Paste the code into the **inbound** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Authorize requests using external authorizer.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Authorize requests using external authorizer.policy.xml)]
 
 ## Next steps
 

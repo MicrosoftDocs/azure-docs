@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
 
 ## Overview
 You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. 
@@ -422,7 +422,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 	Console.WriteLine("\nPress any key to exit.");
 	Console.ReadKey();
 	```
-14. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal.
+14. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that lets you provide **user name** and **password** that you use to log in to Azure portal.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()

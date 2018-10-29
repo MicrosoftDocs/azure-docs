@@ -1,27 +1,22 @@
 ---
+title: What is group-based licensing in Azure Active Directory? | Microsoft Docs
+description: Learn about Azure Active Directory group-based licensing, including how it works and best practices.
+services: active-directory
+keywords: Azure AD licensing
+author: eross-msft
+manager: mtillman
 
-  title: What is group-based licensing in Azure Active Directory? | Microsoft Docs
-  description: Description of Azure Active Directory group-based licensing, how it works and best practices
-  services: active-directory
-  keywords: Azure AD licensing
-  documentationcenter: ''
-  author: curtand
-  manager: mtillman
-  editor: ''
-
-  ms.service: active-directory
-  ms.component: fundamentals
-  ms.topic: article
-  ms.workload: identity
-  ms.date: 06/13/2018
-  ms.author: curtand
-  ms.reviewer: krbain
-
-  ms.custom: it-pro
-
+ms.service: active-directory
+ms.component: fundamentals
+ms.topic: conceptual
+ms.workload: identity
+ms.date: 10/29/2018
+ms.author: lizross
+ms.reviewer: krbain
+ms.custom: it-pro
 ---
 
-# Group-based licensing basics in Azure Active Directory
+# What is group-based licensing in Azure Active Directory?
 
 Microsoft paid cloud services, such as Office 365, Enterprise Mobility + Security, Dynamics 365, and other similar products, require licenses. These licenses are assigned to each user who needs access to these services. To manage licenses, administrators use one of the management portals (Office or Azure) and PowerShell cmdlets. Azure Active Directory (Azure AD) is the underlying infrastructure that supports identity management for all Microsoft cloud services. Azure AD stores information about license assignment states for users.
 
@@ -29,14 +24,12 @@ Until now, licenses could only be assigned at the individual user level, which c
 
 To address those challenges, Azure AD now includes group-based licensing. You can assign one or more product licenses to a group. Azure AD ensures that the licenses are assigned to all members of the group. Any new members who join the group are assigned the appropriate licenses. When they leave the group, those licenses are removed. This eliminates the need for automating license management via PowerShell to reflect changes in the organization and departmental structure on a per-user basis.
 
->[!NOTE]
->This feature currently is in public preview. Be prepared to revert or remove any changes. The feature is available with any paid Azure Active Directory (Azure AD) license plan during public preview. However, when the feature becomes generally available, some aspects of the feature might require one or more Azure Active Directory Premium licenses.
 
 ## Features
 
 Here are the main features of group-based licensing:
 
-- Licenses can be assigned to any security group in Azure AD. Security groups can be synced on-premises, by using Azure AD Connect. You can also create security groups directly in Azure AD (also called cloud-only groups), or automatically via the Azure AD dynamic group feature.
+- Licenses can be assigned to any security group in Azure AD. Security groups can be synced from on-premises, by using Azure AD Connect. You can also create security groups directly in Azure AD (also called cloud-only groups), or automatically via the Azure AD dynamic group feature.
 
 - When a product license is assigned to a group, the administrator can disable one or more service plans in the product. Typically, this is done when the organization is not yet ready to start using a service included in a product. For example, the administrator might assign Office 365 to a department, but temporarily disable the Yammer service.
 
@@ -46,11 +39,11 @@ Here are the main features of group-based licensing:
 
 - Azure AD automatically manages license modifications that result from group membership changes. Typically, license modifications are effective within minutes of a membership change.
 
-- A user can be a member of multiple groups with license policies specified. A user can also have some licenses that were directly assigned, outside of any groups. The resulting user state is a combination of all assigned product and service licenses.
+- A user can be a member of multiple groups with license policies specified. A user can also have some licenses that were directly assigned, outside of any groups. The resulting user state is a combination of all assigned product and service licenses. If a user is assigned same license from multiple sources, the license will be consumed only once.
 
 - In some cases, licenses cannot be assigned to a user. For example, there might not be enough available licenses in the tenant, or conflicting services might have been assigned at the same time. Administrators have access to information about users for whom Azure AD could not fully process group licenses. They can then take corrective action based on that information.
 
-- During public preview, a paid or trial subscription for Azure AD Basic or Premium editions is required in the tenant to use group-based license management.
+- A paid or trial subscription for Azure AD Basic or a paid or trial Office 365 Enterprise E3, Office 365 A3 and above editions is required in the tenant to use group-based license management. This feature requires license for each unique user that is a member of groups which are assigned license. You don't have to assign licenses to users for them to be members of groups which are assigned license, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all groups with licenses assigned in your tenant, you would need at least 1,000 licenses to meet the license requirement.
 
 ## Your feedback is welcome!
 
@@ -60,7 +53,9 @@ If you have feedback or feature requests, please share them with us using [the A
 
 To learn more about other scenarios for license management through group-based licensing, see:
 
-* [Assigning licenses to a group in Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](../active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](../active-directory-licensing-group-migration-azure-portal.md)
-* [Azure Active Directory group-based licensing additional scenarios](../active-directory-licensing-group-advanced.md)
+* [Assigning licenses to a group in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
+* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
+* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Azure Active Directory group-based licensing additional scenarios](../users-groups-roles/licensing-group-advanced.md)
+* [PowerShell examples for group-based licensing in Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

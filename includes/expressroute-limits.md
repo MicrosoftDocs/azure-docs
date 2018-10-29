@@ -12,14 +12,12 @@
 #### ExpressRoute Limits
 The following limits apply to ExpressRoute resources per subscription.
 
-| Resource | Default Limit |
+| Resource | Default/Max Limit |
 | --- | --- |
 | ExpressRoute circuits per subscription |10 |
-| ExpressRoute circuits per region per subscription for ARM |10 |
+| ExpressRoute circuits per region per subscription (Azure Resource Manager) |10 |
 | Maximum number of routes for Azure private peering with ExpressRoute standard |4,000 |
 | Maximum number of routes for Azure private peering with ExpressRoute premium add-on |10,000 |
-| Maximum number of routes for Azure public peering with ExpressRoute standard |200 |
-| Maximum number of routes for Azure public peering with ExpressRoute premium add-on |200 |
 | Maximum number of routes for Azure Microsoft peering with ExpressRoute standard |200 |
 | Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on |200 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations |4 |

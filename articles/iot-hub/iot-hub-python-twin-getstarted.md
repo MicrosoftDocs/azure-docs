@@ -279,13 +279,13 @@ Use the following resources to learn how to:
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
-[lnk-iothub-getstarted]: iot-hub-python-getstarted.md
+[lnk-iothub-getstarted]: quickstart-send-telemetry-python.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-[lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: tutorial-device-twins.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md

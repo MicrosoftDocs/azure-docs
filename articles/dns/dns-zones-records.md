@@ -3,7 +3,7 @@ title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Overview of DNS zones and records
@@ -42,7 +42,7 @@ Azure DNS does not currently support purchasing of domain names. If you want to 
 
 ### Time-to-live
 
-The time to live, or TTL, specifies how long each record is cached by clients before being re-queried. In the above example, the TTL is 3600 seconds or 1 hour.
+The time to live, or TTL, specifies how long each record is cached by clients before being requeried. In the above example, the TTL is 3600 seconds or 1 hour.
 
 In Azure DNS, the TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.  You can specify any TTL value between 1 and 2,147,483,647 seconds.
 
@@ -56,7 +56,7 @@ To create a wildcard record set, use the record set name '\*'. Alternatively, yo
 
 CAA records allow domain owners to specify which Certificate Authorities (CAs) are authorized to issue certificates for their domain. This allows CAs to avoid mis-issuing certificates in some circumstances. CAA records have three properties:
 * **Flags**: This is an integer between 0 and 255, used to represent the critical flag that has special meaning per the [RFC](https://tools.ietf.org/html/rfc6844#section-3)
-* **Tag**: an ASCII string which can be one of the following:
+* **Tag**: an ASCII string that can be one of the following:
     * **issue**: use this if you want to specify CAs that are permitted to issue certs (all types)
     * **issuewild**: use this if you want to specify CAs that are permitted to issue certs (wildcard certs only)
     * **iodef**: specify an email address or hostname to which CAs can notify for unauthorized cert issue requests
@@ -76,7 +76,7 @@ The NS record set at the zone apex (name '\@') is created automatically with eac
 
 This record set contains the names of the Azure DNS name servers assigned to the zone. You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers. 
 
-Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be created, modified and deleted without constraint.
+This applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be created, modified, and deleted without constraint.
 
 ### SOA records
 

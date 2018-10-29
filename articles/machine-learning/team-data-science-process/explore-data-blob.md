@@ -1,6 +1,6 @@
 ---
-title: Explore data in Azure blob storage with Pandas | Microsoft Docs
-description: How to explore data that is stored in Azure blob container using Pandas.
+title: Explore data in Azure blob storage with pandas | Microsoft Docs
+description: How to explore data that is stored in Azure blob container using pandas.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -18,21 +18,21 @@ ms.date: 11/09/2017
 ms.author: deguhath
 
 ---
-# Explore data in Azure blob storage with Pandas
-This document covers how to explore data that is stored in Azure blob container using [Pandas](http://pandas.pydata.org/) Python package.
+# Explore data in Azure blob storage with pandas
+This document covers how to explore data that is stored in Azure blob container using [pandas](http://pandas.pydata.org/) Python package.
 
-The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the [Data Science Process]().
+The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the [Data Science Process](overview.md).
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-quickstart-create-account.md)
 * Stored your data in an Azure blob storage account. If you need instructions, see [Moving data to and from Azure Storage](../../storage/common/storage-moving-data.md)
 
-## Load the data into a Pandas DataFrame
-To explore and manipulate a dataset, it must first be downloaded from the blob source to a local file, which can then be loaded in a Pandas DataFrame. Here are the steps to follow for this procedure:
+## Load the data into a pandas DataFrame
+To explore and manipulate a dataset, it must first be downloaded from the blob source to a local file, which can then be loaded in a pandas DataFrame. Here are the steps to follow for this procedure:
 
 1. Download the data from Azure blob with the following Python code sample using blob service. Replace the variable in the following code with your specific values: 
    
@@ -51,15 +51,15 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. Read the data into a Pandas data-frame from the downloaded file.
+2. Read the data into a pandas DataFrame from the downloaded file.
    
         #LOCALFILE is the file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 Now you are ready to explore the data and generate features on this dataset.
 
-## <a name="blob-dataexploration"></a>Examples of data exploration using Pandas
-Here are a few examples of ways to explore data using Pandas:
+## <a name="blob-dataexploration"></a>Examples of data exploration using pandas
+Here are a few examples of ways to explore data using pandas:
 
 1. Inspect the **number of rows and columns** 
    

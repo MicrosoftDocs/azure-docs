@@ -1,20 +1,15 @@
-﻿---
-title: Customize HDInsight Clusters using bootstrap - Azure | Microsoft Docs
+---
+title: Customize HDInsight Clusters using bootstrap - Azure 
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Customize HDInsight clusters using Bootstrap
@@ -117,7 +112,7 @@ You can use bootstrap in Resource Manager template:
 
 ```json
 "configurations": {
-    …
+    �
     "hive-site": {
         "hive.metastore.client.connect.retry.delay": "5",
         "hive.execution.engine": "mr",

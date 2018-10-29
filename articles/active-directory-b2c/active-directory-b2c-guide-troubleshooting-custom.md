@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
@@ -70,4 +70,4 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
 
 ## Next steps
 
-* In GitHub, download the [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip file.
+* In GitHub, download the [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip file.

@@ -1,18 +1,13 @@
 ---
-title: Extract, transform, and load (ETL) at Scale - Azure HDInsight | Microsoft Docs
+title: Extract, transform, and load (ETL) at Scale - Azure HDInsight 
 description: Learn how ETL is used in HDInsight with Hadoop.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ---
@@ -76,9 +71,9 @@ ADLS is also optimized for event ingestion using Azure Event Hub or Apache Storm
 
 #### Considerations for both storage options
 
-For uploading datasets in the terabyte range, network latency can be a major problem, particularly if the data is coming from an on-premise location.  In such cases, you can use the options below:
+For uploading datasets in the terabyte range, network latency can be a major problem, particularly if the data is coming from an on-premises location.  In such cases, you can use the options below:
 
-* Azure ExpressRoute:  Azure ExpressRoute lets you create private connections between Azure datacenters and your on-premise infrastructure. These connections provide a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
+* Azure ExpressRoute:  Azure ExpressRoute lets you create private connections between Azure datacenters and your on-premises infrastructure. These connections provide a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
 * "Offline" upload of data. You can use [Azure Import/Export service](../../storage/common/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) or the [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) tool to copy data from Azure Storage blobs to Data Lake Store.
 
@@ -128,7 +123,7 @@ Sqoop uses MapReduce to import and export the data, to provide parallel operatio
 
 Apache Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. Flume has a simple and flexible architecture based on streaming data flows. Flume is robust and fault-tolerant with tunable reliability mechanisms and many failover and recovery mechanisms. Flume uses a simple extensible data model that allows for online analytic application.
 
-Apache Flume cannot be used with Azure HDInsight.  An on-premise Hadoop installation can use Flume to send data to either Azure Storage Blobs or Azure Data Lake Store.  For more information, see [Using Apache Flume with HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume cannot be used with Azure HDInsight.  An on-premises Hadoop installation can use Flume to send data to either Azure Storage Blobs or Azure Data Lake Store.  For more information, see [Using Apache Flume with HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## Transform
 

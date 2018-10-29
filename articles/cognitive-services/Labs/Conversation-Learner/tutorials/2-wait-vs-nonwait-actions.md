@@ -1,7 +1,7 @@
 ---
-title: How to use wait and non-wait actions with a Conversation Learner application - Microsoft Cognitive Services| Microsoft Docs
+title: How to use wait and non-wait actions with a Conversation Learner model - Microsoft Cognitive Services| Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use wait and non-wait actions with a Conversation Learner application.
+description: Learn how to use wait and non-wait actions with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial shows the difference between wait actions and non-wait actions in the Conversation Learner.
 
+## Video
+
+[![Tutorial 2 Preview](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 
@@ -24,13 +28,13 @@ This tutorial requires that the general tutorial bot is running
 ## Details
 
 - Wait action: After the system takes a "wait" action, it will stop taking actions and wait for user input.
-- Non-wait action: After the system takes a "non-wait" action, it will immediately choose another action (without waiting for user inpu first).
+- Non-wait action: After the system takes a "non-wait" action, it will immediately choose another action (without waiting for user input first).
 
 ## Steps
 
-### Create a new app
+### Create a new model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter WaitNonWait. Then click Create.
 
 ### Create the first Wait action
@@ -38,7 +42,7 @@ This tutorial requires that the general tutorial bot is running
 1. Click Actions, then New Action.
 2. In Response, enter 'Which animal do you want?'.
 	- This is a Wait action, so leave the Wait for Response box checked.
-3. click Done.
+3. Click Create.
 
 ### Create a Non-Wait action
 
@@ -63,14 +67,15 @@ This tutorial requires that the general tutorial bot is running
 3. Click Score Actions, and Select 'Which animal do you want?'.
 4. Enter 'cow'
 5. Click Score Actions, and Select 'Cows say moo'.
-	- Note that the bot will not wait for input, and will take the next action.
+	- The bot will not wait for input, and will take the next action.
 2. Select 'Which animal do you want?'.
 3. Enter 'duck'
 5. Click Score Actions, and Select 'Ducks say quack'.
 
 ![](../media/tutorial2_dialogs.PNG)
 
-Note the sequence of the bot responses with regards to wait and non-wait actions.
+> [!NOTE]
+> The sequence of the bot responses with regards to wait and non-wait actions.
 
 ## Next steps
 

@@ -1,15 +1,16 @@
 ---
 title: Monitor and improve performance - Azure SQL Database | Microsoft Docs
 description: The Azure SQL Database provides performance tools to help you identify areas that can improve current query performance.
-services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
+author: danimir
+ms.author: v-daljep
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-
 ---
 # Monitor and improve performance
 Azure SQL Database identifies potential problems in your database and recommends actions that can improve performance of your workload by providing intelligent tuning actions and recommendations.
@@ -50,7 +51,7 @@ You can also find complete history of tuning actions that were applied in the pa
 Learn how to find an apply performance recommendations in [Find and apply performance recommendations](sql-database-advisor-portal.md) article.
 
 ## Automatic tuning
-Azure SQL Databases can automatically tune database performance by applying [performance recommendations](sql-database-advisor.md). To learn more, read [Automatic tuning article](sql-database-automatic-tuning.md). To enable it, read [how to enable automatic tuning](sql-database-automatic-tuning-enable.md).
+Azure SQL databases can automatically tune database performance by applying [performance recommendations](sql-database-advisor.md). To learn more, read [Automatic tuning article](sql-database-automatic-tuning.md). To enable it, read [how to enable automatic tuning](sql-database-automatic-tuning-enable.md).
 
 ## Query Performance Insight
 [Query Performance Insight](sql-database-query-performance.md) allows you to spend less time troubleshooting database performance by providing:

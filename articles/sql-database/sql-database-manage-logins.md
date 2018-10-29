@@ -3,22 +3,23 @@ title: Azure SQL logins and users | Microsoft Docs
 description: Learn about SQL Database and SQL Data Warehouse security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/13/2018
-ms.author: carlrab
-
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
 
-After firewall rules have been configured, people can connect to Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as one of the administrator accounts, as the database owner, or as a database user in the database.  
+After firewall rules configuration, you can connect to Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as one of the administrator accounts, as the database owner, or as a database user in the database.  
 
 >  [!NOTE]  
->  This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
+>  This topic applies to Azure SQL server, and to SQL Database and SQL Data Warehouse databases created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
 
 > [!TIP]
 > For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
@@ -31,20 +32,20 @@ There are two administrative accounts (**Server admin** and **Active Directory a
 - **Server admin**   
 When you create an Azure SQL server, you must designate a **Server admin login**. SQL server creates that account as a login in the master database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.   
 - **Azure Active Directory admin**   
-One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator must be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
  
 
 The **Server admin** and **Azure AD admin** accounts has the following characteristics:
-- These are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
+- Are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
 - These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.) 
-- These accounts do not enter the `master` database as the `dbo` user and they have limited permissions in master. 
-- These accounts are not members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL database.  
-- These accounts can create, alter, and drop databases, logins, users in master, and server-level firewall rules.
-- These accounts can add and remove members to the `dbmanager` and `loginmanager` roles.
-- These accounts can view the `sys.sql_logins` system table.
+- Do not enter the `master` database as the `dbo` user, and have limited permissions in master. 
+- Are **not** members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL database.  
+- Can create, alter, and drop databases, logins, users in master, and server-level firewall rules.
+- Can add and remove members to the `dbmanager` and `loginmanager` roles.
+- Can view the `sys.sql_logins` system table.
 
 ### Configuring the firewall
-When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-get-started-portal.md), using [PowerShell](sql-database-get-started-powershell.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
+When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-get-started-portal.md), using [PowerShell](sql-database-powershell-samples.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### Administrator access path
 When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
@@ -82,7 +83,7 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 

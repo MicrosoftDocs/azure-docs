@@ -1,5 +1,6 @@
 ---
-title: Samples for using Microsoft Speech Service | Microsoft Docs
+title: Samples for using Bing Speech | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Samples for using Microsoft Speech Service that converts spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
@@ -7,12 +8,14 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
-# Microsoft speech client samples
+# Bing Speech client samples
 
-Microsoft Speech Service provides end-to-end samples showing how to use Microsoft speech recognition API in different use cases, for example command recognition, continuous recognition, and intent detection. All samples are available on GitHub, and can be downloaded by the following links: The README.md in each repository as well as the [client libraries](GetStarted/GetStartedClientLibraries.md) page provide details about how to build and run the samples.
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+ 
+Bing Speech provides end-to-end samples to demonstrate different use cases, for example command recognition, continuous recognition, and intent detection. All samples are available on GitHub, and can be downloaded by the following links: The README.md in each repository as well as the [client libraries](GetStarted/GetStartedClientLibraries.md) page provide details about how to build and run the samples.
 
 - [REST API samples](https://github.com/Azure-Samples/SpeechToText-REST)
 
@@ -26,4 +29,4 @@ Microsoft Speech Service provides end-to-end samples showing how to use Microsof
 
 - [ObjectiveC on iOS samples](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS)
 
-All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [LICENSE](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [LICENSE](https://github.com/Azure-Samples/SpeechToText-REST/blob/master/LICENSE).

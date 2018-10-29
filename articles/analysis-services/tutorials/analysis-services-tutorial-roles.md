@@ -4,7 +4,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/10/2018
+ms.date: 07/09/2018
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to my server by using SQL Server Management Studio to configure server administrator and model database user roles.
@@ -63,7 +63,7 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
 
 ## Add a user account to the server administrator role
 
-In this task, you add a user or group account from your Azure AD to the server administrator role.
+In this task, you add a user or group account from your Azure AD to the server administrator role. If you're adding a security group, it must have the `MailEnabled` property set to `True`.
 
 1. In **Object Explorer**, right-click your server name, and then click **Properties**. 
 2. In the **Analysis Server Properties** window, click **Security** > **Add**.
@@ -120,7 +120,7 @@ In this task, you use the [Create](https://docs.microsoft.com/sql/analysis-servi
     }
     ```
 
-3. Change **"memberName": \"globalsales@adventureworks.com\"** object value to a user or group account in your Azure AD.
+3. Change `"memberName": "globalsales@adventureworks.com"` object value to a user or group account in your Azure AD.
 4. Press **F5**, to execute the script.
 
 ## Verify your changes

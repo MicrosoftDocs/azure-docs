@@ -123,7 +123,7 @@ The following shows how to make an outgoing call. This code also uses a Twilio-p
     account_sid = "your_twilio_account_sid"
     auth_token = "your_twilio_authentication_token"
 
-    # The number of the phone initiating the the call.
+    # The number of the phone initiating the call.
     # This should either be a Twilio number or a number that you've verified
     from_number = "NNNNNNNNNNN"
 

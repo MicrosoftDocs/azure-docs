@@ -325,7 +325,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
           client.onload = function () {
             if (client.readyState == 4) {
               if (client.status == 200) {
-                updateLog("Notification Hub Registration succesful!");
+                updateLog("Notification Hub Registration successful!");
                 updateLog(client.responseText);
               } else {
                 updateLog("Notification Hub Registration did not succeed!");
@@ -398,7 +398,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   A reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package is automatically added to the project.</a>
+   A reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package is automatically added to the project.</a>
 4. Open `Program.cs` and add the following `using` statement:
    
         using Microsoft.Azure.NotificationHubs;

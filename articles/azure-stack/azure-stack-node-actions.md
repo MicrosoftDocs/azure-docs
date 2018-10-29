@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -28,7 +28,7 @@ This article describes how to view the status of a scale unit and its associated
 > All node actions described in this article should only target one node at a time.
 
 
-## View the status of a scale unit and its nodes
+## View the node status
 
 In the administrator portal, you can easily view the status of a scale unit and its associated nodes.
 
@@ -40,24 +40,24 @@ To view the status of a scale unit:
  
 Here, you can view the following information:
 
-- region name. The region name is referenced with **-Location** in the PowerShell module.
-- type of system
-- total logical cores
-- total memory
-- the list of individual nodes and their status; either **Running** or **Stopped**.
+- Region name. The region name is referenced with **-Location** in the PowerShell module.
+- Type of system
+- Total logical cores
+- Total memory
+- The list of individual nodes and their status; either **Running** or **Stopped**
 
 ![Scale unit tile showing Running status for each node](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## View information about a scale unit node
+## View node information
 
 If you select an individual node, you can view the following information:
 
-- region name
-- server model
+- Region name
+- Server model
 - IP address of the baseboard management controller (BMC)
-- operational state
-- total number of cores
-- total amount of memory
+- Operational state
+- Total number of cores
+- Total amount of memory
  
 ![Scale unit tile showing Running status for each node](media/azure-stack-node-actions/NodeActions.PNG)
 
@@ -67,9 +67,8 @@ You can also perform scale unit node actions from here.
 
 When you view information about a scale unit node, you can also perform node actions such as:
 
-- power on and power off
-- drain and resume
-- repair
+- Drain and resume
+- Repair
 
 The operational state of the node determines which options are available.
 
@@ -151,4 +150,4 @@ To run the repair action through PowerShell:
 
 ## Next steps
 
-To learn more about the Azure Stack Fabric administrator module, see [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).
+To learn more about the Azure Stack Fabric administrator module, see [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0).

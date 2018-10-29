@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Data Factory
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Copy data to or from Azure SQL Data Warehouse by using Data Factory version 2](../connector-azure-sql-data-warehouse.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy data to or from Azure SQL Data Warehouse by using Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, SQL Data Warehouse is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.
@@ -44,7 +44,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
 >
 
 ## Prerequisites
-* Azure Blob Storage: this experiment uses Azure Blob Storage (GRS) for storing TPC-H testing dataset.  If you do not have an Azure storage account, learn [how to create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Azure Blob Storage: this experiment uses Azure Blob Storage (GRS) for storing TPC-H testing dataset.  If you do not have an Azure storage account, learn [how to create a storage account](../../storage/common/storage-quickstart-create-account.md).
 * [TPC-H](http://www.tpc.org/tpch/) data: we are going to use TPC-H as the testing dataset.  To do that, you need to use `dbgen` from TPC-H toolkit, which helps you generate the dataset.  You can either download source code for `dbgen` from [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) and compile it yourself, or download the compiled binary from [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Run dbgen.exe with the following commands to generate 1 TB flat file for `lineitem` table spread across 10 files:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`

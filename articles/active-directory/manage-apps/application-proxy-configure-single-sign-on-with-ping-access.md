@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
@@ -137,7 +137,7 @@ select **Assign a user for testing**, and add at least one user to the applicati
 
 ### Optional - Update GraphAPI to send custom fields
 
-For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](./../develop/active-directory-token-and-claims.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
+For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](../develop/v1-id-and-access-tokens.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
 
 This example uses Graph Explorer:
 
@@ -159,10 +159,10 @@ This example uses the [Azure portal](https://portal.azure.com) to udpate the *ac
 >[!NOTE]
 >To use a custom claim, you must also have a custom policy defined and assigned to the application.  This policy should include all required custom attributes.
 >
->Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy `and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy `and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### Optional - Use a custom claim
-To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## Download PingAccess and configure your app
 

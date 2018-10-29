@@ -1,58 +1,58 @@
 ---
-title: How to trigger complex actions with Azure Monitor alerts and Actions Groups
-description: Learn how to create a Logic App action to process Azure Monitor Alerts.
+title: How to trigger complex actions with Azure Monitor alerts 
+description: Learn how to create a logic app action to process Azure Monitor alerts.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
 ---
-# Create a Logic App action
-## Overview ##
-When an Azure Monitor alert triggers, it calls an [action group](monitoring-action-groups.md). Action groups allow you to trigger one or more actions to notify people of the alert and even remediate it.
+# How to trigger complex actions with Azure Monitor alerts
 
-This article shows how to set up and trigger a Logic App to create a conversation in Microsoft Teams when an alert fires.
+This article shows you how to set up and trigger a logic app to create a conversation in Microsoft Teams when an alert fires.
+
+## Overview
+When an Azure Monitor alert triggers, it calls an [action group](monitoring-action-groups.md). Action groups allow you to trigger one or more actions to notify others about an alert and also remediate it.
 
 The general process is:
 
--   Create the Logic App for the respective alert type
+-   Create the logic app for the respective alert type.
 
--   Import the schema for the respective alert type into the Logic App
+-   Import the schema for the respective alert type into the logic app.
 
--   Define the Logic App behavior
+-   Define the logic app behavior.
 
--   Copy the Logic App’s HTTP endpoint into an Azure Action Group
+-   Copy the HTTP endpoint of the logic app into an Azure action group.
 
-The process is similar if you want the Logic App to perform a different action.
+The process is similar if you want the logic app to perform a different action.
 
-## Create an Activity log alert – Administrative
+## Create an activity log alert: Administrative
 
-1.  Click the **Create a resource** button found on the upper left-hand corner
-    of the Azure portal.
+1.  In the Azure portal, select **Create a resource** in the upper-left corner.
 
-2.  Search for and select **Logic App**. Click the **Create** button.
+2.  Search for and select **Logic App**, then select **Create**.
 
-3.  Give your Logic App a name, choose a Resource group, etc.
+3.  Give your logic app a **Name**, choose a **Resource group**, and so on.
 
-    ![Create logic app dialog](media/monitoring-action-groups/create-logic-app-dialog.png "Create logic app dialog")
+    ![Create a logic app](media/monitoring-action-groups/create-logic-app-dialog.png "Create a logic app")
 
-4.  Click the Create button to create the Logic App. A popup will be displayed when the Logic App has been created. Click on the Launch Resource button to open the Logic Apps designer.
+4.  Select **Create** to create the logic app. A pop-up message indicates that the logic app is created. Select **Launch Resource** to open the **Logic Apps Designer**.
 
-5.  Select the trigger **When a HTTP request is received**.
+5.  Select the trigger: **When a HTTP request is received**.
 
-    ![Logic App Triggers](media/monitoring-action-groups/logic-app-triggers.png "Logic App Triggers")
+    ![Logic app triggers](media/monitoring-action-groups/logic-app-triggers.png "Logic app triggers")
 
-6.  Select **Edit** to change the HTTP request trigger
+6.  Select **Edit** to change the HTTP request trigger.
 
-    ![HTTP request trigger shape](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP request trigger shape")
+    ![HTTP request triggers](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP request triggers")
 
 7.  Select **Use sample payload to generate schema**.
 
-    ![Use sample payload button](media/monitoring-action-groups/use-sample-payload-button.png "Use sample payload button")
+    ![Use a sample payload](media/monitoring-action-groups/use-sample-payload-button.png "Use a sample payload")
 
-8.  Copy and paste the following sample schema into the dialog box.
+8.  Copy and paste the following sample schema into the dialog box:
 
     ```json
         {
@@ -91,21 +91,21 @@ The process is similar if you want the Logic App to perform a different action.
         }
     ```
 
-9. The Logic App Designer will display a note reminding you that request sent to the Logic App must set the Content-Type header to application/json. Go ahead and dismiss the dialog. The Azure Monitor alert will do this correctly.
+9. The **Logic App Designer** displays a pop-up window to remind you that the request sent to the logic app must set the **Content-Type** header to **application/json**. Close the pop-up window. The Azure Monitor alert sets the header.
 
-    ![Content-Type header](media/monitoring-action-groups/content-type-header.png "Content-Type header")
+    ![Set the Content-Type header](media/monitoring-action-groups/content-type-header.png "Set the Content-Type header")
 
-10. Select **+ New Step** and then choose **Add an action**.
+10. Select **+** **New step** and then choose **Add an action**.
 
-    ![Add action](media/monitoring-action-groups/add-action.png "Add action")
+    ![Add an action](media/monitoring-action-groups/add-action.png "Add an action")
 
 11. Search for and select the Microsoft Teams connector. Choose the **Microsoft Teams – Post message** action.
 
     ![Microsoft Teams actions](media/monitoring-action-groups/microsoft-teams-actions.png "Microsoft Teams actions")
 
-12. Configure the Microsoft Teams action. The Logic Apps Designer will ask you to authenticate to your Office365 account. Choose the **Team Id** and **Channel Id** to send the message to.
+12. Configure the Microsoft Teams action. The **Logic Apps Designer** asks you to authenticate to your Office 365 account. Choose the **Team ID** and **Channel ID** to send the message to.
 
-13. Configure the **Message** using a combination of static text and references to the \<fields\> in the Dynamic content. Cut and paste the following text into the Message field.
+13. Configure the message by using a combination of static text and references to the \<fields\> in the dynamic content. Copy and paste the following text into the **Message** field:
 
     ```text
       Activity Log Alert: <eventSource>
@@ -114,30 +114,27 @@ The process is similar if you want the Logic App to perform a different action.
       resourceId: <resourceId>
     ```
 
-    Then search for and replace the \<fields\> with Dynamic content tags of the same name.
+    Then search for and replace the \<fields\> with dynamic content tags of the same name.
 
-    **[NOTE!]** There are two dynamic fields named **status**. Add both status fields to the message. Use the one in the activityLog property bag and delete the other. If you hover your mouse over the **status** field you will see the fully qualified field reference as shown in the screenshot
+    > [!NOTE]
+    > There are two dynamic fields that are named **status**. Add both of these fields to the message. Use the field that's in the **activityLog** property bag and delete the other field. Hover your cursor over the **status** field to see the fully qualified field reference, as shown in the following screenshot:
 
-    ![Teams Action - Post message](media/monitoring-action-groups/teams-action-post-message.png "Teams Action - Post message")
+    ![Microsoft Teams action: Post a message](media/monitoring-action-groups/teams-action-post-message.png "Microsoft Teams action: Post a message")
 
-14. Save your Logic App by clicking the Save button at the top of the Designer
+14. At the top of the **Logic Apps Designer**, select **Save** to save your logic app.
 
-15. Click on the HTTP Request shape to cause it to expand. Copy the HTTP POST URL.
+15. Open your existing action group and add an action to reference the logic app. If you don’t have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
 
-    ![HTTP POST URL](media/monitoring-action-groups/http-post-url.png "HTTP POST URL")
+    ![Update the action group](media/monitoring-action-groups/update-action-group.png "Update the action group")
 
-16. Open your existing Action Group and add an Action to reference the Logic App. If you don’t have an existing action group, see     <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups> to create one. Don’t forget to save your changes.
+The next time an alert calls your action group, your logic app is called.
 
-    ![Update action group](media/monitoring-action-groups/update-action-group.png "Update action group")
+## Create a service health alert
 
-The next time an alert invokes your Action Group, your Logic App is called.
+Azure Service Health entries are part of the activity log. The process for creating the alert is similar to [creating an activity log alert](#create-an-activity-log-alert-administrative), but with a few changes:
 
-## Create a Service Health alert
-
-Service health entries are part of the Activity log, so the process is similar with the following changes
-
-1.  Steps 1 through 7 are the same.
-2.  Use the following sample schema for the HTTP Trigger in step 8.
+- Steps 1 through 7 are the same.
+- For step 8, use the following sample schema for the HTTP request trigger:
 
     ```json
     {
@@ -181,49 +178,51 @@ Service health entries are part of the Activity log, so the process is similar w
     }
     ```
 
-3.  Steps 9 - 10 are the same.
-4.  From Step 11 on use the process below.
-5.  Click on the **+ New Step** button and choose **Add a condition**. Set the following conditions to ensure that the Logic App only executes when the input data matches these values
-    - schemaId == Microsoft.Insights/activityLogs
-    - eventSource == ServiceHealth
-    - version == 0.1.1
+-  Steps 9 and 10 are the same.
+-  For steps 11 through 14, use the following process:
 
-    !["Service health payload condition"](media/monitoring-action-groups/service-health-payload-condition.png "Service health payload condition")
+   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions so the logic app executes only when the input data matches the values below.  When entering the version value into the text box, put quotes around it ("0.1.1") to make sure that it's evaluated as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type.   
+       - `schemaId == Microsoft.Insights/activityLogs`
+       - `eventSource == ServiceHealth`
+       - `version == "0.1.1"`
 
-6. In the **if true** condition, add the Microsoft Teams action using steps 11–13 from the previous example.
+      !["Service Health payload condition"](media/monitoring-action-groups/service-health-payload-condition.png "Service Health payload condition")
 
-7. Define the Message using a combination of HTML and [dynamic content]. Copy and paste the content below into the message field. Replace the [incidentType], [trackingID], [title] and [communication] fields with dynamic content tags of the same name
+   1. In the **if true** condition, follow the instructions in steps 11 through 13 in [Create an activity log alert](#create-an-activity-log-alert-administrative) to add the Microsoft Teams action.
 
-    ```html
-    <p>
-    <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
-    <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
-    <strong>Title:</strong>&nbsp;[title]</p>
-    <p>
-    <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details log into the Azure Service Health dashboard</a>
-    </p>
-    <p>[communication]</p>
-    ```
+   1. Define the message by using a combination of HTML and dynamic content. Copy and paste the following content into the **Message** field. Replace the `[incidentType]`, `[trackingID]`, `[title]`, and `[communication]` fields with dynamic content tags of the same name:
 
-    !["Service health true condition post action"](media/monitoring-action-groups/service-health-true-condition-post-action.png "Service health true condition post action")
+       ```html
+       <p>
+       <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
+       <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
+       <strong>Title:</strong>&nbsp;[title]</p>
+       <p>
+       <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.</a>
+       </p>
+       <p>[communication]</p>
+       ```
 
-8. For the **If false** condition provide a useful Message
+       !["Service Health true condition post action"](media/monitoring-action-groups/service-health-true-condition-post-action.png "Service Health true condition post action")
 
-    ```html
-    <p><strong>Service Health Alert</strong></p>
-    <p><b>Unrecognized alert schema</b></p>
-    <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details log into the Azure Service Health dashboard\</a></p>
-    ```
+   1. For the **If false** condition, provide a useful message:
 
-    !["Service Health false condition post action"](media/monitoring-action-groups/service-health-false-condition-post-action.png "Service Health false condition post action")
+       ```html
+       <p><strong>Service Health Alert</strong></p>
+       <p><b>Unrecognized alert schema</b></p>
+       <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
+       ```
 
-9.  Follow steps 15 – 16 of the previous example to save your Logic App and
-    update your Action Group
+       !["Service Health false condition post action"](media/monitoring-action-groups/service-health-false-condition-post-action.png "Service Health false condition post action")
 
-## Metric Alert
+- Step 15 is the same. Follow the instructions to save your logic app and update your action group.
 
-1.  Steps 1 through 7 are the same as the first example
-2.  Use the following sample schema for the HTTP Trigger in step 8.
+## Create a metric alert
+
+The process for creating a metric alert is similar to [creating an activity log alert](#create-an-activity-log-alert-administrative), but with a few changes:
+
+- Steps 1 through 7 are the same.
+- For step 8, use the following sample schema for the HTTP request trigger:
 
     ```json
     {
@@ -267,30 +266,29 @@ Service health entries are part of the Activity log, so the process is similar w
     }
     ```
 
-3.  Steps 9 - 10 are the same.
-4.  From Step 11 on use the process below.
-5.  Click on the **+ New Step** button and choose **Add a condition**. Set the following conditions to ensure that the Logic App only executes when the input data matches these values
+- Steps 9 and 10 are the same.
+- For steps 11 through 14, use the following process:
 
-    - schemaId == AzureMonitorMetricAlert
-    - version == 2.0
+   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions so the logic app executes only when the input data matches these values below. When entering the version value into the text box, put quotes around it ("2.0") to makes sure that it's evaluated as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type. 
+       - `schemaId == AzureMonitorMetricAlert`
+       - `version == "2.0"`
+       
+       !["Metric alert payload condition"](media/monitoring-action-groups/metric-alert-payload-condition.png "Metric alert payload condition")
 
-    !["Metric alert payload condition"](media/monitoring-action-groups/metric-alert-payload-condition.png "Metric alert payload condition")
+   1. In the **if true** condition, add a **For each** loop and the Microsoft Teams action. Define the message by using a combination of HTML and dynamic content.
 
-6.  In the **if true** condition we will add a **For each** shape and the Microsoft Teams action and define the Message using a combination of HTML and [dynamic content]
+       !["Metric alert true condition post action"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "Metric alert true condition post action")
 
-    !["Metric alert true condition post action"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "Metric alert true condition post action")
+   1. In the **If false** condition, define a Microsoft Teams action to communicate that the metric alert doesn’t match the expectations of the logic app. Include the JSON payload. Notice how to reference the `triggerBody` dynamic content in the `json()` expression.
 
-7.  In the **If false** shape, define a Microsoft Teams action which
-    communicates that the Metric Alert doesn’t match the Logic App’s
-    expectations and include the JSON payload. Note how we reference the
-    triggerBody dynamic content in the json() expression.
+       !["Metric alert false condition post action"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Metric alert false condition post action")
 
-    !["Metric alert false condition post action"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Metric alert false condition post action")
+- Step 15 is the same. Follow the instructions to save your logic app and update your action group.
 
-8.  Follow steps 15 – 16 of the first example to save your Logic App and
-    update your Action Group
+## Calling other applications besides Microsoft Teams
+Logic Apps has a number of different connectors that allow you to trigger actions in a wide range of applications and databases. Slack, SQL Server, Oracle, Salesforce, are just some examples. For more information about connectors, see [Logic App connectors](../connectors/apis-list.md).  
 
-## Next steps ##
-* Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
-* Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).
-* Learn more about [Action Groups](monitoring-action-groups.md)
+## Next steps
+* Get an [overview of Azure activity log alerts](monitoring-overview-alerts.md) and learn how to receive alerts.  
+* Learn how to [configure alerts when an Azure Service Health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).
+* Learn more about [action groups](monitoring-action-groups.md).

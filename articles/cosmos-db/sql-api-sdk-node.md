@@ -2,15 +2,14 @@
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
 services: cosmos-db
-author: rnagpal
-manager: kfile
+author: deborahc
 editor: cgronlun
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 5/3/2018
+ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -30,31 +29,28 @@ ms.custom: H1Hack27Feb2017
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Node.js API reference documentation](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**SDK installation instructions**</td><td>[Installation instructions](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**Samples**</td><td>[Node.js code samples](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**Get started tutorial**</td><td>[Get started with the Node.js SDK](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**Current supported platform**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Resource  |Link  |
+|---------|---------|
+|Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|API Documentation  |  [JavaScript SDK reference documentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-cosmos-js#installation)
+|Contribute to SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Samples | [Node.js code samples](sql-api-nodejs-samples.md)
+| Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)
+| Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)
+| Current supported platform | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - required for SDK Version 2.0.0 and above.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## Release notes
+
+### <a name="2.0.0"/>2.0.0</a>
+* GA of Version 2.0.0 of the JavaScript SDK
+* Added support for multi-region writes.
+
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* RC1 of Version 2.0.0 of the JavaScript SDK for public preview.
+* New object model, with top-level CosmosClient and methods split across relevant Database, Container, and Item classes. 
+* Support for [promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
+* SDK converted to TypeScript.
 
 ### <a name="1.14.4"/>1.14.4</a>
 * npm documentation fixed.
@@ -197,6 +193,7 @@ Any request to Cosmos DB using a retired SDK is be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.0.0-3 (RC)](#2.0.0-3) |August 2, 2018 |--- |
 | [1.14.4](#1.14.4) |May 03, 2018 |--- |
 | [1.14.3](#1.14.3) |May 03, 2018 |--- |
 | [1.14.2](#1.14.2) |December 21, 2017 |--- |

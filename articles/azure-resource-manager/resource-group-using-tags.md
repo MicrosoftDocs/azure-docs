@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
 
 ---
@@ -21,11 +21,13 @@ ms.author: tomfitz
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
+To apply tags to resources, the user must have write access to that resource type. To apply tags to all resource types, use the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## PowerShell
 
-The examples in this article require version 6.0 or later of Azure PowerShell. If you do not have version 6.0 or later, [update your version](/powershell/azure/install-azurerm-ps).
+The examples in this article require version 6.0 or later of Azure PowerShell. If you don't have version 6.0 or later, [update your version](/powershell/azure/install-azurerm-ps).
 
 To see the existing tags for a *resource group*, use:
 
@@ -258,13 +260,11 @@ The Azure portal and PowerShell both use the [Resource Manager REST API](https:/
 
 ## Tags and billing
 
-You can use tags to group your billing data. For example, if you are running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
+You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure account portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](../billing/billing-usage-rate-card-overview.md). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure Account Center](https://account.azure.com/Subscriptions) or Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../billing/billing-download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
 
-When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Microsoft Azure](../billing/billing-understand-your-bill.md).
-
-![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
+For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
 ## Next steps
 

@@ -2,13 +2,12 @@
 title: Azure Container Registry tutorial - Deploy web app from Azure Container Registry
 description: Deploy a Linux-based web app using a container image from a geo-replicated Azure container registry. Part two of a three-part series.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
-ms.author: marsma
+ms.date: 08/20/2018
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -38,11 +37,13 @@ In this step, you create a Web App for Containers instance in the *West US* regi
 
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to the registry you created in the previous tutorial.
 
-Select **Repositories** > **acr-helloworld**, then right-click on the **v1** tag under **Tags** and select **Deploy to web app**.
+Select **Repositories** > **acr-helloworld**, then right-click on the **v1** tag under **Tags** and select **Deploy to web app**:
 
 ![Deploy to app service in the Azure portal][deploy-app-portal-01]
 
-Under **Web App for Containers** that's displayed, specify the following values for each setting:
+If "Deploy to web app" is disabled, you might not have enabled the registry admin user as directed in [Create a container registry](container-registry-tutorial-prepare-registry.md#create-a-container-registry) in the first tutorial. You can enable the admin user in **Settings** > **Access keys** in the Azure portal.
+
+Under **Web App for Containers** that's displayed after you select "Deploy to web app," specify the following values for each setting:
 
 | Setting | Value |
 |---|---|

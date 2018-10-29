@@ -32,7 +32,7 @@ robots: noindex
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using stored procedure activity in Data Factory version 2](../transform-data-using-stored-procedure.md).
+> This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [transform data using stored procedure activity in Data Factory](../transform-data-using-stored-procedure.md).
 
 ## Overview
 You use data transformation activities in a Data Factory [pipeline](data-factory-create-pipelines.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.

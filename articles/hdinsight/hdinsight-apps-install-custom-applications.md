@@ -1,20 +1,15 @@
 ---
-title: Install your own custom Hadoop applications on Azure HDInsight | Microsoft Docs
+title: Install your own custom Hadoop applications on Azure HDInsight 
 description: Learn how to install HDInsight applications on HDInsight applications.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Install custom Hadoop applications on Azure HDInsight
@@ -67,7 +62,7 @@ The files needed for deploying this application (Hue):
     This button opens a Resource Manager template on the Azure portal.  The Resource Manager template is located at [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  To learn how to write this Resource Manager template, see [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Follow the instruction to create cluster and install Hue. For more information on creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-In addition to the Azure portal, you can also use [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) and [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-cli) to call Resource Manager templates.
+In addition to the Azure portal, you can also use [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) and [Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-azure-cli) to call Resource Manager templates.
 
 ## Validate the installation
 You can check the application status on the Azure portal to validate the application installation. In addition, you can also validate all HTTP endpoints came up as expected and the webpage if there is one:
@@ -118,8 +113,8 @@ From the portal, you can also delete the cluster or delete the resource group wh
 ### Use Azure PowerShell
 Using Azure PowerShell, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### Use Azure CLI
-Using Azure CLI, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
+### Use Azure Classic CLI
+Using Azure Classic CLI, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure Classic CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## Next steps
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): learn how to develop Resource Manager templates for deploying HDInsight applications.

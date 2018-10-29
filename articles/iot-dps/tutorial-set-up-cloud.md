@@ -23,9 +23,9 @@ This tutorial shows how to set up the cloud for automatic device provisioning us
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a Device Provisioning Service instance and get the ID scope
 
@@ -43,11 +43,11 @@ Follow these steps to create a new Device Provisioning Service instance.
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |   
 
-   ![Enter basic information about your DPS in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Enter basic information about your Device Provisioning service in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Click **Create**.
-6. The *ID scope* is used to identify registration IDs, and provides a guarantee that the registration ID is unique. To obtain this value, click **Overview** to open the **Essentials** page for the Device Provisioning Service. Copy the **ID Scope** value to a temporary location for later use.
-7. Also make a note of the **Service endpoint** value, or copy it to a temporary location for later use. 
+5. Click **Create**. After a few moments, the Device Provisioning Service instance is created and the **Overview** page is displayed.
+6. On the **Overview** page for the new service instance, copy the value for the **ID scope** for use later. That value is used to identify registration IDs, and provides a guarantee that the registration ID is unique.
+7. Also, copy the **Service endpoint** value for later use. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -60,17 +60,20 @@ The next step is to link the Device Provisioning Service and IoT hub so that the
 1. In the **All resources** page, click the Device Provisioning Service instance you created previously.
 2. In the Device Provisioning Service page, click **Linked IoT hubs**.
 3. Click **Add**.
-4. In the **Add link to IoT hub** page, use the radio buttons to specify whether the linked IoT hub is located in the current subscription, or in a different subscription. Then, choose the name of the IoT hub from the **IoT hub** box.
-5. Click **Save**.
+4. In the **Add link to IoT hub** page, provide the following information, and click **Save**:
 
-   ![Link the hub name to link to the DPS in the portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+    * **Subscription:** Make sure the subscription that contains the IoT hub is selected. You can link to IoT hub that resides in a different subscription.
+    * **IoT hub:** Choose the name of the IoT hub that you want to link with this Device Provisioning Service instance.
+    * **Access Policy:** Select **iothubowner** as the credentials to use for establishing the link to the IoT hub.
+
+   ![Link the hub name to link to the Device Provisioning Service in the portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## Set the allocation policy on the Device Provisioning Service
 
 The allocation policy is a IoT Hub Device Provisioning Service setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
 
 1. **Lowest latency**: Devices are provisioned to an IoT hub based on the hub with the lowest latency to the device.
-2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
+2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This setting is the default. If you are provisioning devices to only one IoT hub, you can keep this setting. 
 3. **Static configuration via the enrollment list**: Specification of the desired IoT hub in the enrollment list takes priority over the Device Provisioning Service-level allocation policy.
 
 To set the allocation policy, in the Device Provisioning Service page click **Manage allocation policy**. Make sure the allocation policy is set to **Evenly weighted distribution** (the default). If you make any changes, click **Save** when you are done.

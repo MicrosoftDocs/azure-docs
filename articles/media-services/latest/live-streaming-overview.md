@@ -4,7 +4,7 @@ description: This topic gives an overview of live streaming using Azure Media Se
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
 
 ---
@@ -21,14 +21,14 @@ ms.author: juliako
 When delivering live streaming events with Azure Media Services the following components are commonly involved:
 
 * A camera that is used to broadcast an event.
-* A live video encoder that converts signals from the camera (or another device, like laptop) to streams that are sent to the Media Services live streaming service. The signals may also include advertising SCTE-35 and Ad-cues. 
-* The Media Services live streaming service enables you to ingest, preview, package, record, encrypt, and broadcast the content to your customers, or to a CDN for further distribution.
+* A live video encoder that converts signals from the camera (or another device, like laptop) to streams that are sent to the Lve Streaming service. The signals may also include advertising SCTE-35 and Ad-cues. 
+* The Media Services Live Streaming service enables you to ingest, preview, package, record, encrypt, and broadcast the content to your customers, or to a CDN for further distribution.
 
 This article gives a detailed overview and includes diagrams of major components involved in live streaming with Media Services.
 
 ## Overview of main components
 
-In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to an on-premises live encoder. The LiveEvent receives live input streams from the live encoder in RTMP or Smooth Streaming format and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). A [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) enables you to control the publishing, recording, and DVR window settings of the live stream. The LiveEvent also provides a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. 
+In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to an on-premises live encoder. The LiveEvent receives live input streams from the live encoder in RTMP or Smooth Streaming format and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables you to control the publishing, recording, and DVR window settings of the live stream. The LiveEvent also provides a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. 
 
 Media Services provides **Dynamic Packaging**, which allows you to preview and broadcast your content in MPEG DASH, HLS, Smooth Streaming streaming formats without you having to manually repackage into these streaming formats. You can play back with any HLS, DASH, or Smooth compatible players. You can also use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream.
 
@@ -36,6 +36,17 @@ Media Services enables you to deliver your content encrypted dynamically (**Dyna
 
 If desired, you can also apply **Dynamic Filtering**, which can be used to control the number of tracks, formats, bitrates, that are sent out to the players. Media Services also supports ad-insertion.
 
+### New Live encoding improvements
+
+The following new improvements were done in the latest release.
+
+- New low latency mode for live (10 seconds end-to-end).
+- Improved RTMP support (increased stability and more source encoder support).
+- RTMPS secure ingest.
+
+    When you create a LiveEvent you now get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   
+- 24 hour transcoding support. 
+- Improved ad-signaling support in RTMP via SCTE35.
 
 ## LiveEvent types
 
@@ -97,7 +108,7 @@ The current state of a LiveEvent. Possible values include:
 
 ## LiveOutput
 
-A [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) enables you to control the publishing, recording, and DVR window settings of the live stream. The LiveEvent and LiveOutput relationship is similar to traditional media where a channel (LiveEvent) has a constant stream of content and a program (LiveOutput) is scoped to some timed event on that LiveEvent.
+A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables you to control the publishing, recording, and DVR window settings of the live stream. The LiveEvent and LiveOutput relationship is similar to traditional media where a channel (LiveEvent) has a constant stream of content and a program (LiveOutput) is scoped to some timed event on that LiveEvent.
 You can specify the number of hours you want to retain the recorded content for the LiveOutput by setting the **ArchiveWindowLength** property. **ArchiveWindowLength** is an ISO 8601 timespan duration of the archive window length (Digital Video Recorder or DVR). This value can be set from a minimum of 5 minutes to a maximum of 25 hours. 
 
 **ArchiveWindowLength** also dictates the maximum number of time clients can seek back in time from the current live position. LiveOutputs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. The value of this property also determines how long the client manifests can grow.

@@ -24,7 +24,7 @@ Azure Redis Cache is based on the popular open-source [Redis cache](https://redi
 
 Azure Redis Cache can also be used as an in-memory data structure store, distributed non-relational database, and message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine.
 
-Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft, hosted within Azure, and accessible to any application within Azure.
+Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft, hosted within Azure, and accessible to any application within or outside of Azure.
 
 ## Why use Azure Redis Cache
 
@@ -76,6 +76,8 @@ The [Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/) pa
   Create a simple ASP.NET web app that uses an Azure Redis Cache.
 * [.NET Quickstart](cache-dotnet-how-to-use-azure-redis-cache.md)
   Create a .NET app that uses an Azure Redis Cache.
+* [.NET Core Quickstart](cache-dotnet-core-quickstart.md)
+  Create a .NET Core app that uses an Azure Redis Cache.
 * [Node.js Quickstart](cache-nodejs-get-started.md)
   Create a simple Node.js app that uses an Azure Redis Cache.
 * [Java Quickstart](cache-java-get-started.md)

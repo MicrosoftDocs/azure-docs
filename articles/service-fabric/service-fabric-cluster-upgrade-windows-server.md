@@ -80,7 +80,7 @@ When you see the cluster health warning, do the following:
 
     ![Get Service Fabric versions][getfabversions]
 3. Start a cluster upgrade to an available version by using the
-   [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) Windows PowerShell command.
+   [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade) Windows PowerShell command.
 
     ```Powershell
 
@@ -98,9 +98,9 @@ When you see the cluster health warning, do the following:
     Get-ServiceFabricClusterUpgrade
     ```
 
-    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see documentation for [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
+    After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
 ### Upgrade clusters that have *no connectivity* to download the latest code and configuration
 Use these steps to upgrade your cluster to a supported version if your cluster nodes don't have internet connectivity to the [Microsoft Download Center](http://download.microsoft.com).
@@ -118,7 +118,7 @@ Modify your cluster configuration to set the following property to *false* befor
 
         "fabricClusterAutoupgradeEnabled": false,
 
-For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade PowerShell command](https://msdn.microsoft.com/library/mt788302.aspx). Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
+For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell command. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
 ```powershell
 
@@ -128,7 +128,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade Power
 
 #### Cluster upgrade workflow
 
-1. Run Get-ServiceFabricClusterUpgrade from one of the nodes in the cluster, and note the TargetCodeVersion.
+1. Run [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) from one of the nodes in the cluster and note the *TargetCodeVersion*.
 
 2. Run the following from an internet-connected machine to list all upgrade-compatible versions with the current version and download the corresponding package from the associated download links:
 
@@ -159,7 +159,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade Power
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
 6. Start a cluster upgrade to an available version.
@@ -179,9 +179,9 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade Power
     Get-ServiceFabricClusterUpgrade
     ```
 
-    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
+    After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
 
 ## Upgrade the cluster configuration
@@ -202,7 +202,7 @@ Or use this script:
 
 Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. The new cluster configuration JSON is tested against the old one and throws errors in the PowerShell window if there's an issue.
 
-To upgrade the cluster configuration upgrade, run Start-ServiceFabricClusterConfigurationUpgrade. The configuration upgrade is processed upgrade domain by upgrade domain.
+To upgrade the cluster configuration upgrade, run [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
 

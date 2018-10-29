@@ -4,14 +4,14 @@ description: Follow the steps of this tutorial to analyze videos using Azure Med
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 10/15/2018
 ms.author: juliako
 ---
 
@@ -65,6 +65,9 @@ The sample performs the following actions:
 5. Checks the job's status.
 6. Downloads the files that resulted from running the job. 
 
+> [!NOTE]
+> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](../previous/media-services-scale-media-processing-overview.md).
+
 ### Start using Media Services APIs with .NET SDK
 
 To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file. 
@@ -105,7 +108,7 @@ When creating a **Transform**, you should first check if one already exists usin
 
 #### Job
 
-As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTPS URLs, SAS URLs, or Assets that are in your Media Service account. 
+As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTPS URLs, SAS URLs, or Assets that are in your Media Service account. 
 
 In this example, the job input is a local video.  
 
@@ -113,7 +116,7 @@ In this example, the job input is a local video.
 
 ### Wait for the job to complete
 
-The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) completion. The simplest option (that is shown here) is to use polling. 
+The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the [Job](https://docs.microsoft.com/rest/api/media/jobs) completion. The simplest option (that is shown here) is to use polling. 
 
 Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
 

@@ -3,19 +3,19 @@ title: 'Azure Active Directory Domain Services: Synchronization in managed domai
 description: Understand synchronization in an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Synchronization in an Azure AD Domain Services managed domain

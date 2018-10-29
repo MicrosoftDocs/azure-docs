@@ -1,20 +1,20 @@
----
+﻿---
 title: Monitor identity and access in Azure Security Center | Microsoft Docs
 description: Learn how to use the identity and access capability in Azure Security Center to monitor your users' access activity and identity-related issues.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
-ms.author: terrylan
+ms.date: 08/08/2018
+ms.author: rkarlin
 
 ---
 # Monitor identity and access in Azure Security Center (Preview)
@@ -34,7 +34,7 @@ By monitoring identity activities, you can take proactive actions before an inci
 - Remove privileged external accounts from your subscription
 
 > [!NOTE]
-> If your subscription has more than 250 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under “unavailable assessments” which is discussed below.
+> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under “unavailable assessments” which is discussed below.
 Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
 >
 >
@@ -71,7 +71,7 @@ Under **Overview**, there is a list of recommendations. The first column lists t
 
   ![Recommendation's window][3]
 
-2. Select a subscription in the list for additional detail.
+1. Select a subscription in the list for additional detail.
 
 ### Subscriptions section
 Under **Subscriptions**, there is a list of subscriptions. The first column lists the subscriptions. The second column shows the total number of recommendations for each subscription. The third column shows the severities of the issues.
@@ -82,13 +82,13 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
   - **Recommendations**:  based on assessments performed by Security Center that failed.
   - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 250 accounts.
+  - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
 
   Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
 
   ![Recommendations for select subscription][5]
 
-2. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
+1. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
 
   ![Description of recommendation][6]
 
@@ -96,7 +96,7 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
   ![Passed assessments][7]
 
-3. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
+1. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
 
   ![Passed assessments][8]
 

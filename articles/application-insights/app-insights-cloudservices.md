@@ -6,22 +6,20 @@ documentationcenter: ''
 keywords: "WAD2AI, Azure Diagnostics"
 author: mrbullwinkle
 manager: carmonm
-editor: alancameronwills
-
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.workload: tbd
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
 
 ---
 # Application Insights for Azure Cloud Services
 [Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Application Insights][start] for availability, performance, failures, and usage by combining data from Application Insights' SDKs with [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data from your Cloud Services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
-![Example](./media/app-insights-cloudservices/sample.png)
+![Screenshot of overview dashboard](./media/app-insights-cloudservices/overview-graphs.png)
 
 ## Before you start
 You'll need:
@@ -78,9 +76,8 @@ If you've decided to create a separate resource for each role - and perhaps a se
 1. In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app. 
 
     ![Click New, Application Insights](./media/app-insights-cloudservices/01-new.png)
-2. Note that each resource is identified by an Instrumentation Key. You might need this later if you want to manually configure or verify the configuration of the SDK.
+2. Each resource is identified by an Instrumentation Key. You might need this later if you want to manually configure or verify the configuration of the SDK.
 
-    ![Click Properties, select the key, and press ctrl+C](./media/app-insights-cloudservices/02-props.png) 
 
 ## Set up Azure Diagnostics for each role
 Set this option to monitor your app with Application Insights. For web roles, this provides performance monitoring, alerts, and diagnostics, as well as usage analysis. For other roles, you can search and monitor Azure diagnostics such as restart, performance counters, and calls to System.Diagnostics.Trace. 
@@ -104,14 +101,14 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 1. **Web roles**: Right-click the project and choose **Configure Application Insights** or **Add > Application Insights telemetry**.
 
 2. **Worker roles**: 
- * Right-click the project and select **Manage Nuget Packages**.
+ * Right-click the project and select **Manage NuGet Packages**.
  * Add [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Configure the SDK to send data to the Application Insights resource.
 
-    In a suitable startup function, set the instrumentation key from the configuration setting in the .cscfg file:
+    In a suitable startup function, set the instrumentation key from the configuration setting in the ``.cscfg file``:
  
     ```csharp
    
@@ -125,7 +122,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
    * [For web pages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Set the ApplicationInsights.config file to be copied always to the output directory. 
    
-    (In the .config file, you'll see messages asking you to place the instrumentation key there. However, for cloud applications it's better to set it from the .cscfg file. This ensures that the role is correctly identified in the portal.)
+    (In the .config file, you'll see messages asking you to place the instrumentation key there. However, for cloud applications it's better to set it from the ``.cscfg file``. This ensures that the role is correctly identified in the portal.)
 
 #### Run and publish the app
 Run your app, and sign into Azure. Open the Application Insights resources you created, and you'll see individual data points appearing in [Search](app-insights-diagnostic-search.md), and aggregated data in [Metric Explorer](app-insights-metrics-explorer.md). 
@@ -149,7 +146,7 @@ To see performance counters and counts of events, open [Metrics Explorer](app-in
 
 ![Azure diagnostic data](./media/app-insights-cloudservices/23-wad.png)
 
-Use [Search](app-insights-diagnostic-search.md) or an [Analytics query](app-insights-analytics-tour.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. That will help you find the root cause of the issue.
+Use [Search](app-insights-diagnostic-search.md) or an [Analytics query](app-insights-analytics-tour.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. This will help you find the root cause of the issue.
 
 ![Azure diagnostics search](./media/app-insights-cloudservices/25-wad.png)
 
@@ -194,7 +191,7 @@ For web roles, these counters are also collected:
 
 You can specify additional custom or other windows performance counters by editing ApplicationInsights.config [as in this example](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![Performance counters](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![Performance counters](./media/app-insights-cloudservices/002-servers.png)
 
 ## Correlated Telemetry for Worker Roles
 It is a rich diagnostic experience, when you can see what led to a failed or high latency request. With web roles, the SDK automatically sets up correlation between related telemetry. 
@@ -205,11 +202,7 @@ Here's how:
 
 * Set the correlation Id into a CallContext as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). In this case, we are using the Request ID as the correlation id
 * Add a custom TelemetryInitializer implementation, to set the Operation.Id to the correlationId set above. There's an example here: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Add the custom telemetry initializer. You could do that in the ApplicationInsights.config file, or in code as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
-
-That's it! The portal experience is already wired up to help you see all associated telemetry at a glance:
-
-![Correlated telemetry](./media/app-insights-cloudservices/bHxuUhd.png)
+* Add the custom telemetry initializer. You could do that in the ApplicationInsights.config file, or in code as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## Client telemetry
 [Add the JavaScript SDK to your web pages][client] to get browser-based telemetry such as page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.

@@ -55,7 +55,7 @@ The DNS for the Cloud Services is different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-| Batch | *.cloudapp.net | *.usgovcloudapp.net |
+| Cloud Services | *.cloudapp.net | *.usgovcloudapp.net |
 
 ## Azure Functions
 The [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 

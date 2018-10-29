@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -36,7 +36,7 @@ When you use Azure AD for your identity store requires two Azure AD accounts: a 
 1. **Global admin account** (only required for connected deployments). This is an Azure account that is used to create applications and service principals for Azure Stack infrastructure services in Azure Active Directory. This account must have directory administrator permissions to the directory that your Azure Stack system will be deployed under. It will become the "cloud operator" Global Admin for the Azure AD tenant and will be used: 
     - To provision and delegate applications and service principals for all Azure Stack services that need to interact with Azure Active Directory and Graph API. 
     - As the Service Administrator account. This is the owner of the default provider subscription (which you can later change). You can log into the Azure Stack admin portal with this account, and can use it to create offers and plans, set quotas, and perform other administrative functions in Azure Stack.
-2. **Billing account** (required for both connected and disconnected deployments). This Azure account is used to establish the billing relationship between your Azure Stack integrated system and the Azure commerce backend. This is the account that will be billed for Azure Stack fees. This account will also be used for marketplace syndication and other hybrid scenarios. 
+2. **Billing account** (required for both connected and disconnected deployments). This Azure account is used to establish the billing relationship between your Azure Stack integrated system and the Azure commerce backend. This is the account that will be billed for Azure Stack fees. This account will also be used for offering items in the marketplace and other hybrid scenarios. 
 
 ### AD FS identity store
 Choose this option if you want to use your own identity store, such as your corporate Active Directory, for your Service Administrator accounts.  
@@ -60,7 +60,7 @@ If you are going to use a CSP subscription, review the table below to identify w
 ### Capacity based billing
 If you decide to use the capacity billing model, you must purchase an Azure Stack Capacity Plan SKU based on the capacity of your system. You will need to know the number of physical cores in your Azure Stack to purchase the correct quantity. 
 
-Capacity billing requires an Enterprise Agreement (EA) Azure subscription for registration. The reason is that registration sets up syndication, which requires an Azure subscription. The subscription is not used for Azure Stack usage.
+Capacity billing requires an Enterprise Agreement (EA) Azure subscription for registration. The reason is that registration sets up the availability of items in the Marketplace, which requires an Azure subscription. The subscription is not used for Azure Stack usage.
 
 ## Learn more
 - For information about use cases, purchasing, partners, and OEM hardware vendors, see the [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) product page.

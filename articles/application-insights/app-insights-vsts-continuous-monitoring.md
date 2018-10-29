@@ -1,5 +1,5 @@
 ---
-title:  Continuous Monitoring of your DevOps release pipeline with VSTS and Azure Application Insights  | Microsoft Docs
+title:  Continuous Monitoring of your DevOps release pipeline with Azure DevOps and Azure Application Insights  | Microsoft Docs
 description: Provides instructions to quickly setup continuous monitoring with Application Insights
 services: application-insights
 keywords:
@@ -13,17 +13,17 @@ manager: carmonm
 
 # Add continuous monitoring to your release pipeline
 
-Visual Studio Team Services (VSTS) integrates with Azure Application Insights to allow continuous monitoring of your DevOps release pipeline throughout the software development lifecycle. 
+Azure DevOps Services integrates with Azure Application Insights to allow continuous monitoring of your DevOps release pipeline throughout the software development lifecycle. 
 
-VSTS now supports continuous monitoring whereby release pipelines can incorporate monitoring data from Application Insights and other Azure resources. When an Application Insights alert is detected, the deployment can remain gated or be rolled back until the alert is resolved. If all checks pass, deployments can proceed automatically from test all the way to production without the need for manual intervention. 
+Azure DevOps Services now supports continuous monitoring whereby release pipelines can incorporate monitoring data from Application Insights and other Azure resources. When an Application Insights alert is detected, the deployment can remain gated or be rolled back until the alert is resolved. If all checks pass, deployments can proceed automatically from test all the way to production without the need for manual intervention. 
 
 ## Configure continuous monitoring
 
-1. Select an existing VSTS Project.
+1. Select an existing Azure DevOps Services Project.
 
 2. Hover over **Build and Release** > Select **Releases** > Click the **plus sign** > **Create release definition** > Search for **Monitoring** > **Azure App Service Deployment with Continuous Monitoring.**
 
-   ![New VSTS Release Definition](.\media\app-insights-continuous-monitoring\001.png)
+   ![New Azure DevOps Services Release Pipeline](.\media\app-insights-continuous-monitoring\001.png)
 
 3. Click **Apply.**
 
@@ -35,8 +35,8 @@ VSTS now supports continuous monitoring whereby release pipelines can incorporat
 
     | Parameter        | Value |
    | ------------- |:-----|
-   | **Environment name**      | Name that describes the release definition environment |
-   | **Azure subscription** | Drop-down populates with any Azure subscriptions linked to the VSTS account|
+   | **Environment name**      | Name that describes the release pipeline environment |
+   | **Azure subscription** | Drop-down populates with any Azure subscriptions linked to the Azure DevOps Services organization|
    | **App Service name** | Manual entry of a new value may be required for this field depending on other selections |
    | **Resource Group**    | Drop-down populates with available Resource Groups |
    | **Application Insights resource name** | Drop-down populates with all Application Insights resources that correspond to the previously selected resource group.
@@ -85,4 +85,4 @@ To observe this behavior, Select **Releases** > Right-click Release name **open*
 
 ## Next steps
 
-To learn more about VSTS Build and Release try these [quickstarts.](https://docs.microsoft.com/vsts/build-release/)
+To learn more about Azure Pipelines try these [quickstarts.](https://docs.microsoft.com/azure/devops/pipelines)

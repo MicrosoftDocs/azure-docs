@@ -3,7 +3,7 @@ title: Develop templates for Azure Stack | Microsoft Docs
 description: Learn Azure Stack template best practices
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
-ms.author: brenduns
+ms.date: 09/19/2018
+ms.author: sethm
 ms.reviewer: jeffgo
  
 
@@ -31,15 +31,17 @@ The template that you're planning to deploy must only use Microsoft Azure servic
 
 ## Public namespaces
 
-Because Azure Stack is hosted in your datacenter, it has different service endpoint namespaces than the Azure public cloud. As a result, hardcoded public endpoints in Azure Resource Manager templates fail when you try to deploy them to Azure Stack. You can dynamically build service endpoints using the *reference* and *concatenate* functions to retrieve values from the resource provider during deployment. For example, instead of hardcoding *blob.core.windows.net* in your template, retrieve the [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) to dynamically set the *osDisk.URI* endpoint:
+Because Azure Stack is hosted in your datacenter, it has different service endpoint namespaces than the Azure public cloud. As a result, hardcoded public endpoints in Azure Resource Manager templates fail when you try to deploy them to Azure Stack. You can dynamically build service endpoints using the *reference* and *concatenate* functions to retrieve values from the resource provider during deployment. For example, instead of hardcoding *blob.core.windows.net* in your template, retrieve the [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) to dynamically set the *osDisk.URI* endpoint:
 
-     "osDisk": {"name": "osdisk","vhd": {"uri":
-     "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-      '/',variables('OSDiskName'),'.vhd')]"}}
+```json
+"osDisk": {"name": "osdisk","vhd": {"uri":
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
+ '/',variables('OSDiskName'),'.vhd')]"}}
+```
 
 ## API versioning
 
-Azure service versions may differ between Azure and Azure Stack. Each resource requires the **apiVersion** attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack, the following API versions are valid for each Resource Provider:
+Azure service versions may differ between Azure and Azure Stack. Each resource requires the **apiVersion** attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack, the following API versions are valid for each resource provider:
 
 | Resource Provider | apiVersion |
 | --- | --- |
@@ -51,7 +53,7 @@ Azure service versions may differ between Azure and Azure Stack. Each resource r
 
 ## Template functions
 
-Azure Resource Manager [functions](../../azure-resource-manager/resource-group-template-functions.md) provide capabilities required to build dynamic templates. As an example, you can use functions for tasks like:
+Azure Resource Manager [functions](../../azure-resource-manager/resource-group-template-functions.md) provide capabilities required to build dynamic templates. As an example, you can use functions for tasks such as:
 
 * Concatenating or trimming strings.
 * Referencing values from other resources.
@@ -64,20 +66,22 @@ These functions are not available in Azure Stack:
 
 ## Resource location
 
-Azure Resource Manager templates use a location attribute to place resources during deployment. In Azure, locations refer to a region like West US or South America. In Azure Stack, locations are different because Azure Stack is in your datacenter. To ensure templates are transferrable between Azure and Azure Stack, you should reference the resource group location as you deploy individual resources. You can do this using `[resourceGroup().Location]` to ensure all resources inherit the resource group location. The following excerpt is an example of using this function while deploying a storage account:
+Azure Resource Manager templates use a `location` attribute to place resources during deployment. In Azure, locations refer to a region such as West US or South America. In Azure Stack, locations are different because Azure Stack is in your datacenter. To ensure templates are transferable between Azure and Azure Stack, you should reference the resource group location as you deploy individual resources. You can do this using `[resourceGroup().Location]` to ensure all resources inherit the resource group location. The following code is an example of using this function while deploying a storage account:
 
-    "resources": [
-    {
-      "name": "[variables('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "[variables('apiVersionStorage')]",
-      "location": "[resourceGroup().location]",
-      "comments": "This storage account is used to store the VM disks",
-      "properties": {
-      "accountType": "Standard_GRS"
-      }
-    }
-    ]
+```json
+"resources": [
+{
+  "name": "[variables('storageAccountName')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "[variables('apiVersionStorage')]",
+  "location": "[resourceGroup().location]",
+  "comments": "This storage account is used to store the VM disks",
+  "properties": {
+  "accountType": "Standard_GRS"
+  }
+}
+]
+```
 
 ## Next steps
 

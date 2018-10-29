@@ -142,7 +142,7 @@ Channels provide a preview endpoint (preview URL) that you use to preview and va
 
 You can get the preview URL when you create the channel. For you to get the URL, the channel does not have to be in the **Running** state. After the channel starts ingesting data, you can preview your stream.
 
-Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
+Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
 
 #### Allowed IP addresses
 You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified, any IP address is allowed. An allowed IP address can be specified as one of the following:

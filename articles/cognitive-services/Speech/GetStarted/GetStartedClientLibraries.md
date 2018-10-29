@@ -1,24 +1,27 @@
 ---
-title: Get started with the Microsoft Speech Recognition API by using client libraries | Microsoft Docs
-description: Use the Microsoft Speech Service client libraries in Microsoft Cognitive Services to develop applications that convert spoken audio to text.
+title: Get started with the Bing Speech Recognition API by using client libraries | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Use the Bing Speech client libraries in Microsoft Cognitive Services to develop applications that convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
-# Get started with Speech Service client libraries
+# Get started with Bing Speech Service client libraries
 
-Besides making direct HTTP requests via a REST API, Speech Service provides developers with Speech client libraries in different languages. The Speech client libraries:
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Besides making direct HTTP requests via a REST API, Bing Speech Service provides developers with Speech client libraries in different languages. The Speech client libraries:
 
 - Support more advanced capabilities in speech recognition, such as intermediate results in real time, long audio stream (up to 10 minutes), and continuous recognition.
 - Provide a simple and idiomatic API in the language of your preference.
 - Hide low-level communication details.
 
-Currently, the following Speech client libraries are available:
+Currently, the following Bing Speech client libraries are available:
 
 - [C# desktop library](GetStartedCSharpDesktop.md)
 - [C# service library](GetStartedCSharpServiceLibrary.md)
@@ -34,3 +37,4 @@ Currently, the following Speech client libraries are available:
 ## License
 
 All Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [License](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+

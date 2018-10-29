@@ -514,7 +514,7 @@ The JSON content for `request` is as follows:
   the query string portion, which is stripped of ALL `sb-hc-` prefixed parameters.
 * **method** - string. This is the method of the request, per [RFC7231, Section 4](https://tools.ietf.org/html/rfc7231#section-4). The `CONNECT` method MUST NOT
  be used.
-* **body** – boolean. Indicates whether one more more binary body frame follows.
+* **body** – boolean. Indicates whether one or more binary body frame follows.
 
 ``` JSON
 {

@@ -101,7 +101,7 @@
   - name: Customer data requests
     href: time-series-insights-customer-data-requests.md
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=internet-of-things
+    href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/time-series-insights/
   - name: Pricing calculator

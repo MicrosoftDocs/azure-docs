@@ -10,7 +10,7 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 10/25/2018
 ms.author: victorh
 
 ---
@@ -28,6 +28,8 @@ In this article, you learn how to:
 > * Create a path-based routing rule
 
 ![URL routing example](./media/create-url-route-portal/scenario.png)
+
+If you prefer, you can complete this tutorial using [Azure CLI](tutorial-url-route-cli.md) or [Azure PowerShell](tutorial-url-route-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -101,7 +103,7 @@ In this example, you create three virtual machines to be used as backend servers
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -139,8 +141,8 @@ In this example, you create three virtual machines to be used as backend servers
 
 1. Click **Rules** and then click **Path-based**.
 2. Enter *rule2* for the name.
-3. Enter *Images* for the name of the first path. Enter */images/** for the path. Select **imagesBackendPool** for the backend pool.
-4. Enter *Video* for the name of the second path. Enter */video/** for the path. Select **videoBackendPool** for the backend pool.
+3. Enter *Images* for the name of the first path. Enter */images/*\* for the path. Select **imagesBackendPool** for the backend pool.
+4. Enter *Video* for the name of the second path. Enter */video/*\* for the path. Select **videoBackendPool** for the backend pool.
 
     ![Create a path-based rule](./media/create-url-route-portal/application-gateway-route-rule.png)
 
@@ -152,11 +154,11 @@ In this example, you create three virtual machines to be used as backend servers
 
     ![Record application gateway public IP address](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http://http://40.121.222.19.
+2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http://40.121.222.19.
 
     ![Test base URL in application gateway](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+3. Change the URL to http://&lt;ip-address&gt;:8080/images/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
 
     ![Test images URL in application gateway](./media/create-url-route-portal/application-gateway-iistest-images.png)
 

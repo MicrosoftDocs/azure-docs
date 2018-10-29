@@ -11,10 +11,10 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ---
 
@@ -75,7 +75,7 @@ While connectors will automatically load balance within a connector group, it is
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* This machine had a connection limit of 800. For all other machines we used the default 200 connection limit.
+\* This machine used a custom setting to raise some of the default connection limits beyond .Net recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
  
 >[!NOTE]
 >There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
@@ -88,7 +88,6 @@ Connectors only send outbound requests. The outbound traffic is sent to the Appl
 
 For more information about configuring outbound firewall rules, see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 
 ## Performance and scalability
 

@@ -3,11 +3,11 @@ title: 'Quickstart: Create and query Azure SQL Data Warehouse - Azure Portal | M
 description: Create and query a data warehouse with Azure SQL Data Warehouse in the Azure portal.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -33,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a data warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server). 
+An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
 
 Follow these steps to create a SQL data warehouse that contains the AdventureWorksDW sample data. 
 
@@ -130,7 +130,7 @@ Get the fully qualified server name for your SQL server in the Azure portal. Lat
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to establish a connection to your Azure SQL server.
 
 1. Open SQL Server Management Studio.
 

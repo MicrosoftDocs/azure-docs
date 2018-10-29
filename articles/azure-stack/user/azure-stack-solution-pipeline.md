@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Tutorial: deploy apps to Azure and Azure Stack
+# Tutorial: Deploy apps to Azure and Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -26,7 +26,7 @@ Learn how to deploy an application to Azure and Azure Stack using a hybrid conti
 In this tutorial, you'll create a sample environment to:
 
 > [!div class="checklist"]
-> * Initiate a new build based on code commits to your Visual Studio Team Services (VSTS) repository.
+> * Initiate a new build based on code commits to your Azure DevOps Services repository.
 > * Automatically deploy your app to global Azure for user acceptance testing.
 > * When your code passes testing, automatically deploy the app to Azure Stack.
 
@@ -43,6 +43,12 @@ To learn more about CI and CD:
 
 * [What is Continuous Integration?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
 * [What is Continuous Delivery?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
 
 ## Prerequisites
 
@@ -77,34 +83,39 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
  * Create [Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure Stack.
  * Create a [tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
  * Create a Web App in the tenant subscription. Make note of the new Web App URL for later use.
- * Deploy VSTS Virtual Machine in the tenant subscription.
+ * Deploy a Windows Server 2012 Virtual Machine in the tenant subscription. You will use this server as your build server and to run Azure DevOps Services.
 * Provide a Windows Server 2016 image with .NET 3.5 for a virtual machine (VM). This VM will be built on your Azure Stack as a private build agent.
 
 ### Developer tool requirements
 
-* Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). The sign-up process creates a project named **MyFirstProject**.
-* [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Create an [Azure DevOps Services workspace](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). The sign-up process creates a project named **MyFirstProject**.
+* [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connect to your project and [clone it locally](https://www.visualstudio.com/docs/git/gitquickstart).
 
  > [!Note]
  > Your Azure Stack environment needs the correct images syndicated to run Windows Server and SQL Server. It must also have App Service deployed.
 
-## Prepare the private build and release agent for Visual Studio Team Services integration
+## Prepare the private Azure Pipelines agent for Azure DevOps Services integration
 
 ### Prerequisites
 
-Visual Studio Team Services (VSTS) authenticates against Azure Resource Manager using a Service Principal. VSTS must have the **Contributor** role to provision resources in an Azure Stack subscription.
+Azure DevOps Services authenticates against Azure Resource Manager using a Service Principal. Azure DevOps Services must have the **Contributor** role to provision resources in an Azure Stack subscription.
 
 The following steps describe what's required to configure authentication:
 
 1. Create a Service Principal, or use an existing Service Principal.
 2. Create Authentication keys for the Service Principal.
 3. Validate the Azure Stack Subscription via Role-Based Access Control to allow the Service Principal Name (SPN) to be part of the Contributor’s role.
-4. Create a new Service Definition in VSTS using the Azure Stack endpoints and SPN information.
+4. Create a new Service Definition in Azure DevOps Services using the Azure Stack endpoints and SPN information.
 
 ### Create a Service Principal
 
-Refer to the [Service Principal Creation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructions to create a service principal, and then choose **Web App/API** for the Application Type.
+Refer to the [Service Principal Creation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructions to create a service principal. Choose **Web App/API** for the Application Type or [use the PowerShell script](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) as explained in the article [Create an Azure Resource Manager service connection with an existing service principal
+](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+
+ > [!Note]  
+ > If you use the script to create an Azure Stack Azure Resource Manager endpoint, you need to pass the **-azureStackManagementURL** parameter and **-environmentName** parameter. For example:  
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### Create an access key
 
@@ -114,7 +125,7 @@ A Service Principal requires a key for authentication. Use the following steps t
 
     ![Select the application](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. Make note of the value of **Application ID**. You will use that value when configuring the service endpoint in VSTS.
+2. Make note of the value of **Application ID**. You will use that value when configuring the service endpoint in Azure DevOps Services.
 
     ![Application ID](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -136,7 +147,7 @@ A Service Principal requires a key for authentication. Use the following steps t
 
 ### Get the tenant ID
 
-As part of the service endpoint configuration, VSTS requires the **Tenant ID** that corresponds to the AAD Directory that your Azure Stack stamp is deployed to. Use the following steps to get the Tenant ID.
+As part of the service endpoint configuration, Azure DevOps Services requires the **Tenant ID** that corresponds to the AAD Directory that your Azure Stack stamp is deployed to. Use the following steps to get the Tenant ID.
 
 1. Select **Azure Active Directory**.
 
@@ -186,20 +197,21 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 ‎Azure Role-Based Access Control (RBAC) provides fine-grained access management for Azure. By using RBAC, you can control the level of access that users need to do their jobs. For more information about Role-Based Access Control, see [Manage Access to Azure Subscription Resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### VSTS Agent Pools
+### Azure DevOps Services Agent Pools
 
-Instead of managing each agent separately, you can organize agents into agent pools. An agent pool defines the sharing boundary for all agents in that pool. In VSTS, agent pools are scoped to the VSTS account, which means that you can share an agent pool across team projects. To learn more about agent pools, see [Create Agent Pools and Queues](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+Instead of managing each agent separately, you can organize agents into agent pools. An agent pool defines the sharing boundary for all agents in that pool. In Azure DevOps Services, agent pools are scoped to the Azure DevOps Services organization, which means that you can share an agent pool across projects. To learn more about agent pools, see [Create Agent Pools and Queues](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
 ### Add a Personal Access Token (PAT) for Azure Stack
 
-Create a Personal Access Token to access VSTS.
+Create a Personal Access Token to access Azure DevOps Services.
 
-1. Sign in to your VSTS account and select your account profile name.
+1. Sign in to your Azure DevOps Services organization and select your organization profile name.
+
 2. Select **Manage Security** to access token creation page.
 
-    ![User sign in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![User sign-in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Select team project](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Select a project](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![Add Personal access token](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -212,7 +224,7 @@ Create a Personal Access Token to access VSTS.
 
     ![Personal access token](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### Install the VSTS build agent on the Azure Stack hosted Build Server
+### Install the Azure DevOps Services build agent on the Azure Stack hosted Build Server
 
 1. Connect to your Build Server that you deployed on the Azure Stack host.
 2. Download and Deploy the build agent as a service using your personal access token (PAT) and run as the VM Admin account.
@@ -229,17 +241,17 @@ Create a Personal Access Token to access VSTS.
 
     ![Build agent folder update](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    You can see the agent in VSTS folder.
+    You can see the agent in Azure DevOps Services folder.
 
 ## Endpoint creation permissions
 
-By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Service apps to Azure Stack. VSTS connects to the build agent, which connects to Azure Stack.
+By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Service apps to Azure Stack. Azure DevOps Services connects to the build agent, which connects to Azure Stack.
 
 ![NorthwindCloud sample app in VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. Sign in to VSTO and navigate to the app settings page.
 2. On **Settings**, select **Security**.
-3. In **VSTS Groups**, select **Endpoint Creators**.
+3. In **Azure DevOps Services Groups**, select **Endpoint Creators**.
 
     ![NorthwindCloud Endpoint Creators](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -249,7 +261,7 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 
 5. In **Add users and groups**, enter a user name and select that user from the list of users.
 6. Select **Save changes**.
-7. In the **VSTS Groups** list, select **Endpoint Administrators**.
+7. In the **Azure DevOps Services Groups** list, select **Endpoint Administrators**.
 
     ![NorthwindCloud Endpoint Administrators](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -257,7 +269,21 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 9. In **Add users and groups**, enter a user name and select that user from the list of users.
 10. Select **Save changes**.
 
-Now that the endpoint information exists, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
+Now that the endpoint information exists, the Azure DevOps Services to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from Azure DevOps Services, and then the agent conveys endpoint information for communication with Azure Stack.
+## Create an Azure Stack endpoint
+
+You can follow the instructions in [Create an Azure Resource Manager service connection with an existing service principal
+](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) article to create a service connection with an existing service principal and use the following mapping:
+
+- Environment: AzureStack
+- Environment URL: Something like `https://management.local.azurestack.external`
+- Subscription ID: User subscription ID from Azure Stack
+- Subscription name: User subscription name from Azure Stack
+- Service Principal client ID: The principal ID from [this](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section in this article.
+- Service Principal key: The key from the same article (or the password if you used the script).
+- Tenant ID: The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+
+Now that the endpoint is created, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
 
 ![Build agent](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
@@ -265,18 +291,18 @@ Now that the endpoint information exists, the VSTS to Azure Stack connection is 
 
 In this part of the tutorial you'll:
 
-* Add code to a VSTS project.
+* Add code to an Azure DevOps Services project.
 * Create self-contained web app deployment.
 * Configure the continuous deployment process
 
 > [!Note]
  > Your Azure Stack environment needs the correct images syndicated to run Windows Server and SQL Server. It must also have App Service deployed. Review the App Service documentation "Prerequisites" section for Azure Stack Operator Requirements.
 
-Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from VSTS to deploy to both clouds.
+Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from Azure DevOps Services to deploy to both clouds.
 
-### Add code to a VSTS project
+### Add code to an Azure DevOps Services project
 
-1. Sign in to VSTS with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
+1. Sign in to Azure DevOps Services with an organization that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
 
     ![Connect to a Project](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -290,37 +316,38 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
     ![Configure Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. Use Team Explorer to check the code into VSTS.
+2. Use Team Explorer to check the code into Azure DevOps Services.
 
-3. Confirm that the application code was checked into Visual Studio Team Services.
+3. Confirm that the application code was checked into Azure DevOps Services.
 
-### Create the build definition
+### Create the build pipeline
 
-1. Sign in to VSTS with an account that can create a build definition.
+1. Sign in to Azure DevOps Services with an organization that can create a build pipeline.
+
 2. Navigate to the **Build Web Applicaiton** page for the project.
 
 3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
 
-    ![Add argument build definition](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Add argument build pipeline](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. Run the build. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 
 ### Use an Azure hosted build agent
 
-Using a hosted build agent in VSTS is a convenient option for building and deploying web apps. Agent maintenance and upgrades are automatically performed by Microsoft Azure, which enables a continuous and uninterrupted development cycle.
+Using a hosted build agent in Azure DevOps Services is a convenient option for building and deploying web apps. Agent maintenance and upgrades are automatically performed by Microsoft Azure, which enables a continuous and uninterrupted development cycle.
 
 ### Configure the continuous deployment (CD) process
 
-Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
+Azure DevOps Services and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
 
-### Create release definition
+### Create release pipeline
 
-Creating a release definition is the final step in your application build process. This release definition is used to create a release and deploy a build.
+Creating a release pipeline is the final step in your application build process. This release pipeline is used to create a release and deploy a build.
 
-1. Sign in to VSTS and navigate to **Build and Release** for your project.
+1. Sign in to Azure DevOps Services and navigate to **Azure Pipelines** for your project.
 2. On the **Releases** tab, select **\[ + ]**  and then pick **Create release definition**.
 
-   ![Create release definition](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Create release pipeline](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. On **Select a Template**, choose **Azure App Service Deployment**, and then select **Apply**.
 
@@ -407,11 +434,11 @@ Creating a release definition is the final step in your application build proces
 23. Save all your changes.
 
 > [!Note]
-> Some settings for release tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when you created a release definition from a template. These settings can't be modified in the task settings. However, you can edit these settings in the parent environment items.
+> Some settings for release tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) when you created a release pipeline from a template. These settings can't be modified in the task settings. However, you can edit these settings in the parent environment items.
 
 ## Create a release
 
-Now that you have completed the modifications to the release definition, it's time to start the deployment. To do this, you create a release from the release definition. A release may be created automatically; for example, the continuous deployment trigger is set in the release definition. This means that modifying the source code will start a new build and, from that, a new release. However, in this section you will create a new release manually.
+Now that you have completed the modifications to the release pipeline, it's time to start the deployment. To do this, you create a release from the release pipeline. A release may be created automatically; for example, the continuous deployment trigger is set in the release pipeline. This means that modifying the source code will start a new build and, from that, a new release. However, in this section you will create a new release manually.
 
 1. On the **Pipeline** tab, open the **Release** drop-down list and choose **Create release**.
 
@@ -435,7 +462,7 @@ This section shows how you can monitor and track all your deployments. The relea
 
     You can choose a person icon in the **Action** column for a Pre-deployment or Post-deployment approval to see who approved (or rejected) the deployment, and the message they provided.
 
-2. After the deployment finishes, the entire log file is displayed in the right pane. You can select any **Step** in the left pane to see the log file for an single step, such as "Initialize Job". The ability to see individual logs makes it easier to trace and debug  parts of the overall deployment. You can also **Save** the log file for a step, or **Download all logs as zip**.
+2. After the deployment finishes, the entire log file is displayed in the right pane. You can select any **Step** in the left pane to see the log file for a single step, such as "Initialize Job". The ability to see individual logs makes it easier to trace and debug  parts of the overall deployment. You can also **Save** the log file for a step, or **Download all logs as zip**.
 
     ![Release logs](media\azure-stack-solution-hybrid-pipeline\203.png)
 

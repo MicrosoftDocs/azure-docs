@@ -4,6 +4,7 @@ description: Use the capabilities of Cortana Intelligence to gain real-time and 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
 
 ---
 # Vehicle Telemetry Analytics Solution playbook

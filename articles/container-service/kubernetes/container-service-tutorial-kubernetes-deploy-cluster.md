@@ -31,7 +31,7 @@ In previous tutorials, a container image was created and uploaded to an Azure Co
 
 ## Create Kubernetes cluster
 
-Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az_acs_create) command. 
+Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az-acs-create) command. 
 
 The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md).
 
@@ -39,7 +39,7 @@ The following example creates a cluster named `myK8sCluster` in a Resource Group
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az_acs_create) command. 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az-acs-create) command. 
 
 After several minutes, the deployment completes, and returns json formatted information about the ACS deployment.
 
@@ -65,7 +65,7 @@ To configure kubectl to connect to your Kubernetes cluster, run the [az acs kube
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
-To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
+To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command.
 
 ```azurecli-interactive
 kubectl get nodes

@@ -1,19 +1,21 @@
 ---
-title: Export or delete your data in Content Moderator - Azure Cognitive Services | Microsoft Docs
+title: Export or delete your data - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Learn how to export or delete your data in Content Moderator.
 services: cognitive-services
-author: v-jaswel
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
-ms.author: v-jaswel
+ms.author: pafarley
 ---
 
 # Export or delete user data in Content Moderator
 
-Content Moderator collects user data to operate the service, but customers have full control over viewing, exporting, and deleting their data, using the [Review UI](http://contentmoderator.cognitive.microsoft.com/) and the [APIs](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/api-reference).
+Content Moderator collects user data to operate the service, but customers have full control over viewing, exporting, and deleting their data, using the [Review UI](http://contentmoderator.cognitive.microsoft.com/) and the [APIs](https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

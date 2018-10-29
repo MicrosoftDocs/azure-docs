@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -44,8 +44,8 @@ In this tutorial, you learn how to:
 2. Select the context menu (**...**) next to it.
 3. Select **+ Add Version**.
 
-    > [!TIP]
-    > Versions can also be enabled when you first create a new API - select **Version this API?** on the **Add API** screen.
+> [!TIP]
+> Versions can also be enabled when you first create a new API - select **Version this API?** on the **Add API** screen.
 
 ## Choose a versioning scheme
 
@@ -73,15 +73,14 @@ Azure API Management allows you to choose the way in which you allow callers to 
 
 In order for callers to see the new version, it must be added to a **product**.
 
+![API Management Products](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+
 1. Select **Products** from the classic deployment model page.
-
-    ![API Management Products](media/api-management-getstarted-publish-versions/Products.png)
-
 2. Select **Unlimited**.
 3. Select **APIs**.
 4. Select **Add**.
 5. Select **Demo Conference API, Version v1**.
-6. Navigate to the service management page and select **APIs**.
+6. Click **Select**.
 
 ## Browse the developer portal to see the version
 

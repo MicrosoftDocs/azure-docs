@@ -11,8 +11,13 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
+
+ROBOTS: NOINDEX
 ---
 # Model management setup
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 This document gets you started with using Azure ML model management to deploy and manage your machine learning models as web services. 
 
@@ -30,6 +35,14 @@ To use the command-line interfaces (CLIs) from the Workbench, click **File** -> 
 On a Data Science Virtual Machine, connect and open the command prompt. Type `az ml -h` to see the options. For more details on the commands, use the --help flag.
 
 On all other systems, you would have to install the CLIs.
+
+>[!NOTE]
+> In a Jupyter notebook on a Linux DSVM, you can access the Azure CLI and Azure ML CLI with the command format below.  **This is for a Jupyter notebook on a Linux DSVM, specifically**.  These commands access the current Python kernel in the notebook (e.g. the conda `py35` environment)
+>```
+>import sys
+>! {sys.executable} -m azure.cli login
+>! {sys.executable} -m azure.cli ml -h
+>```
 
 ### Installing (or updating) on Windows
 

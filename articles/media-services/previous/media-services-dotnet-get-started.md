@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of implementing an on dem
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/10/2017
+ms.date: 10/29/2018
 ms.author: juliako
 
 ---
@@ -151,7 +151,7 @@ In Media Services, you upload (or ingest) your digital files into an asset. The 
 
 The **UploadFile** method defined below calls **CreateFromFile** (defined in .NET SDK Extensions). **CreateFromFile** creates a new asset into which the specified source file is uploaded.
 
-The **CreateFromFile** method takes **AssetCreationOptions, which lets you specify one of the following asset creation options:
+The **CreateFromFile** method takes **AssetCreationOptions**, which lets you specify one of the following asset creation options:
 
 * **None** - No encryption is used. This is the default value. Note that when using this option, your content is not protected in transit or at rest in storage.
   If you plan to deliver an MP4 using progressive download, use this option.

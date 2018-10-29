@@ -1,17 +1,19 @@
 ---
-title: Use an Azure Marketplace image to create a Terraform Linux virtual machine with Managed Service Identity
-description: Use Marketplace image to create Terraform Linux virtual machine with Managed Service Identity and Remote State Management to easily deploy resources to Azure.
+title: Use an Azure Marketplace image to create a Terraform Linux virtual machine with a managed identity
+description: Use Marketplace image to create Terraform Linux virtual machine with a managed identity and Remote State Management to easily deploy resources to Azure.
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
-author: VaijanathB
-manager: rloutlaw
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 3/12/2018
-ms.topic: article
 ---
 
-# Use an Azure Marketplace image to create a Terraform Linux virtual machine with Managed Service Identity
+# Use an Azure Marketplace image to create a Terraform Linux virtual machine with managed identities for Azure resources
 
-This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) to create an Ubuntu Linux VM (16.04 LTS) with the latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). This image also configures a remote back end to enable [remote state](https://www.terraform.io/docs/state/remote.html) management using Terraform. 
+This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) to create an Ubuntu Linux VM (16.04 LTS) with the latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). This image also configures a remote back end to enable [remote state](https://www.terraform.io/docs/state/remote.html) management using Terraform. 
 
 The Terraform Marketplace image makes it easy to get started using Terraform on Azure, without having to install and configure Terraform manually. 
 
@@ -72,19 +74,19 @@ The Terraform VM image performs the following steps:
 
 After you create the VM, you can sign in to it by using SSH. Use the account credentials that you created in the "Basics" section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org/).
 
-After you use SSH to connect to the virtual machine, you need to give contributor permissions for the entire subscription to Managed Service Identity on the virtual machine. 
+After you use SSH to connect to the virtual machine, you need to give contributor permissions for the entire subscription to managed identities for Azure resources on the virtual machine. 
 
 Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. You can easily achieve this action by running a script once. Use the following command:
 
 `. ~/tfEnv.sh`
 
-The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mechanism to authenticate with Azure and assign the virtual machine Managed Service Identity contributor permission on the entire subscription. 
+The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mechanism to authenticate with Azure and assign the virtual machine Managed Identity contributor permission on the entire subscription. 
 
  The VM has a Terraform remote state back end. To enable it on your Terraform deployment, copy the remoteState.tf file from tfTemplate directory to the root of the Terraform scripts.  
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- For more information about Remote State Management, see [this page about the Terraform remote state](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file and needs to be excluded before commiting Terraform configuration files into source control.
+ For more information about Remote State Management, see [this page about the Terraform remote state](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file and needs to be excluded before committing Terraform configuration files into source control.
 
 ## Next steps
 In this article, you learned how to set up a Terraform Linux virtual machine on Azure. Here are some additional resources to help you learn more about Terraform on Azure: 

@@ -57,7 +57,7 @@ Examples of templates:
 
 Get started with Azure Resource Manager cmdlets, command line tools, and REST APIs
 
-* [Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be used to create a Load Balancer.
+* [Azure Networking Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.network#networking) can be used to create a Load Balancer.
 * [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager.md)
 * [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)

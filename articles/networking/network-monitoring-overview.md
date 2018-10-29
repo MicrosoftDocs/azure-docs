@@ -31,7 +31,7 @@ Network Performance Monitor (NPM) is a suite of capabilities, each of which is g
 * Mission critical multi-tier applications/micro-services
 * User locations and web-based applications (HTTP/HTTPs) 
 
-Performance Monitor, ExpressRoute Monitor, and Service Endpoint Monitor are monitoring capabilities within NPM and are described below.
+Performance Monitor, ExpressRoute Monitor, and Service Connectivity Monitor are monitoring capabilities within NPM and are described below.
 
 ## Performance Monitor
 
@@ -69,9 +69,9 @@ For more information, see the following articles:
 * [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
 * [Blog post](https://aka.ms/NPMExRmonitorGA)
 
-## Service Endpoint Monitor
+## Service Connectivity Monitor
 
-With Service Endpoint monitoring, you can now test reachability of applications and detect performance bottlenecks across on-premises, carrier networks and cloud/private data centers.
+With Service Connectivity monitoring, you can now test reachability of applications and detect performance bottlenecks across on-premises, carrier networks and cloud/private data centers.
 
 * Monitor end-to-end network connectivity to applications
 * Correlate application delivery with network performance, detect precise location of degradation along the path between the user and the application

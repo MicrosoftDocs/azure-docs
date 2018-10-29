@@ -1,13 +1,14 @@
 ---
-title: Upgrade Bing Video API v5 to v7 | Microsoft Docs
+title: Upgrade Bing Video Search API v5 to v7
+titlesuffix: Azure Cognitive Services
 description: Identifies the parts of your application that you need to update to use version 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: FA7DDF07-97AC-4EBE-8C50-A9737D43B38E
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
@@ -20,7 +21,7 @@ This upgrade guide identifies the changes between version 5 and version 7 of the
 
 ### Endpoints
 
-- The endpoint's version number changed from v5 to v7. For example, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/videos/search.
+- The endpoint's version number changed from v5 to v7. For example, `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
 ### Error response objects and error codes
 

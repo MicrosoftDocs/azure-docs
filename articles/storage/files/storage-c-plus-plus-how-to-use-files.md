@@ -2,19 +2,12 @@
 title: Develop for Azure Files with C++ | Microsoft Docs
 description: Learn how to develop C++ applications and services that use Azure Files to store file data.
 services: storage
-documentationcenter: .net
 author: renashahmsft
-manager: aungoo
-editor: tamram
-
-ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
+ms.component: files
 ---
 
 # Develop for Azure Files with C++
@@ -352,6 +345,6 @@ if (share.exists())
 To learn more about Azure Storage, explore these resources:
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Azure Storage File Service Samples in C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

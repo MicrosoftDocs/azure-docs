@@ -3,8 +3,8 @@ title: Azure diagnostic logs | Microsoft Docs
 description: Customer can enable log analysis for Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: v-deasim
+ms.author: magattus
 ---
 
 
@@ -92,17 +92,23 @@ To use Log Analytics to store the logs, follow these steps:
 
 2. Select **Configure** to configure Log Analytics logging. 
 
-   The **OMS Workspaces** page appears.
+   The **Log Analytics workspaces** page appears.
+
+    >[!NOTE] 
+    >OMS workspaces are now referred to as Log Analytics workspaces.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Select **Create New Workspace**.
 
-    The **OMS Workspace** page appears.
+    The **Log Analytics workspace** page appears.
+
+    >[!NOTE] 
+    >OMS workspaces are now referred to as Log Analytics workspaces.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. For **OMS Workspace**, enter an OMS Workspace name. The OMS Workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
+4. For **Log Analytics workspace**, enter a Log Analytics workspace name. The Log Analytics workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
 
 5. For **Subscription**, select an existing subscription from the drop-down list. 
 
@@ -163,17 +169,16 @@ Before you can access the core analytics data from an Azure storage account, you
 2.	Locate the storage account
 3.	Expand the **Blob Containers** node under this storage account.
 4.	Select the container named *insights-logs-coreanalytics*.
-5.	Results show up on the right-hand pane, starting with the first level, as *resourceId=*. Continue selecting each level until you find the file *PT1H.json*. See the following *Blob path format* note for an explanation of the path.
+5.	Results show up on the right-hand pane, starting with the first level, as *resourceId=*. Continue selecting each level until you find the file *PT1H.json*. For an explanation of the path, see [Blob path format](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.	Each blob *PT1H.json* file represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
 7.	The schema of the contents of this JSON file is described in the section schema of the core analytics logs.
 
 
-> [!NOTE]
-> **Blob path format**
-> 
-> Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy, the path to the Azure blob appears as if there is a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
-	
-	resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
+#### Blob path format
+
+Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy, the path to the Azure blob appears as if there is a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
+
+```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
 **Description of fields:**
 

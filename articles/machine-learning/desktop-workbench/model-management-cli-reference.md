@@ -12,9 +12,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Model management command-line interface reference
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 
 ## Base CLI concepts:
 
@@ -142,19 +147,19 @@ Global Arguments
 
 The following command creates a manifest file for the model. 
 
-`az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
+`az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]`
 
 Command details:
 
     --manifest-name -n [Required]: Name of the manifest to create.
-    -f                 [Required]: The code file to be deployed.
+    -f                 [Required]: The score file to be deployed.
     -r                 [Required]: Runtime of the web service. Valid runtimes are spark-py|python.
     --conda-file -c              : Path to Conda Environment file.
     --dependency -d              : Files and directories required by the service. Multiple
                                    dependencies can be specified with additional -d arguments.
     --manifest-description       : Description of the manifest.
     --schema-file -s             : Schema file to add to the manifest.
-    -p                           : A pip requirements.txt file needed by the code file.
+    -p                           : A pip requirements.txt file needed by the score file.
     -v                           : Verbosity flag.
 
 Registered Model Arguments
@@ -194,7 +199,7 @@ You can create an image with the option of having created its manifest before.
 
 Or you can create the manifest and image with a single command. 
 
-`az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
+`az ml image create -n [image name] --model-file [model file or folder path] -f [score file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
 
 Command details:
 
@@ -214,8 +219,8 @@ Unregistered Manifest Arguments
                                 be specified with additional -d arguments.
     --model-file -m           : [Required] Model file to register.
     --schema-file -s          : Schema file to add to the manifest.
-    -f                        : [Required] The code file to be deployed.
-    -p                        : A pip requirements.txt file needed by the code file.
+    -f                        : [Required] The score file to be deployed.
+    -p                        : A pip requirements.txt file needed by the score file.
     -r                        : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
 
 
@@ -270,8 +275,8 @@ Unregistered Image Arguments
     --model-file -m                   : [Required] The model to be deployed.
     -d                                : Files and directories required by the service. Multiple dependencies can be specified
                                         with additional -d arguments.
-    -f                                : [Required] The code file to be deployed.
-    -p                                : A pip requirements.txt file of package needed by the code file.
+    -f                                : [Required] The score file to be deployed.
+    -p                                : A pip requirements.txt file of package needed by the score file.
     -r                                : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
     -s                                : Input and output schema of the web service.
 

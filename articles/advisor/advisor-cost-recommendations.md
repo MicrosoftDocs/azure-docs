@@ -3,10 +3,8 @@ title: Azure Advisor Cost recommendations | Microsoft Docs
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
-
+author: manbeenkohli
+manager: 
 ms.assetid: 
 ms.service: advisor
 ms.devlang: NA
@@ -14,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
+ms.author: makohli
 ---
 
 # Advisor Cost recommendations
@@ -31,10 +29,13 @@ If you want to be more aggressive at identifying underutilized virtual machines,
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 Advisor identifies ExpressRoute circuits that have been in the provider status of *Not Provisioned* for more than one month, and recommends deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
 
-## Buy virtual machine reserved instances to save money over pay-as-you-go costs
-Advisor will review your virtual machine usage over the last 30 days and determine if you could save money by purchasing reserved instances. Advisor will show you the regions and sizes where you potentially have the most savings and will show you the estimated savings from purchasing reserved instances. 
+## Reduce costs by deleting or reconfiguring idle virtual network gateways
+Advisor identifies virtual network gates that have been idle for over 90 days. Since these gateways are billed hourly, you should consider reconfiguring or deleting them if you don't intend to use them anymore. 
 
-With reserved instances, you can pre-purchase the base costs for your virtual machines. Discounts will automatically apply to new or existing VMs that have the same size and region as your reserved instances. [Learn more about Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+## Buy reserved virtual machine instances to save money over pay-as-you-go costs
+Advisor will review your virtual machine usage over the last 30 days and determine if you could save money by purchasing an Azure reservation. Advisor will show you the regions and sizes where you potentially have the most savings and will show you the estimated savings from purchasing reservations. 
+
+With Azure reservations, you can pre-purchase the base costs for your virtual machines. Discounts will automatically apply to new or existing VMs that have the same size and region as your reservations. [Learn more about Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## How to access Cost recommendations in Azure Advisor
 

@@ -1,16 +1,15 @@
 ---
-title: 'Set up a process server in Azure for VMware VM and physical server failback with Azure Site Recovery | Microsoft Docs'
-description: This article describes how to set up a process server in Azure, to failback Azure VMs to VMware.
-services: site-recovery
+title: Set up a process server in Azure to fail back during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up a process server in Azure, to fail back from Azure to on-premises during disaster recovery of VMware VMs and physical servers.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 06/10/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
 ---
 
-# Set up additional process servers for scalability
+# Scale for failback with additional process servers
 
 By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add additional standalone process servers. This article describes how to do this.
 
@@ -26,9 +25,11 @@ Verify the sizing requirements summarized in the table. In general, if you have 
 
 | **Additional process server** | **Cache disk size** | **Data change rate** | **Protected machines** |
 | --- | --- | --- | --- |
-|4 vCPUs (2 sockets * 2 cores @ 2.5 GHz), 8-GB memory |300 GB |250 GB or less |Replicate 85 or less machines. |
-|8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 12-GB memory |600 GB |250 GB to 1 TB |Replicate between 85-150 machines. |
-|12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) 24-GB memory |1 TB |1 TB to 2 TB |Replicate between 150-225 machines. |
+|4 vCPUs (2 sockets * 2 cores \@ 2.5 GHz), 8-GB memory |300 GB |250 GB or less |Replicate 85 or less machines. |
+|8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12-GB memory |600 GB |250 GB to 1 TB |Replicate between 85-150 machines. |
+|12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) 24-GB memory |1 TB |1 TB to 2 TB |Replicate between 150-225 machines. |
+
+Where each protected source machine is configured with 3 disks of 100 GB each.
 
 ### Prerequisites
 
@@ -74,7 +75,7 @@ Where command line parameters are as follows:
 For example:
 
 ```
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 cd C:\Temp\Extracted
 UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```

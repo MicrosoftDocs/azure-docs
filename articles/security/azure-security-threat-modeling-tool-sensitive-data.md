@@ -3,9 +3,9 @@ title: Sensitive Data - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -407,7 +407,7 @@ If the application is not an enterprise application, then use platform provided 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **Steps** | Using a UsernameToken with a plaintext password over an unencrypted channel exposes the password to attackers who can sniff the SOAP messages. Service Providers that use the UsernameToken might accept passwords sent in plaintext. Sending plaintext passwords over an unencrypted channel can expose the credential to attackers who can sniff the SOAP message. | 
 
 ### Example
@@ -426,7 +426,7 @@ Set clientCredentialType to Certificate or Windows.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Security Mode - Transport, Security Mode - Message |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) |
 | **Steps** | No transport or message security has been defined. Applications that transmit messages without transport or message security cannot guarantee the integrity or confidentiality of the messages. When a WCF security binding is set to None, both transport and message security are disabled. |
 
 ### Example

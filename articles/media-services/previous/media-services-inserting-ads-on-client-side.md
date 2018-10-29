@@ -272,7 +272,7 @@ The following example shows a VMAP file that specifies tracking events
     </vmap:VMAP>
 ```
 
-For more information on the <**TrackingEvents**> element and its children, see http://iab.org/VMAP.pdf
+For more information on the <**TrackingEvents**> element and its children, see http://iab.net/VMAP.pdf
 
 ### Using a Media Abstract Sequencing Template (MAST) File
 A MAST file allows you to specify triggers that define when an ad is displayed. The following is an example MAST file that contains triggers for a pre roll ad, a mid-roll ad, and a post-roll ad.

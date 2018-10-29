@@ -1,18 +1,19 @@
 ---
-title: Go Quickstart for Microsoft QnA Maker API (V4) - Azure Cognitive Services | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
+title: "REST API (V4) - Go - QnA Maker"
+titleSuffix: Azure Cognitive Services 
+description: Get G0 REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
+ms.date: 10/19/2018
+ms.author: diberry
 
 ---
-# Quickstart for Microsoft QnA Maker API with Go 
+# QnA Maker REST API with Go 
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Go to do the following.
@@ -122,7 +123,7 @@ var req string = `{
   "qnaList": [
     {
       "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -136,8 +137,8 @@ var req string = `{
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }`;
@@ -312,7 +313,7 @@ var req string = `{
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -559,7 +560,7 @@ var req string = `{
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -679,7 +680,7 @@ A successful response is returned in JSON, as shown in the following example:
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -694,7 +695,7 @@ A successful response is returned in JSON, as shown in the following example:
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -717,7 +718,7 @@ The following code gets answers to a question using the specified knowledge base
 1. Add the code provided below.
 1. Replace the `host` value with the Website name for your QnA Maker subscription. For more information see [Create a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md).
 1. Replace the `endpoint_key` value with a valid endpoint key for your subscription. Note this is not the same as your subscription key. You can get your endpoint keys using the [Get endpoint keys](#GetKeys) method.
-1. Replace the `kb` value with the the ID of the knowledge base you want to query for answers. Note this knowledge base must already have been published using the [Publish](#Publish) method.
+1. Replace the `kb` value with the ID of the knowledge base you want to query for answers. Note this knowledge base must already have been published using the [Publish](#Publish) method.
 1. Run the program.
 
 ```go
@@ -798,7 +799,7 @@ A successful response is returned in JSON, as shown in the following example:
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -889,8 +890,8 @@ A successful response is returned in JSON, as shown in the following example:
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -990,8 +991,8 @@ A successful response is returned in JSON, as shown in the following example:
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"

@@ -72,7 +72,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I manage a Linux SQL Server virtual machine with SQL Server Management Studio (SSMS)?**
 
-   Yes, but SSMS is currently a Windows-only tool. You must connect remotely from a Windows machine to use SSMS with Linux SQL Server VMs. Locally on Linux, the new [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) tool can perform many administrative tasks. To preview a cross-platform database management tool, see [SQL Server Operations Studio (preview)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Yes, but SSMS is currently a Windows-only tool. You must connect remotely from a Windows machine to use SSMS with Linux SQL Server VMs. Locally on Linux, the new [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) tool can perform many administrative tasks. For a cross-platform database management tool, see [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
 1. **Can I remove SQL Server completely from a SQL VM?**
 

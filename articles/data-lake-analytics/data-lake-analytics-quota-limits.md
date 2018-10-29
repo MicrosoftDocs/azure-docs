@@ -5,8 +5,8 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
-manager: kfile
+ms.reviewer: jasonwhowell
+
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018

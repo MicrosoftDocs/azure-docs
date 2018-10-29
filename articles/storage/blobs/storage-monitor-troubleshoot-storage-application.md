@@ -3,13 +3,11 @@ title: Monitor and troubleshoot a cloud storage application in Azure | Microsoft
 description: Use diagnostic tools, metrics, and alerting to troubleshoot and monitor a cloud application.
 services: storage
 author: tamram
-manager: jeconnoc
+
 
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
 ---
@@ -26,9 +24,9 @@ In part four of the series, you learn how to:
 > * Run test traffic with incorrect SAS tokens
 > * Download and analyze logs
 
-[Azure storage analytics](../common/storage-analytics.md) provides logging and metric data for a storage account. This data provides insights into the health of your storage account. Before you can be visibility into your storage account, you need to set up data collection. This process involves turning on logging, configuring metrics, and enabling alerts.
+[Azure storage analytics](../common/storage-analytics.md) provides logging and metric data for a storage account. This data provides insights into the health of your storage account. To collect data from Azure storage analytics, you can configure logging, metrics and alerts. This process involves turning on logging, configuring metrics, and enabling alerts.
 
-Logging and metrics from storage accounts are enabled from the **Diagnostics** tab in the Azure portal. There are two types of metrics. **Aggregate** metrics collect ingress/egress, availability, latency, and success percentages. These metrics are aggregated for the blob, queue, table, and file services. **Per API** collects the same set of metrics for each storage operation in the Azure Storage service API. Storage logging enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your Azure tables, queues, and blobs. They also enable you to see the reasons for failed requests such as timeouts, throttling, and authorization errors.
+Logging and metrics from storage accounts are enabled from the **Diagnostics** tab in the Azure portal. Storage logging enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your Azure tables, queues, and blobs. They also enable you to see the reasons for failed requests such as timeouts, throttling, and authorization errors.
 
 ## Log in to the Azure portal
 
@@ -38,11 +36,11 @@ Log in to the [Azure portal](https://portal.azure.com)
 
 From the left menu, select **Resource Groups**, select **myResourceGroup**, and then select your storage account in the resource list.
 
-Under **Diagnostics** set **Status** to **On**. Ensure all of the options under **Blob properties** are enabled.
+Under **Diagnostics settings (classic)** set **Status** to **On**. Ensure all of the options under **Blob properties** are enabled.
 
 When complete, click **Save**
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## Enable alerts
 
@@ -50,34 +48,33 @@ Alerts provide a way to email administrators or trigger a webhook based on a met
 
 ### Navigate to the storage account in the Azure portal
 
-From the left menu, select **Resource Groups**, select **myResourceGroup**, and then select your storage account in the resource list.
+Under the **Monitoring** section, select **Alerts (classic)**.
 
-Under the **Monitoring** section, select **Alert rules**.
+Select **Add metric alert (classic)** and complete the **Add rule** form by filling in the required information. From the **Metric** dropdown, select `SASClientOtherError`. To allow your alert to trigger upon the first error, from the **Condition** dropdown select **Greater than or equal to**.
 
-Select **+ Add alert**, under **Add an alert rule**, fill in the required information. Choose `SASClientOtherError` from the **Metric** drop-down.
-
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
 ## Simulate an error
 
-To simulate a valid alert, you can attempt to request a non-existent blob from your storage account. To do this, replace the `<incorrect-blob-name>` value with a value that does not exist. Run the following code sample a few times to simulate failed blob requests.
+To simulate a valid alert, you can attempt to request a non-existent blob from your storage account. The following command requires a storage container name. You can either use the name of an existing container or create a new one for the purposes of this example.
+
+Replace the placeholders with real values (make sure `<INCORRECT_BLOB_NAME>` is set to a value that does not exist) and run the command.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <incorrect-blob-name> \
+    --account-name <STORAGE_ACCOUNT_NAME> \
+    --account-key <STORAGE_ACCOUNT_KEY> \
+    --container-name <CONTAINER_NAME> \
+    --name <INCORRECT_BLOB_NAME> \
     --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
+    --expiry `date --date="next day" +%Y-%m-%d`)
 
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
+curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCORRECT_BLOB_NAME>?$sasToken
 ```
 
 The following image is an example alert that is based off the simulated failure ran with the preceding example.
 
- ![Example alert](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Example alert](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
 ## Download and view logs
 

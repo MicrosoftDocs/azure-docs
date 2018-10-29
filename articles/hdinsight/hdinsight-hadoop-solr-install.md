@@ -1,19 +1,14 @@
 ---
-title: Use Script Action to install Solr on Hadoop cluster - Azure | Microsoft Docs
+title: Use Script Action to install Solr on Hadoop cluster - Azure 
 description: Learn how to customize HDInsight cluster with Solr using Script Action.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: b1e6f338-8ac1-4b38-bbb5-2f7388b9de3b
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---
@@ -145,21 +140,27 @@ You must start with indexing Solr with some data files. You can then use Solr to
            http://localhost:8983/solr/replication?command=backup
 
        You should see a response like this:
-
-           <?xml version="1.0" encoding="UTF-8"?>
-           <response>
+            
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+          <response>
              <lst name="responseHeader">
                <int name="status">0</int>
                <int name="QTime">9</int>
              </lst>
-             <str name="status">OK</str>
-           </response>
-   2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. At this location, you should see a snapshot folder created with a name similar to **snapshot.*timestamp***.
+            <str name="status">OK</str>
+          </response>
+      ```
+      
+   2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. At this location, you should see a snapshot folder created with a name similar to **snapshot.*timestamp***.
+   
    3. Zip the snapshot folder and upload it to Azure Blob storage. From the Hadoop command line, navigate to the location of the snapshot folder by using the following command:
 
-             hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
+      hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
 
-       This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
+   This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
 
 ## Install Solr using Aure PowerShell
 See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  The sample demonstrates how to install Spark using Azure PowerShell. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).

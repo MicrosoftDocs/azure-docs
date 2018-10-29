@@ -284,6 +284,9 @@ The next activity, Connect-AzureRmAccount, adds the authenticated Run As account
 
 ![Connect-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
+> [!IMPORTANT]
+> **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+
 For the parameters **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID** you need to specify the name of the property for the Field path because the activity outputs an object with multiple properties. Otherwise when you execute the runbook, it fails attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
 
 To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources, the method to authenticate is the Add-AzureAccount cmdlet with a [credential asset](automation-credentials.md) that represents an Active Directory user with access to the Azure account.
@@ -323,7 +326,7 @@ Each input parameter is defined by the properties in the following table:
 
 ### Runbook output
 
-Data created by any activity that does not have an outgoing link is saved to the [output of the runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
+Data created by any activity that does not have an outgoing link is saved to the [output of the runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
 
 ## PowerShell expressions
 

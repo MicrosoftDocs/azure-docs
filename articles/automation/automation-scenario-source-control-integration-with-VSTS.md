@@ -1,19 +1,23 @@
 ---
-title: Integrate Azure Automation with Visual Stuido Team Services source control
-description: Scenario walks you through setting up integration with an Azure Automation account and Visual Stuido Team Services source control.
+title: Integrate Azure Automation with Azure DevOps Services source control
+description: Scenario walks you through setting up integration with an Azure Automation account and Azure DevOps Services source control.
 services: automation
 author: eamonoreilly
 ms.author: eamono
-keywords: azure powershell, VSTS, source control, automation
+keywords: azure powershell, Azure DevOps Services, source control, automation
 ms.service: automation
 ms.component: process-automation
 ms.topic: conceptual
-ms.date: 03/19/2017
+ms.date: 09/26/2018
 ---
-# Azure Automation scenario - Automation source control integration with Visual Studio Team Services
+# Azure Automation scenario - Automation source control integration with Azure DevOps
 
-In this scenario, you have a Visual Studio Team Services project that you are using to manage Azure Automation runbooks or DSC configurations under source control.
-This article describes how to integrate VSTS with your Azure Automation environment so that continuous integration happens for each check-in.
+> [!NOTE]
+> There is a new experience for source control. To learn more about the new experience, see [Source Control (Preview)](source-control-integration.md).
+
+In this scenario, you have an Azure DevOps project that you are using to manage Azure Automation runbooks or DSC configurations under source control.
+
+This article describes how to integrate Azure DevOps with your Azure Automation environment so that continuous integration happens for each check-in.
 
 ## Getting the scenario
 
@@ -21,72 +25,75 @@ This scenario consists of two PowerShell runbooks that you can import directly f
 
 ### Runbooks
 
-Runbook | Description| 
+Runbook | Description|
 --------|------------|
-Sync-VSTS | Import runbooks or configurations from VSTS source control when a check-in is done. If run manually, it imports and publishes all runbooks or configurations into the Automation account.| 
-Sync-VSTSGit | Import runbooks or configurations from VSTS under Git source control when a check-in is done. If run manually, it imports and publishes all runbooks or configurations into the Automation account.|
+Sync-VSTS | Import runbooks or configurations from Azure DevOps source control when a check-in is done. If run manually, it imports and publishes all runbooks or configurations into the Automation account.| 
+Sync-VSTSGit | Import runbooks or configurations from Azure DevOps under Git source control when a check-in is done. If run manually, it imports and publishes all runbooks or configurations into the Automation account.|
 
 ### Variables
 
 Variable | Description|
 -----------|------------|
-VSToken | Secure variable asset you create that contains the VSTS personal access token. You can learn how to create a VSTS personal access token on the [VSTS authentication page](/vsts/accounts/use-personal-access-tokens-to-authenticate).
+VSToken | Secure variable asset you create that contains the Azure DevOps personal access token. You can learn how to create an Azure DevOps personal access token on the [Azure DevOps authentication page](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+
 ## Installing and configuring this scenario
 
-Create a [personal access token](/vsts/accounts/use-personal-access-tokens-to-authenticate) in VSTS that you use to sync the runbooks or configurations into your automation account.
+Create a [personal access token](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) in Azure DevOps that you use to sync the runbooks or configurations into your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
-Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks or configurations into the Automation account. You can name this VSToken. 
+Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to Azure DevOps and sync the runbooks or configurations into the Automation account. You can name this VSToken.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Import the runbook that syncs your runbooks or configurations into the automation account. You can use the [VSTS sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) or the [VSTS with Git sample runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) from the PowerShellGallery.com depending on if you use VSTS source control or VSTS with Git and deploy to your automation account.
+Import the runbook that syncs your runbooks or configurations into the automation account. You can use the [Azure DevOps sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS) or the [Azure DevOps with Git sample runbook](https://www.powershellgallery.com/packages/Sync-VSTSGit) from the [PowerShell Gallery](https://www.powershellgallery.com) depending on if you use Azure DevOps source control or Azure DevOps with Git and deploy to your automation account.
 
-![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
+![PowerShell Gallery](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
-You can now [publish](automation-creating-importing-runbook.md#publishing-a-runbook) this runbook so you can create a webhook. 
-![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
+You can now [publish](automation-creating-importing-runbook.md#publishing-a-runbook) this runbook so you can create a webhook.
 
-Create a [webhook](automation-webhooks.md) for this Sync-VSTS runbook and fill in the parameters as shown below. Make sure you copy the webhook url as you need it for a service hook in VSTS. The VSAccessTokenVariableName is the name (VSToken) of the secure variable that you created earlier to hold the personal access token. 
+![Pulish runbook](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
-Integrating with VSTS (Sync-VSTS.ps1) takes the following parameters:
+Create a [webhook](automation-webhooks.md) for this Sync-VSTS runbook and fill in the parameters as shown below. Make sure you copy the webhook url as you need it for a service hook in Azure DevOps. The VSAccessTokenVariableName is the name (VSToken) of the secure variable that you created earlier to hold the personal access token.
+
+Integrating with Azure DevOps (Sync-VSTS.ps1) takes the following parameters:
+
 ### Sync-VSTS Parameters
-
-Parameter | Description| 
---------|------------|
-WebhookData | This contains the checkin information sent from the VSTS service hook. You should leave this parameter blank.| 
-ResourceGroup | This is the name of the resource group that the automation account is in.|
-AutomationAccountName | The name of the automation account that syncs with VSTS.|
-VSFolder | The name of the folder in VSTS where the runbooks and configurations exist.|
-VSAccount | The name of the Visual Studio Team Services account.| 
-VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the VSTS personal access token.| 
-
-
-![](media/automation-scenario-source-control-integration-with-VSTS/VSTSWebhook.png)
-
-If you are using VSTS with GIT (Sync-VSTSGit.ps1) it will take the following parameters.
 
 Parameter | Description|
 --------|------------|
-WebhookData | This will contain the checkin information sent from the VSTS service hook. You should leave this parameter blank.| ResourceGroup | This the name of the resource group that the automation account is in.|
-AutomationAccountName | The name of the automation account that syncs with VSTS.|
-VSAccount | The name of the Visual Studio Team Services account.|
-VSProject | The name of the project in VSTS where the runbooks and configurations exist.|
+WebhookData | This contains the checkin information sent from the Azure DevOps service hook. You should leave this parameter blank.| 
+ResourceGroup | This is the name of the resource group that the automation account is in.|
+AutomationAccountName | The name of the automation account that syncs with Azure DevOps.|
+VSFolder | The name of the folder in Azure DevOps where the runbooks and configurations exist.|
+VSAccount | The name of the Azure DevOps organization.|
+VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the Azure DevOps personal access token.|
+
+![Webhook](media/automation-scenario-source-control-integration-with-VSTS/VSTSWebhook.png)
+
+If you are using Azure DevOps with GIT (Sync-VSTSGit.ps1) it will take the following parameters.
+
+Parameter | Description|
+--------|------------|
+WebhookData | This will contain the checkin information sent from the Azure DevOps service hook. You should leave this parameter blank.|
+ResourceGroup | This the name of the resource group that the automation account is in.|
+AutomationAccountName | The name of the automation account that syncs with Azure DevOps.|
+VSAccount | The name of the Azure DevOps organization.|
+VSProject | The name of the project in Azure DevOps where the runbooks and configurations exist.|
 GitRepo | The name of the Git repository.|
-GitBranch | The name of the branch in VSTS Git repository.|
-Folder | The name of the folder in VSTS Git branch.|
-VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the VSTS personal access token.|
+GitBranch | The name of the branch in Azure DevOps Git repository.|
+Folder | The name of the folder in Azure DevOps Git branch.|
+VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the Azure DevOps personal access token.|
 
-![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
+![GIT Webhook](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 
-Create a service hook in VSTS for check-ins to the folder that triggers this webhook on code check-in. Select **Web Hooks** as the service to integrate with when you create a new subscription. You can learn more about service hooks on [VSTS Service Hooks documentation](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
-![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
+Create a service hook in Azure DevOps for check-ins to the folder that triggers this webhook on code check-in. Select **Web Hooks** as the service to integrate with when you create a new subscription. You can learn more about service hooks on [Azure DevOps Service Hooks documentation](https://www.visualstudio.com/docs/marketplace/integrate/service-hooks/get-started).
+![Service Hook](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
-You should now be able to do all check-ins of your runbooks and configurations into VSTS and have these automatically synched into your automation account.
+You should now be able to do all check-ins of your runbooks and configurations into Azure DevOps and have these automatically synched into your automation account.
 
-![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
+![Sync runbook output](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
-If you run this runbook manually without being triggered by VSTS, you can leave the webhookdata parameter empty and it does a full sync from the VSTS folder specified.
+If you run this runbook manually without being triggered by Azure DevOps, you can leave the webhookdata parameter empty and it does a full sync from the Azure DevOps folder specified.
 
-If you wish to uninstall the scenario, remove the service hook from VSTS, delete the runbook, and the VSToken variable.
+If you wish to uninstall the scenario, remove the service hook from Azure DevOps, delete the runbook, and the VSToken variable.

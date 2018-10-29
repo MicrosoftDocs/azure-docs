@@ -44,16 +44,10 @@ If you don't have one, create it:
 *Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
 
 ### Add the SDK script to your app or web pages
-In Quick Start, get the script for web pages:
-
-![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> The *Getting Started* experience varies depending on the application type you select when creating your Application Insights resource. If the script is not present for your app as seen in the preceding screenshot, just use the following script.
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -123,7 +117,7 @@ Open the Browser blade to show aggregated performance data from your users' brow
 
 ![In portal.azure.com, open your app's resource and click Settings, Browser](./media/app-insights-javascript/03.png)
 
-*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
+No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).
 
 The Browser blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
@@ -232,7 +226,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about usage tracking](app-insights-web-track-usage.md)
+* [Learn about the user behavior analytics tools](app-insights-web-track-usage.md)
 * [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video

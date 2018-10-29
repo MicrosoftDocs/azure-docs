@@ -118,6 +118,15 @@ This preview supports a subset of the configuration options from the Compose ver
 
 Set up the cluster for enforcing resource limits, as described in [Service Fabric resource governance](service-fabric-resource-governance.md). All other Docker Compose directives are unsupported for this preview.
 
+### Ports section
+
+Specify either the http or https protocol in the Ports section that will be used by the Service Fabric service listener. This will ensure that the endpoint protocol is published correctly with the naming service to allow reverse proxy to forward the requests:
+* To route to unsecure Service Fabric Compose services, specify **/http**. For example, - **"80:80/http"**.
+* To route to secure Service Fabric Compose services, specify **/https**. For example, - **"443:443/https"**.
+
+> [!NOTE]
+> The /http and /https Ports section syntax is specific to Service Fabric to register the correct Service Fabric listener URL.  If the Docker compose file syntax is programmatically validated, it may cause a validation error.
+
 ## ServiceDnsName computation
 
 If the service name that you specify in a Compose file is a fully qualified domain name (that is, it contains a dot [.]), the DNS name registered by Service Fabric is `<ServiceName>` (including the dot). If not, each path segment in the application name becomes a domain label in the service DNS name, with the first path segment becoming the top-level domain label.

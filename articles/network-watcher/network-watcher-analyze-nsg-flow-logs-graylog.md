@@ -3,7 +3,7 @@ title: Analyze Azure network security group flow logs - Graylog | Microsoft Docs
 description: Learn how to manage and analyze network security group flow logs in Azure using Network Watcher and Graylog.
 services: network-watcher
 documentationcenter: na
-author: mareat
+author: mattreatMSFT
 manager: vitinnan
 editor: ''
 tags: azure-resource-manager
@@ -28,7 +28,7 @@ You can have many network security groups in your network with flow logging enab
 
 Network security group flow logs are enabled using Network Watcher. Flow logs flow in to Azure blob storage. A Logstash plugin is used to connect and process flow logs from blob storage and send them to Graylog. Once the flow logs are stored in Graylog, they can be analyzed and visualized into customized dashboards.
 
-![Graylog workflow]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Graylog workflow](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## Installation Steps
 
@@ -50,30 +50,30 @@ Graylog can be installed in many ways, depending on your platform and preference
 [documentation](http://docs.graylog.org/en/2.2/pages/installation.html). The Graylog server application runs on Linux distributions and has the following
 prerequisites:
 
--   Oracle Java SE 8 or later – [Oracle’s installation documentation](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
--   Elastic Search 2.x (2.1.0 or later) - [Elasticsearch installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
--   MongoDB 2.4 or later – [MongoDB installation documentation](https://docs.mongodb.com/manual/administration/install-on-linux/)
+-  Oracle Java SE 8 or later – [Oracle’s installation documentation](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Elastic Search 2.x (2.1.0 or later) - [Elasticsearch installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
+-  MongoDB 2.4 or later – [MongoDB installation documentation](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
 ### Install Logstash
 
 Logstash is used to flatten the JSON formatted flow logs to a flow tuple level. Flattening the flow logs makes the logs easier to organize and search in Graylog.
 
-1.  To install Logstash, run the following commands:
+1. To install Logstash, run the following commands:
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
-    sudo dpkg -i logstash-5.2.0.deb
-    ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
+   sudo dpkg -i logstash-5.2.0.deb
+   ```
 
-2.  Configure Logstash to parse the flow logs and send them to Graylog. Create a Logstash.conf file:
+2. Configure Logstash to parse the flow logs and send them to Graylog. Create a Logstash.conf file:
 
-    ```bash
-    sudo touch /etc/logstash/conf.d/logstash.conf
-    ```
+   ```bash
+   sudo touch /etc/logstash/conf.d/logstash.conf
+   ```
 
-3.  Add the following content to the file. Change the highlighted values to reflect your storage account details:
+3. Add the following content to the file. Change the highlighted values to reflect your storage account details:
 
-    ```
+   ```
     input {
         azureblob
         {
@@ -146,7 +146,7 @@ Logstash is used to flatten the JSON formatted flow logs to a flow tuple level. 
         }
     }
     ```
-The Logstash config file provided is composed of three parts: the input, filter, and output. The input section designates the input source of the logs that Logstash will process – in this case we are going to use an Azure blog input plugin (installed in the next steps) that allows us to access the network security group flow log JSON files stored in blob storage.
+The Logstash config file provided is composed of three parts: the input, filter, and output. The input section designates the input source of the logs that Logstash will process – in this case, you are going to use an Azure blog input plugin (installed in the next steps) that allows us to access the network security group flow log JSON files stored in blob storage.
 
 The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
 
@@ -170,32 +170,29 @@ For more information about this plug in, see the [documentation](https://github.
 
 ### Set up connection from Logstash to Graylog
 
-Now that we have established a connection to the flow logs using Logstash and set up the Graylog server, we need to configure Graylog to accept the incoming
-log files.
+Now that you have established a connection to the flow logs using Logstash and set up the Graylog server, you need to configure Graylog to accept the incoming log files.
 
-1.  Navigate to your Graylog Server web interface using the URL you configured for it. You can access the interface by directing your browser to
+1. Navigate to your Graylog Server web interface using the URL you configured for it. You can access the interface by directing your browser to
     `http://<graylog-server-ip>:9000/`
 
-2.  To navigate to the configuration page, select the **System** drop-down menu in the top navigation bar to the right, and then click **Inputs**.
-    Alternatively, navigate to `http://<graylog-server-ip>:9000/system/inputs`
+2. To navigate to the configuration page, select the **System** drop-down menu in the top navigation bar to the right, and then click **Inputs**.
+   Alternatively, navigate to `http://<graylog-server-ip>:9000/system/inputs`
 
-    ![Getting started](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+   ![Getting started](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3.  To launch the new input, select *GELF UDP* in the **Select input** drop-down, and then fill out the form. GELF stands for Graylog Extended Log Format. The GELF format is developed by Graylog. To learn more about its advantages, see the Graylog [documentation](http://docs.graylog.org/en/2.2/pages/gelf.html).
+3. To launch the new input, select *GELF UDP* in the **Select input** drop-down, and then fill out the form. GELF stands for Graylog Extended Log Format. The GELF format is developed by Graylog. To learn more about its advantages, see the Graylog [documentation](http://docs.graylog.org/en/2.2/pages/gelf.html).
 
-    Make sure to bind the input to the IP you configured your Graylog server on. The IP address should match the **host** field of the UDP output of the Logstash configuration file. The default port should be *12201*. Ensure the port matches the **port** field in the UDP output designated in the Logstash config file.
+   Make sure to bind the input to the IP you configured your Graylog server on. The IP address should match the **host** field of the UDP output of the Logstash configuration file. The default port should be *12201*. Ensure the port matches the **port** field in the UDP output designated in the Logstash config file.
 
-    ![Inputs](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![Inputs](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
-    Once you launch the input, you should see it appear under the **Local inputs** section, as shown in the following picture:
+   Once you launch the input, you should see it appear under the **Local inputs** section, as shown in the following picture:
 
-    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-    To learn more about Graylog message inputs, refer to the [documentation](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
+   To learn more about Graylog message inputs, refer to the [documentation](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
-4.  Once these configurations have been made, you can start Logstash to begin reading in flow logs with the following command:
-
-    `sudo systemctl start logstash.service`
+4. Once these configurations have been made, you can start Logstash to begin reading in flow logs with the following command: `sudo systemctl start logstash.service`.
 
 ### Search through Graylog messages
 
@@ -209,17 +206,15 @@ Clicking on the blue “%{Message}” link expands each message to show the para
 
 By default, all message fields are included in the search if you don’t select a specific message field to search for. If you want to search for specific messages (i.e – flow tuples from a specific source IP) you can use the Graylog search query language as [documented](http://docs.graylog.org/en/2.2/pages/queries.html)
 
-
 ## Analyze network security group flow logs using Graylog
 
-Now that Graylog it set up running, we can use some of its functionalities to better understand our flow log data. One such way is by using dashboards to
-create specific views of our data.
+Now that Graylog it set up running, you can use some of its functionality to better understand your flow log data. One such way is by using dashboards to create specific views of your data.
 
 ### Create a dashboard
 
-1.  In the top navigation bar, select **Dashboards** or navigate to `http://<graylog-server-ip>:9000/dashboards/`
+1. In the top navigation bar, select **Dashboards** or navigate to `http://<graylog-server-ip>:9000/dashboards/`
 
-2.  From there, click the green **Create dashboard** button and fill out the short form with the title and description of your dashboard. Hit the
+2. From there, click the green **Create dashboard** button and fill out the short form with the title and description of your dashboard. Hit the
     **Save** button to create the new dashboard. You see a dashboard similar to the following picture:
 
     ![Dashboards](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
@@ -229,26 +224,26 @@ create specific views of our data.
 You can click the title of the dashboard to see it, but right now it's empty, since we haven’t added any widgets. An easy and useful type widget to add to
 the dashboard are **Quick Values** charts, which display a list of values of the selected field, and their distribution.
 
-1.  Navigate back to the search results of the UDP input that’s receiving flow logs by selecting **Search** from the top navigation bar.
+1. Navigate back to the search results of the UDP input that’s receiving flow logs by selecting **Search** from the top navigation bar.
 
-2.  Under the **Search result** panel to the left side of the screen, find the **Fields** tab, which lists the various fields of each incoming flow tuple
+2. Under the **Search result** panel to the left side of the screen, find the **Fields** tab, which lists the various fields of each incoming flow tuple
     message.
 
-3.  Select any desired parameter in which to visualize (in this example we’ve selected source IP). To show the list of possible widgets, click the blue drop-down arrow to the left of the field, then select **Quick values** to generate the widget. You should see something similar to the following picture:
+3. Select any desired parameter in which to visualize (in this example, the IP source is selected). To show the list of possible widgets, click the blue drop-down arrow to the left of the field, then select **Quick values** to generate the widget. You should see something similar to the following picture:
 
-    ![Source IP](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
+   ![Source IP](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
 
-4.  From there, you can select the **Add to dashboard** button at the top right corner of the widget and select the corresponding dashboard to add.
+4. From there, you can select the **Add to dashboard** button at the top right corner of the widget and select the corresponding dashboard to add.
 
-5.  Navigate back to the dashboard to see the widget you just added.
+5. Navigate back to the dashboard to see the widget you just added.
 
-    You can add a variety of other widgets such as histograms and counts to your dashboard to keep track of important metrics, such as the sample dashboard shown in the following picture:
+   You can add a variety of other widgets such as histograms and counts to your dashboard to keep track of important metrics, such as the sample dashboard shown in the following picture:
 
-    ![Flowlogs dashboard](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
+   ![Flowlogs dashboard](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
     For further explanation on dashboards and the other types of widgets, refer to Graylog’s [documentation](http://docs.graylog.org/en/2.2/pages/dashboards.html).
 
-By integrating Network Watcher with Graylog, we now have a convenient and centralized way to manage and visualize network security group flow logs. Graylog has a number of other powerful features such as streams and alerts that can also be used to further manage flow logs and better understand your network traffic. Now that
+By integrating Network Watcher with Graylog, you now have a convenient and centralized way to manage and visualize network security group flow logs. Graylog has a number of other powerful features such as streams and alerts that can also be used to further manage flow logs and better understand your network traffic. Now that
 you have Graylog set up and connected to Azure, feel free to continue to explore the other functionality that it offers.
 
 ## Next steps

@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
@@ -83,7 +83,7 @@ To specify the scope in our sample, open the file `App_Start\Startup.Auth.cs` an
         {
             ...
 
-            // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
+            // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
             Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
         }
     );

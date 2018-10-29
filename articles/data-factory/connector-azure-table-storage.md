@@ -12,19 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 08/17/2018
 ms.author: jingwang
 
 ---
 # Copy data to and from Azure Table storage by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Generally available](v1/data-factory-azure-table-connector.md)
-> * [Version 2 - Preview](connector-azure-table-storage.md)
+> * [Version 1](v1/data-factory-azure-table-connector.md)
+> * [Current version](connector-azure-table-storage.md)
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Table storage connector in version 1](v1/data-factory-azure-table-connector.md).
 
 ## Supported capabilities
 
@@ -46,9 +43,12 @@ You can create an Azure Storage linked service by using the account key. It prov
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **AzureStorage**. |Yes |
+| type | The type property must be set to **AzureTableStorage**. |Yes |
 | connectionString | Specify the information needed to connect to Storage for the connectionString property. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>If you were using "AzureStorage" type linked service, it is still supported as-is, while you are suggested to use this new "AzureTableStorage" linked service type going forward.
 
 **Example:**
 
@@ -56,7 +56,7 @@ You can create an Azure Storage linked service by using the account key. It prov
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureTableStorage",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -71,27 +71,30 @@ You can create an Azure Storage linked service by using the account key. It prov
 }
 ```
 
-### Use service shared access signature authentication
+### Use shared access signature authentication
 
 You also can create a Storage linked service by using a shared access signature. It provides the data factory with restricted/time-bound access to all/specific resources in the storage.
 
 A shared access signature provides delegated access to resources in your storage account. You can use it to grant a client limited permissions to objects in your storage account for a specified time and with a specified set of permissions. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory now supports both service shared access signatures and account shared access signatures. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+> Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
 > To generate a service shared access signature for your storage account, you can execute the following PowerShell commands. Replace the placeholders and grant the needed permission.
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-To use service shared access signature authentication, the following properties are supported.
+To use shared access signature authentication, the following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **AzureStorage**. |Yes |
+| type | The type property must be set to **AzureTableStorage**. |Yes |
 | sasUri | Specify the shared access signature URI to the Storage resources, such as blob, container, or table. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or the Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>If you were using "AzureStorage" type linked service, it is still supported as-is, while you are suggested to use this new "AzureTableStorage" linked service type going forward.
 
 **Example:**
 
@@ -99,7 +102,7 @@ To use service shared access signature authentication, the following properties 
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureTableStorage",
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
@@ -140,7 +143,7 @@ To copy data to and from Azure Table, set the type property of the dataset to **
     {
         "type": "AzureTable",
         "linkedServiceName": {
-            "referenceName": "<Azure Storage linked service name>",
+            "referenceName": "<Azure Table storage linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {

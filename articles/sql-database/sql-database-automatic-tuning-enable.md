@@ -2,18 +2,21 @@
 title: Enable automatic tuning for Azure SQL Database | Microsoft Docs
 description: You can enable automatic tuning on your Azure SQL Database easily.
 services: sql-database
-author: danimir 
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: vvasic 
-
+ms.author: v-daljep
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 10/05/2018
 ---
-# Enable automatic tuning
+# Enable automatic tuning to monitor queries and improve workload performance
 
-Azure SQL Database is an automatically managed data service that constantly monitors your queries and identifies the action that you can perform to improve performance of your workload. You can review recommendations and manually apply them, or let Azure SQL Database automatically apply corrective actions - this is known as **automatic tuning mode**. Automatic tuning can be enabled at the server or the database level.
+Azure SQL Database is an automatically managed data service that constantly monitors your queries and identifies the action that you can perform to improve performance of your workload. You can review recommendations and manually apply them, or let Azure SQL Database automatically apply corrective actions - this is known as **automatic tuning mode**.
+
+Automatic tuning can be enabled at the server or the database level through the [Azure portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) calls and [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) commands.
 
 ## Enable automatic tuning on server
 On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure defaults are FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
@@ -32,7 +35,9 @@ Select the automatic tuning options you want to enable and select **Apply**.
 Automatic tuning options on a server are applied to all databases on this server. By default, all databases inherit configuration from their parent server, but this can be overridden and specified for each database individually.
 
 ### REST API
-[Click here, to read more about how to enable automatic tuning on the server level via REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
+
+Find out more about using REST API to enable Automatic tuning on a server, see [SQL Server Automatic tuning UPDATE and GET HTTP methods](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+
 
 ## Enable automatic tuning on an individual database
 
@@ -55,7 +60,8 @@ Please note that DROP_INDEX option at this time is not compatible with applicati
 Once you have selected your desired configuration, click **Apply**.
 
 ### Rest API
-[Click here to read more about how to enable automatic tuning on a single database via REST API](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
+
+Find out more about using REST API to enable Automatic tuning on a single database, see [SQL Database Automatic tuning UPDATE and GET HTTP methods](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
 ### T-SQL
 
@@ -75,12 +81,14 @@ To configure individual automatic tuning options via T-SQL, connect to the datab
    
 Setting the individual tuning option to ON, will override any setting that database inherited and enable the tuning option. Setting it to OFF, will also override any setting that database inherited and disable the tuning option. Automatic tuning option, for which DEFAULT is specified, will inherit the configuration from the database level automatic tuning setting.  
 
+Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL) for SQL Database logical server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+
 ## Disabled by the system
 Automatic tuning is monitoring all the actions it takes on the database and in some cases it can determine that automatic tuning can't properly work on the database. In this situation, tuning option will be disabled by the system. In most cases this happens because Query Store is not enabled or it's in read-only state on a specific database.
 
 ## Configure automatic tuning e-mail notifications
 
-See [Automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md)
+See [Automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md) guide.
 
 ## Next steps
 * Read the [Automatic tuning article](sql-database-automatic-tuning.md) to learn more about automatic tuning and how it can help you improve your performance.

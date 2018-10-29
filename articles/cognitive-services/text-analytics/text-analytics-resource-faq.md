@@ -1,16 +1,18 @@
 ---
-title: Frequently Asked Questions about the Text Analytics API - Azure Cognitive Services | Microsoft Docs
-description: Get answers to common questions about Microsoft Cognitive Services Text Analytics API on Azure.
+title: Frequently Asked Questions about the Text Analytics API
+titleSuffix: Azure Cognitive Services
+description: Get answers to common questions about the Text Analytics API.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
 ---
-# Frequently Asked Questions (FAQ) about the Text Analytics API
+# Frequently Asked Questions (FAQ) about the Text Analytics Cognitive Service
 
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Microsoft Cognitive Services on Azure.
 

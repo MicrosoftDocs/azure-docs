@@ -56,15 +56,9 @@ After updating the nodes, they appear as follows:
         }
 ```
 
-Then you need to update a couple of the properties.  On line 34, you need to modify the connection string for the diagnostic store it should look like this after modification, with your IP address replaced in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
+Then you need to update a couple of the properties.  On line 34, you need to modify the connection string for the diagnostic store it should look like this `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
-After you update the connection string be sure to create the folder.  The following command will create it, be sure to replace the ip address below with the IP address you inserted into the connection string:
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
-
-Finally, in the `nodeTypes` section of the configuration add a new section to map the ephemeral ports that windows will use.  The configuration file should like like the following:
+Finally, in the `nodeTypes` section of the configuration add a new section to map the ephemeral ports that windows will use.  The configuration file should look like the following:
 
 ```json
 "applicationPorts": {

@@ -84,7 +84,7 @@ To start with, [download the Service Fabric for Windows Server package](service-
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],
@@ -350,7 +350,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-You can then run other PowerShell commands to work with this cluster. For example, you can run [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) to show a list of nodes on this secure cluster.
+You can then run other PowerShell commands to work with this cluster. For example, you can run [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) to show a list of nodes on this secure cluster.
 
 
 To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line, and go to the package folder. Now run the following command:
