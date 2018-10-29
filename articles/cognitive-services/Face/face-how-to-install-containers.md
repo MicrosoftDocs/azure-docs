@@ -45,17 +45,17 @@ If your request is approved, you then receive an email with instructions describ
 
 ## Create a Face resource on Azure
 
-You must first create a Face resource on Azure if you want to use the [Face](#working-with-face) container. After you create the resource, you then use the subscription key and endpoint URL from the resource to instantiate the container. For more information about instantiating a container, see [Instantiate a container from a downloaded container image](#instantiate-a-container-from-a-downloaded-container-image).
+You must first create a Face resource on Azure if you want to use the Face container. After you create the resource, you then use the subscription key and endpoint URL from the resource to instantiate the container. For more information about instantiating a container, see [Instantiate a container from a downloaded container image](#instantiate-a-container-from-a-downloaded-container-image).
 
 Perform the following steps to create and retrieve information from an Face resource:
 
 1. Create an Face resource in the Azure portal.  
-   If you want to preview the [Face](#working-with-face) container, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+   If you want to use the Face container, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](../cognitive-services-apis-create-account.md).
 
    > **Important:** The Face resource must use the F0 pricing tier.
 
 1. Get the endpoint URL and subscription key for the Azure resource.  
-   Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding [Face](#working-with-face) container for the preview.
+   Once the Azure resource is created, you must use the endpoint URL and subscription key from that resource to instantiate the corresponding Face container. You can copy the endpoint URL and subscription key from, respectively, the Quick Start and Keys pages of the Face resource on the Azure portal.
 
 ## Log in to the private container registry
 
