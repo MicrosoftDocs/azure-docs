@@ -45,6 +45,20 @@ You must first complete and submit the [Cognitive Services Vision Containers Req
 
 If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
 
+## Create a Computer Vision resource on Azure
+
+You must first create a Computer Vision resource on Azure if you want to use the [Recognize Text](#working-with-recognize-text) container. After you create the resource, you then use the subscription key and endpoint URL from the resource to instantiate the container. For more information about instantiating a container, see [Instantiate a container from a downloaded container image](#instantiate-a-container-from-a-downloaded-container-image).
+
+Perform the following steps to create and retrieve information from an Azure resource:
+
+1. Create an Azure resource in the Azure portal.  
+   If you want to preview the [Recognize Text](#working-with-recognize-text) container, you must first create a corresponding Computer Vision resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+
+   > **Important:** The Computer Vision resource must use the F0 pricing tier.
+
+1. Get the endpoint URL and subscription key for the Azure resource.  
+   Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding [Recognize Text](#working-with-recognize-text) container for the preview.
+
 ## Log in to the private container registry
 
 There are several ways to authenticate with the private container registry for Cognitive Services Containers, but the recommended method from the command line is by using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
