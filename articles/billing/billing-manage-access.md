@@ -86,9 +86,13 @@ The Enterprise Admin can allow the Department Admins and Account Owners to view 
 
     ![Screenshot that shows Azure portal search](./media/billing-manage-access/portal-cm-billing-search.png)
    
-1. Select **Billing account** and the account that you want to manage.
+1. On **Overview**, select the organization.
+1. Select the account that you want to manage.
 1. Select **Policies**.
 1. Select **Account owners can view charges** or **Department admins can view charges** or both.
+
+    ![Screenshot that shows view charges policies](./media/billing-manage-access/billing-ea-view-charges-policy.png)
+
 1. After you select these policies, the Department Admin and/or Account Owners can:
 
    - View the Usage Summary dashboard in the EA portal for their specific department or account.
