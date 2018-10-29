@@ -15,7 +15,7 @@ ms.topic: troubleshoot
 ---
 
 ##  Diagnose, and Troubleshoot Azure Cosmos DB Java Async SDK
-This article covers common issues you may encounter, workarounds, diagnosing and troubleshooting approaches when working with [Azure Cosmos DB Java Async SDK for SQL API](sql-api-sdk-async-java.md).
+This article covers common issues, workarounds, diagnosing and tool for [Azure Cosmos DB Java Async SDK for SQL API](sql-api-sdk-async-java.md).
 
 ## <a name="introduction"></a>Introduction
 
@@ -23,7 +23,7 @@ Java Async SDK provides client-side logical representation for accessing Azure C
 
 Start with this list:
     1. Take a look at the [Common Issues and Workarounds] in this article.
-    2. Our SDK is [open-source on github](https://github.com/Azure/azure-cosmosdb-java) and we have [issues section](https://github.com/Azure/azure-cosmosdb-java/issues) that we actively monitor. Check if there is any similar issue already filed and if there is a workaround.
+    2. Our SDK is [open-source on github](https://github.com/Azure/azure-cosmosdb-java) and we have [issues section](https://github.com/Azure/azure-cosmosdb-java/issues) that we actively monitor. Check if there is any similar issue with a workaround already filed.
     3. Review [Performance Tips](performance-tips-async-java.md) and follow the suggested practices.
     4. Follow the rest of this article, if you didn't find a solution, file a [GitHub issue](https://github.com/Azure/azure-cosmosdb-java/issues).
 
@@ -33,10 +33,10 @@ Start with this list:
 
 #### General Suggestions
 * Make sure the app is running on the same region as your Cosmos DB Endpoint. 
-* Check the CPU usage on the app Host. If it is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
+* Check the CPU usage on the app Host. If CPU usage is 90% or more maybe, it is time to run your app on a host with higher spec or distribute the load on more machines.
 
 #### Connection Throttling
-Connection throttling can be done either due to [Connection Limit on Host Machine], or due to [Azure SNAT (PAT) Port Exhaustion]:
+Connection throttling can be done either due to [Connection Limit on Host Machine], or [Azure SNAT (PAT) Port Exhaustion]:
 
 ##### <a name="connection-limit-on-host"></a>Connection Limit on Host Machine
 Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files. Sockets in Linux are implemented as files, so this number limits the total number of connections too.
@@ -45,25 +45,25 @@ Run the following command:
 ```bash
 ulimit -a
 ```
-The number of open files ("nofile") needs to be large enough (at least as double as your connection pool size);  to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
+The number of open files ("nofile") needs to be large enough, (at least as double as your connection pool size). Read more detail  in [Performance Tips](performance-tips-async-java.md).
 
 ##### <a name="snat"></a>Azure SNAT (PAT) Port Exhaustion
 
-If your app is deployed on Azure VM, by default for establishing connections to endpoints outside of your VM [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used. The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure VM, by default for establishing connections to any endpoints outside of your VM [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used. The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be limited by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
     * Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
     * This limitation is only applicable when your Azure VM has a private IP address. Therefore the other workaround is to assign a public IP to your Azure VM.
 
 #### Http Proxy
 
-If you are using an HttpProxy, make sure your HttpProxy is capable of supporting the number of connections configured in the SDK `ConnectionPolicy`.
+If you are using an HttpProxy, make sure your HttpProxy can support the number of connections configured in the SDK `ConnectionPolicy`.
 If your HttpProxy fails to serve the required number of connections, you will face connection issues.
 
 #### Invalid Coding Pattern: Blocking Netty IO Thread
 
 The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread, that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
 
-   For example, the following code snippet shows that if you perform long lasting work (which takes more than a few milliseconds) on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException:
+   For example, the following code snippet shows that if you perform long lasting work, which takes more than a few milliseconds, on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException:
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -197,7 +197,7 @@ Filter the result to only connections to Cosmos DB endpoint.
 
 Apparently, the number of connections to Cosmos DB endpoint in `Established` state should be not greater than your configured connection pool size.
 
-If there are many connections to Cosmos DB endpoint in `CLOSE_WAIT` state (more than 1000 connections), that's an indication of connections are established and torn down quickly, which may potentially cause problems. Review [Common Issues and Workarounds] section for more detail.
+If there are many connections to Cosmos DB endpoint in `CLOSE_WAIT` state, for example more than 1000 connections, that's an indication of connections are established and torn down quickly, which may potentially cause problems. Review [Common Issues and Workarounds] section for more detail.
 
  <!--Anchors-->
 [Introduction]: #introduction
