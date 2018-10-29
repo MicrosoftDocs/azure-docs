@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
 
 ---
@@ -69,11 +69,6 @@ Machines can be expanded in the map to show the running process groups and proce
 
 By default, Service Map maps show the last 30 minutes of dependency information. By using the time controls at the upper left, you can query maps for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred). Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
-
-
-
-
-
 ## Status badges and border coloring
 At the bottom of each server in the map can be a list of status badges conveying status information about the server. The badges indicate that there is some relevant information for the server from one of the solution integrations. Clicking a badge takes you directly to the details of the status in the right pane. The currently available status badges include Alerts, Service Desk, Changes, Security, and Updates.
 
@@ -101,7 +96,7 @@ There, you can choose **Create new** and give the group a name.
 ![Name Group](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Machine groups are currently limited to 10 servers, but we plan to increase this limit soon.
+>Machine groups are limited to 10 servers.
 
 ### Viewing a Group
 Once you’ve created some groups, you can view them by choosing the Groups tab.
