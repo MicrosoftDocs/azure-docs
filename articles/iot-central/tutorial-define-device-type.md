@@ -54,7 +54,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
 4. To create a new Azure IoT Central application:
     
-    * Choose **Free**. The free 7-day trial has no subscription requirement.
+    * Choose **Trial**. You don't need an Azure subscription to create a Trial application.
     
        For more information about directories and subscriptions, see [Create your Azure IoT Central application](howto-create-application.md).
     

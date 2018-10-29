@@ -38,7 +38,7 @@ Fill in all the fields in the form. This form is similar to the form you need to
 After filling out all fields, click the "Create" button.
 
 ## Manage existing IoT Central applications
-If you already have an Azure IoT Central application you can delete it, move it to a different subscription or resource group in the Azure portal. You can't see 7-day trial applications in the Azure portal since no subscription backs those trials.
+If you already have an Azure IoT Central application you can delete it, move it to a different subscription or resource group in the Azure portal. You can't see Trial applications in the Azure portal since no subscription backs those trials.
 
 To get started, click "All resources" in the main navigation menu on the left. Use the search box to type in the name of your application and find it in your list of resources. Then click on the IoT Central application you'd like to manage.
 

@@ -6,7 +6,7 @@ services: iot-central
 ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 07/09/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
 ---
@@ -19,7 +19,7 @@ You create your Microsoft Azure IoT Central application from the [Create Applica
 
 ## Payment plan
 
-You can create either a trial or a paid application. Learn more about trial and paid applications on [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/)..
+You can create either a Trial or a Pay-As-You-Go application. Learn more about these two types of applications on [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## Application Name
 
@@ -29,15 +29,15 @@ The name of your application is displayed on the **Application Manager** page an
 
 The application URL is the link to your application. You can save a bookmark to it in your browser or share it with others.
 
-When you enter the name for your application, your application URL is auto-generated. If you prefer, you can choose a different URL for your application. Each Azure IoT Central URL must be unique within Azure IoT Central. You see an error message if the URL you choose has already been taken.
+When you enter the name for your application, your application URL is auto-generated. If you prefer, you can choose a different URL for your application. Each Azure IoT Central URL must be unique within Azure IoT Central. You see an error message if the URL you chose has already been taken.
 
 ## Directory
 
-Only in paid applications.
+This is only for Pay-As-You-Go applications.
 
-Choose an Azure Active Directory tenant to create a Azure IoT Central application. An Azure Active Directory tenant contains user identities, credentials, and other organizational information. Multiple Azure subscriptions can be associated with a single Azure Active Directory tenant.
+Choose an Azure Active Directory to create your application. An Azure Active Directory contains user identities, credentials, and other organizational information. Multiple Azure subscriptions can be associated with a directory.
 
-If you don’t have an Azure Active Directory tenant, one is created for you when you create an Azure subscription.
+If you don’t have an Azure Active Directory, one is created for you when you create an Azure subscription.
 
 To learn more, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
 
@@ -51,9 +51,9 @@ To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides
 
 ## Region
 
-Only in paid applications.
+This is only for Pay-As-You-Go applications.
 
-Choose the region where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that is closest physically to your devices to get optimal performance.
+Choose the region where you’d like to create your application. Typically, you should choose the region that is physically closest to your devices to get optimal performance.
 
 To learn more, see [Azure regions](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
 
@@ -68,13 +68,13 @@ You can choose one of the available application templates for your new Azure IoT
 
 | Application template | Description |
 | -------------------- | ----------- |
+| Sample Contoso       | Creates an application that includes a device template already created for a Refrigerated Vending Machine. Use this template to get started exploring Azure IoT Central. |
+| Sample Devkits       | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you are a device developer experimenting with any of these devices. |
 | Custom application   | Creates an empty application for you to populate with your own device templates and devices. |
-| Sample Contoso       | Creates an application that includes a device template for a simple connected device. Use this template to get started exploring Azure IoT Central. |
-| Sample Devkits       | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you are a device developer experimenting with code on one of these devices. |
 
 ## Next steps
 
-Now that you have learned how to create an Azure IoT Central application, here is the suggested next step:
+Now that you have learned how to create an application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
 > [Administer your application](howto-administer.md)
