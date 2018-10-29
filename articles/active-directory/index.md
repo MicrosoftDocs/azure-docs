@@ -109,7 +109,7 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Add guest users in the portal</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">Bulk invite guest users</a><br>
-                                                            <a href="b2b/b2b-tutorial-require-mfa.md">Require MFA for guest users</a>
+                                                            <a href="b2b/b2b-tutorial-require-mfa.md">Require MFA for guest users</a><br>
 												            <a href="b2b/index.yml">See more ...</a>
 															</p>
 														<br><br>
