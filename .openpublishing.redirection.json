@@ -9879,6 +9879,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/query-language/kusto.md",
+            "redirect_url": "azure/log-analytics/query-language/query-language",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "/azure/cognitive-services/cognitive-services-text-analytics-quick-start",
             "redirect_document_id": false

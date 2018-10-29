@@ -641,7 +641,9 @@
     - name: Query log data
       items:
       - name: Query language Documentation
-        href: ../log-analytics/query-language/kusto.md
+        href: ../log-analytics/query-language/query-language.md
+      - name: Language differences
+        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -678,8 +680,6 @@
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
       - name: Query language
         items:
-        - name: Language differences
-          href: ../log-analytics/query-language/kusto-difference.md?toc=/azure/azure-monitor/toc.json
         - name: Examples
           href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
         - name: Cross-resource searches
