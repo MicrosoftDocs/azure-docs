@@ -42,7 +42,7 @@ You can configure and get information about alert rules using
 
    - **SQL DB & Elastic pools ONLY**: Select **Alerts (Classic)** under the MONITORING section. The text and icon may vary slightly for different resources.  
    
-     ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertClassicButton.JPG)
+     ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SQL DW ONLY**: Select **Monitoring** under the COMMON TASKS section. Click the **DWU Usage** graph.
 
