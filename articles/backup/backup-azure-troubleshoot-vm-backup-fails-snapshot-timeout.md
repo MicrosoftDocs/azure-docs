@@ -74,6 +74,13 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 6: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
 
+## Backup fails, due to restore point collection limit reached
+Error message: "The Restore Point collection max limit has reached." <br>
+Error code: "UserErrorRpCollectionLimitReached"
+We identified that your backup operation was failing due the lock on the recovery point resource group <add customer resource group name>, this lock prevents automatic cleanup of recovery point from the resource group. To resolve this issue we recommend you remove the lock on the resource group. </br>
+**Step 1: [Remove lock from the recovery point resource group](#remove_lock_from_the_recovery_point_resource_group)** </br>
+**Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**
+
 ## Causes and solutions
 
 ### <a name="the-vm-has-no-internet-access"></a>The VM doesn't have internet access
@@ -184,6 +191,24 @@ For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [up
 
 Completing these steps causes the extension to be reinstalled during the next backup.
 
+### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remove lock from the recovery point resource group
+1. Sign in to the [Azure portal](http://portal.azure.com/).
+2. In the **Settings** blade for the resource, resource group, or subscription that you wish to delete the lock, select the **Lock**.
+3. To delete the lock, select the ellipsis and **Delete** from the available options.
+
+	![Delete lock ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+
+### <a name="clean_up_restore_point_collection"></a>Clean up restore point collection
+* Trigger an ad-hoc/manual backup. This operation will fail; however, it will automatic clean up of restore points to ensure your next scheduled backup succeeds.
+	> [!NOTE]
+	> Automatically clean up will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup also fails with the same error, then as a last resort you can manually delete the restore point collection using the steps listed [here](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
+>
+>
+
+> [!NOTE]
+> We recommend that customers should do only 1 backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time
+
+
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>The Backup service doesn't have permission to delete the old restore points because of a resource group lock
 This issue is specific to managed VMs in which the user locks the resource group. In this case, the backup service can't delete older restore points. Because there's a limit of 18 restore points, new backups start to fail.
 
@@ -191,21 +216,15 @@ This issue is specific to managed VMs in which the user locks the resource group
 
 To resolve the issue, remove the lock from the resource group and complete the following steps to remove the restore point collection:
  
-1. Remove the lock in the resource group in which the VM is located.
-2. To install ARMClient, open a PowerShell window with Administrator privileges.
-3. Use `Set-ExecutionPolicy Unrestricted` to remove any restrictions. <br>
-4. Run the following command to download the Azure Resource Manager Client package from chocolately.org. <br>
-    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
-5. Use the following command to install the Azure Resource Manager API Client. <br>
-   `choco.exe install armclient`
-6. Sign in to ARMClient: <br>
-	`.\armclient.exe login`
-4. Get the restore point collection that corresponds to the VM: <br>
-   	`.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+1. Sign in to the [Azure portal](http://portal.azure.com/).
+2. On the Hub menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 
-    Example: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Delete the restore point collection: <br>
-	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-6. The next scheduled backup automatically creates a restore point collection and new restore points.
+	![Delete lock ](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-Once done, you can again put back the lock on the VM resource group.
+3. Click Resource group, the **Overview** blade is displayed
+4. Select **Show hidden types** option to display all the hidden resources. Select the restore point collections with the following format AzureBackupRG_`<Geo>`_`<number>`
+
+	![Delete lock ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+
+5. Click **Delete**, to clean the restore point collection.
+6. Retry the backup operation again.
