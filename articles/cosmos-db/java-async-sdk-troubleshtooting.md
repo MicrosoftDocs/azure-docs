@@ -29,7 +29,7 @@ Start with this list:
 ### Network issues, Netty read timeout failure, low throughput, high latency
 
 #### General suggestions
-* Make sure the app is running on the same region as your Cosmos DB Endpoint. 
+* Make sure the app is running on the same region as your Cosmos DB account. 
 * Check the CPU usage on the host where the app is running. If CPU usage is 90% or more, consider running your app on a host with higher configuration or distribute the load on more machines.
 
 #### Connection throttling
@@ -46,10 +46,10 @@ The number of open files ("nofile") needs to be large enough, (at least as doubl
 
 ##### <a name="snat"></a>Azure SNAT (PAT) Port Exhaustion
 
-If your app is deployed on Azure VM, by default for establishing connections to any endpoints outside of your VM [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used. The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be limited by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure VM, by default [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used to establish connections to any endpoints outside of your VM. The number of connections allowed from the VM to the Cosmos DB endpoint is also limited by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
     * Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
-    * This limitation is only applicable when your Azure VM has a private IP address. So the other workaround is to assign a public IP to your Azure VM.
+    * Assign a public IP to your Azure VM. The Azure SNAT ports are used only when your Azure VM has a private IP address.
 
 #### Http Proxy
 
