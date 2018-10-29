@@ -4,7 +4,7 @@ description: Learn how to install the Mobility Service agent to protect your on-
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
 ---
 

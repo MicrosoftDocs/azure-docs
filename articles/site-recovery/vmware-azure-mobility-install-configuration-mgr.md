@@ -4,7 +4,7 @@ description: This article helps you automate Mobility Service installation by us
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
 ---
 

@@ -4,7 +4,7 @@ description: This article describes manage a process server set up for VMware VM
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/21/2018
+ms.date: 10/29/2018
 ms.author: ramamill
 
 ---

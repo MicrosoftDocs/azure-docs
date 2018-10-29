@@ -8,7 +8,7 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 09/19/2018
+ms.date: 10/29/2018
 
 
 ---
