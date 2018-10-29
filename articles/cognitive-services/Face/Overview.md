@@ -15,7 +15,7 @@ ms.author: sbowles
 
 # What is the Azure Face API?
 
-The Azure Face API is a cognitive service that provides algorithms for detecting, recognizing, and analyzing human faces in images and video. 
+The Azure Face API is a cognitive service that provides algorithms for detecting, recognizing, and analyzing human faces in images and video. This page outlines the different kinds of tasks that the Face API can perform.
 
 ## What it does
 The Face API has two main functions: face detection with attributes and face recognition.
@@ -38,11 +38,11 @@ The Verify API performs an authentication against two detected faces or from one
 
 #### Finding similar faces
 
-The Find Similar API takes a target face and a set of candidate faces and finds a smaller set of faces that look most similar to the target face. Two working modes, **matchPerson** and **matchFace** are supported. **matchPerson** mode returns similar faces after filtering for the same person (using the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)). **matchFace** mode ignores the same-person filter and returns a list of similar candidate faces that may or may not belong to the same person. In the following example, this is the target face.
+The Find Similar API takes a target face and a set of candidate faces and finds a smaller set of faces that look most similar to the target face. Two working modes, **matchPerson** and **matchFace** are supported. **matchPerson** mode returns similar faces after filtering for the same person (using the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)). **matchFace** mode ignores the same-person filter and returns a list of similar candidate faces that may or may not belong to the same person. In the following example, this is the target face:
 
 ![A woman smiling](./Images/FaceFindSimilar.QueryFace.jpg)
 
-And these are the candidate faces.
+And these are the candidate faces:
 
 ![Five images of people smiling. Images a) and b) are of the same person](./Images/FaceFindSimilar.Candidates.jpg)
 
@@ -67,14 +67,11 @@ For more information about person identification, see the [Identify API](https:/
 
 ## Sample apps
 
-Take a look at these sample applications that make use of Face API.
+The following sample applications showcase a few ways that the Face API can be used.
 
-- [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows)
-  - WPF sample app that demonstrates several scenarios of Face detection, analysis and identification.
-- [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes)
-  - Universal Windows Platform (UWP) sample app that shows usage of speech, Cortana, ink, and camera through a family note sharing scenario.
-- [Video Frame Analysis Sample](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
-  - Win32 sample app that shows analyzing live video streams in near real time using the Face, Computer Vision, and Emotion APIs.
+- [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows) - a WPF app that demonstrates several scenarios of Face detection, analysis and identification.
+- [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes) - a Universal Windows Platform (UWP) app that uses face identification along with speech, Cortana, ink, and camera in a family note-sharing scenario.
+- [Video Frame Analysis Sample](https://github.com/microsoft/cognitive-samples-videoframeanalysis) - a Win32 app that shows analyzing live video streams in near real time using the Face, Computer Vision, and Emotion APIs.
 
 ## Tutorials
 The following tutorials demonstrate the Face API's basic functionalities and subscriptions processes:
