@@ -19,17 +19,17 @@ The Azure Custom Vision API is a cognitive service that lets you build, deploy a
 
 ## What it does
 
-The Custom Vision service uses a machine learning algorithm. You, the developer, must submit groups of images that feature and lack the classification(s) in question. You specify the correct tags of the images at the time of submission. Then, the algorithm trains to your data and calculates its accuracy by testing on that data.
+The Custom Vision service uses a machine learning algorithm to classify images. You, the developer, must submit groups of images that feature and lack the classification(s) in question. You specify the correct tags of the images at the time of submission. Then, the algorithm trains to your data and calculates its own accuracy by testing itself on that data. Once the model is trained, you can use it to classify new images according to the needs of your app. You can also export the model itself for offline use.
 
 ### Detection and classification
 
-Custom Vision functionality can be divided into two groups. Image classification assigns to each image a distribution of classifications. Object detection is similar, but it also returns the coordinates in the image where applied tags can be found.
+Custom Vision functionality can be divided into two features. **Image classification** assigns a distribution of classifications to each image. **Object detection** is similar, but it also returns the coordinates in the image where the applied tags can be found.
 
 ### Optimization
 
-In general, the methods the Custom Vision service uses are robust to differences, which allows you to start prototyping with a small amount of data. 50 images per tag are generally a good start. This means, however, that the service is not optimal for detecting subtle differences in images (for example, detecting minor cracks or dents in quality assurance scenarios).
+In general, the methods that the Custom Vision service uses are robust to differences, which allows you to start prototyping with a small amount of data. 50 images per tag are generally a good start. This means, however, that the service is not optimal for detecting subtle differences in images (for example, detecting minor cracks or dents in quality assurance scenarios).
 
-Additionally, you can choose from several varieties of the Custom Vision algorithm that are optimized for certain subject material, such as landmarks or retail items. See the [Build a classifier](getting-started-build-a-classifier.md) guide for more information on these.
+Additionally, you can choose from several varieties of the Custom Vision algorithm that are optimized for certain subject material&mdash;for example, landmarks or retail items. See the [Build a classifier](getting-started-build-a-classifier.md) guide for more information on these.
 
 ## What it includes
 The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision home page](https://customvision.ai/).
