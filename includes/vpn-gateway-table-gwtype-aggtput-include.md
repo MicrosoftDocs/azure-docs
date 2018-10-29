@@ -17,9 +17,13 @@
 |**VpnGw3**| Max. 30*   | Max. 128  | Max. 1000  | 1.25 Gbps |
 |**Basic** | Max. 10    | Max. 128  | N/A        | 100 Mbps  | 
 
-* (*) Use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) if you need more than 30 S2S VPN tunnels.
+(*) Use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) if you need more than 30 S2S VPN tunnels.
+
+* These connetions limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
 
 * Aggregate Throughput Benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
+
+  The Aggregate Throughput Benchmark for a VPN Gateway is S2S + P2S combined. This means that if you have a lot of P2S connections, it can negatively impact a S2S connection due to throughput limitations.
 
 * Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
 
