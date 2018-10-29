@@ -88,7 +88,7 @@ Learn more
 
 * [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## Azure Storage Firewalls and Virtual networks
+## Firewalls and Virtual networks
 
 Azure storage allows you to enable firewall rules for your storage accounts. Once enabled they will block incoming requests for data, including requests from other Azure services. You can configure exceptions to allow traffic. Firewall rules may be enabled on existing storage accounts or during creation time.
 
@@ -96,23 +96,25 @@ You should use this functionality  to secure your storage accounts to a specific
 
 For more information on Azure storage firewalls and virtual networks review the article [Configure Azure Storage Firewalls and Virtual Networks](../storage/common/storage-network-security.md)
 
-## Azure Data box
+## Azure Data Box
 
 Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure data center. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device.
 
 Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities.
 
-Learn more
+Learn more:
 
-* [Azure Data box](https://azure.microsoft.com/services/storage/databox/)
-* [Azure Data box edge](../databox-online/data-box-edge-overview.md)
-* [Azure Data box gateway](..//databox-online/data-box-gateway-overview.md)
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+* [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
 
-## Azure Storage Advanced Threat Protection
+## Advanced Threat Protection
 
-Azure Storage Advanced Threat Protection detects anomalies in account activity and notifies you of potentially harmful attempts to access your account. Azure Storage Advanced Threat Protection ingests diagnostic logs of read, write and delete requests to Blob service for threat detection.
+Azure Storage secures your data by providing advanced threat protection capabilities. Advanced Threat Protection provides an additional layer of security intelligence for Azure Storage that detects unusual and potentially harmful attempts to access or exploit your storage account. 
 
-Learn more
+Advanced Threat Protection gathers diagnostic logs for read, write, and delete requests to Blob storage. Advanced Threat Protection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center provides details on any suspicious activity detected and recommends actions to investigate and remediate the potential threat. 
+
+Learn more:
 
 * [Azure Storage Advanced Threat Protection Overview](../storage/common/storage-advanced-threat-protection.md)
 
