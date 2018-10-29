@@ -34,7 +34,7 @@ To specify a circular geographic search, get the longitude and longitude coordin
 
 Complete query:
 ````
-https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
+https://api.cognitive.microsoft.com/bing/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ````
 
 ## localMapView
@@ -42,7 +42,7 @@ To specify a bounding box for geographic search, get the longitude/latitude coor
 
 Complete query:
 ````
-https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
+https://api.cognitive.microsoft.com/bing/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ````
 ## Next steps
 - [Local Search Java Quickstart](quickstarts/local-search-java-quickstart.md)
