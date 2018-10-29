@@ -13,7 +13,8 @@ ms.date: 09/24/2018
 
 # Quickstart: Use Python to get started with Azure Machine Learning
 
-In this quickstart, you use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
+In this quickstart, you use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. In this quickstart, you start by configuring your own Python environment and Jupyter notebook server. To run with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md).
+
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 

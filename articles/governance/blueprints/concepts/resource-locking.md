@@ -56,6 +56,11 @@ identity. This security measure enforces the locking mechanism and prevents remo
 lock outside Blueprints. Removal of the role and the lock is only possible by removing the
 blueprint assignment, which can only be performed by individuals with appropriate rights.
 
+> [!IMPORTANT]
+> Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, `denyAssignments`
+> on blueprint resources may not immediately be in full effect. During this period of time, it might be
+> possible to delete a resource intended to be protected by blueprint locks.
+
 ## Next steps
 
 - Learn about the [blueprint life-cycle](lifecycle.md)
