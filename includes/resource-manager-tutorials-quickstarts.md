@@ -1,3 +1,22 @@
+---
+title: include file
+description: include file
+services: azure-resource-manager
+documentationcenter: ''
+author: mumian
+manager: dougeby
+editor: ''
+
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 10/29/2018
+ms.author: jgao
+ms.custom: include file 
+---
+
 ## Quickstarts and tutorials
 
 Use the following quickstarts and tutorials to learn how to develop resource manager templates:

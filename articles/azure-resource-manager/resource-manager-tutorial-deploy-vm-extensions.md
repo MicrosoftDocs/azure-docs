@@ -5,7 +5,7 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 manager: dougeby
-editor: tysonn
+editor: 
 
 ms.service: azure-resource-manager
 ms.workload: multiple
