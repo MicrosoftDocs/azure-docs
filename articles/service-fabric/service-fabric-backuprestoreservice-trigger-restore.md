@@ -214,23 +214,31 @@ The restore request following the following order
 
 1. __Accepted__  - Signifies the restore request is accepted. The restore requested has been triggered with correct request.
 2. __InProgress__ - The Data Loss has been initated on the partition and partition will undergo a restore now.
-3.__ Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following state. Each state has the following significance and response details.
-    * __Success__ - The restore state as Success corresponds to the Partition state is regained. The response will provide RestoreEpoch and RestordLSN for the Partition along with the time in UTC. 
+3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following state. Each state has the following significance and response details.
+       
+    1. __Success__ - The restore state as Success corresponds to the Partition state is regained. The response will provide RestoreEpoch and RestordLSN for the Partition along with the time in UTC. 
     
         ```
-        RestoreState       Success        
+        RestoreState    Success        
         TimeStampUtc    2018-10-22T12:07:36Z 
         RestoredEpoch   @{DataLossNumber=131846800323087021;          ConfigurationNumber=12884901888}           
-        RestoredLsn          24 
+        RestoredLsn     24 
         ```
         
-  * __Failure__ - The restore state as Failure symbolizes the failure of the restore request. The cause of the failure will be stated in request. 
-  *__Timeout__ - The restore state has timedout symbolizing the default timeout of 10 minutes wasn’t enough to complete restore. The state of the partition is unknown. Initiating a new restore request with greater timeout in Restore Request will be the correct way to restore partition. 
+ 
+    2. __Failure__ - The restore state as Failure symbolizes the failure of the restore request. The cause of the failure will be stated in request.
+     
+    3. __Timeout__ - The restore state has timedout symbolizing the default timeout of 10 minutes wasn’t enough to complete restore. The state of the partition is unknown. Initiating a new restore request with greater timeout in Restore Request will be the correct way to restore partition. 
+     
         ```
-        RestoreState Timeout
-        Code FABRIC_E_TIMEOUT
-        Message The request of restore has timed out
+        RestoreState    Timeout
+        Code            FABRIC_E_TIMEOUT
+        Message         The request of restore has timed out
         ```
+
+
+[RestorePartition API reference](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-restorepartition)
+[GetPartitionRestoreProgress API reference](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
