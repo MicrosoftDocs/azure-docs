@@ -12,9 +12,9 @@ ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ---
 
-# Tutorial: Transform data with Azure Data Box Edge (Preview)
+# Tutorial: Transform data with Azure Data Box Edge (preview)
 
-This tutorial describes how to configure compute role on the Data Box Edge. Once the compute role is configured, Data Box Edge can transform data before sending to Azure.
+This tutorial describes how to configure a compute role on your Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
 
 This procedure can take around 30-45 minutes to complete.
 
@@ -22,18 +22,18 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an IoT Hub resource
-> * Set up compute role
+> * Set up a compute role
 > * Add a compute module
 > * Verify data transform and transfer
 
 > [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
+> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## Prerequisites
 
-Before you set up compute on your Data Box Edge, make sure that:
+Before you set up compute role on your Data Box Edge device, make sure that:
 
-* Your Data Box Edge device is activated as detailed in [Connect and activate your Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md).
+* Your Data Box Edge device is activated as detailed in [Connect, set up, and activate Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md).
 
 
 ## Create an IoT Hub resource
@@ -44,7 +44,7 @@ For detailed instructions, go to [Create an IoT Hub](https://docs.microsoft.com/
 
 ![Create IoT Hub resource](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-When the Edge compute role isn't set up, note:
+When the Edge compute role isn't set up, the following caveats apply:
 
 - The IoT Hub resource doesn't have any IoT devices or IoT Edge devices.
 - You can't create Edge local shares. When you add a share, the option to create a local share for Edge compute isn't enabled.
