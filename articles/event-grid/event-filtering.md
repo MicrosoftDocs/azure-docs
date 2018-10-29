@@ -142,5 +142,5 @@ The same key can be used in more than one filter.
 
 ## Next steps
 
-* To learn about filtering events with PowerShell and Azure CLI, see [Filter events for Event Grid](filter-events.md).
+* To learn about filtering events with PowerShell and Azure CLI, see [Filter events for Event Grid](how-to-filter-events.md).
 * To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
