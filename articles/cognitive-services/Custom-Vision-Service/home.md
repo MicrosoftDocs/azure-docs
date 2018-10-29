@@ -34,6 +34,8 @@ Additionally, you can choose from several varieties of the Custom Vision algorit
 ## What it includes
 The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision home page](https://customvision.ai/).
 
+![Custom Vision home page in a Chrome browser window](media/browser-home.png)
+
 ## Next steps
 
 Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web, or complete an [Image classification tutorial](csharp-tutorial.md) to implement the scenario in code.
