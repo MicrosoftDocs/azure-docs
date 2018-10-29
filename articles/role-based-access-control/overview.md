@@ -52,7 +52,7 @@ A *security principal* is an object that represents a user, group, or service pr
 
 ![Security principal for a role assignment](./media/overview/rbac-security-principal.png)
 
-- User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Group - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role. 
 - Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
 
@@ -128,3 +128,4 @@ The following are the high-level steps that RBAC uses to determine if you have a
 - [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
 - [Manage access using RBAC and the Azure portal](role-assignments-portal.md)
 - [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
+- [Enterprise Cloud Adoption: Resource access management in Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

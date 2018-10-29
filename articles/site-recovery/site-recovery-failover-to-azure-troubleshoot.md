@@ -1,18 +1,10 @@
 ---
-title: Troubleshoot failover to Azure failures | Microsoft Docs
-description: This article describes ways to troubleshoot common errors in failing over to Azure
-services: site-recovery
-documentationcenter: ''
+title: Troubleshoot failovers to Azure | Microsoft Docs
+description: This article describes how to troubleshoot common issues during failover to Azure with Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-
-ms.assetid:
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 09/11/2018
 ms.author: ponatara
 
