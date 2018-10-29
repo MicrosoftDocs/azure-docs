@@ -57,7 +57,7 @@ There are two workarounds to avoid Azure SNAT limitation:
 #### Http Proxy
 
 If you are using an HttpProxy, make sure your HttpProxy can support the number of connections configured in the SDK `ConnectionPolicy`.
-If your HttpProxy fails to serve the required number of connections, you will face connection issues.
+Otherwise, you will face connection issues.
 
 #### Invalid Coding Pattern: Blocking Netty IO Thread
 
@@ -115,7 +115,7 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   The workaround is to change the thread on which you are doing time taking work. Define a singleton instance of Scheduler for your app:
+   The workaround is to change the thread on which you perform time taking work. Define a singleton instance of Scheduler for your app:
    ```java
 // have a singleton instance of executor and scheduler
 ExecutorService ex  = Executors.newFixedThreadPool(30);
@@ -137,7 +137,7 @@ This modification will solve the problem in the above, and you won't get `io.net
 
 ### Connection Pool Exhausted Issue
 
-Getting `PoolExhaustedException` is a client-side failure. If you get this failure often, that's indication that your app workload is higher than what the SDK connection pool can serve. Trying to increase connection pool size or distributing the load on multiple apps may help.
+`PoolExhaustedException` is a client-side failure. If you get this failure often, that's indication that your app workload is higher than what the SDK connection pool can serve. Increasing connection pool size or distributing the load on multiple apps may help.
 
 ### Request Rate Too Large.
 This failure is a service side failure indicating that you consumed your provisioned throughput and should retry later. If you get this failure often, it is an indication that you should increase the collection throughput.
