@@ -3,7 +3,7 @@ title: Multiple routes with Azure Maps | Microsoft Docs
 description: Find routes for different modes of travel using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/22/2018
+ms.date: 10/25/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -77,8 +77,8 @@ The following steps show you how to create a static HTML page embedded with the 
     var mapCenterPosition = [-73.985708, 40.75773];
     atlas.setSubscriptionKey("<your account key>");
     var map = new atlas.Map("map", {
-      center: mapCenterPosition,
-      zoom: 11
+        center: mapCenterPosition,
+        zoom: 12
     });
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
@@ -230,7 +230,7 @@ This section shows how to use the Maps route service API to find multiple routes
     client.route.getRouteDirections(routeQuery).then(response => {
         // Parse the response into GeoJSON
         var geoJsonResponse = new atlas.service.geojson
-            .GeoJsonRouteDiraectionsResponse(response);
+            .GeoJsonRouteDirectionsResponse(response);
 
         // Get the first in the array of routes and add it to the map 
         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
