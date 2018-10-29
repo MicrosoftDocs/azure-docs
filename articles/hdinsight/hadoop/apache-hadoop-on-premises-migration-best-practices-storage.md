@@ -204,4 +204,4 @@ For more information, see the following articles:
 
 Read the next article in this series:
 
-- [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-datamigration.md)
+- [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-data-migration.md)
