@@ -44,8 +44,8 @@ The following table summarizes the potential window of data loss in the event of
 
 ## Next steps
 
-Read more about the topic in the following articles:
+Next you can learn more about global distribution and general consistency tradeoffs in distributed systems using the following articles:
 
-- [Consistency tradeoffs in modern distributed database systems design: CAP is only part of the story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
-- [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
-- [High availability](high-availability.md)
+* [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [High availability](high-availability.md)
+* [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

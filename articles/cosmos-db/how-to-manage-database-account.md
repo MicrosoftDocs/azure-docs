@@ -31,7 +31,7 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ### <a id="configure-clients-multi-homing-dotnet"></a>.NET
 
-```C#
+```csharp
 // Create a new Connection Policy
 ConnectionPolicy policy = new ConnectionPolicy
     {
@@ -100,12 +100,15 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
-1. From your Azure Cosmos DB Account, open the **Replicate data globally** menu.
-2. To add regions, select one or more regions from the map by clicking on the empty hexagons with the **"+"** label corresponding to your desired region or choosing from the drop-down menu on the bottom right.
-3. To remove regions, unselect one or more regions from the map by clicking on blue hexagons with a checkmark or click the "wastebasket" (🗑) icon next to the region on the right-hand side.
-4. Click save in the top left to save your changes.
+1. Navigate to your Azure Cosmos DB Account and open the **Replicate data globally** menu.
 
-![Add/remove regions menu](./media/how-to-manage-database-account/add-region.png)
+2. To add regions, select one or more regions from the map by clicking on the empty hexagons with the **"+"** label corresponding to your desired region. You can also add a region by selecting the **+ Add region** option and choose a region from the drop-down menu.
+
+3. To remove regions, unselect one or more regions from the map by clicking on blue hexagons with a checkmark or select the "wastebasket" (🗑) icon next to the region on the right-hand side.
+
+4. Click save to save your changes.
+
+   ![Add/remove regions menu](./media/how-to-manage-database-account/add-region.png)
 
 In single-region write mode, you cannot remove the write region. You must failover to a different region before deleting that current write region.
 
@@ -126,9 +129,9 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## Configure multiple write-regions
 
-### <a id="configure-multiple-write-regions-portal"></a>Portal
+### <a id="configure-multiple-write-regions-portal"></a>Azure Portal
 
-When you create a database account, make sure the "Multi-region write" setting is enabled.
+When you create a database account, make sure the **Multi-region Writes** setting is enabled.
 
 ![Cosmos DB Account creation screenshot](./media/how-to-manage-database-account/account-create.png)
 
@@ -199,12 +202,17 @@ The following JSON code is an example Resource Manager template. You can use it 
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 
-1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** menu.
+1. Navigate to your Azure Cosmos DB Account and open the **"Replicate data globally"** menu.
+
 2. Click the **"Manual Failover"** button at the top of the menu.
-    ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+
+   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+
 3. On the **"Manual Failover"** menu, select your new write region, and select the box to mark that you understand this will change your write region.
+
 4. Click "Ok" to trigger the failover.
-    ![Manual failover portal menu](./media/how-to-manage-database-account/manual-failover.png)
+
+   ![Manual failover portal menu](./media/how-to-manage-database-account/manual-failover.png)
 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
@@ -219,11 +227,16 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 ### <a id="enable-automatic-failover-via-portal"></a>Azure portal
 
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** pane. 
+
 2. Click the **"Automatic Failover"** button at the top of the pane.
-    ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
-3. On the **"Automatic Failover"** pane, make sure the **"Enabled|Disabled"** slider is set to enabled. 
+
+   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+
+3. On the **"Automatic Failover"** pane, make sure the **Enable Automatic Failover** is set to **ON**. 
+
 4. Click save on the bottom of the menu.
-    ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
+
+   ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
 
 You can also set your failover priorities on this menu.
 
@@ -245,12 +258,18 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 ### <a id="set-failover-priorities-via-portal"></a>Azure portal
 
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** pane. 
+
 2. Click the **"Automatic Failover"** button at the top of the pane.
-    ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
-3. On the **"Automatic Failover"** pane, make sure the **"Enabled|Disabled"** slider is set to enabled. 
+
+   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+
+3. On the **"Automatic Failover"** pane, make sure the **Enable Automatic Failover** is set to **ON**. 
+
 4. You can modify the failover priority by clicking and dragging the read regions via the three dots on the left side of the row that appear when you hover over them. 
+
 5. Click save on the bottom of the menu.
-    ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
+
+   ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
 
 You cannot modify the write region on this menu. You must do a manual failover to change the write region manually.
 
@@ -260,6 +279,10 @@ You cannot modify the write region on this menu. You must do a manual failover t
 az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
 ```
 
-## Next Steps
+## Next steps
 
-- [Partition data](./partition-data.md)
+You can learn about managing consistency levels and data conflicts in Cosmos DB using the following docs:
+
+* [How to manage consistency](how-to-manage-consistency.md)
+* [How to manage conflicts between regions](how-to-manage-conflicts.md)
+

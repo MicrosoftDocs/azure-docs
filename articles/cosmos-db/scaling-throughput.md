@@ -35,4 +35,7 @@ Your choice of [consistency model](consistency-levels.md) also affects throughpu
 
 ## Next steps
 
-[Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_0/)
+Next you can learn how to configure throughput with the help of the following article:
+
+* [Get and set throughput for containers and databases](set-throughput.md) 
+

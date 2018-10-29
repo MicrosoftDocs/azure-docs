@@ -12,7 +12,7 @@ ms.author: chrande
 
 # Manage consistency
 
-This article explains the different ways to set default consistency, overrides that consistency on the client, manually manage session tokens, and understand the Monitor Probabilistically Bounded Staleness (PBS) metric.
+This article explains the different ways to set default consistency, overrides that consistency on the client, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
 ## Configure the default consistency level
 
@@ -212,6 +212,9 @@ To view the PBS metric, go to your Cosmos DB Account in the Azure portal, and th
 
 You must use the Cosmos DB metrics menu to see this metric. It will not show up in the Azure Monitoring metrics experience.
 
-## Next Steps
+## Next steps
 
-- [How to manage database account](./how-to-manage-database-account.md)
+You can learn more about managing data conflicts or move to the next key concept in Cosmos DB using the following docs:
+
+* [How to manage conflicts between regions](how-to-manage-conflicts.md)
+* [Partitioning and data distribution](partition-data.md)

@@ -43,6 +43,8 @@ However, if you configure your container with the custom resolution option, but 
 
 ## Next steps
 
-- [How to use the LWW conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-- [How to use the custom conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-- [How to use the conflicts-feed](how-to-manage-conflicts.md#read-from-conflict-feed)
+Next you can learn how to configure conflict resolution policies by using the following articles:
+
+* [How to use the LWW conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [How to use the custom conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [How to use the conflicts-feed](how-to-manage-conflicts.md#read-from-conflict-feed)
