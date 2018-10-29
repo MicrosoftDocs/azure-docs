@@ -191,7 +191,6 @@ On Linux you can run the following command:
 ```bash
 netstat -nap
 ```
-
 You should filter the result to only connections to Cosmos DB endpoint.
 
 Apparantly, the number of connections to Cosmos DB endpoint in `Established` state should be not greater than your configured connection pool size.
