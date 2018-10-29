@@ -39,7 +39,7 @@ Then, install a SUSE Linux VM in the Azure virtual network. To deploy the virtua
 
 The deployed virtual machine is smaller, and got the internal IP address in the Azure virtual network of 10.34.1.4. The name of the virtual machine is *smtserver*. After the installation, the connectivity to the HANA Large Instance unit or units is checked. Depending on how you organized name resolution, you might need to configure resolution of the HANA Large Instance units in etc/hosts of the Azure virtual machine. 
 
-Add an disk to the virtual machine. You use this disk to hold the updates, and the boot disk itself could be too small. Here, the disk got mounted to /srv/www/htdocs, as shown in the following screenshot. A 100-GB disk should suffice.
+Add a disk to the virtual machine. You use this disk to hold the updates, and the boot disk itself could be too small. Here, the disk got mounted to /srv/www/htdocs, as shown in the following screenshot. A 100-GB disk should suffice.
 
 ![Screenshot of virtual machine deployment for SMT server](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
@@ -142,7 +142,7 @@ SUSEConnect –cleanup
 > [!Note] 
 > Wait a few minutes after that step. If you run clientSetup4SMT.sh immediately, you might get an error.
 
-If you encounter an problem that you need to fix based on the steps of the SUSE article, restart clientSetup4SMT.sh on the HANA Large Instance unit. Now it should finish successfully.
+If you encounter a problem that you need to fix based on the steps of the SUSE article, restart clientSetup4SMT.sh on the HANA Large Instance unit. Now it should finish successfully.
 
 ![Screenshot of client registration success](./media/hana-installation/image14_finish_client_config.PNG)
 
