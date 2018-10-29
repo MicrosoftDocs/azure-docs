@@ -1,20 +1,20 @@
 ---
 title: Introduction to the Azure Internet of Things (IoT)
-description: Overview of Azure IoT and the IoT services
+description: Introduction explaining the fundamentals of Azure IoT and the IoT services, including examples that help illustrate the use of IoT.
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-#Customer intent: As a newcomer to IoT, I want to understand what IoT is, and services are available, so I can figure out where to start.
+#Customer intent: As a newcomer to IoT, I want to understand what IoT is, what services are available, and examples of business cases so I can figure out where to start.
 ---
 
-# What is Azure IoT?
+# What is Azure Internet of Things (IoT)?
 
 The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices and one or more back-end services running in the cloud that communicate with each other. 
 
-This article discusses the basics of IoT, talks about use cases, and briefly explains the eight separate services available. By understanding what's available, you can figure out what you want to look at more closely to help designing your scenario.
+This article discusses the basics of IoT, talks about use cases, and briefly explains the eight separate services available. By understanding what's available, you can figure out what you want to look at more closely to help design your scenario.
 
 ## Introduction
 
