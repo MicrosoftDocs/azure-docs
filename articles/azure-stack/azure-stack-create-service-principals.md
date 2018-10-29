@@ -97,7 +97,7 @@ The following information is required as input for the automation parameters:
 1. Open an elevated Windows PowerShell session, and run the following commands:
 
    > [!NOTE]
-   > This example creates a self-signed certificate. When you run these commands in a production deployment, use [Get-Certificate](/powershell/module/pkiclient/get-certificate) to retrieve the certificate object for the certificate you want to use.
+   > This example creates a self-signed certificate. When you run these commands in a production deployment, use [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) to retrieve the certificate object for the certificate you want to use.
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
