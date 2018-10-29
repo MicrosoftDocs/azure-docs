@@ -52,7 +52,7 @@ A Service Bus messaging namespace provides a unique scoping container, reference
 2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
 3. After making sure the namespace name is available, choose the pricing tier (Standard or Premium).
 4. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
-5. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
+5. In the **Resource group** field, choose an existing resource group in which the namespace lives, or create a new one.      
 6. In **Location**, choose the country or region in which your namespace should be hosted.
 7. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
@@ -81,7 +81,7 @@ To create a Service Bus topic, specify the namespace under which you want it cre
 
 
 ## Create subscriptions for the topic
-1. Select the **topic** you just created.
+1. Select the **topic** you created.
 2. Click on **+ Subscription**, enter the subscription name **Subscription1**, and leave all other values with their defaults.
 3. Repeat the previous step twice more, creating subscriptions named **Subscription2** and **Subscription3**.
 
@@ -506,7 +506,7 @@ Message sending: Id = 9
 
 
 ## Next Steps
-For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
+For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
