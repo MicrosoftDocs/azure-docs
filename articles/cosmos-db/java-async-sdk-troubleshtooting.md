@@ -39,20 +39,20 @@ Start with this list:
 Connection throttling can be done either due to [Connection Limit on Host Machine], or due to [Azure SNAT Port Exhaustion](managing-snat):
 
 ##### <a name="connection-limit-on-host"></a>Connection Limit on Host Machine
-Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files and as sockets in Linux are implemented as files, so this number limits the total number of connections too.
+Some Linux systems (like 'Red Hat') have an upper limit on the total number of open files. Sockets in Linux are implemented as files, so this number limits the total number of connections too.
 Run the following command:
 
 ```bash
 ulimit -a
 ```
-The number of open files ("nofile") needs to be large enough (at least as double as your connection pool size) to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
+The number of open files ("nofile") needs to be large enough (at least as double as your connection pool size);  to have enough room for your configured connection pool size and other open files by the OS. Read more detail  in [Performance Tips](performance-tips-async-java.md).
 
 ##### <a name="managing-snat"></a>Managing SNAT (PAT) Port Exhaustion
 
-If your app is deployed on Azure VM, by default Azure SNAT ports will be used for establishing any connection to an endpoint ouside of your VM. The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure VM, by default for establishing connections to endpoints outside of your VM [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used . The number of connections allowed to be made from the VM to the Cosmos DB endpoint also will be upper bounded by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 There are two workarounds to avoid Azure SNAT limitation:
     * Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
-    * As Azure SNAT limitation is only applicable when your Azure VM has a private IP address, the other workaround is to assign a public IP to your Azure VM.
+    * This limitation is only applicable when your Azure VM has a private IP address. Therefore the other workaround is to assign a public IP to your Azure VM.
 
 #### Http Proxy
 
@@ -61,7 +61,7 @@ If your HttpProxy fails to serve the required number of connections, you will fa
 
 #### Invalid Coding Pattern: Blocking Netty IO Thread
 
-The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
+The SDK uses [netty](https://netty.io/) IO library for communicating to Azure Cosmos DB Service. We have async API and we use non-blocking IO APIs of netty. The SDK's IO work is performed on IO netty threads. The number of IO netty threads is configured to be the same as the number of the CPU cores of the app machine. The netty IO threads are only meant to be used for non blocking netty IO work. The SDK returns the API invocation result on one of the netty IO threads to the apps's code. If the app after receiving results on the netty thread performs a long lasting operation on the netty thread, that may result in SDK to not have enough number of IO threads for performing its internal IO work. Such app coding may result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation will take time.
 
    For example, the following code snippet shows that if you perform long lasting work (which takes more than a few milliseconds) on the netty thread, you eventually can get into a state where no netty IO thread is present to process IO work, and as a result you will get ReadTimeoutException:
 ```java
@@ -187,17 +187,17 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 Review [sfl4j logging manual](https://www.slf4j.org/manual.html) for more information.
 
 ## <a name="netstats"></a>OS Network Statistics
-Run netstat command to get a sense of how many connections are in `Established` state, `CLOSE_WAIT`, etc.
+Run netstat command to get a sense of how many connections are in `Established` state, `CLOSE_WAIT` state, etc.
 
 On Linux you can run the following command:
 ```bash
 netstat -nap
 ```
-You should filter the result to only connections to Cosmos DB endpoint.
+Filter the result to only connections to Cosmos DB endpoint.
 
 Apparently, the number of connections to Cosmos DB endpoint in `Established` state should be not greater than your configured connection pool size.
 
-If there are many connections to Cosmos DB endpoint in `CLOSE_WAIT` state (more than 1000 connections), that's an indication of connections are established and torn down very quickly which may potentially cause problems. Review [Common Issues and Workarounds] section for more detail.
+If there are many connections to Cosmos DB endpoint in `CLOSE_WAIT` state (more than 1000 connections), that's an indication of connections are established and torn down quickly, which may potentially cause problems. Review [Common Issues and Workarounds] section for more detail.
 
  <!--Anchors-->
 [Introduction]: #introduction
