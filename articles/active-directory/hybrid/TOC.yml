@@ -288,6 +288,8 @@
     href: reference-connect-sync-functions-reference.md
   - name: Azure AD federation compatibility list
     href: how-to-connect-fed-compatibility.md
+  - name: TLS 1.2 enforcement
+    href: reference-connect-tls-enforcement.md
   - name: ADSyncConfig Reference
     href: reference-connect-adsyncconfig.md
   - name: ADSyncTools Reference
