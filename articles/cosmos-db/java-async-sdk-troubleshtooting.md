@@ -49,7 +49,7 @@ The number of open files ("nofile") needs to be large enough (at least as double
 If your app is deployed on Azure VM, by default [Azure SNAT ports](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used to establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Cosmos DB endpoint is limited by the [Azure SNAT configuration](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
 The Azure SNAT ports are used only when your Azure VM has a private IP address and a process from the VM attempts to establish a connection to a public IP address. So, there are two workarounds to avoid Azure SNAT limitation:
-    * Add your Azure Cosmos DB endpoint to the VNET of your Azure VM as explained [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
+    * Add your Azure Cosmos DB service endpoint to the subnet of your Azure VM VNET as explained in [Enabling VNET Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview). When service endpoint is enabled, the requests no longer are sent from a public IP to cosmos DB instead the VNET and subnet identity is sent. This change may result in firewall drops if only public IPs are allowed. If you are using firewall, when enabling service endpoint, add subnet to firewall using [VNET ACLs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-acl).
     * Assign a public IP to your Azure VM.
 
 #### Http Proxy
