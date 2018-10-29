@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Face API?
+  - name: What is the Face API?
     href: Overview.md
 - name: Quickstarts
   items:
