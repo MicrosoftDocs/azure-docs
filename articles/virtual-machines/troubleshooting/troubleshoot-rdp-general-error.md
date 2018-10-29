@@ -164,7 +164,7 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
 6. Restart the VM.
 
-7. Exist from the CMD instance by typing `exit`, and then press **Enter** two times.
+7. Exit from the CMD instance by typing `exit`, and then press **Enter** two times.
 
 8. Restart the VM by typing `restart`.
 
