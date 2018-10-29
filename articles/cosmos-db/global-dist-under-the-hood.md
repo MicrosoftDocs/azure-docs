@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB global distribution - how it works 
+title: Azure Cosmos DB global distribution - under the hood 
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
 services: cosmos-db
 author: dharmas-cosmos
@@ -12,16 +12,16 @@ ms.reviewer: sngun
 
 ---
 
-# Global distribution - how it works
+# Global distribution - under the hood
 
 Azure Cosmos DB is a foundational service of Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds. Within a data center, we deploy and manage the Azure Cosmos DB service on massive “stamps” of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains.
 
 ![System Topology](./media/global-dist-under-the-hood/figure1.png)
-**Figure 1: System Topology**
+**System Topology**
 
 Global distribution in Azure Cosmos DB is turn-key: at any time, with a few clicks or programmatically with a single API call customer can add or remove the geographical regions associated with their Cosmos database. A Cosmos database in turn consists of a set of Cosmos containers. In Cosmos DB, containers serve as the logical units of distribution and scalability. The collections, tables, and graphs you create are (internally) just Cosmos containers. Containers are completely schema agnostic and provide a scope for a query. All data in a Cosmos container is automatically indexed upon ingestion. Automatic indexing enables users to query the data without having to deal with schema or hassles of index management, especially in a globally distributed setup.  
 
-As shown in Figure 2, the data within a container is distributed along two dimensions:  
+As shown in the following image, the data within a container is distributed along two dimensions:  
 
 - In a given region, data within a container is distributed by using a partition-key, which you provide and is transparently managed by the underlying resource partitions (local distribution).  
 - Each resource partition is also replicated across geographical regions (global distribution). 
@@ -29,9 +29,9 @@ As shown in Figure 2, the data within a container is distributed along two dimen
 When an app using Cosmos DB elastically scales throughput (or consumes more storage) on a Cosmos container, Cosmos DB transparently handles partition management operations (split, clone, delete) across all the regions. Independent of the scale, distribution, or failures, Cosmos DB continues to provide a single system image of the data within the containers, which are globally distributed across any number of regions.  
 
 ![Resource Partitions](./media/global-dist-under-the-hood/figure2.png)
-**Figure 2: Distribution of Resource Partitions**
+**Distribution of Resource Partitions**
 
-Physically, a resource partition is implemented by a group of replicas, called a replica-set. Each machine hosts hundreds of replicas corresponding to various resource partitions within a fixed set of processes (see Figure 2). Replicas corresponding to the resource partitions are dynamically placed and load balanced across the machines within a cluster and data centers within a region.  
+Physically, a resource partition is implemented by a group of replicas, called a replica-set. Each machine hosts hundreds of replicas corresponding to various resource partitions within a fixed set of processes as shown in the previous image. Replicas corresponding to the resource partitions are dynamically placed and load balanced across the machines within a cluster and data centers within a region.  
 
 A replica uniquely belongs to an Azure Cosmos DB tenant. Each replica hosts an instance of Cosmos DB’s [database engine](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), which manages the resources as well as the associated indexes. The Cosmos DB database engine operates on an atom-record-sequence (ARS) based type system. The engine is agnostic to the concept of a schema and blurring the boundary between the structure and instance values of records. Cosmos DB achieves full schema agnosticism by automatically indexing everything upon ingestion in an efficient manner, which allows users to query their globally distributed data without having to deal with schema or index management.
 
@@ -41,14 +41,14 @@ Cosmos DB’s global distribution relies on two key abstractions – replica-set
 
 ## Replica-sets
 
-A resource partition is materialized as a self-managed and dynamically load-balanced group of replicas spread across multiple fault domains, called a replica-set. This set collectively implements the replicated state machine protocol to make the data within the resource partition highly available, durable, and strongly consistent. The replica-set membership N is dynamic – it keeps fluctuating between NMin and NMax based on the failures, administrative operations, and the time for failed replicas to regenerate/recover. Based on the membership changes, the replication protocol also reconfigures the size of read and write quorums. To uniformly distribute the throughput that is assigned to a given resource partition, we employ two ideas: first, the cost of processing the write requests on the leader is higher than the cost of applying the updates on the follower. Correspondingly, the leader is budgeted more system resources than the followers. Secondly, as far as possible, the read quorum for a given consistency level is composed exclusively of the follower replicas. We avoid contacting the leader for serving reads unless  required. We employ a number of ideas from the research done on the relationship of [load and capacity](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) in the quorum-based systems for the five consistency models that Cosmos DB supports.  
+A resource partition is materialized as a self-managed and dynamically load-balanced group of replicas spread across multiple fault domains, called a replica-set. This set collectively implements the replicated state machine protocol to make the data within the resource partition highly available, durable, and strongly consistent. The replica-set membership N is dynamic – it keeps fluctuating between NMin and NMax based on the failures, administrative operations, and the time for failed replicas to regenerate/recover. Based on the membership changes, the replication protocol also re-configures the size of read and write quorums. To uniformly distribute the throughput that is assigned to a given resource partition, we employ two ideas: first, the cost of processing the write requests on the leader is higher than the cost of applying the updates on the follower. Correspondingly, the leader is budgeted more system resources than the followers. Secondly, as far as possible, the read quorum for a given consistency level is composed exclusively of the follower replicas. We avoid contacting the leader for serving reads unless  required. We employ a number of ideas from the research done on the relationship of [load and capacity](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) in the quorum-based systems for the five consistency models that Cosmos DB supports.  
 
 ## Partition-sets
 
-A group of resource partitions, one from each of the configured with the Cosmos database regions, is composed to manage the same set of keys replicated across all configured regions. This higher coordination primitive is called a partition-set - a geographically distributed dynamic overlay of resource partitions managing a given set of keys. While a given resource partition (a replica-set) is scoped within a cluster, a partition-set can span clusters, data centers, and geographical regions (Figure 2 and Figure 3).  
+A group of resource partitions, one from each of the configured with the Cosmos database regions, is composed to manage the same set of keys replicated across all configured regions. This higher coordination primitive is called a partition-set - a geographically distributed dynamic overlay of resource partitions managing a given set of keys. While a given resource partition (a replica-set) is scoped within a cluster, a partition-set can span clusters, data centers, and geographical regions as shown in the following image:  
 
 ![Partition Sets](./media/global-dist-under-the-hood/figure3.png)
-**Figure 3: Partition-set is a dynamic overlay of resource partitions**
+**Partition-set is a dynamic overlay of resource partitions**
 
 You can think of a partition-set as a geographically-dispersed “super replica-set”, which is comprised of multiple replica-sets owning the same set of keys. Similar to a replica-set, a partition-set’s membership is also dynamic – it fluctuates based on implicit resource partition management operations to add/remove new partitions to/from a given partition-set (for instance, when you scale out throughput on a container, add/remove a region to your Cosmos database, or when failures occur) By virtue of having each of the partitions (of a partition-set) manage the partition-set membership within its own replica-set, the membership is fully decentralized and highly available. During the reconfiguration of a partition-set, the topology of the overlay between resource partitions is also established. The topology is dynamically selected based on consistency level, geographical distance, and available network bandwidth between the source and the target resource partitions.  
 

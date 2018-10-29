@@ -42,7 +42,7 @@ Many applications will benefit from the performance enhancements that come with 
 
 Read more about global distribution in the following articles:
 
-* [How global distribution works](global-dist-under-the-hood.md)
+* [Global distribution - under the hood](global-dist-under-the-hood.md)
 * [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [How to add/remove regions from your database](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [How to create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

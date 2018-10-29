@@ -41,7 +41,7 @@ The table below shows the mapping for "read concerns" of MongoDB 3.4 and Cosmos 
 | Majority | Bounded Staleness | Strong |
 | Local | Consistent Prefix | Consistent Prefix |
 
-## Next Steps
+## Next steps
 
 Read more about consistency levels and compatibility between Cosmos DB APIs with the open-source APIs in the following articles:
 

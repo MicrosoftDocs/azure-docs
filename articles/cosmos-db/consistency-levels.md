@@ -83,7 +83,7 @@ To learn more about consistency concepts, read the following articles:
 To learn more about consistency levels in Cosmos DB, read the following articles:
 
 * [Choosing the right consistency level for your application](consistency-levels-choosing.md)
-* [Consistency levels across Cosmos DB model APIs](consistency-levels-across-apis.md)
+* [Consistency levels across Cosmos DB APIs](consistency-levels-across-apis.md)
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
 * [How to configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level)
 * [How to override the default consistency level](how-to-manage-consistency.md#override-the-default-consistency-level)

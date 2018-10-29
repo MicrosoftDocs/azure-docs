@@ -28,7 +28,7 @@ If your Cosmos account is distributed across N Azure regions, there will be at l
 
 As a globally distributed database, Cosmos DB provides comprehensive SLAs encompassing throughput, latency at the 99th percentile, consistency, and high availability. In the following table, we describe the guarantees pertaining to high availability provided by Cosmos DB for single and multi-region accounts. For the highest availability, we strongly recommend configuring your Cosmos accounts to have multiple write regions.
 
-|Operation Type  | Single Region |Multi-region with single-write|Multi-region with multi-write|
+|Operation Type  | Single Region |Multi-region (single region writes)|Multi-region (multi-region writes|
 |---------|---------|---------|-------|
 |Writes    | 99.99    |99.99   |99.999|
 |Reads     | 99.99    |99.999  |99.999|
@@ -61,4 +61,13 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 Next you can learn about scaling throughput in the following article:
 
 * [Scaling throughput](scaling-throughput.md)
+
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+
+* [Scaling throughput globally](scaling-throughput.md)
+
+* [Global distribution - under the hood](global-dist-under-the-hood.md)
+
+* [Consistency levels in Azure Cosmos DB](consistency-levels.md)
+
 

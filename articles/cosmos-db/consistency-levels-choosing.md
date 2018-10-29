@@ -43,11 +43,11 @@ For the remaining three consistency levels, the staleness window is largely depe
 
 If your Cosmos DB account is configured with any consistency level other than the strong consistency, you can find out the probability of your clients to get strongly consistent (linearizable) reads for your workload(s) by looking at the Probabilistic Bounded Staleness (PBS) metric exposed in the Azure portal [See here for how to use the PBS metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric). Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you get a stronger consistency than the consistency level that you have configured on your Cosmos DB account. In other words, you can see the probability of (depicted in milliseconds) getting strongly consistent reads for a combination of a write and read regions.
 
-## Next Steps
+## Next steps
 
 Read more about the consistency levels in the following articles:
 
-* [Consistency level mapping across Cosmos DB model APIs](consistency-levels-across-apis.md)
+* [Consistency level mapping across Cosmos DB APIs](consistency-levels-across-apis.md)
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
 * [How to manage the session token for your application](how-to-manage-consistency.md#utilize-session-tokens)
 * [How to monitor the Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

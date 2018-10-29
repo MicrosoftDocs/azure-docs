@@ -221,7 +221,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** pane. 
 2. Click the **"Automatic Failover"** button at the top of the pane.
     ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
-3. On the **"Automatic Failover"** pane, make sure the **"Enabled|Disabled"** slider is set to enabled. 
+3. On the **"Automatic Failover"** pane, make sure the **Enable Automatic Failover** is set to **ON**. 
 4. Click save on the bottom of the menu.
     ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -247,7 +247,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 1. From your Azure Cosmos DB Account, open the **"Replicate data globally"** pane. 
 2. Click the **"Automatic Failover"** button at the top of the pane.
     ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
-3. On the **"Automatic Failover"** pane, make sure the **"Enabled|Disabled"** slider is set to enabled. 
+3. On the **"Automatic Failover"** pane, make sure the **Enable Automatic Failover** is set to **ON**. 
 4. You can modify the failover priority by clicking and dragging the read regions via the three dots on the left side of the row that appear when you hover over them. 
 5. Click save on the bottom of the menu.
     ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
@@ -260,7 +260,7 @@ You cannot modify the write region on this menu. You must do a manual failover t
 az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
 ```
 
-## Next Steps
+## Next steps
 
 You can learn about managing consistency levels and data conflicts in Cosmos DB using the following docs:
 

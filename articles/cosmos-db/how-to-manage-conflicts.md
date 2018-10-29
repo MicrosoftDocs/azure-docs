@@ -12,7 +12,7 @@ ms.author: chrande
 
 # Manage conflicts between regions
 
-When a data conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies using different language platforms.
+With multi-region writes, when a data conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies using different language platforms.
 
 ## Create a custom conflict resolution policy
 
@@ -271,7 +271,7 @@ while conflict:
     conflict = next(conflicts_iterator, None)
 ```
 
-## Next Steps
+## Next steps
 
 You can now move on to learning the following Cosmos DB concepts:
 
