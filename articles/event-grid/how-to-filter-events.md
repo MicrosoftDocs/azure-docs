@@ -16,7 +16,7 @@ This article shows how to filter events when creating an Event Grid subscription
 
 ## Filter by event type
 
-When creating an Event Grid subscription, you can specify which [event types](event-schema.md) to send to the endpoint. The examples in this section create event subscriptions for a resource group but limit the events that are sent to `Microsoft.Resources.ResourceWriteFailure` and `Microsoft.Resources.ResourceWriteSuccess`.
+When creating an Event Grid subscription, you can specify which [event types](event-schema.md) to send to the endpoint. The examples in this section create event subscriptions for a resource group but limit the events that are sent to `Microsoft.Resources.ResourceWriteFailure` and `Microsoft.Resources.ResourceWriteSuccess`. If you need more flexibility when filtering events by event types, see [Filter by advanced operators and data fields](#filter-by-advanced-operators-and-data-fields).
 
 For PowerShell, use the `-IncludedEventType` parameter when creating the subscription.
 
@@ -58,6 +58,9 @@ For a Resource Manager template, use the `includedEventTypes` property.
         }
       },
       "filter": {
+        "subjectBeginsWith": "",
+        "subjectEndsWith": "",
+        "isSubjectCaseSensitive": false,
         "includedEventTypes": [
           "Microsoft.Resources.ResourceWriteFailure",
           "Microsoft.Resources.ResourceWriteSuccess"
@@ -70,7 +73,7 @@ For a Resource Manager template, use the `includedEventTypes` property.
 
 ## Filter by subject
 
-You can filter events by the subject in the event data. You can specify a value to match for the beginning or end of the subject.
+You can filter events by the subject in the event data. You can specify a value to match for the beginning or end of the subject. If you need more flexibility when filtering events by subject, see [Filter by advanced operators and data fields](#filter-by-advanced-operators-and-data-fields).
 
 In the following PowerShell example, you create an event subscription that filters by the beginning of the subject. You use the `-SubjectBeginsWith` parameter to limit events to ones for a specific resource. You pass the resource ID of a network security group.
 
@@ -136,7 +139,10 @@ In the following Resource Manager template example, you create an event subscrip
         }
       },
       "filter": {
-        "subjectBeginsWith": "[resourceId('Microsoft.Network/networkSecurityGroups','demoSecurityGroup')]"
+        "subjectBeginsWith": "[resourceId('Microsoft.Network/networkSecurityGroups','demoSecurityGroup')]",
+        "subjectEndsWith": "",
+        "isSubjectCaseSensitive": false,
+        "includedEventTypes": [ "All" ]
       }
     }
   }
@@ -160,15 +166,74 @@ The next Resource Manager template example creates a subscription for a blob sto
       },
       "filter": {
         "subjectEndsWith": ".jpg",
+        "subjectBeginsWith": "",
+        "isSubjectCaseSensitive": false,
+        "includedEventTypes": [ "All" ]
       }
     }
   }
 ]
 ```
 
-## Filter by data fields
+## Filter by advanced operators and data fields
 
+To use advanced filtering, you must install a preview extension for Azure CLI. You can use [CloudShell](/azure/cloud-shell/quickstart) or install Azure CLI locally.
 
+In CloudShell:
+
+* If you've installed the extension previously, update it `az extension update -n eventgrid`
+* If you haven't installed the extension previously, install it `az extension add -n eventgrid`
+
+For a local installation:
+
+1. Uninstall Azure CLI locally.
+1. Install the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+1. Launch command window.
+1. Uninstall previous versions of the extension `az extension remove -n eventgrid`
+1. Install the extension `az extension add -n eventgrid`
+
+You're now ready to use advanced filtering.
+
+To learn about the operators and keys that you can use for advanced filtering, see [Advanced filtering](event-filtering.md#advanced-filtering).
+
+The following example creates a custom topic. It subscribes to the custom topic and filters by a value in the data object.
+
+```azurecli-interactive
+topicName=<your-topic-name>
+endpointURL=<endpoint-URL>
+
+az group create -n gridResourceGroup -l eastus2
+az eventgrid topic create --name $topicName -l eastus2 -g gridResourceGroup
+
+topicid=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --source-resource-id $topicid \
+  -n demoAdvancedSub \
+  --advanced-filter data.color stringin blue red green \
+  --endpoint $endpointURL
+```
+
+Events that have the color property set to blue, red, or green are sent to the subscription. To test the filter, use:
+
+```azurecli-interactive
+topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name $topicName -g gridResourceGroup --query "key1" --output tsv)
+
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "green"},"dataVersion": "1.0"} ]'
+
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
+```
+
+The event is sent to your endpoint. To test a scenario where the event isn't sent, use:
+
+```azurecli-interactive
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
+
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
+```
+
+The color property is set to yellow, which isn't one of the values specified in the subscription.
 
 ## Next steps
 
