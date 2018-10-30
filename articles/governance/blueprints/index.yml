@@ -36,4 +36,4 @@ sections:
     className: cardsD
     items:
     - title: REST API
-      html: <p><a href="/rest/api/blueprints/remediations">Blueprints</a></p>
+      html: <p><a href="/rest/api/blueprints/">Blueprints</a></p>
