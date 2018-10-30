@@ -241,8 +241,11 @@
   - name: Update Management
     href: troubleshoot/update-management.md
     displayName: troubleshoot
-  - name: Troubleshoot Update Agent issues
+  - name: Troubleshoot Update Agent issues - Windows
     href: troubleshoot/update-agent-issues.md
+    displayName: hybrid runbook worker, hybrid worker, troubleshoot
+  - name: Troubleshoot Update Agent issues - Linux
+    href: troubleshoot/update-agent-issues-linux.md
     displayName: hybrid runbook worker, hybrid worker, troubleshoot
 - name: Reference
   items:
