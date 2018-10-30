@@ -30177,6 +30177,26 @@
             "redirect_document_id" : true
         },
 		{
+		"source_path": "articles/active-directory/choose-hybrid-identity-solution.md",
+		"redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+		"redirect_document_id": false
+		},
+		{
+		"source_path": "articles/active-directory/hybrid/how-to-connect-fed-azure-adfs.md",
+		"redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs",
+		"redirect_document_id": false
+		},
+		{
+		"source_path": "articles/active-directory/active-directory-adfs-in-azure-with-azure-traffic-manager.md",
+		"redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager",
+		"redirect_document_id": false
+		},
+		{
+		"source_path": "articles/active-directory/active-directory-federation-sha256-guidance.md",
+		"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-sha256-guidance",
+		"redirect_document_id": false
+		},
+		{
             "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-troubleshooting.md",
             "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-troubleshooting",
             "redirect_document_id" : true

@@ -4,7 +4,7 @@ description: This topic gives an overview of Media Encoder Premium Workflow Form
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erik43
+manager: femila
 editor: ''
 
 ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 10/30/2018
 ms.author: juliako;anilmur
 
 ---
