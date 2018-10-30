@@ -43,10 +43,10 @@ For example, service may want to back up its data in order to protect from the f
 The restore can be for any of the following scenarios 
 
 ## On-Demand Restore - The Case of Disaster Recovery (DR)
-In case of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to a backup cluster. The desired backup can be selected from enumeration of GetBackupAPI with Backup Storage Details. The Backup Enumeration can be for an application, service or partition.
+In case of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to a backup cluster. The desired backup can be selected from enumeration of GetBackupAPI with Backup Storage Details. The Backup Enumeration can be for an application, service, or partition.
 
 Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster.
-The enumeration API requires storage for enumeration and the service fabric entity its trying to enumerate.
+The enumeration API requires storage for enumeration and the service fabric entity it is trying to enumerate.
 
 ```powershell
 $StorageInfo = @{
@@ -114,7 +114,7 @@ FailureError            :
 
 
 
-For triggering the restore we need to choose the desired backup. Let the desired backup for the current Disaster Recovery (DR) be the following backup
+For triggering the restore, we need to choose the desired backup. Let the desired backup for the current Disaster Recovery (DR) be the following backup
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -130,11 +130,11 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            : 
 ```
 
-For the restore API we need to provide the __BackupId__ and __BackupLocation__ Details. 
-The partition information for the backup cluster are mapped to the original cluster. 
+For the restore API, we need to provide the __BackupId__ and __BackupLocation__ Details. 
+The partition information for the backup cluster is mapped to the original cluster. 
 The partition in backup cluster is chosen as per the [partition scheme](service-fabric-concepts-partitioning.md#get-started-with-partitioning). 
 
-The partition id on Backup Cluster is identified as 1c42c47f-439e-4e09-98b9-88b8f60800c6 which maps to the original cluster partition id 974bd92a-b395-4631-8a7f-53bd4ae9cf22 by comparing the high key and low key for Ranged partitioning (UniformInt64Partition), name for NamedPartitioning.
+The partition id on Backup Cluster is identified as 1c42c47f-439e-4e09-98b9-88b8f60800c6, which maps to the original cluster partition ID 974bd92a-b395-4631-8a7f-53bd4ae9cf22 by comparing the high key and low key for Ranged partitioning (UniformInt64Partition), name for NamedPartitioning.
 
 The restore is requested against partition of backup cluster by the following Restore API 
 
@@ -151,13 +151,13 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 The progress of the restore can be [TrackRestoreProgress](service-fabric-backuprestoreservice-trigger-restore.md#tracking-restore-progress)
 
-## On Demand Restore - The Case of Data Corruption / Data Loss
+## On-Demand Restore - The Case of Data Corruption / Data Loss
 
-For the case of Data Loss or Data Corruption the data for the partitions of the Reliable Service and Reliable Actors can be restored to any of the choosen backup. 
+For the case of Data Loss or Data Corruption the data, for the partitions of the Reliable Service and Reliable Actors can be restored to any of the chosen backups. 
 The following case is the continuation of sample as mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), where the partition has a backup policy enabled and is taking backup at a desired frequency in an azure storage. 
 
 The desired backup is selected from the output of  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups).
-For triggering the restore we need to choose the desired backup from the list. Let our desired backup for the current Data Loss / Data Corruption be the following backup
+For triggering the restore, we need to choose the desired backup from the list. Let our desired backup for the current Data Loss / Data Corruption be the following backup
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -173,7 +173,7 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            : 
 ```
 
-For the restore API we need to provide the __BackupId__ and __BackupLocation__ Details. Since the cluster has backup enabled the Service Fabric backup restore service (BRS) identifies the correct storage location from the policy enabled and restore by automatically connecting to it. 
+For the restore API, we need to provide the __BackupId__ and __BackupLocation__ Details. Since the cluster has backup enabled the Service Fabric backup restore service (BRS) identifies the correct storage location from the policy enabled and restore by automatically connecting to it. 
 
 ```powershell
 $RestorePartitionReference = @{ 
@@ -192,7 +192,7 @@ The progress of the restore can be [TrackRestoreProgress](service-fabric-backupr
 
 ## Auto Restore
 
- The partitions for the Reliable Service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. While enabling the Backup Policy the partition can be hooked up with the policy that has the Auto Restore Enabled which automatically restore the reliable collection data of the partition to the latest backup if Data Loss is reported for the partition.
+ The partitions for the Reliable Service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore, while enabling the Backup Policy the partition can be hooked up with the policy that has the Auto Restore Enabled which automatically restore the reliable collection data of the partition to the latest backup if Data Loss is reported for the partition.
  
  [Auto Restore Enablement in Backup Policy](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 
