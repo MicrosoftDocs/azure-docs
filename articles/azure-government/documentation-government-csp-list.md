@@ -1,13 +1,13 @@
 ---
-title: <Azure Government authorized reseller list>
-description: <Comprehensive listing of Azure Government Cloud Solution Providers, Resellers and Distributors>
-services: <service slug assigned to your service by ACOM>
-cloud: <Azure Government>
-author: <todorgb>
-ms.service: <Azure Government>
+title: Azure Government authorized reseller list
+description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
+services: azure-government
+cloud: gov
+author: todorgb
+ms.service: azure-government
 ms.topic: article
 ms.date: 10/26/2018
-ms.author: <todorb>
+ms.author: todorb
 ---
 # Azure Government authorized reseller list
 
