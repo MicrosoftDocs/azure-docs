@@ -266,7 +266,7 @@ If any of these differences are a problem for your project please contact [askco
 ### How do I provide feedback about the SDK or bugs?
 You can share your feedback in any of the following ways:
 
-* [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
+* [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
