@@ -193,15 +193,15 @@
         - name: SQL data partitioning
           href: sql-api-partition-data.md
         - name: Data types
-           items:
-           - name: DateTime
-             href: working-with-dates.md
-           - name: Geospatial
-             href: geospatial.md
-           - name: Bulk executor - .NET library
-             href: bulk-executor-dot-net.md
-           - name: Bulk executor - Java library
-             href: bulk-executor-java.md
+          items:
+          - name: DateTime
+            href: working-with-dates.md
+          - name: Geospatial
+            href: geospatial.md
+          - name: Bulk executor - .NET library
+            href: bulk-executor-dot-net.md
+          - name: Bulk executor - Java library
+            href: bulk-executor-java.md
       - name: Reference
         items:
         - name: .NET
