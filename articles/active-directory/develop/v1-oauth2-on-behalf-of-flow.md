@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory service to service auth using OAuth2.0 On-Behalf-Of draft specification | Microsoft Docs
-description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
+title: Azure Active Directory service-to-service authentication using the OAuth2.0 On-Behalf-Of draft specification | Microsoft Docs
+description: This article describes how to use HTTP messages to implement service-to-service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -20,14 +20,14 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ---
 
-# Service to service calls using delegated user identity in the On-Behalf-Of flow
+# Service-to-service calls using delegated user identity in the On-Behalf-Of flow
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
+The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case where an application invokes a service/web API which in turn needs to call another service/web API. The OBO flow propagates the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it must secure an access token from Azure Active Directory (Azure AD) on behalf of the user.
 
 > [!IMPORTANT]
-> As of May 2018, an `id_token` cannot be used for the On-Behalf-Of flow - SPAs must pass an **access** token to a middle-tier confidential client to perform OBO flows. See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.
+> As of May 2018, an **id_token** cannot be used for the On-Behalf-Of flow.  Single-page apps (SPAs) must pass an **access** token to a middle-tier confidential client to perform OBO flows. See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.
 
 ## On-Behalf-Of flow diagram
 Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At this point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
