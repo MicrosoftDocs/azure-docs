@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.author: cynthn
 
 ---
@@ -77,7 +77,7 @@ New-AzureRmResourceGroup -Location $location -Name $rgName
 The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault with [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyVaultName* as follows:
 
 ```azurepowershell-interactive
-$keyVaultName = "myKeyVault"
+$keyVaultName = "myKeyVault$(Get-Random)"
 New-AzureRmKeyVault -Location $location `
     -ResourceGroupName $rgName `
     -VaultName $keyVaultName `
@@ -93,32 +93,6 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
     -Name "myKey" `
     -Destination "Software"
 ```
-
-
-## Create the Azure Active Directory service principal
-When virtual disks are encrypted or decrypted, you specify an account to handle the authentication and exchanging of cryptographic keys from Key Vault. This account, an Azure Active Directory service principal, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
-
-Create a service principal in Azure Active Directory with [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). To specify a secure password, follow the [Password policies and restrictions in Azure Active Directory](../../active-directory/authentication/concept-sspr-policy.md):
-
-```azurepowershell-interactive
-$appName = "My App"
-$securePassword = ConvertTo-SecureString -String "P@ssw0rd!" -AsPlainText -Force
-$app = New-AzureRmADApplication -DisplayName $appName `
-    -HomePage "https://myapp.contoso.com" `
-    -IdentifierUris "https://contoso.com/myapp" `
-    -Password $securePassword
-New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
-```
-
-To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory service principal to read the keys. Set permissions on your Key Vault with [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy):
-
-```azurepowershell-interactive
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
-    -ServicePrincipalName $app.ApplicationId `
-    -PermissionsToKeys "WrapKey" `
-    -PermissionsToSecrets "Set"
-```
-
 
 ## Create virtual machine
 To test the encryption process, create a VM with [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* using a *Windows Server 2016 Datacenter* image. When prompted for credentials, enter the username and password to be used for your VM:
@@ -156,8 +130,6 @@ $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKe
 
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName "myVM" `
-    -AadClientID $app.ApplicationId `
-    -AadClientSecret (New-Object PSCredential "user",$securePassword).GetNetworkCredential().Password `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
     -KeyEncryptionKeyUrl $keyEncryptionKeyUrl `
