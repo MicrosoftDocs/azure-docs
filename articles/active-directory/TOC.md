@@ -47,7 +47,6 @@
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
@@ -325,6 +324,12 @@
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
 ## [Troubleshoot](fundamentals/active-directory-troubleshooting-support-howto.md)
+
+## Deploy Azure AD Proof of Concept (PoC)
+### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
+### [PoC Playbook: Ingredients](active-directory-playbook-ingredients.md)
+### [PoC Playbook: Implementation](active-directory-playbook-implementation.md)
+### [PoC Playbook: Building Blocks](active-directory-playbook-building-blocks.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)

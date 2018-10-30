@@ -141,6 +141,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-sharing-accounts.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/users-sharing-accounts",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
             "redirect_document_id": true
@@ -10057,6 +10062,11 @@
         {
             "source_path": "articles/log-analytics/log-analytics-service-fabric-azure-resource-manager.md",
             "redirect_url": "https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/query-language/kusto.md",
+            "redirect_url": "azure/log-analytics/query-language/query-language",
             "redirect_document_id": false
         },
         {
