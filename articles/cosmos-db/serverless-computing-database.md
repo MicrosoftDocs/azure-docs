@@ -27,7 +27,8 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 * Bind a function to an Azure Cosmos DB container using an **output binding**. Output bindings write data to a container when a function completes.
 
 > [!NOTE]
-> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Gremlin API accounts only.
+> Currently, Azure Cosmos DB trigger, input bindings, and output bindings are supported for use with the SQL API only. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including MongoDB API, Cassandra API, Gremlin API, and Table API.
+
 
 The following diagram illustrates each of these three integrations: 
 
