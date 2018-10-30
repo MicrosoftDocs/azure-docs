@@ -61,7 +61,7 @@ If you haven't opted in for the extension, we will start to disable ACS namespac
 
 ## Request an extension
 
-1. Navigate to your ACS namespace's management portal by going to https://{your-namespace}.accesscontrol.windows.net.
+1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
 1. Select the **Read Terms** button to read the updated Terms of Use, which will direct you to a page with the updated Terms of Use.
 
     ![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button.png)
