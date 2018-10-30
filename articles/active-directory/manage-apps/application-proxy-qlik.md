@@ -53,7 +53,11 @@ Follow the same steps as for Application #1, with the following exceptions:
 ## Testing 
 Your application is now ready to test. Access the external URL you used to publish QlikSense in Application #1, and login as a user assigned to both applications.  
 
+## Additional References
+For more information about publishing Qlik Sense with Application Proxy refer to this Qlik Community Article: [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183)
+
 ## Next Steps
 
 - [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md)
 - [Working with Application Proxy connectors](application-proxy-connector-groups.md).
+
