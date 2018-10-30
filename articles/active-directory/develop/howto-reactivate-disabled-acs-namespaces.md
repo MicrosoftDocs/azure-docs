@@ -28,7 +28,7 @@ On October 3, 2018, we announced (through email and [a blog post](https://azure.
 
 ## Why your namespace is disabled
 
-If you haven't opted in for the extension, we will start to disable ACS namespace starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
+If you haven't opted in for the extension, we will start to disable ACS namespaces starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
 
 ## Find and enable your ACS namespaces
 
