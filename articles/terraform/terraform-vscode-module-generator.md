@@ -9,7 +9,7 @@ author: v-mavick
 manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 10/30/2018
 
 ---
 
@@ -18,7 +18,10 @@ ms.date: 09/12/2018
 [Terraform](https://docs.microsoft.com/azure/terraform/
 ) provides a way to easily create infrastructure on Azure. [Yeoman](http://yeoman.io/) greatly eases the job of the module developer in creating Terraform modules while providing an excellent *best practices* framework.
 
-In this article, you learn how to use the Yeoman module generator to create a base Terraform template.
+In this article, you learn how to use the Yeoman module generator to create a base Terraform template. You will then learn how to test your new Terraform template using two different methods:
+
+- Running your Terraform module natively in Azure Cloud Shell
+- Running your Terraform module using a Docker file you will be creating
 
 ## Prerequisites
 
@@ -100,7 +103,7 @@ From a command prompt:
         ![Include Docker image file?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
         >[!NOTE]
-        >Enter `y`. If you select **n**, the generated modue code will support running only in native mode.
+        >Enter `y`. If you select **n**, the generated module code will support running only in native mode.
 
 3. Enter `ls` to view the resulting files that are created.
 
@@ -146,7 +149,42 @@ Defines the build steps. These steps include:
 - End-to-end tests try to use Terraform to provision all of the items defined under **fixture** and then compare the output in the **template_output.go** code with the pre-defined expected values.
 - **Gopkg.lock** and **Gopkg.toml**: Define your dependencies. 
 
-## Test the module using Docker
+## Option 1: Testing your Terrraform module natively in Azure Cloud Shell
+
+1. Using a browser, navigate to `shell.azure.com`.
+
+1. The Welcome to Azure Cloud Shell page opens. Select Bash or PowerShell.
+
+    ![Welcome to Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
+
+    >[!NOTE]
+    >In this example, Bash (Linux) was selected.
+
+1. If you have not already set up an Azure storage account, the following screen appears. Select **Create storage**.
+
+    ![You have no storage mounted](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
+
+1. Azure Cloud Shell launches in the shell you previously selected and displays information for the cloud drive it just created for you.
+
+    ![Your cloud drive has been created](media/terraform-vscode-module-generator/ymg-your-cloud-drive-has-been-created-in.png)
+
+1. Enter `$ sudo ./env_setup.sh` to set up the environment:
+
+1. Enter `bundle install` to build the
+
+    Wait for the **Bundle complete** message, then continue with the next step.
+
+1. Enter `rake build`.
+
+    ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
+
+1. Enter `rake e2e` to run the end-to-end test.
+
+1. After a few moments, the **PASS** message will appear.
+
+    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
+
+## Option 2: Testing your new Terraform module using a Docker file
 
 >[!NOTE]
 >In our example, we are running the module as a local module, and not actually touching Azure.
@@ -188,6 +226,8 @@ To confirm that Docker is actually running, enter `docker info`.
 
     ![List Docker file](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
+### Build the module
+
 1. Enter `bundle install`.
 
     Wait for the **Bundle complete** message, then continue with the next step.
@@ -196,7 +236,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
     ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-### Perform the end-to-end test
+### Run the end-to-end test
 
 1. Enter `rake e2e`.
 
@@ -204,7 +244,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
     ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. Enter `exit` to complete the end-to-end test.
+1. Enter `exit` to complete the end-to-end test and exit the Docker environment.
 
 ## Next steps
 
