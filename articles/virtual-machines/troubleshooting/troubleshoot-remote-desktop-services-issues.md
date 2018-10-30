@@ -31,7 +31,7 @@ When you try to connect to a VM, you experience the following scenarios:
 
     ![Screenshot of the VM status](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
 
-- You remotely view the event logs in the VM by using Event Viewer, you see that Remote Desktop Services (TermServ) is not starting or failing to start. The following is a sample log:
+- You remotely view the event logs in the VM by using Event Viewer. You see that Remote Desktop Services, TermServ, isn't starting or is failing to start. The following log is a sample:
 
     **Log Name**:      System </br>
     **Source**:        Service Control Manager </br>
@@ -115,22 +115,22 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
         $destination = "c:\temp\ProcessMonitor.zip" 
         $wc = New-Object System.Net.WebClient 
         $wc.DownloadFile($source,$destination) 
-3. Now start a procmon trace:
+3. Now start a **procmon** trace:
 
         procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
-4. Reproduce the problem by starting the service that is giving access deny: 
+4. Reproduce the problem by starting the service that's giving access deny: 
 
         sc start TermService 
         
-    When it failed, go ahead and terminate the Process Monitor trace:
+    When it fails, terminate the Process Monitor trace:
 
         procmon /Terminate 
-5. Collect the file **c:\temp\ProcMonTrace.PML**, open it by using procmon, and then filter by **Result is ACCESS DENIED** as the following screenshot shows：
+5. Collect the file **c:\temp\ProcMonTrace.PML**, open it by using **procmon**. Then filter by **Result is ACCESS DENIED** as shown in the following screenshot：
 
     ![Filter by Result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
-6. Fix the registry keys, folders or files that are on the output. Usually, this problem is caused by the log on account used on the service do not have ACL permission to access these objects. To know the correct ACL permission for the log on account, you can check on a healthy VM. 
+6. Fix the registry keys, folders, or files that are on the output. Usually, this problem is caused when the sign in account that's used on the service doesn't have ACL permission to access these objects. To know the correct ACL permission for the sign in account, you can check on a healthy VM. 
 
 #### TermService service is disabled
 
@@ -141,7 +141,7 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
 2.	Start the service:
 
         sc start TermService 
-3.	Query its status once again to ensure the service is running:
+3.	Query its status again to ensure the service is running:
         sc query TermService 
 4.	Try to conntet to VM by using Remote desktop.
 
