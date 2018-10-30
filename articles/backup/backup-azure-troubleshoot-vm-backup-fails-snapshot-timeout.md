@@ -50,8 +50,8 @@ Description:
 Recommended Action:<br>
 To resolve this issue, remove the lock on the resource group and retry the operation to trigger clean-up.
 
-
-> [!NOTE] Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+> [!NOTE]
+	> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 
 **Step 1: [Remove lock from the restore point resource group  group](#remove_lock_from_the_recovery_point_resource_group)** <br>
@@ -218,10 +218,9 @@ After removing the lock, the restore points have to be cleaned up. To clean up t
 After removing lock, trigger an ad-hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad-hoc/manual operation to fail first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
 
 > [!NOTE]
-	> Automatic cleanup will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-portal-created-by-instant-RP).
+	> Automatic cleanup will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
 
 #### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Clean up restore point collection from portal created by backup service<br>
-
 
 To manually clear the restore points collection which are not cleared due to the lock on the resource group, the following steps:
 1. Sign in to the [Azure portal](http://portal.azure.com/).
