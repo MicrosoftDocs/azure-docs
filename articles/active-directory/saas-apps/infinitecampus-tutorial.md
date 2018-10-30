@@ -166,7 +166,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Select **Enable SAML Single Sign On**.
 
-	b. click on **Service Provider Metadata** link  to save the **Service Provider metadata file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
+	b. Click on **Service Provider Metadata** link  to save the **Service Provider metadata file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
 
 	c. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL** and paste the **App Federation Metadata Url** in the textbox and then click on **Sync**.
 
