@@ -4,7 +4,7 @@ description: Learn about the prerequisites for Media Services using the Media Se
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/29/2018
 ms.author: juliako
 
 ---

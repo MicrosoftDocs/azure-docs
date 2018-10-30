@@ -191,7 +191,7 @@ The following procedure walks you through converting an existing standard domain
 For more information about “Set-MsolDomainAuthentication”, see: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->You must run use “$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS“” only if you set up an ECP extension for your identity provider. Exchange Online clients, excluding Outlook Web Application (OWA), rely on a POST based active end point. If your SAML 2.0 STS implements an active end point similar to Shibboleth’s ECP implementation of an active end point it may be possible for these rich clients to interact with the Exchange Online service.
+>You must run use “$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"” only if you set up an ECP extension for your identity provider. Exchange Online clients, excluding Outlook Web Application (OWA), rely on a POST based active end point. If your SAML 2.0 STS implements an active end point similar to Shibboleth’s ECP implementation of an active end point it may be possible for these rich clients to interact with the Exchange Online service.
 
 Once federation has been configured you can switch back to “non-federated” (or “managed”), however this change takes up to two hours to complete and it requires assigning new random passwords for cloud-based sign-in to each user. Switching back to “managed” may be required in some scenarios to reset an error in your settings. For more information on Domain conversion see: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 

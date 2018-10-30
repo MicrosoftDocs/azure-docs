@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewers: billgib,AyoOlubeko
+ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 04/01/2018
 ---
