@@ -96,7 +96,7 @@ module.exports = async function (context, req) {
 ```
 
 ## Bindings 
-In JavaScript, [bindings](functions-triggers-bindings.md) are configured and defined in a function's function.json. Functions can read and write to bindings a number of ways.
+In JavaScript, [bindings](functions-triggers-bindings.md) are configured and defined in a function's function.json. Functions interact with bindings a number of ways.
 
 ### Reading trigger and input data
 Trigger and input bindings (bindings of `direction === "in"`) can be read by a function in three ways:
