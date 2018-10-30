@@ -12,7 +12,7 @@ ms.author: rosh, v-gedod
 ---
 
 # Categories for Bing Local Search
-Search for local business entities by category. This feature works with user’s implicit RevIP location and also with &`localCircularView` and `localMapView` parameters
+Search for local business entities by category. This feature works with the user’s implicit RevIP location and also with `localCircularView` and `localMapView` parameters.
 ## Examples of Local Categories search
 The following examples get results according to the `localCategories` parameter:
 
