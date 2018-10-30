@@ -47,7 +47,7 @@ sections:
     items:
     - title: REST API
       html: |
-        <p><a href="local-search-reference.md">Local Business Search API reference</a></p>
+        <p><a href="local-search-reference.md">REST API reference</a></p>
     - title: PowerShell
       html: |
         <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
