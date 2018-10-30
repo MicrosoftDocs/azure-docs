@@ -52,7 +52,7 @@ cd azure-event-hubs-for-kafka/tutorials/spark
 ```
 
 ## Read from Event Hubs for Kafka
-With a few configuration changes, you can start reading from Event Hubs for Kafka. Update the **BOOTSTRAP_SERVERS** and **EH_SASL** with the details from your namespace and you can start streaming with Event Hubs as you would with Kafka. For the full sample code, see sparkConsumer.scala file on the GitHub. 
+With a few configuration changes, you can start reading from Event Hubs for Kafka. Update **BOOTSTRAP_SERVERS** and **EH_SASL** with details from your namespace and you can start streaming with Event Hubs as you would with Kafka. For the full sample code, see sparkConsumer.scala file on the GitHub. 
 
 ```scala
 //Read from your Event Hub!
@@ -77,7 +77,7 @@ val df_write = df.writeStream
 ```
 
 ## Write to Event Hubs for Kafka
-You can also write to Event Hubs as you are writing to Kafka. Do not forget to update your configuration to change **BOOTSTRAP_SERVERS** and **EH_SASL** with information from your Event Hubs namespace.  For the full sample code, see sparkProducer.scala file on the GitHub. 
+You can also write to Event Hubs the same way you you write to Kafka. Don't forget to update your configuration to change **BOOTSTRAP_SERVERS** and **EH_SASL** with information from your Event Hubs namespace.  For the full sample code, see sparkProducer.scala file on the GitHub. 
 
 ```scala
 df = /**Dataframe**/
@@ -98,7 +98,7 @@ df.writeStream
 
 ## Next steps
 
-In this tutorial, you learned how to stream using the Spark-Kafka connector and Event Hubs for Kafka. You performed the following steps: 
+In this tutorial, you learned how to stream using the Spark-Kafka connector and Event Hubs for Kafka. You took the following steps: 
 
 > [!div class="checklist"]
 > * Create an Event Hubs namespace
