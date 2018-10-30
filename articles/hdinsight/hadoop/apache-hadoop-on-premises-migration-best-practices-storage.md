@@ -41,23 +41,27 @@ Azure Storage offers [soft delete for blob objects](../../storage/blobs/storage-
 You can create [blob snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). A snapshot is a read-only version of a blob that's taken at a point in time and it provides a way to back up a blob. Once a snapshot has been created, it can be read, copied, or deleted, but not modified.
 
 > [!Note]
-> For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store. The following commands can be used to import certificates into the Java trust store:
+> For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store.
 
-- Download the Azure Blob ssl cert to a file
+The following methods can be used to import certificates into the Java trust store:
+
+Download the Azure Blob ssl cert to a file
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer
 ```
 
-- Import the above file to the Java trust store on all the nodes
+Import the above file to the Java trust store on all the nodes
 
 ```bash
 keytool -import -trustcacerts -keystore /path/to/jre/lib/security/cacerts -storepass changeit -noprompt -alias blobtrust -file Azure_Storage.cer
 ```
 
-- Verify that the added cert is in the trust store
+Verify that the added cert is in the trust store
 
-`keytool -list -v -keystore /path/to/jre/lib/security/cacerts`
+```bash
+keytool -list -v -keystore /path/to/jre/lib/security/cacerts
+```
 
 For more information, see the following articles:
 
@@ -147,24 +151,32 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
     - storage_account_key: The key for the storage account.
     - storage_container_name: The container in the storage account that you want to restrict access to.
     - example_file_path: The path to a file that is uploaded to the container
+
 2. The SASToken.py file comes with the `ContainerPermissions.READ + ContainerPermissions.LIST` permissions and can be adjusted based on the use case.
+
 3. Execute the script as follows: `python SASToken.py`
+
 4. It displays the SAS token similar to the following text when the script completes: `sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
 
 5. To limit access to a container with Shared Access Signature, add a custom entry to the core-site configuration for the cluster under Ambari HDFS Configs Advanced Custom core-site Add property.
+
 6. Use the following values for the **Key** and **Value** fields:
 
-    **Key**: fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net
-    **Value**: The SAS KEY returned by the Python application FROM step 4 above
+    **Key**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`
+    **Value**: The SAS KEY returned by the Python application FROM step 4 above.
 
 7. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
+
 8. In the Ambari web UI, select HDFS from the list on the left, and then select **Restart All Affected** from the Service Actions drop down list on the right. When prompted, select **Confirm Restart All**.
+
 9. Repeat this process for MapReduce2 and YARN.
 
 There are three important things to remember regarding the use of SAS Tokens in Azure:
 
 1. When SAS tokens are created with "READ + LIST" permissions, users who access the Blob container with that SAS token won't be able to "write and delete" data. Users who access the Blob container with that SAS token and try a write or delete operation, will receive a message like `"This request is not authorized to perform this operation"`.
+
 2. When the SAS tokens are generated with `READ + LIST + WRITE` permissions (to restrict `DELETE` only), commands like `hadoop fs -put` first write to a `\_COPYING\_` file and then try to rename the file. This HDFS operation maps to a `copy+delete` for WASB. Since the `DELETE` permission was not provided, the "put" would fail. The `\_COPYING\_` operation is a Hadoop feature intended to provide some concurrency control. Currently there is no way to restrict just the "DELETE" operation without affecting "WRITE" operations as well.
+
 3. Unfortunately, the hadoop credential provider and decryption key provider (ShellDecryptionKeyProvider) currently do not work with the SAS tokens and so it currently cannot be protected from visibility.
 
 For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
@@ -177,6 +189,7 @@ All data written to Azure Storage is automatically encrypted using [Storage Ser
 - [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [Read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+
 Azure Data Lake Storage provides locally redundant storage (LRS) but you should also copy critical data to another Data Lake Storage account in another region with a frequency aligned to the needs of the disaster recovery plan. There are a variety of methods to copy data including [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), or [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). It is also recommended to enforce access policies for Data Lake Storage account to prevent accidental deletion.
 
 For more information, see the following articles:
