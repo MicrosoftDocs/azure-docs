@@ -130,20 +130,20 @@ To use PowerShell to connect to the VM remotely, you first have to set up the cl
 
 To add one VM to trusted hosts list:
 
-```cmd
-set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>
+```powershell
+Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName>
 ```
 
 To add multiple VMs to trusted hosts list:
 
-```cmd
-set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName1>,<ComputerName2>
+```powershell
+Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName1>,<ComputerName2>
 ```
 
 To add all computers to the trusted hosts list:
 
-```cmd
-set-item wsman:\localhost\Client\TrustedHosts -value *
+```powershell
+Set-Item wsman:\localhost\Client\TrustedHosts -value *
 ```
 
 ### Enable RemotePS on the VM
