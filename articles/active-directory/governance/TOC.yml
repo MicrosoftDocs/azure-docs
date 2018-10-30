@@ -1,14 +1,14 @@
 - name: Azure AD identity governance documentation
   href: index.yml
 - name: Overview
-  expanded: true
+  expanded: false
   items:
   - name: What is identity governance?
     href: identity-governance-overview.md
   - name: What are access reviews?
     href: access-reviews-overview.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
     - name: Manage guest access with reviews
       href: manage-guest-access-with-access-reviews.md
