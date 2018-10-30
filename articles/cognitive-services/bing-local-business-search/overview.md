@@ -34,6 +34,7 @@ Call the Bing Local Business Search API from any programming language that can m
 > Currently, Local Business Search supports only the `en-US` market. 
 > [!NOTE]
 > Currently, Local Business Search does not support Autosuggest. 
+
 ## Next steps
 - [Query and response](local-search-query-response.md)
 - [Local Business Search quickstart](quickstarts/local-quickstart.md)
