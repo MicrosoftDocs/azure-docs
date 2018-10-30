@@ -17,9 +17,9 @@ The Bing Local Business Search API is a RESTful service that enables your applic
 ## Features
 | Feature | Description |  
 | -- | -- | 
-| [Find local businesses and locations](quickstarts/local-quickstart.md) | The Bing Local Business Search API gets localized information from a query. Results include a URL for the business's website, phone number, display text, and its geographical location, including: city, street address, and neighborhood |  
+| [Find local businesses and locations](quickstarts/local-quickstart.md) | The Bing Local Business Search API gets localized results from a query. Results include a URL for the business's website, phone number, display text, and its geographical location, including: city, street address, and neighborhood |  
 | [Filter local results with geographic boundaries](specify-geographic-search.md) | Add coordinates as search parameters to limit results to a specific geographic area, specified by either a circular area or square bounding box. | 
-| [Filter local results by category](local-categories.md) | Search for local business entities by category. This option uses reverse IP location of the caller to return localized results of various categories of business.|
+| [Filter local business results by category](local-categories.md) | Search for local business results by category. This option uses reverse IP location of the caller to return localized results of various categories of business.|
 
 ## Workflow
 The Bing Local Business Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the REST API.
@@ -31,6 +31,6 @@ The Bing Local Business Search API is easy to call from any programming language
 
 ## Next steps
 - [Query and response](local-search-query-response.md)
-- [Local Search quickstart](quickstarts/local-quickstart.md)
+- [Local Business Search quickstart](quickstarts/local-quickstart.md)
 - [Local Business Search API reference](local-search-reference.md)
 - [Use and display requirements](use-display-requirements.md)

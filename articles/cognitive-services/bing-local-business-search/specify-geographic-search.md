@@ -1,6 +1,6 @@
 ---
 title: Geographic search | Microsoft Docs
-description: How to specify geographic boundaries for Local search API endpoint.
+description: How to specify geographic boundaries for Local Business Search API endpoint.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -11,7 +11,7 @@ ms.date: 08/02/2018
 ms.author: rosh, v-gedod
 ---
 
-# Geographic boundaries for Bing Local Search
+# Geographic boundaries for Bing Local Business Search
 Search near a location with geographic boundaries.  Add coordinates as search parameters to search near a specific geographic area specified by either a circular area or square bounding box. Because the parameters are mutually exclusive, specify only one of them. 
 
 The `localCircularView` parameter sets a geographic coordinate by latitude and longitude and a radius. The coordinates define the center of the circle and the radius defines the size of circle to search. The response includes only places within the circle; the response does not include relevant places that are just outside the area.
@@ -44,7 +44,7 @@ Complete query:
 https://api.cognitive.microsoft.com/bing/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ````
 ## Next steps
-- [Local Search Java Quickstart](quickstarts/local-search-java-quickstart.md)
-- [Local Search C# Quickstart](quickstarts/local-quickstart.md)
-- [Local Search Node Quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+- [Local Business Search Java Quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Business Search C# Quickstart](quickstarts/local-quickstart.md)
+- [Local Business Search Node Quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)

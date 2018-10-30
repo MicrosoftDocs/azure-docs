@@ -1,4 +1,4 @@
-- name: Bing Local Search API Documentation
+- name: Bing Local Business Search API Documentation
   href: index.yml
   expanded: true
   items:
@@ -26,7 +26,7 @@
     href: local-search-query-response.md
   - name: Geographic search boundaries
     href: specify-geographic-search.md
-  - name: Local categories search
+  - name: Local business categories search
     href: local-categories.md
 - name: Reference
   items:

@@ -44,7 +44,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 ## Run complete application
 
-The Bing Local Search API returns local search results from the Bing search engine.
+The Bing Local Business Search API returns localized search results from the Bing search engine.
 1. Create a new Console solution in Visual Studio (the Community Edition is fine).
 2. Replace Program.cs with the code provided below.
 3. Replace the accessKey value with an access key valid for your subscription.
@@ -98,7 +98,7 @@ namespace localSearch
         }
 
         /// <summary>
-        /// Performs a Bing Local search and return the results as a SearchResult.
+        /// Performs a Bing Local business search and return the results as a SearchResult.
         /// </summary>
         static SearchResult BingLocalSearch(string searchQuery)
         {
@@ -200,6 +200,6 @@ namespace localSearch
 ````
 
 ## Next steps
-- [Local Search Java quickstart](local-search-java-quickstart.md)
-- [Local Search Node quickstart](local-search-node-quickstart.md)
-- [Local Search Python quickstart](local-search-python-quickstart.md)
+- [Local Business Search Java quickstart](local-search-java-quickstart.md)
+- [Local Business Search Node quickstart](local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](local-search-python-quickstart.md)
