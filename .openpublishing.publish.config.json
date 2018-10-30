@@ -225,9 +225,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "aml-sdk-samples",
-      "url": "https://github.com/Azure/MachineLearningNotebooks",
-      "branch": "sdg-codetest",
+      "path_to_root": "samples-qnamaker-csharp",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp",
+      "branch": "master",
       "branch_mapping": {}
     }
   ],

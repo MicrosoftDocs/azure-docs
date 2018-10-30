@@ -4,7 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -58,6 +58,54 @@ minutes later. This event does not cause an evaluation of other resources.
 re-evaluated. A large policy or initiative evaluated against a large scope of resources can take
 time, so there is no pre-defined expectation of when the evaluation cycle will complete. Once it
 completes, updated compliance results are available in the portal and SDKs.
+- On demand scan
+
+### On demand evaluation scan
+
+An evaluation scan for a subscription or a resource group can be started with a call to the REST
+API. This is an asynchronous process. As such, the REST endpoint to start the scan doesn't wait
+until the scan is complete to respond. Instead, it provides a URI to query the status of the
+requested evaluation.
+
+In each REST API URI, there are variables that are used that you need to replace with your own values:
+
+- `{YourRG}` - Replace with the name of your resource group
+- `{subscriptionId}` - Replace with your subscription ID
+
+The scan supports evaluation of resources in a subscription or in a resource group. Start a scan
+for the desired scope with a REST API **POST** command using the following URI structures:
+
+- Subscription
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- Resource group
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+The call returns a **202 Accepted** status. Included in the response header is a **Location**
+property with the following format:
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` is statically generated for the scope requested. If a scope is already
+performing an on demand scan, a new scan is not started. Instead, the new request is provided the
+same `{ResourceContainerGUID}` **location** URI for status. A REST API **GET** command to the
+**Location** URI returns a **202 Accepted** while the evaluation is ongoing. When the evaluation
+scan has completed, it returns a **200 OK** status. The body of a completed scan is a JSON response
+with the status:
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## How compliance works
 

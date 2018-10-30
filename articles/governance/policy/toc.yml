@@ -206,6 +206,10 @@
       href: /rest/api/resources/policydefinitions
     - name: Initiatives Definitions
       href: /rest/api/resources/policysetdefinitions
+    - name: Policy Tracked Resources
+      href: /rest/api/policy-insights/policytrackedresources
+    - name: Remediations
+      href: /rest/api/policy-insights/remediations
     - name: Guest Configuration (preview)
       href: /rest/api/guestconfiguration/
 - name: Resources
