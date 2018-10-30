@@ -30163,7 +30163,7 @@
         },
         {
             "source_path": "articles/active-directory/authentication/howto-password-ban-bad-on-premises.md",
-            "redirect_url": "articles/active-directory/authentication/howto-password-ban-bad-on-premises-overview.md",
+            "redirect_url": "articles/active-directory/authentication/howto-password-ban-bad-on-premises-deploy.md",
             "redirect_document_id" : false
         },
         {
