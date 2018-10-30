@@ -106,7 +106,7 @@ start python recv.py
 ```
  
 ## Next steps
-In this quickstart, you created a Python application that received messages from an event hub. To learn how to send events to an event hub using Python, see [Send events from event hub - Python](event-hubs-python-getstarted-send.md).
+In this quickstart, you created a Python application that received messages from an event hub. To learn how to send events to an event hub using Python, see [Send events from event hub - Python](event-hubs-python-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

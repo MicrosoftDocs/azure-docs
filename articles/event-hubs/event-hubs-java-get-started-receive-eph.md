@@ -281,7 +281,7 @@ You can use any datastore that is available in your environment.
 The com.microsoft.azure.eventprocessorhost.EventProcessorHost class provides you with two constructors that allow you to override the checkpoint manager for your EventProcessorHost.
 
 ## Next steps
-In this quickstart, you created a Java application that received messages from an event hub. To learn how to send events to an event hub using Java, see [Send events from event hub - Java](event-hubs-java-getstarted-send.md).
+In this quickstart, you created a Java application that received messages from an event hub. To learn how to send events to an event hub using Java, see [Send events from event hub - Java](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

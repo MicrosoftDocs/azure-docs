@@ -195,7 +195,7 @@ if err != nil {
 This tutorial uses a single instance of **EventProcessorHost**. To increase throughput and reliability, you should run multiple instances of **EventProcessorHost** on different systems. The Leaser system ensures that only one receiver is associated with, and receives messages from, a specified partition at a specified time.
 
 ## Next steps
-In this quickstart, you created a Go application that received messages from an event hub. To learn how to send events to an event hub using Go, see [Send events from event hub - Go](event-hubs-go-getstarted-send.md).
+In this quickstart, you created a Go application that received messages from an event hub. To learn how to send events to an event hub using Go, see [Send events from event hub - Go](event-hubs-go-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
