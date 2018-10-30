@@ -202,6 +202,10 @@
             href: bulk-executor-dot-net.md
           - name: Bulk executor - Java library
             href: bulk-executor-java.md
+      - name: Troubleshoot
+        items:
+        - name: Troubleshoot Java Async SDK
+          href: troubleshoot-java-async-sdk.md
       - name: Reference
         items:
         - name: .NET
