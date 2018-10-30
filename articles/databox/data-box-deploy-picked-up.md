@@ -50,8 +50,8 @@ Once the copy is complete, order status updates to **Completed**.
 
 Verify that your data is in the storage account(s) before you delete it from the source. When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
 
-- For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>`
-- For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>`
+- For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+- For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
 Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
 
