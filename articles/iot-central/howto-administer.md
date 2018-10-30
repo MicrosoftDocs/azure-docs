@@ -115,7 +115,7 @@ You can convert your Trial application to a Pay-As-You-Go application. To comple
 
 1. Use the secondary navigation menu to go to the **Billing** page in the **Administration** section. 
 
-    ![Trial state](media/howto-administer/freetrial.png)
+    ![Trial state](media/howto-administer/freetrialbilling.png)
 
 1. Select **Convert to Pay-As-You-Go**. 
 

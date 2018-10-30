@@ -31,9 +31,9 @@ You land on the Azure IoT Central Application Manager page. Azure IoT Central ke
 
 To create an Azure IoT Central application, click the **New Application** tile. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
 
-![Create Application Page for CSPs](media\howto-create-application-asCSP\image4-1.png)
+![Create Application Page for CSPs](media\howto-create-application-asCSP\image4.png)
 
-![Create Application Page for CSPs](media\howto-create-application-asCSP\image4-2.png)
+![Create Application Page for CSPs](media\howto-create-application-asCSP\image4-1.png)
 
 ## Payment plan
 
