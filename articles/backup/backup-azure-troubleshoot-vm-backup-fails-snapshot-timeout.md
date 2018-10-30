@@ -216,8 +216,9 @@ This issue is specific to managed VMs in which the user locks the resource group
 To resolve the issue, remove the lock from the resource group and complete the following steps to remove the restore point collection:
 1. Sign in to the [Azure portal](http://portal.azure.com/).
 2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
+
 	![Delete lock ](./media/backup-azure-arm-vms-prepare/resource-group.png)
-	
+
 3. Click Resource group, the **Overview** blade is displayed.
 4. Select **Show hidden types** option to display all the hidden resources. Select the restore point collections with the following format AzureBackupRG_`<Geo>`_`<number>`.
 
