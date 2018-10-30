@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -227,7 +227,7 @@ An **Existing Admin Role Conflict** will occur on a user object during synchroni
 - administrative permissions and
 - the same UserPrincipalName as an existing Azure AD object
 
-Azure AD Connect is not allowed to soft match a user object from on-premises AD with a user object in Azure AD that has an administrative role assigned to it.  For more infomration see [Azure AD UserPrincipalName population](plan-connect-userprincipalname.md)
+Azure AD Connect is not allowed to soft match a user object from on-premises AD with a user object in Azure AD that has an administrative role assigned to it.  For more information see [Azure AD UserPrincipalName population](plan-connect-userprincipalname.md)
 
 ![Existing Admin](media/tshoot-connect-sync-errors/existingadmin.png)
 
