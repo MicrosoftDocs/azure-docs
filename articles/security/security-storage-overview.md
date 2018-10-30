@@ -110,7 +110,7 @@ Learn more:
 
 ## Advanced Threat Protection
 
-Azure Storage provides Advanced Threat Protection for an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage account. Advanced Threat Protection gathers diagnostic logs for read, write, and delete requests to Blob storage. 
+Azure Storage provides Advanced Threat Protection for an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage account. Advanced Threat Protection monitors Azure Storage diagnostic logs for suspicious read, write, or delete requests to Blob storage. 
 
 Advanced Threat Protection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center provides details on any suspicious activity detected and recommends actions to investigate and remediate the potential threat. 
 
