@@ -28,7 +28,6 @@ This tutorial covers the following tasks:
 > * Upload the linked template
 > * Link to the linked template
 > * Configure dependency
-> * Get values from linked template
 > * Deploy the template
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -203,7 +202,7 @@ Because the storage account is defined in the linked template now, you must upda
 
     ![Azure Resource Manager linked templates configure dependency ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    "linkedTemplate" is the name of the deployments resource.  
+    *linkedTemplate* is the name of the deployments resource.  
 3. update **properties/diagnosticsProfile/bootDiagnostics/storageUri** as shown in the previous screenshot.
 
 For more information, see [Use linked and nested templates when deploying Azure resources](./resource-group-linked-templates.md)

@@ -73,6 +73,8 @@ Make two changes to the existing template:
 * Add a storage account name parameter. Users can specify either a new storage account name or an existing storage account name.
 * Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine where to create a new storage account or use an existing storage account.
 
+Here is the procedure to make the changes:
+
 1. Open **azuredeploy.json** in Visual Studio Code.
 2. Replace **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.  There are three appearances of **variables('storageAccountName')**.
 3. Remove the following variable definition:

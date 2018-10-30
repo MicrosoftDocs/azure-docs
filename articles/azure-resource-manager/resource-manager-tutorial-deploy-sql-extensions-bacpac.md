@@ -24,7 +24,7 @@ This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Prepare a BACPAC file
-> * Open a QuickStart template
+> * Open a Quickstart template
 > * Edit the template
 > * Deploy the template
 > * Verify the deployment
