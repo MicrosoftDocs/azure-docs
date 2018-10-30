@@ -1,19 +1,12 @@
 ---
 title: Configure a site-to-site VPN over Microsoft peering for Azure ExpressRoute | Microsoft Docs
 description: Configure IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor:
 
-ms.assetid: 
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: cherylmc
 
 ---
@@ -26,12 +19,13 @@ This article helps you configure secure encrypted connectivity between your on-p
 
 You can leverage Microsoft peering to establish a site-to-site IPsec/IKE VPN tunnel between your selected on-premises networks and Azure VNets.
 
-  ![connectivity overview](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
-
->[!NOTE]
+  >[!NOTE]
 >When you set up site-to-site VPN over Microsoft peering, you are charged for the VPN gateway and VPN egress. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+  ![connectivity overview](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
+
 
 For high availability and redundancy, you can configure multiple tunnels over the two MSEE-PE pairs of a ExpressRoute circuit and enable load balancing between the tunnels.
 
@@ -484,7 +478,7 @@ Configure your firewall and filtering according to your requirements.
 
 The status of IPsec tunnels can be verified on the Azure VPN gateway by Powershell commands:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
 ```
 
@@ -498,7 +492,7 @@ IngressBytesTransferred : 10538211
 
 To check the status of the tunnels on the Azure VPN gateway instances independently, use the following example:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
 ```
 
@@ -620,7 +614,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 
 On the Azure VPN gateway, verify the status of BGP peer:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
 ```
 
@@ -636,7 +630,7 @@ Example output:
 
 To verify the list of network prefixes received via eBGP from the VPN concentrator on-premises, you can filter by attribute "Origin":
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
@@ -651,7 +645,7 @@ AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 
 To see the list of advertised routes:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
 ```
 
