@@ -196,16 +196,16 @@
         items:
         - name: Troubleshoot Java Async SDK 
           href: troubleshoot-java-async-sdk.md
-       - name: Data types
-          items:
-          - name: DateTime
-            href: working-with-dates.md
-          - name: Geospatial
-            href: geospatial.md
-          - name: Bulk executor - .NET library
-            href: bulk-executor-dot-net.md
-          - name: Bulk executor - Java library
-            href: bulk-executor-java.md
+      - name: Data types
+        items:
+        - name: DateTime
+          href: working-with-dates.md
+        - name: Geospatial
+          href: geospatial.md
+        - name: Bulk executor - .NET library
+          href: bulk-executor-dot-net.md
+        - name: Bulk executor - Java library
+          href: bulk-executor-java.md
       - name: Reference
         items:
         - name: .NET
