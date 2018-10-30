@@ -75,7 +75,8 @@ Yes, the Avere vFXT runs exclusively as an HA solution.
 
 Yes, customers can use more than one cloud provider with the Avere vFXT cluster. It supports AWS S3 standard buckets and Google Cloud Services standard buckets as well as Azure Blob containers. 
 
-[!NOTE] A software fee applies to use Avere vFXT in AWS or Google Cloud, but not with Azure.
+> [!NOTE] 
+> A software fee applies to use Avere vFXT in AWS or Google Cloud, but not with Azure.
 
 ## Technical - Compute
 
@@ -163,7 +164,8 @@ Data is striped across the disks but is not encrypted. However, the disks themse
 
 If using on-premises storage with the Avere vFXT, you should have a 1-Gbps or better network connection. If you have a small amount of data and are willing to copy data to the cloud before running jobs, VPN connectivity might be sufficient. 
 
-[!TIP] The slower the network link is, the slower the initial cold reads will be. Slow reads increase the latency of the work pipeline. 
+> [!TIP] 
+> The slower the network link is, the slower the initial cold reads will be. Slow reads increase the latency of the work pipeline. 
 
 ### Can I run the Avere vFXT in a different virtual network than my compute cluster?
 
@@ -188,7 +190,7 @@ The overall bandwidth requirement depends on two factors:
 * The amount of data being requested from the source 
 * The client system's tolerance for latency during initial data loading  
 
-For latency-sensitive environments, you should use a fiber solution with a minimum link speed of 1 Gbps. ExpressRoute should be used if available.  
+For latency-sensitive environments, you should use a fiber solution with a minimum link speed of 1 Gbps. Use ExpressRoute if it's available.  
 
 ### Can I run the vFXT with public IP addresses?
 
