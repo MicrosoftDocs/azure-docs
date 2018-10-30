@@ -9,7 +9,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 8/28/2018
+ms.date: 08/28/2018
 ms.author: dech
 
 ---

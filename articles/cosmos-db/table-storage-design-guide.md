@@ -314,7 +314,7 @@ One-to-many relationships between business domain objects occur frequently: for 
 
 Consider the example of a large multi-national corporation with tens of thousands of departments and employee entities where every department has many employees and each employee as associated with one specific department. One approach is to store separate department and employee entities such as these:  
 
-![][1]
+![Department and employee entity][1]
 
 This example shows an implicit one-to-many relationship between the types based on the **PartitionKey** value. Each department can have many employees.  
 
@@ -420,7 +420,7 @@ Store multiple copies of each entity using different **RowKey** values (in the s
 #### Context and problem
 The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey** values). A client can also retrieve entities sorted by employee id within each department.
 
-![][6]
+![Employee entity][6]
 
 If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because the table service does not provide secondary indexes. In addition, there is no option to request a list of employees sorted in a different order than **RowKey** order.  
 
