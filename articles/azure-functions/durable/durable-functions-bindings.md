@@ -351,7 +351,7 @@ More details on starting instances can be found in [Instance management](durable
 
 ## host.json settings
 
-[!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
+[!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
 
 ## Next steps
 
