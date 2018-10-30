@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
@@ -32,8 +32,11 @@ There are four steps to accessing Identity Protection data through Microsoft Gra
 
 Before you get started, you’ll need:
 
-* Administrator privileges to create the application in Azure AD
-* The name of your tenant's domain (for example, contoso.onmicrosoft.com)
+- An Azure AD P2 tenant
+
+- Administrator privileges to create the application in Azure AD
+
+- The name of your tenant's domain (for example, contoso.onmicrosoft.com)
 
 
 ## Retrieve your domain name 
@@ -44,12 +47,14 @@ Before you get started, you’ll need:
    
     ![Creating an application](./media/graph-get-started/41.png)
 
+3. Click **Custom domain names**.
 
-3. In the **Manage** section, click **Properties**.
+    ![Custom domain names](./media/graph-get-started/71.png)
 
-    ![Creating an application](./media/graph-get-started/42.png)
+4. From the list of domain names, copy the domain name that is flagged as primary.
 
-4. Copy your domain name.
+    ![Custom domain names](./media/graph-get-started/72.png)
+
 
 
 ## Create a new app registration
@@ -69,7 +74,7 @@ Before you get started, you’ll need:
 
     a. In the **Name** textbox, type a name for your application (e.g.: AADIP Risk Event API Application).
    
-    b. As **Type**, select **Web Application And / Or Web API**.
+    b. As **Application type**, select **Web Application And / Or Web API**.
    
     c. In the **Sign-on URL** textbox, type `http://localhost`.
 

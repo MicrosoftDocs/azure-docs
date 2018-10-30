@@ -1,16 +1,15 @@
 ---
-title: Support matrix for replicating VMware VMs and physical servers to Azure with Azure Site Recovery | Microsoft Docs
-description: Summarizes the supported operating systems and components for replicating VMware VMs and physical server to Azure using Azure Site Recovery.
-services: site-recovery
+title: Support matrix for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery | Microsoft Docs
+description: Summarizes the supported operating systems and components for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
 
 ---
-# Support matrix for VMware and physical server replication to Azure
+# Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 

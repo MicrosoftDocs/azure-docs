@@ -91,7 +91,7 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 
 Before you start the TelcoGenerator app, you should configure it to send data to the Azure Event Hubs you created earlier.
 
-1. Extract the contents of [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.  
+1. Extract the contents of [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.  
 2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice (There is more than one .config file, so be sure that you open the right one.)  
 
 3. Update the <appSettings> element in the config file with the following details:
@@ -262,7 +262,7 @@ You can test a query from the query editor using sample data. Run the following 
 
 ## Embedding your PowerBI Dashboard in a Web Application
 
-For this part of the tutorial, you'll use a sample [ASP.NET](http://asp.net/) web application created by the PowerBI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
+For this part of the tutorial, you'll use a sample [ASP.NET](https://asp.net/) web application created by the PowerBI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
 
 To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the **integrate-dashboard-web-app** sample code located in the [GitHub repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Once you've got the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:

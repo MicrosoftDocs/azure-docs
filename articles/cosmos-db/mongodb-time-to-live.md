@@ -39,7 +39,8 @@ The command in the above example will create an index with TTL functionality. On
 >
 	
 Additionally, a C# example: 
-```C# 
+
+```csharp
 var options = new CreateIndexOptions {ExpireAfter = TimeSpan.FromSeconds(10)}; 
 var field = new StringFieldDefinition<BsonDocument>("_ts"); 
 var indexDefinition = new IndexKeysDefinitionBuilder<BsonDocument>().Ascending(field); 
