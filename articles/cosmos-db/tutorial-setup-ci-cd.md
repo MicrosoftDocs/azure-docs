@@ -30,7 +30,7 @@ To use the build task, we first need to install it onto our Azure DevOps organiz
 Next, choose the organization in which to install the extension. 
 
 > [!NOTE]
-> To install an extension to a Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/en-us/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> To install an extension to a Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
 ![Choose a Azure DevOps organization in which to install an extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -80,6 +80,7 @@ Below is an example of a **.runsettings** file that defines parameters to be pas
   </TestRunParameters>
 </RunSettings>
 ```
+
 These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB.
 
 ```csharp
