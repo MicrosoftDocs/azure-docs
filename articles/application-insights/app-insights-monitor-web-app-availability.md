@@ -52,10 +52,10 @@ Open the Availability blade and add a test.
 
 * **Test frequency**: Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.
 
-* **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
+* **Test locations** are the places from where our servers send web requests to your URL. Our minimum number of recommended test locations is five so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
-> [!NOTE] 
-> * We strongly recommend testing from multiple locations, to prevent false alarms resulting from transient issues with a specific location.
+> [!NOTE]
+> * We strongly recommend testing from multiple locations with a minimum of five locations, to prevent false alarms resulting from transient issues with a specific location.
 > * Enabling the "Parse dependent requests" option results in a stricter check. The test could fail for cases which may not be noticeable when manually browsing the site.
 
 * **Success criteria**:
@@ -69,7 +69,7 @@ Open the Availability blade and add a test.
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
-> [!NOTE] 
+> [!NOTE]
 > There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
