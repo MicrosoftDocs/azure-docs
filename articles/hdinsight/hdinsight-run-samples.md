@@ -207,7 +207,6 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Use Pig with Hadoop on HDInsight][hdinsight-use-pig]
 * [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
 * [Submit Hadoop Jobs in HDInsight][hdinsight-submit-jobs]
-* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 ## Appendix A - The Word count source code
 
@@ -973,8 +972,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md
