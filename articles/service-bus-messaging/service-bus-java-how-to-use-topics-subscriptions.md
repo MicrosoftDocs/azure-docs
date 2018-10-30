@@ -46,7 +46,7 @@ Service Bus topics and subscriptions enable you to scale to process a large numb
 
 ## Create a Service Bus namespace
 
-A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
+A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name](https://wikipedia.org/wiki/Fully_qualified_domain_name), in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
 
 1. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
 2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
