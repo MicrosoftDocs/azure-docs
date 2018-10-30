@@ -4,7 +4,7 @@ description: Describes how to set up and run an assessment for migrating VMware 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 10/30/2018
 ms.author: raynew
 ---
 
