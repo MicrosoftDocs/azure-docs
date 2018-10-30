@@ -10,7 +10,6 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.custom: troubleshoot java async sdk
 ms.topic: troubleshoot
 ---
 

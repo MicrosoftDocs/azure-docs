@@ -208,7 +208,7 @@ HDInsight can be connected to the on-premises network by using Azure Virtual Net
 - Configure DNS name resolution between the virtual network and on-premises network.
 - Configure network security groups or user-defined routes (UDR) to control network traffic.
 
- For more information, see the article [Connect HDInsight to your on-premises network](../connect-on-premises-network.md)
+For more information, see the article [Connect HDInsight to your on-premises network](../connect-on-premises-network.md)
 
 ## Next steps
 
