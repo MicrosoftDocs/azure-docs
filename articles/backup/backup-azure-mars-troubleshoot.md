@@ -44,7 +44,7 @@ Here's how to resolve errors you might encounter during configuration, registrat
 |**Error** </br>*Error 34506. The encryption passphrase stored on this computer is not correctly configured*.    | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](http://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equivalent to 5-10% of the total size of the backup data. To correctly move the cache location, see the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.         |
 
 ## Backups do not run according to the schedule
-If scheduled backups do not get triggered automatically, while manual backups work without issues, try the following: 
+If scheduled backups do not get triggered automatically, while manual backups work without issues, try the following actions: 
  
 - Ensure that PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run the following command and verify that the *Major* version number is equal to or greater than 3.
 
