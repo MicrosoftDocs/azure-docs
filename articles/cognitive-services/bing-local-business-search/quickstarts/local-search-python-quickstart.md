@@ -56,6 +56,6 @@ print (json.dumps(json.loads(result), indent=4))
 ````
 
 ## Next steps
-[Local Search Java Quickstart](local-search-java-quickstart.md)
-[Local Search C# Quickstart](local-quickstart.md)
-[Local Search Node Quickstart](local-search-node-quickstart.md)
+- [Local Search Java Quickstart](local-search-java-quickstart.md)
+- [Local Search C# Quickstart](local-quickstart.md)
+- [Local Search Node Quickstart](local-search-node-quickstart.md)

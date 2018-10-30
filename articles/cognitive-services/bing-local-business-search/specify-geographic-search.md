@@ -12,8 +12,7 @@ ms.author: rosh, v-gedod
 ---
 
 # Geographic boundaries for Bing Local Search
-
-To specify the boundaries of geographic search, use the `localCircularView` or `localMapView` query parameters. Because the parameters are mutually exclusive, specify only one of them. 
+Search near a location with geographic boundaries.  Add coordinates as search parameters to search near a specific geographic area specified by either a circular area or square bounding box. Because the parameters are mutually exclusive, specify only one of them. 
 
 The `localCircularView` parameter sets a geographic coordinate by latitude and longitude and a radius. The coordinates define the center of the circle and the radius defines the size of circle to search. The response includes only places within the circle; the response does not include relevant places that are just outside the area.
 
@@ -34,7 +33,7 @@ To specify a circular geographic search, get the longitude and longitude coordin
 
 Complete query:
 ````
-https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
+https://api.cognitive.microsoft.com/bing/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ````
 
 ## localMapView
@@ -42,7 +41,7 @@ To specify a bounding box for geographic search, get the longitude/latitude coor
 
 Complete query:
 ````
-https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
+https://api.cognitive.microsoft.com/bing/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ````
 ## Next steps
 - [Local Search Java Quickstart](quickstarts/local-search-java-quickstart.md)

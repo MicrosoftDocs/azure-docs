@@ -11,7 +11,7 @@ ms.date: 10/18/2018
 ms.author: rosh; v-gedod
 ---
 
-## Bing Local Business Search request
+# Bing Local Business Search request
 To create the request URL, append `q=<requestString>` to the Local Search endpoint as shown in the following examples. You must include the `Ocp-Apim-Subscription-Key` header.
 
 GET:

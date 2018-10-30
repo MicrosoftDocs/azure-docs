@@ -12,7 +12,7 @@ ms.author: rosh, v-gedod
 ---
 
 # Categories for Bing Local Search
-You can use defined categories to return a list of entities in the specified category.  This option uses reverse IP location of the caller to return localized results according to the `localCategories` parameter. 
+Search for local business entities by category. This feature works with the user’s implicit RevIP location and also with `localCircularView` and `localMapView` parameters.
 ## Examples of Local Categories search
 The following examples get results according to the `localCategories` parameter:
 
