@@ -59,9 +59,7 @@
   - name: Set up Service Fabric Mesh CLI
     href: service-fabric-mesh-howto-setup-cli.md
   - name: Store state with Azure Files volume
-    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
-  - name: Independently scale microservices in an app
-    href: service-fabric-mesh-howto-app-scale-out.md
+    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md  
   - name: Manage Service Fabric Mesh Application Secrets
     href: service-fabric-mesh-howto-manage-secrets.md
   - name: Auto scale services
