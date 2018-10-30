@@ -99,9 +99,9 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
     |1058 - ERROR_SERVICE_DISABLED  |See [TermService service is disabled.](#termService-service-is-disabled)  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly|
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly    |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly    |
     |1070 - ERROR_SERVICE_START_HANG   | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly  |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | See [TermService service is disabled](#TermService service is disabled)  |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | See [TermService service is disabled](#termService-service-is-disabled)  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly |
     |1753   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly   |
 
