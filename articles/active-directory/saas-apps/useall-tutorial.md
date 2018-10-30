@@ -9,6 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 8dd9e452-a5b6-4a16-a97c-b60211ea6b95
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -110,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Useall Domain and URLs single sign-on information](./media/useall-tutorial/tutorial_useall_url.png)
 
-    a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/AutenticacaoSaml2/IrParaLogin`
+    a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2`
 
