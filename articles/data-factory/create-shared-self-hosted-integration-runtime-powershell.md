@@ -136,8 +136,7 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 ### Grant permission
 
-Grant permission to the Data Factory that needs to access the self-hosted integration runtime
-you just created and registered.
+Grant permission to the Data Factory that needs to access the self-hosted integration runtime you created and registered.
 
 > [!IMPORTANT]
 > Do not skip this step!
@@ -167,7 +166,7 @@ Now you can use this linked integration runtime in any linked service. The linke
 
 ## Revoke integration runtime sharing from a data factory
 
-To revoke the access of a data factory from accessing the shared integration runtime, you can run the following command :
+To revoke the access of a data factory from accessing the shared integration runtime, you can run the following command:
 
 ```powershell
 Remove-AzureRMRoleAssignment `
