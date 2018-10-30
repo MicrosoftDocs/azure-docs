@@ -10,11 +10,13 @@ ms.author: victorh
 ---
 # Azure Firewall Log Analytics samples
 
-The following Log Analytics samples can be used to analyze your Azure Firewall logs.
+The following Log Analytics samples can be used to analyze your Azure Firewall logs. The sample file is built in Log Analytics View Designer, the [Log Analytics View Designer](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article has more information about the View Design concept.
 
 ## Log Analytics View
 
-Here's how you can configure an example log analytics visualization. You can download the example visualization [here](scripts/AzureFirewall.omsview). Execute the following steps to add the view to your log analytics workspace:
+Here's how you can configure an example log analytics visualization. You can download the example visualization from the [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) repository. The easiest way is to right-click the hyperlink on this page and choose *save as* and provide a name like **AzureFirewall.omsview**. 
+
+Execute the following steps to add the view to your log analytics workspace:
 
 1. Open the log analytics workspace in the Azure Portal.
 2. Open **View Designer** below **General**.
