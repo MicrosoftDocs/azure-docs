@@ -41,10 +41,10 @@ No. Once deployed and enabled, Azure AD password protection provides equal secur
 
 No.
 
-## 6. Is it supported to install Azure AD password protection side-by-side with other password-filter-based products?
+## 6. Is it supported to install Azure AD password protection side by side with other password-filter-based products?
 
 Yes. Support for multiple registered password filter dlls is a core Windows feature and not specific to Azure AD password protection.
 
 ---
-If you have an on-premises Azure AD password protection question that is not answered here, please submit a  Feedback item below - thank you!
+If you have an on-premises Azure AD password protection question that isn't answered here, submit a  Feedback item below - thank you!
 ---
