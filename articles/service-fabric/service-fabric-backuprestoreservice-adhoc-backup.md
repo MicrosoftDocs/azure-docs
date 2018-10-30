@@ -31,7 +31,7 @@ The Ad-Hoc backup feature are helpful in following scenarios
 
 3. The Service Fabric Cluster Admins can trigger Ad-hoc backup for application data as On - Demand basis.
 
-The Ad-Hoc Backup can be triggered with two flavours
+The Ad-Hoc Backup can be initiated as
 
 ## Ad-Hoc Backup with Periodic Backup Storage
 
