@@ -1,18 +1,21 @@
 ---
-title: Azure Site Recovery support matrix for disaster recovery of Azure IaaS VMs between Azure regions with Azure Site Recovery | Microsoft Docs
+title: Azure Site Recovery support matrix for replicating from Azure to Azure | Microsoft Docs
 description: Summarizes the supported operating systems and configurations for Azure Site Recovery replication of Azure virtual machines (VMs) from one region to another for disaster recovery (DR) needs.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
+ms.devlang: na
+ms.topic: article
+ms.date: 09/10/2018
+ms.author: sujayt
 
 ---
-# Support matrix for disaster recovery of Azure VMs between Azure regions
+# Support matrix for replicating from one Azure region to another
 
-This article summarizes supported configurations and components when you deploy disaster recovery with replication, failover, and recovery of Azure virtual machines from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
+
+
+This article summarizes supported configurations and components when you replicate and recovering Azure virtual machines from one region to another region, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 ## User interface options
 
@@ -175,7 +178,7 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
-Azure Storage firewalls for Virtual networks  | No | Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported.
+Azure Storage firewalls for Virtual networks  | Yes | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
 General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction costs increase substantially compared to General purpose V1 storage accounts
 
 >[!IMPORTANT]
@@ -200,7 +203,7 @@ Unauthenticated Proxy | Supported | Refer to [networking guidance document.](sit
 Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.	 
 Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
 VNET to VNET connection	| Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
-Virtual Network Service Endpoints | Supported | Azure Storage firewalls for virtual networks are not supported. Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported.
+Virtual Network Service Endpoints | Supported | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
 Accelerated Networking | Supported | Accelerated Networking must be enabled on source VM. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
