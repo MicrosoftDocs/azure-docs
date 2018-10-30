@@ -355,9 +355,16 @@ To deploy the application, run the following:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-In a few minutes, you should see:
+This command will produce a JSON snippet. Under the ```outputs``` section of the JSON output, copy the ```publicIPAddress``` property. 
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
 
 ## Open the application
 
