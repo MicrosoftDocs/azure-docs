@@ -115,7 +115,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Inforeliance LLC](http://www.inforeliance.com/)|
 |[InnovaSystems International](http://www.innovasi.com/)|
 |[InsITe Business Solutions Inc.](https://trustedinsite.com/)|
-|[Inspired Technologies](www.inspired-tech.net)|
+|[Inspired Technologies](https://www.inspired-tech.net)|
 |[Intelice Solutions, LLC](https://www.intelice.com/)|
 |[Invoke, LLC](https://invokellc.com)|
 |[ISC](https://www.isc2.org/)|
@@ -147,7 +147,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[MSCloud Express, LLC]()|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[NCI](https://www.nciinc.com/)|
-|[NeoTech Solutions Inc.](www.neotechsolutions.com)|
+|[NeoTech Solutions Inc.](https://www.neotechsolutions.com)|
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](http://www.newwave.io)|
 |[Norseman, Inc](https://www.norseman.com)|
@@ -176,7 +176,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Pitech Solutions Inc](http://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|
 |[Plexhosted LLC](http://plexhosted.com/)|
-|[Practical Solutions](ps4b.com)|
+|[Practical Solutions](https://www.ps4b.com)|
 |[ProArch IT Solutions](http://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
 |[Protected Trust](http://www.proarch.com/)|
@@ -185,7 +185,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|
 |[REAN Cloud LLC.](https://www.reancloud.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
-|[Reperi LLC](www.reperi.com)|
+|[Reperi LLC](https://www.reperi.com)|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[rmsource, Inc.](https://www.rmsource.com)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|
@@ -216,7 +216,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Sybatech, Inc](https://www.sybatech.com)|
 |[Synergy Technical, LLC](http://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
-|[Systems Engineering Inc](www.seisystems.com)|
+|[Systems Engineering Inc](https://www.seisystems.com)|
 |[Tech Data Government Solutions, LLC](http://gov.as.techdata.com/en-us/Pages/default.aspx)|
 |[TechFlow](https://www.techflow.com)|
 |[TechTrend](https://techtrend.us)|
@@ -226,7 +226,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Tilson Technology Group, Inc](https://tilsontech.com)|
 |[TKC Global](http://www.tkcglobal.com/)|
 |[Trewon](https://trewon.com)|
-|[Triple Point Security Incorporated](www.triplepointsecurity.com)|
+|[Triple Point Security Incorporated](https://www.triplepointsecurity.com)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
 |[UDRI - SSG](https://ssg.udri.udayton.edu/)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
@@ -235,7 +235,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
 |[Vana Solutions LLC](https://vanasolutions.com)|
 |[VC3 INC](https://www.vc3.com/)|
-|[VerisVisalign](www.verisvisalign.com)|
+|[VerisVisalign](https://www.verisvisalign.com)|
 |[Vertosoft](https://vertosoft.com)|
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[ViON Corp.](https://www.vion.com/)|
