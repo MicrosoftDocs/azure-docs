@@ -251,7 +251,7 @@ Given a space identifier, this function retrieves the space from the graph.
 
 | Parameter  | Type                | Description  |
 | ---------- | ------------------- | ------------ |
-| **id**  | `guid` | Space identifier |
+| id  | `guid` | Space identifier |
 
 ### getSensorMetadata(id) ⇒ `sensor`
 
@@ -261,7 +261,7 @@ Given a sensor identifier, this function retrieves the sensor from the graph.
 
 | Parameter  | Type                | Description  |
 | ---------- | ------------------- | ------------ |
-| **id**  | `guid` | Sensor identifier |
+| id  | `guid` | Sensor identifier |
 
 ### getDeviceMetadata(id) ⇒ `device`
 
@@ -271,7 +271,7 @@ Given a device identifier, this function retrieves the device from the graph.
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **id** | `guid` | Device identifier |
+| id | `guid` | Device identifier |
 
 ### getSensorValue(sensorId, dataType) ⇒ `value`
 
@@ -281,8 +281,8 @@ Given a sensor identifier and its data type, this function retrieves the current
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **sensorId**  | `guid` | Sensor identifier |
-| **dataType**  | `string` | Sensor data type |
+| sensorId  | `guid` | Sensor identifier |
+| dataType  | `string` | Sensor data type |
 
 ### getSpaceValue(spaceId, valueName) ⇒ `value`
 
@@ -292,8 +292,8 @@ Given a space identifier and the value name, this function retrieves the current
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **spaceId**  | `guid` | Space identifier |
-| **valueName** | `string` | Space property name |
+| spaceId  | `guid` | Space identifier |
+| valueName | `string` | Space property name |
 
 ### getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
@@ -303,8 +303,8 @@ Given a sensor identifier and its data type, this function retrieves the histori
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **sensorId** | `guid` | Sensor identifier |
-| **dataType** | `string` | Sensor data type |
+| sensorId | `guid` | Sensor identifier |
+| dataType | `string` | Sensor data type |
 
 ### getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
@@ -314,8 +314,8 @@ Given a space identifier and the value name, this function retrieves the histori
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **spaceId** | `guid` | Space identifier |
-| **valueName** | `string` | Space property name |
+| spaceId | `guid` | Space identifier |
+| valueName | `string` | Space property name |
 
 ### getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -325,7 +325,7 @@ Given a space identifier, this function retrieves the child spaces for that pare
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **spaceId** | `guid` | Space identifier |
+| spaceId | `guid` | Space identifier |
 
 ### getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
@@ -335,7 +335,7 @@ Given a space identifier, this function retrieves the child sensors for that par
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **spaceId** | `guid` | Space identifier |
+| spaceId | `guid` | Space identifier |
 
 ### getSpaceChildDevices(spaceId) ⇒ `device[]`
 
@@ -345,7 +345,7 @@ Given a space identifier, this function retrieves the child devices for that par
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **spaceId** | `guid` | Space identifier |
+| spaceId | `guid` | Space identifier |
 
 ### getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
@@ -355,7 +355,7 @@ Given a device identifier, this function retrieves the child sensors for that pa
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **deviceId** | `guid` | Device identifier |
+| deviceId | `guid` | Device identifier |
 
 ### getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -365,7 +365,7 @@ Given a space identifier, this function retrieves its parent space.
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **childSpaceId** | `guid` | Space identifier |
+| childSpaceId | `guid` | Space identifier |
 
 ### getSensorParentSpace(childSensorId) ⇒ `space`
 
@@ -375,7 +375,7 @@ Given a sensor identifier, this function retrieves its parent space.
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **childSensorId** | `guid` | Sensor identifier |
+| childSensorId | `guid` | Sensor identifier |
 
 ### getDeviceParentSpace(childDeviceId) ⇒ `space`
 
@@ -385,7 +385,7 @@ Given a device identifier, this function retrieves its parent space.
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **childDeviceId** | `guid` | Device identifier |
+| childDeviceId | `guid` | Device identifier |
 
 ### getSensorParentDevice(childSensorId) ⇒ `space`
 
@@ -395,7 +395,7 @@ Given a sensor identifier, this function retrieves its parent device.
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **childSensorId** | `guid` | Sensor identifier |
+| childSensorId | `guid` | Sensor identifier |
 
 ### getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
@@ -405,8 +405,8 @@ Given a space identifier, this function retrieves the property and its value fro
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **spaceId** | `guid` | space identifier |
-| **propertyName** | `string` | Space property name |
+| spaceId | `guid` | space identifier |
+| propertyName | `string` | Space property name |
 
 ### getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
@@ -416,8 +416,8 @@ Given a sensor identifier, this function retrieves the property and its value fr
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **sensorId** | `guid` | Sensor identifier |
-| **propertyName** | `string` | Sensor property name |
+| sensorId | `guid` | Sensor identifier |
+| propertyName | `string` | Sensor property name |
 
 ### getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
@@ -427,8 +427,8 @@ Given a device identifier, this function retrieves the property and its value fr
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **deviceId** | `guid` | Device identifier |
-| **propertyName** | `string` | Device property name |
+| deviceId | `guid` | Device identifier |
+| propertyName | `string` | Device property name |
 
 ### setSensorValue(sensorId, dataType, value)
 
@@ -438,9 +438,9 @@ This function sets a value on the sensor object with the given data type.
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| **sensorId** | `guid` | Sensor identifier |
-| **dataType**  | `string` | Sensor data type |
-| **value**  | `string` | Value |
+| sensorId | `guid` | Sensor identifier |
+| dataType  | `string` | Sensor data type |
+| value  | `string` | Value |
 
 ### setSpaceValue(spaceId, dataType, value)
 
