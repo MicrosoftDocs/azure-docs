@@ -30,7 +30,7 @@ In this quickstart, you take the following steps:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account][] before you begin.
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free) before you begin.
 - [Azure SDK for Java][Azure SDK for Java]. 
 
 ## What are Service Bus topics and subscriptions?
@@ -89,7 +89,7 @@ To create a Service Bus topic, specify the namespace under which you want it cre
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
 
-![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Libraries in Eclipse Build Path](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
 You also need to add the following JARs to the Java Build Path:
 
@@ -505,7 +505,7 @@ Message sending: Id = 9
 ```
 
 
-## Next Steps
+## Next steps
 For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
