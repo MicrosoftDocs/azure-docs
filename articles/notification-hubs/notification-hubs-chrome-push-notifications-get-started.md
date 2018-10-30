@@ -325,7 +325,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
           client.onload = function () {
             if (client.readyState == 4) {
               if (client.status == 200) {
-                updateLog("Notification Hub Registration succesful!");
+                updateLog("Notification Hub Registration successful!");
                 updateLog(client.responseText);
               } else {
                 updateLog("Notification Hub Registration did not succeed!");

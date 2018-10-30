@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of implementing an on dem
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 10/29/2018
 ms.author: juliako
 
 ---
