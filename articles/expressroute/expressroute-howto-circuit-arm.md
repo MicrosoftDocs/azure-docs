@@ -25,7 +25,7 @@ This article describes how to create an Azure ExpressRoute circuit by using Powe
 
 Before you begin, review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
-
+### Working with Azure PowerShell
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
