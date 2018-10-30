@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign up for Content Moderator services
 
-Before you can use Content Moderator services, you'll need a subscription key. Subscribe to the Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
+Before you can use Content Moderator services through the REST API or the SDK, you'll need a subscription key. Subscribe to the Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
 
 ## Create your Visual Studio project
 
@@ -39,17 +39,15 @@ Before you can use Content Moderator services, you'll need a subscription key. S
 
 ### Install required packages
 
-Install the following NuGet packages to your new project:
+Install the following NuGet packages:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-## Add the text moderation code
+### Update the program's using statements
 
-### Include namespaces
-
-Add the following `using` statements to the top of your *Program.cs* file.
+Add the following `using` statements. 
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
@@ -64,7 +62,7 @@ using System.Threading;
 
 ### Create the Content Moderator client
 
-Add the following code to create a Content Moderator client provider for your subscription. You can add this to the *Program.cs* file or a new file.
+Add the following code to create a Content Moderator client for your subscription.
 
 > [!IMPORTANT]
 > Update the **AzureRegion** and **CMSubscriptionKey** fields with 
@@ -114,9 +112,9 @@ public static class Clients
 }
 ```
 
-### Set up input and output targets
+### Initialize application-specific settings
 
-Add the following static fields to the **Program** class in _Program.cs_.
+Add the following static fields to the **Program** class in Program.cs.
 
 ```csharp
 /// <summary>
@@ -133,7 +131,10 @@ private static string TextFile = "TextFile.txt";
 private static string OutputFile = "TextModerationOutput.txt";
 ```
 
-Open _TextFile.txt_ and add the text to moderate. This quickstart uses the following sample text:
+We used the following text as input for this quickstart.
+
+> [!NOTE]
+> The invalid social security number in the following sample text is intentional. The purpose is to convey the sample input and output format.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -141,10 +142,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
-> [!NOTE]
-> The invalid social security number in this sample text is intentional. The purpose is to convey the sample input and output format.
-
-### Load and evaluate the input text
+## Add code to load and evaluate the input text
 
 Add the following code to the **Main** method.
 
@@ -154,36 +152,34 @@ string text = File.ReadAllText(TextFile);
 Console.WriteLine("Screening {0}", TextFile);
 
 text = text.Replace(System.Environment.NewLine, " ");
-byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(text);
-MemoryStream stream = new MemoryStream(byteArray);
 
 // Save the moderation results to a file.
 using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 {
-	// Create a Content Moderator client and evaluate the text.
-	using (var client = Clients.NewClient())
-	{
-		// Screen the input text: check for profanity,
-		// autocorrect text, check for personally identifying
-		// information (PII), and classify the text into three categories
+    // Create a Content Moderator client and evaluate the text.
+    using (var client = Clients.NewClient())
+    {
+        // Screen the input text: check for profanity, classify the text into three categories,
+		// do autocorrect text, and check for personally identifying
+		// information (PII)
 		outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
 		var screenResult =
-		client.TextModeration.ScreenText("text/plain", stream, "eng", true, true, null, true);
+		client.TextModeration.ScreenText("eng", "text/plain", text, true, true, null, true);
 		outputWriter.WriteLine(
 				JsonConvert.SerializeObject(screenResult, Formatting.Indented));
-	}
-	outputWriter.Flush();
-	outputWriter.Close();
+    }
+    outputWriter.Flush();
+    outputWriter.Close();
 }
 ```
 
 > [!NOTE]
 > Your Content Moderator service key has a requests per second (RPS)
-> rate limit, and if you exceed the limit, the SDK will throw an exception with error code 429. With a free tier subscription key, the rate of requests is limited to one request per second.
+> rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code. When using a free tier key, the rate of requests is limited to one request per second.
 
 ## Run the program and review the output
 
-The program will write JSON string data to the _TextModerationOutput.txt_ file. The sample text used in this quickstart gives the following output:
+The sample output for the program, as written to the log file, is:
 
 ```json
 Autocorrect typos, check for matching terms, PII, and classify.
@@ -273,7 +269,4 @@ Autocorrect typos, check for matching terms, PII, and classify.
 
 ## Next steps
 
-In this quickstart, you've developed a simple .NET application that uses the Content Moderator service to return relevant data about a given text sample. Next, learn how to create and manage your own list of flagged terms in order to fine-tune the text moderation process to your specific needs.
-
-> [!div class="nextstepaction"]
-> [Quickstart: Check text against a custom term list in C#](term-lists-quickstart-dotnet.md)
+Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
