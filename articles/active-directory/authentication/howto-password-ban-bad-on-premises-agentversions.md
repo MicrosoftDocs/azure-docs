@@ -8,8 +8,8 @@ ms.component: authentication
 ms.topic: article
 ms.date: 07/11/2018
 
-ms.author: joflore, jsimmons
-author: MicrosoftGuyJFlo, jay98014
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
 ---
@@ -28,7 +28,7 @@ Release date: 8/17/2018
 Fixes:
 
 * Register-AzureADPasswordProtectionProxy and Register-AzureADPasswordProtectionForest now support multi-factor authentication
-* Register-AzureADPasswordProtectionProxy nows checks for the presence of a WS2012 or later domain controller in the domain to avoid encryption errors.
+* Register-AzureADPasswordProtectionProxy now checks for the presence of a WS2012 or later domain controller in the domain to avoid encryption errors.
 * DC agent service is more reliable about requesting a new password policy from Azure on startup.
 * DC agent service will request a new password policy from Azure every hour if necessary, but will now do so on a randomly selected start time.
 * DC agent service will no longer cause an indefinite delay in new DC advertisement when installed on a server prior to its promotion as a replica.

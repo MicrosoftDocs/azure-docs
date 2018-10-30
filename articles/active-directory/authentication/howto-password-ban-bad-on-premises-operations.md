@@ -8,12 +8,12 @@ ms.component: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
-ms.author: joflore, jsimmons
-author: MicrosoftGuyJFlo, jay98014
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-
 ---
+
 # Preview: Azure AD password protection operational procedures
 
 |     |
@@ -29,7 +29,7 @@ Follow the guidance in the article [Configuring the custom banned password list]
 
 ## Enable password protection
 
-1. Log in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password protection (Preview)**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password protection (Preview)**.
 1. Set **Enable password protection on Windows Server Active Directory** to **Yes**
 1. As mentioned in the [Deployment guide](howto-password-ban-bad-on-premises.md#deployment-strategy), it is recommended to initially set the **Mode** to **Audit**
    * After you are comfortable with the feature, you can switch the **Mode** to **Enforced**
@@ -58,7 +58,7 @@ Affected end users may need to work with their IT staff to understand the new re
 
 ## Enable Mode
 
-This setting should normally be left in its default enabled (Yes) state. Configuring this setting to disabled (No) will cause all deployed Azure AD password protection DC agents to go into a quiescent mode where all password are accepted as-is, and no validation activities will be executed whatsoever (for example, not even audit events will be emitted).
+This setting should normally be left in its default enabled (Yes) state. Configuring this setting to disabled (No) will cause all deployed Azure AD password protection DC agents to go into a quiescent mode where all passwords are accepted as-is, and no validation activities will be executed whatsoever (for example, not even audit events will be emitted).
 
 ## Usage reporting
 

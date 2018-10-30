@@ -8,11 +8,10 @@ ms.component: authentication
 ms.topic: article
 ms.date: 10/29/2018
 
-ms.author: joflore, jsimmons
-author: MicrosoftGuyJFlo, jay98014
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-
 ---
 
 # Preview: Integrate Azure AD password protection into on-premises Windows Server Active Directory

@@ -8,8 +8,8 @@ ms.component: authentication
 ms.topic: article
 ms.date: 07/11/2018
 
-ms.author: joflore, jsimmons
-author: MicrosoftGuyJFlo, jay98014
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
 ---
