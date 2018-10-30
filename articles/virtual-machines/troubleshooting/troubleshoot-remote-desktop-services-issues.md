@@ -99,7 +99,7 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
     |1058 - ERROR_SERVICE_DISABLED  |See [TermService service is disabled.](#termService-service-is-disabled)  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly|
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |   |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly    |
     |1070 - ERROR_SERVICE_START_HANG   | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly  |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | See [TermService service is disabled](#TermService service is disabled)  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly |
@@ -107,8 +107,8 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
 
 #### TermService service is stopped because of Access Denied error
 
-1. Connect to [Serial Console](serial-console-windows.md#) and open a Powershell instance.
-2. Download the Process Monitor tool by runing the following script:
+1. Connect to [Serial Console](serial-console-windows.md#) and open a PowerShell instance.
+2. Download the Process Monitor tool by running the following script:
 
         remove-module psreadline  
         $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
@@ -118,7 +118,7 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
 3. Now start a procmon trace:
 
         procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
-4. Reproduce the problem which in this case is try to start the service that is giving access deny: 
+4. Reproduce the problem by starting the service that is giving access deny: 
 
         sc start TermService 
         
@@ -130,7 +130,7 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
     ![Filter by Result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
-6. Fix the registry folder or files that is on the output. Usually, this problem is caused by the log on account used on the service do not have premission to acccess these objects. To know which the correct ACL is, you can check on a healthy VM. 
+6. Fix the registry keys, folders or files that are on the output. Usually, this problem is caused by the log on account used on the service do not have ACL permission to access these objects. To know the correct ACL permission for the log on account, you can check on a healthy VM. 
 
 #### TermService service is disabled
 
