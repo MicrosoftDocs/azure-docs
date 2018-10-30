@@ -22,7 +22,7 @@ ms.component: na
 
 
 
-## Kusto elements not support in Log Analytics
+## Kusto elements not supported in Log Analytics
 While Log Analytics queries use an implementation of Kusto, there are some Kusto elements it does not support as described in the following sections.
 
 ### Statements not supported in Log Analytics
