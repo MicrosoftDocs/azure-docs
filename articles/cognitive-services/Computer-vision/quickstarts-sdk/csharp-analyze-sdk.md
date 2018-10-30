@@ -1,22 +1,20 @@
 ---
 title: "Quickstart: Analyze an image - SDK, C# - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library in Cognitive Services.
+description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
-# Quickstart: Analyze an image - SDK, C&#35; - Computer Vision
+# Quickstart: Analyze an image using the Computer Vision SDK and C#
 
 In this quickstart, you analyze both a local and a remote image to extract visual features using the Computer Vision Windows client library.
-
-Get the latest code as a Visual Studio solution from the [Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) GitHub repository.
 
 ## Prerequisites
 
@@ -25,6 +23,9 @@ Get the latest code as a Visual Studio solution from the [Azure-Samples/cognitiv
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
 ## AnalyzeImageAsync method
+
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 The `AnalyzeImageAsync` and `AnalyzeImageInStreamAsync` methods wrap the [Analyze Image API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for remote and local images, respectively. You can use these methods to extract visual features based on image content and choose which features to return, including:
 
@@ -103,7 +104,7 @@ namespace ImageAnalyze
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 

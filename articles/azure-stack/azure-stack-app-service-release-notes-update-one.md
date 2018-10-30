@@ -1,4 +1,4 @@
-﻿---
+---
 title: App Service on Azure Stack update 1 release notes | Microsoft Docs
 description: Learn about what's in update one for App Service on Azure Stack, the known issues, and where to download the update.
 services: azure-stack
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
-ms.reviewer: brenduns
+ms.reviewer: sethm
 
 ---
 # App Service on Azure Stack update 1 release notes

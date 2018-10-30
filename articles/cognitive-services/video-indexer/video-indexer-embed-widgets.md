@@ -1,18 +1,19 @@
 ---
-title: Embed Azure Video Indexer widgets into your applications | Microsoft Docs
-description: 
+title: "Example: Embed Video Indexer widgets into your applications"
+titlesuffix: Azure Cognitive Services
+description: Learn how to embed Video Indexer widgets into your application.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-
 ---
-# Embed Video Indexer widgets into your applications
+
+# Example: Embed Video Indexer widgets into your applications
 
 This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. 
 ## Widget types
@@ -42,15 +43,16 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 ## Embedding public content
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
-2. Click the "embed" button that appears below the video.
+2. Click on the video you want to work with.
+3. Click the "embed" button that appears below the video.
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
 	After clicking the button, an embed modal will appear on the screen where you can choose what widget you want to embed in your application.
 	Selecting a widget (**Player** or **Cognitive Insights**), generates the embedded code for you to paste in your application.
  
-3. Choose the type of widget you want (**Cognitive Insights** or **Player**).
-4. Copy the embed code, and add to your application. 
+4. Choose the type of widget you want (**Cognitive Insights** or **Player**).
+5. Copy the embed code, and add to your application. 
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 

@@ -15,7 +15,7 @@ ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 04/04/2017
 
 ---
@@ -43,7 +43,7 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 
 
 ## More help with Machine Learning Studio
-* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](what-is-machine-learning.md)
+* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](../service/overview-what-is-azure-ml.md)
 * For an overview of Machine Learning Studio, see [What is Azure Machine Learning Studio?](what-is-ml-studio.md).
 * For a detailed discussion of the machine learning algorithms available in Machine Learning Studio, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).
 

@@ -4,7 +4,7 @@ description: Move Data to or from Azure Blob Storage using SSIS connectors.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398

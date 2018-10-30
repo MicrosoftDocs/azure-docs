@@ -26,7 +26,6 @@ The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you 
 - Azure PaaS resources can be provisioned in an environment from an Azure Resource Manager template in addition to IaaS VMs.
 - The cost of environments can be tracked in the lab in addition to individual VMs created by other types of bases.
 - PaaS resources are created and will appear in cost tracking; however, VM auto shutdown does not apply to PaaS resources.
-- Users have the same VM policy control for environments as they have for single-lab VMs.
 
 Learn more about the many [benefits of using Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) to deploy, update, or delete all of your lab resources in a single operation.
 

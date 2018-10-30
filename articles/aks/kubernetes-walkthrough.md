@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/31/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
@@ -20,9 +20,11 @@ In this quickstart, an AKS cluster is deployed using the Azure CLI. A multi-cont
 
 This quickstart assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation][kubernetes-documentation].
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.43 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a resource group
 
@@ -51,7 +53,7 @@ Output:
 
 ## Create AKS cluster
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Container health monitoring is also enabled using the *--enable-addons monitoring* parameter. For more information on enabling the container health monitoring solution, see [Monitor Azure Kubernetes Service health][aks-monitor].
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter. For more information on enabling the container health monitoring solution, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -91,17 +93,23 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## Run the application
 
-A Kubernetes manifest file defines a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. This manifest includes two [Kubernetes deployments][kubernetes-deployment], one for the Azure Vote Python applications, and the other for a Redis instance. Also, two [Kubernetes Services][kubernetes-service] are created, an internal service for the Redis instance, and an external service for accessing the Azure Vote application from the internet.
+A Kubernetes manifest file defines a desired state for the cluster, including what container images should be running. In this quickstart, a manifest is used to create all objects needed to run the Azure Vote application. This manifest includes two [Kubernetes deployments][kubernetes-deployment], one for the Azure Vote Python applications, and the other for a Redis instance. Also, two [Kubernetes Services][kubernetes-service] are created, an internal service for the Redis instance, and an external service for accessing the Azure Vote application from the internet.
+
+> [!TIP]
+> In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
 
 Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-back
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-back
   template:
     metadata:
       labels:
@@ -110,6 +118,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -124,12 +139,15 @@ spec:
   selector:
     app: azure-vote-back
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-front
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-front
   template:
     metadata:
       labels:
@@ -138,6 +156,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -205,16 +230,19 @@ When the AKS cluster was created, monitoring was enabled to capture health metri
 To see current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
 
 1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
-1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*. 
-1. Choose **Monitor container health** > select the **default** namespace > then select **Containers**.
+1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*.
+1. Under **Monitoring** on the left-hand side, choose **Insights (preview)**
+1. Across the top, choose to **+ Add Filter**
+1. Select *Namespace* as the property, then choose *\<All but kube-system\>*
+1. Choose to view the **Containers**.
 
-It may take a few minutes for this data to populate in the Azure portal, as shown in the following example:
+The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown in the following example:
 
-![Create AKS cluster one](media/kubernetes-walkthrough/view-container-health.png)
+![View the health of running containers in AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, select the **View Logs** link on the right-hand side of the list of containers. These logs include the *stdout* and *stderr* streams from the container.
+To see logs for the `azure-vote-front` pod, select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
-![Create AKS cluster one](media/kubernetes-walkthrough/view-container-logs.png)
+![View the containers logs in AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## Delete cluster
 
@@ -250,6 +278,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
 
 <!-- LINKS - internal -->
 [aks-monitor]: https://aka.ms/coingfonboarding

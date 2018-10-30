@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Alert Management solution in Azure Log Analytics

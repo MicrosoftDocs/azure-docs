@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Create custom views by using View Designer in Log Analytics

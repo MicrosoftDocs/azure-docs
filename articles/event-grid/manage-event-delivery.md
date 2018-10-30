@@ -6,7 +6,7 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
 ---
 
@@ -44,7 +44,7 @@ To turn off dead-lettering, rerun the command to create the event subscription b
 
 When creating an Event Grid subscription, you can set values for how long Event Grid should try to deliver the event. By default, Event Grid attempts for 24 hours (1440 minutes), and tries a maximum of 30 times. You can set either of these values for your event grid subscription. The value for event time-to-live must be an integer from 1 to 1440. The value for maximum delivery attempts must be an integer from 1 to 30.
 
-You can't configure the [retry interval](delivery-and-retry.md#retry-intervals-and-duration).
+You can't configure the [retry schedule](delivery-and-retry.md#retry-schedule-and-duration).
 
 To set the event time-to-live to a value other than 1440 minutes, use:
 

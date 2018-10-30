@@ -1,28 +1,32 @@
 ---
-title: Use Azure File with AKS
-description: Use Azure Disks with AKS
+title: Create a static volume for multiple pods in Azure Kubernetes Service (AKS)
+description: Learn how to manually create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
 ---
 
-# Volumes with Azure files
+# Manually create and use a volume with Azure Files share in Azure Kubernetes Service (AKS)
 
-Container-based applications often need to access and persist data in an external data volume. Azure files can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure Kubernetes Service.
+Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to manually create an Azure Files share and attach it to a pod in AKS.
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
+## Before you begin
+
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+
+You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
 ## Create an Azure file share
 
-Before using an Azure File Share as a Kubernetes volume, you must create an Azure Storage account and the file share. The following script can be used to complete these tasks. Take note or update the parameter values, some of these are needed when creating the Kubernetes volume.
+Before you can use Azure Files as a Kubernetes volume, you must create an Azure Storage account and the file share. The following script creates a resource group named *myAKSShare*, a storage account, and a Files share named *aksshare*:
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Change these four parameters
@@ -51,33 +55,42 @@ echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
 echo Storage account key: $STORAGE_KEY
 ```
 
-## Create Kubernetes Secret
+Make a note of the storage account name and key shown at the end of the script output. These values are needed when you create the Kubernetes volume in one of the following steps.
 
-Kubernetes needs credentials to access the file share. These credentials are stored in a [Kubernetes secret][kubernetes-secret], which is referenced when creating a Kubernetes pod.
+## Create a Kubernetes secret
 
-Use the following command to create the secret. Replace `STORAGE_ACCOUNT_NAME` with your storage account name, and `STORAGE_ACCOUNT_KEY` with your storage key.
+Kubernetes needs credentials to access the file share created in the previous step. These credentials are stored in a [Kubernetes secret][kubernetes-secret], which is referenced when you create a Kubernetes pod.
+
+Use the `kubectl create secret` command to create the secret. The following example creates a shared named *azure-secret* and populates the *azurestorageaccountname* and *azurestorageaccountkey* from the previous step. To use an existing Azure storage account, provide the account name and key.
 
 ```console
-kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=STORAGE_ACCOUNT_KEY
+kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
-## Mount file share as volume
+## Mount the file share as a volume
 
-Mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yaml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
+To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod.
 
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
- name: azure-files-pod
+  name: mypod
 spec:
- containers:
-  - image: microsoft/sample-aks-helloworld
-    name: azure
+  containers:
+  - image: nginx:1.15.5
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     volumeMounts:
       - name: azure
         mountPath: /mnt/azure
- volumes:
+  volumes:
   - name: azure
     azureFile:
       secretName: azure-secret
@@ -85,29 +98,55 @@ spec:
       readOnly: false
 ```
 
-Use kubectl to create a pod.
+Use the `kubectl` command to create the pod.
 
 ```azurecli-interactive
 kubectl apply -f azure-files-pod.yaml
 ```
 
-You now have a running container with your Azure file share mounted in the `/mnt/azure` directory.  You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
+You now have a running pod with an Azure Files share mounted at */mnt/azure*. You can use `kubectl describe pod mypod` to verify the share is mounted successfully. The following condensed example output shows the volume mounted in the container:
+
+```
+Containers:
+  mypod:
+    Container ID:   docker://86d244cfc7c4822401e88f55fd75217d213aa9c3c6a3df169e76e8e25ed28166
+    Image:          nginx:1.15.5
+    Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
+    State:          Running
+      Started:      Mon, 08 Oct 2018 19:28:34 +0000
+    Ready:          True
+    Mounts:
+      /mnt/azure from azure (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-z5sd7 (ro)
+[...]
+Volumes:
+  azure:
+    Type:        AzureFile (an Azure File Service mount on the host and bind mount to the pod)
+    SecretName:  azure-secret
+    ShareName:   aksshare
+    ReadOnly:    false
+  default-token-z5sd7:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-z5sd7
+[...]
+```
 
 ## Next steps
 
-Learn more about Kubernetes volumes using Azure Files.
-
-> [!div class="nextstepaction"]
-> [Kubernetes plugin for Azure Files][kubernetes-files]
+For more information about AKS clusters interact with Azure Files, see the [Kubernetes plugin for Azure Files][kubernetes-files].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
 [az-storage-create]: /cli/azure/storage/account#az-storage-account-create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
 [az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

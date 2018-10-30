@@ -65,6 +65,7 @@ Read the following SAP Notes and papers first:
 * SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
 * SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all of the required SAP Notes for Linux.
+* [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide.
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] (this article).
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
@@ -111,6 +112,10 @@ To deploy the template, follow these steps:
 
 ### Manual deployment
 
+> [!IMPORTANT]
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
+>  
+
 1. Create a resource group.
 1. Create a virtual network.
 1. Create an availability set.
@@ -118,13 +123,10 @@ To deploy the template, follow these steps:
 1. Create a load balancer (internal).
    - Select the virtual network created in step 2.
 1. Create virtual machine 1.
-   - Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP2 image https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Use SLES for SAP 12 SP2 (Premium).
+   - Use a SLES4SAP image in the Azure gallery that is supported for SAP HANA on the VM type you selected.
    - Select the availability set created in step 3.
 1. Create virtual machine 2.
-   - Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP1 BYOS image
-   https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Use SLES for SAP 12 SP2 (Premium).
+   - Use a SLES4SAP image in the Azure gallery that is supported for SAP HANA on the VM type you selected.
    - Select the availability set created in step 3. 
 1. Add data disks.
 1. Configure the load balancer. First, create a front-end IP pool:
@@ -674,6 +676,9 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 ### SUSE tests
+
+> [!IMPORTANT]
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
 
 Run all test cases that are listed in the SAP HANA SR Performance Optimized Scenario or SAP HANA SR Cost Optimized Scenario guide, depending on your use case. You can find the guides on the [SLES for SAP best practices page][sles-for-sap-bp].
 

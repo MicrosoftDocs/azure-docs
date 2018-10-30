@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords: 
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt 
@@ -14,7 +14,10 @@ manager: timlt
 
 # What is Service Fabric Mesh?
 
-Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. Applications hosted on Service Fabric Mesh run and scale without you worrying about the infrastructure powering it.  Service Fabric Mesh consists of clusters of thousands of machines.  All cluster operations are hidden from the developer. Simply upload your code and specify resources you need, availability requirements, and resource limits.  Service Fabric Mesh automatically allocates the infrastructure requested by your application deployment and also handles infrastructure failures, making sure your applications are highly available. You only need to care about the health and responsiveness of your application, not the infrastructure.  
+This video provides a quick overview of Service Fabric Mesh.
+> [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
+
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. Applications hosted on Service Fabric Mesh run and scale without you worrying about the infrastructure powering it.  Service Fabric Mesh consists of clusters of thousands of machines.  All cluster operations are hidden from the developer. Simply upload your code and specify resources you need, availability requirements, and resource limits.  Service Fabric Mesh automatically allocates the infrastructure and handles infrastructure failures, making sure your applications are highly available. You only need to care about the health and responsiveness of your application-not the infrastructure.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -22,11 +25,11 @@ This article provides an overview of the key benefits of Service Fabric Mesh.
 
 ## Great developer experience
 
-Service Fabric Mesh supports any programming language or framework that can be run in a container. Visual Studio 2017 and Visual Studio Code tooling support provides a powerful editing and debugging experience for .NET and .NET Core applications. 
+Service Fabric Mesh supports any programming language or framework that can run in a container. Visual Studio 2017 and Visual Studio Code tooling support provides a powerful editing and debugging experience for .NET and .NET Core applications. 
 
 With Service Fabric Mesh you can:
 
-- "Lift and shift" existing applications into containers to modernize and run your current applications at scale. 
+- "Lift and shift" existing applications into containers to modernize and run your current applications at scale.
 - Build and deploy new microservices applications at scale in Azure.  Integrate with other Azure services or existing applications running in containers. Each microservice is part of a secure, network isolated application with resource governance policies defined for CPU cores, memory, disk space, and more.
 - Integrate with and extend existing applications without making changes to those applications. Use your own virtual network to connect existing application to the new application.  
 - Modernize your existing Cloud Services applications by migrating to Service Fabric Mesh.  
@@ -39,13 +42,10 @@ With Service Fabric Mesh you can:
 
 - Deploy and manage applications without having to explicitly provision and manage infrastructure.  Service Fabric Mesh provisions, upgrades, patches, and maintains the underlying infrastructure for you.
 - Set up continuous integration using the integrated tooling to easily package and deploy applications.
-- Leverage all the features of Azure Resource Manager resources (for example, audit trail and [role-based access control (RBAC)](/azure/role-based-access-control/overview)) because all the resources  (like Applications, Services, Secrets etc) you deploy to SF Mesh service in Azure are Azure Resource Manager resources. 
+- Leverage all the features of Azure Resource Manager resources (for example, audit trail and [role-based access control](/azure/role-based-access-control/overview)) because all resources such as applications, services, secrets, and so on, that you deploy to the Service Fabric Mesh service in Azure are Azure Resource Manager resources.
 - Deploy and manage resources using the [Azure portal](https://portal.azure.com), Resource Manager templates, or Azure CLI/PowerShell libraries.
-- Set up operational monitoring and alerting using [Application Insights](/azure/application-insights/) (or your tool of choice) to capture operational and diagnostic traces from the platform. 
+- Set up operational monitoring and alerting using [Application Insights](/azure/application-insights/) (or your tool of choice) to capture operational and diagnostic traces from the platform.
 - Access application diagnostics information emitted from the application model using [Application Insights](/azure/application-insights/) or your tool of choice.
-- Optimize resources usage by specifying auto-scale rules for the services in the application definition.  (coming soon)
-- Create network isolation and security boundaries for applications, a powerful feature when combined with Hyper-V containers. Isolate the network traffic to and from the services using multiple IPs per service and isolated virtual networks per application.  (coming soon) 
-
 
 ## Mission critical platform capabilities
 

@@ -29,7 +29,7 @@ The objective of this tutorial is to show you the steps you need to perform in G
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active directory tenant
-*   A Github tenant with the [Business plan](https://help.github.com/articles/organization-billing-plans/#business-plan) or better enabled 
+*   A GitHub tenant with the [Business Cloud plan](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) or better enabled 
 *   A user account in GitHub with Admin permissions 
 
 > [!NOTE]
@@ -77,7 +77,7 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 	![Authorization Dialog](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: `https://api.github.com/scim/v2/<Organizations_name>`, you can find your organizations under your GitHub account: **Settings** > **Organizations**).
+7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: `https://api.github.com/scim/v2/organizations/<Organization_name>`, you can find your organizations under your GitHub account: **Settings** > **Organizations**).
 
 	![Authorization Dialog](./media/github-provisioning-tutorial/GitHub3.png)
 

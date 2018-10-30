@@ -1,0 +1,37 @@
+- name: Azure portal customization documentation
+  href: index.yml
+- name: Azure dashboards
+  items:
+  - name: Create and share Azure dashboards
+    href: azure-portal-dashboards.md
+  - name: Share dashboards with role-based access control
+    href: azure-portal-dashboard-share-access.md
+  - name: Structure of Azure dashboards
+    href: azure-portal-dashboards-structure.md
+  - name: Programmatically create Azure dashboards
+    href: azure-portal-dashboards-create-programmatically.md
+- name: Settings
+  expanded: true
+  items:
+  - name: Keyboard shortcuts
+    href: azure-portal-keyboard-shortcuts.md
+  - name: Supported browsers and devices
+    href: ../azure-preview-portal-supported-browsers-devices.md
+  - name: Turn on high contrast or change theme
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Export or delete user settings
+    href: azure-portal-export-delete-settings.md
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-portal
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-management-portal
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest

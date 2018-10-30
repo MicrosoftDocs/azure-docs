@@ -1,0 +1,14 @@
+# Testing the new code owners feature in GitHub. Please contact Tyson if you have questions.
+# articles/storage/  @tamram @robinsh
+# articles/virtual-machines/  @iainfoulds @cynthn
+# articles/virtual-machines/linux/  @iainfoulds @cynthn
+# articles/virtual-machines/windows/  @iainfoulds @cynthn
+# articles/application-insights/  @SergeyKanzhelev
+# articles/cosmos-db/ @mimig1
+
+articles/ @apex-docs-pr-reviewers
+articles/cognitive-services/ @nitinme @tchristiani @cjgronlund
+articles/ansible/ @TomArcher
+articles/chef/ @TomArcher
+articles/jenkins/ @TomArcher
+articles/terraform/ @TomArcher

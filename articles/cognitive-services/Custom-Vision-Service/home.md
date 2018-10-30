@@ -1,9 +1,11 @@
 ---
-title: Overview of Custom Vision Service machine learning - Azure Cognitive Services | Microsoft Docs
-description: The Custom Vision Service is a Microsoft Cognitive Service that lets you build custom image classifiers on the Azure platform.
+title: What is the Custom Vision Service?
+titlesuffix: Azure Cognitive Services
+description: The Custom Vision Service allows you to build custom image classifiers in the Azure cloud.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
@@ -13,7 +15,7 @@ ms.author: anroth
 ---
 # What is the Custom Vision Service?
 
-The Custom Vision Service is a Microsoft Cognitive Service that lets you build custom image classifiers. It makes it easy and fast to build, deploy, and improve an image classifier. The Custom Vision Service provides a REST API and a web interface to upload your images and train the classifier.
+The Custom Vision Service is an Azure Cognitive Service that lets you build custom image classifiers. It makes it easy and fast to build, deploy, and improve an image classifier. The Custom Vision Service provides a REST API and a web interface to upload your images and train the classifier.
 
 ## What does Custom Vision Service do well?
 

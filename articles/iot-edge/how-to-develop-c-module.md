@@ -108,7 +108,7 @@ VS Code keeps debugging configuration information in a `launch.json` file locate
 
 1. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (C)**
 
-   ![Select debug configuration](./media/how-to-develop-c-module/debug-config.png).
+   ![Select debug configuration](./media/how-to-develop-c-module/debug-config.png)
 
 2. Navigate to `main.c`. Add a breakpoint in this file.
 

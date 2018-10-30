@@ -2,14 +2,16 @@
 title: Ports beyond 1433 for SQL Database | Microsoft Docs
 description: Client connections from ADO.NET to Azure SQL Database can bypass the proxy and interact directly with the database using ports other than 1433.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: 
+ms.devlang:
 ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: sstein
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-
 ---
 # Ports beyond 1433 for ADO.NET 4.5
 This topic describes the Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version. 
@@ -62,7 +64,7 @@ This section clarifies the monikers that refer to product versions. It also list
   * A blog post about ADO.NET 4.5.1 is available [here](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux, & macOS
-https://www.microsoft.com/en-us/download/details.aspx?id=56567
+https://www.microsoft.com/download/details.aspx?id=56567
 
 * Connect to Azure SQL Database V12 via Redirection
 https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/

@@ -76,7 +76,7 @@ For the remainder of the tutorial, we will work from the VM we created earlier.
 
 You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview) before continuing.
 
-You will also need to install the latest version of [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) on your Windows VM.
+You will also need to install the latest version of [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your Windows VM.
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 

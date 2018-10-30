@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Filters in Log Analytics views
@@ -45,7 +45,7 @@ The following table describes the settings for a filter.
 | Setting | Description |
 |:---|:---|
 | Field Name | Name of the field used for filtering.  This must match the summarize field in **Query for Values**. |
-| Query for Values | Query to run to populate filter dropdown for the user.  This must use either [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) or [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) to provide unique values for a particular field, and it must match the **Field Name**.  You can use [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) to sort the values that are displayed to the user. |
+| Query for Values | Query to run to populate filter dropdown for the user.  This must use either [summarize](/azure/kusto/query/summarizeoperator) or [distinct](/azure/kusto/query/distinctoperator) to provide unique values for a particular field, and it must match the **Field Name**.  You can use [sort](/azure/kusto/query/sortoperator) to sort the values that are displayed to the user. |
 | Tag | Name for the field that's used in queries supporting the filter and is also displayed to the user. |
 
 ### Examples

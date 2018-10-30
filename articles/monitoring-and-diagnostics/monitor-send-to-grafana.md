@@ -57,7 +57,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 
 Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect metrics data. You must create a service principal to manage access to your Azure resources.
 
-1. See [these instructions](../azure-resource-manager/resource-group-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID, client ID, and a client secret.
+1. See [these instructions](../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID, client ID, and a client secret.
 
 2. See [Assign application to role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) to assign the reader role to the Azure Active Directory application. 	
 

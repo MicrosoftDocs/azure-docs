@@ -1,18 +1,20 @@
 ---
-title: Autosuggest endpoint | Microsoft Docs
-description: Summary of the Autosuggest API endpoint.
+title: Bing Autosuggest endpoint
+titlesuffix: Azure Cognitive Services
+description: Summary of the Bing Autosuggest API endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
 ---
-# Autosuggest endpoint
+# Bing Autosuggest endpoint
 
-The **Autosuggest API**  includes one endpoint, which returns a list of suggested queries from a partial search term.
+The **Bing Autosuggest API**  includes one endpoint, which returns a list of suggested queries from a partial search term.
 
 ## Endpoint
 

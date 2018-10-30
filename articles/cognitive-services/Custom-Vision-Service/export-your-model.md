@@ -1,17 +1,17 @@
 ---
-title: Export your Custom Vision Service model to mobile - Custom Vision Service - Azure Cognitive Services  | Microsoft Docs
+title: Export your model to mobile - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Learn how to export your model for use in creating mobile applications.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
 ---
- 
- 
 
 # Export your model for use with mobile devices
 

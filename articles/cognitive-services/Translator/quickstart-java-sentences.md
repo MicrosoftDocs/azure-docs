@@ -1,18 +1,17 @@
 ---
-title: Translator Text get sentence lengths with Java | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Get sentence lengths, Java - Translator Text API"
+titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Java in Cognitive Services.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Get sentence lengths with Java
+# Quickstart: Get sentence lengths with the Translator Text REST API (Java)
 
 In this quickstart, you find the lengths of sentences in text using the Translator Text API.
 

@@ -5,7 +5,7 @@ description: Get answers to frequently asked questions about Azure Active Direct
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: reference
 ms.date: 05/11/2018
 
 ms.author: mimart
