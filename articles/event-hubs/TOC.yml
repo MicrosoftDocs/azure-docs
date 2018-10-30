@@ -68,6 +68,8 @@
     items:
       - name: Mirror a Kafka broker in an Apache Kafka-enabled event hub
         href: event-hubs-kafka-mirror-maker-tutorial.md
+      - name: Connect Apache Spark to an Apache Kafka-enabled event hub
+        href: event-hubs-kafka-spark-tutorial.md
       - name: Connect Apache Flink to an Apache Kafka-enabled event hub 
         href: event-hubs-kafka-flink-tutorial.md
       - name: Connect Akka Streams to an Apache Kafka-enabled event hub
