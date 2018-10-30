@@ -22,9 +22,9 @@ This article describes how to use the continuous data export feature in Azure Io
 ## Prerequisites
 
 - A Pay-As-You-Go application.
-- An Azure account with an Azure subscription.
-- The same Azure account is an administrator in your IoT Central application.
-- The same Azure account has permissions to create a storage account or access an existing storage account in the same Azure subscription.
+- An administrator in your IoT Central application who has:
+    - an Azure account in the Azure subscription your IoT Central application is in
+    - permissions to create a storage account or access an existing storage account in this Azure subscription
 
 ## Types of data to export
 

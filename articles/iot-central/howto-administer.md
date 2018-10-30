@@ -12,9 +12,7 @@ manager: peterpr
 
 # Administer your IoT Central application
 
-After you create a Microsoft Azure IoT Central application, you can use the **Administration** section of the Azure IoT Central user interface to administer it. To go to the **Administration** section, select **Administration** on the left navigation menu.
-
-The **Administration** section enables you to:
+After you create an IoT Central application, you can go to the **Administration** section to:
 
 - Manage application settings
 - Manage users
@@ -30,7 +28,7 @@ To access and use the **Administration** section, you must be in the **Administr
 ## Manage application settings
 
 ### Change application name and URL
-In the ** Application Settings** page, you can change the name and URL of your application, then select **Save**.
+In the **Application Settings** page, you can change the name and URL of your application, then select **Save**.
 
 ![Application settings page](media\howto-administer\image0-a.png)
 
@@ -42,8 +40,6 @@ To change the application image, see [Prepare and upload images to your Azure Io
 
 ### Copy an application
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy will be a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application in this way.
-
-![Application settings page](media\howto-administer\appCopy1.png)
 
 Click the **Copy** button. In the dialog box, enter the details for the new Pay-As-You-Go application. Then click the **Copy** button to confirm that you want to proceed. Learn more about the fields in this form in [how to create an application](howto-create-application.md).
 
@@ -69,13 +65,11 @@ Every user must have a user account before they can sign in and access an Azure 
 
 For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
-1. To add a user account to an Azure IoT Central application, use the secondary navigation menu to go to the **Users** page in the **Administration** section.
+1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
 
     ![List of users](media\howto-administer\image1.png)
 
 1. To add a user, on the **Users** page, choose **+ Add user**.
-
-    ![Add user](media\howto-administer\image2.png)
 
 1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
 
@@ -83,10 +77,6 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
     > [!NOTE]
     >  To add users in bulk, enter the user IDs of all the users you'd like to add separated by semi-colons. Choose a role from the **Role** drop-down menu. Then select **Save**.
-
-1. After you add a user, an entry appears for that user on the **Users** page.
-
-    ![User list](media\howto-administer\image4.png)
 
 ### Edit the roles that are assigned to users
 
@@ -137,7 +127,7 @@ You can convert your Trial application to a Pay-As-You-Go application. To comple
 
 ## Export data
 
-You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about[how to export your data](#howto-export-data).
+You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about [how to export your data](#howto-export-data).
 
 ## Manage device connection
 
