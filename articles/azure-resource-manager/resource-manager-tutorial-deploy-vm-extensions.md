@@ -18,15 +18,16 @@ ms.author: jgao
 
 # Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates
 
-Learn how to use [Azure virtual machine extensions](../virtual-machines/extensions/features-windows.md) to perform post-deployment configuration and automation tasks on Azure VMs. Many different VM extensions are available for use with Azure VMs. In this tutorial, you deploy a Custom Script extension from a Resource Manager template to run a PowerShell script on a VM.  The script installs Web Server on the VM.
+Learn how to use [Azure virtual machine extensions](../virtual-machines/extensions/features-windows.md) to perform post-deployment configuration and automation tasks on Azure VMs. Many different VM extensions are available for use with Azure VMs. In this tutorial, you deploy a Custom Script extension from a Resource Manager template to run a PowerShell script on a Windows VM.  The script installs Web Server on the VM.
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Prepare a PowerShell scripts
+> * Prepare a PowerShell script
 > * Open a QuickStart template
 > * Edit the template
 > * Deploy the template
+> * Verify the deployment
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -34,10 +35,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* This tutorial uses the same base template used in the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial. It is helpful to go through that tutorial first, but not necessary if you have some basic knowledge of developing templates.
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension.  See [Install the extension
 ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* You need to specify a password for the virtual machine administrator account. To increase security, use a generated password. Here is a sample for generating a password:
+* To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -45,18 +45,14 @@ To complete this article, you need:
     Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Prepare a PowerShell script
-A PowerShell script is called from the template that you deploy. You need to first create this script and make the script accessible to the template deployment.
 
-1. Use a text editor to create a text file with the following PowerShell script:
+A PowerShell script with the following content is shared from an [Azure Storage account with the public access](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1):
 
-    ```azurepowershell
-    Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    ```
+```azurepowershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
 
-    The script installs IIS Web server on Windows
-2. Save the file to your local computer with the file name **installWebServer.ps1**.
-
-This PowerShell is uploaded to [https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1). If you choose to publish the file to your own location, you must update the template later in the tutorial.
+If you choose to publish the file to your own location, you must update the [fileUri] element in the template later in the tutorial.
 
 ## Open a Quickstart template
 
@@ -82,7 +78,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 ## Edit the template
 
-In this section, you add a virtual machine extension resource to the existing template with the following content:
+Add a virtual machine extension resource to the existing template with the following content:
 
 ```json
 {
@@ -108,7 +104,7 @@ In this section, you add a virtual machine extension resource to the existing te
 }
 ```
 
-To understand the resource definition, see the [extension reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
+See the [extension reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions) if you need more information about this resource definition. The following are some important elements:
 
 * **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Child resources](./resource-manager-templates-resources.md#child-resources).
 * **dependsOn**: The extension resource must be created after the virtual machine has been created.
@@ -117,11 +113,11 @@ To understand the resource definition, see the [extension reference](https://doc
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure.
+Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. It is recommended to use a generated password for the virtual machine administrator account.  See [Prerequisites](#prerequisites).
 
 ## Verify the deployment
 
-In the portal, select the VM and in the overview of the VM, use the Click to copy button to the right of the IP address to copy it and paste it into a browser tab. The default IIS welcome page will open, and should look like this:
+In the portal, select the VM and in the overview of the VM, use **Click to copy** to the right of the IP address to copy it and paste it into a browser tab. The default IIS welcome page opens, and should look like this:
 
 ![Azure Resource Manager deploy vm extensions customer script IIS web server](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
@@ -136,7 +132,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a virtual machine and a virtual machine extension. The extension installed the IIS web server on the virtual machine. To learn how to use SQL Database extension to import a BACPAC file, see:
+In this tutorial, you deployed a virtual machine and a virtual machine extension. The extension installed the IIS web server on the virtual machine. To learn how to use the SQL Database extension to import a BACPAC file, see:
 
 > [!div class="nextstepaction"]
 > [](./resource-manager-tutorial-deploy-vm-extensions.md)
