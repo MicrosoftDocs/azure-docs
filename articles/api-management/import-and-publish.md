@@ -34,7 +34,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Learn the [Azure API Management terminology](api-management-terminology.md).
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -67,11 +68,15 @@ This section shows how to import and publish an OpenAPI specification backend AP
 
 3. Select **Create**.
 
+> [!TIP]
+> If you are experiencing problems with import of your own API definition, [see the list of known issues and restrictions](api-management-api-import-restrictions.md).
+
 ## Test the new APIM API in the Azure portal
 
 ![Test API map](./media/api-management-get-started/01-import-first-api-01.png)
 
-Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
+Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.
+
 1. Select the API you created in the previous step (from the **APIs** tab).
 2. Press the **Test** tab.
 3. Click on **GetSpeakers**. The page displays fields for query parameters, in this case none, and headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. The key is filled in automatically.
@@ -85,14 +90,15 @@ Operations can also be called from the **Developer portal** to test APIs.
 
 1. Navigate to the **Developer portal**.
 
- ![Developer portal](./media/api-management-get-started/developer-portal.png)
+    ![Developer portal](./media/api-management-get-started/developer-portal.png)
 
 2. Select **APIS**, click on **Demo Conference API** and then **GetSpeakers**.
-    
+
     The page displays fields for query parameters, in this case none, and headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
+
 3. Press **Try it**.
 4. Press **Send**.
-    
+
     After an operation is invoked, the developer portal shows the responses.  
 
 ## <a name="next-steps"> </a>Next steps
