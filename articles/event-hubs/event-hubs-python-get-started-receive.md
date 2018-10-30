@@ -106,14 +106,7 @@ start python recv.py
 ```
  
 ## Next steps
-
-To send events, see [the corresponding Send article](event-hubs-python-get-started-send.md).
-
-Visit the following pages to learn more about Event Hubs:
-
-* [Event Hubs overview][Event Hubs overview]
-* [Create an event hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you created a Python application that received messages from an event hub. To learn how to send events to an event hub using Python, see [Send events from event hub - Python](event-hubs-python-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
