@@ -16,7 +16,7 @@ ms.author: abnarain
 ---
 # Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell
 
-This step-by-step guide shows you how to create a shared self-hosted integration runtime (IR) in Azure Data Factory using Azure PowerShell. Then, you can use the shared self-hosted integration runtime in another data factory. In this tutorial, you do the following steps: 
+This step-by-step guide shows you how to create a shared self-hosted integration runtime (IR) in Azure Data Factory using Azure PowerShell. Then you can use the shared self-hosted integration runtime in another data factory. In this tutorial, you do the following steps: 
 
 1. Create a data factory. 
 1. Create a self-hosted integration runtime.
@@ -59,10 +59,10 @@ This step-by-step guide shows you how to create a shared self-hosted integration
     $LinkedIntegrationRuntimeName = "[Linked Integration Runtime Name]"
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
-
-1. Log in and select a subscription.
 
-    Add the following code to the script to log in and select your Azure subscription:
+1. Sign in and select a subscription.
+
+    Add the following code to the script to sign in and select your Azure subscription:
 
     ```powershell
     Connect-AzureRmAccount
