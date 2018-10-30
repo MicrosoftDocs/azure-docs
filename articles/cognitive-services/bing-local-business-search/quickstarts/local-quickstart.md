@@ -1,26 +1,31 @@
 ---
 title: Quickstart - Send a query to the Bing Local Business Search API in C# | Microsoft Docs
-description: Start using the Bing Local Business Search API in C#.
+titleSuffix: Azure Cognitive Services
+description: Use this article to start using the Bing Local Business Search API in C#.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
 ms.component: bing-local-business
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API in C#
 
-This C# example demonstrates the Bing Local Business Search API, which is part of Microsoft Cognitive Services on Azure. The API is a REST Web service compatible with any programming language that can make HTTP requests and parse JSON.
- 
-The example uses C# in a .NET Console application with minimal external dependencies.  You can also run it on Linux or Mac OS X using Mono.
+Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. While this simple application is written in C#, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+
+This example application gets local response data from the API for the search query `hotel in Bellevue`.
 
 ## Prerequisites
+
+* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.
 
-## Request 
+## Create the request 
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "restaurant in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
 
@@ -45,7 +50,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 ## Run complete application
 
 The Bing Local Search API returns local search results from the Bing search engine.
-1. Create a new Console solution in Visual Studio (the Community Edition is fine).
+1. Create a new Console solution in Visual Studio.
 2. Replace Program.cs with the code provided below.
 3. Replace the accessKey value with an access key valid for your subscription.
 4. Run the program.

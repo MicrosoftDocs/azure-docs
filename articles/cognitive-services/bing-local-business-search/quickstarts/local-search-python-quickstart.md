@@ -1,21 +1,25 @@
 ---
 title: Quickstart - Send a query to the Bing Local Business Search API in Python | Microsoft Docs
-description: Start using the Bing Local Business Search API in Python.
+description: Use this article to start using the Bing Local Business Search API in Python.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
 ms.component: bing-local-business
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ---
 # Quickstart: Send a query to the Bing Local Business Search API in Python
-This article uses Python to demonstrate the Bing Local Business Search API, which is part of Microsoft Cognitive Services on Azure. The API is a REST Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
-The following Python example gets localized search data from a query for *restaurant in Bellevue*.
+Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. While this simple application is written in Python, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+
+This example application gets local response data from the API for the search query `hotel in Bellevue`.
 
 ## Prerequisites
+
+* [Python](https://www.python.org/) 2.x or 3.x
+ 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. Use the access key provided by the free trial.
 
 ## Code scenario
