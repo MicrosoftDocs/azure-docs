@@ -14,6 +14,27 @@ ms.date: 10/24/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2018-11-5 
+	
+ ### Azure Machine Learning Data Prep SDK v0.4.0 
+ 
++ **New Features**
+  * Type Count added to Data Profile 
+  * Value Count and Histogram is now available
+  * More percentiles in Data Profile
+  * The Median is available in Summarize
+  * Python 3.7 is now supported
+  * When you save a dataflow that contains datastores to a DataPrep package, the datastore information will be persisted as part of the DataPrep package
+  * Writing to datastore is now supported 
+		
++ **Bug fixed**
+  * 64bit unsigned integer overflows are now handled properly on Linux
+  * Fixed incorrect text label for plain text files in smart_read
+  * String column type now shows up in metrics view
+  * Type count now is fixed to show ValueKinds mapped to single FieldType instead of individual ones
+  * Write_to_csv no longer fails when path is provided as a string
+  * When using Replace, leaving “find” blank will no longer fail 
+
 ## 2018-10-12
 
 ### Azure Machine Learning SDK for Python v0.1.68
