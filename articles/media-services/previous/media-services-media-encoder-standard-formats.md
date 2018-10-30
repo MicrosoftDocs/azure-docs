@@ -4,7 +4,7 @@ description: This topic gives an overview of Media Encoder Standard formats and 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako;anilmur
 
 ---
