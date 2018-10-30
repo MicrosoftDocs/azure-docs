@@ -13,6 +13,13 @@ Sign in to your Azure subscription with the `Connect-AzureRmAccount` command and
 Connect-AzureRmAccount
 ```
 
+If you don't know which location you want to use, you can list the available locations. Display the list of locations by using the following code example and find the one you want to use. This example uses **eastus**. Store the location in a variable and use the variable so you can change it in one place.
+
+```powershell
+Get-AzureRmLocation | select Location 
+$location = "eastus"
+```
+
 ## Create a resource group
 
 Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which you can deploy and manage Azure resources. 
@@ -20,13 +27,6 @@ Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/modul
 ```powershell
 $resourceGroup = "myResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
-```
-
-If you don't know which location you want to use, you can list the available locations. Display the list of locations by using the following code example and find the one you want to use. This example uses **eastus**. Store the location in a variable and use the variable so you can change it in one place.
-
-```powershell
-Get-AzureRmLocation | select Location 
-$location = "eastus"
 ```
 
 ## Create a storage account
