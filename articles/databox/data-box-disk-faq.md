@@ -53,21 +53,6 @@ A.  Data Box Disks are available in US, Canada, Australia, and all the countries
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
-### Q. How is Data Box Disk different from Import/Export service?
-A. The differences between the two solutions are tabulated below:
-
-   |                       |Data Box Disk                                                                                                                                                      |    Import/Export                                                                                                                                                                  |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Hardware               |Microsoft sends 8 TB (7 TB usable) SSDs <br> Up to 5 disks per order and 35 TB maximum per order. Can have 5 active orders at a time. For example, a maximum of 175 TB.     | Customer sends their own internal disks for ingestion. <br>Up to 10 disks per import job. For example, 10 TB x 10 disks = maximum 100 TB ingested per order.               | 
-|Interface              |USB 3.1/SATA                                                                                                                                                       | SATA II/III only                                                                                                                                                                  |  
-|Destination support    |Azure Blobs                                                                                                                                                        | Azure Blobs, Azure Files                                                                                                                                                          |  
-|Shipping               |Microsoft takes care of forward and return shipping.                | Customer has to take care of forward and return shipping.|
-|Ease of use            |Disks are pre-encrypted.<br>Disks require no preparation when customer receives the disks. <br>Simple drag and drop copy. <br>Easier and simpler to use compared to Import/Export service.|Pre-processing of disks is required. <br>Tool needed to copy and generate journal file.                                                                    |
-|Availability           |Preview in US, EU, Canada, Australia. Available for shipping immediately.                                                                                          | Generally Available (GA)                                                                                                                                                                            |
-|Data movement restrictions|Suitable for data movement within the commerce boundary (for example within EU only, within US only). The same is true for Australia and Canada.|Suitable when data needs to move across geographic boundaries (for example, US to EU). Support for within the region also available.|
-|Pricing                |[Preview pricing](https://azure.microsoft.com/pricing/details/storage/databox/disk/) applicable from November 1, 2018                                                                                                                    |[Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/) |
-
-
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please contact [Data Box Disk Support](mailto:expresspodsupport@microsoft.com).
 

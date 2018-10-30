@@ -50,7 +50,7 @@ Leave the command window open while you use the tutorial app; closing the window
 
 The CORS proxy approach described in the previous answer is appropriate for development, testing, and learning.
 
-In a production environment, however, you should host a server-side script on the same domain as the Web page that uses the Bing Web Search API. This script should actually do the API calls upon request from the Web page JavaScript and pass all results, including headers, back to the client. Since the two resources (page and script) share an origin, CORS does not come into play and the special headers are acessible to the JavaScript on the Web page.
+In a production environment, however, you should host a server-side script on the same domain as the Web page that uses the Bing Web Search API. This script should actually do the API calls upon request from the Web page JavaScript and pass all results, including headers, back to the client. Since the two resources (page and script) share an origin, CORS does not come into play and the special headers are accessible to the JavaScript on the Web page.
 
 This approach also protects your API key from exposure to the public, since only the server-side script needs it. The script can use another method to make sure the request is authorized.
 

@@ -3,7 +3,7 @@ title: Azure Event Hubs bindings for Azure Functions
 description: Understand how to use Azure Event Hubs bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
@@ -12,7 +12,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
-ms.author: glenga
+ms.author: cshoe
 
 ---
 # Azure Event Hubs bindings for Azure Functions
@@ -622,6 +622,36 @@ In JavaScript, access the output event by using `context.bindings.<name>`. `<nam
 | Binding | Reference |
 |---|---|
 | Event Hub | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+
+<a name="host-json"></a>  
+
+## host.json settings
+
+This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+
+> [!NOTE]
+> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "eventHubs": {
+            "batchCheckpointFrequency": 5,
+            "eventProcessorOptions": {
+                "maxBatchSize": 256,
+                "prefetchCount": 512
+            }
+        }
+    }
+}  
+```  
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|maxBatchSize|64|The maximum event count received per receive loop.|
+|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying EventProcessorHost.| 
+|batchCheckpointFrequency|1|The number of event batches to process before creating an EventHub cursor checkpoint.| 
 
 ## Next steps
 
