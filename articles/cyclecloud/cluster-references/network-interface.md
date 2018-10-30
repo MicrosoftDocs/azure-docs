@@ -6,19 +6,19 @@ author: KimliW
 ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 010/19/2018
 ms.author: a-kiwels
 ---
 
-# Network-Interface
+# Network Interface
 
-Network-interface objects are rank 3 and subordinate to `node` or `nodearray`. Network-interface represents an Azure Network Interface.
+Network Interface objects are rank 3, and subordinate to `node` or `nodearray`. `network-interface` represents an Azure Network Interface.
 
-## Example
+### Example
 
-Adding a `[[[network-interface]]]` section to a node adds controls to the default NIC. or can add additional NICs and attach them to a VM.
+Adding a `[[[network-interface]]]` section to a node adds controls to the default NIC. You can also add additional NICs and attach them to a VM.
 
-In this example, we attach a pre-existing NIC to a VM:
+In this example, we attach an existing NIC to a VM:
 
 ``` ini
 [cluster my-cluster]
@@ -38,8 +38,9 @@ The `$` is a reference to a parameter name.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-AssociatePublicIpAddress | Integer | Associate a public ip address with the NIC.
-EnableIpForwarding | Boolean | If true, allow ip forwarding.
-PrivateIp | IP Address | Assign a specific private ip address (node only)
-NetworkInterfaceId | String | Specify an existing NIC by resource ID.
+AssociatePublicIpAddress | Boolean | Associate a public IP address with the NIC
+StaticPublicIpAddress | Boolean | If true, the IP address will be persisted between node restarts
+EnableIpForwarding | Boolean | If true, allow IP forwarding
+PrivateIp | String | Assign a specific private IP address (node only)
+NetworkInterfaceId | String | Specify an existing NIC by resource ID
 ApplicationSecurityGroups | String (list) | List of Application Security Groups by Resource ID and separated by comma
