@@ -36,7 +36,7 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ### Release status 
 
-10/25/2018: Pending release
+10/25/2018:  released for download
 
  
 ### New features and improvements 

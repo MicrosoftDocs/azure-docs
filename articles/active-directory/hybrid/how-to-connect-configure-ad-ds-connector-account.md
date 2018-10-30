@@ -45,7 +45,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![Configure](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->![NOTE]
+>[!NOTE]
 >You can also copy the file **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.
 
 To start using the ADSyncConfig you need to load the module in a Windows PowerShell window: 
@@ -298,7 +298,5 @@ This cmdlet will set the following permissions:
 - [Azure AD Connect: Accounts and permissions](reference-connect-accounts-permissions.md)
 - [Express Installation](how-to-connect-install-express.md)
 - [Custom Installation](how-to-connect-install-custom.md)
-<<<<<<< HEAD
 - [ADSyncConfig Reference](reference-connect-adsyncconfig.md)
-=======
->>>>>>> 6409b8925e15df9d9c7daceb6890129a0469d4fc
+
