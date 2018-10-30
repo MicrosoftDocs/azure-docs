@@ -66,6 +66,8 @@
     maintainContext: true        
   - name: Event Hubs for Apache Kafka 
     items:
+      - name: Connect Apache Spark applications with Apache Kafka-enabled event hub
+        href: event-hubs-kafka-spark-tutorial.md
       - name: Mirror a Kafka broker in an Apache Kafka-enabled event hub
         href: event-hubs-kafka-mirror-maker-tutorial.md
       - name: Connect Apache Flink to an Apache Kafka-enabled event hub 
