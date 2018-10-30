@@ -1,6 +1,6 @@
 ---
-title: Geographic search | Microsoft Docs
-description: How to specify geographic boundaries for Local search API endpoint.
+title: Use geographic boundaries to filter results from the Bing Local Business Search API | Microsoft Docs
+description: Use this article to learn how to filter search results from the Bing Local Business Search API.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -11,38 +11,38 @@ ms.date: 08/02/2018
 ms.author: rosh, v-gedod
 ---
 
-# Geographic boundaries for Bing Local Search
-Search near a location with geographic boundaries.  Add coordinates as search parameters to search near a specific geographic area specified by either a circular area or square bounding box. Because the parameters are mutually exclusive, specify only one of them. 
+# Use geographic boundaries to filter results from the Bing Local Business Search API
 
-The `localCircularView` parameter sets a geographic coordinate by latitude and longitude and a radius. The coordinates define the center of the circle and the radius defines the size of circle to search. The response includes only places within the circle; the response does not include relevant places that are just outside the area.
+The Bing Local Business Search API enables you to set boundaries on the specific geographic area you'd like to search by using the `localCircularView` or `localMapView` query parameters. Be sure to use only one parameter in your queries. 
 
-The `localMapView` specifies the southeast and northwest coordinates of a box to search. The response includes relevant places within and just outside the specified area. Because the map view may include relevant places outside of the specified area, it may be advantageous to use it instead of the circular view.
+Note that if a search term contains an explicit geographic location, The Bing Local Business API will automatically use it to set boundaries for the search results. For example, if the search term is `sailing in San Diego`, then `San Diego` will be used as the location, and any other specified locations in the query parameters or user headers will be ignored. 
 
-If you do not specify a geographic location and the user is searching for a local business, Bing uses the user's current location to determine the area to search. Bing determines the user's location from the `X-Search-ClientIP` header or the `X-Search-Location` header. If neither is specified, Bing determines the location from client IP of the request or GPS for mobile devices.
-
-Bing ignores the specified location if the query includes a geographic location. For example, if the query is "sailing in San Diego," Bing uses San Diego as the location and ignores the location specified in the `localCircularView` or `localMapView` query parameter or the `X-Search-ClientIP` or `X-Search-Location` header.
-
-Search boundaries:
-1.	If the query string contains an explicit location, that takes precedence over location parameters.
-2.	If there is no explicit location in query string, but `localcircularview` is used, then the latter will be used.
-3.	If there is no explicit location in query string and there are no entities in the `localcircularview`, closest matched local entities are returned.
+If a geographic location isn't detected in the search term, and no geographic location is specified using the query parameters, The Bing Local Business Search API will attempt to determine location from the request's `X-Search-ClientIP` or `X-Search-Location` headers. If neither header is specified, The API will determine location from either the client IP of the request, or GPS for mobile devices.
 
 ## localCircularView
 
-To specify a circular geographic search, get the longitude and longitude coordinates of the center from a map or application. Define the radius of the search in meters.  Then, assign the coordinates and radius, for example: `localCircularView=47.6421,-122.13715,5000`.  
+The `localCircularView` parameter creates a circular geographic area around a set of latitude/longitude coordinates, defined by a radius. When using this parameter, responses from the Bing Local Business Search API will only include locations within this circle, unlike the `localMapView` parameter which may include locations slightly outside of the search area.
+
+To specify a circular geographic search area, pick a latitude and longitude to serve as the center of the circle, and a radius in meters. This parameter can then be appended to a query string, for example: `q=Restaurants&localCircularView=47.6421,-122.13715,5000`.
 
 Complete query:
+
 ````
-https://api.cognitive.microsoft.com/bing/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
+https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ````
 
 ## localMapView
-To specify a bounding box for geographic search, get the longitude/latitude coordinates of the southeast and northwest corners of the bounding box, then assign the coordinates to the `localMapView` parameter, southeast coordinates first, as in the following example: `localMapView=47.619987,-122.181671,47.6421,-122.13715`.  This box defines a rectangle bounded by the Microsoft visitor center in Redmond, WA and Lake Bellevue, WA.
+
+The `localMapView` parameter specifies a rectangular geographic area to search, using two sets of coordinates to specify its southeast and northwest corners. When using this parameter, responses from the Bing Local Business Search API may include locations within and just outside the specified area, unlike the `localCircularView` paramter, which only includes locations within the search area.
+
+To specify a rectangular search area, pick two sets of latitude/longitude coordinates to serve as the southeast and northwest corners of the boundary. Be sure to define the southeast coordinates first, as in the following example: `localMapView=47.619987,-122.181671,47.6421,-122.13715`.
 
 Complete query:
+
 ````
-https://api.cognitive.microsoft.com/bing/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
+https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ````
+
 ## Next steps
 - [Local Search Java Quickstart](quickstarts/local-search-java-quickstart.md)
 - [Local Search C# Quickstart](quickstarts/local-quickstart.md)
