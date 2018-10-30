@@ -8,7 +8,6 @@
   - name: What is Local Business Search?
     href: overview.md
 - name: Quickstarts  
-  expanded: true
   items: 
     - name: REST API   
       expanded: true 
@@ -22,7 +21,6 @@
       - name: Using Python 
         href: quickstarts/local-search-python-quickstart.md 
 - name: Concepts
-  expanded: true
   items:
   - name: Query and response
     href: local-search-query-response.md
@@ -31,14 +29,12 @@
   - name: Local categories search
     href: local-categories.md
 - name: Reference
-  expanded: true
   items:
   - name: Use and display requirements
     href: use-display-requirements.md
   - name: Local Business Search API reference
     href: local-search-reference.md
 - name: Resources
-  expanded: true
   items:
   - name: Try Cognitive Services
     href: https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api
