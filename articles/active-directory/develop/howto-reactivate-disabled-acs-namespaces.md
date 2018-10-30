@@ -34,13 +34,13 @@ If you haven't opted in for the extension, we will start to disable ACS namespac
 
 1. Download and install ACS PowerShell:
     1. Go to the PowerShell Gallery and download [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-    1. Install the module by running
+    1. Install the module:
 
         ```powershell
         Install-Module -Name Acs.Namespaces
         ```
 
-    1. Get a list of all possible commands by running
+    1. Get a list of all possible commands:
 
         ```powershell
         Get-Command -Module Acs.Namespaces
