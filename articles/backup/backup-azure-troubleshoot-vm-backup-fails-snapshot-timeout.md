@@ -75,11 +75,11 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 6: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
 
 ## Backup fails, due to restore point collection limit reached
-Error message: "The Restore Point collection max limit has reached." <br>
-Error code: "UserErrorRpCollectionLimitReached"
-We identified that your backup operation was failing due the lock on the recovery point resource group <add customer resource group name>, this lock prevents automatic cleanup of recovery point from the resource group. To resolve this issue we recommend you remove the lock on the resource group. </br>
+Error message: The Restore Point collection max limit has reached. <br>
+Error code: UserErrorRpCollectionLimitReached
+Backup operation was failing due the lock on the recovery point resource group, this lock prevents automatic cleanup of recovery point from the resource group. To resolve this issue you need to remove the lock on the resource group by completing the following troubleshooting steps in the order listed, and then retry your operation. </br>
 **Step 1: [Remove lock from the recovery point resource group](#remove_lock_from_the_recovery_point_resource_group)** </br>
-**Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**
+**Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**</br>
 
 ## Causes and solutions
 
@@ -199,7 +199,7 @@ Completing these steps causes the extension to be reinstalled during the next ba
 	![Delete lock ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a>Clean up restore point collection
-* Trigger an ad-hoc/manual backup. This operation will fail; however, it will automatic clean up of restore points to ensure your next scheduled backup succeeds.
+* Trigger an ad-hoc/manual backup. This operation will fail; however, it will automatically clean up all the restore points to ensure your next scheduled backup succeeds.
 
 	> [!NOTE]
 	> Automatically clean up will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup also fails with the same error, then as a last resort you can manually delete the restore point collection using the steps listed [here](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
@@ -217,7 +217,7 @@ This issue is specific to managed VMs in which the user locks the resource group
 To resolve the issue, remove the lock from the resource group and complete the following steps to remove the restore point collection:
  
 1. Sign in to the [Azure portal](http://portal.azure.com/).
-2. On the Hub menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
+2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 
 	![Delete lock ](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
