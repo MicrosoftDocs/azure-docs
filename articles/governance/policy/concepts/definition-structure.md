@@ -141,10 +141,10 @@ function syntax:
 
 ## Definition location
 
-While creating an initiative or policy definition, it is necessary to specify the definition
-location. The location must be a management group or a subscription and determines the scope to
-which the initiative or policy definition can be assigned to. Only resources that are children
-within the hierarchy of the location can be a target for assignment.
+While creating an initiative or policy, it is necessary to specify the definition location. The
+definition location must be a management group or a subscription and determines the scope to which
+the initiative or policy can be assigned. Resources must be direct members of or children within
+the hierarchy of the definition location to target for assignment.
 
 If the definition location is a:
 
@@ -284,8 +284,7 @@ example of auditing when a virtual machine extension is not deployed, see [Audit
 not exist](../samples/audit-ext-not-exist.md).
 
 The **DeployIfNotExists** effect requires the **roleDefinitionId** property in the **details**
-portion of the policy rule. For more information about **DeployIfNotExists** policy definition, see
-[Remediation - Configure policy
+portion of the policy rule. For more information, see [Remediation - Configure policy
 definition](../how-to/remediate-resources.md#configure-policy-definition).
 
 ```json
