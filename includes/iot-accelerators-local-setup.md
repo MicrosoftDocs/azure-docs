@@ -51,7 +51,14 @@ If you've not yet created the required Azure resources, follow these steps:
 
 1. In your command-line environment, navigate to the **\services\scripts\local\launch** folder in your cloned copy of the repository.
 
-1. Run the **start.cmd** script and follow the prompts. The script prompts you to sign in to your Azure account and then restart the script. The script then prompts you for the following information:
+1. Run the following commands to install the **pcs** CLI tool and sign in to your Azure account:
+
+    ```cmd
+    npm install -g iot-solutions
+    pcs login
+    ```
+
+1. Run the **start.cmd** script. The script prompts you for the following information:
     * A solution name.
     * The Azure subscription to use.
     * The location of the Azure datacenter to use.
