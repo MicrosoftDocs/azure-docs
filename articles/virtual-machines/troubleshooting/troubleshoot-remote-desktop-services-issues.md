@@ -125,7 +125,7 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
     When it failed, go ahead and terminate the Process Monitor trace:
 
         procmon /Terminate 
-5. Collect the file **c:\temp\ProcMonTrace.PML**, open it by using procmon, and then filter by Result is ACCESS DENIED as the following screenshot shows：
+5. Collect the file **c:\temp\ProcMonTrace.PML**, open it by using procmon, and then filter by **Result is ACCESS DENIED** as the following screenshot shows：
 
     ![Filter by Result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
