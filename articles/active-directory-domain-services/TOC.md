@@ -47,11 +47,11 @@
 ## [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
 ## [Update email notifications](active-directory-ds-notifications.md)
 # Configure secure LDAP for a managed domain
-## [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
-## [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-## [Task 3: enable secure LDAP for the managed domain using Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-## [Task 4: configure DNS to access the managed domain from the internet](active-directory-ds-ldaps-configure-dns.md)
-## [Task 5: bind to the managed domain and lock down secure LDAP access](active-directory-ds-ldaps-bind-lockdown.md)
+## [Task 1: Obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
+## [Task 2: Export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+## [Task 3: Enable secure LDAP for the managed domain using Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+## [Task 4: Configure DNS to access the managed domain from the internet](active-directory-ds-ldaps-configure-dns.md)
+## [Task 5: Bind to the managed domain and lock down secure LDAP access](active-directory-ds-ldaps-bind-lockdown.md)
 ## [Troubleshoot secure LDAP](active-directory-ds-ldaps-troubleshoot.md)
 
 # Troubleshoot

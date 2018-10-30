@@ -181,8 +181,8 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
   5. Click on **Subnets** in the left-hand navigation.
   6. Click on the subnet you wish to edit in the table.
   7. Update the address range and save your changes.
-3. Follow [the Getting Started Using Azure AD Domain Services guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
-4. To domain-join your virtual machines to your new domain, follow [this guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+3. Follow [the Getting Started Using Azure AD Domain Services guide](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
+4. To domain-join your virtual machines to your new domain, follow [this guide](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 
 ## AADDS111: Resources are locked
@@ -193,7 +193,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 **Resolution:**
 
-1.	Review ARM operation logs on the network resources (this should give info on which lock is preventing modification).
+1.	Review Resource Manager operation logs on the network resources (this should give info on which lock is preventing modification).
 2.	Remove the locks on the resources so that the Azure AD Domain Services service principal can operate on them.
 
 
@@ -205,7 +205,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 **Resolution:**
 
-1.	Review ARM operation logs on the network resources for your managed domain
+1.	Review Resource Manager operation logs on the network resources for your managed domain
 2.	Weaken the policy restrictions on the resources so that the AAD-DS service principal can operate on them.
 
 ## AADDS113: Resources are unrecoverable
