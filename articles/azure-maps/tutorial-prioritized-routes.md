@@ -3,7 +3,7 @@ title: Multiple routes with Azure Maps | Microsoft Docs
 description: Find routes for different modes of travel using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/25/2018
+ms.date: 10/29/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -83,7 +83,7 @@ The following steps show you how to create a static HTML page embedded with the 
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
-4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further. 
+4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further.
 
    ![View basic map](./media/tutorial-prioritized-routes/basic-map.png)
 
@@ -161,7 +161,7 @@ For this tutorial, set the start point as a fictitious company in Seattle called
 
 ## Render routes prioritized by mode of travel
 
-This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following code blocks should be added **within the map load eventListener** to ensure that they load after the map loads fully.
+This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [GetRoute Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following code blocks should be added **within the map load eventListener** to ensure that they load after the map loads fully.
 
 1. First, add a new layer on the map to display the route path, or *linestring*. In this tutorial, there are two different routes, **car-route** and **truck-route**, each with their own styling. Add the following JavaScript code to the *script* block:
 
@@ -268,4 +268,4 @@ To learn more about the coverage and capabilities of Azure Maps:
 To see more code examples and an interactive coding experience:
 
 > [!div class="nextstepaction"]
-> [How to use the map control](how-to-use-map-control.md)
+> [How to use the map control](how-to-use-map-control.md)tu

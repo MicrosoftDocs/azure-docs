@@ -152,6 +152,8 @@
       href: how-to-connect-fed-ssl-update.md
     - name: Manage the AD FS trust with Azure AD
       href: how-to-connect-azure-ad-trust.md
+    - name: Change hash algorithm for O365 RP
+      href: how-to-connect-fed-sha256-guidance.md
     - name: Azure AD federation compatibility list
       href: how-to-connect-fed-compatibility.md
     - name: Use a SAML 2.0 server as your Idp
