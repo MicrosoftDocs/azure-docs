@@ -1,6 +1,6 @@
 ---
 title: Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell | Microsoft Docs
-description: Learn how to create a self-hosted integration runtime in Azure Data Factory, which allows data factories to access data stores in a private network.
+description: Learn how to create a shared self-hosted integration runtime in Azure Data Factory, which lets multiple data factories access the integration runtime.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
