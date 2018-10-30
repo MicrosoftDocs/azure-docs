@@ -4,7 +4,7 @@ description: Set up an ADF pipeline that composes two data migration activities 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 36837c83-2015-48be-b850-c4346aa5ae8a

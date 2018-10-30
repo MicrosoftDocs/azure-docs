@@ -161,7 +161,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
-* Double check that the following Log Analytics service endpoints are whitelisted:
+* Double check that the following Log Analytics endpoints are whitelisted:
 
     |Agent Resource| Ports | Direction |
     |------|---------|----------|  

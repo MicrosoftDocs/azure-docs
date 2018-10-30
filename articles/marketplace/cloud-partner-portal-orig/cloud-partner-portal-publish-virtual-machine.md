@@ -39,7 +39,7 @@ The following technical and non-technical prerequisites apply to publishing a vi
 
 -   [How to troubleshoot common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
 
--   [Security recommendations for Azure Marketplace     images](https://docs.microsoft.com/en-us/azure/security/security-recommendations-azure-marketplace-images)
+-   [Security recommendations for Azure Marketplace     images](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### Non-technical (business requirements)

@@ -4,7 +4,7 @@ description: Create Hive tables and load data in blob to hive tables
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90

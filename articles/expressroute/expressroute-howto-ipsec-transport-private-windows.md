@@ -2,12 +2,12 @@
 title: 'Configure IPsec transport mode for Windows hosts - Azure ExpressRoute private peering | Microsoft Docs'
 description: How to enable IPsec transport mode between Azure Windows VMs and on-premises Windows hosts through ExpressRoute private peering using GPOs and OUs.
 services: expressroute
-author:  cherylmc
+author: fabferri
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: cherylmc
+ms.date: 10/17/2018
+ms.author: fabferri
 
 ---
 # Configure IPsec transport mode for ExpressRoute private peering

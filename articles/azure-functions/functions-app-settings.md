@@ -14,7 +14,7 @@ ms.author: glenga
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in environment variables. This article lists the app settings that are available in function apps.
+App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in [environment variables](functions-run-local.md#local-settings-file). This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -77,11 +77,11 @@ The path to the root directory where the *host.json* file and function folders a
 
 ## AzureWebJobsSecretStorageType
 
-Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob ("Blob") and file system ("disabled"). The default is file system ("disabled").
+Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 1 and file system in version 2. Note that in version 1 file system will only work for functions running in an app service plan.
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsSecretStorageType|disabled|
+|AzureWebJobsSecretStorageType|Files|
 
 ## AzureWebJobsStorage
 

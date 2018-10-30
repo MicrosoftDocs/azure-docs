@@ -175,7 +175,9 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 
 ## Next steps
 
-In this quickstart, you deployed a simple Stream Analytics job. To learn about configuring other input sources and performing real-time detection, continue to the following article:
+In this quickstart, you deployed a simple Stream Analytics job using Azure portal. You can also deploy Stream Analytics jobs using [PowerShell](stream-analytics-quick-create-powershell.md) and [Visual Studio](stream-analytics-quick-create-vs.md).
+
+To learn about configuring other input sources and performing real-time detection, continue to the following article:
 
 > [!div class="nextstepaction"]
 > [Real-time fraud detection using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
