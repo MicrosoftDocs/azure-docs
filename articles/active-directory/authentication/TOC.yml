@@ -106,7 +106,6 @@
     - name: Configure the banned password list
       href: howto-password-ban-bad-configure.md
     - name: On-premises integration
-      href: howto-password-ban-bad-on-premises-overview.md
       items:
       - name: Deploy Azure AD password protection
         href: howto-password-ban-bad-on-premises-deploy.md
