@@ -47,7 +47,6 @@
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
