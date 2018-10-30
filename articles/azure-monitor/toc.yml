@@ -654,6 +654,10 @@
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query log data
       items:
+      - name: Query language Documentation
+        href: ../log-analytics/query-language/query-language.md
+      - name: Language differences
+        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -690,23 +694,23 @@
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
       - name: Query language
         items:
-        - name: Language reference
-          href: ../log-analytics/query-language/kusto.md?toc=/azure/azure-monitor/toc.json
         - name: Examples
           href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
+        - name: Cross-resource searches
+          href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
         - name: app expression
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: workspace expression
           href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
-      - name: Application data
-        href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
-      - name: Standard properties
-        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
-      - name: Cross-resource searches
-        href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+      - name: Log data
+        items:
+        - name: Application data
+          href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+        - name: Standard properties
+          href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Take action from search results
         href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
-      - name: Use computer groups
+      - name: Computer groups
         href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
       - name: Flow connector
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
