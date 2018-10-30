@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: 
 ---
 
 # Analyze Log Analytics data in Azure Monitor
 
-Log data collected by Azure Monitor is stored in Log Analytics which collects telemetry and other data from a variety of sources and provides a query language for advanced analytics.
+Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/data-explorer). It collects telemetry from a variety of sources and uses the [query language from Data Explorer](/kusto) to retrieve and analyze data.
 
 > [!NOTE]
 > Log Analytics was previously treated as its own service in Azure. It is now considered a part of Azure Monitor and focuses on storage and analysis of log data using its query language. Features that were considered part of Log Analytics, such as Windows and Linux agents for data collection, views to visualize existing data, and alerts to proactively notify you of issues, have not changed but are now considered part of Azure Monitor.
@@ -47,7 +47,7 @@ The different ways that you will use queries in Log Analytics include the follow
 ![Log searches](media/log-analytics-queries/queries-overview.png)
 
 ## Write a query
-Log Analytics includes [an extensive query language](query-language/get-started-queries.md) that lets you retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
+Log Analytics uses [a version of the Data Explorer query language](query-language/get-started-queries.md) to retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
 
 The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions.
 
