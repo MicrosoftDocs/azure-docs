@@ -97,10 +97,15 @@ For a full description of available tags for the Recognize Text container, see [
 
 ## Instantiate a container from a downloaded container image
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command instantiates a container from the Recognize Text container image, allocating 1 CPU and 4 gigabytes (GB) of memory, exposing TCP port 5000 and allocating a pseudo-TTY for the container, and automatically removing the container after it exits.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command:
+
+* Instantiates an container from the Recognize Text container image
+* Allocates two CPU cores and 8 gigabytes (GB) of memory
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Automatically removes the container after it exits
 
   ```docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text
+  docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text
   ```
 
 Once instantiated, you can perform operations with the container by using the container's host URI. For example, the following host URI represents the Recognize Text container that was instantiated in the previous example:

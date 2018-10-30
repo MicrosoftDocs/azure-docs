@@ -95,10 +95,15 @@ For a full description of available tags for the Face container, see [Recognize 
 
 ## Instantiate a container from a downloaded container image
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command instantiates a container from the Face container image, allocating 1 CPU and 4 gigabytes (GB) of memory, exposing TCP port 5000 and allocating a pseudo-TTY for the container, and automatically removing the container after it exits.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command:
+
+* Instantiates an container from the Face container image
+* Allocates two CPU cores and 6 gigabytes (GB) of memory
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Automatically removes the container after it exits
 
   ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
+  docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
   ```
 
 > [!IMPORTANT]
