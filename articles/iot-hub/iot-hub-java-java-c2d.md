@@ -41,7 +41,7 @@ To complete this tutorial, you need the following:
 
 * A complete working version of the [Send telemetry from a device to a Hub (Java)](quickstart-send-telemetry-java.md) or the [Configure message routing with IoT Hub](tutorial-routing.md) tutorial.
 
-* The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* The latest [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 
