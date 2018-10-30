@@ -8,7 +8,7 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: ayoolubeko
+author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
