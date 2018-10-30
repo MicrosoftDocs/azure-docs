@@ -192,7 +192,7 @@
           href: programming.md
         - name: SQL data partitioning
           href: sql-api-partition-data.md
-       - name: Troubleshoot 
+      - name: Troubleshoot 
         items:
         - name: Troubleshoot Java Async SDK 
           href: troubleshoot-java-async-sdk.md
