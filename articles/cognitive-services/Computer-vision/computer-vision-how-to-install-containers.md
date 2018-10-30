@@ -30,9 +30,9 @@ Docker must be configured to allow the containers to connect with and send billi
 
 **Familiarity with Microsoft Container Registry and Docker**: You should have a basic understanding of both Microsoft Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.  
 
-* For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
-### Server Requirements and Recommendations
+### Server requirements and recommendations
 
 The Recognize Text container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz) or faster, and 8 gigabytes (GB) of allocated memory, but we recommend at least 2 CPU cores and 8 GB of allocated memory.
 
@@ -41,7 +41,7 @@ The Recognize Text container requires a minimum of 1 CPU core, at least 2.6 giga
 You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Recognize Text container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]
-> You must specify an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (AAD) account in the form.
+> You must specify an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
 
 If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
 
@@ -54,7 +54,7 @@ Perform the following steps to create and retrieve information from an Azure res
 1. Create an Azure resource in the Azure portal.  
    If you want to use the Recognize Text container, you must first create a corresponding Computer Vision resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](../cognitive-services-apis-create-account.md).
 
-   > **Important:** The Computer Vision resource must use the F0 pricing tier.
+   **Important:** The Computer Vision resource must use the F0 pricing tier.
 
 1. Get the endpoint URL and subscription key for the Azure resource.  
    Once the Azure resource is created, you must use the endpoint URL and subscription key from that resource to instantiate the corresponding Recognize Text container. You can copy the endpoint URL and subscription key from, respectively, the Quick Start and Keys pages of the Computer Vision resource on the Azure portal.
@@ -109,7 +109,8 @@ Once instantiated, you can perform operations with the container by using the co
   http://localhost:5000/
   ```
 
-> **Important:** You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Recognize Text container that was instantiated in the previous example:
+> [!IMPORTANT]
+> You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Recognize Text container that was instantiated in the previous example:
 >
 >  ```http
 >  http://localhost:5000/swagger
@@ -119,11 +120,11 @@ You can either [call the REST API operations](https://docs.microsoft.com/azure/c
 > [!IMPORTANT]
 > You must have Azure Cognitive Services Computer Vision SDK version 3.2.0 or later if you want to use the client library with your container.
 
-### Asynchronously recognizing text
+### Asynchronous text recognition
 
 You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOperations/*{id}*` operations in concert to asynchronously recognize printed text in an image, similar to how the Computer Vision service uses those corresponding REST operations. The Recognize Text container only recognizes printed text, not handwritten text, at this time, so the `mode` parameter normally specified for the Computer Vision service operation is ignored by the Recognize Text container.
 
-### Synchronously recognizing text
+### Synchronous text recognition
 
 You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as that for the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
 
@@ -152,13 +153,9 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You can use either the REST API or SDK to invoke operations in Computer Vision containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
-## See also
-
-[Computer Vision overview](Home.md)  
-[Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
-[Frequently asked questions (FAQ)](FAQ.md)</br>
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configuring Computer Vision containers](computer-vision-resource-container-config.md)
+* Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
+* Review [Computer Vision overview](Home.md) to learn more about recognizing printed and handwritten text  
+* Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
+* Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.

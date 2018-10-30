@@ -28,9 +28,9 @@ Docker must be configured to allow the containers to connect with and send billi
 
 **Familiarity with Microsoft Container Registry and Docker**: You should have a basic understanding of both Microsoft Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.  
 
-* For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
-### Server Requirements and Recommendations
+### Server requirements and recommendations
 
 The Face container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz) or faster, and 4 gigabytes (GB) of allocated memory, but we recommend at least 2 CPU cores and 6 GB of allocated memory.
 
@@ -39,7 +39,7 @@ The Face container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz
 You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Face container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]
-> You must specify an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (AAD) account in the form.
+> You must specify an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
 
 If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
 
@@ -52,7 +52,7 @@ Perform the following steps to create and retrieve information from an Face reso
 1. Create an Face resource in the Azure portal.  
    If you want to use the Face container, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](../cognitive-services-apis-create-account.md).
 
-   > **Important:** The Face resource must use the F0 pricing tier.
+   **Important:** The Face resource must use the F0 pricing tier.
 
 1. Get the endpoint URL and subscription key for the Azure resource.  
    Once the Azure resource is created, you must use the endpoint URL and subscription key from that resource to instantiate the corresponding Face container. You can copy the endpoint URL and subscription key from, respectively, the Quick Start and Keys pages of the Face resource on the Azure portal.
@@ -135,7 +135,7 @@ If you wanted to use a Face container running on your local machine under its de
 
 ### Billing
 
-The Face container sends billing information to Azure, using a corresponding Face resource on your Azure account. The following command line options are used by the Face container for billing purposes:
+The Face container sends billing information to Azure, using a corresponding Face resource on your Azure account. The following command-line options are used by the Face container for billing purposes:
 
 | Option | Description |
 |--------|-------------|
@@ -158,13 +158,9 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You can use either the REST API or SDK to invoke operations in Face containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
-## See also
-
-[Face overview](Overview.md)  
-[Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-[Frequently asked questions (FAQ)](FAQ.md)</br>
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configuring Face containers](face-resource-container-config.md)
+* Review [Configure containers](face-resource-container-config.md) for configuration settings
+* Review [Face overview](Overview.md) to learn more about detecting and identifying faces  
+* Refer to the [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for details about the methods supported by the container.
+* Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Face functionality.

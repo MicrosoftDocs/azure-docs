@@ -21,7 +21,7 @@ Text Analytics provides the following set of Docker containers, each of which co
 | Container| Description |
 |----------|-------------|
 |Key Phrase Extraction | Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
-|Language Detection | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
+|Language Detection | For up to 120 languages, detects and reports in which language the input text is written, and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 |Sentiment Analysis | Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
 
 ## Preparation
@@ -34,9 +34,9 @@ Docker must be configured to allow the containers to connect with and send billi
 
 **Familiarity with Microsoft Container Registry and Docker**: You should have a basic understanding of both Microsoft Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.  
 
-* For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
-### Server Requirements and Recommendations
+### Server requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
@@ -81,7 +81,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
   ```
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` command line options must be specified to instantiate the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The `Eula`, `Billing`, and `ApiKey` command-line options must be specified to instantiate the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
 Once instantiated, you can perform operations with the container by using the container's host URI. For example, the following host URI represents the Sentiment Analysis container that was instantiated in the previous example:
 
@@ -114,7 +114,7 @@ If you wanted to use a Key Phrase Extraction container running on your local mac
 
 ### Billing
 
-The Text Analytics containers send billing information to Azure, using a corresponding Text Analytics resource on your Azure account. The following command line options are used by the Text Analytics containers for billing purposes:
+The Text Analytics containers send billing information to Azure, using a corresponding Text Analytics resource on your Azure account. The following command-line options are used by the Text Analytics containers for billing purposes:
 
 | Option | Description |
 |--------|-------------|
@@ -137,14 +137,9 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You can use either the REST API or SDK to invoke operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
-## See also
-
- [Text Analytics overview](../overview.md)  
- [Text Analytics API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712) 
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure containers](../text-analytics-resource-container-config.md)
+* Review [Configure containers](../text-analytics-resource-container-config.md) for configuration settings
+* Review [Text Analytics overview](../overview.md) to learn more about key phrase detection, language detection, and sentiment analysis  
+* Refer to the [Text Analytics API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) for details about the methods supported by the container.
+* Refer to [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md) to resolve issues related to Computer Vision functionality.

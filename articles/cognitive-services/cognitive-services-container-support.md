@@ -50,7 +50,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759)) |For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
 
-## Pulling containers for Azure Cognitive Services
+## Container availability for Azure Cognitive Services
 
 Azure Cognitive Services containers are publicly available through your Azure subscription, and Docker container images can be pulled from either the Microsoft Container Registry or Docker Hub. You can use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the appropriate registry.
 
@@ -67,7 +67,7 @@ Docker must be configured to allow the containers to connect with and send billi
 
 **Familiarity with Microsoft Container Registry and Docker**: You should have a basic understanding of both Microsoft Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.  
 
-* For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 Individual containers can have their own requirements, as well, including server and memory allocation requirements.
 
