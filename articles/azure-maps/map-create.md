@@ -3,7 +3,7 @@ title: Create a map with Azure Maps | Microsoft Docs
 description: How to create a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 10/29/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -17,7 +17,7 @@ This article shows you ways to create a map and animate a map.
 
 ## Understand the code
 
-There are two ways you can construct a map. You can set the camera of the map by specifying the center point and zoom level or you can set the camera bounds of the map by specifying the southwest bounding point and northeast bounding point.
+There are two ways you can construct a map. You can set the camera of the map by specifying the center point and zoom level or you can set the camera bounds of the map by specifying the southwest and northeast bounding points.
 
 <a id="setCameraOptions"></a>
 
@@ -44,7 +44,7 @@ In the code above, a [Map object](https://docs.microsoft.com/javascript/api/azur
 
 In the code above, the first code block creates a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) via `new atlas.Map()`. Map properties such as center and zoom level are part of [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest). `CameraOptions` can be defined in the Map constructor or via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) function of the Map class. The [map style](https://review.docs.microsoft.com/azure/azure-maps/supported-map-styles?branch=pr-en-us-54960) is set to `road`.
 
-The second code block creates an animate map function, which animates change in map view by defining [AnimateOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.animationoptions?view=azure-iot-typescript-latest) via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) function. The function is triggered by the 'Animate Map' button to create random center point and zoom level upon each click.
+The second code block creates an animate map function, which animates change in map view by defining [AnimateOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.animationoptions?view=azure-iot-typescript-latest) via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) function. The function is triggered by the 'Animate Map' button to generate a random zoom level upon each click.
 
 ## Try out the code
 
