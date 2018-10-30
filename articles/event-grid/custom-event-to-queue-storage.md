@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/09/2018
+ms.date: 10/30/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -14,6 +14,8 @@ ms.service: event-grid
 Azure Event Grid is an eventing service for the cloud. Azure Queue storage is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to the Queue storage.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -33,7 +35,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it is represented by a DNS entry.
+An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it's represented by a DNS entry.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -66,16 +68,17 @@ The following script gets the resource ID of the storage account for the queue. 
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
 queueid="$storageid/queueservices/default/queues/$queuename"
+topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicid \
   --name <event_subscription_name> \
   --endpoint-type storagequeue \
-  --endpoint $queueid
+  --endpoint $queueid \
+  --expiration-date "2018-11-30"
 ```
 
-The account that creates the event subscription must have write access to the queue storage.
+The account that creates the event subscription must have write access to the queue storage. Notice an expiration date is set for the subscription. The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time.
 
 If you use the REST API to create the subscription, you pass the ID of the storage account and the name of the queue as a separate parameter.
 
