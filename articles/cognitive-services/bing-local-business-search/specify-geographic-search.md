@@ -1,5 +1,6 @@
 ---
 title: Use geographic boundaries to filter results from the Bing Local Business Search API | Microsoft Docs
+titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to filter search results from the Bing Local Business Search API.
 services: cognitive-services
 author: mikedodaro

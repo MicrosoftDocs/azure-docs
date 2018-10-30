@@ -1,18 +1,20 @@
 ---
 title: Local Categories search | Microsoft Docs
-description: How to specify categories for Local search API endpoint.
+description: Use this article to learn how to specify search categories for the Bing Local Business search API endpoint.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
 ms.component: bing-local-business
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ---
 
 # Categories for Bing Local Search
 Search for local business entities by category. This feature works with the user’s implicit RevIP location and also with `localCircularView` and `localMapView` parameters.
+
 ## Examples of Local Categories search
 The following examples get results according to the `localCategories` parameter:
 
