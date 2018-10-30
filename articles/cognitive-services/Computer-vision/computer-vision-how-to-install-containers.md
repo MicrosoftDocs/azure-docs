@@ -20,6 +20,8 @@ The Recognize Text portion of Computer Vision is also available as a Docker cont
 > [!IMPORTANT]
 > The Recognize Text container currently works only with English.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Preparation
 
 You must meet the following prerequisites before using the Recognize Text container:
