@@ -71,11 +71,11 @@ A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 
 The last block of code adds the polygon and line layers to the map. The data source and the layers are created and added to the map within the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) function to ensure that the polygon is displayed after the map loads fully.
 
-
 ## Update a shape
 
 A Shape class wraps a [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) or [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) and makes it easy to update and maintain them.
 `new Shape(data: Feature<data.Geometry, any>)` constructs a shape object and initializes it with the specified feature.
+
 
 
 <iframe height='500' scrolling='no' title='Update shape properties' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>Update shape properties</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
