@@ -14,13 +14,13 @@ ms.author: v-deken
 
 # Install and run containers
 
-Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can then be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
+Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
 
 Face provides a standardized Linux container for Docker, named Face, which detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.
 
 ## Preparation
 
-You must satisfy the following prerequisites before using the Face container:
+You must meet the following prerequisites before using the Face container:
 
 **Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
@@ -39,7 +39,7 @@ The Face container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz
 You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Face container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]
-> You must specify an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
+> You must use an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
 
 If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
 
@@ -97,7 +97,7 @@ For a full description of available tags for the Face container, see [Recognize 
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command:
 
-* Instantiates an container from the Face container image
+* Instantiates a container from the Face container image
 * Allocates two CPU cores and 6 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits
@@ -109,7 +109,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to instantiate the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Once instantiated, you can perform operations with the container by using the container's host URI. For example, the following host URI represents the Face container that was instantiated in the previous example:
+Once instantiated, you can call operations from the container by using the container's host URI. For example, the following host URI represents the Face container that was instantiated in the previous example:
 
   ```http
   http://localhost:5000/
@@ -122,17 +122,17 @@ Once instantiated, you can perform operations with the container by using the co
 >  http://localhost:5000/swagger
 >  ```
 
-You can either [call the REST API operations](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage) available from your container, or use the [Azure Cognitive Services Face Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/) client library to invoke those operations.  
+You can either [call the REST API operations](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage) available from your container, or use the [Azure Cognitive Services Face Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/) client library to call those operations.  
 > [!IMPORTANT]
 > You must have Azure Cognitive Services Face Client Library version 2.0 or later if you want to use the client library with your container.
 
-The only difference between performing a given operation from your container and performing that same operation from a corresponding service on Azure is that you'll use the host URI of your container, rather than the host URI of an Azure region, to perform the operation. For example, if you wanted to use a Face instance running in the West US Azure region to detect faces, you would perform the following REST API operation:
+The only difference between calling a given operation from your container and calling that same operation from a corresponding service on Azure is that you'll use the host URI of your container, rather than the host URI of an Azure region, to call the operation. For example, if you wanted to use a Face instance running in the West US Azure region to detect faces, you would call the following REST API operation:
 
   ```http
   POST https://westus.api.cognitive.microsoft.com/face/v1.0/detect
   ```
 
-If you wanted to use a Face container running on your local machine under its default configuration to detect faces, you would perform the following REST API operation:
+If you wanted to use a Face container running on your local machine under its default configuration to detect faces, you would call the following REST API operation:
 
   ```http
   POST http://localhost:5000/face/v1.0/detect
@@ -160,7 +160,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Face provides one Linux container for Docker, named Face, to detect faces or identify faces using a people database.
 * Container images are downloaded from a private container registry in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to invoke operations in Face containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Face containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 ## Next steps
