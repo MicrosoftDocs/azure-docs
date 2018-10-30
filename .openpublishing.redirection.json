@@ -141,6 +141,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-sharing-accounts.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/users-sharing-accounts",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
             "redirect_document_id": true
@@ -347,6 +352,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/multi-master-conflict-resolution.md",
+            "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/distribute-data-globally-benefits.md",
+            "redirect_url": "/azure/cosmos-db/distribute-data-globally",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/enable-multi-master.md",
+            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": true
+        }, 
+        {
+            "source_path": "articles/cosmos-db/distribute-data-globally-turnkey.md",
+            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": false
+        }, 
+        {
             "source_path": "articles/cognitive-services/Computer-vision/Research.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision",
             "redirect_document_id": false
@@ -355,6 +380,11 @@
             "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/regional-failover.md",
+            "redirect_url": "/azure/cosmos-db/high-availability",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/search/search-howto-index-documentdb.md",
@@ -7775,6 +7805,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/multi-master-oss-nosql.md",
+            "redirect_url": "/azure/cosmos-db/consistency-levels-across-apis",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/multi-region-writers.md",
             "redirect_url": "/azure/cosmos-db/enable-multi-master",
             "redirect_document_id": false
@@ -10027,6 +10062,11 @@
         {
             "source_path": "articles/log-analytics/log-analytics-service-fabric-azure-resource-manager.md",
             "redirect_url": "https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/query-language/kusto.md",
+            "redirect_url": "azure/log-analytics/query-language/query-language",
             "redirect_document_id": false
         },
         {
