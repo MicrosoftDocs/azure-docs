@@ -16,7 +16,7 @@ ms.author: v-deken
 
 The Face container uses a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 
-## Specifying configuration settings
+## Configuration settings
 
 Configuration settings in the Face container are hierarchical, and all containers use a shared hierarchy, based on the following top-level structure:
 
@@ -30,11 +30,11 @@ Configuration settings in the Face container are hierarchical, and all container
 * [Logging](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
-You can use either [environment variables](#specifying-configuration-settings-as-environment-variables) or [command-line arguments](#specifying-configuration-settings-as-command-line-arguments) to specify configuration settings when instantiating a Face container.
+You can use either [environment variables](#configuration-settings-as-environment-variables) or [command-line arguments](#configuration-settings-as-command-line-arguments) to specify configuration settings when instantiating a Face container.
 
 Environment variable values override command-line argument values, which in turn override the default values for the container image. In other words, if you specify different values in an environment variable and a command-line argument for the same configuration setting, such as `Logging:Disk:LogLevel`, then instantiate a container, the value in the environment variable is used by the instantiated container.
 
-### Specifying configuration settings as environment variables
+### Configuration settings as environment variables
 
 You can use the [ASP.NET Core environment variable syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) to specify configuration settings.
 
@@ -47,7 +47,7 @@ For example, the following commands use an environment variable to configure the
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
   ```
 
-### Specifying configuration settings as command-line arguments
+### Configuration settings as command-line arguments
 
 You can use the [ASP.NET Core command-line argument syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) to specify configuration settings.
 
