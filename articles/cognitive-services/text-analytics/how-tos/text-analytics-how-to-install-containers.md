@@ -24,6 +24,8 @@ Text Analytics provides the following set of Docker containers, each of which co
 |Language Detection | For up to 120 languages, detects and reports in which language the input text is written. The container reports a single language code for every document that's included in the request. The language code is paired with a score indicating the strength of the score. |
 |Sentiment Analysis | Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Preparation
 
 You must meet the following prerequisites before using Text Analytics containers:
@@ -87,6 +89,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789
+
 ```
 
 > [!IMPORTANT]

@@ -18,6 +18,8 @@ Containerization is an approach to software distribution in which an application
 
 Face provides a standardized Linux container for Docker, named Face, which detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Preparation
 
 You must meet the following prerequisites before using the Face container:
