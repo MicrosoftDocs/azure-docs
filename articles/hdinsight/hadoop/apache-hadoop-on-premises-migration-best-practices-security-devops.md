@@ -56,7 +56,7 @@ For more information, see the following articles:
 
 End to end enterprise security can be achieved using the following controls:
 
-- **Private and protected data pipeline** (perimeter level security):
+- **Private and protected data pipeline (perimeter level security)**
     - Perimeter level Security can be achieved through Azure Virtual Networks, Network Security Groups, and Gateway service
 
 - **Authentication and authorization for data access**
@@ -91,14 +91,14 @@ For more information, see the article:
 
 Regularly upgrade to the latest HDInsight version to take advantage of the latest features. The following steps can be used to upgrade the cluster to the latest version:
 
-- Create a new TEST HDI cluster using the latest available HDI version.
-- Test on the new cluster to make sure that the jobs and workloads work as expected.
-- Modify jobs or applications or workloads as required.
-- Back up any transient data stored locally on the cluster nodes.
-- Delete the existing cluster.
-- Create a cluster of the latest HDInsight version in the same VNET subnet, using the same default data and meta store as the previous cluster.
-- Import any transient data that was backed up.
-- Start jobs/continue processing using the new cluster.
+1. Create a new TEST HDI cluster using the latest available HDI version.
+1. Test on the new cluster to make sure that the jobs and workloads work as expected.
+1. Modify jobs or applications or workloads as required.
+1. Back up any transient data stored locally on the cluster nodes.
+1. Delete the existing cluster.
+1. Create a cluster of the latest HDInsight version in the same VNET subnet, using the same default data and meta store as the previous cluster.
+1. Import any transient data that was backed up.
+1. Start jobs/continue processing using the new cluster.
 
 For more information, see the article: [Upgrade HDInsight cluster to a new version](../hdinsight-upgrade-cluster.md)
 
@@ -110,17 +110,17 @@ For more information, see the article: [OS patching for HDInsight](../hdinsight-
 
 ## Post-Migration
 
-1. **Remediate applications** - Iteratively make the necessary changes to the jobs, processes, and scripts
-2. **Perform Tests** - Iteratively run functional and performance tests
+1. **Remediate applications** - Iteratively make the necessary changes to the jobs, processes, and scripts.
+2. **Perform Tests** - Iteratively run functional and performance tests.
 3. **Optimize** - Address any performance issues based on the above test results and then retest to confirm the performance improvements.
 
 ## Appendix: gathering details to prepare for a migration
 
 This section provides template questionnaires to help gather important information about:
 
-- The on-premises deployment.
-- Project details.
-- Azure requirements.
+- The on-premises deployment
+- Project details
+- Azure requirements
 
 ### On-Premises deployment questionnaire
 
