@@ -1,6 +1,7 @@
 ---
 title: Local Business Categories search | Microsoft Docs
 description: How to specify categories for Local Business Search API endpoint.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -12,7 +13,7 @@ ms.author: rosh, v-gedod
 ---
 
 # Categories for Bing Local Business Search
-Search for local business entities by category. This feature works with the user’s implicit RevIP location and also with `localCircularView` and `localMapView` parameters.
+Search for local business entities by category. This feature gives priority to results near the user's location. Location may be determined by RevIP location, GPS coordinates of mobil devices, and can also use `localCircularView` and `localMapView` parameters.
 ## Examples of Local Business Categories search
 The following examples get results according to the `localCategories` parameter:
 
@@ -168,20 +169,25 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 ### Eat Drink 
 |  |  |  |  |
 | - | - | - | - |
-| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants | AmericanRestaurants |
-| Bagels | BarbecueRestaurants | Taverns | SportsBars | 
-| Bars | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
-| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants | ChineseRestaurants | 
-| CoffeeAndTea | Delicatessens | DeliveryService | Diners | 
-| DiscountStores | Donuts | FastFood | FrenchRestaurants | 
-| FrozenYogurt | GermanRestaurants | Supermarkets | GreekRestaurants | 
-| Grocers | HawaiianRestaurants | HungarianRestaurants | IceCreamAndFrozenDesserts | 
-| IndianRestaurants | ItalianRestaurants | JapaneseRestaurants | Juices | 
-| KoreanRestaurants | LiquorStores | MexicanRestaurants | MiddleEasternRestaurants | 
-| Pizza | PolishRestaurants | PortugueseRestaurants | Pretzels | 
-| Restaurants | RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
-| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | TakeAway | 
-| ThaiRestaurants | TurkishRestaurants | VegetarianAndVeganRestaurants | VietnameseRestaurants|
+| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants |
+| AmericanRestaurants | Bagels | BarbecueRestaurants |
+| Taverns | SportsBars | Bars |
+| BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
+| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants |
+| ChineseRestaurants | CoffeeAndTea | Delicatessens | 
+| DeliveryService | Diners | DiscountStores | 
+| Donuts | FastFood | FrenchRestaurants | 
+| FrozenYogurt | GermanRestaurants | Supermarkets | 
+| GreekRestaurants | Grocers | HawaiianRestaurants | 
+| HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
+| ItalianRestaurants | JapaneseRestaurants | Juices | 
+| KoreanRestaurants | LiquorStores | MexicanRestaurants |
+| MiddleEasternRestaurants | Pizza | PolishRestaurants | 
+| PortugueseRestaurants | Pretzels | Restaurants | 
+| RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
+| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
+| TakeAway | ThaiRestaurants | TurkishRestaurants | 
+| VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
  
 ### See Do 
 |  |  |  |

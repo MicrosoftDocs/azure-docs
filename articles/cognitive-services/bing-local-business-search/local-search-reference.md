@@ -2,6 +2,7 @@
 ---
 title: Bing Local Business Search API v7 Reference | Microsoft Docs
 description: Describes the programming elements of the Bing Local Business Search API.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -67,9 +68,11 @@ The request may include the following query parameters. See the Required column 
   
   
 |Name|Value|Type|Required|  
-|----------|-----------|----------|--------------| 
+|----------|-----------|----------|--------------|
+|<a name="count" />count|The number of resuts to return, starting with the index specified by the `offset` parameter.|String|No|   
 |<a name="localCategories" />localCategories|List of options that define search by business category.  See [Local Business Categories search](local-categories.md)|String|No|  
-|<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see [Market Codes](#market-codes).<br /><br /> **NOTE:** The Local Business Search API currently only supports en-us market and language.<br /><br />|String|Yes|  
+|<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see [Market Codes](#market-codes).<br /><br /> **NOTE:** The Local Business Search API currently only supports en-us market and language.<br /><br />|String|Yes|
+|<a name="offset"/>offset|The index to start results specified by the `count` parameter.|Integer|No|  
 |<a name="query" />q|The user's search term.|String|No|  
 |<a name="responseformat" />responseFormat|The media type to use for the response. The following are the possible case-insensitive values.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> The default is JSON. For information about the JSON objects that the response contains, see [Response Objects](#response-objects).<br /><br />  If you specify JsonLd, the response body includes JSON-LD objects that contain the search results. For information about the JSON-LD, see [JSON-LD](http://json-ld.org/).|String|No|  
 |<a name="safesearch" />safeSearch|A filter used to filter adult content. The following are the possible case-insensitive filter values.<br /><ul><li>Off&mdash;Return webpages with adult text, images, or videos.<br /><br/></li><li>Moderate&mdash;Return webpages with adult text, but not adult images or videos.<br /><br/></li><li>Strict&mdash;Do not return webpages with adult text, images, or videos.</li></ul><br /> The default is Moderate.<br /><br /> **NOTE:** If the request comes from a market that Bing's adult policy requires that `safeSearch` is set to Strict, Bing ignores the `safeSearch` value and uses Strict.<br/><br/>**NOTE:** If you use the `site:` query operator, there is the chance that the response may contain adult content regardless of what the `safeSearch` query parameter is set to. Use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content. |String|No|  

@@ -1,6 +1,7 @@
 ---
 title: Bing Local Business Search query and response | Microsoft Docs
 description: How to use the Bing Local Business Search API to search the web.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
