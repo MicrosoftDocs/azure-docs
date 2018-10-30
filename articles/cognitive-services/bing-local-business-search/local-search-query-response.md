@@ -14,7 +14,7 @@ ms.author: rosh; v-gedod
 
 # Sending and using Bing Local Business Search API queries and responses
 
-You can get local results from the Bing Local Business Search API by sending a search query to its endpoint and including the `Ocp-Apim-Subscription-Key` header, which is required. Searches can be customized by using the available [Headers](local-search-reference.md#headers) and [Parameters](local-search-reference.md#query-parameters).
+You can get local results from the Bing Local Business Search API by sending a search query to its endpoint and including the `Ocp-Apim-Subscription-Key` header, which is required. Along with availble [headers](local-search-reference.md#headers) and [parameters](local-search-reference.md#query-parameters), Searches can be customized by specifying [geographic boundaries](specify-geographic-search.md) for the area to be searched, and the [categories](local-search-query-response.md) of places returned.
 
 ## Creating a request
 
@@ -22,7 +22,9 @@ To send a request to the Bing Local Business Search API, append a search term to
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
-The full request URL syntax is shown below. See the Bing Local Business Search API [quickstarts](quickstarts/local-quickstart.md), and reference content for [headers](local-search-reference.md#headers) and [parameters](local-search-reference.md#query-parameters) for more information on sending requests.
+The full request URL syntax is shown below. See the Bing Local Business Search API [quickstarts](quickstarts/local-quickstart.md), and reference content for [headers](local-search-reference.md#headers) and [parameters](local-search-reference.md#query-parameters) for more information on sending requests. 
+
+For information on local search categories, see [Search categories for the Bing Local Business Search API](local-categories.md).
 
 ```
 https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
@@ -65,7 +67,7 @@ For general information about headers, parameters, market codes, response object
 
 ## Example JSON response
 
-The JSON response includes places specified by `?q=restaurant+in+Bellevue`.
+The following JSON response includes search results specified by the query `?q=restaurant+in+Bellevue`.
 
 ```json
 Vary: Accept-Encoding
