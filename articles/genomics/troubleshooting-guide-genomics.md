@@ -40,33 +40,42 @@ There are three required arguments:
 * KEY - the access key for your Genomics account
     * To find your URL and KEY, go to Azure portal and open your Microsoft Genomics account page. Under the **Management** heading, choose **Access keys**. There, you find both the API URL and your access keys.
 
-    * Alternatively you can include the path to the config file instead of directly entering the URL and KEY. Note that if you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.
+  
 * ID - the workflow ID
-> [!NOTE]
-> To  find your workflow ID type in `msgen list` command. Assuming your config file  contains the URL and your access keys, and is located is in the same location as your msgen exe, the command will look  like this: 
+    * To  find your workflow ID type in `msgen list` command. Assuming your config file  contains the URL and your access keys, and is located is in the same location as your msgen exe, the command will look  like this: 
+        
+        ```bash
+        msgen list -f "config.txt"
+        ```
+        Output from this command will look like this :
+        
+        ```bash
+        	Microsoft Genomics command-line client v0.7.4
+                Copyright (c) 2018 Microsoft. All rights reserved.
+                
+                Workflow List
+                -------------
+                Total Count  : 1
+                
+                Workflow ID     : 10001
+                Status          : Completed successfully
+                Message         :
+                Process         : snapgatk-20180730_1
+                Description     :
+                Created Date    : Mon, 27 Aug 2018 20:27:24 GMT
+                End Date        : Mon, 27 Aug 2018 20:55:12 GMT
+                Wall Clock Time : 0h 27m 48s
+                Bases Processed : 1,348,613,600 (1 GBase)
+        ```
+
+ > [!NOTE]
+ >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
+If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
+
+For workflow ID 1001, and config.txt file placed in the same path as the msgen executable, the command will look like this:
 
 ```bash
-msgen list -f "config.txt"
-```
-Output from this command will look like this :
-
-```bash
-	Microsoft Genomics command-line client v0.7.4
-        Copyright (c) 2018 Microsoft. All rights reserved.
-        
-        Workflow List
-        -------------
-        Total Count  : 1
-        
-        Workflow ID     : 10001
-        Status          : Completed successfully
-        Message         :
-        Process         : snapgatk-20180730_1
-        Description     :
-        Created Date    : Mon, 27 Aug 2018 20:27:24 GMT
-        End Date        : Mon, 27 Aug 2018 20:55:12 GMT
-        Wall Clock Time : 0h 27m 48s
-        Bases Processed : 1,348,613,600 (1 GBase)
+msgen status -w 1001 -f "config.txt"
 ```
 
 ### 2.  Examine the contents of standardoutput.txt 
