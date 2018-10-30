@@ -48,9 +48,11 @@ Description:
 * This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time. <br>
 
 Recommended Action:<br>
-To resolve this issue, remove the lock on the resource group and retry the operation to trigger clean-up.<br>
+To resolve this issue, remove the lock on the resource group and retry the operation to trigger clean-up.
+
 
 > [!NOTE] Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+
 
 **Step 1: [Remove lock from the restore point resource group  group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
