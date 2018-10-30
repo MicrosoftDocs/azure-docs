@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/15/2018
+ms.date: 10/30/2018
 ms.author: rolyon
 ---
 
