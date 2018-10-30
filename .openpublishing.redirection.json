@@ -1,4 +1,4 @@
-﻿{
+{
     "redirections": [
         {
             "source_path": "articles/frontdoor/front-door-powershell-reference.md",
@@ -14856,21 +14856,6 @@
 {
 "source_path": "articles/active-directory/connect/active-directory-aadconnect-get-started-express.md",
 "redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-express",
-"redirect_document_id": false
-},
-{
-"source_path": "articles/active-directory/choose-hybrid-identity-solution.md",
-"redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
-"redirect_document_id": false
-},
-{
-"source_path": "articles/active-directory/hybrid/how-to-connect-fed-azure-adfs.md",
-"redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs",
-"redirect_document_id": false
-},
-{
-"source_path": "articles/active-directory/active-directory-adfs-in-azure-with-azure-traffic-manager.md",
-"redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager",
 "redirect_document_id": false
 },
 {
@@ -30196,8 +30181,18 @@
             "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-troubleshooting",
             "redirect_document_id" : true
         },
-     	{
+        {
+            "source_path": "articles/key-vault/vs-key-vault-aspnet-core-get-started.md",
+            "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : true
+        },
+        {
             "source_path": "articles/key-vault/vs-key-vault-aspnet-core-what-happened.md",
+            "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/key-vault/vs-key-vault-aspnet-get-started.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
             "redirect_document_id" : false
         },
@@ -30205,11 +30200,6 @@
             "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
             "redirect_document_id" : false
-        }
-        {
-            "source_path": "articles/governance/policy/samples/audit-trans-data-enc-status.md",
-            "redirect_url": "/azure/governance/policy/samples/sql-database-encryption-audit",
-            "redirect_document_id" : true
         }
     ]
 }
