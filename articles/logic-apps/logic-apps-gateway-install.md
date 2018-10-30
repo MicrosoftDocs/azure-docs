@@ -6,9 +6,9 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 10/01/2018
 ---
 
 # Install on-premises data gateway for Azure Logic Apps
@@ -130,6 +130,33 @@ For information about how to use the gateway with other services, see these arti
     version 14.16.6317.4, but you haven't installed your 
     gateway yet, you can download and use the latest installer instead.
 
+## High availability support
+
+The on-premises data gateway supports high availability when you 
+have more than one gateway installation and set them up as clusters. 
+If you have an existing gateway when you go to create another gateway, 
+you can optionally create high availability clusters. 
+These clusters organize gateways into groups that can 
+help avoid single points of failure. Also, all on-premises 
+data gateway connectors now support high availability.
+
+To use the on-premises data gateway, 
+review these requirements and considerations:
+
+* You must already have at least one gateway installation 
+within the same Azure subscription as the primary gateway 
+and the recovery key for that installation. 
+
+* Your primary gateway must be running the gateway update 
+from November 2017 or later.
+
+After meeting these requirements, when you create your next gateway, 
+select **Add to an existing gateway cluster**, 
+select the primary gateway for your cluster, 
+and provide the recovery key for that primary gateway.
+For more information, see 
+[High availability clusters for on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
+
 <a name="install-gateway"></a>
 
 ## Install data gateway
@@ -212,33 +239,6 @@ Or, to change the default region, follow these steps:
 
 10. Now register your gateway in Azure by 
 [creating an Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md). 
-
-## Enable high availability
-
-The on-premises data gateway supports high availability when you 
-have more than one gateway installation and set them up as clusters. 
-If you have an existing gateway when you go to create another gateway, 
-you can optionally create high availability clusters. 
-These clusters organize gateways into groups that can 
-help avoid single points of failure. To use this capability, 
-review these requirements and considerations:
-
-* Only some connectors support high availability, 
-such as the File System connector and others on the way. 
-     
-* You must already have at least one gateway installation 
-within the same Azure subscription as the primary gateway 
-and the recovery key for that installation. 
-
-* Your primary gateway must be running the gateway update 
-from November 2017 or later.
-
-After meeting these requirements, when you create your next gateway, 
-select **Add to an existing gateway cluster**, 
-select the primary gateway for your cluster, 
-and provide the recovery key for that primary gateway.
-For more information, see 
-[High availability clusters for on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="update-gateway-installation"></a>
 

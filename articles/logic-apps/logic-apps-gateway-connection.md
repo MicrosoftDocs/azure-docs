@@ -1,18 +1,14 @@
 ---
-# required metadata
 title: Access data sources on premises for Azure Logic Apps | Microsoft Docs
 description: Create and set up the on-premises data gateway so you can access data sources on premises from logic apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-
-# optional metadata
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
+ms.date: 10/01/2018
 ---
 
 # Connect to data sources on premises from Azure Logic Apps with on-premises data gateway
