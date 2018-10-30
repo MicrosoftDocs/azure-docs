@@ -176,58 +176,12 @@
 - name: Custom Translator
   items:
   - name: Overview
-    items:
-  - name: What is the Custom Translator?
     href: https://aka.ms/customtranslatorplaceholder
   - name: Quickstarts
     href: https://aka.ms/customtranslatorplaceholder
   - name: Concepts
-      items:
-      - name: Workspace and projects
-        href: custom-translator/workspace-and-project.md
-      - name: Parallel documents
-        href: custom-translator/what-are-parallel-documents.md
-      - name: Dictionary
-        href: custom-translator/what-is-dictionary.md
-      - name: Document formats and naming convension
-        href: custom-translator/document-formats-naming-convention.md
-      - name: Sentence alignment
-        href: custom-translator/sentence-alignment.md
-      - name: Training and model
-        href: custom-translator/training-and-model.md
-      - name: BLEU Score
-        href: custom-translator/what-is-bleu-score.md
+    href: https://aka.ms/customtranslatorplaceholder
   - name: How-to guides
-      items:
-      - name: Create project
-        href: custom-translator/how-to-create-project.md
-      - name: Manage projects
-        href: custom-translator/how-to-search-edit-delete-projects.md
-      - name: Upload document
-        href: custom-translator/how-to-upload-document.md
-      - name: View document details
-        href: custom-translator/how-to-view-document-details.md
-      - name: Train a model
-        href: custom-translator/how-to-train-model.md
-      - name: View model details
-        href: custom-translator/how-to-view-model-details.md
-      - name: View model training details
-        href: custom-translator/how-to-view-model-training-details.md
-      - name: View system test results
-        href: custom-translator/how-to-view-system-test-results.md
-      - name: Manage settings
-        href: https://aka.ms/customtranslatorplaceholder
-      - name: Migrate from Hub
-        href: https://aka.ms/customtranslatorplaceholder
+    href: https://aka.ms/customtranslatorplaceholder
   - name: Resources
-        items:
-        - name: Glossary
-          href: custom-translator/how-to-create-project.md
-        - name: Faq
-          href: custom-translator/how-to-search-edit-delete-projects.md
-        - name: Pricing
-          href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-        - name: Stackoverflow
-          href: https://stackoverflow.com/questions/tagged/microsoft-translator
-        - name: Uservoice
-          href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
+    href: https://aka.ms/customtranslatorplaceholder
