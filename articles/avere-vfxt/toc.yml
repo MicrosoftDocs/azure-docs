@@ -36,6 +36,8 @@
     href: avere-vfxt-open-ticket.md
   - name: Demonstration projects
     href: avere-vfxt-demo-links.md
+  - name: Avere vFXT for Azure FAQ
+    href: avere-vfxt-faq.md
   - name: Additional documentation
     items: 
     - name: Supplemental documentation  
