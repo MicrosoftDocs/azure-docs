@@ -28979,6 +28979,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/authentication/howto-password-ban-bad-on-premises.md",
+            "redirect_url": "articles/active-directory/authentication/howto-password-ban-bad-on-premises-deploy.md",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/active-directory/authentication/howto-password-ban-bad.md",
+            "redirect_url": "articles/active-directory/authentication/howto-password-ban-bad-configure.md",
+            "redirect_document_id" : false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
             "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
             "redirect_document_id": true
@@ -30160,16 +30170,6 @@
             "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
             "redirect_document_id" : false
-        },
-        {
-            "source_path": "articles/active-directory/authentication/howto-password-ban-bad-on-premises.md",
-            "redirect_url": "articles/active-directory/authentication/howto-password-ban-bad-on-premises-deploy.md",
-            "redirect_document_id" : false
-        },
-        {
-            "source_path": "articles/active-directory/authentication/howto-password-ban-bad.md",
-            "redirect_url": "articles/active-directory/authentication/howto-password-ban-bad-configure.md",
-            "redirect_document_id" : false
-        },
+        }
     ]
 }
