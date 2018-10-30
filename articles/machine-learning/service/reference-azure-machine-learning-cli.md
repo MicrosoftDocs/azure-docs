@@ -41,7 +41,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 > [!NOTE]
 > To use the CLI, you must have an Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Installing and uninstalling
+## Install the extension
 
 To install the Machine Learning CLI extension, use the following command:
 
@@ -57,13 +57,16 @@ To verify that the extension has been installed, use the following command to di
 az ml -h
 ```
 
+> [!TIP]
+> To update the extension you must __remove__ it, and then __install__ it. This installs the latest version.
+
+## Remove the extension
+
 To remove the CLI extension, use the following command:
 
 ```azurecli-interactive
 az extension remove -n azure-cli-ml
 ```
-
-You can update the CLI using the **remove** and **add** steps above.
 
 ## Resource management
 
@@ -115,4 +118,6 @@ TBD: Validate these re: aml compute vs. external
   az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
+## Next steps
 
+TBD
