@@ -11,6 +11,8 @@ ms.author: v-erkell
 
 # Avere vFXT for Azure FAQ
 
+This article answers questions that can help you decide if the Avere vFXT solution is right for your needs. It also gives basic information about 
+
 ## General 
 
 ### What is Avere vFXT for Azure?
@@ -216,7 +218,7 @@ In general terms, Avere vFXT for Azure supports the following systems as core fi
 * AWS S3 buckets 
 * Google Cloud buckets
 
-### Why doesn't the Avere vFXT support all NFS filers?
+### Why doesn't the Avere vFXT support all NFS filers?
 
 Although all NFS platforms meet the same IETF standards, in practice each implementation has its own quirks. These details affect how the Avere vFXT interacts with the storage system. The supported systems are the most widely used platforms in the marketplace.
 
@@ -265,3 +267,14 @@ In Azure, there is no additional licensing fee for using Avere vFXT clusters. Cu
 ### Can Avere vFXT VMs be run as low priority?
 
 No, Avere vFXT clusters require "always on" service. The clusters can be turned off when not needed. 
+
+## Next steps
+
+To get started with Avere vFXT for Azure, read these links to learn how to plan and deploy your own system:
+
+* [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md)
+* [Deployment overview](avere-vfxt-deploy-overview.md)
+* [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md)
+* [Deploy the vFXT cluster](avere-vfxt-deploy.md)
+
+To learn more about Avere vFXT's capabilities and use cases, visit its home page: [https://azure.microsoft.com/services/storage/avere-vfxt/](https://azure.microsoft.com/services/storage/avere-vfxt/)
