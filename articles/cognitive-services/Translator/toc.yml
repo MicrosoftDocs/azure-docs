@@ -1,4 +1,4 @@
-- name: Translator Text API Documentation
+- name: Translator Text Documentation
   href: index.yml
 - name: Translator Text API
   items:
@@ -173,12 +173,12 @@
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/forums/558796-translator
-- name: Translator Text API
+- name: Custom Translator
   items:
   - name: Overview
     items:
-    - name: What is the Custom Translator?
-      href: https://aka.ms/customtranslatorplaceholder
+  - name: What is the Custom Translator?
+    href: https://aka.ms/customtranslatorplaceholder
   - name: Quickstarts
     href: https://aka.ms/customtranslatorplaceholder
   - name: Concepts
@@ -220,14 +220,14 @@
       - name: Migrate from Hub
         href: https://aka.ms/customtranslatorplaceholder
   - name: Resources
-      items:
-      - name: Glossary
-        href: custom-translator/how-to-create-project.md
-      - name: Faq
-        href: custom-translator/how-to-search-edit-delete-projects.md
-      - name: Pricing
-        href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-      - name: Stackoverflow
-        href: https://stackoverflow.com/questions/tagged/microsoft-translator
-      - name: Uservoice
-        href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
+        items:
+        - name: Glossary
+          href: custom-translator/how-to-create-project.md
+        - name: Faq
+          href: custom-translator/how-to-search-edit-delete-projects.md
+        - name: Pricing
+          href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+        - name: Stackoverflow
+          href: https://stackoverflow.com/questions/tagged/microsoft-translator
+        - name: Uservoice
+          href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
