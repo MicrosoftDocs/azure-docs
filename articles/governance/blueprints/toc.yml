@@ -33,6 +33,8 @@
 - name: References
   expanded: true
   items:
+  - name: REST API
+    href: /rest/api/blueprints/
   - name: PowerShell (community)
     href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
 - name: Resources
