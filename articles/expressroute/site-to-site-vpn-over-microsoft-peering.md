@@ -103,7 +103,7 @@ sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 
 To confirm that you are receiving the correct set of prefixes, you can cross-verify. The following Azure PowerShell command output lists the prefixes advertised via Microsoft peering for each of the services and for each of the Azure region:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmBgpServiceCommunity
 ```
 
@@ -484,7 +484,7 @@ Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName m
 
 Example output:
 
-```powershell
+```azurepowershell
 ConnectionStatus        : Connected
 EgressBytesTransferred  : 17734660
 IngressBytesTransferred : 10538211
@@ -498,7 +498,7 @@ Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName m
 
 Example output:
 
-```powershell
+```azurepowershell
 Tunnel                           : vpn2local1_52.175.250.191
 ConnectionStatus                 : Connected
 IngressBytesTransferred          : 4877438
@@ -620,7 +620,7 @@ Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw 
 
 Example output:
 
-```powershell
+```azurepowershell
   Asn ConnectedDuration LocalAddress MessagesReceived MessagesSent Neighbor    RoutesReceived State    
   --- ----------------- ------------ ---------------- ------------ --------    -------------- -----    
 65010 00:57:19.9003584  10.2.0.228               68           72   172.16.0.10              2 Connected
@@ -636,7 +636,7 @@ Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -
 
 In the example output, the ASN 65010 is the BGP autonomous system number in the VPN on-premises.
 
-```powershell
+```azurepowershell
 AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 ------ ------------ -------      -------     ------ ----------  ------
 65010  10.2.0.228   10.1.10.0/25 172.16.0.10 EBgp   172.16.0.10  32768
@@ -651,7 +651,7 @@ Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGt
 
 Example output:
 
-```powershell
+```azurepowershell
 AsPath LocalAddress Network        NextHop    Origin SourcePeer Weight
 ------ ------------ -------        -------    ------ ---------- ------
        10.2.0.229   10.2.0.0/24    10.2.0.229 Igp                  0
@@ -685,7 +685,7 @@ Total number of prefixes 4
 
 The list of networks advertised from the on-premises Cisco CSR1000 to the Azure VPN gateway can be listed using the following command:
 
-```powershell
+```
 csr1#show ip bgp neighbors 10.2.0.228 advertised-routes
 BGP table version is 7, local router ID is 172.16.0.10
 Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
