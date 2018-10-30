@@ -4,8 +4,6 @@ description: This article shows how to configure load balancing and outbound rul
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
