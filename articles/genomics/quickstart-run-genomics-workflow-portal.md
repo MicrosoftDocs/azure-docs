@@ -37,7 +37,7 @@ Configure your Genomics account with the following information, as shown in the 
  |:-------------       |:-------------         |:----------            |
  |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
 
 

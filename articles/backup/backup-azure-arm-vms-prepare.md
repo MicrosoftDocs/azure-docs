@@ -2,20 +2,19 @@
 title: 'Azure Backup: Prepare to back up virtual machines'
 description: Make sure your environment is prepared for backing up virtual machines in Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: backups; backing up;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
+ms.date: 10/23/2018
+ms.author: raynew
 ---
-# Prepare your environment to back up Resource Manager-deployed virtual machines
+# Prepare to back up Azure VMs
 
-This article provides the steps for preparing your environment to back up an Azure Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal. When you back up a virtual machine, the backup data or recovery points, are stored in a Recovery Services vault. Recovery Services vaults store backup data for classic and Resource Manager-deployed virtual machines.
+This article provides the steps for preparing your environment to back up an Azure Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal. When you back up a virtual machine, the backup data or recovery points, are stored in a Recovery Services Backup vault. 
 
-> [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Before you protect (or back up) a Resource Manager-deployed virtual machine, make sure these prerequisites exist:
 
@@ -41,7 +40,6 @@ If these conditions already exist in your environment, proceed to the [Back up y
 Before you prepare your environment, be sure to understand these limitations:
 
 * Backing up virtual machines with more than 32 data disks is not supported.
-* Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
 * We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency.
 * Backup data doesn't include network mounted drives attached to a VM.

@@ -34,7 +34,7 @@ In the [Speech Service SDK](speech-sdk.md), regions are specified as a string
 
 The following table lists the available regions for **speech recognition** and **translation**.
 
-  Region | Speech SDK Parameter | Portal
+  Region | Speech SDK Parameter | Speech Customization Portal
  ------|-------|--------
  West US | `westus` | https://westus.cris.ai
  West US2 | `westus2` | https://westus2.cris.ai 

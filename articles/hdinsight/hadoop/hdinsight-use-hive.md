@@ -240,8 +240,6 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 * [Use Pig with HDInsight][hdinsight-use-pig]
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
-
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

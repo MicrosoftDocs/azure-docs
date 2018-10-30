@@ -1,9 +1,9 @@
 ---
 title: Find route with Azure Maps | Microsoft Docs
 description: Route to a point of interest using Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -75,11 +75,10 @@ The following steps show you how to create a static HTML page embedded with the 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
 4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further.
@@ -121,7 +120,7 @@ For this tutorial, set the start point as Microsoft, and the destination point a
         padding: 50
     });
 
-    map.addEventListener("load", function () { 
+    map.events.add("load", function () { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -130,7 +129,7 @@ For this tutorial, set the start point as Microsoft, and the destination point a
         });
     });
     ```
-    The **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The **map.addEventListener** ensures that all maps functions added to the map are loaded after the map is loaded fully. The API **map.addPins** within the event listener adds the points to the Map control as visual components.
+    The **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The **map.events.add** ensures that all maps functions added to the map are loaded after the map is loaded fully. The API **map.addPins** within the event listener adds the points to the Map control as visual components.
 
 3. Save the **MapRoute.html** file and refresh your browser. Now the map is centered over Seattle, and you can see the round blue pin marking the start point and the blue pin marking the finish point.
 

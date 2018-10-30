@@ -21,7 +21,7 @@ In the Azure Machine Learning service, you can track your experiments and monito
 
 ## List of training metrics 
 
-The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://aka.ms/aml-sdk).
 
 |Type| Python function | Example | Notes|
 |----|:----|:----|:----|

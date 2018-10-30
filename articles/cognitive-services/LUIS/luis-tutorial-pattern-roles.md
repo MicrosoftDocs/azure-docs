@@ -377,6 +377,8 @@ In this tutorial, the Human Resources app detects utterances about moving new em
 |[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
 
+For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
+
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]

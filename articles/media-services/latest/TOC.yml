@@ -53,8 +53,8 @@
       href: streaming-locators-concept.md
     - name: Streaming policies
       href: streaming-policy-concept.md
-    - name: Transforms and jobs
-      href: transform-concept.md
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md
   - name: Examining storage accounts
     href: storage-account-concept.md
   - name: Handling Event Grid events
@@ -97,8 +97,12 @@
       href: protect-with-aes128.md    
     - name: With DRM - .NET
       href: protect-with-drm.md
+  - name: Configure Postman
+    href: media-rest-apis-with-postman.md
 - name: Reference
   items:
+  - name: OpenAPI Specification (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref
   - name: Azure CLI
@@ -125,6 +129,8 @@
       href: fairplay-license-overview.md
 - name: Resources
   items:
+  - name: OpenAPI Specification (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk  
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
@@ -137,8 +143,6 @@
     items:
     - name: Azure CLI
       href: https://aka.ms/ams-v3-cli
-    - name: REST
-      href: https://aka.ms/ams-v3-rest-sdk
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-sdk
     - name: Java
