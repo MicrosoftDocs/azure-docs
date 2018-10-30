@@ -321,7 +321,7 @@ You can create a service connection using the following mapping:
 Now that the endpoint is created, the Azure DevOps to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from Azure DevOps, and then the agent conveys endpoint information for communication with Azure Stack.
 
 > [!Note]
-> If you Azure Stack User ARM endpoint is not exposed to the Internet, the connection validation will fail. This is expected and you can validate your connection by creating a release pipeline with a simple task. 
+> If your Azure Stack User ARM endpoint is not exposed to the Internet, the connection validation will fail. This is expected and you can validate your connection by creating a release pipeline with a simple task. 
 
 ## Develop your application build
 
