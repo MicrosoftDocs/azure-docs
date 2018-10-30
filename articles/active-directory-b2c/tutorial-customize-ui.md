@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Create your own [Azure AD B2C Tenant](tutorial-create-tenant.md).
+If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing tenant if you created one in a previous tutorial.
 
 ## Create customization files
 
