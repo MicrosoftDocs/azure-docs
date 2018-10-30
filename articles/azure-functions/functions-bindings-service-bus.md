@@ -596,6 +596,38 @@ In JavaScript, access the queue or topic by using `context.bindings.<name from f
 | Service Bus | [Service Bus Error Codes](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Service Bus | [Service Bus Limits](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
+<a name="host-json"></a>  
+
+## host.json settings
+
+This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+
+> [!NOTE]
+> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "prefetchCount": 100,
+            "messageHandlerOptions": {
+                "autoComplete": false,
+                "maxConcurrentCalls": 32,
+                "maxAutoRenewDuration": "00:55:00"
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
+|autoComplete|false|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.| 
+|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. | 
+|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
