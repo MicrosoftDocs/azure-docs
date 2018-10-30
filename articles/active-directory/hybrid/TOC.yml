@@ -82,6 +82,8 @@
       href: plan-connect-performance-factors.md
     - name: How will users sign-in
       href: plan-connect-user-signin.md
+    - name: Azure AD UserPrincipalName population
+      href: plan-connect-userprincipalname.md
     - name: Special considerations for instances
       href: reference-connect-instances.md
     - name: Hybrid Identity Design Considerations
