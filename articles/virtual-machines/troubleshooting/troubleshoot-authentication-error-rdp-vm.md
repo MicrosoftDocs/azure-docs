@@ -28,15 +28,15 @@ You capture a screenshot of an Azure VM that shows the Welcome screen and indica
 
 ### Error message 1
 
-`An authentication error has occurred. The Local Security Authority cannot be contacted.`
+**An authentication error has occurred. The Local Security Authority cannot be contacted.**
 
 ### Error message 2
 
-`The remote computer that you are trying to connect to requires Network Level Authentication (NLA), but your Windows domain controller cannot be contacted to perform NLA. If you are an administrator on the remote computer, you can disable NLA by using the options on the Remote tab of the System Properties dialog box.`
+**The remote computer that you are trying to connect to requires Network Level Authentication (NLA), but your Windows domain controller cannot be contacted to perform NLA. If you are an administrator on the remote computer, you can disable NLA by using the options on the Remote tab of the System Properties dialog box.**
 
 ### Error message 3 (generic connection error)
 
-`This computer can't connect to the remote computer. Try connecting again, if the problem continues, contact the owner of the remote computer or your network administrator.`
+**This computer can't connect to the remote computer. Try connecting again, if the problem continues, contact the owner of the remote computer or your network administrator.**
 
 ## Cause
 

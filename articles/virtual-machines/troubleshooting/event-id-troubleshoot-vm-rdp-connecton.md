@@ -26,7 +26,7 @@ This article explains how to use event IDs to troubleshoot issues that prevent a
 
 You try to use a Remote Desktop protocol (RDP) session to connect to an Azure VM. After you input your credentials, the connection fails, and you receive the following error message:
 
-`This computer can't connect to the remote computer. Try connecting again, if the problem continues, contact the owner of the remote computer or your network administrator.`
+**This computer can't connect to the remote computer. Try connecting again, if the problem continues, contact the owner of the remote computer or your network administrator.**
 
 To troubleshoot this issue, review the event logs on the VM, and then refer to the following scenarios.
 
@@ -51,45 +51,41 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-```event
-Log Name:      System
-Source:        Microsoft-Windows-TerminalServices-RemoteConnectionManager
-Date:          <time>
-Event ID:      1058
-Task Category: None
-Level:         Error
-Keywords:      Classic
-User:          N/A
-Computer:      <computer>
-Description:
+**Log Name:**      System <br />
+**Source:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Date:**          *time* <br />
+**Event ID:**      1058 <br />
+**Task Category:** None <br />
+**Level:**         Error <br />
+**Keywords:**      Classic <br />
+**User:**          N/A <br />
+**Computer:**      *computer* <br />
+**Description:**
 The RD Session Host Server has failed to replace the expired self signed certificate used for RD Session Host Server authentication on SSL connections. The relevant status code was Access is denied.
-```
 
-```
-Log Name:      System
-Source:        Microsoft-Windows-TerminalServices-RemoteConnectionManager
-Date:          <time>
-Event ID:      1058
-Task Category: None
-Level:         Error
-Keywords:      Classic
-User:          N/A
-Computer:      <computer>
-Description:
+
+**Log Name:**      System <br />
+**Source:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Date:**          *time* <br />
+**Event ID:**      1058 <br />
+**Task Category:** None <br />
+**Level:**         Error <br />
+**Keywords:**      Classic <br />
+**User:**          N/A <br />
+**Computer:**      *computer* <br />
+**Description:**
 RD Session host server has failed to create a new self-signed certificate to be used for RD Session host server authentication on SSL connections, the relevant status code was object already exists.
-```
 
-```
-Log Name:      System
-Source:        Microsoft-Windows-TerminalServices-RemoteConnectionManager
-Date:          2/27/2018 3:23:30 PM
-Event ID:      1057
-Task Category: None
-Level:         Error
-Keywords:      Classic
-User:          N/A
-Computer:      AZPRRD001
-Description:
+**Log Name:**      System <br />
+**Source:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Date:**          *time* <br />
+**Event ID:**      1057 <br />
+**Task Category:** None <br />
+**Level:**         Error <br />
+**Keywords:**      Classic <br />
+**User:**          N/A <br />
+**Computer:**      *computer* <br />
+**Description:**
 The RD Session Host Server has failed to create a new self signed certificate to be used for RD Session Host Server authentication on SSL connections. The relevant status code was Keyset does not exist
 ```
 
@@ -100,19 +96,17 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-```
-Log Name:      System
-Source:        Schannel
-Date:          —
-Event ID:      36870
-Task Category: None
-Level:         Error
-Keywords:      
-User:          SYSTEM
-Computer:      <computer>
-Description: A fatal error occurred when attempting to access the SSL server credential private key. The error code returned from the cryptographic module is 0x8009030D. 
+**Log Name:**      System <br />
+**Source:**        Schannel <br />
+**Date:**          — <br />
+**Event ID:**      36870 <br />
+**Task Category:** None <br />
+**Level:**         Error <br />
+**Keywords:**       <br />
+**User:**          SYSTEM <br />
+**Computer:**      <computer> <br />
+**Description:** A fatal error occurred when attempting to access the SSL server credential private key. The error code returned from the cryptographic module is 0x8009030D. 
 The internal error state is 10001.
-```
 
 ### Cause
 This issue occurs because the local RSA encryption keys in the MachineKeys folder on the VM cannot be accessed. This can occur for one of the following reasons:
@@ -223,19 +217,17 @@ In a CMD instance, run the following commands to check whether SCHANNEL error ev
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-```
-Log Name:      System
-Source:        Schannel
-Date:          —
-Event ID:      36871
-Task Category: None
-Level:         Error
-Keywords:      
-User:          SYSTEM
-Computer:      <computer>
-Description: 
+**Log Name:**      System <br />
+**Source:**        Schannel <br />
+**Date:**          — <br />
+**Event ID:**      36871 <br />
+**Task Category:** None <br />
+**Level:**         Error <br />
+**Keywords:**       <br />
+**User:**          SYSTEM <br />
+**Computer:**      *computer* <br />
+**Description:** 
 A fatal error occurred while creating a TLS server credential. The internal error state is 10013.
-```
  
 ### Cause
 
@@ -256,43 +248,39 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-```
-Log Name:      Microsoft-Windows-TerminalServices-SessionBroker/Operational
-Source:        Microsoft-Windows-TerminalServices-SessionBroker
-Date:          <time>
-Event ID:      2056
-Task Category: (109)
-Level:         Error
-Keywords:      
-User:          NETWORK SERVICE
-Computer:      <computer fqdn>
-Description:
-The description for Event ID 2056 from source Microsoft-Windows-TerminalServices-SessionBroker cannot be found. Either the component that raises this event is not installed on your local computer or the installation is corrupted. You can install or repair the component on the local computer.
-If the event originated on another computer, the display information had to be saved with the event.
-The following information was included with the event: 
-NULL
-NULL
+**Log Name:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
+**Source:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
+**Date:**          *time* <br />
+**Event ID:**      2056 <br />
+**Task Category:** (109) <br />
+**Level:**         Error <br />
+**Keywords:**       <br />
+**User:**          NETWORK SERVICE <br />
+**Computer:**      *computer fqdn* <br />
+**Description:**
+The description for Event ID 2056 from source Microsoft-Windows-TerminalServices-SessionBroker cannot be found. Either the component that raises this event is not installed on your local computer or the installation is corrupted. You can install or repair the component on the local computer. <br />
+If the event originated on another computer, the display information had to be saved with the event. <br />
+The following information was included with the event: <br />
+NULL <br />
+NULL <br />
 Logon to the database failed.
-```
 
-```
-Log Name:      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational
-Source:        Microsoft-Windows-TerminalServices-SessionBroker-Client
-Date:          <time>
-Event ID:      1296
-Task Category: (104)
-Level:         Error
-Keywords:      
-User:          NETWORK SERVICE
-Computer:      <computer fqdn>
-Description:
-The description for Event ID 1296 from source Microsoft-Windows-TerminalServices-SessionBroker-Client cannot be found. Either the component that raises this event is not installed on your local computer or the installation is corrupted. You can install or repair the component on the local computer.
-If the event originated on another computer, the display information had to be saved with the event.
-The following information was included with the event: 
-CORPORATE
-JaxCTIAdmin
+**Log Name:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**Source:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**Date:**          *time* <br />
+**Event ID:**      1296 <br />
+**Task Category:** (104) <br />
+**Level:**         Error <br />
+**Keywords:**       <br />
+**User:**          NETWORK SERVICE <br />
+**Computer:**      *computer fqdn* <br />
+**Description:**
+The description for Event ID 1296 from source Microsoft-Windows-TerminalServices-SessionBroker-Client cannot be found. Either the component that raises this event is not installed on your local computer or the installation is corrupted. You can install or repair the component on the local computer.  <br />
+If the event originated on another computer, the display information had to be saved with the event. <br />
+The following information was included with the event:  <br />
+NULL <br />
+NULL <br />
 Remote Desktop Connection Broker is not ready for RPC communication.
-```
 
 ### Cause
 
