@@ -58,6 +58,8 @@
     href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: Azure Event Hubs
     href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+  - name: Azure Container Instances
+    href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
 - name: How-to guides
   items:
   - name: Configure managed identities on VMs

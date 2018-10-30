@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 ﻿## Sign in to Azure
 
 Sign in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
