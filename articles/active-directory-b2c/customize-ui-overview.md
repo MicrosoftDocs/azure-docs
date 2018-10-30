@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -40,7 +40,7 @@ Before you start, review the following guidance:
 
 ## Where do I store UI content?
 
-You can host your UI content anywhere, such as on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md), web servers, CDNs, AWS S3, or file sharing systems. The important point is that you host the content on a publicly available HTTPS endpoint with CORS enabled.
+You can host your UI content anywhere, such as on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md), web servers, CDNs, AWS S3, or file sharing systems. The important point is that you host the content on a publicly available HTTPS endpoint with CORS enabled. You must use an absolute URL when you specify it in your content.
 
 ## How do I get started?
 
@@ -104,10 +104,9 @@ The following table lists the HTML fragments that Azure AD B2C merges into the `
 
 ## How do I localize content?
 
-There are two ways to localize your HTML content. One way is to turn on [language customization](active-directory-b2c-reference-language-customization.md). Enabling this feature allows Azure AD B2C to forward the Open ID Connect parameter, `ui-locales`, to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](active-directory-b2c-reference-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the Open ID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
-Or, content is pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value {Culture:RFC5646}. For example, your custom page URI might look like `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`.
-You can load the page in French by pulling content from `https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
+Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value {Culture:RFC5646}. For example, your custom page URI might look like `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`. You can load the page in French by pulling content from `https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
 
 ## Examples
 
