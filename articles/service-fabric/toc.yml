@@ -230,6 +230,8 @@
         href: service-fabric-backuprestoreservice-configure-periodic-backup.md
       - name: Triggering restore of Partition
         href: service-fabric-backuprestoreservice-trigger-restore.md
+      - name: Ad-Hoc backup of Partition
+        href: service-fabric-backuprestoreservice-adhoc-backup.md
   - name: Clusters
     items:
     - name: Clusters overview

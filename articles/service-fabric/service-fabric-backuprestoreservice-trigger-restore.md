@@ -56,7 +56,7 @@ $StorageInfo = @{
 }
 
 $BackupEntity = @{
-    EntityKind = 'Applicaton'
+    EntityKind = 'Application'
     ApplicationName='fabric:/SampleApp'
 }
 
@@ -131,8 +131,8 @@ FailureError            :
 ```
 
 For the restore API we need to provide the __BackupId__ and __BackupLocation__ Details. 
-The partition informations for the backup cluster are mapped to the original cluster. 
-The partition in backup cluster is choosen as per the [partition scheme](service-fabric-concepts-partitioning.md#get-started-with-partitioning). 
+The partition information for the backup cluster are mapped to the original cluster. 
+The partition in backup cluster is chosen as per the [partition scheme](service-fabric-concepts-partitioning.md#get-started-with-partitioning). 
 
 The partition id on Backup Cluster is identified as 1c42c47f-439e-4e09-98b9-88b8f60800c6 which maps to the original cluster partition id 974bd92a-b395-4631-8a7f-53bd4ae9cf22 by comparing the high key and low key for Ranged partitioning (UniformInt64Partition), name for NamedPartitioning.
 
@@ -182,7 +182,7 @@ $RestorePartitionReference = @{
 } 
  
 $body = (ConvertTo-Json $RestorePartitionReference) 
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Restore?api-version=6.2-preview" 
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Restore?api-version=6.4" 
  
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
@@ -192,16 +192,16 @@ The progress of the restore can be [TrackRestoreProgress](service-fabric-backupr
 
 ## Auto Restore
 
- The partitions for the Reliable Service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. While enabling the Backup Policy the partition can be hooked up with the policy which has the Auto Restore Enabled which automatically restore the relible collection data of the partition to the latest backup in case of Data Loss being initiated. 
+ The partitions for the Reliable Service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. While enabling the Backup Policy the partition can be hooked up with the policy which has the Auto Restore Enabled which automatically restore the reliable collection data of the partition to the latest backup in case of Data Loss being initiated.
  
  [Auto Restore Enablement in Backup Policy](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 
 ## Tracking Restore Progress
 
-A partition of a Reliable Service and Reliable Actor accepts only one restore request at a time. Another request can be accepted only when the current restore request has completed. Mutliple restore request can be triggered on different partitions at a same time, but a partition can accept either a Ad-Hoc Backup Request or Restore Request at a time. Untill an ongoing request is completed all the following request will fail with Backup/Restore in progress error.
+A partition of a Reliable Service and Reliable Actor accepts only one restore request at a time. Another request can be accepted only when the current restore request has completed. Multiple restore request can be triggered on different partitions at a same time, but a partition can accept either a Ad-Hoc Backup Request or Restore Request at a time. Until an ongoing request is completed all the following request will fail with Backup/Restore in progress error.
 
 ```powershell
-$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.2-preview" 
+$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4" 
  
 $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3' 
  
