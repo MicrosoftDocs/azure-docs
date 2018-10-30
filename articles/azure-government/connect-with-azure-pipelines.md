@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to Azure Government from Azure DevOps Service | Microsoft Docs
 description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from global Azure DevOps Service.
 services: azure-government

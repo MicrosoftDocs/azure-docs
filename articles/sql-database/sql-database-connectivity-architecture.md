@@ -67,9 +67,16 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | Canada Central | 40.85.224.249 | |
 | Canada East | 40.86.226.166 | |
 | Central US | 23.99.160.139 | 13.67.215.62 |
+| China East 1 | 139.219.130.35 | |
+| China East 2 | 40.73.82.1 | |
+| China North 1 | 139.219.15.17 | |
+| China North 2 | 40.73.50.0 | |
 | East Asia | 191.234.2.139 | 52.175.33.150 |
 | East US 1 | 191.238.6.43 | 40.121.158.30 |
 | East US 2 | 191.239.224.107 | 40.79.84.180 * |
+| France Central | 40.79.137.0 | 40.79.129.1 |
+| Germany Central | 51.4.144.100 | |
+| Germany North East | 51.5.144.179 | |
 | India Central | 104.211.96.159 | |
 | India South | 104.211.224.146 | |
 | India West | 104.211.160.80 | |

@@ -47,7 +47,6 @@
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
@@ -266,7 +265,6 @@
 
 #### Permissions
 ##### [Choose permissions for an API](develop/perms-for-given-api.md)
-##### [Grant permissions to my app](develop/registration-config-grant-permissions-how-to.md)
 ##### [Delegated vs application permissions](develop/delegated-and-app-perms.md)
 ##### [Application consent](develop/consent-framework.md)
 
@@ -313,14 +311,6 @@
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
-### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [Integrate on-premises identities using Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [Configure token lifetimes](develop/active-directory-configurable-token-lifetimes.md)
