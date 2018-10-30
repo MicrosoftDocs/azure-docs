@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: jeedes
 
 ---
@@ -100,22 +100,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
 
-    ![Configure Single Sign-On](./media/useall-tutorial/tutorial_general_301.png)
+    ![Configure Single Sign-On](common/tutorial_general_301.png)
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Configure Single Sign-On](./media/useall-tutorial/tutorial_useall_editurl.png)
+	![Configure Single Sign-On](common/editconfigure.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
 	![Useall Domain and URLs single sign-on information](./media/useall-tutorial/tutorial_useall_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2`
+    a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/AutenticacaoSaml2/IrParaLogin`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/AutenticacaoSaml2/ExternalLoginCallback`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Useall support team](mailto:luizotavio@useall.com.br) to get these values.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Useall support team](mailto:luizotavio@useall.com.br) to get these values.
 
 5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -133,11 +133,11 @@ The objective of this section is to create a test user in the Azure portal calle
 
 2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/useall-tutorial/create_aaduser_01.png)
+	![Creating an Azure AD test user](common/create_aaduser_01.png)
 
 3. In the User properties, perform the following steps.
 
-	![Creating an Azure AD test user](./media/useall-tutorial/create_aaduser_02.png)
+	![Creating an Azure AD test user](common/create_aaduser_02.png)
 
     a. In the **Name** field, enter **BrittaSimon**.
   
@@ -190,14 +190,14 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/useall-tutorial/tutorial_general_01.png
-[2]: ./media/useall-tutorial/tutorial_general_02.png
-[3]: ./media/useall-tutorial/tutorial_general_03.png
-[4]: ./media/useall-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/useall-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/useall-tutorial/tutorial_general_200.png
-[201]: ./media/useall-tutorial/tutorial_general_201.png
-[202]: ./media/useall-tutorial/tutorial_general_202.png
-[203]: ./media/useall-tutorial/tutorial_general_203.png
+[200]: common/tutorial_general_200.png
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png
