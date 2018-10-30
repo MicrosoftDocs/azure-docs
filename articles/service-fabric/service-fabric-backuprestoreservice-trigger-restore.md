@@ -27,22 +27,22 @@ ms.author: aagup
 
 Service Fabric is a distributed systems platform that makes it easy to develop and manage reliable, distributed, microservices based cloud applications. It allows running of both stateless and stateful micro services. Stateful services can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a Stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to some recent backup of its state in order to continue providing service after it comes back up.
 
-For example, service may want to backup its data in order to protect from the following scenarios:
+For example, service may want to back up its data in order to protect from the following scenarios:
 
 - In the event of the permanent loss of an entire Service Fabric cluster. **(Case of Disaster Recovery)**
 - Permanent loss of a majority of the replicas of a service partition. **(Case of Data Loss)**
 - Administrative errors whereby the state accidentally gets deleted or corrupted. For example, an administrator with sufficient privilege erroneously deletes the service.**(Case of Data Corruption)**
-- Bugs in the service that cause data corruption. For example, this may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state. **(Case of Data Corruption)**
+- Bugs in the service that cause data corruption. For example, data corruption may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state. **(Case of Data Corruption)**
 
 
 ## Prerequisites
-* To trigger restore the Fault Analysis Service (FAS) should be enabled on cluster
+* To trigger, restore the Fault Analysis Service (FAS) should be enabled on cluster
 * The backup for restore should be taken by Backup Restore Service (BRS)
 * The restore can be requested partition by partition. 
 
 The restore can be for any of the following scenarios 
 
-## On Demand Restore - The Case of Disaster Recovery (DR)
+## On-Demand Restore - The Case of Disaster Recovery (DR)
 In case of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to a backup cluster. The desired backup can be selected from enumeration of GetBackupAPI with Backup Storage Details. The Backup Enumeration can be for an application, service or partition.
 
 Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster.
@@ -192,13 +192,13 @@ The progress of the restore can be [TrackRestoreProgress](service-fabric-backupr
 
 ## Auto Restore
 
- The partitions for the Reliable Service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. While enabling the Backup Policy the partition can be hooked up with the policy which has the Auto Restore Enabled which automatically restore the reliable collection data of the partition to the latest backup in case of Data Loss being initiated.
+ The partitions for the Reliable Service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. While enabling the Backup Policy the partition can be hooked up with the policy that has the Auto Restore Enabled which automatically restore the reliable collection data of the partition to the latest backup if Data Loss is reported for the partition.
  
  [Auto Restore Enablement in Backup Policy](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 
 ## Tracking Restore Progress
 
-A partition of a Reliable Service and Reliable Actor accepts only one restore request at a time. Another request can be accepted only when the current restore request has completed. Multiple restore request can be triggered on different partitions at a same time, but a partition can accept either a Ad-Hoc Backup Request or Restore Request at a time. Until an ongoing request is completed all the following request will fail with Backup/Restore in progress error.
+A partition of a Reliable Service and Reliable Actor accepts only one restore request at a time. Another request can be accepted only when the current restore request has completed. Multiple restore requests can be triggered on different partitions at a same time.
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4" 
@@ -213,8 +213,8 @@ $restoreResponse
 The restore request following the following order
 
 1. __Accepted__  - Signifies the restore request is accepted. The restore requested has been triggered with correct request.
-2. __InProgress__ - The Data Loss has been initated on the partition and partition will undergo a restore now.
-3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following state. Each state has the following significance and response details.
+2. __InProgress__ - The Data Loss has been initiated on the partition and partition will undergo a restore now.
+3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following states. Each state has the following significance and response details.
        
     1. __Success__ - The restore state as Success corresponds to the Partition state is regained. The response will provide RestoreEpoch and RestordLSN for the Partition along with the time in UTC. 
     
@@ -228,7 +228,7 @@ The restore request following the following order
  
     2. __Failure__ - The restore state as Failure symbolizes the failure of the restore request. The cause of the failure will be stated in request.
      
-    3. __Timeout__ - The restore state has timedout symbolizing the default timeout of 10 minutes wasn’t enough to complete restore. The state of the partition is unknown. Initiating a new restore request with greater timeout in Restore Request will be the correct way to restore partition. 
+    3. __Timeout__ - The restore state as TimeOut symbolizes that default timeout of 10 minutes wasn’t enough to complete restore. The state of the partition is unknown. Initiating a new restore request with greater timeout in Restore Request will be the correct way to restore partition. 
      
         ```
         RestoreState    Timeout
