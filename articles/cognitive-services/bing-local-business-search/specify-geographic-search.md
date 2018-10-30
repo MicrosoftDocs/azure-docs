@@ -12,8 +12,7 @@ ms.author: rosh, v-gedod
 ---
 
 # Geographic boundaries for Bing Local Search
-
-To specify the boundaries of geographic search, use the `localCircularView` or `localMapView` query parameters. Because the parameters are mutually exclusive, specify only one of them. 
+Search near a location with geographic boundaries.  Add coordinates as search parameters to search near a specific geographic area specified by either a circular area or square bounding box. Because the parameters are mutually exclusive, specify only one of them. 
 
 The `localCircularView` parameter sets a geographic coordinate by latitude and longitude and a radius. The coordinates define the center of the circle and the radius defines the size of circle to search. The response includes only places within the circle; the response does not include relevant places that are just outside the area.
 
