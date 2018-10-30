@@ -20,7 +20,7 @@ Install the following tools:
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) extension for Visual Studio Code
 
-#### Install
+###Install
 
 Follow the instructions provided in the [Install content authoring tools](https://docs.microsoft.com/contribute/get-started-setup-tools) from our contributor guide.
 
@@ -28,7 +28,7 @@ Follow the instructions provided in the [Install content authoring tools](https:
 
 Please refer to [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) and [ThirdPartyNotices](.github/ThirdPartyNotices.md) for all Licensing information.
 
-## Code of Conduct
+# Code of Conduct
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
