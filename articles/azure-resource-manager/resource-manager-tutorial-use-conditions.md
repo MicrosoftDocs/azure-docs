@@ -55,7 +55,16 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+4. There are five resources defined by the template:
+
+    * **Microsoft.Storage/storageAccounts**. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
+    * **Microsoft.Network/publicIPAddresses**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
+    * **Microsoft.Network/virtualNetworks**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
+    * **Microsoft.Network/networkInterfaces**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
+    * **Microsoft.Compute/virtualMachines**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    It is helpful to get some basic understanding of the template before customizing it.
+5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 
 ## Modify the template
 
@@ -153,7 +162,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop a template that allows users to choose between creating a new storage account and using an existing storage account. The virtual machine created in this tutorial requires an administrator username and password. Instead of passing the password during the deployment, you can pre-store the password using Azure Key Vault, and retrieve the password during the deployment. To learn how to retrieve secrets from Azure Key Vault, and use the secrets in the template deployment, see:
+In this tutorial, you developed a template that allows users to choose between creating a new storage account and using an existing storage account. To learn how to retrieve secrets from Azure Key Vault, and use the secrets as passwords in the template deployment, see:
 
 > [!div class="nextstepaction"]
 > [Integrate Key Vault in template deployment](./resource-manager-tutorial-use-key-vault.md)

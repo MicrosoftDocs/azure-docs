@@ -122,8 +122,17 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Select **Open** to open the file. It is the same scenario used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
-5. Repeat steps 1-4 to open the following URL, and then save the file as **azuredeploy.parameters.json**.
+4. There are five resources defined by the template:
+
+    * **Microsoft.Storage/storageAccounts**. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
+    * **Microsoft.Network/publicIPAddresses**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
+    * **Microsoft.Network/virtualNetworks**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
+    * **Microsoft.Network/networkInterfaces**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
+    * **Microsoft.Compute/virtualMachines**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    It is helpful to get some basic understanding of the template before customizing it.
+5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+6. Repeat steps 1-4 to open the following URL, and then save the file as **azuredeploy.parameters.json**.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
@@ -188,7 +197,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you retrieved a secret from Azure Key Vault, and use the secret in your template deployment.  To learn how to create linked templates, see:
+In this tutorial, you retrieved a secret from Azure Key Vault, and used the secret in your template deployment.  To learn how to create linked templates, see:
 
 > [!div class="nextstepaction"]
 > [Create linked templates](./resource-manager-tutorial-create-linked-templates.md)

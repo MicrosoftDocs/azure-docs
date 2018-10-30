@@ -36,8 +36,8 @@ To complete this article, you need:
 
 * This tutorial uses the same base template used in the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial. It is helpful to go through that tutorial first, but not necessary if you have some basic knowledge of developing templates.
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension.  See [Install the extension
-](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* You need to specify a password for the virtual machine administrator account. To increase security, use a generated password. Here is a sample:
+](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* You need to specify a password for the virtual machine administrator account. To increase security, use a generated password. Here is a sample for generating a password:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -69,7 +69,16 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+4. There are five resources defined by the template:
+
+    * **Microsoft.Storage/storageAccounts**. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
+    * **Microsoft.Network/publicIPAddresses**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
+    * **Microsoft.Network/virtualNetworks**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
+    * **Microsoft.Network/networkInterfaces**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
+    * **Microsoft.Compute/virtualMachines**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    It is helpful to get some basic understanding of the template before customizing it.
+5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 
 ## Edit the template
 
@@ -127,7 +136,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deploy a virtual machine and a virtual machine extension. The extension installs web server to the virtual machine. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+In this tutorial, you deployed a virtual machine and a virtual machine extension. The extension installed the IIS web server on the virtual machine. To learn how to use SQL Database extension to import a BACPAC file, see:
 
 > [!div class="nextstepaction"]
-> [Use Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [](./resource-manager-tutorial-deploy-vm-extensions.md)

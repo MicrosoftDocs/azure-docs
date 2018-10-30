@@ -54,8 +54,17 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
-5. Select **File**>**Save As** to create another copy of the file with the name **linkedTemplate.json**.
+4. There are five resources defined by the template:
+
+    * **Microsoft.Storage/storageAccounts**. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
+    * **Microsoft.Network/publicIPAddresses**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
+    * **Microsoft.Network/virtualNetworks**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
+    * **Microsoft.Network/networkInterfaces**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
+    * **Microsoft.Compute/virtualMachines**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    It is helpful to get some basic understanding of the template before customizing it.
+5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+6. Select **File**>**Save As** to create another copy of the file with the name **linkedTemplate.json**.
 
 ## Create the linked template
 
@@ -209,7 +218,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see
+In this tutorial, you developed and deployed a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see
 
 > [!div class="nextstepaction"]
 > [Deploy virtual machine extensions](./deployment-manager-tutorial.md)
