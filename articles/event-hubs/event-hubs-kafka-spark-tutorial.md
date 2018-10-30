@@ -5,9 +5,8 @@ services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
-
 ms.service: event-hubs
-ms.topic:
+ms.topic: tutorial
 ms.custom:
 ms.date: 10/30/2018
 ms.author: bahariri
