@@ -25,9 +25,9 @@ Service Fabric is equipped with feature of regularly backing up data and Ad-Hoc 
 
 The Ad-Hoc backup feature are helpful in following scenarios
 
-1. Ad-Hoc Backups helps in maintaining extra safety feature by providing backup of vital data across cluster region. Along with periodic backup one can trigger Ad-Hoc backups to have data being available across region in case of Disaster, where a complete region can be lost.
+1. Ad-Hoc Backups helps in maintaining extra safety by providing backup of vital data across cluster region. Along with periodic backup one can trigger Ad-Hoc backups to have data being backed up across region in case of Disaster, where a complete region can be lost.
 
-2. One can trigger Ad-Hoc backup along with periodic backup as additional backup before triggering an upgrade.Before upgrading it is advised to have backup as it will have the data guarded against data corruption by bugs in Application Code.
+2. One can trigger Ad-Hoc backup along with periodic backup as an additional backup before triggering an upgrade.Before upgrading it is advised to have backup as it will have the data guarded against data corruption by bugs in Application Code.
 
 3. The Service Fabric Cluster Admins can trigger Ad-hoc backup for application data as On - Demand basis.
 
@@ -74,6 +74,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+The Ad-Hoc Backup Progress can be tracked by GetBackupProgress API
 
 ## Tracking Ad Hoc Backup Progress
 
