@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
-
+ms.reviewer: knithinc
 ---
 # Connect to the ASDK
 

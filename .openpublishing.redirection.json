@@ -1,6 +1,106 @@
 {
     "redirections": [
         {
+            "source_path": "articles/frontdoor/front-door-powershell-reference.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/frontdoor/get-azurermfrontdoor.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/get-azurermfrontdoor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/frontdoor/get-azurermfrontdoorfirewallpolicy.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/get-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoor.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoor",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorbackendobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorbackendobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorbackendpoolobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorbackendpoolobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorcustomruleobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorcustomruleobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorfirewallpolicy.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorfrontendendpointobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorfrontendendpointobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorhealthprobesettingobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorhealthprobesettingobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorloadbalancingsettingobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorloadbalancingsettingobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoormanagedruleobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoormanagedruleobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoormatchconditionobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoormatchconditionobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorroutingruleobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorroutingruleobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/new-azurermfrontdoorrulegroupoverrideobject.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorrulegroupoverrideobject",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/remove-azurermfrontdoor.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/remove-azurermfrontdoor",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/frontdoor/remove-azurermfrontdoorfirewallpolicy.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/remove-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/frontdoor/set-azurermfrontdoor.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/set-azurermfrontdoor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/frontdoor/set-azurermfrontdoorfirewallpolicy.md",
+            "redirect_url": "/powershell/module/azurerm.frontdoor/set-azurermfrontdoorfirewallpolicy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/bing-web-search/computer-vision-web-search-tutorial.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search/index",
             "redirect_document_id": true
@@ -18,6 +118,31 @@
         {
             "source_path": "articles/frontdoor/front-door-rest-api.md",
             "redirect_url": "/rest/api/frontdoor",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-playbook-intro.md",
+            "redirect_url": "http://aka.ms/aadpocplaybook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-playbook-ingredients.md",
+            "redirect_url": "http://aka.ms/aadpocplaybook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-playbook-implementation.md",
+            "redirect_url": "http://aka.ms/aadpocplaybook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-playbook-building-blocks.md",
+            "redirect_url": "http://aka.ms/aadpocplaybook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-sharing-accounts.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/users-sharing-accounts",
             "redirect_document_id": true
         },
         {
@@ -227,6 +352,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/multi-master-conflict-resolution.md",
+            "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/distribute-data-globally-benefits.md",
+            "redirect_url": "/azure/cosmos-db/distribute-data-globally",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/enable-multi-master.md",
+            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": true
+        }, 
+        {
+            "source_path": "articles/cosmos-db/distribute-data-globally-turnkey.md",
+            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": false
+        }, 
+        {
             "source_path": "articles/cognitive-services/Computer-vision/Research.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision",
             "redirect_document_id": false
@@ -235,6 +380,11 @@
             "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/regional-failover.md",
+            "redirect_url": "/azure/cosmos-db/high-availability",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/search/search-howto-index-documentdb.md",
@@ -3153,7 +3303,12 @@
         },
         {
             "source_path": "articles/application-insights/enable-profiler-cloud-services.md",
-            "redirect_url": "/azure/application-insights/enable-profiler-compute",
+            "redirect_url": "/azure/application-insights/app-insights-profiler-cloudservice",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-insights/enable-profiler-compute.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
             "redirect_document_id": false
         },
         {
@@ -3181,11 +3336,17 @@
             "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
             "redirect_document_id": false
         },
-       {
+        {
             "source_path": "articles/automation/automation-source-control-integration.md",
             "redirect_url": "/azure/automation/source-control-integration",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/automation/automation-scenario-remove-resourcegroup.md",
+            "redirect_url": "/azure/automation",
+            "redirect_document_id": false
+        },
+        
         {
             "source_path": "articles/azure-functions/functions-create-generic-webhook-triggered-function.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
@@ -7269,11 +7430,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-update-1809.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-stack/azure-stack-update-1802.md",
             "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
             "redirect_document_id": false
@@ -7646,6 +7802,11 @@
         {
             "source_path": "articles/cosmos-db/multi-master-workaround.md",
             "redirect_url": "/azure/cosmos-db/enable-multi-master",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/multi-master-oss-nosql.md",
+            "redirect_url": "/azure/cosmos-db/consistency-levels-across-apis",
             "redirect_document_id": false
         },
         {
@@ -9901,6 +10062,11 @@
         {
             "source_path": "articles/log-analytics/log-analytics-service-fabric-azure-resource-manager.md",
             "redirect_url": "https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/query-language/kusto.md",
+            "redirect_url": "azure/log-analytics/query-language/query-language",
             "redirect_document_id": false
         },
         {
@@ -29984,6 +30150,56 @@
             "source_path": "articles/media-services/latest/transform-concept.md",
             "redirect_url": "/azure/media-services/latest/transforms-jobs-concept",
             "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-windows-settings-reference.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-windows-settings-reference",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-enable.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-enable",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-faqs.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-faqs",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-group-policy-settings.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-group-policy-settings",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-overview.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-overview",
+            "redirect_document_id" : true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-troubleshooting.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-troubleshooting",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/key-vault/vs-key-vault-aspnet-core-get-started.md",
+            "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/key-vault/vs-key-vault-aspnet-core-what-happened.md",
+            "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/key-vault/vs-key-vault-aspnet-get-started.md",
+            "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
+            "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : false
         }
     ]
 }

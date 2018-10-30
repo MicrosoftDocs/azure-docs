@@ -362,7 +362,7 @@ based on the regions where your logic apps exist.
 > 
 > * If you already use API Management, you can use 
 > this service for this scenario. For more info, see 
-> [Simple enterprise integration architecture](http://aka.ms/aisarch).
+> [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 | Logic Apps region | Outbound IP | 
 |-------------------|-------------|  

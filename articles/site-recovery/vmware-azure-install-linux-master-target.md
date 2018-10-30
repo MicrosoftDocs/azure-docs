@@ -1,6 +1,6 @@
 ---
-title: Install a Linux master target server for failover from Azure to on-premises| Microsoft Docs
-description: Before reprotecting a Linux virtual machine, you need a Linux master target server. Learn how to install one.
+title: Install a Linux master target server for failback to an on-premises site | Microsoft Docs
+description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 10/11/2018
 ms.author: nisoneji
 
 ---
-# Install a Linux master target server
+# Install a Linux master target server for failback
 After you fail over your virtual machines to Azure, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic. 
 
 If your protected virtual machine is a Windows virtual machine, then you need a Windows master target. For a Linux virtual machine, you need a Linux master target. Read the following steps to learn how to create and install a Linux master target.

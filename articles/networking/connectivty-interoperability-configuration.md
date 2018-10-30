@@ -40,7 +40,7 @@ You set up site-to-site VPN connectivity between hub and branch VNets by using V
 
 ### ExpressRoute1 configuration details
 
-The following screenshot shows the Azure Region 1 ExpressRoute circuit configuration toward Location-1 on-premises CE routers:
+The following screenshot shows the Azure Region 1 ExpressRoute circuit configuration toward Location-1 on-premises customer edge (CE) routers:
 
 [![4]][4]
 
@@ -48,7 +48,7 @@ The following screenshot shows the connection configuration between ExpressRoute
 
 [![5]][5]
 
-The following list shows the primary CE router configuration that is related to ExpressRoute private peering connectivity. (Cisco ASR1000 routers are used as CE routers in the test setup.) When site-to-site VPN and ExpressRoute circuit are configured in parallel to connect an on-premises network to Azure, Azure prioritizes the ExpressRoute circuit by default. To avoid asymmetrical routing, the on-premises network also should prefer ExpressRoute over site-to-site VPN for routes that are received via both ExpressRoute and site-to-site VPN. This is achieved in the following configuration by using the BGP **local-preference** attribute. 
+The following list shows the primary CE router configuration that's related to ExpressRoute private peering connectivity. (Cisco ASR1000 routers are used as CE routers in the test setup.) When site-to-site VPN and ExpressRoute circuit are configured in parallel to connect an on-premises network to Azure, Azure prioritizes the ExpressRoute circuit by default. To avoid asymmetrical routing, the on-premises network also should prefer ExpressRoute over site-to-site VPN for routes that are received via both ExpressRoute and site-to-site VPN. This is achieved in the following configuration by using the BGP **local-preference** attribute. 
 
 	interface TenGigabitEthernet0/0/0.300
 	 description Customer 30 private peering to Azure
@@ -90,7 +90,7 @@ The following list shows the primary CE router configuration that is related to 
 
 ### Site-to-site VPN configuration details
 
-The following list shows the primary CE router configuration that is related to site-to-site VPN connectivity:
+The following list shows the primary CE router configuration that's related to site-to-site VPN connectivity:
 
 	crypto ikev2 proposal Cust30-azure-proposal
 	 encryption aes-cbc-256 aes-cbc-128 3des

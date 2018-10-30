@@ -32,7 +32,7 @@ The centerpiece of the test setup is the hub VNet in Azure Region 1. The hub VNe
 
 -   To the spoke VNet by using VNet peering. The spoke VNet has remote access to both gateways in the hub VNet.
 -   To the branch VNet by using site-to-site VPN. The connectivity uses eBGP to exchange routes.
--   To the Location-1 on-premises network by using ExpressRoute private peering as the primary path and site-to-site VPN connectivity as the backup path. In the rest of this article, we refer to this ExpressRoute circuit as ExpressRoute1. By default, ExpressRoute circuits provide redundant connectivity for high availability. On ExpressRoute1, the secondary CE router's subinterface that faces the secondary Microsoft Enterprise Edge Router (MSEE) is disabled. This is indicated by using a red line over the double-line arrow in the preceding diagram.
+-   To the Location-1 on-premises network by using ExpressRoute private peering as the primary path and site-to-site VPN connectivity as the backup path. In the rest of this article, we refer to this ExpressRoute circuit as ExpressRoute1. By default, ExpressRoute circuits provide redundant connectivity for high availability. On ExpressRoute1, the secondary customer edge (CE) router's subinterface that faces the secondary Microsoft Enterprise Edge Router (MSEE) is disabled. This is indicated by using a red line over the double-line arrow in the preceding diagram.
 -   To the Location-2 on-premises network by using another ExpressRoute private peering. In the rest of this article, we refer to this second ExpressRoute circuit as ExpressRoute2.
 -   ExpressRoute1 also connects both the hub VNet and Location-1 on-premises to a remote VNet in Azure Region 2.
 

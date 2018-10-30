@@ -74,7 +74,7 @@ For the same connection, the following screenshot shows the grid view in Network
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to a Microsoft Enterprise Edge Router (MSEE). The second and third hops are the CE router and the on-premises Location-1 LAN IPs. These IP addresses aren't advertised in the hub VNet. The fourth hop is the VM in the on-premises Location-1.
+In the preceding traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to a Microsoft Enterprise Edge Router (MSEE). The second and third hops are the customer edge (CE) router and the on-premises Location-1 LAN IPs. These IP addresses aren't advertised in the hub VNet. The fourth hop is the VM in the on-premises Location-1.
 
 
 ### Path to on-premises Location-2

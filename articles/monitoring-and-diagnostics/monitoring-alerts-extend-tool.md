@@ -16,7 +16,7 @@ The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As 
 - Programmatically by using the AlertsVersion API.  
 
 > [!NOTE]
-> Microsoft will automatically extend alerts created in public cloud instances of Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. If you have any problems creating [action groups](monitoring-action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5, 2018. *Not applicable for Azure Goverment and Soveriegn cloud users of Log Analytics*. 
+> Microsoft will automatically extend alerts created in public cloud instances of Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. If you have any problems creating [action groups](monitoring-action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5, 2018. *Not applicable for Azure Government and Sovereign cloud users of Log Analytics*. 
 
 ## Option 1: Initiate from the Operations Management Suite portal
 The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal.  

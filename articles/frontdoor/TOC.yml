@@ -61,7 +61,7 @@
   - name: Azure CLI
     href: /cli/azure/ext/front-door/
   - name: Azure PowerShell
-    href: front-door-powershell-reference.md
+    href: /powershell/module/azurerm.frontdoor
   - name: REST API
     href: /rest/api/frontdoor
 - name: Resources

@@ -16,14 +16,14 @@ ms.author: douglasl
 ---
 # Enable Azure Active Directory authentication for the Azure-SSIS integration runtime
 
-This article shows you how to create an Azure-SSIS IR with Azure Data Factory service identity. Azure Active Directory (Azure AD) authentication with the managed identity for Azure resources for the Azure-SSIS integration runtime lets you use the Data Factory MSI instead of SQL authentication to create an Azure-SSIS integration runtime.
+This article shows you how to create an Azure-SSIS IR with Azure Data Factory service identity. You can use Azure Active Directory (Azure AD) authentication with the managed identity for your Azure Data Factory instead of SQL authentication to create an Azure-SSIS integration runtime.
 
-For more info about the Data Factory MSI, see [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+For more info about the managed identity for your ADF, see [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > If you have already created an Azure-SSIS integration runtime with SQL authentication, you can't reconfigure the IR to use Azure AD authentication with PowerShell at this time.
 
-## Create a group in Azure AD and make the Data Factory MSI a member of the group
+## Create a group in Azure AD and make the managed identity for your ADF a member of the group
 
 You can use an existing Azure AD group, or create a new one using Azure AD PowerShell.
 
@@ -48,7 +48,7 @@ You can use an existing Azure AD group, or create a new one using Azure AD Power
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Add the Data Factory MSI to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use SERVICE IDENTITY APPLICATION ID for this purpose).
+3.  Add the managed identity for your ADF to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use SERVICE IDENTITY APPLICATION ID for this purpose).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -62,7 +62,7 @@ You can use an existing Azure AD group, or create a new one using Azure AD Power
 
 ## Enable Azure AD on Azure SQL Database
 
-Azure SQL Database supports creating a database with an Azure AD user. As a result, you can set an Azure AD user as the Active Directory admin, and then log in to SSMS using the Azure AD user. Then you can create a contained user for the Azure AD group to enable the IR to create the SQL Server Integration Services (SSIS) catalog on the server.
+Azure SQL Database supports creating a database with an Azure AD user. As a result, you can set an Azure AD user as the Active Directory admin, and then log in to SSMS using the Azure AD user. Then you can create a contained user for the Azure AD group to enable your IR to create the SQL Server Integration Services (SSIS) catalog on the server.
 
 ### Enable Azure AD authentication for the Azure SQL Database
 
@@ -136,7 +136,7 @@ You can [configure Azure AD authentication for the SQL Database Managed Instanc
 
 ## Provision the Azure-SSIS IR in the portal
 
-When you provision your Azure-SSIS IR with the Azure portal, on the **SQL Settings** page, check the "Use AAD authentication with your ADF MSI" option. (The following screenshot shows the settings for IR with Azure SQL Database. For the IR with Managed Instance, the "Catalog Database Service Tier" property is not available; other settings are the same.)
+When you provision your Azure-SSIS IR with the Azure portal, on the **SQL Settings** page, check the "Use AAD authentication with the managed identity for your ADF" option. (The following screenshot shows the settings for IR with Azure SQL Database. For the IR with Managed Instance, the "Catalog Database Service Tier" property is not available; other settings are the same.)
 
 For more info about how to create an Azure-SSIS integration runtime, see [Create an Azure-SSIS integration runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
@@ -154,16 +154,15 @@ To provision your Azure-SSIS IR with PowerShell, do the following things:
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
-                                               -Type Managed `
-                                               -CatalogServerEndpoint $SSISDBServerEndpoint `
-                                               -CatalogPricingTier $SSISDBPricingTier `
                                                -Description $AzureSSISDescription `
-                                               -Edition $AzureSSISEdition `
+                                               -Type Managed `
                                                -Location $AzureSSISLocation `
                                                -NodeSize $AzureSSISNodeSize `
                                                -NodeCount $AzureSSISNodeNumber `
+                                               -Edition $AzureSSISEdition `
                                                -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                               -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+                                               -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                               -CatalogPricingTier $SSISDBPricingTier
 
     Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                  -DataFactoryName $DataFactoryName `
