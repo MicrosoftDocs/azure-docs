@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/25/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -202,7 +202,7 @@ Because the storage account is defined in the linked template now, you must upda
 2. Expand the virtual machine resource definition, update **dependsOn** as shown in the following screenshot:
 
     ![Azure Resource Manager linked templates configure dependency ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
-    
+
     "linkedTemplate" is the name of the deployments resource.  
 3. update **properties/diagnosticsProfile/bootDiagnostics/storageUri** as shown in the previous screenshot.
 
@@ -210,7 +210,7 @@ For more information, see [Use linked and nested templates when deploying Azure 
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure.
+Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
 ## Clean up resources
 

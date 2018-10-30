@@ -72,35 +72,34 @@ When you explore the template in this section, try to answer these questions:
 
     There are five resources defined by the template:
 
-    * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
-    * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
-    * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
-    * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
+    * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
     * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
     It is helpful to get some basic understanding of the template before customizing it.
 
-2. Expand the first resource. It is a storage account. The definition shall be identical to the one used at the beginning of the last tutorial.
+2. Expand the first resource. It is a storage account. Compare the resource definition to the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Visual Studio Code Azure Resource Manager templates storage account definition](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. Expand the second resource. The resource type is **Microsoft.Network/publicIPAddresses**. To find the template reference, browse to [template reference](https://docs.microsoft.com/azure/templates/), enter **public ip address** or **public ip addresses** in the **Filter by title** field. Compare the resource definition to the template reference.
+3. Expand the second resource. The resource type is `Microsoft.Network/publicIPAddresses`. Compare the resource definition to the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Visual Studio Code Azure Resource Manager templates public IP address definition](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Repeat the last step to find the template references for the other resources defined in this template.  Compare the resource definitions to the references.
-5. Expand the fourth resource:
+4. Expand the fourth resource. The resource type is `Microsoft.Network/networkInterfaces`:  
 
     ![Visual Studio Code Azure Resource Manager templates dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
-    The dependsOn element enables you to define one resource as a dependent on one or more resources. In this example, this resource is a networkInterface.  It depends on two other resources:
+    The dependsOn element enables you to define one resource as a dependent on one or more resources. The resource depends on two other resources:
 
-    * publicIPAddress
-    * virtualNetwork
+    * `Microsoft.Network/publicIPAddresses`
+    * `Microsoft.Network/virtualNetworks`
 
-6. Expand the fifth resource. This resource is a virtual machine. It depends on two other resources:
+5. Expand the fifth resource. This resource is a virtual machine. It depends on two other resources:
 
-    * storageAccount
-    * networkInterface
+    * `Microsoft.Storage/storageAccounts`
+    * `Microsoft.Network/networkInterfaces`
 
 The following diagram illustrates the resources and the dependency information for this template:
 
@@ -142,14 +141,14 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
-    
+
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json 
+        -TemplateFile azuredeploy.json
     ```
 8. Run the following PowerShell command to list the newly created virtual machine:
 
@@ -160,7 +159,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 
     The virtual machine name is hard-coded as **SimpleWinVM** inside the template.
 
-9. Sign in to the virtual machine to test the administrator's credentials. 
+9. RDP to the virtual machine to verify the virtual machine has been created successfully.
 
 ## Clean up resources
 
@@ -175,7 +174,5 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 In this tutorial, you developed and deployed a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to deploy Azure resources based on conditions, see:
 
-
 > [!div class="nextstepaction"]
 > [Use conditions](./resource-manager-tutorial-use-conditions.md)
-

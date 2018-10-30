@@ -116,13 +116,13 @@ You need to add two additional resources to the template.
         }
     ]
     ```
-    
+
     The template shall look like:
-    
+
     ![Azure Resource Manager deploy sql extensions BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
-    
+
     To understand the resource definition, see the [SQL Database extension reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
-    
+
     * **dependsOn**: The extension resource must be created after the SQL database has been created.
     * **storageKeyType**: The type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Because the provided BACPAC file is shared on an Azure Storage account with public access, `SharedAccessKey' is used here.
     * **storageKey**: The storage key to use. If storage key type is SharedAccessKey, it must be preceded with a "?."
@@ -147,6 +147,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -adminPassword $adminPassword `
     -TemplateFile azuredeploy.json
 ```
+
 It is recommended to use a generated password. See [Prerequisites](#prerequisites).
 
 ## Verify the deployment
