@@ -1,5 +1,5 @@
 ---
-title: What is Bing Local Business Search? | Microsoft Docs
+title: What is the Bing Local Business Search API? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: The Bing Local Business Search API is a RESTful service that enables your applications to find information about local places and businesses based on search queries.
 services: cognitive-services
@@ -12,7 +12,8 @@ ms.date: 11/01/2018
 ms.author: rosh
 ---
 
-# What is Bing Local Business Search?
+# What is The Bing Local Business Search API?
+
 The Bing Local Business Search API is a RESTful service that enables your applications to find information about local places and businesses based on search queries. For example, `<business-name> in Redmond, Washington`, or `Italian restaurants near me`. Currently, only the `en-US` market is supported. Other options may return results from nearest match. 
 
 ## Features

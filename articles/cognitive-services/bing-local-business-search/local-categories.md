@@ -1,5 +1,6 @@
 ---
-title: Local Categories search | Microsoft Docs
+title: Search categories for the Bing Local Business Search API | Microsoft Docs
+titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to specify search categories for the Bing Local Business search API endpoint.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -12,30 +13,83 @@ ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ---
 
-# Categories for Bing Local Search
-Search for local business entities by category. This feature works with the user’s implicit RevIP location and also with `localCircularView` and `localMapView` parameters.
+# Search categories for the Bing Local Business Search API
+
+The Bing Local Business Search API enables you to search for local business entities in a variety of categories. You can include these searches in searches along with the `localCircularView` and `localMapView` [parameters](specify-geographic-search.md), and works with the user's implicit RevIP location.
+
+## TopLevel Categories 
+
+The following types define major categories of search.  More than one category can be specified using a comma-delimited list assigned to the `localCategories` parameter.  
+- EatDrink 
+- SeeDo 
+- Shop 
+- HotelsAndMotels 
+- BanksAndCreditUnions 
+- Parking 
+- Hospitals 
+
+## Sub Categories
+Subcategories are passed the same way as `localCategories`. Subcategories are more specific categories. They are subordinate in the sense that if you specify a category C and one of its subcategories S in the same comma-delimited list, you will receive the same results as if you specified C alone.
+
+### Eat Drink 
+|  |  |  |  |
+| - | - | - | - |
+| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants | AmericanRestaurants |
+| Bagels | BarbecueRestaurants | Taverns | SportsBars | 
+| Bars | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
+| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants | ChineseRestaurants | 
+| CoffeeAndTea | Delicatessens | DeliveryService | Diners | 
+| DiscountStores | Donuts | FastFood | FrenchRestaurants | 
+| FrozenYogurt | GermanRestaurants | Supermarkets | GreekRestaurants | 
+| Grocers | HawaiianRestaurants | HungarianRestaurants | IceCreamAndFrozenDesserts | 
+| IndianRestaurants | ItalianRestaurants | JapaneseRestaurants | Juices | 
+| KoreanRestaurants | LiquorStores | MexicanRestaurants | MiddleEasternRestaurants | 
+| Pizza | PolishRestaurants | PortugueseRestaurants | Pretzels | 
+| Restaurants | RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
+| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | TakeAway | 
+| ThaiRestaurants | TurkishRestaurants | VegetarianAndVeganRestaurants | VietnameseRestaurants|
+ 
+### See Do 
+|  |  |  |
+| -- | -- | -- |
+| AmusementParks | Attractions | Carnivals |
+| Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
+| MovieTheaters | Museums | Parks |
+| SightseeingTours | TouristInformation | Zoos |
+ 
+### Shop 
+|  |  |  |
+| -- | -- | -- |
+| AntiqueStores | Bookstores | CDAndRecordStores |
+| ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
+| DepartmentStores | DiscountStores | FleaMarketsAndBazaars |
+| FurnitureStores | HomeImprovementStores | JewelryAndWatchesStores |
+| KitchenwareStores | LiquorStores | MallsAndShoppingCenters |
+| MensClothingStores | MusicStores | OutletStores |
+| PetShops | PetSupplyStores | SchoolAndOfficeSupplyStores |
+| ShoeStores | SportingGoodsStores | ToyAndGameStores |
+| VitaminAndSupplementStores | WomensClothingStores |  |
+
 
 ## Examples of Local Categories search
-The following examples get results according to the `localCategories` parameter:
 
-GET
-````
-https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=HotelsAndMotels
-https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=EatDrink
-https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Shop
-https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Hospitals
-````
+The following examples GET results according to the `localCategories` parameter:
 
-The following query limits the number of 'hospital' results to three beginning with the 0th index item:
+`https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=HotelsAndMotels`
 
-````
-https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localCategories=Hospitals&count=3&offset=0
+`https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=EatDrink`
 
-````
+`https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Shop`
 
-The results include three hospitals in the greater Seattle area:
+`https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Hospitals`
 
-````
+The following query limits the number of 'hospital' results to first three returned from the Bing Local Business Search API:
+
+`https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localCategories=Hospitals&count=3&offset=0`
+
+The following example JSON response includes three hospitals in the greater Seattle area:
+
+````json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
 BingAPIs-SessionId: F89E7B8539B34BF58AAF811485E83B20
 X-MSEdge-ClientID: 1C44E64DBFAA6BCA1270EADDBE7D6A22
@@ -150,61 +204,7 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
       }
    }
 }
-
 ````
-
-## TopLevel Categories 
-
-The following types define major categories of search.  More than one category can be specified using a comma-delimited list assigned to the `localCategories` parameter.  
-- EatDrink 
-- SeeDo 
-- Shop 
-- HotelsAndMotels 
-- BanksAndCreditUnions 
-- Parking 
-- Hospitals 
-
-## Sub Categories
-Subcategories are passed the same way as `localCategories`. Subcategories are more specific categories. They are subordinate in the sense that if you specify a category C and one of its subcategories S in the same comma-delimited list, you will receive the same results as if you specified C alone.
-
-### Eat Drink 
-|  |  |  |  |
-| - | - | - | - |
-| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants | AmericanRestaurants |
-| Bagels | BarbecueRestaurants | Taverns | SportsBars | 
-| Bars | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
-| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants | ChineseRestaurants | 
-| CoffeeAndTea | Delicatessens | DeliveryService | Diners | 
-| DiscountStores | Donuts | FastFood | FrenchRestaurants | 
-| FrozenYogurt | GermanRestaurants | Supermarkets | GreekRestaurants | 
-| Grocers | HawaiianRestaurants | HungarianRestaurants | IceCreamAndFrozenDesserts | 
-| IndianRestaurants | ItalianRestaurants | JapaneseRestaurants | Juices | 
-| KoreanRestaurants | LiquorStores | MexicanRestaurants | MiddleEasternRestaurants | 
-| Pizza | PolishRestaurants | PortugueseRestaurants | Pretzels | 
-| Restaurants | RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
-| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | TakeAway | 
-| ThaiRestaurants | TurkishRestaurants | VegetarianAndVeganRestaurants | VietnameseRestaurants|
- 
-### See Do 
-|  |  |  |
-| -- | -- | -- |
-| AmusementParks | Attractions | Carnivals |
-| Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
-| MovieTheaters | Museums | Parks |
-| SightseeingTours | TouristInformation | Zoos |
- 
-### Shop 
-|  |  |  |
-| -- | -- | -- |
-| AntiqueStores | Bookstores | CDAndRecordStores |
-| ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
-| DepartmentStores | DiscountStores | FleaMarketsAndBazaars |
-| FurnitureStores | HomeImprovementStores | JewelryAndWatchesStores |
-| KitchenwareStores | LiquorStores | MallsAndShoppingCenters |
-| MensClothingStores | MusicStores | OutletStores |
-| PetShops | PetSupplyStores | SchoolAndOfficeSupplyStores |
-| ShoeStores | SportingGoodsStores | ToyAndGameStores |
-| VitaminAndSupplementStores | WomensClothingStores |  |
 
 ## Next steps
 - [Geographic search boundaries](specify-geographic-search.md)
