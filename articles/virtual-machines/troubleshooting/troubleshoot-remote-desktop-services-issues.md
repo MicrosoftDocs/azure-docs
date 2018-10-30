@@ -16,9 +16,9 @@ ms.date: 10/23/2018
 ms.author: genli
 ---
 
-# Remote Desktop Services is not starting on an Azure VM
+# Remote Desktop Services isn't starting on an Azure VM
 
-This article describes how to troubleshoot issues of connecting to an Azure Virtual Machine (VM) when Remote Desktop Services (TermService) isn't starting or failing to start.
+This article describes how to troubleshoot issues of connecting to an Azure Virtual Machine (VM) when Remote Desktop Services (TermService) isn't starting or fails to start.
 
 >[!NOTE]
 >Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
@@ -50,11 +50,11 @@ When you try to connect to a VM, you experience the following scenarios:
         wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
 
 ## Cause
+ 
+This problem occurs because Remote Desktop Services isn't running on the VM. The cause can depend on the following scenarios: 
 
-This problem occurs because Remote Desktop Services isn't running on the Virtual Machine. The cause can depend on the following scenarios:
-
-- The TermService service was set to **Disabled**.
-- The TermService service is crashing or hanging.
+- The TermService service is set to **Disabled**. 
+- The TermService service is crashing or hanging. 
 
 ## Solution
 
@@ -66,13 +66,13 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
 
 2. Create a new channel for a CMD instance. Type **CMD** to start the channel to get the channel name.
 
-3. Switch to the channel that running the CMD instance, in this case it should be channel 1.
+3. Switch to the channel that running the CMD instance. In this case it should be channel 1.
 
    ```
    ch -si 1
    ```
 
-4. Press **Enter** again and type a valid username and password (local or domain ID) for the VM.
+4. Press **Enter** again and enter a valid username and password (local or domain ID) for the VM.
 
 5. Query the status of the TermService service.
 
