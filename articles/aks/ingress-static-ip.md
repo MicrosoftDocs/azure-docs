@@ -20,8 +20,8 @@ You can also:
 
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
-- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-- [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
+- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
+- [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a dynamic public IP address][aks-ingress-tls]
 
 ## Before you begin
 
@@ -45,13 +45,16 @@ Next, create a public IP address with the *static* allocation method using the [
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
-Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step.
+Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
 > [!TIP]
 > The following examples install the ingress controller and certificates in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. Also, if your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    --set controller.service.loadBalancerIP="40.121.63.72"  \
+    --set controller.replicaCount=2
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your static IP address is assigned, as shown in the following example output:
@@ -328,6 +331,7 @@ You can also:
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
 - [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
+- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
 - [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
 
 <!-- LINKS - external -->
@@ -349,3 +353,4 @@ You can also:
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

@@ -4,7 +4,7 @@ description: This article walks you through the steps to enable the Resource Gra
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
@@ -12,13 +12,13 @@ manager: carmonm
 ---
 # Run your first Resource Graph query using Azure CLI
 
-The first step to using Azure Resource Graph is to ensure the extension for [Azure
+The first step to using Azure Resource Graph is to check that the extension for [Azure
 CLI](/cli/azure/) is installed. This quickstart walks you through the process of adding the
 extension to your Azure CLI installation. You can use the extension with Azure CLI installed
 locally or through the [Azure Cloud Shell](https://shell.azure.com).
 
-At the end of this process, you will have added the extension to your Azure CLI installation of
-choice and run your very first Resource Graph query.
+At the end of this process, you'll have added the extension to your Azure CLI installation of
+choice and run your first Resource Graph query.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
@@ -30,7 +30,7 @@ works wherever Azure CLI can be used, including [bash on Windows 10](/windows/ws
 [Cloud Shell](https://shell.azure.com) (both standalone and inside the portal), the [Azure CLI
 Docker image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
 
-1. Ensure the latest Azure CLI is installed (at least **2.0.45**). If it is not yet installed, follow [these instructions](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Check that the latest Azure CLI is installed (at least **2.0.45**). If it isn't yet installed, follow [these instructions](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. In your Azure CLI environment of choice, import it with the following command:
 
@@ -51,9 +51,9 @@ Docker image](https://hub.docker.com/r/microsoft/azure-cli/), or locally install
 
 ## Run your first Resource Graph query
 
-Now that the Azure CLI extension has been added to your environment of choice, it is time to try
-out a simple Resource Graph query. The query will return the first five Azure resources with the
-**Name** and **Resource Type** of each resource.
+With the Azure CLI extension added to your environment of choice, it's time to try out a simple
+Resource Graph query. The query will return the first five Azure resources with the **Name** and
+**Resource Type** of each resource.
 
 1. Run your first Azure Resource Graph query using the `graph` extension and `query` command:
 
@@ -80,16 +80,16 @@ out a simple Resource Graph query. The query will return the first five Azure re
   > set of resources per request. The order of the query commands is important. In this example, the
   > `order by` comes after the `limit`. This will first limit the query results and then order them.
 
-1. Update the query to first `order by` the **Name** property and then `limit` to the top 5 results:
+1. Update the query to first `order by` the **Name** property and then `limit` to the top five results:
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    az graph query -q 'project name, type | order by name asc | limit 5'
    ```
 
-When the final query is run multiple times, assuming that nothing in your environment is changing,
+When the final query is run several times, assuming that nothing in your environment is changing,
 the results returned will be consistent and as expected -- ordered by the **Name** property, but
-still limited to the top 5 results.
+still limited to the top five results.
 
 ## Cleanup
 

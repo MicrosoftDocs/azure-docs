@@ -6,13 +6,13 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 manager: carmonm
 ---
 # Runbook execution in Azure Automation
 
-When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. An Azure Automation worker is assigned to run each job. While workers are shared by many Azure accounts, jobs from different Automation accounts are isolated from one another. You don't have control over which worker services the request for your job. A single runbook can have many jobs running at one time. The execution environment for jobs from the same Automation Account may be reused. When you view the list of runbooks in the Azure portal, it lists the status of all jobs that were started for each runbook. You can view the list of jobs for each runbook to track the status of each. For a description of the different job statuses [Job Statuses](#job-statuses).
+When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. An Azure Automation worker is assigned to run each job. While workers are shared by many Azure accounts, jobs from different Automation accounts are isolated from one another. You don't have control over which worker services the request for your job. A single runbook can have many jobs running at one time. The execution environment for jobs from the same Automation Account may be reused. When you view the list of runbooks in the Azure portal, it lists the status of all jobs that were started for each runbook. You can view the list of jobs for each runbook to track the status of each. Job logs are stored for a maximum of 30 days. For a description of the different job statuses [Job Statuses](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -129,19 +129,11 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## Fair share
 
-In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for three hours. During this time, jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) are stopped and are not be restarted. The job status shows **Stopped**. This type of runbook is always restarted from the beginning since they don't support checkpoints.
+In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload or stop any job that has been running for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows Stopped.
 
-[PowerShell-Workflow-based runbooks](automation-runbook-types.md#powershell-workflow-runbooks) are resumed from their last [checkpoint](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). After running three hours, the runbook job is suspended by the service and its status shows **Running, waiting for resources**. When a sandbox becomes available, the runbook is automatically restarted by the Automation service and resumes from the last checkpoint. This behavior is normal PowerShell-Workflow behavior for suspend/restart. If the runbook again exceeds three hours of runtime, the process repeats, up to three times. After the third restart, if the runbook still has not completed in three hours, then the runbook job is failed, and the job status shows **Failed, waiting for resources**. In this case, you receive the following exception with the failure.
+For long running tasks, it is recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers are not limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers are not limited by the 3 hour fair share limit, runbooks ran on them should still be developed to support restart behaviors from unexpected local infrastructure issues.
 
-*The job cannot continue running because it was repeatedly evicted from the same checkpoint. Please make sure your Runbook does not perform lengthy operations without persisting its state.*
-
-This behavior is to protect the service from runbooks running indefinitely without completing, as they are not able to make it to the next checkpoint without being unloaded again.
-
-If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it restarts from the beginning.
-
-For long running tasks, it is recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers are not limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers.
-
-If you are using a PowerShell Workflow runbook on Azure, when you create a runbook, you should make sure the time to run any activities between two checkpoints does not exceed three hours. You may need to add checkpoints to your runbook to make sure it does not reach this three-hour limit or break up long running operations. For example, your runbook might run a reindex on a large SQL database. If this single operation does not complete within the fair share limit, then the job is unloaded and restarted from the beginning. In this case, you should break up the reindex operation into multiple steps, such as reindexing one table at a time, and then insert a checkpoint after each operation so the job could resume after the last operation to complete.
+Another option is to optimize the runbook by using child runbooks. If your runbook loops through the same function on a number of resources, such as a database operation on several databases, you can move that function to a [child runbook](automation-child-runbooks.md) and call it with the [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Each of these child runbooks executes in parallel in separate processes decreasing the total amount of time for the parent runbook to complete. You can use the [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet in your runbook to check the job status for each child if there are operations that need to be performed after the child runbook completes.
 
 ## Next steps
 

@@ -29,6 +29,10 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+This article describes an online migration from SQL Server to Azure SQL Database. For an offline migration, see [Migrate SQL Server to Azure SQL Database offline using DMS](tutorial-sql-server-to-azure-sql.md).
+
 ## Prerequisites
 To complete this tutorial, you need to:
 

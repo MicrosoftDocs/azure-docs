@@ -22,7 +22,7 @@ Azure Compute requests may be throttled at a subscription and on a per-region ba
 
 ## Throttling by Azure Resource Manager vs Resource Providers  
 
-As the front door to Azure, Azure Resource Manager does the authentication and first-order validation and throttling of all incoming API requests. Azure Resource Manager call rate limits and related diagnostic response HTTP headers are described [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
+As the front door to Azure, Azure Resource Manager does the authentication and first-order validation and throttling of all incoming API requests. Azure Resource Manager call rate limits and related diagnostic response HTTP headers are described [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
  
 When an Azure API client gets a throttling error, the HTTP status is 429 Too Many Requests. To understand if the request throttling is done by Azure Resource Manager or an underlying resource provider like CRP, inspect the `x-ms-ratelimit-remaining-subscription-reads` for GET requests and `x-ms-ratelimit-remaining-subscription-writes` response headers for non-GET requests. If the remaining call count is approaching 0, the subscription’s general call limit defined by Azure Resource Manager has been reached. Activities by all subscription clients are counted together. Otherwise, the throttling is coming from the target resource provider (the one addressed by the `/providers/<RP>` segment of the request URL). 
 
@@ -84,4 +84,4 @@ As illustrated above, every throttling error includes the `Retry-After` header, 
 
 ## Next steps
 
-For more information about retry guidance for other services in Azure, see [Retry guidance for specific services](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
+For more information about retry guidance for other services in Azure, see [Retry guidance for specific services](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

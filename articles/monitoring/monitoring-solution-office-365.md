@@ -33,7 +33,7 @@ The following is required prior to this solution being installed and configured.
 
 - Organizational Office 365 subscription.
 - Credentials for a user account that is a Global Administrator.
-- To receive audit data, you must [configure auditing](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.  You can still install the solution and collect other data if auditing is not configured.
+- To receive audit data, you must [configure auditing](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.  You can still install the solution and collect other data if auditing is not configured.
  
 
 ## Management packs
@@ -473,7 +473,7 @@ You can remove the Office 365 management solution using the process in [Remove a
 
 ## Data collection
 ### Supported agents
-The Office 365 solution doesn't retrieve data from any of the [OMS agents](../log-analytics/log-analytics-data-sources.md).  It retrieves data directly from Office 365.
+The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../log-analytics/log-analytics-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
 It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created. This record is available in Log Analytics within a few minutes after being received.

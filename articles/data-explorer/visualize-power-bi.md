@@ -2,8 +2,8 @@
 title: 'Tutorial: Visualize data from Azure Data Explorer in Power BI'
 description: 'In this tutorial, you learn how to connect to Azure Data Explorer with Power BI, and visualize your data.'
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial

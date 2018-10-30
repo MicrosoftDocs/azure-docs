@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/17/2018
 ---
 
 # Hyperscale service tier (preview) for up to 100 TB
@@ -143,8 +143,8 @@ Hyperscale service tier is currently in public preview and available in followin
 
 | Issue | Description |
 | :---- | :--------- |
-| ManageBackups pane for a logical server does not show Hyperscale databases will be filtered from SQL server->  | Hyperscale has a separate method for managing backups, and as such the Long Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
-| Point-in-time restore | Once a database is migrated into the Hyperscale service tier, restore to a point-in-tIme is not supported.|
+| The Manage Backups pane for a logical server does not show Hyperscale databases will be filtered from SQL server->  | Hyperscale has a separate method for managing backups, and as such the Long Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
+| Point-in-time restore | Once a database is migrated into the Hyperscale service tier, restore to a point-in-tIme prior to the migration is not supported.|
 | If a database file grows during migration due to an active workload and crosses the 1 TB per file boundary, the migration fails | Mitigations: <br> - If possible, migrate the database when there is no update workload running.<br> - Re-try the migration, it will succeed as long as the 1 TB boundary is not crossed during the migration.|
 | Managed Instance is not currently supported | Not currently supported |
 | Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it cannot be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file.|

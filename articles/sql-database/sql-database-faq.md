@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ---
 # SQL Database frequently asked questions (FAQ)
 
@@ -25,11 +25,11 @@ We guarantee at least 99.99% of the time, you have connectivity between your Mic
 
 ## Can I control when patching downtime occurs
 
-No. The impact of patching is generally not noticable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app.
+No. The impact of patching is generally not noticeable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app.
 
 ## What is the new vCore-based purchasing model for Azure SQL Database
 
-The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale their compute and storage rsources based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for more information.
+The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale their compute and storage rsources based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for more information.
 
 ## What is a vCore
 
@@ -45,11 +45,11 @@ The DTU and vCore-based models will continue to exist side by side. We are launc
 
 ## How should I choose between the DTU-based purchasing model vs the vCore-based purchasing model
 
-The Database Transaction Unit (DTU) is based on a blended measure of CPU, memory, reads, and writes. The DTU-based compute sizes represent preconfigured bundles of resources to drive different levels of application performance. Customers who do not want to worry about the underlying resources and prefer the simplicity of a preconfigured bundle while paying a fixed amount each month may find the DTU-based model more suitable for their needs. However, for customers who need more insight into the underlying resources or need to scale them independently to achieve optimal performance, the vCore-based model will be the best choice.  Additionally, if a customer has an active Software Assurance (SA) for SQL Server, they can leverage their existing investment and save up to 30% with [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Options within each of the purchasing models provide the benefits of a fully-managed service such as automated backups, software updates and patches.
+The Database Transaction Unit (DTU) is based on a blended measure of CPU, memory, reads, and writes. The DTU-based compute sizes represent preconfigured bundles of resources to drive different levels of application performance. Customers who do not want to worry about the underlying resources and prefer the simplicity of a preconfigured bundle while paying a fixed amount each month may find the DTU-based model more suitable for their needs. However, for customers who need more insight into the underlying resources or need to scale them independently to achieve optimal performance, the vCore-based model will be the best choice.  Additionally, if a customer has an active Software Assurance (SA) for SQL Server, they can leverage their existing investment and save up to 30% with [Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Options within each of the purchasing models provide the benefits of a fully-managed service such as automated backups, software updates and patches.
 
 ## What is the Azure Hybrid Benefit for SQL Server
 
-The [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) helps you maximize the value from your current licensing investments and accelerate their migration to the cloud. Azure Hybrid Benefit for SQL Server is an Azure-based benefit that enables you to use your SQL Server licenses with Software Assurance to pay a reduced rate (“base rate”) on SQL Database. Azure Hybrid Benefit for SQL Server is available at public preview of the vCore-based purchasing model for SQL Database single databases and elastic pools. You may apply this benefit even if the SKU is active but note the base rate is applied from the time you select it in the Azure portal. No credit will be issued retroactively.
+The [Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) helps you maximize the value from your current licensing investments and accelerate their migration to the cloud. Azure Hybrid Benefit for SQL Server is an Azure-based benefit that enables you to use your SQL Server licenses with Software Assurance to pay a reduced rate (“base rate”) on SQL Database. Azure Hybrid Benefit for SQL Server is available at public preview of the vCore-based purchasing model for SQL Database single databases and elastic pools. You may apply this benefit even if the SKU is active but note the base rate is applied from the time you select it in the Azure portal. No credit will be issued retroactively.
 
 ## Are there dual-use rights with Azure Hybrid Benefit for SQL Server
 
@@ -121,13 +121,13 @@ Yes, you can easily convert your database to any supported performance objective
 
 ## Can I upgrade or downgrade between the General Purpose and Business Critical service tiers
 
-Yes, with some restrictions. Your destination SKU must meet the maximum database or elastic pool size you configured for your existing deployment. If you are using [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), the Business Critical SKU is only available to  customers with Enterprise Edition licenses. Only customers who migrated from on-premises to General Purpose using Azure Hybrid Benefit for SQL Server with Enterprise Edition licenses can upgrade to Business Critical. For details see [What are the specific rights of the Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
+Yes, with some restrictions. Your destination SKU must meet the maximum database or elastic pool size you configured for your existing deployment. If you are using [Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), the Business Critical SKU is only available to  customers with Enterprise Edition licenses. Only customers who migrated from on-premises to General Purpose using Azure Hybrid Benefit for SQL Server with Enterprise Edition licenses can upgrade to Business Critical. For details see [What are the specific rights of the Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
 This conversion does not result in downtime and can be initiated using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## I am using a Premium RS database that will not be Generally Available - can I upgrade it to a new tier and achieve a similar price/performance benefit
 
-Because the vCore model allows independent control over the amount of provisioned compute and storage, you can more effectively manage the resulting costs, making it an attractive destination for Premium RS databases. In addition, the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) provides a substantial discount when the vCore-based model is used.
+Because the vCore model allows independent control over the amount of provisioned compute and storage, you can more effectively manage the resulting costs, making it an attractive destination for Premium RS databases. In addition, the [Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) provides a substantial discount when the vCore-based model is used.
 
 ## How often can I adjust the resources per pool
 

@@ -1,21 +1,18 @@
 ---
-title: Azure Site Recovery support matrix for replicating from Azure to Azure | Microsoft Docs
+title: Azure Site Recovery support matrix for disaster recovery of Azure IaaS VMs between Azure regions with Azure Site Recovery | Microsoft Docs
 description: Summarizes the supported operating systems and configurations for Azure Site Recovery replication of Azure virtual machines (VMs) from one region to another for disaster recovery (DR) needs.
 services: site-recovery
-author: sujayt
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2018
-ms.author: sujayt
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: raynew
 
 ---
-# Support matrix for replicating from one Azure region to another
+# Support matrix for disaster recovery of Azure VMs between Azure regions
 
-
-
-This article summarizes supported configurations and components when you replicate and recovering Azure virtual machines from one region to another region, using the [Azure Site Recovery](site-recovery-overview.md) service.
+This article summarizes supported configurations and components when you deploy disaster recovery with replication, failover, and recovery of Azure virtual machines from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 ## User interface options
 
@@ -64,7 +61,7 @@ The below support is applicable for any workload running on the mentioned OS.
 - SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
+- Oracle Linux 6.4, 6.5, 6.6, 6.7 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
 
 (Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you need to disable replication and protect the machine again post the upgrade.)
 

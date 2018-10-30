@@ -11,16 +11,16 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ---
-# vCore service tiers, Azure Hybrid Use Benefit, and migration
+# vCore service tiers, Azure Hybrid Benefit, and migration
 
 The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
 
 - Gen 4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
 - Gen 5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.5. GB per core, fast eNVM SSD
 
-vCore model also allows you to use [Azure Hybrid Use Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings.
+vCore model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings.
 
 > [!NOTE]
 > For information about DTU-based service tiers, see [DTU-based service tiers](sql-database-service-tiers-dtu.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-service-tiers.md).
@@ -43,6 +43,9 @@ The following table helps you understand the differences between these two tiers
 |In-Memory|Not supported|Supported|Not supported|
 |||
 
+> [!NOTE]
+> You can get a free Azure SQL database at the Basic service tier in conjunction with a Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
+
 - For more information, see [vCore resource limits in Single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - For more information about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
 - For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
@@ -52,9 +55,9 @@ The following table helps you understand the differences between these two tiers
 
 See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 
-## Azure Hybrid Use Benefit
+## Azure Hybrid Benefit
 
-In the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
+In the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 

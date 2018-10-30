@@ -210,7 +210,7 @@ It's possible that the end user's email domain is from .edu. For privacy reasons
 
  **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
-You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
+You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
 
 
 **I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?** 

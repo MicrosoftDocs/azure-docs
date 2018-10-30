@@ -28,6 +28,10 @@ In this tutorial, you learn how to:
 > * Monitor the migration.
 > * Cutover the migration when you are ready.
 
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+This article describes an online migration from SQL Server to Azure SQL Database Managed Instance. For an offline migration, see [Migrate SQL Server to Azure SQL Database Managed Instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
+
 ## Prerequisites
 To complete this tutorial, you need to:
 

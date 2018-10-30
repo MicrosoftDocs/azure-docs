@@ -123,7 +123,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_autoscale_facts            | -            | -                         | -          | Yes          | Yes                                 | 
 
 ## Introduction to playbook role for Azure
-The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete role and includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the azure_preview_module role.
+The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete role and includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the azure_preview_module playbook role.
 
 The azure_preview_module playbook role is released every three weeks.
 

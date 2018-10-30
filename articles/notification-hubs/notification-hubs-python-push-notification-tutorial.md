@@ -258,7 +258,7 @@ These methods send an HTTP POST request to the /messages endpoint of your notifi
 
 ### Using debug property to enable detailed logging
 Enabling debug property while initializing the Notification Hub writes out detailed logging information about the HTTP request and response dump as well as detailed Notification message send outcome. 
-The [Notification Hubs TestSend property](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) returns detailed information about the notification send outcome. 
+The [Notification Hubs TestSend property](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) returns detailed information about the notification send outcome. 
 To use it - initialize using the following code:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)

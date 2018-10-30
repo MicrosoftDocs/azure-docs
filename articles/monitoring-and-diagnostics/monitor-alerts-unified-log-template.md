@@ -14,10 +14,10 @@ ms.component: alerts
 This article shows how you can manage [log alerts](monitor-alerts-unified-log.md) programmatically at scale, in Azure using [Azure Resource Manager template](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) and [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Currently Azure Alerts, supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) and [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
 ## Managing log alert on Log Analytics
-Log alert for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is integrated into the [new Azure alerts experience](monitoring-overview-unified-alerts.md); while it still runs off Log Analytics APIs and remains compatibility with schema used earlier to manage [alerts in OMS portal](..//log-analytics/log-analytics-alerts-creating.md).
+Log alert for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is integrated into the [new Azure alerts experience](monitoring-overview-unified-alerts.md); while it still runs off Log Analytics APIs and remains compatibile with schema used earlier.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](monitoring-alerts-extend.md). 
+> Beginning May 14, 2018, all alerts in a workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](monitoring-alerts-extend.md). 
 
 ### Using Azure Resource Manager Template
 Log alerts for Log Analytics are created by alert rules that run a saved search on a regular interval. If the results of the query match specified criteria, an alert record is created and one or more actions are run. 

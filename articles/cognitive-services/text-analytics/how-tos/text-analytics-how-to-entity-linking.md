@@ -22,14 +22,14 @@ The [Entity Recognition API](https://westus.dev.cognitive.microsoft.com/docs/ser
 The Text Analytics' `entities` endpoint supprts both named entity recognition (NER) and entity linking.
 
 ### Entity Linking
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text (e.g. determining whether the "Mars" is being used as the planet or as the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked - Wikipedia is used as the knowledge base for the `entities` endpoint Text Analytics.
+Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether the "Mars" is being used as the planet or as the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked - Wikipedia is used as the knowledge base for the `entities` endpoint Text Analytics.
 
-In Text Analytics [Version 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), only entity linking is available.
+In Text Analytics [Version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), only entity linking is available.
 
 ### Named Entity Recognition (NER)
 Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes. The supported classes of entities are listed below.
 
-In Text Analytics Version 2.1 preview (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), both entity linking and named entity recognition (NER) are available.
+In Text Analytics [Version 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available.
 
 ### Language support
 
@@ -68,7 +68,7 @@ Using entity linking in various languages requires using a corresponding knowled
 
 You must have JSON documents in this format: id, text, language
 
-For currently supported languages, please see [this list](../text-analytics-supported-languages.md).
+For currently supported languages, see [this list](../text-analytics-supported-languages.md).
 
 Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit to the entity linking end.
 
@@ -91,7 +91,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 + Create a **POST** request. Review the API documentation for this request: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Set the HTTP endpoint for key phrase extraction. It must include the `/entities` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Set the HTTP endpoint for entity extraction. It must include the `/entities` resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
 

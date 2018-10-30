@@ -154,7 +154,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[SHI International Corp](https://www.shi.com)|
 |[Simons Advisors, LLC](http://simonsadvisors.com/)|
 |[Sirius Computer Solutions, Inc.](http://www.siriuscom.com/)|
-|[SKY SOLUTIONS LLC](http://www.skysolutions.com/|
+|[SKY SOLUTIONS LLC](http://www.skysolutions.com/)|
 |[Smartronix](https://www.smartronix.com)|
 |[Socius 1 LLC](https://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
