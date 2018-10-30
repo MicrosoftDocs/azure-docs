@@ -17,7 +17,7 @@ ms.author: vinynigam
 ---
 # Network Performance Monitor solution FAQ
 
-![Network Performance Monitor symbol](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Network Performance Monitor symbol](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
