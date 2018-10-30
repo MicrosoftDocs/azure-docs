@@ -16,7 +16,7 @@ ms.topic: reference
 
 ## What are the current restrictions in Custom Translator?
 
-There are few restrictions and limit with respect to file size, model training, and model deployment. Keep these restrictions in mind when setting up your training to build a model in Custom Translator.
+There are restrictions and limit with respect to file size, model training, and model deployment. Keep these restrictions in mind when setting up your training to build a model in Custom Translator.
 
 - Trainings – A user can have a maximum of four concurrent trainings in a
     workspace.
