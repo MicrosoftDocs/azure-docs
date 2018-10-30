@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Check image content in C# - Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: How to check image content using the Content Moderator .NET SDK for C#
+description: How to check image content using the Content Moderator SDK for C#
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign up for Content Moderator services
 
-Before you can use Content Moderator services, you'll need a subscription key. Subscribe to the Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
+Before you can use Content Moderator services through the REST API or the SDK, you'll need an API key and the region of your API account. Subscribe to Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain both.
 
 ## Create your Visual Studio project
 
@@ -39,7 +39,7 @@ Before you can use Content Moderator services, you'll need a subscription key. S
 
 ### Install required packages
 
-Install the following NuGet packages to your new project:
+Install the following NuGet packages:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
