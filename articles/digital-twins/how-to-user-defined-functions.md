@@ -22,8 +22,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 
 | Custom attribute name | Replace with |
 | --- | --- |
-| **yourInstanceName** | The name of your Azure Digital Twins instance |
-| **yourLocation** | Which server region your instance is hosted on |
+| yourInstanceName | The name of your Azure Digital Twins instance |
+| yourLocation | Which server region your instance is hosted on |
 
 ## Client library reference
 
@@ -65,8 +65,8 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 
 | Custom attribute name | Replace with |
 | --- | --- |
-| **yourManagementApiUrl** | The full URL path for your management API  |
-| **yourSpaceIdentifier** | Which server region your instance is hosted on |
+| yourManagementApiUrl | The full URL path for your Management API  |
+| yourSpaceIdentifier | Which server region your instance is hosted on |
 
 ## Create a user-defined function (UDF)
 
@@ -85,7 +85,7 @@ POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Typ
 
 | Custom attribute name | Replace with |
 | --- | --- |
-| **yourManagementApiUrl** | The full URL path for your management API  |
+| yourManagementApiUrl | The full URL path for your Management API  |
 
 ### Body
 
@@ -113,8 +113,8 @@ function process(telemetry, executionContext) {
 
 | Custom attribute name | Replace with |
 | --- | --- |
-| **yourSpaceIdentifier** | The space identifier  |
-| **yourMatcherIdentifier** | The ID of the matcher you wish to use |
+| yourSpaceIdentifier | The space identifier  |
+| yourMatcherIdentifier | The ID of the matcher you want to use |
 
 ### Example functions
 
@@ -185,67 +185,67 @@ function process(telemetry, executionContext) {
 }
 ```
 
-For a more complex UDF code sample, refer to [Check available spaces with fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+For a more complex UDF code sample, [check available spaces with fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## Create a role assignment
 
-We need to create a role assignment for the user-defined function to run under. If we don't, it won't have the proper permissions to interact with the management API to perform actions on graph objects. The actions that the user-defined function performs aren't exempt from the role-based access control within the Azure Digital Twins management APIs. They can be limited in scope by specifying certain roles or certain access control paths. For more information, see [role-based access control](./security-role-based-access-control.md) documentation.
+We need to create a role assignment for the user-defined function to run under. If we don't, it won't have the proper permissions to interact with the Management API to perform actions on graph objects. The actions that the user-defined function performs aren't exempt from the role-based access control within the Azure Digital Twins Management APIs. They can be limited in scope by specifying certain roles or certain access control paths. For more information, see [role-based access control](./security-role-based-access-control.md) documentation.
 
 1. Query for roles and get the ID of the role you want to assign to the UDF. Pass it to **RoleId**:
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/system/roles
-```
+    ```plaintext
+    GET https://yourManagementApiUrl/api/v1.0/system/roles
+    ```
 
-| Custom attribute name | Replace with |
-| --- | --- |
-| **yourManagementApiUrl** | The full URL path for your management API  |
+    | Custom attribute name | Replace with |
+   | --- | --- |
+   | yourManagementApiUrl | The full URL path for your Management API  |
 
 2. **ObjectId** will be the UDF ID that was created earlier.
 3. Find the value of **Path** by querying your spaces with `fullpath`.
 4. Copy the returned `spacePaths` value. You'll use that in the following code:
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
-```
+    ```plaintext
+    GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
+   ```
 
-| Custom attribute name | Replace with |
-| --- | --- |
-| **yourManagementApiUrl** | The full URL path for your management API  |
-| **yourSpaceName** | The name of the space you want to use |
+    | Custom attribute name | Replace with |
+   | --- | --- |
+   | yourManagementApiUrl | The full URL path for your Management API  |
+   | yourSpaceName | The name of the space you want to use |
 
 4. Paste the returned `spacePaths` value into **Path** to create a UDF role assignment:
 
-```plaintext
-POST https://yourManagementApiUrl/api/v1.0/roleassignments
-{
-  "RoleId": "yourDesiredRoleIdentifier",
-  "ObjectId": "yourUserDefinedFunctionId",
-  "ObjectIdType": "UserDefinedFunctionId",
-  "Path": "yourAccessControlPath"
-}
-```
+    ```plaintext
+    POST https://yourManagementApiUrl/api/v1.0/roleassignments
+    {
+      "RoleId": "yourDesiredRoleIdentifier",
+      "ObjectId": "yourUserDefinedFunctionId",
+      "ObjectIdType": "UserDefinedFunctionId",
+      "Path": "yourAccessControlPath"
+    }
+    ```
 
-| Custom attribute name | Replace with |
-| --- | --- |
-| **yourManagementApiUrl** | The full URL path for your management API  |
-| **yourDesiredRoleIdentifier** | The identifier for the desired role |
-| **yourUserDefinedFunctionId** | The ID for the UDF you want to use |
-| **yourAccessControlPath** | The access control path |
+    | Custom attribute name | Replace with |
+    | --- | --- |
+    | yourManagementApiUrl | The full URL path for your Management API  |
+    | yourDesiredRoleIdentifier | The identifier for the desired role |
+    | yourUserDefinedFunctionId | The ID for the UDF you want to use |
+    | yourAccessControlPath | The access control path |
 
 ## Send telemetry to be processed
 
-Telemetry generated by the sensor described in the graph should trigger the execution of the user-defined function that was uploaded. Once the telemetry is picked up by the data processor, a run plan is created for the invocation of the user-defined function.
+Telemetry generated by the sensor described in the graph should trigger the run of the user-defined function that was uploaded. After the telemetry is picked up by the data processor, a run plan is created for the invocation of the user-defined function.
 
 1. Retrieve the matchers for the sensor the reading was generated off of.
 1. Depending on what matchers evaluated successfully, retrieve the associated user-defined functions.
-1. Execute each user-defined function.
+1. Run each user-defined function.
 
 ## Client reference
 
 ### getSpaceMetadata(id) ⇒ `space`
 
-Given a space identifier, it retrieves the space from the graph.
+Given a space identifier, this function retrieves the space from the graph.
 
 - **Kind**: global function
 
@@ -255,7 +255,7 @@ Given a space identifier, it retrieves the space from the graph.
 
 ### getSensorMetadata(id) ⇒ `sensor`
 
-Given a sensor identifier, it retrieves the sensor from the graph.
+Given a sensor identifier, this function retrieves the sensor from the graph.
 
 - **Kind**: global function
 
@@ -265,7 +265,7 @@ Given a sensor identifier, it retrieves the sensor from the graph.
 
 ### getDeviceMetadata(id) ⇒ `device`
 
-Given a device identifier, it retrieves the device from the graph.
+Given a device identifier, this function retrieves the device from the graph.
 
 - **Kind**: global function
 
@@ -275,7 +275,7 @@ Given a device identifier, it retrieves the device from the graph.
 
 ### getSensorValue(sensorId, dataType) ⇒ `value`
 
-Given a sensor identifier and its data type, they retrieve the current value for that sensor.
+Given a sensor identifier and its data type, this function retrieves the current value for that sensor.
 
 - **Kind**: global function
 
@@ -286,7 +286,7 @@ Given a sensor identifier and its data type, they retrieve the current value for
 
 ### getSpaceValue(spaceId, valueName) ⇒ `value`
 
-Given a space identifier and the value name, they retrieve the current value for that space property.
+Given a space identifier and the value name, this function retrieves the current value for that space property.
 
 - **Kind**: global function
 
@@ -297,7 +297,7 @@ Given a space identifier and the value name, they retrieve the current value for
 
 ### getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
-Given a sensor identifier and its data type, they retrieve the historical values for that sensor.
+Given a sensor identifier and its data type, this function retrieves the historical values for that sensor.
 
 - **Kind**: global function
 
@@ -308,7 +308,7 @@ Given a sensor identifier and its data type, they retrieve the historical values
 
 ### getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
-Given a space identifier and the value name, they retrieve the historical values for that property on the space.
+Given a space identifier and the value name, this function retrieves the historical values for that property on the space.
 
 - **Kind**: global function
 
@@ -319,7 +319,7 @@ Given a space identifier and the value name, they retrieve the historical values
 
 ### getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
-Given a space identifier, it retrieves the child spaces for that parent space.
+Given a space identifier, this function retrieves the child spaces for that parent space.
 
 - **Kind**: global function
 
@@ -329,7 +329,7 @@ Given a space identifier, it retrieves the child spaces for that parent space.
 
 ### getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
-Given a space identifier, it retrieves the child sensors for that parent space.
+Given a space identifier, this function retrieves the child sensors for that parent space.
 
 - **Kind**: global function
 
@@ -339,7 +339,7 @@ Given a space identifier, it retrieves the child sensors for that parent space.
 
 ### getSpaceChildDevices(spaceId) ⇒ `device[]`
 
-Given a space identifier, it retrieves the child devices for that parent space.
+Given a space identifier, this function retrieves the child devices for that parent space.
 
 - **Kind**: global function
 
@@ -349,7 +349,7 @@ Given a space identifier, it retrieves the child devices for that parent space.
 
 ### getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
-Given a device identifier, it retrieves the child sensors for that parent device.
+Given a device identifier, this function retrieves the child sensors for that parent device.
 
 - **Kind**: global function
 
@@ -359,7 +359,7 @@ Given a device identifier, it retrieves the child sensors for that parent device
 
 ### getSpaceParentSpace(childSpaceId) ⇒ `space`
 
-Given a space identifier, it retrieves its parent space.
+Given a space identifier, this function retrieves its parent space.
 
 - **Kind**: global function
 
@@ -369,7 +369,7 @@ Given a space identifier, it retrieves its parent space.
 
 ### getSensorParentSpace(childSensorId) ⇒ `space`
 
-Given a sensor identifier, it retrieves its parent space.
+Given a sensor identifier, this function retrieves its parent space.
 
 - **Kind**: global function
 
@@ -379,7 +379,7 @@ Given a sensor identifier, it retrieves its parent space.
 
 ### getDeviceParentSpace(childDeviceId) ⇒ `space`
 
-Given a device identifier, it retrieves its parent space.
+Given a device identifier, this function retrieves its parent space.
 
 - **Kind**: global function
 
@@ -389,7 +389,7 @@ Given a device identifier, it retrieves its parent space.
 
 ### getSensorParentDevice(childSensorId) ⇒ `space`
 
-Given a sensor identifier, it retrieves its parent device.
+Given a sensor identifier, this function retrieves its parent device.
 
 - **Kind**: global function
 
@@ -399,7 +399,7 @@ Given a sensor identifier, it retrieves its parent device.
 
 ### getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
-Given a space identifier, it retrieves the property and its value from the space.
+Given a space identifier, this function retrieves the property and its value from the space.
 
 - **Kind**: global function
 
@@ -410,7 +410,7 @@ Given a space identifier, it retrieves the property and its value from the space
 
 ### getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
-Given a sensor identifier, it retrieves the property and its value from the sensor.
+Given a sensor identifier, this function retrieves the property and its value from the sensor.
 
 - **Kind**: global function
 
@@ -421,7 +421,7 @@ Given a sensor identifier, it retrieves the property and its value from the sens
 
 ### getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
-Given a device identifier, it retrieves the property and its value from the device.
+Given a device identifier, this function retrieves the property and its value from the device.
 
 - **Kind**: global function
 
@@ -432,53 +432,53 @@ Given a device identifier, it retrieves the property and its value from the devi
 
 ### setSensorValue(sensorId, dataType, value)
 
-Sets a value on the sensor object with the given data type.
+This function sets a value on the sensor object with the given data type.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | sensor identifier |
-| *dataType*  | `string` | sensor data type |
-| *value*  | `string` | value |
+| **sensorId** | `guid` | Sensor identifier |
+| **dataType**  | `string` | Sensor data type |
+| **value**  | `string` | Value |
 
 ### setSpaceValue(spaceId, dataType, value)
 
-Sets a value on the space object with the given data type.
+This function sets a value on the space object with the given data type.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | space identifier |
-| *dataType* | `string` | data type |
-| *value* | `string` | value |
+| **spaceId** | `guid` | Space identifier |
+| **dataType** | `string` | Data type |
+| **value** | `string` | Value |
 
 ### log(message)
 
-Logs the following message within the user-defined function.
+This function logs the following message within the user-defined function.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *message* | `string` | message to be logged |
+| **message** | `string` | Message to be logged |
 
 ### sendNotification(topologyObjectId, topologyObjectType, payload)
 
-Sends a custom notification out to be dispatched.
+This function sends a custom notification out to be dispatched.
 
-**Kind**: global function
+- **Kind**: global function
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *topologyObjectId*  | `guid` | graph object identifier (ex. space / sensor /device ID)|
-| *topologyObjectType*  | `string` | (ex. space / sensor / device)|
-| *payload*  | `string` | the JSON payload to be sent with the notification |
+| **topologyObjectId**  | `guid` | Graph object identifier. Examples are space, sensor, and device ID.|
+| **topologyObjectType**  | `string` | Examples are sensor and device.|
+| **payload**  | `string` | The JSON payload to be sent with the notification. |
 
-## Return Types
+## Return types
 
-The following are models describing the return objects from the above client reference.
+The following models describe the return objects from the preceding client reference.
 
 ### Space
 
@@ -493,51 +493,51 @@ The following are models describing the return objects from the above client ref
 }
 ```
 
-### Space Methods
+### Space methods
 
 #### Parent() ⇒ `space`
 
-Returns the parent space of the current space.
+This function returns the parent space of the current space.
 
 #### ChildSensors() ⇒ `sensor[]`
 
-Returns the child sensors of the current space.
+This function returns the child sensors of the current space.
 
 #### ChildDevices() ⇒ `device[]`
 
-Returns the child devices of the current space.
+This function returns the child devices of the current space.
 
 #### ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Returns the extended property and its value for the current space.
+This function returns the extended property and its value for the current space.
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | name of the extended property |
+| **propertyName** | `string` | Name of the extended property |
 
 #### Value(valueName) ⇒ `value`
 
-Returns the value of the current space.
+This function returns the value of the current space.
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | name of the value |
+| **valueName** | `string` | Name of the value |
 
 #### History(valueName) ⇒ `value[]`
 
-Returns the historical values of the current space.
+This function returns the historical values of the current space.
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | name of the value |
+| **valueName** | `string` | Name of the value |
 
 #### Notify(payload)
 
-Sends a notification with the specified payload.
+This function sends a notification with the specified payload.
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *payload* | `string` | JSON payload to include in the notification |
+| **payload** | `string` | JSON payload to include in the notification |
 
 ### Device
 
@@ -557,31 +557,31 @@ Sends a notification with the specified payload.
 }
 ```
 
-### Device Methods
+### Device methods
 
 #### Parent() ⇒ `space`
 
-Returns the parent space of the current device.
+This function returns the parent space of the current device.
 
 #### ChildSensors() ⇒ `sensor[]`
 
-Returns the child sensors of the current device.
+This function returns the child sensors of the current device.
 
 #### ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Returns the extended property and its value for the current device.
+This function returns the extended property and its value for the current device.
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | name of the extended property |
+| **propertyName** | `string` | Name of the extended property |
 
 #### Notify(payload)
 
-Sends a notification with the specified payload.
+This function sends a notification with the specified payload.
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *payload* | `string` | JSON payload to include in the notification |
+| **payload** | `string` | JSON payload to include in the notification |
 
 ### Sensor
 
@@ -605,39 +605,39 @@ Sends a notification with the specified payload.
 }
 ```
 
-### Sensor Methods
+### Sensor methods
 
 #### Space() ⇒ `space`
 
-Returns the parent space of the current sensor.
+This function returns the parent space of the current sensor.
 
 #### Device() ⇒ `device`
 
-Returns the parent device of the current sensor.
+This function returns the parent device of the current sensor.
 
 #### ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Returns the extended property and its value for the current sensor.
+This function returns the extended property and its value for the current sensor.
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | name of the extended property |
+| **propertyName** | `string` | Name of the extended property |
 
 #### Value() ⇒ `value`
 
-Returns the value of the current sensor.
+This function returns the value of the current sensor.
 
 #### History() ⇒ `value[]`
 
-Returns the historical values of the current sensor.
+This function returns the historical values of the current sensor.
 
 #### Notify(payload)
 
-Sends a notification with the specified payload.
+This function sends a notification with the specified payload.
 
-| Param  | Type                | Description  |
+| Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| *payload* | `string` | JSON payload to include in the notification |
+| **payload** | `string` | JSON payload to include in the notification |
 
 ### Value
 
@@ -649,7 +649,7 @@ Sends a notification with the specified payload.
 }
 ```
 
-### Extended Property
+### Extended property
 
 ```JSON
 {
@@ -660,6 +660,6 @@ Sends a notification with the specified payload.
 
 ## Next steps
 
-To learn how to create Digital Twins endpoints to send events to, read [Create Digital Twins endpoints](how-to-egress-endpoints.md).
+- Learn how to [create Azure Digital Twins endpoints](how-to-egress-endpoints.md) to send events to.
 
-For more details on Digital Twins endpoints, read [Learn more about endpoints](concepts-events-routing.md).
+- For more details on Azure Digital Twins endpoints, [learn more about endpoints](concepts-events-routing.md).
