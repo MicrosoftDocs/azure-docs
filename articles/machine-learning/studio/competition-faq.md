@@ -21,7 +21,7 @@ ms.date: 12/18/2017
 # Microsoft Cortana Intelligence Competitions FAQ
 **What is Cortana Intelligence Competitions?**
 
-The Microsoft Cortana Intelligence Competitions unites a global community of data enthusiasts by collectively solving some of the world’s most complex data science problems. Cortana Intelligence Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. These hosted competitions are based on unique data sets that have been made available publically for the first time. Participants can win rewards or get recognition via the top 10 public leaderboard. You can access the Competitions home page at [aka.ms/CIComp](http://aka.ms/CIComp).
+The Microsoft Cortana Intelligence Competitions unites a global community of data enthusiasts by collectively solving some of the world’s most complex data science problems. Cortana Intelligence Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. These hosted competitions are based on unique data sets that have been made available publicaly for the first time. Participants can win rewards or get recognition via the top 10 public leaderboard. You can access the Competitions home page at [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **How often will Microsoft release new competitions?**
 

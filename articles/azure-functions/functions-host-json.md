@@ -190,7 +190,7 @@ Function invocations are aggregated when the first of the two limits are reached
 
 ## applicationInsights
 
-Controls the [sampling feature in Application Insights](functions-monitoring.md#configure-sampling). In version 2.x, this setting is a child of [logging](#log).
+Controls the [sampling feature in Application Insights](functions-monitoring.md#configure-sampling). In version 2.x, this setting is a child of [logging](#logging).
 
 ```json
 {

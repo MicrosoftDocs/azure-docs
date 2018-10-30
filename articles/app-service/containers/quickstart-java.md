@@ -73,26 +73,7 @@ Then add the following plugin definition inside the `<build>` element of the `po
 
 
 > [!NOTE] 
-> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications. Use the following alternate plugin definition for these applications. This configuration will deploy a JAR built by Maven at `${project.build.directory}/${project.build.finalName}.jar` on your local filesystem.
->
->```xml
-><plugin>
->            <groupId>com.microsoft.azure</groupId>
->            <artifactId>azure-webapp-maven-plugin</artifactId>
->            <version>1.4.0</version>
->            <configuration>
->                <deploymentType>jar</deploymentType>
->
->           <!-- Web App information -->
->            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
->            <appName>${WEBAPP_NAME}</appName>
->            <region>${REGION}</region>  
->
->                <!-- Java Runtime Stack for Web App on Linux-->
->                <linuxRuntime>jre8</linuxRuntime>
->            </configuration>
->         </plugin>
->```    
+> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
 
 Update the following placeholders in the plugin configuration:

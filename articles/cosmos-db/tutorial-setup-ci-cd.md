@@ -1,6 +1,6 @@
 ---
 title: Set up CI/CD pipeline with the Azure Cosmos DB emulator build task
-description: Tutorial on how to set up build and release workflow in Visual Studio Team Services (VSTS) using the Cosmos DB emulator build task
+description: Tutorial on how to set up build and release workflow in Azure DevOps using the Cosmos DB emulator build task
 services: cosmos-db
 keywords: Azure Cosmos DB Emulator
 author: deborahc
@@ -13,32 +13,32 @@ ms.date: 8/28/2018
 ms.author: dech
 
 ---
-# Set up a CI/CD pipeline with the Azure Cosmos DB emulator build task in Visual Studio Team Services
+# Set up a CI/CD pipeline with the Azure Cosmos DB emulator build task in Azure DevOps
 
 The Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. The emulator allows you to develop and test your application locally, without creating an Azure subscription or incurring any costs. 
 
-The Azure Cosmos DB emulator build task for Visual Studio Team Services (VSTS) allows you to do the same in a CI environment. With the build task, you can run tests against the emulator as part of your build and release workflows. The task spins up a Docker container with the emulator already running and provides an endpoint that can be used by the rest of the build definition. You can create and start as many instances of the emulator as you need, each running in a separate container. 
+The Azure Cosmos DB emulator build task for Azure DevOps allows you to do the same in a CI environment. With the build task, you can run tests against the emulator as part of your build and release workflows. The task spins up a Docker container with the emulator already running and provides an endpoint that can be used by the rest of the build definition. You can create and start as many instances of the emulator as you need, each running in a separate container. 
 
-This article demonstrates how to set up a CI pipeline in VSTS for an ASP.NET application that uses the Cosmos DB emulator build task to run tests. 
+This article demonstrates how to set up a CI pipeline in Azure DevOps for an ASP.NET application that uses the Cosmos DB emulator build task to run tests. 
 
 ## Install the emulator build task
 
-To use the build task, we first need to install it onto our VSTS organization. Find the extension **Azure Cosmos DB Emulator** in the [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) and click **Get it free.**
+To use the build task, we first need to install it onto our Azure DevOps organization. Find the extension **Azure Cosmos DB Emulator** in the [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) and click **Get it free.**
 
-![Find and install the Azure Cosmos DB Emulator build task in the VSTS Marketplace](./media/tutorial-setup-ci-cd/addExtension_1.png)
+![Find and install the Azure Cosmos DB Emulator build task in the Azure DevOps Marketplace](./media/tutorial-setup-ci-cd/addExtension_1.png)
 
 Next, choose the organization in which to install the extension. 
 
 > [!NOTE]
-> To install an extension to a VSTS organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/vsts/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions) 
+> To install an extension to a Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/en-us/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
-![Choose a VSTS organization in which to install an extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
+![Choose a Azure DevOps organization in which to install an extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## Create a build definition
 
-Now that the extension is installed, we need to add it to a [build definition.](https://docs.microsoft.com/vsts/pipelines/get-started-designer?view=vsts&tabs=new-nav) You may modify an existing build definition, or create a new one. If you already have an existing build definition, you may skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
+Now that the extension is installed, we need to add it to a [build definition.](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) You may modify an existing build definition, or create a new one. If you already have an existing build definition, you may skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
 
-To create a new build definition, navigate to the **Build and Release** tab in VSTS. Select **+New.**
+To create a new build definition, navigate to the **Build and Release** tab in Azure DevOps. Select **+New.**
 
 ![Create a new build definition](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 Select the desired team project, repository, and branch to enable builds. 
@@ -66,7 +66,7 @@ The completed build definition now looks like this.
 ## Configure tests to use the emulator
 Now, we'll configure our tests to use the emulator. The emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
 
-In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
+In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
 
 Below is an example of a **.runsettings** file that defines parameters to be passed into an application's unit tests. Note the `authKey` variable used is the [well-known key](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) for the emulator. This `authKey` is the key expected by the emulator build task and should be defined in your **.runsettings** file.
 
@@ -80,7 +80,7 @@ Below is an example of a **.runsettings** file that defines parameters to be pas
   </TestRunParameters>
 </RunSettings>
 ```
-These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB. 
+These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB.
 
 ```csharp
 namespace todo.Tests
