@@ -81,18 +81,18 @@ provisioned into your Azure subscription at cost:
 
 ### Standard
 The standard deployment is a production-ready deployment a developer can
-customize and extend to meet their needs. For reliability and scale, application
-microservices are built as Docker containers and deployed using an orchestrator
-([Kubernetes](https://kubernetes.io/) by default). The orchestrator is
+customize and extend to meet their needs. The standard deployment option should be used when
+ready to customize a production-ready architecture, built for scale and
+extensibility. Application microservices are built as Docker containers and deployed using Azure Kubernetes Service (AKS). The orchestrator is
 responsible for deployment, scaling, and management of the application.
+
 
 Creating a Standard solution will result in the following Azure services being
 provisioned into your Azure subscription at cost:
 
 | Count | Resource                                     | SKU / Size      | Used For |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Linux Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master and 3 agents for hosting microservices with redundancy |
-| 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Use a fully managed Kubernetes container orchestration service, defaults to 3 agents|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard tier | Device management, command and control |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Storing configuration data, and device telemetry like rules, alarms, and messages |
 | 5     | [Azure Storage Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |

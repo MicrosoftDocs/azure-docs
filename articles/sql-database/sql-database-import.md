@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/19/2018
 ---
 # Import a BACPAC file to a new Azure SQL Database
 
@@ -24,18 +24,18 @@ When you need to import a database from an archive or when migrating from anothe
 
 This article provides directions for creating an Azure SQL database from a BACPAC file stored in Azure blob storage using the [Azure portal](https://portal.azure.com). Import using the Azure portal only supports importing a BACPAC file from Azure blob storage.
 
-To import a database using the Azure portal, open the page for the server (not the page for the database) to associate the database to and then click **Import** on the toolbar. Specify the storage account and container, and select the BACPAC file you want to import. Select the size of the new database (usually the same as origin) and provide the destination SQL Server credentials.  
+To import a database using the Azure portal, open the page for the server (not the page for the database) to associate the database to and then click **Import** on the toolbar. Specify the storage account and container and select the BACPAC file you want to import. Select the size of the new database (usually the same as origin) and provide the destination SQL Server credentials.  
 
    ![Database import](./media/sql-database-import/import.png)
 
 To monitor the progress of the import operation, open the page for the logical server containing the database being imported. Scroll down to **Operations** and then click **Import/Export** history.
 
 > [!NOTE]
-> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supported importing from a BACPAC file using the other methods in this article, but does not currently support migrating using the Azure portal.
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supported importing from a BACPAC file using the other methods in this article but does not currently support migrating using the Azure portal.
 
 ### Monitor the progress of an import operation
 
-To monitor the progress of the import operation, open the page for the logical server into which the database is being imported imported. Scroll down to **Operations** and then click **Import/Export** history.
+To monitor the progress of the import operation, open the page for the logical server into which the database is being imported. Scroll down to **Operations** and then click **Import/Export** history.
 
    ![import](./media/sql-database-import/import-history.png)
    ![import status](./media/sql-database-import/import-status.png)
@@ -44,7 +44,7 @@ To verify the database is live on the server, click **SQL databases** and verify
 
 ## Import from a BACPAC file using SQLPackage
 
-To import a SQL database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [Import parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#-import-parameters-and-properties). The SQLPackage utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directly from the Microsoft download center.
+To import a SQL database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [Import parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). The SQLPackage utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directly from the Microsoft download center.
 
 We recommend the use of the SQLPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: 
 ---
 
 # Analyze Log Analytics data in Azure Monitor
 
-Log data collected by Azure Monitor is stored in Log Analytics which collects telemetry and other data from a variety of sources and provides a query language for advanced analytics.
+Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/data-explorer). It collects telemetry from a variety of sources and uses the [query language from Data Explorer](/kusto) to retrieve and analyze data.
 
 > [!NOTE]
 > Log Analytics was previously treated as its own service in Azure. It is now considered a part of Azure Monitor and focuses on storage and analysis of log data using its query language. Features that were considered part of Log Analytics, such as Windows and Linux agents for data collection, views to visualize existing data, and alerts to proactively notify you of issues, have not changed but are now considered part of Azure Monitor.
@@ -47,40 +47,48 @@ The different ways that you will use queries in Log Analytics include the follow
 ![Log searches](media/log-analytics-queries/queries-overview.png)
 
 ## Write a query
-Log Analytics includes [an extensive query language](query-language/get-started-queries.md) that lets you retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
+Log Analytics uses [a version of the Data Explorer query language](query-language/get-started-queries.md) to retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
 
 The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions.
 
 For example, suppose you wanted to find the top ten computers with the most error events over the past day.
 
-	Event
-	| where (EventLevelName == "Error")
-	| where (TimeGenerated > ago(1days))
-	| summarize ErrorCount = count() by Computer
-	| top 10 by ErrorCount desc
+```Kusto
+Event
+| where (EventLevelName == "Error")
+| where (TimeGenerated > ago(1days))
+| summarize ErrorCount = count() by Computer
+| top 10 by ErrorCount desc
+```
 
 Or maybe you want to find computers that haven't had a heartbeat in the last day.
 
-	Heartbeat
-	| where TimeGenerated > ago(7d)
-	| summarize max(TimeGenerated) by Computer
-	| where max_TimeGenerated < ago(1d)  
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(7d)
+| summarize max(TimeGenerated) by Computer
+| where max_TimeGenerated < ago(1d)  
+```
 
 How about a line chart with the processor utilization for each computer from last week?
 
-	Perf
-	| where ObjectName == "Processor" and CounterName == "% Processor Time"
-	| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-	| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-	| render timechart    
+```Kusto
+Perf
+| where ObjectName == "Processor" and CounterName == "% Processor Time"
+| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
+| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
+| render timechart    
+```
 
 You can see from these quick samples that regardless of the kind of data that you're working with, the structure of the query is similar.  You can break it down into distinct steps where the resulting data from one command is sent through the pipeline to the next command.
 
 You can also query data across Log Analytics workspaces within your subscription.
 
-	union Update, workspace("contoso-workspace").Update
-	| where TimeGenerated >= ago(1h)
-	| summarize dcount(Computer) by Classification 
+```Kusto
+union Update, workspace("contoso-workspace").Update
+| where TimeGenerated >= ago(1h)
+| summarize dcount(Computer) by Classification 
+```
 
 ## How Log Analytics data is organized
 When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace](log-analytics-quick-create-workspace.md).  Documentation for different data sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.

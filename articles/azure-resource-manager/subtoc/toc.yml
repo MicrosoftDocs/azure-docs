@@ -208,6 +208,13 @@
     href: /azure/templates/Microsoft.Batch/batchAccounts
     maintainContext: true
     items:
+    - name: Applications
+      href: /azure/templates/Microsoft.Batch/batchAccounts/applications
+      maintainContext: true
+      items:
+      - name: Versions
+        href: /azure/templates/Microsoft.Batch/batchAccounts/applications/versions
+        maintainContext: true
     - name: Certificates
       href: /azure/templates/Microsoft.Batch/batchAccounts/certificates
       maintainContext: true
@@ -225,6 +232,23 @@
   - name: Jobs
     href: /azure/templates/Microsoft.BatchAI/jobs
     maintainContext: true
+  - name: Workspaces
+    href: /azure/templates/Microsoft.BatchAI/workspaces
+    maintainContext: true
+    items:
+    - name: Clusters
+      href: /azure/templates/Microsoft.BatchAI/workspaces/clusters
+      maintainContext: true
+    - name: Experiments
+      href: /azure/templates/Microsoft.BatchAI/workspaces/experiments
+      maintainContext: true
+      items:
+      - name: Jobs
+        href: /azure/templates/Microsoft.BatchAI/workspaces/experiments/jobs
+        maintainContext: true
+    - name: File Servers
+      href: /azure/templates/Microsoft.BatchAI/workspaces/fileServers
+      maintainContext: true
 - name: Cache
   items:
   - name: Redis
@@ -408,6 +432,10 @@
     - name: Triggers
       href: /azure/templates/Microsoft.DataFactory/factories/triggers
       maintainContext: true
+      items:
+      - name: Rerun Triggers
+        href: /azure/templates/Microsoft.DataFactory/factories/triggers/rerunTriggers
+        maintainContext: true
 - name: Data Lake Analytics
   items:
   - name: Accounts
@@ -622,6 +650,11 @@
     maintainContext: true
   - name: Web Tests
     href: /azure/templates/Microsoft.insights/webtests
+    maintainContext: true
+- name: IoT Central
+  items:
+  - name: IoT Apps
+    href: /azure/templates/Microsoft.IotCentral/IotApps
     maintainContext: true
 - name: Key Vault
   items:

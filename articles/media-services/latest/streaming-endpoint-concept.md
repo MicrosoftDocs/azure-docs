@@ -5,13 +5,13 @@ description: This article gives an explanation of what Streaming Endpoints are, 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 09/02/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 

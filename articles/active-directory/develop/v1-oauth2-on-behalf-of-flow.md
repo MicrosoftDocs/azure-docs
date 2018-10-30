@@ -21,6 +21,9 @@ ms.custom: aaddev
 ---
 
 # Service to service calls using delegated user identity in the On-Behalf-Of flow
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
 The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
 
 > [!IMPORTANT]
@@ -39,6 +42,9 @@ The steps that follow constitute the On-Behalf-Of flow and are explained with th
 3. The Azure AD token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
 4. The token B is set in the authorization header of the request to API B.
 5. Data from the secured resource is returned by API B.
+
+>[!NOTE]
+>The audience claim in an access token used to request a token for a downstream service must be the id of the service making the OBO request, and the token must be signed with the Azure Active Directory global signing key (which is the default for applications registered via **App registrations** in the portal)
 
 ## Register the application and service in Azure AD
 Register both the client application and the middle-tier service in Azure AD.
@@ -78,8 +84,8 @@ When using a shared secret, a service-to-service access token request contains t
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |required | The type of the token request. For a request using a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| assertion |required | The value of the token used in the request. |
+| grant_type |required | The type of the token request. Since an OBO request uses a JWT access token, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |required | The value of the access token used in the request. |
 | client_id |required | The App ID assigned to the calling service during registration with Azure AD. To find the App ID in the Azure Management Portal, click **Active Directory**, click the directory, and then click the application name. |
 | client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
 | resource |required | The App ID URI of the receiving service (secured resource). To find the App ID URI, in the Azure Management Portal, click **Active Directory**, click the directory, click the application name, click **All settings** and then click **Properties**. |
@@ -110,7 +116,7 @@ A service-to-service access token request with a certificate contains the follow
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |required | The type of the token request. For a request using a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | The type of the token request. Since an OBO request uses a JWT access token, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the token used in the request. |
 | client_id |required | The App ID assigned to the calling service during registration with Azure AD. To find the App ID in the Azure Management Portal, click **Active Directory**, click the directory, and then click the application name. |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
@@ -198,8 +204,61 @@ GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
+## Service to Service calls using a SAML assertion obtained with an OAuth2.0 on-behalf-of flow
+
+Some OAuth based web services need to access other web service APIs that accept SAML assertions in non-interactive flows.  Azure Active Directory can provide a SAML assertion in response to an on-behalf-of flow with a SAML-based web service as a target resource. 
+
+>[!NOTE] 
+>This is a non-standard extension to the OAuth 2.0 on-behalf-of flow that allows an OAuth2 based application to access web service API endpoints that consume SAML tokens.  
+
+>[!TIP]
+>If you are calling a SAML protected web service from a front-end web application, you can simply call the API and initiate a normal interactive authentication flow which will use the users existing session.  You only need to consider using an OBO flow when a service to service call requires a SAML token to provide user context.
+
+### Obtain a SAML token using an OBO request with a shared secret
+A service-to-service request to obtain a SAML assertion contains the following parameters:
+
+| Parameter |  | Description |
+| --- | --- | --- |
+| grant_type |required | The type of the token request. For a request using a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |required | The value of the access token used in the request.|
+| client_id |required | The App ID assigned to the calling service during registration with Azure AD. To find the App ID in the Azure Management Portal, click **Active Directory**, click the directory, and then click the application name. |
+| client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
+| resource |required | The App ID URI of the receiving service (secured resource). This is the resource that will be the Audience of the SAML token.  To find the App ID URI, in the Azure Management Portal, click **Active Directory**, click the directory, click the application name, click **All settings** and then click **Properties**. |
+| requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
+| requested_token_type | required | Specifies the type of token requested.  The value can be "urn:ietf:params:oauth:token-type:saml2" or "urn:ietf:params:oauth:token-type:saml1" depending on the requirements of the resource being accessed. |
+
+
+The response will contain a UTF8 and Base64url encoded SAML token. 
+
+SubjectConfirmationData for a SAML assertion sourced from an OBO call:  If the target application requires a recipient value in SubjectConfirmationData, then it must be set as a non-wildcard Reply URL in the resource application configuration.
+
+The SubjectConfirmationData node can't contain an InResponseTo attribute since it's not part of a SAML response.  The application receiving the SAML token needs to be able to accept the SAML assertion without an InResponseTo attribute.
+
+Consent:  In order to receive a SAML token containing user data on an OAuth flow, consent must have been granted.  Please see https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent for information on permissions and obtaining administrator consent.
+
+### Response with SAML assertion
+
+| Parameter | Description |
+| --- | --- |
+| token_type |Indicates the token type value. The only type that Azure AD supports is **Bearer**. For more information about bearer tokens, see the [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| scope |The scope of access granted in the token. |
+| expires_in |The length of time the access token is valid (in seconds). |
+| expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
+| resource |The App ID URI of the receiving service (secured resource). |
+| access_token |The SAML assertion is returned in the access_token parameter. |
+| refresh_token |The refresh token. The calling service can use this token to request another access token after the current SAML assertion expires. |
+
+token_type: Bearer
+expires_in:3296
+ext_expires_in:0
+expires_on:1529627844
+resource:https://api.contoso.com
+access_token: <Saml assertion>
+issued_token_type:urn:ietf:params:oauth:token-type:saml2
+refresh_token: <Refresh token>
+
 ## Client limitations
-Public clients with wildcard reply URLs cannot use an `id_token` for OBO flows. However, a confidential client can still redeem **access** tokens acquired through the implicit grant flow even if the public client has a wildcard redirect URI registered.
+Public clients with wildcard reply URLs cannot use an `id_token` for OBO flows. However, a confidential client can still redeem access tokens acquired through the implicit grant flow even if the public client has a wildcard redirect URI registered.
 
 ## Next steps
 Learn more about the OAuth 2.0 protocol and another way to perform service to service auth using client credentials.

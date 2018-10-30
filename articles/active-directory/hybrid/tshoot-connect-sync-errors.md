@@ -176,7 +176,7 @@ b. The UserPrincipalName attribute does not follow the required format.
 a. Ensure that the userPrincipalName attribute has supported characters and required format.
 
 #### Related Articles
-* [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### FederatedDomainChangeError
 #### Description

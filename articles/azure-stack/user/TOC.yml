@@ -27,10 +27,6 @@
         href: azure-stack-subscribe-services.md
       - name: Create a VM from a template
         href: azure-stack-create-vm-template.md
-      - name: Create highly available SQL databases
-        href: azure-stack-tutorial-sql.md
-      - name: Create highly available MySQL databases
-        href: azure-stack-tutorial-mysql.md
     - name: Hybrid cloud patterns
       items:
       - name: Deploy apps to Azure and Azure Stack
@@ -47,6 +43,8 @@
         href: azure-stack-solution-cloud-burst.md
       - name: Create a geo-distributed app solution
         href: azure-stack-solution-geo-distributed.md
+      - name: Deploy a hybrid cloud solution
+        href: azure-stack-solution-hybrid-cloud.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal

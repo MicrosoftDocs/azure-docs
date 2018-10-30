@@ -14,7 +14,7 @@ ms.custom: include file
 
 2. Select **Azure Function App**, choose **Create New**, and then select **Publish**.
 
-    ![Pick a publish target](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![Pick a publish target](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     When you enable **Run from Zip**, your function app in Azure is run directly from the deployment package. For more information, see [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md).
 
@@ -22,7 +22,7 @@ ms.custom: include file
 
 4. In the **Create App Service** dialog, use the **Hosting** settings as specified in the table below the image:
 
-    ![Create App Service dialog](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![Create App Service dialog](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Setting      | Suggested value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,4 +36,4 @@ ms.custom: include file
 
 6. After the deployment is complete, make a note of the **Site URL** value, which is the address of your function app in Azure.
 
-    ![Publish success message](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Publish success message](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

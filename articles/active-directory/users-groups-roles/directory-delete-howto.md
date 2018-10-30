@@ -70,7 +70,7 @@ You can put a subscription into a **Deprovisoned** state to be deleted in 3 days
   
   ![terms and conditions](./media/directory-delete-howto/delete-terms.png)
 
-4. Now the subscription state has changed, the subscription is marked for deletion. The subscription eneters the **Deprovisioned** state 72 hours later.
+4. Now the subscription state has changed, the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
 5. Once you have deleted a subscription on your tenant, and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your tenant deletion. You should be able to successfully delete your Azure AD tenant.
   

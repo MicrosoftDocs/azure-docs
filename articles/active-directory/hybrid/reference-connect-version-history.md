@@ -107,7 +107,7 @@ New features and improvements
 
 ### Fixed issues 
 
-- This release updates the SQL Server Express installation to SQL Server 2012 SP4, which, among others, provides fixes for several security vulnerabilities.  Please see [here](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) for more information about SQL Server 2012 SP4.
+- This release updates the SQL Server Express installation to SQL Server 2012 SP4, which, among others, provides fixes for several security vulnerabilities.  Please see [here](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) for more information about SQL Server 2012 SP4.
 - Sync Rule Processing:  outbound Join sync rules with no Join Condition should be de-applied if the parent sync rule is no longer applicable
 - Several accessibility fixes have been applied to the Synchronization Service Manager UI and the Sync Rules Editor
 - Azure AD Connect Wizard: Error creating AD Connector account when Azure AD Connect is in a workgroup

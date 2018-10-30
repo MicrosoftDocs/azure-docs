@@ -67,7 +67,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
@@ -155,7 +155,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
@@ -210,7 +210,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
@@ -270,7 +270,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
@@ -327,7 +327,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
@@ -384,7 +384,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
@@ -405,7 +405,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 ### New
 * Storage Explorer now supports the use of Azurite. Note: the connection to Azurite is hardcoded to the default development endpoints.
-* Storage Explorer now supports Access Tiers for Blob Only and GPV2 Storage Accounts. Learn more about Access Tiers [here](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Storage Explorer now supports Access Tiers for Blob Only and GPV2 Storage Accounts. Learn more about Access Tiers [here](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * A start time is no longer required when generating a SAS.
 
 ### Fixes
@@ -438,7 +438,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
@@ -465,7 +465,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 * Storage Explorer feedback now lives on GitHub. You can reach our issues page by clicking the Feedback button in the bottom left or by going to [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Feel free to make suggestions, report issues, ask questions, or leave any other form of feedback.
 * If you are running into SSL Certificate issues and are unable to find the offending certificate, you can now launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore SSL certificate errors.
 * There is now a 'Download' option in the context menu for blob and file items.
-* Improved accessibility and screen reader support. If you rely on accessibility features, see our [accessibility documentation](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) for more information.
+* Improved accessibility and screen reader support. If you rely on accessibility features, see our [accessibility documentation](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) for more information.
 * Storage Explorer now uses Electron 1.8.3
 
 ### Breaking Changes
@@ -504,7 +504,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```

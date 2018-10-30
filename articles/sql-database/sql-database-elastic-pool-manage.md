@@ -3,7 +3,7 @@ title: Create and manage elastic pools - Azure SQL database | Microsoft Docs
 description: Create and manage Azure SQL elastic pools.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ---
 
 # Create and manage elastic pools in Azure SQL Database
@@ -94,18 +94,18 @@ To create and manage SQL Database elastic pools and pooled databases, use these 
 
 | Command | Description |
 | --- | --- |
-|[Elastic pools - Create Or Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
-|[Elastic pools - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Deletes the elastic pool.|
-|[Elastic pools - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Gets an elastic pool.|
-|[Elastic pools - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Returns a list of elastic pools in a server.|
-|[Elastic pools - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Updates an existing elastic pool.|
+|[Elastic pools - Create Or Update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
+|[Elastic pools - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Deletes the elastic pool.|
+|[Elastic pools - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Gets an elastic pool.|
+|[Elastic pools - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Returns a list of elastic pools in a server.|
+|[Elastic pools - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Updates an existing elastic pool.|
 |[Elastic pool Activities](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Returns elastic pool activities.|
 |[Elastic pool Database Activities](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Returns activity on databases inside of an elastic pool.|
-|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Creates a new database or updates an existing database.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Gets a database.|
-|[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Returns a list of databases in an elastic pool.|
-|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Updates an existing database.|
+|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Gets a database.|
+|[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
+|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Updates an existing database.|
 
 ## Next steps
 

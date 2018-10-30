@@ -95,7 +95,7 @@ Each rule is discussed in more detail as follows:
     ``` 
 
 2. The first rule in this example allows DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
-  * "destinationAddressPrefix" - Rules can use a special type of address prefix called a "Default Tag", these tags are system-provided identifiers that allow an easy way to address a larger category of address prefixes. This rule uses the Default Tag “Internet” to signify any address outside of the VNet. Other prefix labels are VirtualNetwork and AzureLoadBalancer.
+  * "destinationAddressPrefix" - The destination address prefix is set to "10.0.2.4" so that DNS traffic is allowed to reach the DNS server.
   * “Direction” signifies in which direction of traffic flow this rule takes effect. The direction is from the perspective of the subnet or Virtual Machine (depending on where this NSG is bound). Thus if Direction is “Inbound” and traffic is entering the subnet, the rule would apply and traffic leaving the subnet would not be affected by this rule.
   * “Priority” sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
   * “Access” signifies if traffic affected by this rule is blocked ("Deny") or allowed ("Allow").
@@ -176,7 +176,7 @@ Each rule is discussed in more detail as follows:
 	},
      ```
 
-6. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
+6. Rules can use a special type of address prefix called a "Default Tag", these tags are system-provided identifiers that allow an easy way to address a larger category of address prefixes. This rule uses the Default Tag “VirtualNetwork” for the destination address prefix to signify any address inside of the VNet. Other prefix labels are Internet and AzureLoadBalancer. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
 
     ```JSON
 	{

@@ -197,6 +197,7 @@ Immediately *before* the `SendClaims` orchestration step, add a new step that ca
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackUserSignUp" TechnicalProfileReferenceId="AzureInsights-UserSignup" />
   </ClaimsExchanges>
+</OrchestrationStep>
 ```
 
 Immediately after the `SendClaims` orchestration step, call `Azure-Insights-SignInComplete`. This step shows a successfully completed journey.
