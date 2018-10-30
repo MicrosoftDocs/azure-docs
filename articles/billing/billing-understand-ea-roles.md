@@ -72,10 +72,10 @@ The following sections describe the user limits for each role, the tasks the rol
 
 |Role|Azure portal|Enterprise portal|Pricing calculator with enterprise’s pricing |
 |---|---|---|---|
-|Enterprise Administrator|✓|✓|✓|
-|Department Administrator|✓|✓|✓<sup>6</sup>|
-|Account Owner|✓|✓|✓<sup>7</sup> |
-|Service Administrator|✓|✗|✗ |
+|Enterprise Administrator|✔|✔|✔|
+|Department Administrator|✔|✔|✔<sup>6</sup>|
+|Account Owner|✔|✔|✔<sup>7</sup> |
+|Service Administrator|✔|✘|✘|
 
 - <sup>6</sup> Requires that the Enterprise Admin enable **Department Administrator can view charges** policy in the Azure portal.
 - <sup>7</sup> Requires that the Enterprise Admin enable **Account Owner can view charges** policy in the Azure portal.

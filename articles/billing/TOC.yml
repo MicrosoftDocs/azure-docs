@@ -82,7 +82,7 @@
   - name: Grant access to billing
     href: billing-manage-access.md
   - name: Enterprise roles in Azure
-    href: understand-ea-roles.md 
+    href: billing-understand-ea-roles.md 
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
   - name: View billing accounts
