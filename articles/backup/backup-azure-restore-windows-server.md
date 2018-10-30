@@ -11,7 +11,7 @@ ms.author: saurse
 ---
 # Restore files to Windows by using the Azure Resource Manager deployment model
 
-This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Microsoft Azure Recovery Services (MARS) agent. You can:
+This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Microsoft Azure Recovery Services (MARS) Agent. You can:
 
 * Restore data to the same machine from which the backups were taken.
 * Restore data to an alternate machine.
@@ -50,7 +50,7 @@ If you accidentally deleted a file and want to restore it to the same machine (f
 > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you do not see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
 
 > [!TIP]
-> The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a given volume. This option provides faster transfer speeds (up to 60 MBps), which is ideal for recovering large-sized data or entire volumes.
+> The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 60 MBps), which is ideal for recovering large-sized data or entire volumes.
 
 5. On the **Select Volume and Date** page, select the volume that contains the files and folders you want to restore.
 
@@ -146,4 +146,4 @@ These steps include the following terminology:
     >
 
 ## Next steps
-* Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
+Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
