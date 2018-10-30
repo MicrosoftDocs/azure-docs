@@ -232,7 +232,7 @@ For shared server-level resources:
 
 ## Docker containers
 
-To use the Azure-supported Zulu JDK in your containers, make sure to pull and use the pre-built images listed on [Azul's download page](https://www.azul.com/downloads/azure-only/zulu/#docker) or use the `Dockerfile` examples from the [Microsoft Java GitHub repo](https://github.com/Microsoft/java/tree/master/docker).
+To use the Azure-supported Zulu JDK in your containers, make sure to pull and use the pre-built images as documented from the [supported Azul Zulu Enterprise for Azure download page](https://www.azul.com/downloads/azure-only/zulu/) or use the `Dockerfile` examples from the [Microsoft Java GitHub repo](https://github.com/Microsoft/java/tree/master/docker).
 
 ## Runtime availability and statement of support
 
