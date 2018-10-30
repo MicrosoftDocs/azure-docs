@@ -15,7 +15,7 @@ ms.author: bahariri
 ---
 
 # Connect your Apache Spark application with Kafka-enabled Azure Event Hubs
-This tutorial walks you through connecting your Spark application to Kafka-enabled Event Hubs for real time streaming. This integration enables streaming without having to change your protocol clients or run your own Kafka or Zookeeper clusters. This tutorial, requires Apache Spark v2.4+ and Apache Kafka v2.0+.
+This tutorial walks you through connecting your Spark application to Kafka-enabled Event Hubs for real-time streaming. This integration enables streaming without having to change your protocol clients or run your own Kafka or Zookeeper clusters. This tutorial, requires Apache Spark v2.4+ and Apache Kafka v2.0+.
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)
@@ -77,7 +77,7 @@ val df_write = df.writeStream
 ```
 
 ## Write to Event Hubs for Kafka
-You can also write to Event Hubs as you are writing to Kafka. Do not forget to update your configuration to change **BOOTSTRAP_SERVERS** and **EH_SASL** with information from your Event Hubs namespace.  For the full sammple code, see sparkProducer.scala file on the GitHub. 
+You can also write to Event Hubs as you are writing to Kafka. Do not forget to update your configuration to change **BOOTSTRAP_SERVERS** and **EH_SASL** with information from your Event Hubs namespace.  For the full sample code, see sparkProducer.scala file on the GitHub. 
 
 ```scala
 df = /**Dataframe**/
