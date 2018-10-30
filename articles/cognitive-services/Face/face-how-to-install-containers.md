@@ -64,15 +64,15 @@ There are several ways to authenticate with the private container registry for C
 
 Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, as shown in the following example, to log into `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password provided in the credentials you received from the Azure Cognitive Services team.
 
-  ```docker
-  docker login containerpreview.azurecr.io -u <username> -p <password>
-  ```
+```docker
+docker login containerpreview.azurecr.io -u <username> -p <password>
+```
 
 If you have secured your credentials in a text file, you can concatenate the contents of that text file, using the `cat` command, to the `docker login` command as shown in the following example. Replace *\<passwordFile\>* with the path and name of the text file containing the password and *\<username\>* with the user name provided in your credentials.
 
-  ```docker
-  cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-  ```
+```docker
+cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
+```
 
 ## Download container images from the private container registry
 
@@ -80,9 +80,9 @@ The container image for the Face container is available from a private Docker co
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example, to download the latest Face container image from the repository, use the following command:
 
-  ```Docker
-  docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
-  ```
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
+```
 
 For a full description of available tags for the Face container, see [Recognize Text](https://go.microsoft.com/fwlink/?linkid=2018655) on Docker Hub.
 
@@ -103,18 +103,18 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits
 
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
-  ```
+```Docker
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
+```
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to instantiate the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
 Once instantiated, you can call operations from the container by using the container's host URI. For example, the following host URI represents the Face container that was instantiated in the previous example:
 
-  ```http
-  http://localhost:5000/
-  ```
+```http
+http://localhost:5000/
+```
 
 > [!TIP]
 > You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Face container that was instantiated in the previous example:
@@ -129,15 +129,15 @@ You can either [call the REST API operations](https://docs.microsoft.com/azure/c
 
 The only difference between calling a given operation from your container and calling that same operation from a corresponding service on Azure is that you'll use the host URI of your container, rather than the host URI of an Azure region, to call the operation. For example, if you wanted to use a Face instance running in the West US Azure region to detect faces, you would call the following REST API operation:
 
-  ```http
-  POST https://westus.api.cognitive.microsoft.com/face/v1.0/detect
-  ```
+```http
+POST https://westus.api.cognitive.microsoft.com/face/v1.0/detect
+```
 
 If you wanted to use a Face container running on your local machine under its default configuration to detect faces, you would call the following REST API operation:
 
-  ```http
-  POST http://localhost:5000/face/v1.0/detect
-  ```
+```http
+POST http://localhost:5000/face/v1.0/detect
+```
 
 ### Billing
 

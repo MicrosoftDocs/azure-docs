@@ -66,15 +66,15 @@ There are several ways to authenticate with the private container registry for C
 
 Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, as shown in the following example, to log into `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password provided in the credentials you received from the Azure Cognitive Services team.
 
-  ```docker
-  docker login containerpreview.azurecr.io -u <username> -p <password>
-  ```
+```docker
+docker login containerpreview.azurecr.io -u <username> -p <password>
+```
 
 If you have secured your credentials in a text file, you can concatenate the contents of that text file, using the `cat` command, to the `docker login` command as shown in the following example. Replace *\<passwordFile\>* with the path and name of the text file containing the password and *\<username\>* with the user name provided in your credentials.
 
-  ```docker
-  cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-  ```
+```docker
+cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
+```
 
 ## Download container images from the private container registry
 
@@ -82,9 +82,9 @@ The container image for the Recognize Text container is available from a private
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example, to download the latest Recognize Text container image from the repository, use the following command:
 
-  ```Docker
-  docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-  ```
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+```
 
 For a full description of available tags for the Recognize Text container, see [Recognize Text](https://go.microsoft.com/fwlink/?linkid=2018655) on Docker Hub.
 
@@ -105,15 +105,15 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text
-  ```
+```docker
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text
+```
 
 Once instantiated, you can call operations from the container by using the container's host URI. For example, the following host URI represents the Recognize Text container that was instantiated in the previous example:
 
-  ```http
-  http://localhost:5000/
-  ```
+```http
+http://localhost:5000/
+```
 
 > [!IMPORTANT]
 > You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Recognize Text container that was instantiated in the previous example:
