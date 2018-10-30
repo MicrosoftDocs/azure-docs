@@ -21,7 +21,7 @@ Errors could occur when identity data is synchronized from Windows Server Active
 
  This article assumes the reader is familiar with the underlying [design concepts of Azure AD and Azure AD Connect](plan-connect-design-concepts.md).
 
-With the latest version of Azure AD Connect \(August 2016 or higher\), a report of Synchronization Errors is available in the [Azure Portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync.
+With the latest version of Azure AD Connect \(August 2016 or higher\), a report of Synchronization Errors is available in the [Azure portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync.
 
 Starting September 1, 2016 [Azure Active Directory Duplicate Attribute Resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) feature will be enabled by default for all the *new* Azure Active Directory Tenants. This feature will be automatically enabled for existing tenants in the upcoming months.
 
