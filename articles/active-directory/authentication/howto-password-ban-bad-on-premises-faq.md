@@ -27,7 +27,7 @@ We have not announced a GA date yet.
 
 ## 2. Can DC agents in one forest use a proxy registered in a different, trusted forest?
 
-No. All Azure AD password protection components installed in a given forest are completely unaware of Azure AD password protection components installed in other forests, regardless of trust relationships.
+No. All Azure AD password protection components installed in a given forest are unaware of Azure AD password protection components installed in other forests, regardless of trust relationships.
 
 ## 3. Why is DFSR required for sysvol replication?
 
