@@ -64,7 +64,11 @@ using System.Threading;
 
 ### Create the Content Moderator client
 
-Add the following code to create a Content Moderator client provider for your subscription. You can add this to the *Program.cs* file or a new file. You'll need to update the **AzureRegion** and **CMSubscriptionKey** fields with the values of your region identifier and subscription key.
+Add the following code to create a Content Moderator client provider for your subscription. You can add this to the *Program.cs* file or a new file.
+
+> [!IMPORTANT]
+> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
+> the values of your region identifier and subscription key.
 
 ```csharp
 /// <summary>
@@ -137,6 +141,9 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
+> [!NOTE]
+> The invalid social security number in this sample text is intentional. The purpose is to convey the sample input and output format.
+
 ### Load and evaluate the input text
 
 Add the following code to the **Main** method.
@@ -170,7 +177,9 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 }
 ```
 
-Note that your Content Moderator service key has a requests per second (RPS) rate limit. If you exceed the limit, the SDK will throw an exception with error code 429. With a free tier subscription key, the rate is limited to one request per second.
+> [!NOTE]
+> Your Content Moderator service key has a requests per second (RPS)
+> rate limit, and if you exceed the limit, the SDK will throw an exception with error code 429. With a free tier subscription key, the rate of requests is limited to one request per second.
 
 ## Run the program and review the output
 
