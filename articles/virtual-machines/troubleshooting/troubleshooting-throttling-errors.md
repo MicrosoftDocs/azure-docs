@@ -79,7 +79,9 @@ A preview version of a troubleshooting feature is available for the Compute reso
 -	[Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
 
 The API call stats can provide great insight into the behavior of a subscription’s client(s) and enable easy identification of call patterns that cause throttling.
+
 A limitation of the analyzer for the time being is that it does not count requests for disk and snapshot resource types (in support of managed disks). Since it gathers data from CRP’s telemetry, it also cannot help in identifying throttling errors from ARM. But those can be identified easily based on the distinctive ARM response headers, as discussed earlier.
+
 The PowerShell cmdlets are using a REST service API, which can be easily called directly by clients (though with no formal support yet). To see the HTTP request format, run the cmdlets with -Debug switch or snoop on their execution with Fiddler.
 
 
