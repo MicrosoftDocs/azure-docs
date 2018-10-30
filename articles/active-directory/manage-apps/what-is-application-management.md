@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 10/22/2018
+ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
 
@@ -36,5 +36,5 @@ SSO improves security. *Without single sign-on*, administrators need to create a
 With Azure AD, you can monitor application sign-ins through reports that leverage Security Incident and Event Monitoring (SIEM) tools. You can access the reports from the portal, or from APIs. Programmatically audit who has access to your applications, and remove access to inactive users via access reviews.
 
 ## Manage costs
-By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords. This ability to sign-in once saves costs related to password reset for applications, and lost productivity while retrieving passwords.
+By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords. This ability to sign on once saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
