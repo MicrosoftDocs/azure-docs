@@ -41,9 +41,16 @@ sections:
       text: "Python"
 - title: Reference
   items:
-  - type: paragraph
-    text: 'API reference and specifications'
   - type: list
-    style: unordered
-    items:   
-    - html: <a href="local-search-reference.md">Local Business Search API reference</a> 
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API
+      html: |
+        <p><a href="local-search-reference.md">Local Business Search API reference</a></p>
+    - title: PowerShell
+      html: |
+        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: |
+        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p> 
