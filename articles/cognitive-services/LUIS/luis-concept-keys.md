@@ -74,8 +74,6 @@ If you exceed your per second quota, you receive an HTTP 429 error. If you excee
 
 In order to assign the endpoint key to a LUIS app, you must use the LUIS website for the correct authoring and publishing [regions](luis-reference-regions.md). There is **no** automated method of doing this, regardless of mechanism such as with an Azure resource manager script, Azure CLI, programmatic SDK, or with the APIs.
 
-Dummy change to test codeowners.
-
 ## Next steps
 
 * Learn [concepts](luis-how-to-manage-keys.md#assign-endpoint-key) about authoring and endpoint keys.
