@@ -27,7 +27,7 @@ StorSimple 5000-7000 series is reaching [end of Support](https://support.microso
 
 The customers using StorSimple 5000-7000 series have the following options:
 
-- Azure options:
+- **Azure options**:
 
     - **Upgrade to StorSimple 8000 Series** – Upgrade to StorSimple 8000 series and thus continue on the StorSimple platform.  This upgrade path requires customers to replace their 5000-7000 series devices with an 8000 series. The data is migrated from the 5000-7000 series device by using the migration tool. Once the migration is successfully complete, the StorSimple 8000 series devices will continue to tier data to Azure Blob Storage. 
 
@@ -37,7 +37,7 @@ The customers using StorSimple 5000-7000 series have the following options:
 
     For more information on how to migrate data to Azure File Sync, go to [Migrate data from StorSimple 5000-7000 series to Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
 
-- 3rd party options:
+- **Third party options**:
 
     - **Migrate to Panzura Freedom NAS** - StorSimple 5000-7000 customers can choose to migrate to Panzura Freedom NAS to keep their data in Azure. Panzura Freedom solution provides a NAS solution that spans datacenters, offices, public and private clouds. The solution enables local, hybrid, and in-cloud data workflows for NFS, SMB, and mobile clients. This migration is supported by Panzura and customers can get started by requesting migration support from the [Panzura website](https://panzura.com/storsimple-migration/).
 
