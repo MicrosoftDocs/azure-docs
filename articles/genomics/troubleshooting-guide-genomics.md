@@ -89,21 +89,16 @@ Locate the output container for the workflow in question. MSGEN creates a,   `[w
 For troubleshooting, examine the contents of standardoutput.txt and note any error messages that appear.
 
 
-## Step 2: Try recommended resolutions for common error codes
+## Step 2: Try recommended steps for common errors
 
-This section briefly highlights common errors and the strategies you can use to resolve them.
-
-
-### Debugging Microsoft Genomics service (msgen) workflow errors
+This section briefly highlights common errors output by Microsoft Genomics service (msgen) and the strategies you can use to resolve them. 
 
 The Microsoft Genomics service (msgen) can throw the following two kinds of errors:
 
 1. Internal Service Errors: Errors that are internal to the service, that may not be resolved by fixing parameters or input files. Sometimes resubmitting the workflow might fix these errors.
 2. Input Errors: Errors that can be resolved by using the correct arguments or fixing file formats.
 
-The following section describes these errors in detail
-
-### Internal service errors
+### 1. Internal service errors
 
 An Internal service error is not user actionable. You may resubmit the workflow but if that does not work, contact Microsoft Genomics support
 
@@ -111,7 +106,7 @@ An Internal service error is not user actionable. You may resubmit the workflow 
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md ). |
 
-### Input errors
+### 2. Input errors
 
 These errors are user actionable. Based on the type of file, and error code, Microsoft Genomics service outputs distinct error codes. Follow the recommended troubleshooting steps listed below.
 
