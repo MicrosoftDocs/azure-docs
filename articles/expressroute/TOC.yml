@@ -27,7 +27,7 @@
       href: expressroute-locations-providers.md
     - name: Locations by provider
       href: expressroute-locations.md
-  - name: Virtual network gateways for ExpressRoute
+  - name: About virtual network gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: Prerequisites
     href: expressroute-prerequisites.md
@@ -98,9 +98,11 @@
   - name: Configure ExpressRoute and site-to-site coexisting connections
     href: expressroute-howto-coexist-resource-manager.md
   - name: Configure ExpressRoute Direct
-    href: expressroute-howto-erdirect.md
-  - name: Configure ExpressRoute Direct - CLI
-    href: expressroute-howto-expressroute-direct-cli.md    
+    items:
+    - name: Configure ExpressRoute Direct - PowerShell
+      href: expressroute-howto-erdirect.md
+    - name: Configure ExpressRoute Direct - CLI
+      href: expressroute-howto-expressroute-direct-cli.md 
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal
