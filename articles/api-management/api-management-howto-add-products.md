@@ -81,6 +81,9 @@ Developers must first subscribe to a product to get access to the API. When they
 3. Click **+ Add**.
 4. Choose an API and click **Select**.
 
+> [!TIP]
+> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate).
+
 ## Next steps
 
 In this tutorial, you learned how to:
