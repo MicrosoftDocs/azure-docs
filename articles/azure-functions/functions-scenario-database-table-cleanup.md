@@ -52,6 +52,8 @@ You must have previously published your app to Azure. If you haven't already don
 
     ![Add SQL connection string setting.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
+    The connection strings are stored encrypted in Azure (**Remote**). To prevent leaking secrets, the local.settings.json project file (**Local**) should be excluded from source control, such as by using a .gitignore file.
+
 ## Add the SqlClient package to the project
 
 You need to add the NuGet package that contains the SqlClient library. This data access library is needed to connect to a SQL database.
