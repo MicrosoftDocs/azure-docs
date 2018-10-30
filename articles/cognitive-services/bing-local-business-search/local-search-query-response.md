@@ -1,5 +1,5 @@
 ---
-title: Bing Local Business Search query and response | Microsoft Docs
+title: Sending and using Bing Local Business Search API queries and responses | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to send and use search queries with the Bing Local Business Search API.
 services: cognitive-services
@@ -12,27 +12,27 @@ ms.date: 11/01/2018
 ms.author: rosh; v-gedod
 ---
 
-# Bing Local Business Search request
-To create the request URL, append `q=<requestString>` to the Local Search endpoint as shown in the following examples. You must include the `Ocp-Apim-Subscription-Key` header.
+# Sending and using Bing Local Business Search API queries and responses
 
-GET:
-````
+You can get local results from the Bing Local Business Search API by sending a search query to its endpoint and including the `Ocp-Apim-Subscription-Key` header, which is required. Searches can be customized by using the available [Headers](local-search-reference.md#headers) and [Parameters](local-search-reference.md#query-parameters).
+
+## Creating a request
+
+To send a request to the Bing Local Business Search API, append a search term to the `q=` parameter before adding it to the API endpoint, and including the `Ocp-Apim-Subscription-Key` header. For example:
+
+`https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
+
+The full request URL syntax is shown below. See the Bing Local Business Search API [quickstarts](quickstarts/local-quickstart.md), and reference content for [headers](local-search-reference.md#headers) and [parameters](local-search-reference.md#query-parameters) for more information on sending requests.
+
+```
 https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
-````
-Example:
-````
-https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue
+```
 
-````
-Complete request syntax and code scenarios are shown in the quickstarts:
-- [Local Search quickstart](quickstarts/local-quickstart.md)
-- [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md)
-- [Local Search Node quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+## Using responses
 
-The response contains a `SearchResponse` object. If Bing finds places that are relevant, the object includes the `places` field. If Bing does not find relevant entities, the response object will not include the `places` field.
+JSON responses from the Bing Local Business Search API contain a `SearchResponse` object. The API will return relevant search results in the `places` field. if no results are found, the `places` field will not be included in the response.
 
-````
+```
 {
    "_type": "SearchResponse",
    "queryContext": {
@@ -40,28 +40,34 @@ The response contains a `SearchResponse` object. If Bing finds places that are r
    },
    "places": {
       "totalEstimatedMatches": 10,
-
 . . . 
+```
 
-````
+### Search result attributes
 
-## Local Business Search endpoint
-The **Local Search API**  includes one endpoint that returns results from the Web based on a query. 
+The JSON results returned by the API include the following attributes:
 
-## Endpoint
-To get local results, use the endpoint and include the `Ocp-Apim-Subscription-Key` header. There are several ways to specify the results.  See [Headers](local-search-reference.md#headers) and [Parameters](local-search-reference.md#query-parameters) for the options. This example uses the `count` parameter to limit results to one, beginning with the first result as specified by `first=0`.
+* _type
+* address
+* entityPresentationInfo
+* geo
+* id
+* name
+* routeablePoint
+* telephone
+* url
 
-GET:
-````
-https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+Bellevue&mkt=en-us&count=1&first=0
+For general information about headers, parameters, market codes, response objects, errors, etc., see the [Bing Local Search API v7](local-search-reference.md) reference.
 
-````
+> [!NOTE]
+> You, or a third party on your behalf, may not use, retain, store, cache, share, or distribute any data from the Local Search API for the purpose of testing, developing, training, distributing or making available any non-Microsoft service or feature. 
 
-## Response
+
+## Example JSON response
 
 The JSON response includes places specified by `?q=restaurant+in+Bellevue`.
 
-````
+```json
 Vary: Accept-Encoding
 BingAPIs-TraceId: 5376FFEB65294E24BB9F91AD70545826
 BingAPIs-SessionId: 06ED7CEC80F746AA892EDAAC97CB0CB4
@@ -124,25 +130,7 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
   }
 }
  
-````
-
-## Attributes of Places response objects
-
-The JSON results include the following attributes:
-* _type
-* address
-* entityPresentationInfo
-* geo
-* id
-* name
-* routeablePoint
-* telephone
-* url
-
-For general information about headers, parameters, market codes, response objects, errors, etc., see the [Bing Local Search API v7](local-search-reference.md) reference.
-
-> [!NOTE]
-> You, or a third party on your behalf, may not use, retain, store, cache, share, or distribute any data from the Local Search API for the purpose of testing, developing, training, distributing or making available any non-Microsoft service or feature. 
+```
 
 ## Throttling requests
 
