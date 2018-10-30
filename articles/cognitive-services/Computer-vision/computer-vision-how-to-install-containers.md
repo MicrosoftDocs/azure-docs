@@ -106,7 +106,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 * Automatically removes the container after it exits
 
 ```docker
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westus.api.cognitive.microsoft.com/vision/v2.0 ApiKey=0123456789
 ```
 
 Once instantiated, you can call operations from the container by using the container's host URI. For example, the following host URI represents the Recognize Text container that was instantiated in the previous example:
