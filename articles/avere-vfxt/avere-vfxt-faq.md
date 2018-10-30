@@ -1,3 +1,14 @@
+---
+title: FAQ - Avere vFXT for Azure
+description: Frequently asked questions about Avere vFXT for Azure
+author: ekpgh
+ms.service: avere-vfxt
+ms.topic: conceptual
+ms.date: 10/31/2018
+ms.author: v-erkell
+---
+
+
 # Avere vFXT for Azure FAQ
 
 ## General 
