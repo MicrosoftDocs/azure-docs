@@ -33,44 +33,44 @@ This article provides step-by-step instruction to build a translation system wit
 
 On the Custom Translator portal landing page, click New Project. On the dialog you can enter your desired project
 name, language pair, and category, as well as other relevant fields. Then, save
-your project. For more details, visit [Create Project](how-to-create-project.md).
+your project. For more details, visit [Create Project](https://aka.ms/customtranslatorplaceholder).
 
-![Create project](media/quickstart/landing-page.png)
+![Create project](media/quickstart/ct-how-to-create-project.png)
 
 
 ## Upload documents
 
 Next, upload training, tuning and testing document sets [Link to concepts:
-Training/ other data set]. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
+Training/ other data set]. You can upload both [parallel](https://aka.ms/customtranslatorplaceholder) and combo documents. You can also upload [dictionary](https://aka.ms/customtranslatorplaceholder).
 
 You can upload documents from either the documents tab or from a specific
 project's page.
 
-![Upload documents](media/quickstart/documents-page.png)
+![Upload documents](media/quickstart/ct-how-to-upload.png)
 
 When uploading documents, choose the document type (training, tuning, or
 testing), and the language pair. When uploading parallel documents, you'll need
-to additionally specify a document name. For more details, visit [Upload document](how-to-upload-document.md).
+to additionally specify a document name. For more details, visit [Upload document](https://aka.ms/customtranslatorplaceholder).
 
-## Train a model
+## Create a model
 
 When all your required documents are uploaded the next step is to build your
 model.
 
 Select the project you've created. You'll see all the documents you've uploaded
 that share a language pair with this project. Select the documents that you want
-included in your model. You can select [training](training-and-model.md#training-dataset-for-custom-translator),
-[tuning](training-and-model.md#tuning-dataset-for-custom-translator), and [test](training-and-model.md#testing-dataset-for-custom-translator) data or select just
+included in your model. You can select [training](https://aka.ms/customtranslatorplaceholder),
+[tuning](https://aka.ms/customtranslatorplaceholder), and [test](https://aka.ms/customtranslatorplaceholder) data or select just
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 
-![Train a model](media/quickstart/train-page.png)
+![Create a model](media/quickstart/ct-how-to-train.png)
 
-When you have finished selecting your desired documents, click the "Train" button to
+When you have finished selecting your desired documents, click Create Model button to
 create your model and start training. You can see the status of your training,
-and details for all the models you have trained, in the "Models" tab.
+and details for all the models you have trained, in the Models tab.
 
-For more details, visit [Train Model](how-to-train-model.md).
+For more details, visit [Train Model](https://aka.ms/customtranslatorplaceholder).
 
 ## Analyze your model
 
@@ -80,16 +80,16 @@ manually compare the translations made with your custom model to the
 translations provided in your test set by navigating to the "Test" tab and
 clicking "System Results." Manually inspecting a few of these translations will
 give you a good idea of the quality of translation produced by your system. For
-more details, visit [System Test Results](how-to-view-system-test-results.md).
+more details, visit [System Test Results](https://aka.ms/customtranslatorplaceholder).
 
 ## Deploy a trained model
 
 When you are ready to deploy your trained model, click the "Deploy" button. You
 can have one deployed model per project, and you can view the status of your
 deployment in the "Status" column. For more details, visit [Model
-Deployment](how-to-view-system-test-results.md#deploy-a-model)
+Deployment](https://aka.ms/customtranslatorplaceholder)
 
-![Deploy a trained model](media/quickstart/deploy-page.png)
+![Deploy a trained model](media/quickstart/ct-how-to-deploy.png)
 
 ## Use a deployed model
 
