@@ -22,13 +22,13 @@ ms.custom: aaddev
 
 On November 2017, we announced that Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), is being retired on November 7, 2018.
 
-Since then, we've sent multiple emails to ACS subscriptions’ admin email about the ACS retirement 12 months, 9 months, 6 months, 3 months, 1 month, 2 weeks, 1 week, and 1 day before the retirement date of 11/07/2018.
+Since then, we've sent multiple emails to the ACS subscriptions’ admin email about the ACS retirement 12 months, 9 months, 6 months, 3 months, 1 month, 2 weeks, 1 week, and 1 day before the retirement date of November 7, 2018.
 
-On October 3, 2018, we announced (through email and [a blog post](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) an extension offer to customers who cannot finish their migration before 11/07/2018. The announcement also contained instructions for requesting the extension.
+On October 3, 2018, we announced (through email and [a blog post](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) an extension offer to customers who cannot finish their migration before November 7, 2018. The announcement also contained instructions for requesting the extension.
 
 ## Why your namespace is disabled
 
-If you have not opted in for the extension, we will start to disable ACS namespace starting 11/07/2018. If you somehow missed all the communications and would still like to opt in for the extension to February 4th, 2019, you can still do with by following the instruction below.
+If you haven't opted in for the extension, we will start to disable ACS namespace starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
 
 ## Find and enable your ACS namespaces
 
@@ -57,7 +57,7 @@ If you have not opted in for the extension, we will start to disable ACS namespa
 1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
 1. Enable your ACs namespace(s) using the **Enable-AcsNamespace** cmdlet.
 
-    Once you've enabled your namespace(s), you can request an extension so that the namespace(s) will not be disabled again before February 4, 2019. After that date, all request to ACS will fail.
+    Once you've enabled your namespace(s), you can request an extension so that the namespace(s) will not be disabled again before February 4, 2019. After that date, all requests to ACS will fail.
 
 ## Request an extension
 
@@ -70,7 +70,7 @@ If you have not opted in for the extension, we will start to disable ACS namespa
 
     ![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button.png)
 
-1. After the extension request has been registered, the page will refresh with a new banner at the top of the page.
+1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
 
     ![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner.png)
 
