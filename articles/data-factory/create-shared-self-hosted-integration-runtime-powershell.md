@@ -191,4 +191,4 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 - Review integration runtime concepts in [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
 
-- Learn how to create a self-hosted integration runtime in the Azure portal in [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime).
+- Learn how to create a self-hosted integration runtime in the Azure portal in [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md).
