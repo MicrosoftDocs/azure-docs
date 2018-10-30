@@ -59,11 +59,7 @@ Avere vFXT is a cache, it doesn't specifically store data. It uses a combination
 
 ### What regions are supported?
 
-As of November 1, 2018, Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany) and government regions. Make sure that the region you want to use can support the large quantity of compute cores as well as the VM instances needed to create the Avere vFXT cluster.  
-
-### Is there a plan to support sovereign regions and government clouds?
-
-Although time frames have not yet been determined, we hope to add support for these additional regions over the next several months.
+As of November 1, 2018, Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany) and government regions. Make sure that the region you want to use can support the large quantity of compute cores as well as the VM instances needed to create the Avere vFXT cluster. Sovereign regions and government clouds are not yet supported.
 
 ### How do I get help with the Avere vFXT?
 
