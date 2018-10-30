@@ -33,7 +33,7 @@ Azure Migrate helps you to:
 -  You can only create an Azure Migrate project in the United States geography. However, you can plan a migration to any target Azure location.
     - Only metadata discovered from the on-premises environment is stored in the migration project region.
     - Metadata is stored in one of the regions in the geography: West Central US/East US.
-    - If you use dependency visualization with a Log Analytics workspace, it's created in the same region as the project. 
+    - If you use dependency visualization with a Log Analytics workspace, it's created in the same region as the project.
 
 
 ## What do I need to pay for?

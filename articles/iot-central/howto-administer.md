@@ -28,7 +28,7 @@ The **Administration** section enables you to:
 
 In the **Administration** section, a secondary navigation menu has links to the various administration tasks.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The *Managing Users* section in this article explains more about how to assign the **Administrator** role to other users.
+To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The [Managing Users](#manage-users) section in this article explains more about how to assign the **Administrator** role to other users.
 
 ## Change application name
 
