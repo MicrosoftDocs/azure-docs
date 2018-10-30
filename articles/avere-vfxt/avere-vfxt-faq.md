@@ -11,7 +11,7 @@ ms.author: v-erkell
 
 # Avere vFXT for Azure FAQ
 
-This article answers questions that can help you decide if the Avere vFXT solution is right for your needs. It also gives basic information about 
+This article answers questions that can help you decide if the Avere vFXT solution is right for your needs. It gives basic information about Avere vFXT's capabilities and explains how it works with other Azure components and with products from outside vendors. 
 
 ## General 
 
