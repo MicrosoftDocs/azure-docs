@@ -4,7 +4,6 @@
 ## [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [About Azure identity management](fundamentals/identity-fundamentals.md)
 ## [Understand Azure identity solutions](fundamentals/understand-azure-identity-solutions.md)
-## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Residency and data considerations](fundamentals/active-directory-data-storage-eu.md)
 ## [FAQs](fundamentals/active-directory-faq.md)
