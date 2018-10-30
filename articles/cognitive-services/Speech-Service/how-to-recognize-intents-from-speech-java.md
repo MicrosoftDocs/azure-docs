@@ -38,6 +38,8 @@ ms.author: wolfma
 [!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for the code that's used in this article in the samples/java/jre/console folder.
 
+Dummy change to test codeowners.
+
 ## Next steps
 
 - [How to recognize speech](how-to-recognize-speech-java.md)
