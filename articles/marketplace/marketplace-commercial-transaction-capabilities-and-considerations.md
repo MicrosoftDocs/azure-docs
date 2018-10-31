@@ -214,7 +214,7 @@ If the customer purchases using a credit card:
 |Escrow Period (credit cards only, 30 days) | Sept 1, 2018 – Sept 30, 2018 |
 |Collection Period Start | Sept 1, 2018 |
 |Collection Period End (maximum, 30 days) | Sept 30, 2018 |
-|Payout Calculation Date (monthly on the 15th) | Oc 1, 2018 |
+|Payout Calculation Date (monthly on the 15th) | Oct 1, 2018 |
 |Payout Date | Oct 15, 2018 |
 
 If the customer purchases using an Enterprise Agreement:  
