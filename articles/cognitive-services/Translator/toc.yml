@@ -176,7 +176,7 @@
 - name: Custom Translator
   items:
   - name: Overview
-     items:
+    items:
     - name: What is the Custom Translator?
       href: https://aka.ms/customtranslatorplaceholder
   - name: Quickstarts
