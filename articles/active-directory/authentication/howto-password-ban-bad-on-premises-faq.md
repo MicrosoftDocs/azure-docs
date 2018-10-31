@@ -27,7 +27,7 @@ ms.reviewer: jsimmons
 
 We have not announced a GA date yet.
 
-**Q: Is on-premises Azure AD password protection supported in sovereign clouds?**
+**Q: Is on-premises Azure AD password protection supported in non-public clouds?**
 
 No - on-premises Azure AD password protection is only supported in the public cloud.
 
@@ -43,9 +43,9 @@ Yes. Support for multiple registered password filter dlls is a core Windows feat
 
 FRS (the predecessor technology to DFSR) has many known problems and is entirely unsupported in newer versions of Windows Server Active Directory. Zero testing of Azure AD password protection will be done on FRS-configured domains.
 
-Please refer to the following articles as a starting point for more information:
+For more information, please see the following articles:
 
-[The Case for Migrating Sysvol to DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[The Case for Migrating sysvol replication to DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
 
 [The End is Nigh for DRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
