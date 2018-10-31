@@ -51,11 +51,11 @@ The report shows all spending over the last 30 days. To view only spending for A
 
 ![filtered services](./media/tutorial-review-usage/actual-cost02.png)
 
-In the preceding example, less money was spent starting on 2017-08-31 than before. That cost trend continues for the various services for about nine days. Then, additional spending continues as before. However, too many columns can obscure an obvious trend. You can change the report view to a line or area chart to see the data displayed in other views. The following image shows the trend more clearly.
+In the preceding example, less money was spent starting on 2018-10-29. But, too many columns can obscure an obvious trend. You can change the report view to a line or area chart to see the data displayed in other views. The following image shows the trend more clearly.
 
 ![trend in report](./media/tutorial-review-usage/actual-cost03.png)
 
-In the example, you can see that the cost for Azure VM dropped starting on 2018-10-29. Costs for other Azure services also started dropping on that day. So, what caused that reduction in spending? In this example, a large work project was completed so consumption of many Azure services dropped.
+Continuing with the example, you can see that the cost for Azure VM dropped. Costs for other Azure services also started dropping on that day. So, what caused that reduction in spending? In this example, a large work project was completed so consumption of many Azure services also dropped.
 
 To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Cloudyn](https://youtu.be/7LsVPHglM0g).
 
