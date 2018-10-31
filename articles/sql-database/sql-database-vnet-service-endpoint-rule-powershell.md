@@ -7,8 +7,8 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dmalik
+author: oslake
+ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.date: 10/05/2018
 Both Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Virtual Service endpoints.
 
 > [!NOTE]
-> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to **Azure SQL Database Managed Instance** as you do not have a service endpoint associated with a Managed Instance subnet.
 
 This article provides and explains a PowerShell script that takes the following actions:
 

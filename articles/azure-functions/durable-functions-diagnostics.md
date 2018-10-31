@@ -2,13 +2,13 @@
 title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -131,15 +131,15 @@ It's important to keep the orchestrator replay behavior in mind when writing log
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("Calling F1.");
+    log.LogInformation("Calling F1.");
     await ctx.CallActivityAsync("F1");
-    log.Info("Calling F2.");
+    log.LogInformation("Calling F2.");
     await ctx.CallActivityAsync("F2");
-    log.Info("Calling F3");
+    log.LogInformation("Calling F3");
     await ctx.CallActivityAsync("F3");
-    log.Info("Done!");
+    log.LogInformation("Done!");
 }
 ```
 
@@ -148,13 +148,13 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context){
+module.exports = df.orchestrator(function*(context){
     context.log("Calling F1.");
-    yield context.df.callActivityAsync("F1");
+    yield context.df.callActivity("F1");
     context.log("Calling F2.");
-    yield context.df.callActivityAsync("F2");
+    yield context.df.callActivity("F2");
     context.log("Calling F3.");
-    yield context.df.callActivityAsync("F3");
+    yield context.df.callActivity("F3");
     context.log("Done!");
 });
 ```
@@ -179,20 +179,39 @@ Done!
 
 If you want to only log on non-replay execution, you can write a conditional expression to log only if `IsReplaying` is `false`. Consider the example above, but this time with replay checks.
 
+#### C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
-    TraceWriter log)
+    ILogger log)
 {
-    if (!ctx.IsReplaying) log.Info("Calling F1.");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F1.");
     await ctx.CallActivityAsync("F1");
-    if (!ctx.IsReplaying) log.Info("Calling F2.");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F2.");
     await ctx.CallActivityAsync("F2");
-    if (!ctx.IsReplaying) log.Info("Calling F3");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F3");
     await ctx.CallActivityAsync("F3");
-    log.Info("Done!");
+    log.LogInformation("Done!");
 }
 ```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
 With this change, the log output is as follows:
 
 ```txt
@@ -201,9 +220,6 @@ Calling F2.
 Calling F3.
 Done!
 ```
-
-> [!NOTE]
-> The `IsReplaying` property is not yet available in JavaScript.
 
 ## Custom Status
 
@@ -221,6 +237,9 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
     // ...do more work...
 }
 ```
+
+> [!NOTE]
+> Custom orchestration statuses for JavaScript will be available in an upcoming release.
 
 While the orchestration is running, external clients can fetch this custom status:
 

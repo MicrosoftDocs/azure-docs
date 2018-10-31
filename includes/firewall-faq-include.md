@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 10/15/2018
+ ms.date: 10/20/2018
  ms.author: victorh
  ms.custom: include file
 ---
@@ -25,13 +25,6 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 * Inbound DNAT support
 * Centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and VNETs
 * Fully integrated with Azure Monitor for logging and analytics
-
-### What is the pricing for Azure Firewall?
-
-Azure Firewall has a fixed cost + variable cost:
-
-* Fixed fee: $1.25/firewall/hour
-* Variable fee: $0.03/GB processed by the firewall (ingress or egress)
 
 ### What is the typical deployment model for Azure Firewall?
 
@@ -74,6 +67,17 @@ The Azure Firewall service complements network security group functionality. Tog
 
 For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features-- service endpoint security and central logging for all traffic.
 
+### What is the pricing for Azure Firewall?
+
+Azure Firewall has a fixed cost + variable cost:
+
+* Fixed fee: $1.25/firewall/hour
+* Variable fee: $0.03/GB processed by the firewall (ingress or egress)
+
+There are no costs for a deallocated firewall.
+
+For more information, see [Azure Firewall Pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
 ### How can I stop and start Azure Firewall?
 
 You can use Azure PowerShell *deallocate* and *allocate* methods.
@@ -102,10 +106,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### What are the known service limits?
 
-* Azure Firewall has a soft limit of 1000 TB per firewall per month.
-* An instance of Azure Firewall that is running in a central virtual network has virtual network peering limitations, with a maximum of 50 spoke virtual networks.  
-* Azure Firewall does not work with global peering, so you should have at least one firewall deployment per region.
-* Azure Firewall supports 10k application rules and 10k network rules.
+For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ### Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 

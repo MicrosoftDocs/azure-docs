@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Detect faces in an image - Face API, Node.js"
+title: "Quickstart: Detect faces in an image using the REST API and Node.js"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face API with Node.js in Cognitive Services.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 06/08/2018
 ms.author: pafarley
 ---
-# Quickstart: Detect faces in an image using Node.js
+# Quickstart: Detect faces in an image using the REST API and Node.js
 
 In this quickstart, you detect human faces in an image using the Face API.
 

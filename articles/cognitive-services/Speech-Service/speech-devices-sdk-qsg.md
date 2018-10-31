@@ -1,13 +1,14 @@
 ---
 title: Get started with the Speech Devices SDK
-description: Prerequisites and instructions for getting started with the Speech Devices SDK.
 titleSuffix: Azure Cognitive Services
+description: Prerequisites and instructions for getting started with the Speech Devices SDK.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: erhopf
 ---
