@@ -16,7 +16,9 @@ ms.author: glenga
 
 # Use Azure Functions to connect to an Azure SQL Database
 
-This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2017. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database.
+This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2017. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
+
+If this is your first experience working with C# Functions, you should read the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
 ## Prerequisites
 
@@ -34,7 +36,7 @@ You need to get the connection string for the database you created when you comp
 
 1. Select **SQL Databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
-1. Select **Show database connection strings** and copy the complete **ADO.NET** connection string.
+1. Select **Connection strings** under **Settings** and copy the complete **ADO.NET** connection string.
 
     ![Copy the ADO.NET connection string.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -111,7 +113,7 @@ Now, you can add the C# function code that connects to your SQL Database.
     }
     ```
 
-    This function runs every 15 seconds to update the `Status` column based on the ship date.
+    This function runs every 15 seconds to update the `Status` column based on the ship date. To learn more about the Timer trigger, see [Timer trigger for Azure Functions](functions-bindings-timer.md).
 
 1. Press **F5** to start the function app. The [Azure Functions Core Tools](functions-develop-local.md) execution window opens behind Visual Studio.
 
