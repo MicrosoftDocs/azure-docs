@@ -56,7 +56,7 @@ On the **Cost Allocation 360** page, select **Add** and then enter a name and de
 
 
 
-The example shows that $14,444 is uncategorized (without tags).
+The example shows that $19,680 is uncategorized (without tags).
 
 Next, select **Uncategorized Resources** and select services that have unallocated costs. Then, define rules to allocate costs.
 
