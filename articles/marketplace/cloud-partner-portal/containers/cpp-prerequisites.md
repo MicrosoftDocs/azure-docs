@@ -3,7 +3,7 @@ title: Azure container prerequisites | Microsoft Docs
 description: Prerequisites for publishing an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -13,10 +13,9 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: pbutlerm
 ---
-
 
 # Container publishing prerequisites
 
@@ -40,4 +39,4 @@ To publish a new container image, you have to meet the following prerequisites:
 ## Next steps
 
 - [Prepare your container technical assets](./cpp-create-technical-assets.md)
-- [Create your container offer](./cpp-create-offer) 
+- [Create your container offer](./cpp-create-offer.md) 

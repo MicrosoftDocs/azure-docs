@@ -3,7 +3,7 @@ title: SKUs for an Azure container | Microsoft Docs
 description: Configure SKUs for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 

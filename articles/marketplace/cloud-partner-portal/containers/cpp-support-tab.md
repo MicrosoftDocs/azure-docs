@@ -3,7 +3,7 @@ title: Support settings for an Azure container | Microsoft Docs
 description: Configure support settings for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: pbutlerm
 ---
 
