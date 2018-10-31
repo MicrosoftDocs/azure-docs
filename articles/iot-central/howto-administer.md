@@ -111,19 +111,26 @@ To view your bill, go to the **Billing** page in the **Administration** section.
 
 ### Convert your Trial to Pay-As-You-Go
 
-You can convert your Trial application to a Pay-As-You-Go application. To complete this self-service process, follow these steps:
+You can convert your Trial application to a Pay-As-You-Go application. Here are the differences between these types of applications.
 
-1. Use the secondary navigation menu to go to the **Billing** page in the **Administration** section. 
+- **Trial** applications are free for 7 days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
+- **Pay-As-You-Go** applications are charged per device, with the first 5 devices free.
+
+Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+    
+To complete this self-service process, follow these steps:
+
+1. Go to the **Billing** page in the **Administration** section. 
 
     ![Trial state](media/howto-administer/freetrialbilling.png)
 
-1. Select **Convert to Pay-As-You-Go**. 
+1. Click **Convert to Pay-As-You-Go**. 
 
     ![Convert trial](media/howto-administer/convert.png)
 
-1. In the pop-up window, select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
+1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
 
-3. After you select **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
+1. After you click **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
 
 ## Export data
 
