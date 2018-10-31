@@ -148,6 +148,7 @@ Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotne
             bool retry = false;
             try
             {
+                /* The below 4 lines of code shows you how to use AppAuthentication library to fetch secrets from your Key Vault*/
                 AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
                 KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
                 var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
@@ -175,12 +176,14 @@ Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotne
             }            
         }
 
+        // This method implements exponential backoff incase of 429 errors from Azure Key Vault
         private static long getWaitTime(int retryCount)
         {
             long waitTime = ((long)Math.Pow(2, retryCount) * 100L);
             return waitTime;
         }
 
+        // This method fetches a token from Azure Active Directory which can then be provided to Azure Key Vault to authenticate
         public async Task<string> GetAccessTokenAsync()
         {
             var azureServiceTokenProvider = new AzureServiceTokenProvider();
