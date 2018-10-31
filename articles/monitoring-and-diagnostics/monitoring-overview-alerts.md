@@ -70,13 +70,12 @@ The following alert states are supported.
 | Acknowledged | An administrator has reviewed the alert and started working on it. |
 | Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
 
-Alert state is set by the user and is different and independent of the monitor condition, which is set by tbe system. 
-When an alert fires, the alert's monitor condition is set to *fired*. When the underlying condition that caused the alert to fire clears, the monitor condition is set to *resolved*. The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
+**Alert state** is different and independent of the monitor condition. Alert state is set by the user. **Monitor condition** is set by the system. When an alert fires, the alert's monitor condition is set to *fired*. When the underlying condition that caused the alert to fire clears, the monitor condition is set to *resolved*. The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
 
 ## Smart groups 
 Smart Groups are in preview. 
 
-Smart groups are aggregations of alerts based on machine learning algorithms which can help reduce alert noise and aid in trouble-shooting. [Learn more about Smart Groups](https://aka.ms/smart-groups) and [how to manage your smart groups](https://aka.ms/managing-smart-groups).
+Smart groups are aggregations of alerts based on machine learning algorithms, which can help reduce alert noise and aid in trouble-shooting. [Learn more about Smart Groups](https://aka.ms/smart-groups) and [how to manage your smart groups](https://aka.ms/managing-smart-groups).
 
 
 ## Alerts experience 
@@ -123,7 +122,7 @@ You can learn more about how to create alert rules in [Create, view, and manage 
 
 Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](./monitoring-overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported in which alert experience.
 
-Previously, Azure Monitor, Application Insights, Log Analytics and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
+Previously, Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
 
 | **Monitor source** | **Signal type**  | **Description** | 
 |-------------|----------------|-------------|
@@ -162,8 +161,8 @@ The Alert detail page includes the following sections.
 | Section | Description |
 |:---|:---|
 | Essentials | Displays the properties and other significant information about the alert. |
-| History | Lists each action taken by the alert and any changes made to the alert. This is currently limited to state changes. |
-| Smart group | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. This includes the other alerts in the same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Select an alert to view its detail. |
+| History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
+| Smart group | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
 | More details | Displays further contextual information for the alert, which is typically specific to the type of source that created the alert. |
 
 
@@ -171,7 +170,7 @@ The Alert detail page includes the following sections.
 
 The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
 
-For more information see [Alerts classic](./monitoring-overview-alerts-classic.md)
+For more information, see [Alerts classic](./monitoring-overview-alerts-classic.md)
 
 
 ## Next steps
