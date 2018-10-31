@@ -742,14 +742,10 @@
           href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
         - name: Webhook actions for log alerts
           href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
-        - name: Create a log alert with a Resource Manager template
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md?toc=/azure/azure-monitor/toc.json
       - name: Use activity log alerts
         items:
         - name: Configure alerts on an activity log event
           href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
-        - name: Create activity log alerts with Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
         - name: Migrate to activity log alerts
           href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
         - name: Configure alerts on service notifications
