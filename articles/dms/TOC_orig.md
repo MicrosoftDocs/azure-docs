@@ -1,5 +1,3 @@
-# [Database Migration Service Documentation](index.yml)
-
 # Overview
 ## [About Database Migration Service](dms-overview.md)
 
