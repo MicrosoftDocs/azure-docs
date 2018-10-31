@@ -31,9 +31,9 @@ Alert rules are separated from alerts and the action that are taken when an aler
 
 **Alert rule** - The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled. 
 
-The key attributes of an alert rules are:
+The key attributes of an alert rule are:
 
-**Target Resource** - A target can be any Azure resource. Target Resource defines the scope and signals available for alerting. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. For certain resources (e.g. Virtual Machines), you can specify multiple resources as the target of an alert rule.
+**Target Resource** - Defines the scope and signals available for alerting. A target can be any Azure resource. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. For certain resources (like Virtual Machines), you can specify multiple resources as the target of the alert rule.
 
 **Signal** - Signals are emitted by the target resource and can be of several types. Metric, Activity log, Application Insights, and Log.
 
@@ -48,7 +48,7 @@ The key attributes of an alert rules are:
 
 **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
 
-**Action** - A specific action taken when the alert is fired. For more information, see Action Groups.
+**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](monitoring-action-groups.md).
 
 ## What you can alert on
 
