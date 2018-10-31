@@ -62,7 +62,7 @@ The solution supports the following scenarios for IaaS VMs when they're enabled 
 * Enable encryption on the Linux VM OS and data disks.
 
    > [!NOTE]
-   > OS drive encryption for some Linux distributions isn't supported. For more information, see the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq#bkmk_LinuxOSSupport) article.
+   > OS drive encryption for some Linux distributions isn't supported. For more information, see the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article.
    
 * Enable encryption on Windows VMs that are configured with Windows Storage Spaces.
 * Update encryption settings for an existing encrypted Premium and non-Premium Storage VM.
