@@ -59,7 +59,7 @@ You can view details about your workspace in the Azure portal.
 
 2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
 
-    ![Azure portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)  
+    ![Azure portal](media/log-analytics-manage-access/azure-portal-01.png)  
 
 3. On the Log Analytics subscriptions pane, select a workspace.
 
