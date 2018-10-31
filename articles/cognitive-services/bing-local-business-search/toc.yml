@@ -5,7 +5,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Local Business Search?
+  - name: What is the Bing Local Business Search API?
     href: overview.md
 - name: Quickstarts  
   items: 
@@ -22,11 +22,11 @@
         href: quickstarts/local-search-python-quickstart.md 
 - name: Concepts
   items:
-  - name: Query and response
+  - name: Working with queries and responses
     href: local-search-query-response.md
-  - name: Geographic search boundaries
+  - name: Filter results by setting geographic boundaries
     href: specify-geographic-search.md
-  - name: Local business categories search
+  - name: Local business search categories 
     href: local-categories.md
 - name: Reference
   items:
