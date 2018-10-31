@@ -78,11 +78,11 @@ az login
 Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 Select a resource group name and fill in the placeholder.
-The following example creates a resource group in the East US location:
+The following example creates a resource group in the West US location:
 
 ```azurecli
 # To list locations: az account list-locations --output table
-az group create --name "<YourResourceGroupName>" --location "East US"
+az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
 The resource group that you just created is used throughout this article.
@@ -130,7 +130,7 @@ Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotne
 2. Install these 2 Nuget packages
     a. [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
     b. [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
-3. Import the following 
+3. Import the following in About.cshtml.cs file
     ```
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
