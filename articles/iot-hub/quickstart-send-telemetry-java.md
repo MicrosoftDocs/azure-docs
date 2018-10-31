@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The two sample applications you run in this quickstart are written using Java. You need Java SE 8 or later on your development machine.
 
-You can download Java for multiple platforms from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+You can download Java for multiple platforms from [Oracle](https://aka.ms/azure-jdks).
 
 You can verify the current version of Java on your development machine using the following command:
 
