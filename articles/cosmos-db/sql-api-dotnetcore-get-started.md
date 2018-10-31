@@ -57,11 +57,11 @@ Want to build a Xamarin iOS, Android, or Forms application using the SQL API and
 
 ## Step 1: Create an Azure Cosmos DB account
 
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Step 2: Setup your Visual Studio solution
+## <a id="SetupVS"></a>Step 2: Set up your Visual Studio solution
 
 1. Open **Visual Studio 2017** on your computer.
 
@@ -69,13 +69,13 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **.NET Core**/**Console Application (.NET Core)**, name your project **DocumentDBGettingStarted**, and then select **OK**.
 
-   ![Screen shot of the New Project window](./media/sql-api-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
+   ![Screenshot of the New Project window](./media/sql-api-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 
 4. In the **Solution Explorer**, right click on **DocumentDBGettingStarted**.
 
 5. On the same menu, select **Manage NuGet Packages...**.
 
-   ![Screen shot of the Right Clicked Menu for the Project](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Screenshot of the Right Clicked Menu for the Project](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 
 6. In the **NuGet** tab, select **Browse** at the top of the window, and type **azure documentdb** in the search box.
 
@@ -229,7 +229,7 @@ Congratulations! You have successfully created an Azure Cosmos DB document colle
 
 A [document](sql-api-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md).
 
-First, you will create a **Family** class that represents objects stored within Azure Cosmos DB. You will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal sub-classes after the **GetStartedDemo** method.
+First, you will create a **Family** class that represents objects stored within Azure Cosmos DB. You will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. The documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal subclasses after the **GetStartedDemo** method.
 
 Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** classes underneath the **WriteToConsoleAndPromptToContinue** method.
 
