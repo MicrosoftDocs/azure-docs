@@ -20,7 +20,7 @@ Microsoft Translator released [neural machine translation (NMT)](https://blogs.m
 
 The supported languages are limited to the language pairs where NMT languages exist and the list of NMT languages available today can be found on the [Microsoft Translator Languages webpage](https://www.microsoft.com/translator/business/languages/).
 
-## Get Better Translations
+## Get Better translations
 
 You can use previously translated documents to build a translation system. These documents include domain-specific terminology and style, better than a generic translation system. Users can upload ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX, and XLSX documents.
 
@@ -46,7 +46,7 @@ The cost of using a custom model to translate content is based on the user’s T
     the uncustomized system, which is based on the user’s Translator
     Text API pricing tier. 
 
-See the Cognitive Services [Translator Text API pricing webpage](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/)
+See the Cognitive Services [Translator Text API pricing webpage](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 for pricing tier details. 
 
 ## Securely translate anytime, anywhere on all your apps and services

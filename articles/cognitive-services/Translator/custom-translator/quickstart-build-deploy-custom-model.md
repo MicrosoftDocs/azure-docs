@@ -86,7 +86,7 @@ more details, visit [System Test Results](https://aka.ms/customtranslatorplaceho
 
 When you are ready to deploy your trained model, click the "Deploy" button. You
 can have one deployed model per project, and you can view the status of your
-deployment in the "Status" column. For more details, visit [Model
+deployment in the Status column. For more details, visit [Model
 Deployment](https://aka.ms/customtranslatorplaceholder)
 
 ![Deploy a trained model](media/quickstart/ct-how-to-deploy.png)
@@ -97,3 +97,7 @@ Deployed models can be accessed via the Microsoft Translator [Text API V3 by
 specifying the CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). More information about the Translator Text API can
 be found on the [API
 Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) webpage.
+
+## Next steps
+
+- Learn about [workspace and projects](https://aka.ms/customtranslatorplaceholder) to get better concepts how to get started with Custom Translator.
