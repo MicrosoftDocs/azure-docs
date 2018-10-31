@@ -1,10 +1,10 @@
 ---
-title: Scalability and performance targets for VM disks on Linux - Microsoft Azure | Microsoft Docs
-description: Learn about scalability and performance targets for virtual machine disks attached to VMs running Linux.
+title: Azure Disks performance checklist - Microsoft Azure | Microsoft Docs
+description: Learn about how to design for a high performance application.
 services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 11/15/2017
+ms.date: 11/01/2018
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
@@ -46,4 +46,7 @@ If you have an existing application and want to move to Premium Storage, first b
 
 ## Next steps
 
-Create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. See the article on [benchmarking](disks-benchmarks.md) to learn more. By doing so, you can determine whether Premium Storage can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
+Create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. By doing so, you can determine whether Premium Storage can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
+
+> [!div class="nextstepaction"]
+> See the article on [benchmarking](disks-benchmarks.md) to learn more.

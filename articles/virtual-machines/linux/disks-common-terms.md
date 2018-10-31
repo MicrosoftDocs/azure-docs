@@ -1,10 +1,10 @@
 ---
-title: Scalability and performance targets for VM disks on Linux - Microsoft Azure | Microsoft Docs
-description: Learn about scalability and performance targets for virtual machine disks attached to VMs running Linux.
+title: Defining the common terms in Azure Disks - Microsoft Azure | Microsoft Docs
+description: Learn about IOPS, throughput, and latency
 services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 11/15/2017
+ms.date: 11/01/2018
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
@@ -13,7 +13,7 @@ ms.component: disks
 
 # Common terms
 
-This article defines several of the primary terminologies used in the Azure Disks space. Understanding these terms will be essential in determining what resources are necessary for your applications.
+This article defines several of the primary terminologies used in the Azure Disks space. Understanding these terms will be essential in determining what resources are necessary for your applications. Especially if you're designing a high performance application.
 
 ## VHDs
 
@@ -27,9 +27,9 @@ When you attach a premium storage disk to your high scale VM, Azure provisions f
 
 ## Throughput
 
-Throughput or Bandwidth is the amount of data that your application is sending to the storage disks in a specified interval. If your application is performing input/output operations with large IO unit sizes, it requires high Throughput. Data warehouse applications tend to issue scan intensive operations that access large portions of data at a time and commonly perform bulk operations. In other words, such applications require higher Throughput. If you have such an application, you must design its infrastructure to optimize for Throughput. In the next section, we discuss in detail the factors you must tune to achieve this.
+Throughput, or bandwidth is the amount of data that your application is sending to the storage disks in a specified interval. If your application is performing input/output operations with large IO unit sizes, it requires high throughput. Data warehouse applications tend to issue scan intensive operations that access large portions of data at a time and commonly perform bulk operations. In other words, such applications require higher throughput. If you have such an application, you must design its infrastructure to optimize for throughput. In the next section, we discuss in detail the factors you must tune to achieve this.
 
-When you attach a premium storage disk to a high scale VM, Azure provisions Throughput as per that disk specification. For example, a P50 disk provisions 250 MB per second disk Throughput. Each high scale VM size also has as specific Throughput limit that it can sustain. For example, Standard GS5 VM has a maximum throughput of 2,000 MB per second.
+When you attach a premium storage disk to a high scale VM, Azure provisions throughput as per that disk specification. For example, a P50 disk provisions 250 MB per second disk throughput. Each high scale VM size also has as specific throughput limit that it can sustain. For example, Standard GS5 VM has a maximum throughput of 2,000 MB per second.
 
 There is a relation between throughput and IOPS as shown in the formula below.
 
@@ -39,6 +39,6 @@ Therefore, it is important to determine the optimal Throughput and IOPS values t
 
 ## Latency
 
-Latency is the time it takes an application to receive a single request, send it to the storage disks and send the response to the client. This is a critical measure of an application's performance in addition to IOPS and Throughput. The Latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium Storage provides consistent low latencies. If you enable ReadOnly host caching on premium storage disks, you can get much lower read latency. We will discuss Disk Caching in more detail in later section on *Optimizing Application Performance*.
+Latency is the time it takes an application to receive a single request, send it to the storage disks and send the response to the client. This is a critical measure of an application's performance in addition to IOPS and Throughput. The latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium Storage provides consistent low latencies. If you enable ReadOnly host caching on premium storage disks, you can get much lower read latency. We will discuss Disk Caching in more detail in later section on *Optimizing Application Performance*.
 
-When you are optimizing your application to get higher IOPS and Throughput, it will affect the Latency of your application. After tuning the application performance, always evaluate the Latency of the application to avoid unexpected high latency behavior.
+When you are optimizing your application to get higher IOPS and Throughput, it will affect the latency of your application. After tuning the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.

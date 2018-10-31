@@ -1,10 +1,10 @@
 ---
-title: Scalability and performance targets for VM disks on Linux - Microsoft Azure | Microsoft Docs
-description: Learn about scalability and performance targets for virtual machine disks attached to VMs running Linux.
+title: Benchmarking your application on Azure - Microsoft Azure | Microsoft Docs
+description: Learn about the process of benchmarking your application on Azure.
 services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 11/15/2017
+ms.date: 11/01/2018
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
