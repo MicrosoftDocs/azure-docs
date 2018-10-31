@@ -18,9 +18,9 @@ There are several options for diagnosing issues with [Durable Functions](durable
 
 ## Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](functions-monitoring.md).
+[Application Insights](../../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
 
-The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
+The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../../application-insights/app-insights-analytics.md) tool in the Azure portal.
 
 ### Tracking data
 
@@ -71,7 +71,7 @@ To enable emitting the verbose orchestration replay events, the `LogReplayEvents
 ```
 
 > [!NOTE]
-> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](functions-monitoring.md#configure-sampling) explains how to configure this behavior.
+> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](../functions-monitoring.md#configure-sampling) explains how to configure this behavior.
 
 ### Single instance query
 
@@ -96,7 +96,7 @@ traces
 
 The result is a list of tracking events that shows the execution path of the orchestration, including any activity functions ordered by the execution time in ascending order.
 
-![Application Insights query](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+![Application Insights query](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
 
 
 ### Instance summary query
@@ -120,7 +120,7 @@ traces
 ```
 The result is a list of instance IDs and their current runtime status.
 
-![Application Insights query](media/durable-functions-diagnostics/app-insights-single-summary-query.png)
+![Application Insights query](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
 
 ## Logging
 
@@ -279,7 +279,7 @@ Azure Functions supports debugging function code directly, and that same support
 
 By default, Durable Functions stores state in Azure Storage. This means you can inspect the state of your orchestrations using tools such as [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Azure Storage Explorer screen shot](media/durable-functions-diagnostics/storage-explorer.png)
+![Azure Storage Explorer screen shot](./media/durable-functions-diagnostics/storage-explorer.png)
 
 This is useful for debugging because you see exactly what state an orchestration may be in. Messages in the queues can also be examined to learn what work is pending (or stuck in some cases).
 

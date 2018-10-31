@@ -116,15 +116,15 @@ Create a Function App. It's best to locate it in the same region as the Event Gr
 
 Create a function to receive the lifecycle events. Select **Custom Function**. 
 
-![Select a Create a custom function.](media/durable-functions-event-publishing/functions-portal.png)
+![Select a Create a custom function.](./media/durable-functions-event-publishing/functions-portal.png)
 
 Choose Event Grid Trigger, and select `C#`.
 
-![Select the Event Grid Trigger.](media/durable-functions-event-publishing/eventgrid-trigger.png)
+![Select the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
 
 Enter the name of the function, and then select `Create`.
 
-![Create the Event Grid Trigger.](media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+![Create the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
 A function with the following code is created: 
 
@@ -142,11 +142,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 
 Select `Add Event Grid Subscription`. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
-![Select the Event Grid Trigger link.](media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+![Select the Event Grid Trigger link.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
 Select `Event Grid Topics` for **Topic Type**. Select the resource group that you created for the Event Grid topic. Then select the instance of the Event Grid topic. Press `Create`.
 
-![Create an Event Grid subscription.](media/durable-functions-event-publishing/eventsubscription.png)
+![Create an Event Grid subscription.](./media/durable-functions-event-publishing/eventsubscription.png)
 
 Now you're ready to receive lifecycle events. 
 
@@ -269,7 +269,7 @@ The following list explains the lifecycle events schema:
 
 ## How to test locally
 
-To test locally, use [ngrok](functions-bindings-event-grid.md#local-testing-with-ngrok).
+To test locally, use [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok).
 
 ## Next steps
 

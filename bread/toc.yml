@@ -127,6 +127,10 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
+    items:
+    - name: Durable Functions
+      tocHRef: /azure/azure-functions/durable/
+      topicHref: /azure/azure-functions/durable/durable-functions-overview
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/

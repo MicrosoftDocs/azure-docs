@@ -33,7 +33,7 @@ The complexity of this scenario is greatly reduced when you use Durable Function
 
 ## Configuring Twilio integration
 
-[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
+[!INCLUDE [functions-twilio-integration](../../../includes/functions-twilio-integration.md)]
 
 ## The functions
 

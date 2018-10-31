@@ -18,7 +18,7 @@ A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical 
 
 Each function app has a separate task hub. If multiple function apps share a storage account, the storage account contains multiple task hubs. The following diagram illustrates one task hub per function app in shared and dedicated storage accounts.
 
-![Diagram showing shared and dedicated storage accounts.](media/durable-functions-task-hubs/task-hubs-storage.png)
+![Diagram showing shared and dedicated storage accounts.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
 ## Azure Storage resources
 

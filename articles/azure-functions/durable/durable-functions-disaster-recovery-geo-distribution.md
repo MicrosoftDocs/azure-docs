@@ -17,7 +17,7 @@ ms.author: azfuncdf
 ## Overview
 In Azure Durable Functions, all state is persisted in Azure Storage. A [task hub](durable-functions-task-hubs.md) is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 The described scenarios propose deployment options to increase availability and minimize downtime during disaster recovery activities.
-It's important to notice that these scenarios are based on Active-Passive configurations, since they are guided by the usage of Azure Storage. This pattern consists of deploying a backup (passive) function app to a different region. Traffic Manager will monitor the primary (active) function app for availability. It will fail over to the backup function app if the primary fails. For more information,  see [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [Priority Traffic-Routing Method.](../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
+It's important to notice that these scenarios are based on Active-Passive configurations, since they are guided by the usage of Azure Storage. This pattern consists of deploying a backup (passive) function app to a different region. Traffic Manager will monitor the primary (active) function app for availability. It will fail over to the backup function app if the primary fails. For more information,  see [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [Priority Traffic-Routing Method.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
 
 
 >[!NOTE]
@@ -30,7 +30,7 @@ If the compute infrastructure in Azure fails, the function app may become unavai
 Traffic Manager is configured to detect problems in the primary function app and automatically redirect traffic to the function app in the secondary region. This function app shares the same Azure Storage account and Task Hub. Therefore, the state of the function apps isn't lost and work can resume normally. Once health is restored to the primary region, Azure Traffic Manager will start routing requests to that function app automatically.
 
 
-![Diagram showing scenario 1.](media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png)
+![Diagram showing scenario 1.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png)
 
 There are several benefits when using this deployment scenario:
 - If the compute infrastructure fails, work can resume in the fail over region without state loss.
@@ -42,14 +42,14 @@ However,  using this scenario consider:
 - This scenario covers outages at the compute infrastructure, but the storage account continues to be the single point of failure for the function App. If there is a Storage outage, the application suffers a downtime.
 - If the function app is failed over, there will be increased latency since it will access its storage account across regions.
 - Accessing the storage service from a different region where it's located incurs in higher cost due to network egress traffic.
-- This scenario depends on Traffic Manager. Considering [how Traffic Manager works](../traffic-manager/traffic-manager-how-it-works.md), it may be some time until a client application that consumes a Durable Function needs to query again the function app address from Traffic Manager. 
+- This scenario depends on Traffic Manager. Considering [how Traffic Manager works](../../traffic-manager/traffic-manager-how-it-works.md), it may be some time until a client application that consumes a Durable Function needs to query again the function app address from Traffic Manager. 
 
 
 ## Scenario 2 - Load balanced compute with regional storage
 The preceding scenario covers only the case of failure in the compute infrastructure. If the storage service fails, it will result in an outage of the function app.
 To ensure continuous operation of the durable functions, this scenario uses a local storage account on each region to which the function apps are deployed.
 
-![Diagram showing scenario 2.](media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
+![Diagram showing scenario 2.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
 
 This approach adds improvements on the previous scenario:
 - If the function app fails, Traffic Manager takes care of failing over to the secondary region. However, because the function app relies on its own storage account, the durable functions continue to work.
@@ -71,9 +71,9 @@ As with the other scenarios, there are important considerations:
 - There is an increased cost for using geo-replicated storage accounts.
 - GRS occurs asynchronously. Some of the latest transactions might be lost because of the latency of the replication process.
 
-![Diagram showing scenario 3.](media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
+![Diagram showing scenario 3.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
 
 ## Next steps
 
-You can read more about [Designing Highly Available Applications using RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)
+You can read more about [Designing Highly Available Applications using RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)

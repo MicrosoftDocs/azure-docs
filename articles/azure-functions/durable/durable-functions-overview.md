@@ -14,7 +14,7 @@ ms.author: azfuncdf
 
 # Durable Functions overview
 
-*Durable Functions* is an extension of [Azure Functions](functions-overview.md) and [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
 The extension lets you define stateful workflows in a new type of function called an [*orchestrator function*](durable-functions-types-features-overview.md#orchestrator-functions). Here are some of the advantages of orchestrator functions:
 
@@ -23,7 +23,7 @@ The extension lets you define stateful workflows in a new type of function calle
 * They automatically checkpoint their progress whenever the function awaits. Local state is never lost if the process recycles or the VM reboots.
 
 > [!NOTE]
-> Durable Functions is an advanced extension for Azure Functions that is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
+> Durable Functions is an advanced extension for Azure Functions that is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](../functions-overview.md) concepts and the challenges involved in serverless application development.
 
 The primary use case for Durable Functions is simplifying complex, stateful coordination problems in serverless applications. The following sections describe some typical application patterns that can benefit from Durable Functions.
 
@@ -31,7 +31,7 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 
 *Function chaining* refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function.
 
-![Function chaining diagram](media/durable-functions-overview/function-chaining.png)
+![Function chaining diagram](./media/durable-functions-overview/function-chaining.png)
 
 Durable Functions allows you to implement this pattern concisely in code.
 
@@ -77,7 +77,7 @@ The `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure
 
 *Fan-out/fan-in* refers to the pattern of executing multiple functions in parallel, and then waiting for all to finish.  Often some aggregation work is done on results returned from the functions.
 
-![Fan-out/fan-in diagram](media/durable-functions-overview/fan-out-fan-in.png)
+![Fan-out/fan-in diagram](./media/durable-functions-overview/fan-out-fan-in.png)
 
 With normal functions, fanning out can be done by having the function send multiple messages to a queue. However, fanning back in is much more challenging. You'd have to write code to track when the queue-triggered functions end and store function outputs. The Durable Functions extension handles this pattern with relatively simple code.
 
@@ -134,7 +134,7 @@ The automatic checkpointing that happens at the `await` call on `Task.WhenAll` e
 
 The third pattern is all about the problem of coordinating the state of long-running operations with external clients. A common way to implement this pattern is by having the long-running action triggered by an HTTP call, and then redirecting the client to a status endpoint that they can poll to learn when the operation completes.
 
-![HTTP API diagram](media/durable-functions-overview/async-http-api.png)
+![HTTP API diagram](./media/durable-functions-overview/async-http-api.png)
 
 Durable Functions provides built-in APIs that simplify the code you write for interacting with long-running function executions. The [samples](durable-functions-install.md) show a simple REST command that can be used to start new orchestrator function instances. Once an instance is started, the extension exposes webhook HTTP APIs that query the orchestrator function status. The following example shows the REST commands to start an orchestrator and to query its status. For clarity, some details are omitted from the example.
 
@@ -192,7 +192,7 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 
 An example would be reversing the earlier async HTTP API scenario. Instead of exposing an endpoint for an external client to monitor a long-running operation, the long-running monitor consumes an external endpoint, waiting for some state change.
 
-![Monitor diagram](media/durable-functions-overview/monitor.png)
+![Monitor diagram](./media/durable-functions-overview/monitor.png)
 
 Using Durable Functions, multiple monitors that observe arbitrary endpoints can be created in a few lines of code. The monitors can end execution when some condition is met, or be terminated by the [DurableOrchestrationClient](durable-functions-instance-management.md), and their wait interval can be changed based on some condition (i.e. exponential backoff.) The following code implements a basic monitor.
 
@@ -260,7 +260,7 @@ Many processes involve some kind of human interaction. The tricky thing about in
 
 One example of a business process that involves human interaction is an approval process. For example, approval from a manager might be required for an expense report that exceeds a certain amount. If the manager does not approve within 72 hours (maybe they went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
 
-![Human interaction diagram](media/durable-functions-overview/approval.png)
+![Human interaction diagram](./media/durable-functions-overview/approval.png)
 
 This pattern can be implemented using an orchestrator function. The orchestrator would use a [durable timer](durable-functions-timers.md) to request approval and escalate in case of timeout. It would wait for an [external event](durable-functions-external-events.md), which would be the notification generated by some human interaction.
 
@@ -345,15 +345,15 @@ Currently C# (Functions v1 and v2), F# and JavaScript (Functions v2 only) are th
 
 ## Monitoring and diagnostics
 
-The Durable Functions extension automatically emits structured tracking data to [Application Insights](functions-monitoring.md) when the function app is configured with an Application Insights instrumentation key. This tracking data can be used to monitor the behavior and progress of your orchestrations.
+The Durable Functions extension automatically emits structured tracking data to [Application Insights](../functions-monitoring.md) when the function app is configured with an Application Insights instrumentation key. This tracking data can be used to monitor the behavior and progress of your orchestrations.
 
 Here is an example of what the Durable Functions tracking events look like in the Application Insights portal using [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 
-![App Insights query results](media/durable-functions-overview/app-insights-1.png)
+![App Insights query results](./media/durable-functions-overview/app-insights-1.png)
 
 There is a lot of useful structured data packed into the `customDimensions` field in each log entry. Here is an example of one such entry fully expanded.
 
-![customDimensions field in App Insights query](media/durable-functions-overview/app-insights-2.png)
+![customDimensions field in App Insights query](./media/durable-functions-overview/app-insights-2.png)
 
 Because of the replay behavior of the Durable Task Framework dispatcher, you can expect to see redundant log entries for replayed actions. This can be useful to understand the replay behavior of the core engine. The [Diagnostics](durable-functions-diagnostics.md) article shows sample queries that filter out replay logs so you can see just the "real-time" logs.
 
@@ -361,13 +361,13 @@ Because of the replay behavior of the Durable Task Framework dispatcher, you can
 
 The Durable Functions extension uses Azure Storage queues, tables, and blobs to persist execution history state and trigger function execution. The default storage account for the function app can be used, or you can configure a separate storage account. You might want a separate account due to storage throughput limits. The orchestrator code you write does not need to (and should not) interact with the entities in these storage accounts. The entities are managed directly by the Durable Task Framework as an implementation detail.
 
-Orchestrator functions schedule activity functions and receive their responses via internal queue messages. When a function app runs in the Azure Functions Consumption plan, these queues are monitored by the [Azure Functions Scale Controller](functions-scale.md#how-the-consumption-plan-works) and new compute instances are added as needed. When scaled out to multiple VMs, an orchestrator function may run on one VM while activity functions it calls run on several different VMs. You can find more details on the scale behavior of Durable Functions in [Performance and scale](durable-functions-perf-and-scale.md).
+Orchestrator functions schedule activity functions and receive their responses via internal queue messages. When a function app runs in the Azure Functions Consumption plan, these queues are monitored by the [Azure Functions Scale Controller](../functions-scale.md#how-the-consumption-plan-works) and new compute instances are added as needed. When scaled out to multiple VMs, an orchestrator function may run on one VM while activity functions it calls run on several different VMs. You can find more details on the scale behavior of Durable Functions in [Performance and scale](durable-functions-perf-and-scale.md).
 
 Table storage is used to store the execution history for orchestrator accounts. Whenever an instance rehydrates on a particular VM, it fetches its execution history from table storage so that it can rebuild its local state. One of the convenient things about having the history available in Table storage is that you can take a look and see the history of your orchestrations using tools such as [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 Storage blobs are used primarily as a leasing mechanism to coordinate the scale-out of orchestration instances across multiple VMs. They are also used to hold data for large messages which cannot be stored directly in tables or queues.
 
-![Azure Storage Explorer screen shot](media/durable-functions-overview/storage-explorer.png)
+![Azure Storage Explorer screen shot](./media/durable-functions-overview/storage-explorer.png)
 
 > [!WARNING]
 > While it's easy and convenient to see execution history in table storage, avoid taking any dependency on this table. It may change as the Durable Functions extension evolves.

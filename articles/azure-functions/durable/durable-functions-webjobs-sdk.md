@@ -14,7 +14,7 @@ ms.author: azfuncdf
 
 # How to run durable functions as WebJobs
 
-[Azure Functions](functions-overview.md) and the [Durable Functions](durable-functions-overview.md) extension are built on the [WebJobs SDK](../app-service/web-sites-create-web-jobs.md). The `JobHost` in the WebJobs SDK is the runtime in Azure Functions. If you need to control `JobHost` behavior in ways not possible in Azure Functions, you can develop and run durable functions by using the WebJobs SDK yourself. You can then run your durable functions in an Azure WebJob or anywhere a console application runs.
+[Azure Functions](../functions-overview.md) and the [Durable Functions](durable-functions-overview.md) extension are built on the [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md). The `JobHost` in the WebJobs SDK is the runtime in Azure Functions. If you need to control `JobHost` behavior in ways not possible in Azure Functions, you can develop and run durable functions by using the WebJobs SDK yourself. You can then run your durable functions in an Azure WebJob or anywhere a console application runs.
 
 The chaining Durable Functions sample is available in a WebJobs SDK version: download or clone the [Durable Functions repository](https://github.com/azure/azure-functions-durable-extension/) and navigate to the *samples\\webjobssdk\\chaining* folder.
 
@@ -22,8 +22,8 @@ The chaining Durable Functions sample is available in a WebJobs SDK version: dow
 
 This article assumes you're familiar with the basics of the WebJobs SDK, C# class library development for Azure Functions, and Durable Functions. If you need an introduction to these topics, see the following resources:
 
-* [Get started with the WebJobs SDK](../app-service/webjobs-sdk-get-started.md)
-* [Create your first function using Visual Studio](functions-create-your-first-function-visual-studio.md)
+* [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
+* [Create your first function using Visual Studio](../functions-create-your-first-function-visual-studio.md)
 * [Durable Functions](durable-functions-sequence.md)
 
 To complete the steps in this article:
@@ -34,7 +34,7 @@ To complete the steps in this article:
 
   (You can use [Visual Studio Code](https://code.visualstudio.com/) instead, but some of the instructions are specific to Visual Studio.)
 
-* Install and run [Azure Storage Emulator](../storage/common/storage-use-emulator.md) version 5.2 or later. An alternative is to update the *App.config* file with an Azure Storage connection string.
+* Install and run [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) version 5.2 or later. An alternative is to update the *App.config* file with an Azure Storage connection string.
 
 ## WebJobs SDK versions
 
@@ -83,7 +83,7 @@ config.UseDurableTask(new DurableTaskExtension
 };
 ```
 
-For a list of properties that you can set in the `DurableTaskExtension` object, see [host.json](functions-host-json.md#durabletask).
+For a list of properties that you can set in the `DurableTaskExtension` object, see [host.json](../functions-host-json.md#durabletask).
 
 The `Main` method is also the place to set up logging providers. The following example configures console and Application Insights providers.
 
@@ -177,7 +177,7 @@ while (true)
 
 ## Run the sample
 
-This section provides an overview of how to run the [sample project](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining). For detailed instructions that explain how to run a WebJobs SDK project locally and deploy it to an Azure WebJob, see [Get started with the WebJobs SDK](../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
+This section provides an overview of how to run the [sample project](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining). For detailed instructions that explain how to run a WebJobs SDK project locally and deploy it to an Azure WebJob, see [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
 
 ### Run locally
 
@@ -252,5 +252,5 @@ The main change introduced by 3.x is the use of .NET Core instead of .NET Framew
 
 ## Next steps
 
-To learn more about the WebJobs SDK, see [How to use the WebJobs SDK](../app-service/webjobs-sdk-how-to.md).
+To learn more about the WebJobs SDK, see [How to use the WebJobs SDK](../../app-service/webjobs-sdk-how-to.md).
 

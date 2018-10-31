@@ -34,7 +34,7 @@ This sample monitors a location's current weather conditions and alerts a user b
 
 ## Configuring Twilio integration
 
-[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
+[!INCLUDE [functions-twilio-integration](../../../includes/functions-twilio-integration.md)]
 
 ## Configuring Weather Underground integration
 
@@ -87,7 +87,7 @@ Multiple orchestrator instances can run simultaneously by sending multiple **Mon
 
 ## Strongly-typed data transfer (.NET only)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:
+The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]

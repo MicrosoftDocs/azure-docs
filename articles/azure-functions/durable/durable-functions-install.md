@@ -147,9 +147,9 @@ If you prefer, you can use the [Azure portal](https://portal.azure.com) for Dura
 
 ### Create an orchestrator function
 
-1. Create a new function app in the portal, as shown in the [Functions quickstart article](functions-create-first-azure-function.md#create-a-function-app).
+1. Create a new function app in the portal, as shown in the [Functions quickstart article](../functions-create-first-azure-function.md#create-a-function-app).
 
-2. Configure the function app to [use the 2.0 runtime version](set-runtime-version.md).
+2. Configure the function app to [use the 2.0 runtime version](../set-runtime-version.md).
 
    The Durable Functions extension works on both the 1.X runtime and the 2.0 runtime, but the Azure Portal templates are only available when targeting the 2.0 runtime.
 
