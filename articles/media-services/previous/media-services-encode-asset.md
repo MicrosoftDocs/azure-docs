@@ -4,7 +4,7 @@ description: This topic gives an overview and comparison of Azure on demand medi
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 10/30/2018
 ms.author: juliako
 
 ---
