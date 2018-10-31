@@ -29159,6 +29159,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-language-customization-custom.md",
+            "redirect_url": "/azure/active-directory-b2c/localization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-ui-customization.md",
+            "redirect_url": "/azure/active-directory-b2c/customize-ui-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-ui-customization-helper-tool.md",
+            "redirect_url": "/azure/active-directory-b2c/tutorial-customize-ui",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
             "redirect_document_id": true
