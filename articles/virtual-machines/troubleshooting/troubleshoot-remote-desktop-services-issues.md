@@ -31,7 +31,7 @@ When you try to connect to a VM, you experience the following scenarios:
 
     ![Screenshot of the VM status](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
 
-- You remotely view the event logs in the VM by using Event Viewer. You see that Remote Desktop Services, TermServ, isn't starting or is failing to start. The following log is a sample:
+- You remotely view the event logs in the VM by using Event Viewer. You see that Remote Desktop Services, TermService, isn't starting or fails to start. The following log is a sample:
 
     **Log Name**:      System </br>
     **Source**:        Service Control Manager </br>
@@ -45,7 +45,7 @@ When you try to connect to a VM, you experience the following scenarios:
     **Description**: 
     The Remote Desktop Services service hung on starting.​ 
 
-    You can also use the Serial Access Console feature to look for these errors by using the following query: 
+    You can also use the Serial Access Console feature to look for these errors by running the following query: 
 
         wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
 
@@ -58,7 +58,7 @@ This problem occurs because Remote Desktop Services isn't running on the VM. The
 
 ## Solution
 
-To troubleshoot this issue, use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
+To troubleshoot this issue, use the Serial Console. Or else [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
 
 ### Use Serial Console
 
@@ -91,7 +91,7 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
    ```
    sc query TermService
    ```
-    If the service fails to start, follow the solution based on the error you received:
+8. If the service fails to start, follow the solution based on the error you received:
 
     |  Error |  Suggestion |
     |---|---|
@@ -105,45 +105,65 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. |
     |1753   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.   |
 
-#### TermService service is stopped because of an Access Denied error
+#### TermService service is stopped because of an Access Denied problem
 
 1. Connect to [Serial Console](serial-console-windows.md#) and open a PowerShell instance.
 2. Download the Process Monitor tool by running the following script:
 
-        remove-module psreadline  
-        $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-        $destination = "c:\temp\ProcessMonitor.zip" 
-        $wc = New-Object System.Net.WebClient 
-        $wc.DownloadFile($source,$destination) 
+   ```
+   remove-module psreadline  
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
+   $destination = "c:\temp\ProcessMonitor.zip" 
+   $wc = New-Object System.Net.WebClient 
+   $wc.DownloadFile($source,$destination) 
+   ```
+
 3. Now start a **procmon** trace:
 
-        procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
-4. Reproduce the problem by starting the service that's giving access deny: 
+   ```
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   ```
 
-        sc start TermService 
-        
-    When it fails, terminate the Process Monitor trace:
+4. Reproduce the problem by starting the service that's giving **Access Denied**: 
 
-        procmon /Terminate 
-5. Collect the file **c:\temp\ProcMonTrace.PML**, open it by using **procmon**. Then filter by **Result is ACCESS DENIED** as shown in the following screenshot：
+   ```
+   sc start TermService 
+   ```
 
-    ![Filter by Result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+   When it fails, terminate the Process Monitor trace:
+
+   ```   
+   procmon /Terminate 
+   ```
+
+5. Collect the file **c:\temp\ProcMonTrace.PML**. Open it by using **procmon**. Then filter by **Result is ACCESS DENIED**, as shown in the following screenshot：
+
+    ![Filter by result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
-6. Fix the registry keys, folders, or files that are on the output. Usually, this problem is caused when the sign in account that's used on the service doesn't have ACL permission to access these objects. To know the correct ACL permission for the sign in account, you can check on a healthy VM. 
+6. Fix the registry keys, folders, or files that are on the output. Usually, this problem is caused when the sign-in account that's used on the service doesn't have ACL permission to access these objects. To know the correct ACL permission for the sign-in account, you can check on a healthy VM. 
 
 #### TermService service is disabled
 
-1.	Restore the service to its default startup value:
+1. Restore the service to its default startup value:
 
-        sc config TermService start= demand 
-        
-2.	Start the service:
+   ```
+   sc config TermService start= demand 
+   ```
 
-        sc start TermService 
-3.	Query its status again to ensure the service is running:
-        sc query TermService 
-4.	Try to conntet to VM by using Remote desktop.
+2. Start the service:
+
+   ```
+   sc start TermService
+   ```
+
+3. Query its status again to make sure the service is running:
+
+   ```
+   sc query TermService 
+   ```
+
+4. Try to connect to VM by using Remote Desktop.
 
 
 ### Repair the VM offline
@@ -151,19 +171,22 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](#r
 #### Attach the OS disk to a recovery VM
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
-2. Start a Remote Desktop connection to the recovery VM. Make sure that the attached disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
-3.  Open an elevated command prompt instance (**Run as administrator**), and then run the following script. We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. 
+2. Start a Remote Desktop connection to the recovery VM. Make sure that the attached disk is flagged as **Online** in the Disk Management console. Note the drive letter that's assigned to the attached OS disk.
+3.  Open an elevated command prompt instance (**Run as administrator**). Then run the following script. We assume that the drive letter that's assigned to the attached OS disk is **F**. Replace it with the appropriate value in your VM. 
 
-        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+   ```
+   reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
         
-        REM Set default values back on the broken service 
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
-4. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md), and then check whether the issue is resolved.
+   REM Set default values back on the broken service 
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
+   ```
+
+4. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.
 
 ## Need help? Contact support
 
