@@ -190,7 +190,7 @@ The last three operations return potentially secret information, which gets filt
 
 ### Built-in roles
 
-Event Grid provides two built-in roles for managing event subscriptions. These roles are `EventSubscription Contributor (Preview)` and `EventSubscription Reader (Preview)`. They are important when implementing event domains. For more information about the granted actions, see [Event Domain - access management](event-domains#access-management.md).
+Event Grid provides two built-in roles for managing event subscriptions. These roles are `EventSubscription Contributor (Preview)` and `EventSubscription Reader (Preview)`. They are important when implementing event domains. For more information about the granted actions, see [Event Domain - access management](event-domains.md#access-management).
 
 You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
