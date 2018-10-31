@@ -30,7 +30,7 @@ To use a pre-existing IoT hub, you need the connection string for the **iothubow
 
 Use the connection string you copied when you configure the simulation:
 
-[![Configure simulation](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation-expanded.png#lightbox)
+![Configure simulation](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation.png)
 
 ### Next steps
 

@@ -238,7 +238,7 @@ Copy the following JSON into a text editor and save it as **drone.json**.
     "CloudToDeviceMethods": {
         "RecallDrone": {
             "Type": "JavaScript",
-            "Path": "RecallDrone-method.js"
+            "Path": "droneRecall-method.js"
         }
     }
 }
@@ -493,11 +493,11 @@ To deploy your advanced device model you upload the files your Device Simulation
 
 Select **Device models** in the menu bar. The **Device models** page lists the device models available in this instance of Device Simulation:
 
-![Device models](media/iot-accelerators-device-simulation-create-custom-device/devicemodelnav.png)
+![Device models](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
 Click **+ Add Device Models** in the top right corner of the page:
 
-![Add device model](media/iot-accelerators-device-simulation-create-custom-device/devicemodels.png)
+![Add device model](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
 Click **Advanced** to open the advanced device model tab:
 
