@@ -44,7 +44,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 	SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 ````
 
-## Complete code
+## Run the complete application
 
 The Bing Local Business Search API returns results from the Bing search engine.
 1. Download or install the gson library.

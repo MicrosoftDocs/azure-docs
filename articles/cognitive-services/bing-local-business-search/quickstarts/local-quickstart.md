@@ -47,15 +47,10 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
 ````
 
-## Run complete application
+## Run the complete application
 
-<<<<<<< HEAD
-The Bing Local Search API returns local search results from the Bing search engine.
-1. Create a new Console solution in Visual Studio.
-=======
 The Bing Local Business Search API returns localized search results from the Bing search engine.
 1. Create a new Console solution in Visual Studio (the Community Edition is fine).
->>>>>>> 7961b8f9abf6e2386355709bc0e7e5b10fc9acde
 2. Replace Program.cs with the code provided below.
 3. Replace the accessKey value with an access key valid for your subscription.
 4. Run the program.

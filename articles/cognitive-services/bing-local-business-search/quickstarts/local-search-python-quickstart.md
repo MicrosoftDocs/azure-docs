@@ -23,7 +23,8 @@ This example application gets local response data from the API for the search qu
  
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. Use the access key provided by the free trial.
 
-## Code scenario
+## Run the complete application
+
 The following code gets localized results. It is implemented in the following steps:
 1. Declare variables to specify the endpoint by host and path.
 2. Specify the query parameter. 
