@@ -24,7 +24,7 @@ On November 2017, we announced that Microsoft Azure Access Control Service (ACS)
 
 Since then, we've sent multiple emails to the ACS subscriptions’ admin email about the ACS retirement 12 months, 9 months, 6 months, 3 months, 1 month, 2 weeks, 1 week, and 1 day before the retirement date of November 7, 2018.
 
-On October 3, 2018, we announced (through email and [a blog post](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) an extension offer to customers who cannot finish their migration before November 7, 2018. The announcement also contained instructions for requesting the extension.
+On October 3, 2018, we announced (through email and [a blog post](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) an extension offer to customers who can't finish their migration before November 7, 2018. The announcement also contained instructions for requesting the extension.
 
 ## Why your namespace is disabled
 
@@ -68,7 +68,7 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
 
 1. Enable your ACS namespace(s) using the **Enable-AcsNamespace** cmdlet.
 
-    Once you've enabled your namespace(s), you can request an extension so that the namespace(s) will not be disabled again before February 4, 2019. After that date, all requests to ACS will fail.
+    Once you've enabled your namespace(s), you can request an extension so that the namespace(s) won't be disabled again before February 4, 2019. After that date, all requests to ACS will fail.
 
 ## Request an extension
 
