@@ -53,10 +53,10 @@ Explore in-depth information about v2.0:
 
 * [v2.0 protocols reference](active-directory-v2-protocols.md)
 * [Access tokens reference](access-tokens.md)
-* [`id_tokens` reference](id-tokens.md)
+* [ID tokens reference](id-tokens.md)
 * [v2.0 authentication libraries reference](reference-v2-libraries.md)
-* [Scopes and consent in v2.0](v2-permissions-and-consent.md)
-* [The Microsoft Graph API](https://graph.microsoft.io)
+* [Permissions and consent in v2.0](v2-permissions-and-consent.md)
+* [Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
 > If you only need to sign in work and school accounts from Azure Active Directory, start with the [Azure AD developer's guide](v1-overview.md). The v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.

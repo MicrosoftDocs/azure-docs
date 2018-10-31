@@ -168,7 +168,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+    href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Videos
     items:
     - name: Product videos

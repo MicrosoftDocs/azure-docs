@@ -212,7 +212,9 @@ A. At this time, access to the serial console for virtual machine scale set inst
 A. Yes. Because the serial console doesn't require SSH keys, you only need to set up a username/password combination. You can do so by selecting **Reset password** in the Azure portal and using those credentials to sign in to the serial console.
 
 ## Next steps
-* [Use the serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
-* [Use the serial console for NMI and SysRq calls](serial-console-nmi-sysrq.md).
+* Use the serial console to [access GRUB and single user mode](serial-console-grub-single-user-mode.md).
+* Use the serial console for [NMI and SysRq calls](serial-console-nmi-sysrq.md).
+* Learn how to use the serial console to [enable GRUB in various distros](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 * The serial console is also available for [Windows VMs](../windows/serial-console.md).
 * Learn more about [boot diagnostics](boot-diagnostics.md).
+

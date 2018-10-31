@@ -49,7 +49,7 @@ In order to get up and running with the Digital Twins APIs you can use a client 
     |---------|---------|
     | Grant Type | Implicit |
     | Callback URL | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | Auth URL | [https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0)
+    | Auth URL | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
     | Client Id | Use the Application Id for the Azure AD app that was created or repurposed from Step 1 |
     | Scope | leave blank |
     | State | leave blank |
