@@ -194,7 +194,7 @@ This section provides template questionnaires to help gather important informati
 |Share metastores between different clusters?|Yes||
 |Deconstruct workloads?|Replace Hive jobs with Spark jobs||
 |Use ADF for data orchestration?|No||
-|HDI vs HDP on IaaS?|HDI||
+|HDInsight vs Hortonworks Data Platform on IaaS?|HDInsight||
 
 ## Next steps
 
