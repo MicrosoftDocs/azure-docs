@@ -55,7 +55,7 @@ This tutorial covers the following tasks:
 
 ## Get the connection details of your account  
 
-Get the connection string information from Azure portal, and copy it into the Java configuration file. This enables your app to communicate with your hosted database. 
+Get the connection string information from Azure portal, and copy it into the Java configuration file. The connection string enables your app to communicate with your hosted database. 
 
 1. From the [Azure portal](http://portal.azure.com/), navigate to your Cosmos DB account. 
 

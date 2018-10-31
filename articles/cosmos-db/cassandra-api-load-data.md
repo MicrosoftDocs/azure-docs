@@ -25,7 +25,7 @@ This tutorial covers the following tasks:
 
 ## Prerequisites
 
-* This article belongs to a multi-part tutorial. Before you start with this doc, make sure to [create the Cassandra API account, keyspace and table](create-cassandra-api-account-java.md).   
+* This article belongs to a multi-part tutorial. Before you start with this doc, make sure to [create the Cassandra API account, keyspace, and table](create-cassandra-api-account-java.md).   
 
 ## Load data into the table
 

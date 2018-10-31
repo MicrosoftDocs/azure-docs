@@ -23,7 +23,7 @@ This tutorial covers the following tasks:
 
 ## Prerequisites
 
-* This article belongs to a multi-part tutorial. Before you start, make sure to complete the previous steps to [create the Cassandra API account, keyspace, table](create-cassandra-api-account-java.md) and [load sample data into the table](cassandra-api-load-data.md). 
+* This article belongs to a multi-part tutorial. Before you start, make sure to complete the previous steps to [create the Cassandra API account, keyspace, table, and [load sample data into the table](cassandra-api-load-data.md). 
 
 ## Query data
 
