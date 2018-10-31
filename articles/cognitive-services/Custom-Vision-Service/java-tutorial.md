@@ -19,7 +19,7 @@ Learn how to create an image classification project with the Custom Vision Servi
 
 ## Prerequisites
 
-- JDK 7 or 8 installed.
+- [JDK 7 or 8](https://aka.ms/azure-jdks) installed.
 - Maven installed.
 
 ## Get the training and prediction keys
