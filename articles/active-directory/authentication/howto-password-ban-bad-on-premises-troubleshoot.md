@@ -6,19 +6,19 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-
 ---
+
 # Preview: Azure AD password protection monitoring, reporting, and troubleshooting
 
 |     |
 | --- |
-| Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD password protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 After deployment of Azure AD password protection monitoring and reporting are essential tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD password protection.
@@ -89,8 +89,8 @@ Some other key event log messages to be aware of are:
 
 The password for the specified user was accepted because an Azure password policy is not available yet
 
-UserName: <user>
-FullName: <user>
+UserName: SomeUser
+FullName: Some User
 
 This condition may be caused by one or more of the following reasons:%n
 
