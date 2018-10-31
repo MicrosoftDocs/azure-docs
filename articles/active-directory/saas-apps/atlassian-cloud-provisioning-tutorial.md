@@ -30,8 +30,8 @@ The objective of this tutorial is to demonstrate the steps to be performed in At
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 *   An Azure AD tenant
-*   A Atlassian Cloud tenant
-*   A user account in Atlassian Cloud with Admin permissions.
+*   An Atlassian Cloud tenant
+*   An user account in Atlassian Cloud with Admin permissions.
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the **Atlassian Cloud SCIM API**, which is available to Atlassian Cloud teams.
@@ -82,7 +82,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Atlassian Cloud based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Atlassian Cloud, following the instructions provided in the [Atlassian Cloud single sign-on tutorial](Atlassian Cloud-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Atlassian Cloud, following the instructions provided in the [Atlassian Cloud single sign-on tutorial](atlassian-cloud-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Atlassian Cloud in Azure AD:
 
@@ -102,14 +102,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Atlassian Cloud's account. Examples of these values are:
 
-	*   In the **Tenant URL** field, populate the specfic tenant related url having the directory **https://api.atlassian.com/scim/directory/{directoryId}**
+	*   In the **Tenant URL** field, fill the specific tenant endpoint you receive from the Atlassian, as described in Step 6. 
+  		For Example: **https://api.atlassian.com/scim/directory/{directoryId}**
 
 	*   In the **Secret Token** field, populate the secret token as described in Step 6.
 
-6. Navigate to [Atlassian Organization Manager](https://admin.atlassian.com), and click on User Provisioning and generate a new API Key populate the **Secret Token**. 
+6. Navigate to [Atlassian Organization Manager](https://admin.atlassian.com), and click on User Provisioning and generate a new API Key to retrieve the **Tenant URL** and **Secret Token**. 
 
 	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/SecretToken1.png)
 	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/SecretToken2.png)
+	Copy the **Directory base URL** , **Bearer Token** from Atlassian Cloud to **Tenant URL** , **Secret Token** respectively.
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/SecretToken3.png)
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Atlassian Cloud. If the connection fails, ensure your Atlassian Cloud account has Admin permissions and try again.
 
@@ -157,7 +160,7 @@ This operation starts the initial synchronization of all users and/or groups def
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Connector Limitations
-* Atlassian Cloud supports usage of groups for Users with Agent roles only. For more information, please refer to [Atlassian Cloud's documentation](https://support.Atlassian Cloud.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* Atlassian Cloud allows provisioning of users only from [verified domains](https://confluence.atlassian.com/cloud/organization-administration-938859734.html)
 
 ## Additional resources
 
