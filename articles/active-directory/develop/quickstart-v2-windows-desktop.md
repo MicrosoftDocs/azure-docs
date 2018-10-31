@@ -38,8 +38,8 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
 > 1. Go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps)
-> 1. Enter a name for your application and click **Register**.
-> 1. Follow the instructions to download and automatically configure your new application for you in one click.
+> 1. Enter a name for your application and select **Register**.
+> 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
 > ### Option 2: Register and manually configure your application and code sample
 > [!div renderon="docs"]
@@ -48,11 +48,11 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 > 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)** > **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Win-App-calling-MsGraph`.
+>      - In the **Name* section**, enter a meaningful application name that will be displayed to users of the app, for example `Win-App-calling-MsGraph`.
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 >      - Select **Register** to create the application.
 > 1. In the list of pages for the app, select **Authentication**.
-> 1. In the **Redirect URLs** section, locate the **Suggested Redirect URIs for public clients (mobile, desktop)** section, and select **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. In the **Redirect URIs** section, locate the **Suggested Redirect URIs for public clients (mobile, desktop)** section, and select **"urn:ietf:wg:oauth:2.0:oob**.
 > 1. Select **Save**.
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -72,7 +72,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
 1. Open the project in Visual Studio.
-1. Edit **App.Xaml.cs** and replace the values of the fields `ClientId` and `Tenant` with:
+1. Edit **App.Xaml.cs** and replace the values of the fields `ClientId` and `Tenant` with the following code:
 
     ```csharp
     private static string ClientId = "Enter_the_Application_Id_here";
@@ -81,14 +81,14 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 > [!div renderon="docs"]
 > Where:
-> - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `Enter_the_Tenant_Info_Here` - is one of the options below:
->   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+> - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
+> - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
+>   - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
 >   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->   - If your application supports **All Microsoft account users**, replace this value with `common`
+>   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`
 >
 > > [!TIP]
-> > To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
+> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
 ## More information
 
