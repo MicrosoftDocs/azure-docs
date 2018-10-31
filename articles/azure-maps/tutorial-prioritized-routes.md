@@ -294,5 +294,4 @@ To learn more about the coverage and capabilities of Azure Maps:
 To see more code examples and an interactive coding experience:
 
 > [!div class="nextstepaction"]
-
 > [How to use the map control](how-to-use-map-control.md)
