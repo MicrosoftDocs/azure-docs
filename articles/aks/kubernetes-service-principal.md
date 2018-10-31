@@ -73,18 +73,35 @@ If you deploy an AKS cluster using the Azure portal, on the *Authentication* pag
 
 ## Delegate access to other Azure resources
 
-The service principal for the AKS cluster can be used to access other resources. If you want to use advanced networking to connect to existing virtual networks, or connect to Azure Container Registry (ACR), you need to delegate access to the service principal.
+The service principal for the AKS cluster can be used to access other resources. For example, if you want to use advanced networking to connect to existing virtual networks or connect to Azure Container Registry (ACR), you need to delegate access to the service principal.
 
-The following table details the common delegations that you may need to make:
+To delegate permissions, you create a role assignment using the [az role assignment create][az-role-assignment-create] command. You assign the `appId` to a particular scope, such as a resource group or virtual network resource. A role then defines what permissions the service principal has on the resource, as shown in the following example:
+
+```azurecli
+az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
+```
+
+The `--scope` for a resource needs to be a full resource ID, such as */subscriptions/<guid>/resourceGroups/myResourceGroup* or */subscriptions/<guid>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+The following sections detail common delegations that you may need to make.
 
 ### Networking
 
-Assign the [Network Contributor][rbac-network-contributor] permission on the subnet within the virtual network.
+You may use advanced networking or need to access existing virtual network resources in another resource group, such as a load balancer or public IP address. Assign one of the following set of role permissions:
 
-Or you can create a [custom role][rbac-custom-role] and define the following permissions:
-    
-- Microsoft.Network/virtualNetworks/subnets/join/action
-- Microsoft.Network/virtualNetworks/subnets/read
+- Assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network.
+- Or, create a [custom role][rbac-custom-role] and define the following role permissions:
+    - *Microsoft.Network/virtualNetworks/subnets/join/action*
+    - *Microsoft.Network/virtualNetworks/subnets/read*
+
+### Storage
+
+You may need to access existing storage resources in another resource group, such as as disks or Azure Files. Assign one of the following set of role permissions:
+
+- Assign the [Storage Account Contributor][rbac-storage-contributor] built-in role on the resource group.
+- Or, create a [custom role][rbac-custom-role] and define the following role permissions:
+    - *Microsoft.Compute/disks/read*
+    - *Microsoft.Compute/disks/write*
 
 ## Additional considerations
 
@@ -120,3 +137,5 @@ For more information about Azure Active Directory service principals, see [Appli
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
+[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
