@@ -81,7 +81,7 @@ To delegate permissions, you create a role assignment using the [az role assignm
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
 ```
 
-The `--scope` for a resource needs to be a full resource ID, such as */subscriptions/<guid>/resourceGroups/myResourceGroup* or */subscriptions/<guid>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+The `--scope` for a resource needs to be a full resource ID, such as */subscriptions/\<guid\>/resourceGroups/myResourceGroup* or */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
 
 The following sections detail common delegations that you may need to make.
 
@@ -89,8 +89,8 @@ The following sections detail common delegations that you may need to make.
 
 You may use advanced networking or need to access existing virtual network resources in another resource group, such as a load balancer or public IP address. Assign one of the following set of role permissions:
 
-- Assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network.
-- Or, create a [custom role][rbac-custom-role] and define the following role permissions:
+- Assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network, or
+- Create a [custom role][rbac-custom-role] and define the following role permissions:
     - *Microsoft.Network/virtualNetworks/subnets/join/action*
     - *Microsoft.Network/virtualNetworks/subnets/read*
 
@@ -98,8 +98,8 @@ You may use advanced networking or need to access existing virtual network resou
 
 You may need to access existing storage resources in another resource group, such as as disks or Azure Files. Assign one of the following set of role permissions:
 
-- Assign the [Storage Account Contributor][rbac-storage-contributor] built-in role on the resource group.
-- Or, create a [custom role][rbac-custom-role] and define the following role permissions:
+- Assign the [Storage Account Contributor][rbac-storage-contributor] built-in role on the resource group, or
+- Create a [custom role][rbac-custom-role] and define the following role permissions:
     - *Microsoft.Compute/disks/read*
     - *Microsoft.Compute/disks/write*
 
