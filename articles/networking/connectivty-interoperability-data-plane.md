@@ -16,15 +16,15 @@ ms.author: rambala
 
 # Interoperability in Azure back-end connectivity features - Data plane analysis
 
-This article describes the data plane analysis of the [test setup][Setup]. You can also review the [test setup configuration][Configuration] or the [control plane analysis][Control-Analysis] of the test setup.
+This article describes the data plane analysis of the [test setup][Setup]. You can also review the [test setup configuration][Configuration] and the [control plane analysis][Control-Analysis] of the test setup.
 
-Data plane analysis examines the path taken by packets that traverse from one local network (LAN/VNet) to another within a topology. The data path between two local networks isn't necessarily symmetrical. Therefore, in this article, we analyze a forwarding path from a local network to another network separate from the reverse path.
+Data plane analysis examines the path taken by packets that traverse from one local network (LAN or virtual network) to another within a topology. The data path between two local networks isn't necessarily symmetrical. Therefore, in this article, we analyze a forwarding path from a local network to another network that's separate from the reverse path.
 
 ## Data path from the hub VNet
 
 ### Path to the spoke VNet
 
-VNet peering emulates network bridge functionality between the two VNets that are peered. Traceroute output from a hub VNet to a VM in the spoke VNet is shown here:
+Virtual network (VNet) peering emulates network bridge functionality between the two VNets that are peered. Traceroute output from a hub VNet to a VM in the spoke VNet is shown here:
 
 	C:\Users\rb>tracert 10.11.30.4
 
@@ -34,12 +34,14 @@ VNet peering emulates network bridge functionality between the two VNets that ar
 
 	Trace complete.
 
-The following screenshot shows the graphical connection view of the hub VNet and the spoke VNet from the perspective of Azure Network Watcher:
+The following figure shows the graphical connection view of the hub VNet and the spoke VNet from the perspective of Azure Network Watcher:
 
 
 [![1]][1]
 
 ### Path to the branch VNet
+
+Traceroute output from a hub VNet to a VM in the branch VNet is shown here:
 
 	C:\Users\rb>tracert 10.11.30.68
 
@@ -51,17 +53,19 @@ The following screenshot shows the graphical connection view of the hub VNet and
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the VPN gateway of the hub VNet. The second hop is the VPN gateway of the branch VNet. The IP address of the VPN gateway of the branch VNet isn't advertised in the hub VNet. The third hop is the VM on the branch VNet.
+In this traceroute, the first hop is the VPN gateway in Azure VPN Gateway of the hub VNet. The second hop is the VPN gateway of the branch VNet. The IP address of the VPN gateway of the branch VNet isn't advertised in the hub VNet. The third hop is the VM on the branch VNet.
 
-The following screenshot shows the graphical connection view of the hub VNet and the branch VNet from the perspective of Network Watcher:
+The following figure shows the graphical connection view of the hub VNet and the branch VNet from the perspective of Network Watcher:
 
 [![2]][2]
 
-For the same connection, the following screenshot shows the grid view in Network Watcher:
+For the same connection, the following figure shows the grid view in Network Watcher:
 
 [![3]][3]
 
-### Path to on-premises Location1
+### Path to on-premises Location 1
+
+Traceroute output from a hub VNet to a VM in on-premises Location 1 is shown here:
 
 	C:\Users\rb>tracert 10.2.30.10
 
@@ -74,10 +78,12 @@ For the same connection, the following screenshot shows the grid view in Network
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to a Microsoft Enterprise Edge Router (MSEE). The second and third hops are the customer edge (CE) router and the on-premises Location1 LAN IPs. These IP addresses aren't advertised in the hub VNet. The fourth hop is the VM in the on-premises Location1.
+In this traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to a Microsoft Enterprise Edge Router (MSEE). The second and third hops are the customer edge (CE) router and the on-premises Location 1 LAN IPs. These IP addresses aren't advertised in the hub VNet. The fourth hop is the VM in the on-premises Location 1.
 
 
-### Path to on-premises Location2
+### Path to on-premises Location 2
+
+Traceroute output from a hub VNet to a VM in on-premises Location 2 is shown here:
 
 	C:\Users\rb>tracert 10.1.31.10
 
@@ -90,9 +96,11 @@ In the preceding traceroute, the first hop is the ExpressRoute gateway tunnel en
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to an MSEE. The second and the third hops are the CE router and the on-premises Location2 LAN IPs. These IP addresses aren't advertised in the hub VNet. The fourth hop is the VM on the on-premises Location2.
+In this traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to an MSEE. The second and third hops are the CE router and the on-premises Location 2 LAN IPs. These IP addresses aren't advertised in the hub VNet. The fourth hop is the VM on the on-premises Location 2.
 
 ### Path to the remote VNet
+
+Traceroute output from a hub VNet to a VM in the remote VNet is shown here:
 
 	C:\Users\rb>tracert 10.17.30.4
 
@@ -104,13 +112,15 @@ In the preceding traceroute, the first hop is the ExpressRoute gateway tunnel en
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to an MSEE. The second hop is the remote VNet’s gateway IP. The second hop IP range isn't advertised in the hub VNet. The third hop is the VM on the remote VNet.
+In this traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to an MSEE. The second hop is the remote VNet’s gateway IP. The second hop IP range isn't advertised in the hub VNet. The third hop is the VM on the remote VNet.
 
 ## Data path from the spoke VNet
 
-Recall that the spoke VNet shares the network view of the hub VNet. Through VNet peering, the spoke VNet uses the remote gateway connectivity of the hub VNet as if they are directly connected to the spoke VNet.
+The spoke VNet shares the network view of the hub VNet. Through VNet peering, the spoke VNet uses the remote gateway connectivity of the hub VNet as if it's directly connected to the spoke VNet.
 
 ### Path to the hub VNet
+
+Traceroute output from the spoke VNet to a VM in the hub VNet is shown here:
 
 	C:\Users\rb>tracert 10.10.30.4
 
@@ -122,6 +132,8 @@ Recall that the spoke VNet shares the network view of the hub VNet. Through VNet
 
 ### Path to the branch VNet
 
+Traceroute output from the spoke VNet to a VM in the branch VNet is shown here:
+
 	C:\Users\rb>tracert 10.11.30.68
 
 	Tracing route to 10.11.30.68 over a maximum of 30 hops
@@ -132,24 +144,11 @@ Recall that the spoke VNet shares the network view of the hub VNet. Through VNet
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the VPN gateway of the hub VNet. The second hop is the VPN gateway of the branch VNet. The IP address of the VPN gateway of the branch VNet isn't advertised within the hub/spoke VNet. The third hop is the VM on the branch VNet.
+In this traceroute, the first hop is the VPN gateway of the hub VNet. The second hop is the VPN gateway of the branch VNet. The IP address of the VPN gateway of the branch VNet isn't advertised within the hub/spoke VNet. The third hop is the VM on the branch VNet.
 
-### Path to on-premises Location1
+### Path to on-premises Location 1
 
-	C:\Users\rb>tracert 10.2.30.10
-
-	Tracing route to 10.2.30.10 over a maximum of 30 hops
-
-	  1    24 ms     2 ms     3 ms  10.10.30.132
-	  2     *        *        *     Request timed out.
-	  3     *        *        *     Request timed out.
-	  4     3 ms     2 ms     2 ms  10.2.30.10
-
-	Trace complete.
-
-In the preceding traceroute, the first hop is the hub VNet’s ExpressRoute gateway tunnel endpoint to an MSEE. The second and the third hops are the CE router and the on-premises Location1 LAN IPs. These IP addresses aren't advertised in the hub/spoke VNet. The fourth hop is the VM in the on-premises Location1.
-
-### Path to on-premises Location2
+Traceroute output from the spoke VNet to a VM in on-premises Location 1 is shown here:
 
 	C:\Users\rb>tracert 10.2.30.10
 
@@ -162,9 +161,29 @@ In the preceding traceroute, the first hop is the hub VNet’s ExpressRoute gate
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the hub VNet’s ExpressRoute gateway tunnel endpoint to an MSEE. The second and the third hops are the CE router and the on-premises Location2 LAN IPs. These IP addresses aren't advertised in the hub/spoke VNets. The fourth hop is the VM in the on-premises Location2.
+In this traceroute, the first hop is the hub VNet’s ExpressRoute gateway tunnel endpoint to an MSEE. The second and third hops are the CE router and the on-premises Location 1 LAN IPs. These IP addresses aren't advertised in the hub/spoke VNet. The fourth hop is the VM in the on-premises Location 1.
+
+### Path to on-premises Location 2
+
+Traceroute output from the spoke VNet to a VM in on-premises Location 2 is shown here:
+
+
+	C:\Users\rb>tracert 10.2.30.10
+
+	Tracing route to 10.2.30.10 over a maximum of 30 hops
+
+	  1    24 ms     2 ms     3 ms  10.10.30.132
+	  2     *        *        *     Request timed out.
+	  3     *        *        *     Request timed out.
+	  4     3 ms     2 ms     2 ms  10.2.30.10
+
+	Trace complete.
+
+In this traceroute, the first hop is the hub VNet’s ExpressRoute gateway tunnel endpoint to an MSEE. The second and third hops are the CE router and the on-premises Location 2 LAN IPs. These IP addresses aren't advertised in the hub/spoke VNets. The fourth hop is the VM in the on-premises Location 2.
 
 ### Path to the remote VNet
+
+Traceroute output from the spoke VNet to a VM in the remote VNet is shown here:
 
 	C:\Users\rb>tracert 10.17.30.4
 
@@ -176,11 +195,13 @@ In the preceding traceroute, the first hop is the hub VNet’s ExpressRoute gate
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the hub VNet’s ExpressRoute gateway tunnel endpoint to an MSEE. The second hop is the remote VNet’s gateway IP. The second hop IP range isn't advertised in the hub/spoke VNet. The third hop is the VM on the remote VNet.
+In this traceroute, the first hop is the hub VNet’s ExpressRoute gateway tunnel endpoint to an MSEE. The second hop is the remote VNet’s gateway IP. The second hop IP range isn't advertised in the hub/spoke VNet. The third hop is the VM on the remote VNet.
 
 ## Data path from the branch VNet
 
 ### Path to the hub VNet
+
+Traceroute output from the branch VNet to a VM in the hub VNet is shown here:
 
 	C:\Windows\system32>tracert 10.10.30.4
 
@@ -192,9 +213,11 @@ In the preceding traceroute, the first hop is the hub VNet’s ExpressRoute gate
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the VPN gateway of the branch VNet. The second hop is the VPN gateway of the hub VNet. The IP address of the VPN gateway of the hub VNet isn't advertised in the remote VNet. The third hop is the VM on the hub VNet.
+In this traceroute, the first hop is the VPN gateway of the branch VNet. The second hop is the VPN gateway of the hub VNet. The IP address of the VPN gateway of the hub VNet isn't advertised in the remote VNet. The third hop is the VM on the hub VNet.
 
 ### Path to the spoke VNet
+
+Traceroute output from the branch VNet to a VM in the spoke VNet is shown here:
 
 	C:\Users\rb>tracert 10.11.30.4
 
@@ -206,9 +229,11 @@ In the preceding traceroute, the first hop is the VPN gateway of the branch VNet
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the VPN gateway of the branch VNet. The second hop is the VPN gateway of the hub VNet. The IP address of the VPN gateway of the hub VNet isn't advertised in the Remote VNet, and the third hop is the VM on the spoke VNet.
+In this traceroute, the first hop is the VPN gateway of the branch VNet. The second hop is the VPN gateway of the hub VNet. The IP address of the VPN gateway of the hub VNet isn't advertised in the remote VNet. The third hop is the VM on the spoke VNet.
 
-### Path to on-premises Location1
+### Path to on-premises Location 1
+
+Traceroute output from the branch VNet to a VM in on-premises Location 1 is shown here:
 
 	C:\Users\rb>tracert 10.2.30.10
 
@@ -222,11 +247,11 @@ In the preceding traceroute, the first hop is the VPN gateway of the branch VNet
 
 	Trace complete.
 
-In the preceding traceroute, the first hop is the VPN gateway of the branch VNet. The second hop is the VPN gateway of the hub VNet. The IP address of the VPN gateway of the hub VNet isn't advertised in the remote VNet. The third hop is the VPN tunnel termination point on the primary CE router. The fourth hop is an internal IP address of on-premises Location1 LAN IP address that isn't advertised outside the CE router. The fifth hop is the destination VM in the on-premises Location1.
+In this traceroute, the first hop is the VPN gateway of the branch VNet. The second hop is the VPN gateway of the hub VNet. The IP address of the VPN gateway of the hub VNet isn't advertised in the remote VNet. The third hop is the VPN tunnel termination point on the primary CE router. The fourth hop is an internal IP address of on-premises Location 1. This LAN IP address isn't advertised outside the CE router. The fifth hop is the destination VM in the on-premises Location 1.
 
-### Path to on-premises Location2 and the remote VNet
+### Path to on-premises Location 2 and the remote VNet
 
-As we discussed in the control plane analysis, the branch VNet has no visibility either to on-premises Location2 or to the remote VNet per the network configuration. The following ping results confirm this: 
+As we discussed in the control plane analysis, the branch VNet has no visibility either to on-premises Location 2 or to the remote VNet per the network configuration. The following ping results confirms: 
 
 	C:\Users\rb>ping 10.1.31.10
 
@@ -250,9 +275,11 @@ As we discussed in the control plane analysis, the branch VNet has no visibility
 	Ping statistics for 10.17.30.4:
 	    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-## Data path from on-premises Location1
+## Data path from on-premises Location 1
 
 ### Path to the hub VNet
+
+Traceroute output from on-premises Location 1 to a VM in the hub VNet is shown here:
 
 	C:\Users\rb>tracert 10.10.30.4
 
@@ -266,15 +293,15 @@ As we discussed in the control plane analysis, the branch VNet has no visibility
 
 	Trace complete.
 
-In the preceding traceroute, the first two hops are part of the on-premises network. The third hop is the primary MSEE interface that faces the CE router. The fourth hop is the ExpressRoute gateway of the hub VNet. The IP range of the ExpressRoute gateway of the hub VNet isn't advertised to the on-premises network. The fifth hop is the destination VM.
+In this traceroute, the first two hops are part of the on-premises network. The third hop is the primary MSEE interface that faces the CE router. The fourth hop is the ExpressRoute gateway of the hub VNet. The IP range of the ExpressRoute gateway of the hub VNet isn't advertised to the on-premises network. The fifth hop is the destination VM.
 
-Network Watcher provides only an Azure-centric view. For an on-premises perspective, we use Azure Network Performance Monitor. Network Performance Monitor provides agents that you can install on servers in networks outside Azure for data-path analysis.
+Network Watcher provides only an Azure-centric view. For an on-premises perspective, we use Azure Network Performance Monitor. Network Performance Monitor provides agents that you can install on servers in networks outside Azure for data path analysis.
 
-The following screenshot shows the topology view of the on-premises Location1 VM connectivity to the VM on the hub VNet via ExpressRoute:
+The following figure shows the topology view of the on-premises Location 1 VM connectivity to the VM on the hub VNet via ExpressRoute:
 
 [![4]][4]
 
-As discussed earlier, the test setup uses a site-to-site VPN as backup connectivity for ExpressRoute between the on-premises Location1 and hub VNet. To test the backup data path, let’s induce an ExpressRoute link failure between the on-premises Location1 primary CE router and the corresponding MSEE. To induce an ExpressRoute link failure, shut down the CE interface that faces the MSEE:
+As discussed earlier, the test setup uses a site-to-site VPN as backup connectivity for ExpressRoute between the on-premises Location 1 and the hub VNet. To test the backup data path, let’s induce an ExpressRoute link failure between the on-premises Location 1 primary CE router and the corresponding MSEE. To induce an ExpressRoute link failure, shut down the CE interface that faces the MSEE:
 
 	C:\Users\rb>tracert 10.10.30.4
 
@@ -286,11 +313,13 @@ As discussed earlier, the test setup uses a site-to-site VPN as backup connectiv
 
 	Trace complete.
 
-The following screenshot shows the topology view of the on-premises Location1 VM connectivity to the VM on the hub VNet via site-to-site VPN connectivity when ExpressRoute connectivity is down:
+The following figure shows the topology view of the on-premises Location 1 VM connectivity to the VM on the hub VNet via site-to-site VPN connectivity when ExpressRoute connectivity is down:
 
 [![5]][5]
 
 ### Path to the spoke VNet
+
+Traceroute output from on-premises Location 1 to a VM in the spoke VNet is shown here:
 
 Let's bring back the ExpressRoute primary connectivity to do the data path analysis toward the spoke VNet:
 
@@ -306,9 +335,11 @@ Let's bring back the ExpressRoute primary connectivity to do the data path analy
 
 	Trace complete.
 
-Let's bring up the primary ExpressRoute1 connectivity for the remainder of the data path analysis.
+Bring up the primary ExpressRoute 1 connectivity for the remainder of the data path analysis.
 
 ### Path to the branch VNet
+
+Traceroute output from on-premises Location 1 to a VM in the branch VNet is shown here:
 
 	C:\Users\rb>tracert 10.11.30.68
 
@@ -320,9 +351,9 @@ Let's bring up the primary ExpressRoute1 connectivity for the remainder of the d
 
 	Trace complete.
 
-### Path to on-premises Location2
+### Path to on-premises Location 2
 
-As we discuss in the control plane analysis, the on-premises Location1 has no visibility to on-premises Location2 per the network configuration. The following ping results confirm this: 
+As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirms: 
 
 	C:\Users\rb>ping 10.1.31.10
 	
@@ -337,6 +368,8 @@ As we discuss in the control plane analysis, the on-premises Location1 has no vi
 
 ### Path to the remote VNet
 
+Traceroute output from on-premises Location 1 to a VM in the remote VNet is shown here:
+
 	C:\Users\rb>tracert 10.17.30.4
 
 	Tracing route to 10.17.30.4 over a maximum of 30 hops
@@ -349,9 +382,11 @@ As we discuss in the control plane analysis, the on-premises Location1 has no vi
 
 	Trace complete.
 
-## Data path from on-premises Location2
+## Data path from on-premises Location 2
 
 ### Path to the hub VNet
+
+Traceroute output from on-premises Location 2 to a VM in the hub VNet is shown here:
 
 	C:\Windows\system32>tracert 10.10.30.4
 
@@ -367,6 +402,8 @@ As we discuss in the control plane analysis, the on-premises Location1 has no vi
 
 ### Path to the spoke VNet
 
+Traceroute output from on-premises Location 2 to a VM in the spoke VNet is shown here:
+
 	C:\Windows\system32>tracert 10.11.30.4
 
 	Tracing route to 10.11.30.4 over a maximum of 30 hops
@@ -378,13 +415,15 @@ As we discuss in the control plane analysis, the on-premises Location1 has no vi
 
 	Trace complete.
 
-### Path to the branch VNet, on-premises Location1, and the remote VNet
+### Path to the branch VNet, on-premises Location 1, and the remote VNet
 
-As we discuss in the control plane analysis, the on-premises Location1 has no visibility to the branch VNet, to on-premises Location1, or to the remote VNet per the network configuration. 
+As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to the branch VNet, to on-premises Location 1, or to the remote VNet per the network configuration. 
 
 ## Data path from the remote VNet
 
 ### Path to the hub VNet
+
+Traceroute output from the remote VNet to a VM in the hub VNet is shown here:
 
 	C:\Users\rb>tracert 10.10.30.4
 
@@ -398,6 +437,8 @@ As we discuss in the control plane analysis, the on-premises Location1 has no vi
 
 ### Path to the spoke VNet
 
+Traceroute output from the remote VNet to a VM in the spoke VNet is shown here:
+
 	C:\Users\rb>tracert 10.11.30.4
 
 	Tracing route to 10.11.30.4 over a maximum of 30 hops
@@ -408,12 +449,13 @@ As we discuss in the control plane analysis, the on-premises Location1 has no vi
 
 	Trace complete.
 
-### Path to the branch VNet and on-premises Location2
+### Path to the branch VNet and on-premises Location 2
 
-As we discuss in the control plane analysis, the remote VNet has no visibility to the branch VNet or to on-premises Location2 per the network configuration. 
+As we discuss in the control plane analysis, the remote VNet has no visibility to the branch VNet or to on-premises Location 2 per the network configuration. 
 
+### Path to on-premises Location 1
 
-### Path to on-premises Location1
+Traceroute output from the remote VNet to a VM in on-premises Location 1 is shown here:
 
 	C:\Users\rb>tracert 10.2.30.10
 
@@ -429,7 +471,7 @@ As we discuss in the control plane analysis, the remote VNet has no visibility t
 
 ## ExpressRoute and site-to-site VPN connectivity in tandem
 
-### Site-to-site VPN over ExpressRoute
+###  Site-to-site VPN over ExpressRoute
 
 You can configure a site-to-site VPN by using ExpressRoute Microsoft peering to privately exchange data between your on-premises network and your Azure VNets. With this configuration, you can exchange data with confidentiality, authenticity, and integrity. The data exchange also will be anti-replay. For more information about how to configure a site-to-site IPsec VPN in tunnel mode by using ExpressRoute Microsoft peering, see [Site-to-site VPN over ExpressRoute Microsoft peering][S2S-Over-ExR]. 
 
@@ -441,7 +483,7 @@ ExpressRoute is offered as a redundant circuit pair to ensure high availability.
 
 For more information about how to configure coexisting connections for ExpressRoute and a site-to-site VPN, see [ExpressRoute and site-to-site coexistence][ExR-S2S-CoEx].
 
-## Extend back-end connectivity to spoke VNets and branch Locations
+## Extend back-end connectivity to spoke VNets and branch locations
 
 ### Spoke VNet connectivity by using VNet peering
 
@@ -449,7 +491,7 @@ Hub and spoke VNet architecture is widely used. The hub is a VNet in Azure that 
 
 VNet peering within a region allows spoke VNets to use hub VNet gateways (both VPN and ExpressRoute gateways) to communicate with remote networks.
 
-### Branch VNet connectivity by using a site-to-site VPN
+### Branch VNet connectivity by using site-to-site VPN
 
 You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this cofiguration is site-to-site VPN connectivity by using a VPN. An alternative option is to use a network virtual appliance (NVA) for routing in the hub.
 
@@ -467,8 +509,8 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Network Watcher view of connectivity from a hub VNet to a spoke VNet"
 [2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Network Watcher view of connectivity from a hub VNet to a branch VNet"
 [3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Network Watcher grid view of connectivity from a hub VNet to a branch VNet"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Network Performance Monitor view of connectivity from the Location1 VM to the hub VNet via ExpressRoute1"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Network Performance Monitor view of connectivity from the Location1 VM to the hub VNet via a site-to-site VPN"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Network Performance Monitor view of connectivity from the Location 1 VM to the hub VNet via ExpressRoute 1"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Network Performance Monitor view of connectivity from the Location 1 VM to the hub VNet via a site-to-site VPN"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

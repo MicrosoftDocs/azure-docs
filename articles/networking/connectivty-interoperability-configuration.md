@@ -16,39 +16,39 @@ ms.author: rambala
 
 # Interoperability in Azure back-end connectivity features - Test configuration details
 
-In this article, we describe the configuration details of the [test setup][Setup]. The test setup helps you analyze how Azure networking services interoperate at the control plane level and data plane level.
+This article describes the configuration details of the [test setup][Setup]. The test setup helps you analyze how Azure networking services interoperate at the control plane level and data plane level.
 
 ## Spoke VNet connectivity by using VNet peering
 
-The following screenshot from the Azure portal shows the Azure Virtual Network peering details of a spoke virtual network (VNet). To learn how to set up peering between two VNets, see [Manage VNet peering][VNet-Config]. If you want the spoke VNet to use the gateways that are connected to the hub VNet, select **Use remote gateways**.
+The following figure shows the Azure Virtual Network peering details of a spoke virtual network (VNet). To learn how to set up peering between two VNets, see [Manage VNet peering][VNet-Config]. If you want the spoke VNet to use the gateways that are connected to the hub VNet, select **Use remote gateways**.
 
 [![1]][1]
 
-The following screenshot shows the VNet peering details of the hub VNet. If you want the spoke VNet to use the hub VNet gateways, select **Use remote gateways**.
+The following figure shows the VNet peering details of the hub VNet. If you want the spoke VNet to use the hub VNet gateways, select **Use remote gateways**.
 
 [![2]][2]
 
 ## Branch VNet connectivity by using a site-to-site VPN
 
-Set up site-to-site VPN connectivity between hub and branch VNets by using VPN gateways. By default, VPN gateways and ExpressRoute gateways use the private autonomous system number (ASN) value of **65515**. You can change the ASN value in Azure VPN Gateway. In the test setup, the ASN value of the branch VNet VPN gateway is changed to **65516** to support eBGP routing between the hub and branch VNets.
+Set up site-to-site VPN connectivity between the hub and branch VNets by using VPN gateways in Azure VPN Gateway. By default, VPN gateways and Azure ExpressRoute gateways use a private autonomous system number (ASN) value of **65515**. You can change the ASN value in VPN Gateway. In the test setup, the ASN value of the branch VNet VPN gateway is changed to **65516** to support eBGP routing between the hub and branch VNets.
 
 
 [![3]][3]
 
 
-## Location1 on-premises connectivity by using ExpressRoute and a site-to-site VPN
+## On-premises Location 1 connectivity by using ExpressRoute and a site-to-site VPN
 
-### ExpressRoute1 configuration details
+### ExpressRoute 1 configuration details
 
-The following screenshot shows the Azure Region 1 ExpressRoute circuit configuration toward Location1 on-premises customer edge (CE) routers:
+The following figure shows the Azure Region 1 ExpressRoute circuit configuration toward on-premises Location 1 customer edge (CE) routers:
 
 [![4]][4]
 
-The following screenshot shows the connection configuration between the ExpressRoute1 circuit and the hub VNet:
+The following figure shows the connection configuration between the ExpressRoute 1 circuit and the hub VNet:
 
 [![5]][5]
 
-The following list shows the primary CE router configuration for ExpressRoute private peering connectivity. (Cisco ASR1000 routers are used as CE routers in the test setup.) When site-to-site VPN and ExpressRoute circuit are configured in parallel to connect an on-premises network to Azure, Azure prioritizes the ExpressRoute circuit by default. To avoid asymmetrical routing, the on-premises network also should prioritize ExpressRoute over site-to-site VPN. This is achieved in the following configuration by using the BGP **local-preference** attribute"
+The following list shows the primary CE router configuration for ExpressRoute private peering connectivity. (Cisco ASR1000 routers are used as CE routers in the test setup.) When site-to-site VPN and ExpressRoute circuit are configured in parallel to connect an on-premises network to Azure, Azure prioritizes the ExpressRoute circuit by default. To avoid asymmetrical routing, the on-premises network also should prioritize ExpressRoute over site-to-site VPN. This is achieved in the following configuration by using the BGP **local-preference** attribute:
 
 	interface TenGigabitEthernet0/0/0.300
 	 description Customer 30 private peering to Azure
@@ -145,23 +145,23 @@ The following list shows the primary CE router configuration for site-to-site VP
 	!
 	ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
 
-## Location2 on-premises connectivity by using ExpressRoute
+## On-premises Location 2 connectivity by using ExpressRoute
 
-A second ExpressRoute circuit, in closer proximity to the on-premises Location2, connects the on-premises Location2 to the hub VNet. The following screenshot shows the second ExpressRoute configuration:
+A second ExpressRoute circuit, in closer proximity to the on-premises Location 2, connects the on-premises Location 2 to the hub VNet. The following figure shows the second ExpressRoute configuration:
 
 [![6]][6]
 
-The following screenshot shows the connection configuration between the second ExpressRoute circuit and the hub VNet:
+The following figure shows the connection configuration between the second ExpressRoute circuit and the hub VNet:
 
 [![7]][7]
 
-ExpressRoute1 connects both the hub VNet and Location1 on-premises to a remote VNet in a different Azure region:
+ExpressRoute 1 connects both the hub VNet and on-premises Location 1 to a remote VNet in a different Azure region:
 
 [![8]][8]
 
 ## ExpressRoute and site-to-site VPN connectivity in tandem
 
-### Site-to-site VPN over ExpressRoute
+###  Site-to-site VPN over ExpressRoute
 
 You can configure a site-to-site VPN by using ExpressRoute Microsoft peering to privately exchange data between your on-premises network and your Azure VNets. With this configuration, you can exchange data with confidentiality, authenticity, and integrity. The data exchange also will be anti-replay. For more information about how to configure a site-to-site IPsec VPN in tunnel mode by using ExpressRoute Microsoft peering, see [Site-to-site VPN over ExpressRoute Microsoft peering][S2S-Over-ExR]. 
 
@@ -181,7 +181,7 @@ Hub and spoke VNet architecture is widely used. The hub is a VNet in Azure that 
 
 VNet peering within a region allows spoke VNets to use hub VNet gateways (both VPN and ExpressRoute gateways) to communicate with remote networks.
 
-### Branch VNet connectivity by using a site-to-site VPN
+### Branch VNet connectivity by using site-to-site VPN
 
 You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this cofiguration is site-to-site VPN connectivity by using a VPN. An alternative option is to use a network virtual appliance (NVA) for routing in the hub.
 
@@ -189,9 +189,9 @@ For more information, see [What is VPN Gateway?][VPN] and [Deploy a highly avail
 
 ## Next steps
 
-Learn about the [control plane analysis][Control-Analysis] of the test setup and the views of different VNets/VLANs in the topology.
+Learn about [control plane analysis][Control-Analysis] of the test setup and the views of different VNets or VLANs in the topology.
 
-Learn about the [data plane analysis][Data-Analysis] of the test setup and Azure network monitoring feature views.
+Learn about [data plane analysis][Data-Analysis] of the test setup and Azure network monitoring feature views.
 
 See the [ExpressRoute FAQ][ExR-FAQ] to:
 -   Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
@@ -203,11 +203,11 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [1]: ./media/backend-interoperability/SpokeVNet_peering.png "Spoke VNet's VNet peering"
 [2]: ./media/backend-interoperability/HubVNet-peering.png "Hub VNet's VNet peering"
 [3]: ./media/backend-interoperability/BranchVNet-VPNGW.png "VPN Gateway configuration of a branch VNet"
-[4]: ./media/backend-interoperability/ExR1.png "ExpressRoute1 configuration"
-[5]: ./media/backend-interoperability/ExR1-Hub-Connection.png "Connection configuration of ExpressRoute1 to a hub VNet ExR gateway"
-[6]: ./media/backend-interoperability/ExR2.png "ExpressRoute2 configuration"
-[7]: ./media/backend-interoperability/ExR2-Hub-Connection.png "Connection configuration of ExpressRoute2 to a hub VNet ExR gateway"
-[8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "Connection configuration of ExpressRoute2 to a remote VNet ExR gateway"
+[4]: ./media/backend-interoperability/ExR1.png "ExpressRoute 1 configuration"
+[5]: ./media/backend-interoperability/ExR1-Hub-Connection.png "Connection configuration of ExpressRoute 1 to a hub VNet ExR gateway"
+[6]: ./media/backend-interoperability/ExR2.png "ExpressRoute 2 configuration"
+[7]: ./media/backend-interoperability/ExR2-Hub-Connection.png "Connection configuration of ExpressRoute 2 to a hub VNet ExR gateway"
+[8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "Connection configuration of ExpressRoute 2 to a remote VNet ExR gateway"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface
