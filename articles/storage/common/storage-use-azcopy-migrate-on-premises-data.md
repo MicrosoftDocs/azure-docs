@@ -35,16 +35,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete this tutorial, download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy).
 
-If you're on windows, you will require [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) as this tutorial makes use of it in order to schedule a task.
+If you're on Windows, you will require [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) as this tutorial makes use of it in order to schedule a task. Linux users will make use of the crontab command, instead.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
->[!NOTE]
->To be able to download blobs from a secondary region to your local storage and vice versa, set **Replication** to **Read-access-geo-redundant storage**. Selecting this option creates a geo-redundant storage account. 
-
 ## Create a container
 
-We begin by creating a container, because blobs must always be uploaded into a container. We use containers as a method of organizing groups of blobs like you would files on your computer, in folders. 
+The first step is to create a container, because blobs must always be uploaded into a container. Containers are used as a method of organizing groups of blobs like you would files on your computer, in folders. 
 
 Follow these steps to create a container:
 
