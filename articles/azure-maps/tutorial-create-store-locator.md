@@ -14,14 +14,17 @@ ms.custom: mvc
 # Create a store locator using Azure Maps
 
 This tutorial will guide you through the process of creating a simple store locator using Azure Maps. Store locators are common and many of the same concepts used in this type of application are applicable to many others. Store Locators are a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
+    
+> [!div class="checklist"]
+* Create a new web page using the map control API
+* Load custom data from a file and display it on the map.
+* Use the Azure Maps search service to find an address or place a query.
+* Get the users location from the browser and show it on the map.
+* Combine multiple layers on the map to create custom symbols on the map.  
+* Clustering of data points.  
+* Add zoom controls to the map.
 
-    * Create a new web page using the map control API
-    * Load custom data from a file and display it on the map.
-    * Use the Azure Maps search service to find an address or place a query.
-    * Get the users location from the browser and show it on the map.
-    * Combine multiple layers on the map to create custom symbols on the map.  
-    * Clustering of data points.  
-    * Add zoom controls to the map.
+<a id="Intro"></a>
 
 Jump ahead to the [live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) or the  [source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
@@ -41,16 +44,19 @@ To maximize the usefulness of this store locator, we will also include a respons
 ![wireframe-mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)
 
 In the wireframes above you can see that it is a fairly straight forward application, which has a search box, a list of nearby stores, a map with some markers (symbols) and a popup with additional information when you click on a marker. Going into a bit more detail here are the features we will build into this store locator: 
+    
+> [!div class="checklist"]
+* The location information for all stores will be managed using an Excel spreadsheet and exported into a tab delimited flat file which we can easily import into our application. All locations will be loaded on the map and the user will be able to either pan and zoom the map into the area they are interested in, perform a search, or press the GPS button.
+* The page layout will adjust depending on the width of the screen.  
+* There will be a header which contains the logo for the store.  
+* A search box and button will let users search for a location, such as an address, postal code, or city. The map will zoom into the area on the map. A key press event will be added to the search box that triggers a search if the user presses the enter key. This is something that is often over looked but makes for a much better user experience.
+* When the map moves, the distance to each location from the center of the map will be calculated, and the result list updated to show the closest locations at the top.  
+* When you click on a result in the result list it will center the map over the selected location and open its popup.  
+* Clicking on an individual location on the map will also display its popup. 
+* When zoomed out, the locations will be grouped into clusters, represented as a circle with a number written inside of it. The clusters will form and break apart as the zoom level changes.
+* Clicking on a cluster will zoom the map in two levels and center it over where the cluster was.
 
-    * The location information for all stores will be managed using an Excel spreadsheet and exported into a tab delimited flat file which we can easily import into our application. All locations will be loaded on the map and the user will be able to either pan and zoom the map into the area they are interested in, perform a search, or press the GPS button.
-    * The page layout will adjust depending on the width of the screen.  
-    * There will be a header which contains the logo for the store.  
-    * A search box and button will let users search for a location, such as an address, postal code, or city. The map will zoom into the area on the map. A key press event will be added to the search box that triggers a search if the user presses the enter key. This is something that is often over looked but makes for a much better user experience.
-    * When the map moves, the distance to each location from the center of the map will be calculated, and the result list updated to show the closest locations at the top.  
-    * When you click on a result in the result list it will center the map over the selected location and open its popup.  
-    * Clicking on an individual location on the map will also display its popup. 
-    * When zoomed out, the locations will be grouped into clusters, represented as a circle with a number written inside of it. The clusters will form and break apart as the zoom level changes.
-    * Clicking on a cluster will zoom the map in two levels and center it over where the cluster was.
+<a id="create a data-set"></a>
 
 ## Create the Store Location Data Set
 
@@ -59,10 +65,11 @@ Before we start developing an application, we first need to create a data set of
 ![Data-Spreadsheet](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)
 
 You can download the spreadsheet [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Looking at this screenshot we can make the following observations:
-
-    * Location information is stored using the AddressLine, City, Municipality (county), AdminDivision (state/province), PostCode (zip code), and Country columns.  
-    * There is a Latitude and Longitude column that contains the coordinates of each coffee shop. If you do not have this information you can use the Search services in Azure Maps to determine this.
-    * There are some additional columns that contain some metadata related to the coffee shops; a phone number, boolean columns for Wi-Fi hotspot and wheel chair accessibility, opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
+    
+> [!div class="checklist"]
+* Location information is stored using the AddressLine, City, Municipality (county), AdminDivision (state/province), PostCode (zip code), and Country columns.  
+* There is a Latitude and Longitude column that contains the coordinates of each coffee shop. If you do not have this information you can use the Search services in Azure Maps to determine this.
+* There are some additional columns that contain some metadata related to the coffee shops; a phone number, boolean columns for Wi-Fi hotspot and wheel chair accessibility, opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
 
 There are many ways in which we can expose the data set to the application. One approach is to load the data into a database and expose a web service that can query the data and send the results to the user’s browser. It is ideal for large data sets, or data sets that are updated frequently, but require a lot more development work and have higher costs. Another approach is to convert this data set into a flat text file that we can easily parse in the browser. The file itself can be hosted with the rest of the application. This keeps things simple but is only a good option for smaller data sets as the user will download all the data, and with this data set the file size is less than 1 MB, which is acceptable.  
 
@@ -74,6 +81,8 @@ To convert the spreadsheet into a flat text file, we will save it as a tab-delim
 If you open the text file in notepad, it will look something like below;
 
 ![Tab-File](./media/tutorial-create-store-locator/StoreDataTabFile.png)
+
+<a id="code-explanation"></a>
 
 ## Set up the project
 
