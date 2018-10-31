@@ -24,7 +24,7 @@ After completing the steps in this document, you can deploy the topology to Apac
 
 ## Prerequisites
 
-* [Java Developer Kit (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
 
 * [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven is a project build system for Java projects.
 
