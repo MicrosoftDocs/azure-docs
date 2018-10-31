@@ -87,7 +87,7 @@ If you open the text file in notepad, it will look something like below;
 
 To create the project, you can use [Visual Studio](https://visualstudio.microsoft.com) or an editor of your choice. In your project folder, create three files; `index.html`, `index.css`, and `index.js`. These files will define the layout, styles, and logic for the application. Create a folder called `data` and add ContosoCoffee.txt file to it. Create another folder and call it `images`. There are 10 images we will use in this application for icons, buttons, and markers on the map. You can download these images here. Your project folder should now look like the one below.
 
-![VS-layout](StoreLocatorVSProject)
+![VS-layout](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## Create the user interface
 
