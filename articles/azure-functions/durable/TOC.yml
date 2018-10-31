@@ -1,6 +1,8 @@
 - name: Durable Functions Documentation
 - name: Overview
   items:
+  - name: About Azure Functions
+    href: ../functions-overview.md
   - name: About Durable Functions
     href: durable-functions-overview.md
   - name: Serverless comparison

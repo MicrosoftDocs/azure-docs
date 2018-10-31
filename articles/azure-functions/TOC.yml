@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Functions
+  - name: About Azure Functions
     href: functions-overview.md
   - name: Durable Functions
     href: durable/durable-functions-overview.md 
