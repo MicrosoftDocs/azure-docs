@@ -25,7 +25,7 @@ For more information about cluster deployment steps and planning, read [Plan you
 
 After following the instructions in this document, you will have a virtual network, a subnet, a controller, and a vFXT cluster as shown in the following diagram:
 
-![diagram showing vnet containing optional blob storage and a subnet containing three grouped VMs labeled vFXT nodes/vFXT cluster and one VM labeled cluster controller](media/avere-vfxt-deployment-500px.png)
+![diagram showing vnet containing optional blob storage and a subnet containing three grouped VMs labeled vFXT nodes/vFXT cluster and one VM labeled cluster controller](media/avere-vfxt-deployment.png)
 
 Before starting, make sure you have addressed these prerequisites:  
 
