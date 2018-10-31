@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/16/2018
+ms.date: 10/31/2018
 ms.author: juliako
 ---
 
@@ -139,6 +139,14 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 2. Create Asset
 3. Upload content or use Asset as JobOutput
 4. Create StreamingLocator
+
+## Known issues
+
+- Currently, Media Reserved Units can only be managed using the Media Services v2 API.  
+- Media Services resources created with the v3 API cannot be managed by the v2 API.
+- Most Media Services entities that were created with the v2 API, can continue being managed using the v3 API. There are a few exceptions:  
+    - Jobs and Tasks created in v2 do not show up in v3 as they are not associated with a Transform. Since Jobs and Tasks are relatively short-lived entities (essentially only useful while in flight) the recommendation is to switch to v3 Transforms and Jobs. There will be a relatively short time period of needing to monitor the inflight v2 Jobs during the switchover.
+    - Channels and Programs created with v2 (mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. 
 
 ## Next steps
 
