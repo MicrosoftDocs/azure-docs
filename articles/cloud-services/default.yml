@@ -1,4 +1,5 @@
 ### YamlMime:ContextObject
+brand: Azure
 searchScope:
    - "Azure"
 breadcrumb_path: ./breadcrumb/toc.yml
