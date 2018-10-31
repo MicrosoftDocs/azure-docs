@@ -34,6 +34,8 @@
       href: active-directory-b2c-tutorials-desktop-app-webapi.md
     - name: Single page
       href: active-directory-b2c-tutorials-spa-webapi.md
+  - name: Customize the UI
+    href: tutorial-customize-ui.md
 - name: Samples
   href: code-samples.md
 - name: Concepts
@@ -62,6 +64,8 @@
     href: active-directory-b2c-reference-tokens.md
   - name: User accounts
     href: user-overview.md
+  - name: User interface customization
+    href: customize-ui-overview.md
 - name: How-to guides
   items:
   - name: Access audit logs 
@@ -72,11 +76,6 @@
     href: active-directory-b2c-reference-language-customization.md
   - name: Customize password
     href: active-directory-b2c-reference-password-complexity.md
-  - name: Customize user interface
-    href: active-directory-b2c-reference-ui-customization.md
-    items:
-    - name: Helper tool for customization
-      href: active-directory-b2c-reference-ui-customization-helper-tool.md
   - name: Define custom attributes
     href: active-directory-b2c-reference-custom-attr.md
   - name: Disable email verification

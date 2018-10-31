@@ -5,20 +5,20 @@ description: Deploy the Azure AD password protection preview to ban bad password
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: conceptual
-ms.date: 07/25/2018
+ms.topic: article
+ms.date: 10/30/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-
 ---
+
 # Preview: Deploy Azure AD password protection
 
 |     |
 | --- |
-| Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD password protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Now that we have an understanding of [how to enforce Azure AD password protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute the deployment.
@@ -35,9 +35,24 @@ During the audit stage, many organizations find:
 
 Once the feature has been running in audit mode for a reasonable time, the enforcement configuration can be flipped from **Audit** to **Enforce** thereby requiring more secure passwords. Focused monitoring during this time is a good idea.
 
-## Known limitation
+## Deployment requirements
 
-There is a known limitation in the preview version of the Azure AD password protection proxy. Use of tenant administrator accounts that require MFA is unsupported. A future update of the Azure AD password protection proxy will support proxy registration with administrator accounts that require MFA.
+* All domain controllers where the Azure AD password protection DC agent service will be installed must be running Windows Server 2012 or later.
+
+   > [!NOTE]
+   > Server Core-based operating systems are not currently supported. This support is  planned for GA.
+
+* All machines where the Azure AD password protection Proxy service will be installed must be running Windows Server 2012 R2 or later.
+
+   > [!NOTE]
+   > Server Core-based operating systems are not currently supported. This support is  planned for GA.
+
+* All machines where Azure AD password protection components are installed including domain controllers must have the Universal C runtime installed.
+This is preferably accomplished by fully patching the machine via Windows Update. Otherwise an appropriate OS-specific update package may be installed - see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
+* Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service. This connectivity must allow the domain controller to access the RPC endpoint mapper port (135) and the RPC server port on the proxy service.  The RPC server port is by default a dynamic RPC port but can be configured (see below) to use a static port.
+* A global administrator account to register the Azure AD password protection proxy service and forest with Azure AD.
+* An account with Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
+* Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
 
 ## Single forest deployment
 
@@ -83,11 +98,14 @@ There are two required installers for Azure AD password protection that can be d
 
          The example only works if the currently logged in user is also an Active Directory domain administrator for the root domain. An alternative is to supply the necessary domain credentials via the `-ForestCredential` parameter.
 
-   > [!TIP]
-   > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.
+   > [!NOTE]
+   > This operation may fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable IESC, register the proxy, then re-enable IESC.
 
    > [!NOTE]
    > Registration of the Azure AD password protection proxy service is expected to be a one-time step in the lifetime of the service. The proxy service will automatically perform any other necessary maintainenance from this point onwards. Once it has succeeded for a given forest, additional invocations of 'Register-AzureADPasswordProtectionProxy' continue to succeed but are unnecessary.
+
+   > [!TIP]
+   > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.
 
 5. Register the forest.
    * The on-premises Active Directory forest must be initialized with the necessary credentials to communicate with Azure using the `Register-AzureADPasswordProtectionForest` Powershell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant as well as on-premises Active Directory domain administrator privileges in the forest root domain. This step is run once per forest.
@@ -99,6 +117,9 @@ There are two required installers for Azure AD password protection that can be d
          ```
 
          The example only works if the currently logged in user is also an Active Directory domain administrator for the root domain. An alternative is to supply the necessary domain credentials via the -ForestCredential parameter.
+
+         > [!NOTE]
+         > This operation may fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable IESC, register the proxy, then re-enable IESC.
 
          > [!NOTE]
          > If multiple proxy servers are installed in your environment, it does not matter which proxy server is specified in the procedure above.
