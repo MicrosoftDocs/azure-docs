@@ -23,20 +23,11 @@ The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [T
 
 ## Features and benefits
 
-Azure Cognitive Services containers provide you with functionality that you can run where you need it, when you need it. Some of the benefits of using Azure Cognitive Services containers include:
+• **Control over data**: Allow customers to use cognitive services with complete control over their data.  This is essential for customers that cannot send data to the cloud but need access to Cognitive Services technology. Support consistency in hybrid environments  – across data, management, identity, and security.
+• **Control over model updates**: Provide customers flexibility in versioning and updating of models deployed in their solutions.
+• **Portable architecture**: Enable the creation of a portable application architecture that can be deployed in the cloud, on-premises and the edge. Containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+• **High throughput / low latency**: Provide customers the ability to scale for high throughput, low latency, requirements by enabling Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.
 
-* Better isolation of your data and models  
-  Containerized applications and services run on top of a container host, in either Linux or Windows. Containers are isolated from each other and from the underlying operating system.
-* Local deployment with Azure Cognitive Services containers  
-  You can deploy to any Docker-enabled host that is connected to Azure. This allows you to run models close to your data.
-* More flexibility in deployment targets  
-  Containers have a significantly smaller footprint than virtual machines, and can be instantiated on any machine, including virtual machines, that can support a Docker container host. For example, you can run the containers provided by Azure Cognitive Services containers in a Docker container host running on an Azure virtual machine, allowing you to choose the right VM SKU for your needs. Containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-* More flexibility in versioning and update management  
-  With Azure Cognitive Services containers, you have more, and more fine-grained, control over what and when services get updated.
-* Better composability of services  
-  You can now compose services to maximize data locality between multiple services, with minimal cost.
-
-You can typically use the same REST API operations and .NET Core client libraries with both Azure Cognitive Services and the corresponding containers, so your implementation can work seamlessly both in the cloud and on-premises.
 
 ## Containers in Azure Cognitive Services
 
