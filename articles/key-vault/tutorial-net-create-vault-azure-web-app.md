@@ -116,7 +116,7 @@ This command shows the secret information, including the URI. After you complete
 ## Create a .NET Core Web App
 
 Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to create a .NET Core Web App and **publish** it to Azure **OR** watch the video below
-> [!VIDEO https://www.youtube.com/embed/3AsaOO6aOw4]
+> [!VIDEO https://www.youtube.com/embed/EdiiEH7P-bU]
 
 ## Open and edit the solution
 
