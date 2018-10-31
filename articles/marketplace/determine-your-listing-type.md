@@ -66,8 +66,8 @@ The publishing options available offer differentiated customer engagement while 
 
 **Transact** – Your application runs on Azure and can be provisioned as a resource directly into the customer’s Azure subscription when the customer selects the Get it Now call to action. Your software license fees can optionally be purchased and billed via the customer’s choice of payment instrument and terms, and you can choose to offer time-limited access to your **Free Software Trial** (only available for Azure Marketplace.) 
 
-[!Note]
-When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. Review the [Marketplace Billing and Commercial Considerations article to learn more](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+>[!Note]
+>When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. Review the [Marketplace Billing and Commercial Considerations article to learn more](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## Select an offer type
 

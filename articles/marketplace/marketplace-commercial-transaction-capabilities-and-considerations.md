@@ -230,8 +230,8 @@ If the customer purchases using an Enterprise Agreement:
 |Payout Calculation Date (monthly on the 15th) | January 15, 2018 |
 |Payout Date | February 15, 2019 |
 
-[!NOTE] 
-All reporting and insights for the transact publishing option are available via the Insights section of the Cloud Partner Portal.
+>[!NOTE] 
+>All reporting and insights for the transact publishing option are available via the Insights section of the Cloud Partner Portal.
 
 #### Billing questions and support
 
