@@ -24,23 +24,23 @@ This article describes how to use Event Domains to manage the flow of custom eve
 
 ## Event Domains overview
 
-An Event Domain is a management tool for large numbers of Event Grid Topics related to the same application. You can think of it as an meta-topic that can contain thousands of individual topics.
+An Event Domain is a management tool for large numbers of Event Grid Topics related to the same application. You can think of it as a meta-topic that can contain thousands of individual topics.
 
-Event Domains take the underlying architecture Azure services like Storage and IoT Hub use to publish their events and make it available for you to use in your own system. It allows you to publish to thousands of topics at once and gives you authorization and authentication control over each so you can partition your tenants.
+Event Domains make the architecture Azure services like Storage and IoT Hub use to publish their events available for you to use in your own system. They allow you to publish events to thousands of topics. Domains also give you authorization and authentication control over each topic so you can partition your tenants.
 
 ### Example use case
 
-Event Domains are perhaps most easily explained using an example. Let’s say you run Contoso Construction Machinery, where you manufacture tractors, digging equipment, and other heavy machinery. As a part of running the business, you push real-time information to customers regarding equipment maintenance, systems health, contract updates etc. All of this goes to various endpoints including your app, customer endpoints, and other infrastructure customers have setup.
+Event Domains are most easily explained using an example. Let’s say you run Contoso Construction Machinery, where you manufacture tractors, digging equipment, and other heavy machinery. As a part of running the business, you push real-time information to customers regarding equipment maintenance, systems health, contract updates etc. All of this information goes to various endpoints including your app, customer endpoints, and other infrastructure customers have setup.
 
-Event Domains allows you to model Contoso Construction Machinery as a single eventing entity. Each of your customers is represented as a Topic within the Domain, handling authentication and authorization using Azure Active Directory. Each of your customers can subscribe to their Topic and get their events delivered to them, but AAD and the Event Domain block them from accessing another tenant’s Topic.
+Event Domains allows you to model Contoso Construction Machinery as a single eventing entity. Each of your customers is represented as a Topic within the Domain/ Authentication and authorization are handled using Azure Active Directory. Each of your customers can subscribe to their Topic and get their events delivered to them. Managed access through the Event Domain ensures they can only access their topic.
 
-It also gives you a single endpoint which you can publish all of your customer events to, and Event Grid will take care of making sure each Topic is only aware of events scoped to its tenant.
+It also gives you a single endpoint, which you can publish all of your customer events to. Event Grid will take care of making sure each Topic is only aware of events scoped to its tenant.
 
 ![Contoso Construction Example](./media/event-domains/contoso-construction-example.png)
 
 ## Access management
 
- With a Domain, you get fine grain authorization and authentication control over each topic via Azure's Role Based Access Check (RBAC). You can use this to restrict each tenant in your application to only the topics you wish to grant them access to.
+ With a Domain, you get fine grain authorization and authentication control over each topic via Azure's Role Based Access Check (RBAC). You can use these roles to restrict each tenant in your application to only the topics you wish to grant them access to.
 
 Role Based Access Check (RBAC) in Event Domains works the same way [managed access control](https://docs.microsoft.com/azure/event-grid/security-authentication#management-access-control) works in the rest of Event Grid and Azure. Use RBAC to create and enforce custom role definitions in Event Domains.
 
@@ -118,19 +118,19 @@ Event Grid has two built-in role definitions to make RBAC easier:
 
 ## Subscribing to topics
 
-Subscribing to events on a topic within an Event Domain is the same as [creating an Event Subscription on a standard custom topic](./custom-event-quickstart.md) or on any of the built in Event Publishers within Azure.
+Subscribing to events on a topic within an Event Domain is the same as [creating an Event Subscription on a custom topic](./custom-event-quickstart.md) or subscribing to any of the built-in Event Publishers Azure offers.
 
 ### Domain scope subscriptions
 
-Event Domains also allow for Domain scope subscriptions. An event subscription on an Event Domain will receive all events sent to the Domain regardless of the topic the events are sent to. This can be useful for management and auditing purposes.
+Event Domains also allow for Domain scope subscriptions. An event subscription on an Event Domain will receive all events sent to the Domain regardless of the topic the events are sent to. Domain scope subscriptions can be useful for management and auditing purposes.
 
 ## Publishing to an Event Domain
 
-When you create an Event Domain, you are given a publishing endpoint similar to if you had created a topic in Event Grid. 
+When you create an Event Domain, you're given a publishing endpoint similar to if you had created a topic in Event Grid. 
 
 To publish events to any topic in an Event Domain, push the events to the Domain's endpoint the [same way you would for a custom topic](./post-to-custom-topic.md). The only difference is that you must specify the topic you'd like the event to be delivered to.
 
-For example, publishing the following array of events would result in event with `"id": "1111"` to topic `foo` while event with `"id": "2222"` would be sent to topic `bar`:
+For example, publishing the following array of events would send event with `"id": "1111"` to topic `foo` while the event with `"id": "2222"` would be sent to topic `bar`:
 
 ```json
 [{
