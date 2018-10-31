@@ -50,7 +50,7 @@
     - name: Cluster operator best practices
       href: operator-best-practices-cluster-isolation-resource-management.md
     - name: Application developer best practices
-      href: developer-best-practices-cluster-isolation-resource-management.md
+      href: developer-best-practices-resource-management.md
   - name: Access and identity
     href: concepts-identity.md
   - name: Security

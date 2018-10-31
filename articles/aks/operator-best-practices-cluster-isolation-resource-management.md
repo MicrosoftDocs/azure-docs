@@ -19,7 +19,7 @@ This best practices article focuses on how to run your cluster and workloads fro
 > [!div class="checklist"]
 > * How and why to use physical or logical cluster isolation
 > * How to set resource quotas for a namespace
-> * How to use the `kube-advisor` to check for issues with deployments
+> * How to use the `kube-advisor` tool to check for issues with deployments
 
 ## Logically isolate clusters
 
@@ -90,11 +90,11 @@ The [kube-advisor][kube-advisor] tool scans a Kubernetes cluster and reports on 
 
 Especially in an AKS cluster that hosts multiple development teams and applications, it can be hard to track pods without these resource requests and limits set. As a best practice, regularly run `kube-advisor` on your AKS clusters, especially if you don't assign resource quotas to namespaces.
 
-**Best practice guidance** - Regularly run the latest version of `kube-advisor` to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined. Check for issues with kube-advisor][aks-kubeadvisor]
+**Best practice guidance** - Regularly run the latest version of `kube-advisor` to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
 
 ## Next steps
 
-This best practices article focused on how to run your cluster and workloads from a cluster operator perspective. For information about developer best practices, see [Application developer best practices for resource management in Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
+This best practices article focused on how to run your cluster and workloads from a cluster operator perspective. For information about developer best practices, see [Application developer best practices for resource management in Azure Kubernetes Service (AKS)][developer-best-practices-resources].
 
 To implement some of these best practices, see the following articles:
 

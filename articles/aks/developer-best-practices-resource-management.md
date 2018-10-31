@@ -19,7 +19,7 @@ This best practices article focuses on how to run your cluster and workloads fro
 > [!div class="checklist"]
 > * What are pod resource requests and limits
 > * Ways to develop and deploy applications with Dev Spaces and Visual Studio Code
-> * How to use the `kube-advisor` to check for issues with deployments
+> * How to use the `kube-advisor` tool to check for issues with deployments
 
 ## Define pod resource requests and limits
 
@@ -78,9 +78,19 @@ The [Visual Studio Code extension for Kubernetes][vscode-kubernetes] helps you d
 
 **Best practice guidance** - Install and use the VS Code extension for Kubernetes when you write YAML manifests. You can also use the extension for integrated deployment solution, which may help application owners that infrequently interact with the AKS cluster.
 
+## Regularly check for application issues with kube-advisor
+
+The [kube-advisor][kube-advisor] tool scans a Kubernetes cluster and reports on issues that it finds. This tool helps identify pods that do not have resource requests and limits in place, for example.
+
+Especially in an AKS cluster that hosts multiple development teams and applications, it can be hard to track pods without these resource requests and limits set. As a best practice, regularly run `kube-advisor` on your AKS clusters.
+
+**Best practice guidance** - Regularly run the latest version of `kube-advisor` to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
+
 ## Next steps
 
-This best practices article focused on how to run your cluster and workloads. To implement some of these best practices, see the following articles:
+This best practices article focused on how to run your cluster and workloads from a cluster operator perspective. For information about administrative best practices, see [Cluster operator best practices for isolation and resource management in Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
+
+To implement some of these best practices, see the following articles:
 
 * [Develop with Dev Spaces][dev-spaces]
 * [Check for issues with kube-advisor][aks-kubeadvisor]
