@@ -60,7 +60,7 @@ End to end enterprise security can be achieved using the following controls:
     - Perimeter level Security can be achieved through Azure Virtual Networks, Network Security Groups, and Gateway service
 
 - **Authentication and authorization for data access**
-    - Create Domain-joined HDI cluster using Azure Active Directory Domain Services. (Enterprise Security Package)
+    - Create Domain-joined HDInsight cluster using Azure Active Directory Domain Services. (Enterprise Security Package)
     - Use Ambari to provide Role-based access to cluster resources for AD users
     - Use Apache Ranger to set access control policies for Hive at the table / column / row level.
     - SSH access to the cluster can be restricted only to the administrator.
@@ -91,7 +91,7 @@ For more information, see the article:
 
 Regularly upgrade to the latest HDInsight version to take advantage of the latest features. The following steps can be used to upgrade the cluster to the latest version:
 
-1. Create a new TEST HDI cluster using the latest available HDI version.
+1. Create a new TEST HDInsight cluster using the latest available HDInsight version.
 1. Test on the new cluster to make sure that the jobs and workloads work as expected.
 1. Modify jobs or applications or workloads as required.
 1. Back up any transient data stored locally on the cluster nodes.
