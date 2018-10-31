@@ -70,7 +70,7 @@ The following alert states are supported.
 | Acknowledged | An administrator has reviewed the alert and started working on it. |
 | Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
 
-**Alert state** is different and independent of the monitor condition. Alert state is set by the user. **Monitor condition** is set by the system. When an alert fires, the alert's monitor condition is set to *fired*. When the underlying condition that caused the alert to fire clears, the monitor condition is set to *resolved*. The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
+**Alert state** is different and independent of the **monitor condition**. Alert state is set by the user. Monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *fired*. When the underlying condition that caused the alert to fire clears, the monitor condition is set to *resolved*. The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
 
 ## Smart groups 
 Smart Groups are in preview. 
@@ -116,7 +116,7 @@ You create a new alert rule with the following three steps:
 1. Select the _signal_ from the available signals for the target.
 1. Specify the _logic_ to be applied to data from the signal.
  
-This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select, and it guides you through defining the logic of the alert rule.
+This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you are guided through defining the logic of the alert rule automatically.  
 
 You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](monitor-alerts-unified-usage.md).
 
