@@ -24,7 +24,7 @@ Before you can add a custom domain name, you must create your domain name with a
 ## Create your directory in Azure AD
 After you get your domain name, you can create your first Azure AD directory.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Subscription owner account for the directory, and then select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) for your directory, using an account with the **Owner** role for the subscription, and then select **Azure Active Directory**. For more information about subscription roles, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
     ![Azure portal screen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 

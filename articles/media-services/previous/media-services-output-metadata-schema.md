@@ -2,7 +2,7 @@
 title: Azure Media Services output metadata schema | Microsoft Docs
 description: The topic gives an overview of Azure Media Services output metadata schema.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako
 
 ---
