@@ -110,7 +110,7 @@
   - name: Optimize query stats collection
     href: howto-optimize-query-stats-collection.md
   - name: Use toast table strategy
-    href: howto-optimize-query-time-with-toast-table-strategy.md
+    href: howto-optimize-query-time-with-toast-table-storage-strategy.md
   - name: Manage firewall
     items:
     - name: Azure portal
