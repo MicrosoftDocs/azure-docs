@@ -63,10 +63,6 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Description:**
 The RD Session Host Server has failed to replace the expired self signed certificate used for RD Session Host Server authentication on SSL connections. The relevant status code was Access is denied.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a239cb7b4c6f7785ce114b5c561714c572bd9578
 **Log Name:**      System <br />
 **Source:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Date:**          *time* <br />
@@ -106,13 +102,8 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Level:**         Error <br />
 **Keywords:**       <br />
 **User:**          SYSTEM <br />
-<<<<<<< HEAD
 **Computer:**      *computer* <br />
 **Description:** A fatal error occurred when attempting to access the SSL server credential private key. The error code returned from the cryptographic module is 0x8009030D.  <br />
-=======
-**Computer:**      <computer> <br />
-**Description:** A fatal error occurred when attempting to access the SSL server credential private key. The error code returned from the cryptographic module is 0x8009030D. 
->>>>>>> a239cb7b4c6f7785ce114b5c561714c572bd9578
 The internal error state is 10001.
 
 ### Cause
