@@ -24,48 +24,61 @@ ms.custom: aaddev
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case where an application invokes a service/web API which in turn needs to call another service/web API. The OBO flow propagates the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it must secure an access token from Azure Active Directory (Azure AD) on behalf of the user.
+The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case in which an application invokes a service/web API that in turn needs to call another service/web API. The OBO flow propagates the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it must secure an access token from Azure Active Directory (Azure AD) on behalf of the user.
 
 > [!IMPORTANT]
-> As of May 2018, an **id_token** cannot be used for the On-Behalf-Of flow.  Single-page apps (SPAs) must pass an **access** token to a middle-tier confidential client to perform OBO flows. See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.
+> As of May 2018, an `id_token` can't be used for the On-Behalf-Of flow.  Single-page apps (SPAs) must pass an **access** token to a middle-tier confidential client to perform OBO flows. See [limitations](#client-limitations) for more details about the clients that can perform On-Behalf-Of calls.
 
 ## On-Behalf-Of flow diagram
-Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At this point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
 
-The steps that follow constitute the On-Behalf-Of flow and are explained with the help of the following diagram.
+The OBO flow starts after the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Next, API A needs to make an authenticated request to the downstream web API (API B).
+
+The steps that follow constitute the On-Behalf-Of flow.
 
 ![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. The client application makes a request to API A with the token A.
-2. API A authenticates to the Azure AD token issuance endpoint and requests a token to access API B.
-3. The Azure AD token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
-4. The token B is set in the authorization header of the request to API B.
-5. Data from the secured resource is returned by API B.
+1. API A authenticates to the Azure AD token issuance endpoint and requests a token to access API B.
+1. The Azure AD token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
+1. The request to API B contains token B in the authorization header.
+1. API B returns data from the secured resource.
 
 >[!NOTE]
->The audience claim in an access token used to request a token for a downstream service must be the id of the service making the OBO request, and the token must be signed with the Azure Active Directory global signing key (which is the default for applications registered via **App registrations** in the portal)
+>The audience claim in an access token used to request a token for a downstream service must be the id of the service making the OBO request. The token also must be signed with the Azure Active Directory global signing key (which is the default for applications registered via **App registrations** in the portal).
 
 ## Register the application and service in Azure AD
 
-Register both the client application and the middle-tier service in Azure AD.
+Register both the middle-tier service and the client application in Azure AD.
 
 ### Register the middle-tier service
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
-4. Click on **App registrations** and choose **New application registration**.
-5. Enter a friendly name for the application, and select the application type. Based on the application type set the sign-on URL or redirect URL to the base URL. Click on **Create** to create the application.
-6. While still in the Azure portal, choose your application and click on **Settings**. From the Settings menu, choose **Keys** and add a key - select a key duration of either 1 year or 2 years. When you save this page, the key value will be displayed, copy and save the value in a safe location - you will need this key later to configure the application settings in your implementation - this key value will not be displayed again, nor retrievable by any other means, so please record it as soon as it is visible from the Azure Portal.
+1. On the top bar, select your account and look under the **Directory** list to choose the Active Directory tenant where you wish to register your application.
+1. Select **More Services** on the left pane and choose **Azure Active Directory**.
+1. Select **App registrations** and choose **New application registration**.
+1. Enter a friendly name for the application and select the application type.
+    1. Depending upon the application type, set either the sign-on URL or the redirect URL to the base URL.
+    1. Select **Create** to create the application.
+1. Record your key value before exiting the Azure portal.
+    1. In the Azure portal, choose your application and select **Settings**.
+    1. Select **Keys** in the Settings menu and add a key with a key duration of either one year or two years.
+    1. When you save this page, the Azure portal displays the key value. Copy and save the key value in a safe location.
+    > [!IMPORTANT]
+    > You need the key to configure the application settings in your implementation. This key value is not displayed again nor retrievable by any other means. Record it as soon as it is visible in the Azure Portal.
 
 ### Register the client application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
-4. Click on **App registrations** and choose **New application registration**.
-5. Enter a friendly name for the application, and select the application type. Based on the application type set the sign-on URL or redirect URL to the base URL. Click on **Create** to create the application.
-6. Configure Permissions for your application - in the Settings menu, choose the **Required permissions** section, click on **Add**, then **Select an API**, and type the name of the middle-tier service in the textbox. Then, click on  **Select Permissions** and select 'Access *service name*'.
+1. On the top bar, select your account and look under the **Directory** list to choose the Active Directory tenant where you wish to register your application.
+1. Select **More Services** on the left pane and choose **Azure Active Directory**.
+1. Select **App registrations** and choose **New application registration**.
+1. Enter a friendly name for the application, and select the application type.
+   1. Depending upon the application type, set either the sign-on URL or the redirect URL to the base URL.
+   1. Select **Create** to create the application.
+1. Configure permissions for your application.
+   1. In the Settings menu, choose the **Required permissions** section,and then select **Add** and **Select an API**.
+   1. Type the name of the middle-tier service in the textbox.
+   1. Choose  **Select Permissions** and then select **Access _service name_**.
 
 ### Configure known client applications
 
@@ -276,7 +289,7 @@ Consent:  In order to receive a SAML token containing user data on an OAuth flow
 
 ## Client limitations
 
-Public clients with wildcard reply URLs cannot use an `id_token` for OBO flows. However, a confidential client can still redeem access tokens acquired through the implicit grant flow even if the public client has a wildcard redirect URI registered.
+Public clients with wildcard reply URLs can't use an `id_token` for OBO flows. However, a confidential client can still redeem **access** tokens acquired through the implicit grant flow even if the public client has a wildcard redirect URI registered.
 
 ## Next steps
 
