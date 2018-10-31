@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-#Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
+Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 # Tutorial: Part 1 - How to use Azure Key Vault with Azure Web App in .NET
 
@@ -234,5 +234,9 @@ Publish this app to Azure once again to see it live as a web app, and to see tha
 2. Select **Publish** > **Start**.
 3. Select **Create**.
 
+<<<<<<< HEAD
 In the above command you are giving the Identity (MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault. <br />
 Now when you run the application, you should see your secret value retrieved. 
+=======
+Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault
+>>>>>>> dce462ad89eacf012b249cba06bc6d69439ca8a9
