@@ -51,7 +51,6 @@ Steps
 
     ```
 2. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
-
     a. azure.application-insights.instrumentation-key=fakekey
 3. Build your application and run
 4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune ApplicationInsight SpringBoot starter refer to the [readme on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
@@ -182,9 +181,10 @@ Steps:
 
     }
 
-```	
+```
 
-    Sample configuration class:
+  Sample configuration class:
+
 
 ```Java
     @WebListener
