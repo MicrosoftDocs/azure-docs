@@ -251,7 +251,7 @@ In this traceroute, the first hop is the VPN gateway of the branch VNet. The sec
 
 ### Path to on-premises Location 2 and the remote VNet
 
-As we discussed in the control plane analysis, the branch VNet has no visibility either to on-premises Location 2 or to the remote VNet per the network configuration. The following ping results confirms: 
+As we discussed in the control plane analysis, the branch VNet has no visibility either to on-premises Location 2 or to the remote VNet per the network configuration. The following ping results confirm: 
 
 	C:\Users\rb>ping 10.1.31.10
 
@@ -353,7 +353,7 @@ Traceroute output from on-premises Location 1 to a VM in the branch VNet is show
 
 ### Path to on-premises Location 2
 
-As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirms: 
+As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirm: 
 
 	C:\Users\rb>ping 10.1.31.10
 	
