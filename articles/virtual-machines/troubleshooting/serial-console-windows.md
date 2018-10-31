@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine Serial Console | Microsoft Docs
-description: Bi-Directional Serial Console for Azure virtual machines.
+title: Azure virtual machine serial console for Windows | Microsoft Docs
+description: Bi-directional serial console for Azure Windows virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijay
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/22/2018
+ms.date: 10/31/2018
 ms.author: harijay
 ---
 
@@ -26,7 +26,6 @@ For serial console documentation for Linux VMs, see [Virtual machine serial cons
 > [!NOTE] 
 > The serial console for virtual machines is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
 
- 
 
 ## Prerequisites 
 
@@ -45,27 +44,27 @@ For serial console documentation for Linux VMs, see [Virtual machine serial cons
 The serial console for virtual machines is accessible only through the Azure portal:
 
   1. Open the [Azure portal](https://portal.azure.com).
-  2. On the left menu, select **Virtual machines**.
-  3. Select a VM in the list. The overview page for the VM will open.
-  4. Scroll down to the **Support + troubleshooting** section and select **Serial console**. A new pane with the serial console opens and starts the connection.
+  1. On the left menu, select **Virtual machines**.
+  1. Select a VM in the list. The overview page for the VM will open.
+  1. Scroll down to the **Support + troubleshooting** section and select **Serial console**. A new pane with the serial console opens and starts the connection.
 
 
-## Enable Serial Console in custom or older images
+## Enable the serial console in custom or older images
 Newer Windows Server images on Azure have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but isn't available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
 
 For older Windows Server images (created before February 2018), you can automatically enable the serial console through the Azure portal's run command feature. In the Azure portal, select **Run command**, then select the command named **EnableEM** from the list.
 
-![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
+![Run command list](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
 
 Alternatively, to manually enable the serial console for Windows virtual machines created before February 2018, follow these steps: 
 
 1. Connect to your Windows virtual machine by using Remote Desktop
-1. From an Administrative command prompt, run the following commands: 
+1. From an administrative command prompt, run the following commands: 
     - `bcdedit /ems {current} on`
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. Reboot the system for the SAC console to be enabled.
 
-![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![SAC console](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 If needed, the SAC can be enabled offline as well:
 
@@ -128,7 +127,7 @@ By default, all subscriptions have serial console access enabled for all VMs. Yo
 ### Subscription-level disable
 The serial console can be disabled for an entire subscription through the [Disable Console REST API call](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter "default" for **default**, and then select **Run**. Azure CLI commands aren't yet available.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
+![REST API Try It](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
 Alternatively, you can use the following set of bash commands in Cloud Shell to disable, enable, and view the disabled status of the serial console for a subscription: 
 
