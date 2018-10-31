@@ -66,7 +66,7 @@ Open the Availability blade and add a test.
 
     **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
 
-* **Alert location threshold**: We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations** - 2,with a minimum of five test locations.
+* **Alert location threshold**: We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations** - 2, with a minimum of five test locations.
 
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
