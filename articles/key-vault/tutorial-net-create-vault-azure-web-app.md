@@ -32,12 +32,6 @@ In this tutorial, you follow the necessary steps for getting an Azure web applic
 
 Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
 
-> [!NOTE]
-> Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. To follow security best practices, this first secret needs to be rotated periodically. 
->
-> With [managed service identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
-
-
 ## Prerequisites
 
 * On Windows:
@@ -128,8 +122,8 @@ Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotne
 
 1. Navigate to Pages > About.cshtml.cs file.
 2. Install these 2 Nuget packages
-    a. [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
-    b. [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
+    - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
+    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Import the following in About.cshtml.cs file
     ```
     using Microsoft.Azure.KeyVault;
