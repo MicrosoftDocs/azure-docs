@@ -6,7 +6,7 @@
   - name: Understand your bill
     href: billing-understand-your-bill.md
   - name: EA customers - understand your bill
-    href: billing-understand-your-bill.md
+    href: billing-understand-your-bill-ea.md
   - name: Get invoice and usage data
     href: billing-download-azure-invoice-daily-usage-date.md
   - name: Third-party service charges
