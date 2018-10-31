@@ -15,14 +15,11 @@ ms.author: sbowles
 
 # What is the Azure Face API?
 
-The Azure Face API is a cognitive service that provides algorithms for detecting, recognizing, and analyzing human faces in images.
+The Azure Face API is a cognitive service that provides algorithms for detecting, recognizing, and analyzing human faces in images. The ability to process human face information is important in many different software scenarios, such as security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
-The ability to process human face information is important in many different software scenarios, such as security, natural user interface, image content analysis and management, mobile apps, and robotics.
+The Face API provides several different functions, each outlined in the following sections. Read on to learn more about each one and determine if it suits your needs.
 
-## What it does
-The Face API provides several different functions, each outlined in this section. Read on to learn more about each one and determine if it suits your needs.
-
-### Face detection
+## Face detection
 
 The Face API can detect human faces in an image and return the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes such as pose, gender, age, head pose, facial hair, and glasses.
 
@@ -30,11 +27,11 @@ The Face API can detect human faces in an image and return the rectangle coordin
 
 The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home), but if you wish to do further operations with face data, you should use the Face API (this service). For more information on face detection, see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-### Face verification
+## Face verification
 
 The Verify API performs an authentication against two detected faces or from one detected face to one person object. Practically, it evaluates whether two faces belong to the same person. This is potentially useful in security scenarios. For more information, see the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-### Find similar faces
+## Find similar faces
 
 The Find Similar API takes a target face and a set of candidate faces and finds a smaller set of faces that look most similar to the target face. Two working modes, **matchPerson** and **matchFace** are supported. **matchPerson** mode returns similar faces after filtering for the same person (using the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)). **matchFace** mode ignores the same-person filter and returns a list of similar candidate faces that may or may not belong to the same person.
 
@@ -48,11 +45,11 @@ And these are the candidate faces:
 
 To find four similar faces, **matchPerson** mode would return (a) and (b), which depict the same person as the target face. **matchFace** mode returns (a), (b), (c) and (d)&mdash;exactly four candidates, even if some are not the same person as the target or have low similarity. For more information, see the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
-### Face grouping
+## Face grouping
 
 The Group API divides a set of unknown faces into several groups based on similarity. Each group is a disjoint proper subset of the original set of faces. All of the faces in a group are likely to belong to the same person, but there can be several different groups for a single person (differentiated by another factor, such as expression for example). For more information, see the [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-### Person identification
+## Person identification
 
 The Identify API can be used to identify a detected face against a database of people. This may be useful for automatic image tagging in photo management software. You create the database in advance, and it can be edited over time.
 
