@@ -75,9 +75,9 @@ The directory contains a `pom.xml` and a `src/main/java/com/microsoft/azure/cosm
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 
-Next, head back to the [Azure Portal](https://portal.azure.com) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection. The `AccountSettings.java` file holds the primary key and URI values. 
+Next, head back to the [Azure portal](https://portal.azure.com) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection. The `AccountSettings.java` file holds the primary key and URI values. 
 
-In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI and the PRIMARY KEY from the portal and paste it into the `AccountSettings.java` file. 
+In the Azure portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI and the PRIMARY KEY from the portal and paste it into the `AccountSettings.java` file. 
 
 ```java
 public class AccountSettings 

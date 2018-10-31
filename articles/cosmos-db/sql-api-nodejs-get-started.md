@@ -33,7 +33,7 @@ This tutorial covers the following tasks:
 > * Creating a database
 > * Creating a container
 > * Adding items to the container
-> * Perform CRUD operations on the items, container and database
+> * Performing CRUD operations on the items, container and database
 
 Don't have time to create the application? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ). See [Get the complete solution](#GetSolution) section of this article for quick instructions.
 
