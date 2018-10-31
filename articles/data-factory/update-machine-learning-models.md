@@ -4,15 +4,15 @@ description: Describes how to create create predictive pipelines using Azure Dat
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/10/2017
+ms.topic: conceptual
+ms.date: 01/16/2018
 ms.author: shlo
 
 ---
@@ -20,7 +20,7 @@ ms.author: shlo
 This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article. 
 
 ## Overview
-As part of the process of operationalizing Azure Machine Learning models, your model is trained and saved. You then use it to create a predicative Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps.
+As part of the process of operationalizing Azure Machine Learning models, your model is trained and saved. You then use it to create a predictive Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps.
 
 Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Refer to [Retrain a Machine Learning Model](../machine-learning/machine-learning-retrain-machine-learning-model.md) for details about how you can retrain a model in Azure Machine Learning. 
 
@@ -84,33 +84,6 @@ For the above mentioned end-to-end workflow to work, you need to create two Azur
 
 For the second Azure Machine Learning linked service, the configuration is different when your Azure Machine Learning Web Service is a classic Web Service or a new Web Service. The differences are discussed separately in the following sections. 
 
-## Web service is a classic web service
-If the predict web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the Azure portal. See [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
-
-* Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
-* Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).
-
-![updatable endpoint](./media/update-machine-learning-models/updatable-endpoint.png)
-
-After that, using the following linked service sample to create a new Azure Machine Learning linked service. The linked service uses the apiKey for authentication.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-        	},
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
-
 ## Web service is new Azure Resource Manager web service 
 
 If the web service is the new type of web service that exposes an Azure Resource Manager endpoint, you do not need to add the second **non-default** endpoint. The **updateResourceEndpoint** in the linked service is of the format: 
@@ -121,7 +94,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Web Services Portal](https://services.azureml.net/). 
 
-The new type of update resource endpoint requires service principal authentication. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** or **Owner** role of the subscription or the resource group where the web service belongs to. The See [how to create service principal and assign permissions to manage Azure resource](../azure-resource-manager/resource-group-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
+The new type of update resource endpoint requires service principal authentication. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** or **Owner** role of the subscription or the resource group where the web service belongs to. The See [how to create service principal and assign permissions to manage Azure resource](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key 

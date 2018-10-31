@@ -1,18 +1,12 @@
 ---
 title: Azure Search performance and optimization considerations | Microsoft Docs
 description: Tune Azure Search performance and configure optimum scale
-services: search
-documentationcenter: ''
 author: LiamCavanagh
-manager: pablocas
-editor: ''
-
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
 

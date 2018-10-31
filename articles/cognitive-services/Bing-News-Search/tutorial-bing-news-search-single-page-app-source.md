@@ -1,8 +1,24 @@
+---
+title: "Tutorial: Bing News Search single-page Web app (source code)"
+titlesuffix: Azure Cognitive Services
+description: Source code for tutorial showing how to use the Bing News Search API in a single-page Web application.
+services: cognitive-services
+author: mikedodaro
+manager: cgronlun
+
+ms.service: cognitive-services
+ms.component: bing-news-search
+ms.topic: tutorial
+ms.date: 11/15/2017
+ms.author: rosh
+ms.reviewer: v-gedod
+---
+
 # Tutorial: Single-page News Search app
 
 This is the complete source code discussed in the [single-page app tutorial](tutorial-bing-news-search-single-page-app.md) for Bing News Search. To run the app, copy the source code into Notepad or another text editor and save it as `bing.html`. Then open the saved file in Microsoft Edge or another popular browser.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -585,3 +601,4 @@ function newBingNewsSearch(form) {
 
 </body>
 </html>
+```

@@ -1,16 +1,16 @@
----
+﻿---
 title: Azure Security Center and Azure Virtual Machines with Linux | Microsoft Docs
 description: This document helps you to understand how Azure Security Center can safeguard you Azure Virtual Machines.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: terrylan
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
@@ -29,7 +29,7 @@ Security Center helps you safeguard virtual machine data in Azure by providing v
 * System security and critical updates that are missing
 * Endpoint protection recommendations
 * Disk encryption validation
-* Network based attacks (only available in [standard version](https://azure.microsoft.com/en-us/pricing/details/security-center/))
+* Network based attacks (only available in [standard version](https://azure.microsoft.com/pricing/details/security-center/))
 
 In addition to helping protect your Azure VMs, Security Center also provides security monitoring and management for Cloud Services, App Services, Virtual Networks, and more. 
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/14/2016
+ms.date: 07/13/2018
 ms.author: gsacavdm
 
 ---
@@ -35,13 +35,14 @@ Once a solution has been published, customers can deploy it into their own subsc
 Currently, the Azure Government Marketplace only supports the following offers:
 
 * Virtual Machines > Bring your Own License
+* Virtual Machines > Pay-as-you-Go
 * Azure Application > Solution Template
 
 If there are other offer types you'd like to see supported in Azure Government, let us know via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government).
 
 ## Publishing
 > [!NOTE]
-> These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Publish and manage an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) documentation before proceeding.
+> These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Azure Marketplace Publisher Guide](../marketplace/marketplace-publishers-guide.md) documentation before proceeding.
 
 1. **Sign in to the [Azure Cloud Partner Portal](https://cloudpartner.azure.com)**.
 1. **Open the offer** you want to publish to the Azure Government Marketplace.
@@ -88,7 +89,7 @@ Verify endpoints are not hard-coded into your solution Template for Azure Global
     ```
 
 ### Hardcoded list of locations
-Make sure your solution template supports the Azure Government locations. See the [list of Azure Government regions](documentation-government-get-started-connect-with-ps.md#determining-azure-government-regions)
+Make sure your solution template supports the Azure Government locations. 
 
 ### Unavailable resources
 Verify that resources, API versions, extensions and VM images used in your solution template are available in Azure Government. 

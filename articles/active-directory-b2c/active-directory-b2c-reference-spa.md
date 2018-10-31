@@ -1,27 +1,19 @@
 ---
-title: 'Azure Active Directory B2C: Single-page apps using implicit flow | Microsoft Docs'
+title: Single-page apps using implicit flow in Azure Active Directory B2C | Microsoft Docs
 description: Learn how to build single-page apps directly by using OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: parakhj
+author: davidmu1
+manager: mtillman
 
-ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2017
-ms.author: parakhj
-
+ms.author: davidmu
+ms.component: B2C
 ---
-# Azure AD B2C: Single-page app sign-in by using OAuth 2.0 implicit flow
 
-> [!NOTE]
-> This feature is in preview.
-> 
+# Azure AD B2C: Single-page app sign-in by using OAuth 2.0 implicit flow
 
 Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like AngularJS, Ember.js, or Durandal. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
 
@@ -50,7 +42,7 @@ In this request, the client indicates in the `scope` parameter the permissions t
 
 ### Use a sign-in policy
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -63,7 +55,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### Use a sign-up policy
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -76,7 +68,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### Use an edit-profile policy
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -148,11 +140,11 @@ Many open-source libraries are available for validating JWTs, depending on the l
 
 Azure AD B2C has an OpenID Connect metadata endpoint. An app can use the endpoint to fetch information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each policy in your Azure AD B2C tenant. For example, the metadata document for the b2c_1_sign_in policy in the fabrikamb2c.onmicrosoft.com tenant is located at:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 One of the properties of this configuration document is the `jwks_uri`. The value for the same policy would be:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
 To determine which policy was used to sign an ID token (and where to fetch the metadata from), you have two options. First, the policy name is included in the `acr` claim in `id_token`. For information about how to parse the claims from an ID token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). Your other option is to encode the policy in the value of the `state` parameter when you issue the request. Then, decode the `state` parameter to determine which policy was used. Either method is valid.
 
@@ -184,7 +176,7 @@ In a typical web app flow, you would do this by making a request to the `/token`
 
 ```
 
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -258,7 +250,7 @@ When you want to sign the user out of the app, redirect the user to Azure AD to 
 You can simply redirect the user to the `end_session_endpoint` that is listed in the same OpenID Connect metadata document described in [Validate the ID token](#validate-the-id-token). For example:
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```

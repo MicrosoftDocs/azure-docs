@@ -27,13 +27,13 @@ This article builds on existing knowledge of the SDL threat modeling approach. F
 
 To quickly summarize, the approach involves creating a diagram, identifying threats, mitigating them and validating each mitigation. Here’s a diagram that highlights this process:
 
-![SDL Process](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![SDL Process](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## Starting the threat modeling process
 
 When you launch the Threat Modeling Tool, you'll notice a few things, as seen in the picture:
 
-![Blank Start Page](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Blank Start Page](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### Threat model section
 
@@ -68,7 +68,7 @@ They are going through the process of developing their first threat model.
 > Cristina: Absolutely. Let’s take a look.
 > Ricardo opens the tool and shares his screen with Cristina.
 
-![Basic Threat Model](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Basic Threat Model](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Ok, looks straightforward, but can you walk me through it?
 > Ricardo: Sure! Here is the breakdown:
@@ -83,21 +83,21 @@ What Ricardo just showed Cristina is a DFD, short for **[Data Flow Diagram](http
 
 ## Analyzing threats
 
-Once he clicks on the analysis view from the icon menu selection (file with magnifying glass), he is taken to a list of generated threats the Threat Modeling Tool found based on the default template, which uses the SDL approach called **[STRIDE (Spoofing, Tampering, Info Disclosure, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. The idea is that software comes under a predictable set of threats, which can be found using these 6 categories.
+Once he clicks on the analysis view from the icon menu selection (file with magnifying glass), he is taken to a list of generated threats the Threat Modeling Tool found based on the default template, which uses the SDL approach called **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. The idea is that software comes under a predictable set of threats, which can be found using these 6 categories.
 
 This approach is like securing your house by ensuring each door and window has a locking mechanism in place before adding an alarm system or chasing after the thief.
 
-![Basic Threats](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Basic Threats](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo begins by selecting the first item on the list. Here’s what happens:
 
 First, the interaction between the two stencils is enhanced
 
-![Interaction](./media/azure-security-threat-modeling-tool/interaction.png)
+![Interaction](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 Second, additional information about the threat appears in the Threat Properties window
 
-![Interaction Info](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Interaction Info](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 The generated threat helps him understand potential design flaws. The STRIDE categorization gives him an idea on potential attack vectors, while the additional description tells him exactly what’s wrong, along with potential ways to mitigate it. He can use editable fields to write notes in the justification details or change priority ratings depending on his organization’s bug bar.
 
@@ -114,7 +114,7 @@ Threats not applicable to the design due to existing mitigations or security gua
 
 Once Ricardo goes through the list with Cristina and adds important notes, mitigations/justifications, priority and status changes, he selects Reports -> Create Full Report -> Save Report, which prints out a nice report for him to go through with colleagues to ensure the proper security work is implemented.
 
-![Interaction Info](./media/azure-security-threat-modeling-tool/report.png)
+![Interaction Info](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 If Ricardo wants to share the file instead, he can easily do so by saving in his organization’s OneDrive account. Once he does that, he can copy the document link and share it with his colleagues. 
 

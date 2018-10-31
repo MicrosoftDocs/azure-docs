@@ -11,18 +11,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2017
+ms.topic: conceptual
+ms.date: 08/14/2018
 ms.author: mbullwin
 
 ---
 # Import data into Analytics
 
 Import any tabular data into [Analytics](app-insights-analytics.md), either to join it with [Application Insights](app-insights-overview.md) telemetry from your app, or so that you can analyze it as a separate stream. Analytics is a powerful query language well-suited to analyzing high-volume timestamped streams of telemetry.
-
 You can import data into Analytics using your own schema. It doesn't have to use the standard Application Insights schemas such as request or trace.
 
 You can import JSON or DSV (delimiter-separated values - comma, semicolon or tab) files.
+
+> [!IMPORTANT]
+> This article has been **deprecated**. The recommended method of getting data into Log Analytics is via the [Log Analytics data collector API.](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 There are three situations where importing to Analytics is useful:
 
@@ -112,15 +114,16 @@ JSON format
 ]
 ```
  
-Each column is identified by the location, name and type. 
+Each column is identified by the location, name and type.
 
 * Location – For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
 * Name – the displayed name of the column.
 * Type – the data type of that column.
  
-In case a sample data was used and file format is delimited, the schema definition must map all columns and add new columns at the end. 
-
-JSON allows partial mapping of the data, therefore the schema definition of JSON format doesn’t have to map every key which is found in a sample data. It can also map columns which are not part of the sample data. 
+> [!NOTE]
+> In case sample data was used and the file format is delimited, the schema definition must map all columns and add new columns at the end.
+> 
+> JSON allows partial mapping of the data, therefore the schema definition with a JSON format doesn’t have to map every key which is found in the sample data. It can also map columns which are not part of the sample data. 
 
 ## Import data
 
@@ -193,7 +196,7 @@ This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.J
 
 ### Classes
 
-```C#
+```csharp
 namespace IngestionClient 
 { 
     using System; 
@@ -352,7 +355,7 @@ namespace IngestionClient
 
 Use this code for each blob. 
 
-```C#
+```csharp
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
    var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 

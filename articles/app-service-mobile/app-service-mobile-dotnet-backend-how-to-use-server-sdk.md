@@ -4,8 +4,8 @@ description: Learn how to work with the .NET backend server SDK for Azure App Se
 keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -47,11 +47,26 @@ To create an App Service mobile backend, either follow the [Quickstart tutorial]
 Back in the *Get started* blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the
 compressed project files to your local computer, and open the solution in Visual Studio.
 
-### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
+### Create a .NET backend using Visual Studio 2017
+
+Install the Azure workload via the Visual Studio Installer to publish to Azure Mobile Apps project from Visual Studio. Once you
+have installed the SDK, create an ASP.NET application using the following steps:
+
+1. Open the **New Project** dialog (from **File** > **New** > **Project...**).
+2. Expand **Visual C#** and select **Web**.
+3. Select **ASP.NET Web Application (.NET Framework)**.
+4. Fill in the project name. Then click **OK**.
+5. Select **Azure Mobile App** from the list of templates.
+6. Click **OK** to create the solution.
+7. Right-click on the project in the **Solution Explorer** and choose **Publish...**, then choose **App Service** as the publishing target.
+8. Follow the prompts to authenticate and choose a new or existing Azure App Service to publish.
+
+### Create a .NET backend using Visual Studio 2015
+
 Install the [Azure SDK for .NET][4] (version 2.9.0 or later) to create an Azure Mobile Apps project in Visual Studio. Once you
 have installed the SDK, create an ASP.NET application using the following steps:
 
-1. Open the **New Project** dialog (from *File* > **New** > **Project...**).
+1. Open the **New Project** dialog (from **File** > **New** > **Project...**).
 2. Expand **Templates** > **Visual C#**, and select **Web**.
 3. Select **ASP.NET Web Application**.
 4. Fill in the project name. Then click **OK**.
@@ -277,6 +292,10 @@ to step 3.
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>How to: Use custom authentication for your application
+> [!IMPORTANT]
+> In order to enable custom authentication, you must first enable App Service Authentication without selecting a provider for your App Service in the Azure portal. This will enable the WEBSITE_AUTH_SIGNING_KEY environment variable when hosted.
+> 
+> 
 If you do not wish to use one of the App Service Authentication/Authorization providers, you can implement your own login system. Install
 the [Microsoft.Azure.Mobile.Server.Login] package to assist with authentication token generation.  Provide your own code for validating
 user credentials. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()`

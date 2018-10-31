@@ -4,26 +4,26 @@ description: Learn about how to move data from an on-premises or a cloud SFTP se
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
+ms.topic: conceptual
+ms.date: 02/12/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data from an SFTP server using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-sftp-connector.md)
-> * [Version 2 - Preview](../connector-sftp.md)
+> * [Version 1](data-factory-sftp-connector.md)
+> * [Version 2 (current version)](../connector-sftp.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [SFTPconnector in V2](../connector-sftp.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [SFTPconnector in V2](../connector-sftp.md).
 
 This article outlines how to use the Copy Activity in Azure Data Factory to move data from an on-premises/cloud SFTP server to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.
 
@@ -120,7 +120,7 @@ To use SSH public key authentication, set `authenticationType` as `SshPublicKey`
 | passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. | Yes if the private key file is protected by a pass phrase. |
 
 > [!NOTE]
-> SFTP connector only support OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
+> SFTP connector supports RSA/DSA OpenSSH key. Make sure your key file content starts with "-----BEGIN [RSA/DSA] PRIVATE KEY-----". If the private key file is a ppk-format file, please use Putty tool to convert from .ppk to OpenSSH format.
 
 #### Example: SshPublicKey authentication using private key filePath
 

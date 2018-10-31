@@ -3,8 +3,8 @@ title: Troubleshoot autoscale with Virtual Machine Scale Sets | Microsoft Docs
 description: Troubleshoot autoscale with Virtual Machine Scale Sets. Understand typical problems encountered and how to resolve them.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: guybo
+ms.author: negat
 
 ---
 # Troubleshooting autoscale with Virtual Machine Scale Sets
@@ -75,7 +75,7 @@ Some things to consider include:
     If the data is not there, it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://azure.microsoft.com/status/).
     
     Once you’ve been through these steps, if you're still having autoscale problems, you can try the following resources: 
-    * Read the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), or [Stack overflow](http://stackoverflow.com/questions/tagged/azure) 
+    * Read the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), or [Stack overflow](http://stackoverflow.com/questions/tagged/azure) 
     * Log a support call. Be prepared to share the template and a view of your performance data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

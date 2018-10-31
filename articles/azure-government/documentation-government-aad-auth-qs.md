@@ -20,13 +20,13 @@ ms.author: yujhongmicrosoft
 # Integrate Azure AD Authentication with Web Apps on Azure Government
 The following quickstart helps you get started integrating Azure AD Authentication with applications on Azure Government. Azure Active Directory (Azure AD) Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
 
-Learn more about [Azure Active Directory Authentication Scenarios](../active-directory/develop/active-directory-authentication-scenarios.md). 
+Learn more about [Azure Active Directory Authentication Scenarios](../active-directory/develop/authentication-scenarios.md). 
 
 ## Integrate Azure AD login into a web application using OpenID Connect
 This section shows how to integrate Azure AD using the OpenID Connect protocol for signing in users into a web app. 
 
 ### Prerequisites 
-- An Azure AD tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](../active-directory/develop/active-directory-howto-tenant.md) 
+- An Azure AD tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](../active-directory/develop/quickstart-create-new-tenant.md) 
 - A user account in your Azure AD tenant. This sample does not work with a Microsoft account, so if you signed in to the Azure Government portal with a Microsoft account and have never created a user account in your directory before, you need to do that now.
 - Have an [ASP.NET Core application deployed and running in Azure Government](documentation-government-howto-deploy-webandmobile.md)
 
@@ -34,7 +34,7 @@ This section shows how to integrate Azure AD using the OpenID Connect protocol f
 
 1. Sign in to the [Azure Government portal](https://portal.azure.us).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-3. Click on **More Services** in the left-hand nav, and choose **Azure Active Directory**.
+3. Click on **All Services** in the left-hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
 5. Enter the name for your application, and select 'Web Application and/or Web API' as the Application Type. For the sign-on URL, enter the base URL for your application, which is your Azure App URL + "/signin-oidc." 
 

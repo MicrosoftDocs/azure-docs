@@ -4,7 +4,7 @@ description: This tutorial uses resources created with the classic deployment mo
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 

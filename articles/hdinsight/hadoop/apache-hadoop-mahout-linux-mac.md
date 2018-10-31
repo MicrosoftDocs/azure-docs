@@ -1,22 +1,15 @@
 ---
-title: Generate recommendations using Mahout and HDInsight (SSH) - Azure | Microsoft Docs
+title: Generate recommendations using Mahout and HDInsight (SSH) - Azure 
 description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop).
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/06/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 05/01/2018
+
 
 ---
 # Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (SSH)
@@ -42,13 +35,13 @@ For more information about the version of Mahout in HDInsight, see [HDInsight ve
 
 ## <a name="recommendations"></a>Understanding recommendations
 
-One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the preference for the item). Mahout can then perform co-occurance analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
+One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the preference for the item). Mahout can then perform co-occurrence analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
 
 The following workflow is a simplified example that uses movie data:
 
-* **Co-occurance**: Joe, Alice, and Bob all liked *Star Wars*, *The Empire Strikes Back*, and *Return of the Jedi*. Mahout determines that users who like any one of these movies also like the other two.
+* **Co-occurrence**: Joe, Alice, and Bob all liked *Star Wars*, *The Empire Strikes Back*, and *Return of the Jedi*. Mahout determines that users who like any one of these movies also like the other two.
 
-* **Co-occurance**: Bob and Alice also liked *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*. Mahout determines that users who liked the previous three movies also like these three movies.
+* **Co-occurrence**: Bob and Alice also liked *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*. Mahout determines that users who liked the previous three movies also like these three movies.
 
 * **Similarity recommendation**: Because Joe liked the first three movies, Mahout looks at movies that others with similar preferences liked, but Joe has not watched (liked/rated). In this case, Mahout recommends *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*.
 

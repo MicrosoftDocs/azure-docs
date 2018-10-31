@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure App Service environments
-description: Brief overview of Azure App Service environments
+title: Introduction to Azure App Service Environments
+description: Brief overview of Azure App Service Environments
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -12,34 +12,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
-# Introduction to App Service environments #
+# Introduction to the App Service Environments #
  
 ## Overview ##
 
-Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your web apps, [mobile apps][mobileapps], API apps, and [functions][Functions].
+The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
+
+* Windows web apps
+* Linux web apps 
+* Docker containers
+* Mobile apps
+* Functions
 
 App Service environments (ASEs) are appropriate for application workloads that require:
 
-- Very high scale.
-- Isolation and secure network access.
-- High memory utilization.
+* Very high scale.
+* Isolation and secure network access.
+* High memory utilization.
 
 Customers can create multiple ASEs within a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless application tiers in support of high RPS workloads.
 
 ASEs are isolated to running only a single customer's applications and are always deployed into a virtual network. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
 
-* ASEs enable high-scale app hosting with secure network access. For more information, see the [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) on ASEs.
+* ASE comes with its own pricing tier, learn how the [Isolated offering](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) helps drive hyper-scale and security.
+* [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) provide a surrounding to safeguard your apps in a subnet of your network and provides your own private deployment of Azure App Service.
 * Multiple ASEs can be used to scale horizontally. For more information, see [how to set up a geo-distributed app footprint](app-service-app-service-environment-geo-distributed-scale.md).
 * ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. To see how the security architecture shown in the AzureCon Deep Dive was configured, see the [article on how to implement a layered security architecture](app-service-app-service-environment-layered-security.md) with App Service environments.
-* Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Configure a WAF for App Service environments](app-service-app-service-environment-web-application-firewall.md).
+* Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Web application firewall (WAF)][AppGW].
 
 ## Dedicated environment ##
 
-An ASE is dedicated exclusively to a single subscription and can host 100 instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
+An ASE is dedicated exclusively to a single subscription and can host 100 App Service Plan instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
 
 An ASE is composed of front ends and workers. Front ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front ends are automatically added as the App Service plans in the ASE are scaled out.
 
@@ -55,13 +62,13 @@ There is a flat monthly rate for an ASE that pays for the infrastructure and doe
 
 ## Virtual network support ##
 
-An ASE can be created only in an Azure Resource Manager virtual network. To learn more about Azure virtual networks, see the [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
+The ASE feature is a deployment of the Azure App Service directly into a customer's Azure resource manager virtual network. To learn more about Azure virtual networks, see the [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
 
 An ASE can be either internet-facing with a public IP address or internal-facing with only an Azure internal load balancer (ILB) address.
 
 [Network Security Groups][NSGs] restrict inbound network communications to the subnet where an ASE resides. You can use NSGs to run apps behind upstream devices and services such as WAFs and network SaaS providers.
 
-Apps also frequently need to access corporate resources such as internal databases and web services. If you deploy the ASE in a virtual network that has a VPN connection to the on-premises network, the apps in the ASE can access the on-premises resources. This capability is true regardless of whether the VPN is a [site-to-site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) or [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN.
+Apps also frequently need to access corporate resources such as internal databases and web services. If you deploy the ASE in a virtual network that has a VPN connection to the on-premises network, the apps in the ASE can access the on-premises resources. This capability is true regardless of whether the VPN is a [site-to-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) or [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN.
 
 For more information on how ASEs work with virtual networks and on-premises networks, see [App Service Environment network considerations][ASENetwork].
 
@@ -76,6 +83,8 @@ In ASEv1, you need to manage all of the resources manually. That includes the fr
 ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU allocated. That includes vCPUs used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
 
 <!--Links-->
+[App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment
+[Isolated offering]: https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
@@ -83,7 +92,7 @@ ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md
@@ -94,4 +103,4 @@ ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../application-gateway/waf-overview.md

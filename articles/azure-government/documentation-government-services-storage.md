@@ -47,10 +47,10 @@ To view the current secondary region of your geo-redundant storage or read-acces
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
 | [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |- |GA |GA |- |- |
-| [Locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage) |GA |GA |GA |GA |GA |GA |
-| [Geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
-| [Read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
-| [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) |- |GA |GA |GA |GA |GA |
+| [Locally redundant storage](../storage/common/storage-redundancy-lrs.md) |GA |GA |GA |GA |GA |GA |
+| [Geo-redundant storage](../storage/common/storage-redundancy-grs.md) |GA |GA |GA |GA |GA |GA |
+| [Read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
+| [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md) |- |GA |GA |GA |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
 | [Premium Storage](../virtual-machines/windows/premium-storage.md) |GA |- |GA |GA |GA |GA | 
 | [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
@@ -100,7 +100,7 @@ With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is
 
 For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions. 
 
-For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Managing storage accounts](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Managing storage accounts](../storage/common/storage-account-manage.md#access-keys).
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |

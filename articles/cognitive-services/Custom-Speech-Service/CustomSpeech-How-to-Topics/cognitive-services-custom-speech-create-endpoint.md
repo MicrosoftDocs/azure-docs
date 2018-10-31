@@ -4,15 +4,17 @@ description: Learn how to create a custom speech-to-text endpoint with the Custo
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
 ---
 
 # Create a custom speech-to-text endpoint
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 After you have created custom acoustic models or language models, you can deploy them in a custom speech-to-text endpoint. 
 
 ## Create an endpoint
@@ -66,6 +68,6 @@ When the deployment is ready, the deployment name becomes a link. Selecting the 
 ## Next steps
 
 For more tutorials, see:
-* [Create a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md)
+* [Use a custom speech-to-text endpoint](cognitive-services-custom-speech-use-endpoint.md)
 * [Create a custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)
 * [Create a custom language model](cognitive-services-custom-speech-create-language-model.md)

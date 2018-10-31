@@ -2,19 +2,16 @@
 title: Set up named authentication credentials | Microsoft Docs
 description: 'Learn how to provide credentials that Visual Studio can use to authenticate requests to Azure, so you can publish an application to Azure from Visual Studio or monitor an existing cloud service.'
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: ''
-
-ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+author: ghogen
+manager: douge
+assetId: 61570907-42a1-40e8-bcd6-952b21a55786
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 11/11/2017
-ms.author: kraigb
+ms.author: ghogen
 
 ---
 # Set up named authentication credentials
@@ -39,6 +36,6 @@ If you want to create a certificate yourself, you can refer to the instructions 
 ## Next steps
 
 - [General overview of Web Apps](https://docs.microsoft.com/azure/app-service/)
-- [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
-- [Deploy WebJobs using Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
+- [Deploy your app to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 
+- [Deploy WebJobs using Visual Studio](https://docs.microsoft.com/azure/app-service/websites-dotnet-deploy-webjobs)
 - [Create and deploy a cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

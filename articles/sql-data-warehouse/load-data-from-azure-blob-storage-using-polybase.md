@@ -1,29 +1,20 @@
 ---
-title: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs
-description: A tutorial that uses the Azure portal and SQL Server Management Studio to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. 
+title: 'Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse | Microsoft Docs'
+description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a public Azure blob  to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: "Active"
-ms.date: 11/17/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 09/12/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-
+ms.reviewer: igorstan
 ---
 
-# Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
+# Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse
 
-PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
+This tutorial uses PolyBase to load New York Taxicab data from a public Azure blob to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -39,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Before you begin
 
-Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
 ## Log in to the Azure portal
@@ -48,11 +39,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL data warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](performance-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank SQL data warehouse. 
 
-1. Click the **New** button in the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
 
@@ -82,14 +73,14 @@ Follow these steps to create a blank SQL data warehouse.
 
 5. Click **Select**.
 
-6. Click **Performance tier** to specify whether the data warehouse is optimized for elasticity or compute, and the number of data warehouse units. 
+6. Click **Performance level** to specify whether the data warehouse is Gen1 or Gen2, and the number of data warehouse units. 
 
-7. For this tutorial, select the **Optimized for Elasticity** service tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
+7. For this tutorial, select  **Gen1** of SQL Data Warehouse. The slider, by default, is set to **DW1000c**.  Try moving it up and down to see how it works. 
 
     ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Click **Apply**.
-9. In the SQL Data Warehouse page, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations.md)
+9. In the SQL Data Warehouse page, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations)
 
 11. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
@@ -107,7 +98,7 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 > SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20171113.database.windows.net**) and provides options for further configuration. 
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration. 
 
 2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then click on the server name to open server settings.
 
@@ -137,14 +128,14 @@ You can now connect to the SQL server and its data warehouses using this IP addr
 Get the fully qualified server name for your SQL server in the Azure portal. Later you will use the fully qualified name when connecting to the server.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20171113.database.windows.net. 
+2. Select **SQL Data warehouses** from the left-hand menu, and click your database on the **SQL data warehouses** page. 
+3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20180430.database.windows.net. 
 
     ![connection information](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to establish a connection to your Azure SQL server.
 
 1. Open SQL Server Management Studio.
 
@@ -153,7 +144,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
     | Setting      | Suggested value | Description | 
     | ------------ | --------------- | ----------- | 
     | Server type | Database engine | This value is required |
-    | Server name | The fully qualified server name | The name should be something like this: **mynewserver-20171113.database.windows.net**. |
+    | Server name | The fully qualified server name | The name should be something like this: **mynewserver-20180430.database.windows.net**. |
     | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
     | Login | The server admin account | This is the account that you specified when you created the server. |
     | Password | The password for your server admin account | This is the password that you specified when you created the server. |
@@ -168,7 +159,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data usually requires lots of memory. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to which Generation of SQL Data Warehouse you've provisioned, [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md), and [resource class](resource-classes-for-workload-management.md). 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
@@ -209,7 +200,7 @@ The first step toward loading data is to login as LoaderRC20.
 
     ![Connect with new login](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Enter the fully qualified server name, but this time enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
+2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
 
 3. Click **Connect**.
 
@@ -219,7 +210,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 ## Create external tables for the sample data
 
-You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use [Polybase](/sql/relational-databases/polybase/polybase-guide.md) to load New York City taxi cab data from an Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use external tables to load New York City taxi cab data from an Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
 Run the following SQL scripts specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. 
 
@@ -235,7 +226,7 @@ Run the following SQL scripts specify information about the data you wish to loa
     CREATE MASTER KEY;
     ```
 
-4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
+4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -246,7 +237,7 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL statement to specify formatting characteristics and options for the external data file. This  statement specifies the external data is stored as text and the values are separated by the pipe ('|') character. The external file is compressed with Gzip. 
+5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL statement to specify formatting characteristics and options for the external data file. This  statement specifies the external data is stored as text and the values are separated by the pipe ('|') character. The external file is compressed with Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -271,7 +262,7 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-6.  Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) statement to create a schema for your external file format. The schema provides a way to organize the external tables you are about to create.
+6.  Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) statement to create a schema for your external file format. The schema provides a way to organize the external tables you are about to create.
 
     ```sql
     CREATE SCHEMA ext;
@@ -450,7 +441,11 @@ Run the following SQL scripts specify information about the data you wish to loa
 
 This section uses the external tables you just defined to load the sample data from Azure Storage Blob to SQL Data Warehouse.  
 
-The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table, SQL Data Warehouse imports the data into a relational table in the data warehouse. 
+> [!NOTE]
+> This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> 
+
+The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table, SQL Data Warehouse imports the data into a relational table in the data warehouse. 
 
 1. Run the following script to load the data into new tables in your data warehouse.
 
@@ -529,7 +524,7 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024.0 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -561,16 +556,6 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
 
     ![View loaded tables](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## Create statistics on newly loaded data
-
-SQL Data Warehouse does not auto-create or auto-update statistics. Therefore, to achieve high query performance, it's important to create statistics on each column of each table after the first load. It's also important to update statistics after substantial changes in the data.
-
-1. Run these commands to create statistics on columns that are likely to be used in joins.
-
-    ```sql
-    CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
-    CREATE STATISTICS [dbo.Trip DateID stats] ON dbo.Trip (DateID);
-    ```
 
 ## Clean up resources
 
@@ -589,7 +574,7 @@ Follow these steps to clean up resources as you desire.
 
 3. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
 
-4. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+4. To remove the SQL server you created, click **mynewserver-20180430.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
 
 5. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
 

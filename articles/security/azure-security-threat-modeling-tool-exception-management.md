@@ -3,9 +3,9 @@ title: Exception Management - Microsoft Threat Modeling Tool - Azure | Microsoft
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -33,7 +33,7 @@ ms.author: rodsan
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Steps** | Windows Communication Framework (WCF) services can be configured to expose debugging information. Debug information should not be used in production environments. The `<serviceDebug>` tag defines whether the debug information feature is enabled for a WCF service. If the attribute includeExceptionDetailInFaults is set to true, exception information from the application will be returned to clients. Attackers can leverage the additional information they gain from debugging output to mount attacks targeted on the framework, database, or other resources used by the application. |
 
 ### Example
@@ -57,7 +57,7 @@ Disable debugging information in the service. This can be accomplished by removi
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Generic, NET Framework 3 |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Steps** | Publicly exposing information about a service can provide attackers with valuable insight into how they might exploit the service. The `<serviceMetadata>` tag enables the metadata publishing feature. Service metadata could contain sensitive information that should not be publicly accessible. At a minimum, only allow trusted users to access the metadata and ensure that unnecessary information is not exposed. Better yet, entirely disable the ability to publish metadata. A safe WCF configuration will not contain the `<serviceMetadata>` tag. |
 
 ## <a id="exception"></a>Ensure that proper exception handling is done in ASP.NET Web API
@@ -73,7 +73,7 @@ Disable debugging information in the service. This can be accomplished by removi
 
 ### Example
 To control the status code returned by the API, `HttpResponseException` can be used as shown below: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -87,7 +87,7 @@ public Product GetProduct(int id)
 
 ### Example
 For further control on the exception response, the `HttpResponseMessage` class can be used as shown below: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -107,7 +107,7 @@ To catch unhandled exceptions that are not of the type `HttpResponseException`, 
 
 ### Example
 Here is a filter that converts `NotImplementedException` exceptions into HTTP status code `501, Not Implemented`: 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -135,7 +135,7 @@ There are several ways to register a Web API exception filter:
 
 ### Example
 To apply the filter to a specific action, add the filter as an attribute to the action: 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -148,7 +148,7 @@ public class ProductsController : ApiController
 ### Example
 To apply the filter to all of the actions on a `controller`, add the filter as an attribute to the `controller` class: 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -158,14 +158,14 @@ public class ProductsController : ApiController
 
 ### Example
 To apply the filter globally to all Web API controllers, add an instance of the filter to the `GlobalConfiguration.Configuration.Filters` collection. Exception filters in this collection apply to any Web API controller action. 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### Example
 For model validation, the model state can be passed to CreateErrorResponse method as shown below: 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -223,7 +223,7 @@ Check the links in the references section for additional details about exception
 | **Steps** | Application should fail safely. Any method that returns a Boolean value, based on which certain decision is made, should have exception block carefully created. There are lot of logical errors due to which security issues creep in, when the exception block is written carelessly.|
 
 ### Example
-```C#
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

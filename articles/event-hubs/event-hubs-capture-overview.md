@@ -3,7 +3,7 @@ title: Overview of Azure Event Hubs Capture | Microsoft Docs
 description: Capture telemetry data with Event Hubs Capture
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
-ms.author: sethm;darosa
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
@@ -37,7 +37,13 @@ Captured data is written in [Apache Avro][Apache Avro] format: a compact, fast, 
 Event Hubs Capture enables you to set up a window to control capturing. This window is a minimum size and time configuration with a "first wins policy," meaning that the first trigger encountered causes a capture operation. If you have a fifteen-minute, 100 MB capture window and send 1 MB per second, the size window triggers before the time window. Each partition captures independently and writes a completed block blob at the time of capture, named for the time at which the capture interval was encountered. The storage naming convention is as follows:
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+Note that the date values are padded with zeroes; an example filename might be:
+
+```
+https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### Scaling to throughput units
@@ -63,13 +69,13 @@ The files produced by Event Hubs Capture have the following Avro schema:
 
 An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
 
-```
+```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 ```
 
 This command returns
 
-```
+```json
 {
 
     "type":"record",
@@ -95,6 +101,10 @@ Apache Avro has complete Getting Started guides for [Java][Java] and [Python][Py
 ## How Event Hubs Capture is charged
 
 Event Hubs Capture is metered similarly to throughput units: as an hourly charge. The charge is directly proportional to the number of throughput units purchased for the namespace. As throughput units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+## Integration with Event Grid 
+You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
+
 
 ## Next steps
 

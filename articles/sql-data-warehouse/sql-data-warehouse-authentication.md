@@ -1,32 +1,19 @@
 ---
-title: Authentication to Azure SQL Data Warehouse | Microsoft Docs
-description: Azure Active Directory (AAD) and SQL Server authentication to Azure SQL Data Warehouse.
+title: Authenticate to Azure SQL Data Warehouse | Microsoft Docs
+description: Learn how to authenticate to Azure SQL Data Warehouse by using Azure Active Directory (AAD) or SQL Server authentication.
 services: sql-data-warehouse
-documentationcenter: ''
-author: ronortloff
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
+author: kavithaj
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
-ms.date: 03/21/2017
-ms.author: rortloff;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
 ---
-# Authentication to Azure SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Security Overview](sql-data-warehouse-overview-manage-security.md)
-> * [Authentication](sql-data-warehouse-authentication.md)
-> * [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+
+# Authenticate to Azure SQL Data Warehouse
+Learn how to authenticate to Azure SQL Data Warehouse by using Azure Active Directory (AAD) or SQL Server authentication.
 
 To connect to SQL Data Warehouse, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
@@ -93,5 +80,5 @@ To start querying your data warehouse with Visual Studio and other applications,
 <!-- Article references -->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
+[What is Azure Active Directory]:../active-directory/fundamentals/active-directory-whatis.md
 [Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations

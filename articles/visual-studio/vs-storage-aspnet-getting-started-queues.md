@@ -2,22 +2,19 @@
 title: Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET) | Microsoft Docs
 description: How to get started using Azure queue storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio Connected Services
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
-
+author: ghogen
+manager: douge
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 12/23/2016
-ms.author: kraigb
-
+ms.author: ghogen
 ---
 # Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)
+
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
@@ -26,10 +23,10 @@ Azure queue storage provides cloud messaging between application components. In 
 
 This tutorial shows how to write ASP.NET code for some common scenarios using Azure queue storage entities. These scenarios include common tasks such as creating an Azure queue, and adding, modifying, reading, and removing queue messages.
 
-##Prerequisites
+## Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure storage account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -450,7 +447,7 @@ This section illustrates how to get the queue length (number of messages).
 	queue.FetchAttributes();
     ```
 
-6. Access the **CloudQueue.ApproximateMessageCount** property to get the queue's length.
+1. Access the **CloudQueue.ApproximateMessageCount** property to get the queue's length.
  
     ```csharp
 	int? nMessages = queue.ApproximateMessageCount;

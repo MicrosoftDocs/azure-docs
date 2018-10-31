@@ -3,20 +3,15 @@ title: Create a function that integrates with Azure Logic Apps | Microsoft Docs
 description: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to categorize tweet sentiment and send notifications when sentiment is poor.
 services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 09/24/2018
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 
 # Create a function that integrates with Azure Logic Apps
@@ -50,7 +45,7 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Click the **New** button found on the upper left-hand corner of the Azure portal.
+2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 3. Click **AI + Analytics** > **Text Analytics API**. Then, use the settings as specified in the table, accept the terms, and check **Pin to dashboard**.
 
@@ -69,52 +64,63 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
  
     ![Keys](media/functions-twitter-email/keys.png)
 
-## Create the function
+## Create the function app
 
 Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  
 
-1. Click the **New** button and select **Compute** > **Function App**. Then, use the settings as specified in the table below. Accept the terms, then select **Pin to dashboard**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Create Azure Function App](media/functions-twitter-email/create_fun.png)
+## Create an HTTP triggered function  
 
-    | Setting      |  Suggested value   | Description       |
-    | --- | --- | --- |
-    | **Name** | MyFunctionApp | Choose a unique account name. |
-    | **Resource group** | myResourceGroup | Use the same resource group for all services in this tutorial.|
-    | **Hosting plan** | Consumption Plan | This defines your cost and usage allocations.
-    | **Location** | West US | Use the location nearest you. |
-    | **Storage** | Create New | Automatically generates a new storage account.|
-    | **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
 
-2. Select your functions app from your dashboard and expand your function, click the **+** button next to **Functions**, click the **Webhook + API**, **CSharp**, then **Create This Function**. This will create a function using the HTTPTrigger C# template. Your code will appear in a new window as `run.csx`
+    ![Functions quickstart page in the Azure portal](media/functions-twitter-email/add-first-function.png)
 
-    ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
+2. In the search field, type `http` and then choose **C#** for the HTTP trigger template. 
 
-3. Replace the contents of the `run.csx` file with the following code, then click **Save**:
+    ![Choose the HTTP trigger](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+    All subsequent functions added to the function app use the C# language templates.
+
+3. Type a **Name** for your function, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**. 
+
+    ![Create the HTTP triggered function](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    This creates a C# script function using the HTTP Trigger template. Your code appears in a new window as `run.csx`.
+
+4. Replace the contents of the `run.csx` file with the following code, then click **Save**:
 
     ```csharp
-    using System.Net;
+    #r "Newtonsoft.Json"
     
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    using System;
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        // The sentiment category defaults to 'GREEN'. 
         string category = "GREEN";
     
-        // Get the sentiment score from the request body.
-        double score = await req.Content.ReadAsAsync<double>();
-        log.Info(string.Format("The sentiment score received is '{0}'.",
-                    score.ToString()));
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        log.LogInformation(string.Format("The sentiment score received is '{0}'.", requestBody));
     
-        // Set the category based on the sentiment score.
-        if (score < .3)
+        double score = Convert.ToDouble(requestBody);
+    
+        if(score < .3)
         {
             category = "RED";
         }
-        else if (score < .6)
+        else if (score < .6) 
         {
             category = "YELLOW";
         }
-        return req.CreateResponse(HttpStatusCode.OK, category);
+    
+        return requestBody != null
+            ? (ActionResult)new OkObjectResult(category)
+            : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
     This function code returns a color category based on the sentiment score received in the request. 
@@ -282,5 +288,5 @@ Advance to the next tutorial to learn how to create a serverless API for your fu
 > [!div class="nextstepaction"] 
 > [Create a serverless API using Azure Functions](functions-create-serverless-api.md)
 
-To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
+To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 

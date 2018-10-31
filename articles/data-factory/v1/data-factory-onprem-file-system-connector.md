@@ -4,27 +4,27 @@ description: Learn how to copy data to and from an on-premises file system by us
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
+ms.topic: conceptual
+ms.date: 04/13/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Copy data to and from an on-premises file system by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-file-system-connector.md)
-> * [Version 2 - Preview](../connector-file-system.md)
+> * [Version 1](data-factory-onprem-file-system-connector.md)
+> * [Version 2 (current version)](../connector-file-system.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [File System connector in V2](../connector-file-system.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [File System connector in V2](../connector-file-system.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to copy data to/from an on-premises file system. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
@@ -83,6 +83,8 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 | Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
 | Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
 
+>[!NOTE]
+>When authoring via UI, you don't need to input double backslash (`\\`) to escape like you do via JSON, specify single backslash.
 
 ### Example: Using username and password in plain text
 
@@ -124,7 +126,7 @@ The typeProperties section is different for each type of dataset. It provides in
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Specifies the subpath to the folder. Use the escape character ‘\’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| folderPath |Specifies the subpath to the folder. Use the escape character '\' for special characters in the string. Wildcard filter is not supported. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When **fileName** is not specified for an output dataset and **preserveHierarchy** is not specified in activity sink, the name of the generated file is in the following format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. |No |
 | partitionedBy |You can use partitionedBy to specify a dynamic folderPath/fileName for time-series data. An example is folderPath parameterized for every hour of data. |No |

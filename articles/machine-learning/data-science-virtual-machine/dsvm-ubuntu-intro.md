@@ -3,24 +3,25 @@ title: Provision a Linux (Ubuntu) Data Science Virtual Machine on Azure | Micros
 description: Configure and create a Data Science Virtual Machine For Linux (Ubuntu) on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
-editor: cgronlun
+
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/04/2017
-ms.author: bradsev
+ms.topic: conceptual
+ms.date: 03/16/2018
 
 ---
 
 # Provision the Data Science Virtual Machine for Linux (Ubuntu)
 
-The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with deep learning on Azure. Deep learning tools include:
+The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with machine learning, including deep learning, on Azure. Deep learning tools include:
 
   * [Caffe](http://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity
   * [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe
@@ -29,6 +30,7 @@ The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine im
   * [Keras](https://keras.io/): A high-level neural network API in Python for Theano and TensorFlow
   * [MXNet](http://mxnet.io/): A flexible, efficient deep learning library with many language bindings
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): A graphical system that simplifies common deep learning tasks
+  * [PyTorch](http://pytorch.org/): A high-level Python library with support for dynamic networks
   * [TensorFlow](https://www.tensorflow.org/): An open-source library for machine intelligence from Google
   * [Theano](http://deeplearning.net/software/theano/): A Python library for defining, optimizing, and efficiently evaluating mathematical expressions involving multi-dimensional arrays
   * [Torch](http://torch.ch/): A scientific computing framework with wide support for machine learning algorithms
@@ -49,7 +51,7 @@ The Data Science Virtual Machine for Linux also contains popular tools for data 
 * Machine learning tools
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation
-  * [Rattle](http://rattle.togaware.com/): A graphical tool that makes getting started with data analytics and machine learning in R easy
+  * [Rattle](https://togaware.com/rattle/): A graphical tool that makes getting started with data analytics and machine learning in R easy
   * [LightGBM](https://github.com/Microsoft/LightGBM): A fast, distributed, high-performance gradient boosting framework
 * Azure SDK in Java, Python, node.js, Ruby, PHP
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
@@ -59,8 +61,8 @@ The Data Science Virtual Machine for Linux also contains popular tools for data 
 Doing data science involves iterating on a sequence of tasks:
 
 1. Finding, loading, and pre-processing data
-2. Building and testing models
-3. Deploying the models for consumption in intelligent applications
+1. Building and testing models
+1. Deploying the models for consumption in intelligent applications
 
 Data scientists use various tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then to download, compile, and install these versions.
 
@@ -77,13 +79,14 @@ Before you can create a Data Science Virtual Machine for Linux, you must have an
 ## Create your Data Science Virtual Machine for Linux
 Here are the steps to create an instance of the Data Science Virtual Machine for Linux:
 
-1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
-2. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
+1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). You may be prompted to login to your Azure account if you are not already signed in. 
+1. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
    
    a. **Basics**:
    
    * **Name**: Name of your data science server you are creating.
+   * **VM Disk Type**: Choose **Premium SSD** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard HDD**. 
    * **User Name**: First account sign-in ID.
    * **Password**: First account password (you can use SSH public key instead of password).
    * **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
@@ -92,25 +95,27 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
    
    b. **Size**:
    
-   * Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes. Select an NC-class VM for GPU training.
+   * Select one of the server types that meets your functional requirement and cost constraints. Select an NC or ND-class VM for GPU based VM instances. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page lists the regions with GPUs.
    
    c. **Settings**:
    
-   * **Disk Type**: Choose **Premium** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard**. GPU VMs require a Standard disk.
-   * **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
-   * **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
+   * In most cases, you can just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
    
    d. **Summary**:
    
-   * Verify that all information you entered is correct.
+   * Verify that all information you entered is correct. A link is provided to the terms of use. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. To start the provisioning, click **Create**. 
    
-   e. **Buy**:
-   
-   * To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
-
-The provisioning should take about 5-10 minutes. The status of the provisioning is displayed on the Azure portal.
+The provisioning should take about 5 minutes. The status of the provisioning is displayed on the Azure portal.
 
 ## How to access the Data Science Virtual Machine for Linux
+
+You can access the Ubuntu DSVM using three methods:
+1. SSH for terminal sessions
+1. X2Go for graphical sessions
+1. JupyterHub and JupyterLab for Jupyter notebooks
+
+### SSH
+
 After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
 > [!NOTE]
@@ -118,11 +123,11 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 > 
 > 
 
-## Installing and configuring X2Go client
+### X2Go
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
+1. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
    * **Session tab**:
      * **Host**: The host name or IP address of your Linux Data Science VM.
      * **Login**: User name on the Linux VM.
@@ -132,6 +137,14 @@ The Linux VM is already provisioned with X2Go server and ready to accept client 
    * **Shared folders**: If you want directories from your client machines mounted on the Linux VM, add the client machine directories that you want to share with the VM on this tab.
 
 After you sign in to the VM by using either the SSH client or XFCE graphical desktop through the X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE, you can see applications menu shortcuts and desktop icons for many of the tools.
+
+### JupyterHub and JupyterLab
+
+The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multi-user Jupyter server. To connect, browse to https://your-vm-ip:8000 on your laptop or desktop, enter the username and password that you used to create the VM, and log in. Many sample notebooks are available for you to browse and try out.
+
+JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, log in to JupyterHub, then browse to the URL https://your-vm-ip:8000/user/your-username/lab. You can set JupyterLab as the default notebook server by adding this line to /etc/jupyterhub/jupyterhub_config.py:
+
+    c.Spawner.default_url = '/lab'
 
 ## Tools installed on the Data Science Virtual Machine for Linux
 ### Deep Learning Libraries
@@ -192,30 +205,32 @@ To launch R console, you just type **R** in the shell. This takes you to an inte
 There is also an R script for you to install the [Top 20 R packages](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run after you are in the R interactive interface, which can be entered (as mentioned) by typing **R** in the shell.  
 
 ### Python
-For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.
+Anaconda Python is installed with Python 2.7 and 3.5 environments. The 2.7 environment is called _root_, and the 3.5 environment is called _py35_. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. 
 
-Since we have both Python 2.7 and 3.5, you need to specifically activate the desired Python version (conda environment) you want to work on in the current session. The activation process sets the PATH variable to the desired version of Python.
+The py35 environment is the default. To activate the root (2.7) environment:
 
-To activate the Python 2.7 conda environment, run the following command from the shell:
+    source activate root
 
-    source /anaconda/bin/activate root
+To activate the py35 environment again:
 
-Python 2.7 is installed at */anaconda/bin*.
+    source activate py35
 
-To activate the Python 3.5 conda environment , run the following from the shell:
+To invoke a Python interactive session, just type **python** in the shell. 
 
-    source /anaconda/bin/activate py35
+Install additional Python libraries using ```conda``` or ````pip```` . For pip, activate the correct environment first if you do not want the default:
 
+    source activate root
+    pip install <package>
 
-Python 3.5 is installed at */anaconda/envs/py35/bin*.
+Or specify the full path to pip:
 
-To invoke a Python interactive session, just type **python** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type **pycharm** to launch the PyCharm Python IDE.
+    /anaconda/bin/pip install <package>
+    
+For conda, you should always specify the environment name (_py35_ or _root_):
 
-To install additional Python libraries, you need to run ```conda``` or ````pip```` command under sudo and provide full path of the Python package manager (conda or pip) to install to the correct Python environment. For example:
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
-
+If you are on a graphical interface or have X11 forwarding set up, you can type **pycharm** to launch the PyCharm Python IDE. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.s
 
 ### Jupyter notebook
 The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password.
@@ -396,16 +411,16 @@ Now a graphical interface opens up with a set of tabs. Here are the quick start 
 > 
 
 1. Click **Execute**.
-2. A dialog pops up, asking you if you like to use the example weather data set. Click **Yes** to load the example.
-3. Click the **Model** tab.
-4. Click **Execute** to build a decision tree.
-5. Click **Draw** to display the decision tree.
-6. Click the **Forest** radio button, and click **Execute** to build a random forest.
-7. Click the **Evaluate** tab.
-8. Click the **Risk** radio button, and click **Execute** to display two Risk (Cumulative) performance plots.
-9. Click the **Log** tab to show the generate R code for the preceding operations.
+1. A dialog pops up, asking you if you like to use the example weather data set. Click **Yes** to load the example.
+1. Click the **Model** tab.
+1. Click **Execute** to build a decision tree.
+1. Click **Draw** to display the decision tree.
+1. Click the **Forest** radio button, and click **Execute** to build a random forest.
+1. Click the **Evaluate** tab.
+1. Click the **Risk** radio button, and click **Execute** to display two Risk (Cumulative) performance plots.
+1. Click the **Log** tab to show the generate R code for the preceding operations.
    (Due to a bug in the current release of Rattle, you need to insert a *#* character in front of *Export this log ...* in the text of the log.)
-10. Click the **Export** button to save the R script file named *weather_script.R* to the home folder.
+1. Click the **Export** button to save the R script file named *weather_script.R* to the home folder.
 
 You can exit Rattle and R. Now you can modify the generated R script, or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is an easy way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
 
@@ -414,6 +429,6 @@ Here's how you can continue your learning and exploration:
 
 * The [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
-* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.
+* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](http://aka.ms/tdsp).
+* Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
 

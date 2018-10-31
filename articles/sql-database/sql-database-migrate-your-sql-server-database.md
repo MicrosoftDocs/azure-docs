@@ -1,28 +1,27 @@
 ---
-title: Migrate SQL Server DB to Azure SQL Database | Microsoft Docs
-description: Learn to migrate your SQL Server database to Azure SQL Database.
+title: Migrate SQL Server DB to Azure SQL Database using DMA | Microsoft Docs
+description: Learn to migrate your SQL Server database to Azure SQL Database using DMA.
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: "Active"
-ms.date: 09/01/2017
-ms.author: carlrab
-
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.service: sql-database
+ms.date: 09/14/2018
 ---
+# Migrate your SQL Server database to Azure SQL Database using DMA
 
-# Migrate your SQL Server database to Azure SQL Database
+Moving your SQL Server database to an Azure SQL Database single database is as simple as creating an empty SQL database in Azure and then using  the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) to import the database into Azure. For additional migration options, see [Migrate your database to Azure SQL Database](sql-database-cloud-migrate.md).
 
-Moving your SQL Server database to Azure SQL Database is as simple as creating an empty SQL database in Azure and then using  the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) to import the database into Azure. In this tutorial, you learn to:
+> [!IMPORTANT]
+> To migrate to Azure SQL Database Managed Instance, see [Migrate from SQL Server to a Managed Instance](sql-database-managed-instance-migrate.md)
+
+In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Create an empty Azure SQL database in the Azure portal (using a new or existing Azure SQL Database server)
@@ -42,15 +41,15 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL database
 
-An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
+An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers-dtu.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
 
 Follow these steps to create a blank SQL database. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 
@@ -87,10 +86,7 @@ Follow these steps to create a blank SQL database.
 8. Accept the preview terms to use the **Add-on Storage** option. 
 
    > [!IMPORTANT]
-   > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+   > More than 1 TB of storage in the Premium tier is currently available in all regions except the following: West Central US, China East, USDoDCentral, USGov Iowa, Germany Central, USDoDEast, US Gov Southwest, Germany Northeast,  China North. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
 
@@ -112,7 +108,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstarts. 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -135,7 +131,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your Azure SQL server using client tools, including the Data Migration Assistance and SQL Server Management Studio.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
@@ -248,11 +244,11 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
 ## Change database properties
 
-You can change the service tier, performance level, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher performance tier database for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level is maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
+You can change the service tier, compute size, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher service tier or compute size for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level is maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
 
 1. In Object Explorer, right-click **mySampleDatabase** and then click **New Query**. A query window opens connected to your database.
 
-2. Execute the following command to set the service tier to **Standard** and the performance level to **S1**.
+2. Execute the following command to set the service tier to **Standard** and the compute size to **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 

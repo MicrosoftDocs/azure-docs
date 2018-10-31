@@ -3,8 +3,8 @@ title: Azure CLI Redis cache samples | Microsoft Docs
 description: Azure CLI samples for Azure Redis Cache.
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # Azure CLI Samples for Azure Redis Cache
@@ -34,4 +34,4 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Delete a cache](./scripts/delete-cache.md) | Deletes an Azure Redis Cache instance  |
 | | |
 
-For more information about Azure CLI 2.0, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) and [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+For more information about the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

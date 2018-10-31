@@ -1,22 +1,13 @@
 ---
-title: Python UDF with Apache Hive and Pig - Azure HDInsight | Microsoft Docs
+title: Python UDF with Apache Hive and Pig - Azure HDInsight 
 description: Learn how to use Python User Defined Functions (UDF) from Hive and Pig in HDInsight, the Hadoop technology stack on Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: python
-ms.topic: article
-ms.date: 12/05/2017
-ms.author: larryfr
-
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.topic: conceptual
+ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight
@@ -52,7 +43,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'python hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
@@ -64,7 +55,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'D:\Python27\python.exe hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```

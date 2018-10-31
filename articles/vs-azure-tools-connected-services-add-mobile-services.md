@@ -13,6 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: mobile
+ms.custom: vs-azure
 ms.date: 12/16/2015
 ms.author: mlearned
 
@@ -63,7 +64,7 @@ You can use the Connected Services dialog to connect to Azure Mobile Services in
 6. Using the code samples as a guide, start writing code to access your mobile service!
 
 ## How your project is modified
-How Visual Studio modifies your project depends on the project type. For C# client apps, see [What happend – C# projects](http://go.microsoft.com/fwlink/p/?LinkId=513119). For JavaScript client apps, see [What happened – JavaScript projects](http://go.microsoft.com/fwlink/p/?LinkId=513120). For Cordova apps, see [What happend – Cordova projects](http://go.microsoft.com/fwlink/p/?LinkId=513116).
+How Visual Studio modifies your project depends on the project type. For C# client apps, see [What happened – C# projects](http://go.microsoft.com/fwlink/p/?LinkId=513119). For JavaScript client apps, see [What happened – JavaScript projects](http://go.microsoft.com/fwlink/p/?LinkId=513120). For Cordova apps, see [What happened – Cordova projects](http://go.microsoft.com/fwlink/p/?LinkId=513116).
 
 ## Next steps
 Ask questions and get help: 

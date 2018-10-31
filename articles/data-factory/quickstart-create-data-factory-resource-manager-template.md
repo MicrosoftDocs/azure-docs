@@ -3,29 +3,27 @@ title: Create an Azure data factory using Resource Manager template | Microsoft 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 11/28/2017
-ms.author: spelluru
+ms.topic: quickstart
+ms.date: 01/22/2018
+ms.author: douglasl
 
 ---
 # Tutorial: Create an Azure data factory using Azure Resource Manager template
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [Version 2 - Preview](quickstart-create-data-factory-resource-manager-template.md) 
+> * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
+> * [Current version](quickstart-create-data-factory-resource-manager-template.md) 
 
 This quickstart describes how to use an Azure Resource Manager template to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [build your first data factory with Data Factory version 1](v1/data-factory-build-your-first-pipeline-using-arm.md).
->
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
@@ -56,11 +54,12 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 			"type": "string",
 			"allowedValues": [
 				"East US",
-				"East US 2"
+				"East US 2",
+				"West Europe"
 			],
 			"defaultValue": "East US",
 			"metadata": {
-				"description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
+				"description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
 			}
 		},
 		"storageAccountName": {
@@ -424,7 +423,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     ```
 
 ## Monitor the pipeline
-1. After logging in to the [Azure portal](https://portal.azure.com/), Click **More services**, search with the keyword such as **data fa**, and select **Data factories**.
+1. After logging in to the [Azure portal](https://portal.azure.com/), Click **All services**, search with the keyword such as **data fa**, and select **Data factories**.
 
     ![Browse data factories menu](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. In the **Data Factories** page, click the data factory you created. If needed, filter the list with the name of your data factory.  
@@ -456,7 +455,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
-## JSON definitions for entities
+## <a name="data-factory-entities-in-the-template"></a> JSON definitions for entities
 The following Data Factory entities are defined in the JSON template: 
 
 - [Azure Storage linked service](#azure-storage-linked-service)

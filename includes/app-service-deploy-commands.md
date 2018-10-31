@@ -1,5 +1,12 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+---
 
-To deploy the resources to Azure, you must be logged in to your Azure account and you must use the Azure Resource Manager module. To learn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, 
+To deploy the resources to Azure, you must be signed in to your Azure account and you must use the Azure Resource Manager module. To learn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, 
 see:
 
 * [Using Azure PowerShell with Azure Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)

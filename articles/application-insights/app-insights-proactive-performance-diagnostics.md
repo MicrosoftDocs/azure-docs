@@ -1,9 +1,9 @@
-﻿---
+---
 title: Smart Detection - performance anomalies | Microsoft Docs
 description: Application Insights performs smart analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
@@ -11,8 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
+ms.reviewer: antonfr
 ms.author: mbullwin
 
 ---
@@ -42,7 +43,7 @@ No, a notification doesn't mean that your app definitely has a problem. It's sim
 The notifications include diagnostic information. Here's an example:
 
 
-![Here is an example of Server Response Time Degradation detection](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Here is an example of Server Response Time Degradation detection](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Triage**. The notification shows you how many users or how many operations are affected. This can help you assign a priority to the problem.
 2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
@@ -56,7 +57,7 @@ The notifications include diagnostic information. Here's an example:
 
 Smart Detection notifications are enabled by default and sent to those who have [owners, contributors and readers access to the Application Insights resource](app-insights-resources-roles-access-control.md). To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
   
-  ![Smart Detection Settings](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Smart Detection Settings](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * You can use the **unsubscribe** link in the Smart Detection email to stop receiving the email notifications.
 
@@ -84,8 +85,8 @@ Emails about Smart Detections performance anomalies are limited to one email per
   * No.  We don't commit to detecting every behavior that you might consider abnormal.
 
 
-* *If I don't do anything in reponse to a notification, will I get a reminder?*
-  * No, you get a message about each issue only once. If the issue persist it will be updated in the Smart Detection feed blade.
+* *If I don't do anything in response to a notification, will I get a reminder?*
+  * No, you get a message about each issue only once. If the issue persists it will be updated in the Smart Detection feed blade.
 * *I lost the email. Where can I find the notifications in the portal?*
   * In the Application Insights overview of your app, click the **Smart Detection** tile. There you'll be able to find all notifications up to 90 days back.
 
@@ -129,7 +130,7 @@ The response time degradation notification tells you:
 * Links to help you diagnose the problem.
   * Profiler traces to help you view where operation time is spent (the link is available if Profiler trace examples were collected for this operation during the detection period). 
   * Performance reports in Metric Explorer, where you can slice and dice time range/filters for this operation.
-  * Search for this calls to view specific calls properties.
+  * Search for this call to view specific call properties.
   * Failure reports - If count > 1 this mean that there were failures in this operation that might have contributed to performance degradation.
 
 ## Dependency Duration Degradation
@@ -138,7 +139,7 @@ Modern application more and more adopt micro services design approach, which in 
 
 Example dependency degradation notification:
 
-![Here is an example of Dependency Duration Degradation detection](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Here is an example of Dependency Duration Degradation detection](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Notice that it tells you:
 
@@ -149,14 +150,14 @@ Notice that it tells you:
 * Links to help you diagnose the problem
   * Performance reports in Metric Explorer for this dependency
   * Search for this dependency calls to view calls properties
-  * Failure reports - If count > 1 this mean that there were failed dependency calls during the detection period that might have contributed to duration degradation. 
+  * Failure reports - If count > 1 this means that there were failed dependency calls during the detection period that might have contributed to duration degradation. 
   * Open Analytics with queries that calculate this dependency duration and count  
 
 ## Smart Detection of slow performing patterns 
 
-Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, notification about pages load is slowler on one type of browser than on other types of browsers, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
+Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, notification about pages load is slower on one type of browser than on other types of browsers, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
 
-Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it’s too late: the affected users are already switching to your competitors!
+Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it�s too late: the affected users are already switching to your competitors!
 
 Currently, our algorithms look at page load times, request response times at the server, and dependency response times.  
 

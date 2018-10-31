@@ -1,55 +1,68 @@
 ---
 title: Connect to Azure Government with SQL Server Management Studio | Microsoft Docs
-description: Information on managing your subscription in Azure Government by connecting with SSMS
+description: Manage your subscription in Azure Government by connecting with SSMS.
 services: azure-government
 cloud: gov
 documentationcenter: ''
 author: yujhongmicrosoft
 manager: zakramer
 
-ms.assetid: faf269aa-e879-4b0e-a5ba-d4110684616a
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/01/2017
+ms.date: 08/10/2018
 ms.author: yujhong
 ---
 
+# Develop with SQL Server Management Studio 
 
-# Connect to Azure Government with SQL Server Management Studio 
-To use SSMS with Azure Government, you need to specify Azure Government as the environment to connect to instead of Azure Public. 
-To connect to SQL Servers in your Azure Government subscription, you must configure SSMS to connect to the Azure Government cloud. 
+To use SQL Server Management Studio (SSMS) with Azure Government, specify Azure Government as the environment to connect to, rather than global Azure. To connect to computers that are running SQL Server in your Azure Government subscription, you must configure SSMS to connect to the Azure Government cloud. 
 
-For general information on SSMS, [navigate to the documentation](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+For general information about SSMS, see the [SSMS documentation](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-## Setting up Azure SQL Server Firewall Rule
-Before you connect to Azure Government from SSMS, you must **set up an Azure SQL Server Firewall rule** to allow your local IP address to access your Azure SQL Server. 
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
-Follow the steps for "Manage Firewall rules using the Azure Portal" [here](../sql-database/sql-database-firewall-configure.md#manage-firewall-rules-using-the-azure-portal). 
+## Prerequisites
 
-## Specifying Azure Government as the environment to connect to
-1. Open SSMS and navigate to **Tools -> Options -> Azure Services:**
+* Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
+* Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
 
-    ![img1](./media/documentation-government-connect-with-ssms-img1.png)
-2. Select the dropdown under **"Select an Azure Cloud"** and click on **"AzureUSGovernment":**
+## Set up an Azure SQL Server firewall rule
 
-    ![img2](./media/documentation-government-connect-with-ssms-img2.png)
+Before you connect to Azure Government from SSMS, you must set up an Azure SQL Server firewall rule to allow your local IP address to access your computer that's running SQL Server. 
 
-3. Navigate to **File -> Connect Object Explorer** and enter in your Azure SQL server name and authentication. 
+Follow these steps to [Manage firewall rules by using the Azure portal](../sql-database/sql-database-firewall-configure.md#manage-firewall-rules-using-the-azure-portal). 
+
+## Specify Azure Government as the environment to connect
+
+1. Open SSMS. Browse to **Tools** > **Options** > **Azure Services**.
+
+    ![SSMS Tools](./media/documentation-government-connect-with-ssms-img1.png)
+
+2. In the **Select an Azure Cloud** drop-down, select **AzureUSGovernment**.
+
+    ![SSMS Options](./media/documentation-government-connect-with-ssms-img2.png)
+
+3. Browse to **File** > **Connect Object Explorer**. Enter the name of your computer that's running SQL Server. Enter your authentication information. 
 
     >[!Note]
-    >Notice that the server name ends with ".usgovcloudapi.net"
+    >The name of the computer that's running SQL Server ends with **.usgovcloudapi.net**.
     >
     >
 
-    ![img3](./media/documentation-government-connect-with-ssms-img3.png)
+    ![Connect to a computer that's running SQL Server](./media/documentation-government-connect-with-ssms-img3.png)
 
-Now that you have completed the steps above, your SSMS is now connected to your Azure Government subscription.
+SSMS is now connected to your Azure Government subscription.
 
-## Next Steps
+## Get help and provide feedback
+
 * Read more about [Azure Storage](https://docs.microsoft.com/azure/storage/). 
-* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
-* Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/).
+* Get help on Stack Overflow by using the [`azure-gov`](https://stackoverflow.com/questions/tagged/azure-gov) tag.
+* Share feedback or request new features by using the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government).
+
+## Next steps
+
+[Develop with Visual Studio](documentation-government-get-started-connect-with-vs.md)

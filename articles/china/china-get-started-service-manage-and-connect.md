@@ -21,7 +21,7 @@ ms.author: v-wimarc
 Microsoft Azure operated by 21Vianet (Azure China 21Vianet) has unique URLs and endpoints for managing your environment. It's important to use the right connections to manage your environment. After you connect to the Azure environment, the normal operations for managing a service work if the component has been deployed.
 
 ## Connect by using the portal
-Access to applications and services on Microsoft Azure China 21Vianet is through the [Azure portal](https://portal.azure.cn/), an [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) platform.
+Access to applications and services on Microsoft Azure China 21Vianet is through the [Azure portal](https://portal.azure.cn/), an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) platform.
 
 ![Azure portal](media/china-get-started-service-manage-and-connect/azureportal.png)
 
@@ -49,6 +49,6 @@ Account administrators can create up to 199 co-administrator roles per subscript
 
 ## Next steps
 - [Azure portal](https://portal.azure.cn/)
-- [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)
+- [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 - [Account Center](https://account.windowsazure.cn/)
 

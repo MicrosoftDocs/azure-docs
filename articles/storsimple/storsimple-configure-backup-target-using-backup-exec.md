@@ -169,7 +169,7 @@ For a step-by-step StorSimple deployment guidance, see [Deploy your on-premises 
 
 ### Deploy Backup Exec
 
-For Backup Exec installation best practices, see [Best practices for Backup Exec installation](https://www.veritas.com/support/en_US/article.000068207).
+For Backup Exec installation best practices, see [Best practices for Backup Exec installation](https://www.veritas.com/content/support/en_US/doc/72686287-131623464-0/v70444238-131623464).
 
 ## Set up the solution
 

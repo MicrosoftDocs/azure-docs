@@ -1,9 +1,9 @@
-﻿---
+---
 title: Connect a Cloud Service to a custom Domain Controller | Microsoft Docs
 description: Learn how to connect your web/worker roles to a custom AD Domain using PowerShell and AD Domain Extension
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
@@ -30,7 +30,7 @@ Follow this step-by-step guide and if you run into any issues, leave us a commen
 The network that is referenced by the cloud service must be a **classic virtual network**.
 
 ## Create a Virtual Network
-You can create a Virtual Network in Azure using the Azure portal or PowerShell. For this tutorial, we will use PowerShell. To create a Virtual Network using the Azure portal, see [Create Virtual Network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+You can create a Virtual Network in Azure using the Azure portal or PowerShell. For this tutorial, PowerShell is used. To create a virtual network using the Azure portal, see [Create a virtual network](../virtual-network/quick-create-portal.md). The article covers creating a virtual network (Resource Manager), but you must create a virtual network (Classic) for cloud services. To do so, in the portal, select **Create a resource**, type *virtual network* in the **Search** box, and then press **Enter**. In the search results, under **Everything**, select **Virtual network**. Under **Select a deployment model**, select **Classic**, then select **Create**. You can then follow the steps in the article.
 
 ```powershell
 #Create Virtual Network

@@ -3,16 +3,17 @@ title: User retention analysis for web applications with Azure Application Insig
 description: How many users return to your app?
 services: application-insights
 documentationcenter: ''
-author: botatoes
+author: NumberByColors
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
-ms.author: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
 ---
 
 # User retention analysis for web applications with Application Insights
@@ -52,7 +53,7 @@ It's good practice to code custom events that represent key business actions, an
 
 Or in ASP.NET server code:
 
-```C#
+```csharp
    telemetry.TrackEvent("won game");
 ```
 

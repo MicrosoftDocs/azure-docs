@@ -4,10 +4,6 @@ description: This article lists Country/Region hierarchy used by Azure Traffic M
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid:
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -62,14 +58,6 @@ This article lists the countries and regions used by the **Geographic**  traffic
 		- FR(France)
 
 		- GB(United Kingdom)
-
-			- GB-ENG(England)
-
-			- GB-NIR(Northern Ireland)
-
-			- GB-SCT(Scotland)
-
-			- GB-WLS(Wales)
 
 		- GG(Guernsey)
 

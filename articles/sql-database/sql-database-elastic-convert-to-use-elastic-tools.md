@@ -2,20 +2,16 @@
 title: Migrate existing databases to scale out | Microsoft Docs
 description: Convert sharded databases to use elastic database tools by creating a shard map manager
 services: sql-database
-documentationcenter: ''
-author: ddove
-manager: jhubbard
-editor: ''
-
-ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
 ms.service: sql-database
-ms.custom: scale out apps
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: "Inactive"
-ms.date: 10/24/2016
-ms.author: ddove
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang:
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 
 ---
 # Migrate existing databases to scale out

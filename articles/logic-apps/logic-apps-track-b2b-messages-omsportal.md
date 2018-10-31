@@ -1,33 +1,26 @@
 ---
-title: Track B2B messages in Operations Management Suite - Azure Logic Apps | Microsoft Docs
-description: Track B2B communication for your integration account and logic apps in Operations Management Suite (OMS) with Azure Log Analytics
-author: padmavc
-manager: anneta
-editor: ''
+title: Track B2B messages with Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Track B2B communication for integration accounts and Azure Logic Apps with Azure Log Analytics
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 07/21/2017
-ms.author: LADocs; padmavc
+ms.date: 10/19/2018
 ---
 
-# Track B2B communication in the Microsoft Operations Management Suite (OMS)
+# Track B2B messages with Azure Log Analytics
 
-After you set up B2B communication between two running business processes 
-or applications through your integration account, 
-those entities can exchange messages with each other. 
-To check whether these messages are processed correctly, 
-you can track AS2, X12, and EDIFACT messages with 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
-in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
-For example, you can use these web-based tracking capabilities 
-for tracking messages:
+After you set up B2B communication between trading partners 
+in your integration account, those partners can exchange 
+messages with protocols such as AS2, X12, and EDIFACT. 
+To check that these messages are processed correctly, 
+you can track these messages with 
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
+For example, you can use these web-based tracking 
+capabilities for tracking messages:
 
 * Message count and status
 * Acknowledgments status
@@ -35,84 +28,96 @@ for tracking messages:
 * Detailed error descriptions for failures
 * Search capabilities
 
-## Requirements
+> [!NOTE]
+> This page previously described steps for how to perform these tasks 
+> with the Microsoft Operations Management Suite (OMS), which is 
+> [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> replaces those steps with Azure Log Analytics instead. 
 
-* A logic app that's set up with diagnostics logging. 
-Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
+## Prerequisites
+
+* A logic app that's set up with diagnostics logging. Learn 
+[how to create a logic app](quickstart-create-first-logic-app-workflow.md) 
 and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* An integration account that's set up with monitoring and logging. 
-Learn [how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+* An integration account that's set up with monitoring and logging. Learn 
+[how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) in OMS.
+* If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-> [!NOTE]
-> After you've met the previous requirements, 
-> you should have a workspace in the 
-> [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
-> You should use the same OMS workspace for tracking 
-> your B2B communication in OMS. 
->  
-> If you don't have an OMS workspace, 
-> learn [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
+* After you meet the previous requirements, you also need a Log Analytics workspace, 
+which you use for tracking B2B communication through Log Analytics. 
+If you don't have a Log Analytics workspace, learn 
+[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## Add the Logic Apps B2B solution to the Operations Management Suite (OMS)
+## Install Logic Apps B2B solution
 
-To have OMS track B2B messages for your logic app, 
-you must add the **Logic Apps B2B** solution to the OMS portal. 
-Learn more about [adding solutions to OMS](../log-analytics/log-analytics-get-started.md).
+Before you can have Log Analytics track B2B messages for your logic app, 
+add the **Logic Apps B2B** solution to Log Analytics. Learn more about 
+[adding solutions to Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
-Search for "log analytics", and then choose **Log Analytics** as shown here:
+1. In the [Azure portal](https://portal.azure.com), 
+select **All services**. In the search box, 
+find "log analytics", and select **Log Analytics**.
 
-   ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![Select Log Analytics](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
-2. Under **Log Analytics**, find and select your OMS workspace. 
+1. Under **Log Analytics**, find and 
+select your Log Analytics workspace. 
 
-   ![Select your OMS workspace](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Select Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-3. Under **Management**, choose **OMS Portal**.
+1. Under **Get started with Log Analytics** > **Configure monitoring solutions**, 
+choose **View solutions**.
 
-   ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Choose "View solutions"](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
-4. After the OMS home page opens, choose **Solutions Gallery**.    
+1. On the Overview page, choose **Add**, 
+which opens the **Management Solutions** list. 
+From that list, select **Logic Apps B2B**. 
 
-   ![Choose Solutions Gallery](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
+   ![Select Logic Apps B2B solution](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-5. Under **All solutions**, find and choose **Logic Apps B2B**.     
+   If you can't find the solution, at the bottom of the list, 
+   choose **Load more** until the solution appears.
 
-   ![Choose Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
+1. Choose **Create**, confirm the Log Analytics 
+workspace where you want to install the solution, 
+and then choose **Create** again.   
 
-6. Under **Logic Apps B2B**, choose **Add**.
+   ![Choose "Create" for Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
-   ![Choose Add](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+   If you don't want to use an existing workspace, 
+   you can also create a new workspace at this time.
 
-   On the OMS home page, the tile for **Logic Apps B2B Messages** now appears. 
-   This tile updates the message count when your B2B messages are processed.
+1. When you're done, go back to your workspace's **Overview** page. 
 
-   ![OMS home page, Logic Apps B2B Messages tile](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   The Logic Apps B2B solution now appears on the Overview page. 
+   When B2B messages are processed, the message count on this page is updated.
 
 <a name="message-status-details"></a>
 
-## Track message status and details in the Operations Management Suite
+## View B2B message information
 
-1. After your B2B messages are processed, 
-you can view the status and details for those messages. 
-On the OMS home page, choose the **Logic Apps B2B Messages** tile.
+After B2B messages are processed, you can view 
+the status and details for those messages on the 
+**Logic Apps B2B** tile.
 
-   ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+1. Go to your Logic Analytics workspace, and open the Overview page. 
+Choose **Logic Apps B2B**.
+
+   ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > By default, the **Logic Apps B2B Messages** tile 
+   > By default, the **Logic Apps B2B** tile 
    > shows data based on a single day. 
    > To change the data scope to a different interval, 
-   > choose the scope control at the top of the OMS page:
+   > choose the scope control at the top of the page:
    > 
-   > ![Change data scope](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
-   >
+   > ![Change interval](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-2. After the message status dashboard appears, 
+1. After the message status dashboard appears, 
 you can view more details for a specific message type, 
 which shows data based on a single day. 
 Choose the tile for **AS2**, **X12**, or **EDIFACT**.
@@ -272,7 +277,7 @@ Here are the name formats for each downloaded EDIFACT message folder and files.
 
 ## Next steps
 
-* [Query for B2B messages in Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Query for B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 tracking schemas](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

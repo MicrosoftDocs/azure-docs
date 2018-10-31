@@ -3,7 +3,7 @@ title: Overview of the Azure Relay Node APIs | Microsoft Docs
 description: Relay Node API overview
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm
+ms.date: 01/23/2018
+ms.author: spelluru
 ---
 
 # Relay Hybrid Connections Node API overview

@@ -4,17 +4,18 @@ description: How to create text analytics models in Azure Machine Learning Studi
 services: machine-learning
 documentationcenter: ''
 author: rastala
-manager: jhubbard
+ms.author: roastala
+manager: cgronlun
 editor: ''
 
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
-ms.author: roastala
+ms.date: 03/14/2018
 
 ---
 # Create text analytics models in Azure Machine Learning Studio
@@ -30,7 +31,7 @@ In a text analytics experiment, you would typically:
 
 In this tutorial, you learn these steps as we walk through a sentiment analysis model using Amazon Book Reviews dataset (see this research paper “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.) This dataset consists of review scores (1-2 or 4-5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
 
-You can find experiments covered in this tutorial at Cortana Intelligence Gallery:
+You can find experiments covered in this tutorial at Azure AI Gallery:
 
 [Predict Book Reviews](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

@@ -3,15 +3,11 @@ title: Versioning in Durable Functions - Azure
 description: Learn how to implement versioning in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
@@ -122,11 +118,23 @@ The task hub can be configured in the *host.json* file as follows:
 
 ```json
 {
-    "durableTask": {
-        "HubName": "MyTaskHubV2"
+    "extensions": {
+        "durableTask": {
+            "HubName": "MyTaskHubV2"
+        }
     }
 }
 ```
+
+> [!NOTE]
+> For V1 Functions, *host.json* should be configured like this instead
+>```json
+>{
+>    "durableTask": {
+>        "HubName": "MyTaskHubV2"
+>    }
+>}
+>```
 
 The default value is `DurableFunctionsHub`.
 

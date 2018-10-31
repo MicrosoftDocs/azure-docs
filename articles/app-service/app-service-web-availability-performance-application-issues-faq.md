@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -94,7 +94,7 @@ By default, web apps are unloaded if they are idle for a set period of time. Thi
 2. Select **Application settings**.
 3. For **Always On**, select **On**.
 
-## How do I turned on failed request tracing?
+## How do I turn on failed request tracing?
 
 To turn on failed request tracing:
 
@@ -155,7 +155,7 @@ Also note that a 64-bit environment requires a Basic or Standard service plan. F
 
 For more information, see [Configure web apps in App Service](web-sites-configure.md).
 
-## Why does my request time out after 240 seconds?
+## Why does my request time out after 230 seconds?
 
 Azure Load Balancer has a default idle timeout setting of four minutes. This is generally a reasonable response time limit for a web request. If your web app requires background processing, we recommend using Azure WebJobs. The Azure web app can call WebJobs and be notified when background processing is finished. You can choose from multiple methods for using WebJobs, including queues and triggers.
 
@@ -172,7 +172,7 @@ This issue is fixed in Kestrel version 1.0.2. This version is included in the AS
 
 If you use the Local Cache feature of App Service, the folder structure of the LogFiles and Data folders for your App Service instance are affected. When Local Cache is used, subfolders are created in the storage LogFiles and Data folders. The subfolders use the naming pattern "unique identifier" + time stamp. Each subfolder corresponds to a VM instance in which the web app is running or has run.
 
-To determine whether you are using Local Cache, check your App Service **Application settings** tab. If Local Cache is being used, the app setting `WEBSITE_LOCAL_CACHE_OPTION` is set to `Always`. 
+To determine whether you are using Local Cache, check your App Service **Application settings** tab. If Local Cache is being used, the app setting `WEBSITE_LOCAL_CACHE_OPTION` is set to `Always`.
 
 If you are not using Local Cache and are experiencing this issue, submit a support request.
 

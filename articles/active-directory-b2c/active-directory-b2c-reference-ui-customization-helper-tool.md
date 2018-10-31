@@ -1,22 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Page UI customization helper tool | Microsoft Docs'
-description: A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C
+title: Page UI customization helper tool in Azure Active Directory B2C | Microsoft Docs
+description: A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: davidmu1
+manager: mtillman
 
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
-ms.author: swkrish
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature
 This article is a companion to the [main UI customization article](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. The following steps describe how to exercise the page UI customization feature by using sample HTML and CSS content that we've provided.
 
@@ -29,7 +25,7 @@ The sample content we've provided can be used to customze two pages in a [sign-u
 ## Register an application
 You will need to [register an application](active-directory-b2c-app-registration.md) in your B2C tenant that can be used to execute your policy. After registering your application, you have a few options that you can use to actually run your sign-up policy:
 
-* Build one of the Azure AD B2C quick-start applications listed in the "Get started" section of [Sign up and sign in consumers in your applications](active-directory-b2c-overview.md#get-started).
+* Build one of the Azure AD B2C quick-start applications listed in the "Get started" section of [Sign up and sign in consumers in your applications](active-directory-b2c-overview.md).
 * Use the pre-built [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) application. If you choose to use the playground, you must register an application in your B2C tenant using the **redirect URI** `https://aadb2cplayground.azurewebsites.net/`.
 * Use the **Run Now** button on your policy in the [Azure portal](https://portal.azure.com/).
 
@@ -39,7 +35,7 @@ To customize the look and feel of your policy, you need to first create HTML and
 For the purposes of this tutorial, we've already created some sample content and hosted it on Azure Blob Storage. The sample content is a very basic customization in the theme of our fictional company, "Wingtip Toys". To try it out in your own policy, follow these steps:
 
 1. Sign in to your tenant on the [Azure portal](https://portal.azure.com/) and navigate to the B2C features blade.
-2. Click **Sign-up or sign-in policies** and then click your policy (for example, "b2c\_1\_sign\_up\_sign\_in").
+2. Click **Sign-up or sign-in policies**, click your policy and click on Edit (for example, "b2c\_1\_sign\_up\_sign\_in").
 3. Click **Page UI customization** and then **Unified sign-up or sign-in page**.
 4. Toggle the **Use custom page** switch to **Yes**. In the **Custom page URI** field, enter `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Click **OK**.
 5. Click **Local account sign-up page**. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
@@ -74,7 +70,7 @@ You can download the [Azure Blob Storage helper tool and sample files as a .zip 
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-This repository contains a `sample_templates\wingtip` directory, which contains example HTML, CSS, and images. For these templates to reference your own Azure Blob Storage account, you will need to edit the HTML files. Open `unified.html` and `selfasserted.html` and replace any instances of `https://localhost` with the URL of your own container that you wrote down in the previous steps. You must use the absolute path of the HTML files because in this case, the HTML will be served by Azure AD, under the domain `https://login.microsoftonline.com`.
+This repository contains a `sample_templates\wingtip` directory, which contains example HTML, CSS, and images. For these templates to reference your own Azure Blob Storage account, you will need to edit the HTML files. Open `unified.html` and `selfasserted.html` and replace any instances of `https://localhost` with the URL of your own container that you wrote down in the previous steps. You must use the absolute path of the HTML files because in this case, the HTML will be served by Azure AD, under the domain `tenantname.b2clogin.com`.
 
 ### Upload the sample files
 In the same repository, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureStorageClient.exe` file within. This program will simply upload all the files in the directory that you specify to your storage account, and enable CORS access for those files. If you followed the steps above, the HTML and CSS files will now be pointing to your storage account. Note that the name of your storage account is the part that precedes `blob.core.windows.net`; for example, `contoso`. You can verify that the content has been uploaded correctly by trying to access `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` on a browser. Also use [http://test-cors.org/](http://test-cors.org/) to make sure that the content is now CORS enabled. (Look for "XHR status: 200" in the result.)

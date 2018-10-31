@@ -1,23 +1,17 @@
 ---
-title: 'Get started with U-SQL language | Microsoft Docs'
-description: Learn the basics of the U-SQL language.
+title: Get started with U-SQL language in Azure Data Lake Analytics
+description: Learn the basics of the U-SQL language in Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
-
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
-ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/23/2017
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
+ms.service: data-lake-analytics
+ms.topic: conceptual
+ms.date: 06/23/2017
 ---
-# Get started with U-SQL
+# Get started with U-SQL in Azure Data Lake Analytics
 U-SQL is a language that combines declarative SQL with imperative C# to let you process data at any scale. Through the scalable, distributed-query capability of U-SQL, you can efficiently analyze data across relational stores such as Azure SQL Database. With U-SQL, you can process unstructured data by applying schema on read and inserting custom logic and UDFs. Additionally, U-SQL includes extensibility that gives you fine-grained control over how to execute at scale. 
 
 ## Learning resources
@@ -223,8 +217,8 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-For advanced aggregation scenarios, see the The U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+For advanced aggregation scenarios, see the U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Develop U-SQL scripts by using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
