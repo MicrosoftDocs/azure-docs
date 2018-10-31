@@ -59,4 +59,4 @@ The Web Search API returns results that include webpages and may include images,
 If you specify the `responseFilter` query parameter and do not include Webpages in the filter list, don't use the `count` and `offset` parameters. 
 
 > [!NOTE]
-> The `TotalEstimatedAnswers` field is an estimate.  When you set `count` and `offset` parameters the `TotalEstimatedAnswers` number may change.  Paging through results will require limits that correspond to the `TotalEstimatesAnswers` field.
+> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 
