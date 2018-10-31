@@ -71,7 +71,7 @@ If your Azure AD tenant is the home directory for a user, you can [reset the use
  
 * Guest users who sign in with a Microsoft account (for example guestuser@live.com) can reset their own passwords using Microsoft account self-service password reset (SSPR). See [How to reset your Microsoft account password](https://support.microsoft.com/en-us/help/4026971/microsoft-account-how-to-reset-your-password).
 * Guest users who sign in with a Google account or another external identity provider can reset their own passwords using their identity provider’s SSPR method. For example, a guest user with the Google account guestuser@gmail.com can reset their password by following the instructions in [Change or reset your password](https://support.google.com/accounts/answer/41078).
-* If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it’s a separate, unmanaged Azure tenant), only the user or an administrator in the user’s home Azure tenant can reset the user's password.
+* If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password.
 * If the guest user's home directory is your Azure AD tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Azure portal.
 
 ### Does Microsoft Dynamics 365 provide online support for Azure AD B2B collaboration?
@@ -104,7 +104,7 @@ If the partner has an Azure AD tenant that is federated to the on-premises authe
 We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used isn't a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Azure Active Directory](compare-with-b2c.md).
 
 ### What applications and services support Azure B2B guest users?
-All Azure AD-integrated applications support Azure B2B guest users. 
+All Azure AD-integrated applications can support Azure B2B guest users, but they must use a tenanted endpoint to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
 
 ### Can we force multi-factor authentication for B2B guest users if our partners don't have multi-factor authentication?
 Yes. For more information, see [Conditional access for B2B collaboration users](conditional-access.md).
