@@ -138,6 +138,8 @@
       href: how-to-connect-azureadaccount.md
     - name: Change the AD DS Connector account password
       href: how-to-connect-sync-change-addsacct-pass.md
+    - name: What is the ADConnectivityTools PowerShell module?
+      href: how-to-connect-adconnectivitytools.md
   - name: Manage Federation Services
     items:
     - name: What is federation with Azure AD Connect?
@@ -290,3 +292,11 @@
     href: reference-connect-sync-functions-reference.md
   - name: Azure AD federation compatibility list
     href: how-to-connect-fed-compatibility.md
+  - name: TLS 1.2 enforcement
+    href: reference-connect-tls-enforcement.md
+  - name: ADSyncConfig Reference
+    href: reference-connect-adsyncconfig.md
+  - name: ADSyncTools Reference
+    href: reference-connect-adsynctools.md
+  - name: ADConnectivityTools Reference
+    href: reference-connect-adconnectivitytools.md
