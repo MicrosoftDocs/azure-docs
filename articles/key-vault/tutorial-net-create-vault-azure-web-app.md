@@ -1,5 +1,5 @@
 ---
-title: Tutorial: How to use Azure Key Vault with Azure Web App in .NET | Microsoft Docs
+title: Tutorial - How to use Azure Key Vault with Azure Web App in .NET | Microsoft Docs
 description: Tutorial Configure an ASP.Net core application to read a secret from Key vault
 services: key-vault
 documentationcenter: 
