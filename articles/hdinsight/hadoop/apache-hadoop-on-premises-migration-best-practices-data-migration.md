@@ -94,14 +94,14 @@ The hive metastore can be migrated either by using the scripts or by using the D
 
 #### Hive metastore migration using scripts
 
-- Generate the Hive DDLs from on-prem Hive metastore. This step can be done using a [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-- Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS urls
-- Run the updated DDL on the metastore from the HDI cluster
-- Make sure that the Hive metastore version is compatible between on-premises and cloud
+1. Generate the Hive DDLs from on-prem Hive metastore. This step can be done using a [wrapper bash script].(https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
+1. Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS URLs
+1. Run the updated DDL on the metastore from the HDInsight cluster
+1. Make sure that the Hive metastore version is compatible between on-premises and cloud
 
 #### Hive metastore migration using DB replication
 
-- Set up Database Replication between on-premises Hive metastore DB and HDI metastore DB
+- Set up Database Replication between on-premises Hive metastore DB and HDInsight metastore DB
 - Use the "Hive MetaTool" to replace HDFS url with WASB/ADLS/ABFS urls, for example:
 
 ```bash
@@ -110,9 +110,9 @@ The hive metastore can be migrated either by using the scripts or by using the D
 
 ### Ranger
 
-- Export on-premises Ranger policies to xml files
-- Transform on-prem specific HDFS-based paths to WASB/ADLS using a tool like XSLT
-- import the policies on to Ranger running on HDI
+- Export on-premises Ranger policies to xml files.
+- Transform on-prem specific HDFS-based paths to WASB/ADLS using a tool like XSLT.
+- Import the policies on to Ranger running on HDInsight.
 
 ## Next steps
 

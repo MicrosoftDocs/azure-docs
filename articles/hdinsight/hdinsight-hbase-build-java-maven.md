@@ -21,7 +21,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 > The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Requirements
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later
+* [Java platform JDK](https://aka.ms/azure-jdks) 7 or later
 * [Maven](http://maven.apache.org/)
 * A Windows-based HDInsight cluster with HBase
 

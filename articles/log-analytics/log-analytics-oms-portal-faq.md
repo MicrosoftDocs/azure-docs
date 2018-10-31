@@ -28,7 +28,7 @@ No. There are no changes being made to Log Analytics itself, so there is nothing
 ## Where do I find Log Analytics in Azure?
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).  Click **All services**, and in the list of resources, type **Log Analytics**. Select **Log Analytics** and then select your workspace. The summary page for the workspace is displayed.
 
-![Log Analytics workspace](media/log-analytics-new-portal/log-analytics.png)
+![Log Analytics workspace](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## How do I manage permissions?
 If you don't have access to your Log Analytics workspace in the Azure portal, you need to configure your permissions using [Azure role-based access](../active-directory/role-based-access-control-configure.md). For details on managing workspace permissions, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). For information on managing permissions for alerts, see [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
@@ -36,12 +36,12 @@ If you don't have access to your Log Analytics workspace in the Azure portal, yo
 ## How do I create a new workspace? 
 From the list of workspaces in the Azure portal, click **Add** in the list of workspaces.  For complete details, see [Create a Log Analytics workspace in the Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 
-![Overview page](media/log-analytics-new-portal/new-workspace.png)
+![Overview page](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## Where is my overview page?
 The main screen in the OMS portal displays the tiles for all the management solutions installed in your workspace and any custom views that you've created. This same view is available in the Azure portal. From your workspace, select **Workspace Summary**.
 
-![Overview page](media/log-analytics-new-portal/overview.png)
+![Overview page](media/log-analytics-oms-portal-faq/overview.png)
 
 ## How do I open Log Search and View Designer?
 Both **Log Search** and **View Designer** are available on the main page and in the left menu of your workspace in the Azure portal, right next to **Overview**.
@@ -49,7 +49,7 @@ Both **Log Search** and **View Designer** are available on the main page and in 
 ## Where do I find settings?
 Many of the settings in the **Settings** section of the OMS portal are available in the **Advanced settings** menu in the Azure portal for the workspace.
 
-![Advanced settings](media/log-analytics-new-portal/advanced-settings.png)
+![Advanced settings](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 The following sections provide a complete list of how you can access settings that were previously available in the **Settings** section of the OMS portal.
 
@@ -114,7 +114,7 @@ The [My Dashboard](../log-analytics/log-analytics-dashboards.md) feature in Log 
 ## How do I check my usage?
 You can now easily view and manage your usage and cost of Log Analytics by selecting **Usage and estimated costs** in your workspace.
 
-![Usage and estimated costs](media/log-analytics-new-portal/usage.png)
+![Usage and estimated costs](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## Can I still use the classic portal?
