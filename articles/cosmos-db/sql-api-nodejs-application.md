@@ -22,7 +22,7 @@ ms.author: sngun
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-This Node.js tutorial shows you how to store and access data from Azure Cosmos DB SQL API account by using a Node.js Express application that is hosted on Azure Websites. In this tutorial, you will build a simple web-based application (Todo app), that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. 
+This Node.js tutorial shows you how to store and access data from Azure Cosmos DB SQL API account by using a Node.js Express application that is hosted on Azure Websites. In this tutorial, you will build a web-based application (Todo app), that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. 
 
 This tutorial demonstrates how to create an Azure Cosmos DB SQL API account by using the Azure portal. You then build and run a web app that is built on the Node.js SDK to create database, container, and add items to the container. This tutorial uses JavaScript SDK version 2.0.
 
@@ -31,14 +31,14 @@ You can also get the completed sample from [GitHub][GitHub] and see the [Readme]
 ## <a name="_Toc395783176"></a>Prerequisites
 
 Before following the instructions in this article, ensure
-that you have the following:
+that you have the following resources:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] version 6.10 or higher.
-* [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
+* [Express generator](http://www.expressjs.com/starter/generator.html) (you can install Express via `npm install express-generator -g`)
 * Install [Git][Git] on your local workstation.
 
 ## <a name="_Toc395637761"></a>Step 1: Create an Azure Cosmos DB account
@@ -82,7 +82,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
 
 ## <a name="_Toc395783179"></a>Step 3: Install the required modules
 
-The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. You need to install two more packages for this tutorial.
+The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. Install two more packages for this tutorial.
 
 1. Open the terminal, install the **async** module via npm.
 
@@ -351,11 +351,11 @@ Now that you have completed the initial setup and configuration, next you will w
 
 ## <a name="_Toc395783181"></a>Step 5: Build a user interface
 
-Now let’s build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine. For more information on Jade, please see [Jade language](http://jade-lang.com/).
+Now let’s build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine. For more information on Jade, see [Jade language](http://jade-lang.com/).
 
 1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit used to design a website.  
 
-2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following:
+2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following code:
 
    ```html
    doctype html
@@ -419,11 +419,11 @@ Now let’s build the user interface so that a user can interact with the applic
           button.btn(type="submit") Add item
    ```
 
-This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier. In this layout, we created two HTML forms.
+This code extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier. In this layout, we created two HTML forms.
 
 The first form contains a table for your data and a button that allows you to update items by posting to **/completeTask** method of the controller.
     
-The second form contains two input fields and a button that allows you to create a new item by posting to **/addtask** method of the controller. This is all we need for theapplication to work.
+The second form contains two input fields and a button that allows you to create a new item by posting to **/addtask** method of the controller. That's all we need for the application to work.
 
 ## <a name="_Toc395783181"></a>Step 6: Run your application locally
 
@@ -434,7 +434,7 @@ The second form contains two input fields and a button that allows you to create
     > [!TIP]
     > If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files is left justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, then refresh your browser window. 
 
-2. Use the Item, Item Name, and Category fields to enter a new task and then select **Add Item**. This creates a document in Azure Cosmos DB with those properties. 
+2. Use the Item, Item Name, and Category fields to enter a new task and then select **Add Item**. It creates a document in Azure Cosmos DB with those properties. 
 
 3. The page should update to display the newly created item in the ToDo
    list.
@@ -442,13 +442,13 @@ The second form contains two input fields and a button that allows you to create
     ![Screenshot of the application with a new item in the ToDo list](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
 
 4. To complete a task, check the checkbox in the Complete column,
-   and then select **Update tasks**. This updates the document you already created and removes it from the view.
+   and then select **Update tasks**. It updates the document you already created and removes it from the view.
 
 5. To stop the application, press CTRL+C in the terminal window and then select **Y** to terminate the batch job.
 
 ## <a name="_Toc395783182"></a>Step 7: Deploy your application to Azure Websites
 
-1. If you haven't already done, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Local Git Deployment to Azure App Service](../app-service/app-service-deploy-local-git.md) topic.
+1. If you haven't already done, enable a git repository for your Azure Website. You can find instructions on how to enable a git repository in the [Local Git Deployment to Azure App Service](../app-service/app-service-deploy-local-git.md) topic.
 
 2. Add your Azure Website as a git remote.
    
