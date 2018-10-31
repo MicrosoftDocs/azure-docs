@@ -79,7 +79,6 @@ If you wish to customize and share the report, create a workspace and do the fol
 1. [Sign in](https://powerbi.microsoft.com/landing/signin/) to Power BI.
 2. Select **Get Data**. In the **More ways to create your own content**, select **Service content packs**. Follow the steps in the [Power BI documentation to connect to a service](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
-     ![Import content pack](./media/backup-azure-configure-reports/content-pack-import.png)
 3. In the **Search** bar, enter **Azure Backup** and select **Get it now**.
 
       ![Get content pack](./media/backup-azure-configure-reports/content-pack-get.png)
