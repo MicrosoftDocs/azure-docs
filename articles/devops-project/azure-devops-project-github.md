@@ -22,7 +22,7 @@ monikerRange: 'vsts'
 
 # Tutorial: Create a CI/CD pipeline for your existing code with Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repository. Or you can choose from the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
 
 You will:
 
@@ -41,10 +41,12 @@ You will:
 
 ## Sign in to the Azure portal
 
-Azure DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new Azure DevOps organization or use an **existing organization**. The Azure DevOps Project also creates **Azure resources** in the **Azure subscription** of your choice.
+Azure DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new Azure DevOps organization or use an existing organization. The Azure DevOps Project also creates Azure resources in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. In the left pane, select **New**.
+
 1. In the search box, type **DevOps Project**, and then select **Create**.
 
    	![The Dashboard](_img/azure-devops-project-github/fullbrowser.png)
@@ -68,9 +70,10 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a
 1. Create a new Azure DevOps organization or choose an existing organization.
 
 	a. Enter a name for your project in Azure DevOps. 
+	
 	b. Select your Azure subscription and location, enter a name for your application, and then select **Done**.
 
-	In a few minutes, the Azure DevOps Project dashboard is displayed in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your GitHub code repository, the Azure DevOps CI/CD pipeline, and your application in Azure. 
+	After a few minutes, the Azure DevOps Project dashboard is displayed in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your GitHub code repository, the Azure DevOps CI/CD pipeline, and your application in Azure. 
 	
 1. Select **Browse** to view your running application.
 
@@ -82,10 +85,10 @@ Azure DevOps Projects automatically configures a CI build and release trigger. Y
 
 You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the GitHub repo starts a build in Azure DevOps, and an Azure DevOps CD pipeline executes a deployment to Azure.
 
-1.	Make a change to your application, and then commit the change to your GitHub repository.  
-	In a few moments, a build starts in Azure DevOps. You can monitor the build status with the Azure DevOps Projects dashboard or monitor the status in the browser with your Azure DevOps organization.
+1. Make a change to your application, and then commit the change to your GitHub repository.  
+	After a few moments, a build starts in Azure DevOps. You can monitor the build status in the Azure DevOps Projects dashboard or you can monitor it in the browser with your Azure DevOps organization.
 
-1.	After the build is completed, verify your changes by refreshing your application in the browser.
+1. After the build is completed, verify your changes by refreshing your application.
 
 ## Examine the Azure DevOps CI/CD pipeline
 
@@ -167,7 +170,7 @@ With Azure Application insights, you can easily monitor your application's perfo
 	Optionally, you can perform additional actions when an alert is displayed by executing an Azure logic app.
 
 1. Select **OK** to create the alert.  
-	In a few moments, the alert appears as active on the dashboard.
+	After a few moments, the alert appears as active on the dashboard.
 	
 1. Exit the **Alerts** area, and go back to the **Application Insights** pane.
 
