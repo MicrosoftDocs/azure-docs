@@ -1,6 +1,6 @@
 ---
-title: Store state in an Azure Service Fabric Mesh application by mounting an Azure Files based volume inside the container  | Microsoft Docs
-description: Learn how to store state in an Azure Service Fabric Mesh application by mounting an Azure Files based volume inside the container using the Azure CLI.
+title: Use an Azure Files based volume in a Service Fabric Mesh application | Microsoft Docs
+description: Learn how to store state in an Azure Service Fabric Mesh application by mounting an Azure Files based volume inside a service using the Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
@@ -12,7 +12,7 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2018
+ms.date: 10/31/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
