@@ -25,17 +25,17 @@ ms.reviewer: jsimmons
 
 We have not announced a GA date yet.
 
-## 2. Can DC agents in one forest use a proxy registered in a different, trusted forest?
+## 2. Can DC agents in one forest use a proxy registered in another forest?
 
-No. All Azure AD password protection components installed in a given forest are unaware of Azure AD password protection components installed in other forests, regardless of trust relationships.
+No. All Azure AD password protection components installed in one forest are unaware of components installed in other forests, regardless of trust relationships.
 
 ## 3. Why is DFSR required for sysvol replication?
 
-NT FRS (the predecessor technology to DFSR) has many known problems and is entirely unsupported in newer versions of Windows Server. Zero testing of Azure AD password protection will be done on NTFRS-configured domains. Installation of Azure AD password protection in domains that are using NTFRS may be explicitly blocked in a future release.
+NT FRS (the predecessor technology to DFSR) has many known problems and is entirely unsupported in newer versions of Windows Server. Zero testing of Azure AD password protection will be done on NTFRS-configured domains.
 
-## 4. Is there any way to apply Azure AD password protection benefits to a subset of my on-premises users?
+## 4. How can I apply Azure AD password protection benefits to a subset of my on-premises users?
 
-No. Once deployed and enabled, Azure AD password protection provides equal security benefits to all users.
+Not supported. Once deployed and enabled, Azure AD password protection provides equal security benefits to all users.
 
 ## 5. Is there any way to configure a DC agent to use a specific proxy server?
 
@@ -48,3 +48,7 @@ Yes. Support for multiple registered password filter dlls is a core Windows feat
 ---
 If you have an on-premises Azure AD password protection question that isn't answered here, submit a  Feedback item below - thank you!
 ---
+
+## Next steps
+
+[Deploy Azure AD password protection](howto-password-ban-bad-on-premises-deploy.md)

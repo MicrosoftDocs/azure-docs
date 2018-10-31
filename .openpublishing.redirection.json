@@ -29020,12 +29020,12 @@
         },
         {
             "source_path": "articles/active-directory/authentication/howto-password-ban-bad-on-premises.md",
-            "redirect_url": "articles/active-directory/authentication/howto-password-ban-bad-on-premises-deploy.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy",
             "redirect_document_id" : false
         },
         {
             "source_path": "articles/active-directory/authentication/howto-password-ban-bad.md",
-            "redirect_url": "articles/active-directory/authentication/howto-password-ban-bad-configure.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-password-ban-bad-configure",
             "redirect_document_id" : false
         },
         {

@@ -5,7 +5,7 @@ description: Deploy the Azure AD password protection preview to ban bad password
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/30/2018
 
 ms.author: joflore

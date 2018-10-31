@@ -116,7 +116,7 @@
       - name: Frequently asked questions
         href: howto-password-ban-bad-on-premises-faq.md
       - name: On-premises agent version history
-        href: howto-password-ban-bad-on-premises-agentversions.md
+        href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Windows Hello for Business

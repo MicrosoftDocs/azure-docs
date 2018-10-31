@@ -28,7 +28,7 @@ Release date: 8/17/2018
 Fixes:
 
 * Register-AzureADPasswordProtectionProxy and Register-AzureADPasswordProtectionForest now support multi-factor authentication
-* Register-AzureADPasswordProtectionProxy now checks for the presence of a WS2012 or later domain controller in the domain to avoid encryption errors.
+* Register-AzureADPasswordProtectionProxy requires a WS2012 or later domain controller in the domain to avoid encryption errors.
 * DC agent service is more reliable about requesting a new password policy from Azure on startup.
 * DC agent service will request a new password policy from Azure every hour if necessary, but will now do so on a randomly selected start time.
 * DC agent service will no longer cause an indefinite delay in new DC advertisement when installed on a server prior to its promotion as a replica.
@@ -36,7 +36,7 @@ Fixes:
 * Both DC agent and proxy installers will now support in-place upgrade when upgrading to future versions.
 
 > [!WARNING]
-> In-place upgrade from version 1.1.10.3 is not supported and will result in an installation error. To upgrade to version 1.2.10 or later, you must first completely uninstall the DC agent and proxy service software, then install the new version from scratch. Re-registration of the Azure AD password protection Proxy service is required.  It is not required to re-register the forest.  
+> In-place upgrade from version 1.1.10.3 is not supported and will result in an installation error. To upgrade to version 1.2.10 or later, you must first completely uninstall the DC agent and proxy service software, then install the new version from scratch. Re-registration of the Azure AD password protection Proxy service is required.  It is not required to re-register the forest.
 
 > [!NOTE]
 > In-place upgrades of the DC agent software will require a reboot.
@@ -50,3 +50,7 @@ Fixes:
 Release date: 6/15/2018
 
 Initial public preview release
+
+## Next steps
+
+[Deploy Azure AD password protection](howto-password-ban-bad-on-premises-deploy.md)
