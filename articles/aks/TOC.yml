@@ -47,8 +47,10 @@
   - name: Clusters and workloads
     href: concepts-clusters-workloads.md
     items:
-    - name: Best practices
-      href: best-practices-cluster-isolation-resource-management.md
+    - name: Cluster operator best practices
+      href: operator-best-practices-cluster-isolation-resource-management.md
+    - name: Application developer best practices
+      href: developer-best-practices-cluster-isolation-resource-management.md
   - name: Access and identity
     href: concepts-identity.md
   - name: Security
