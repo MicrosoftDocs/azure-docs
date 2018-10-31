@@ -65,20 +65,20 @@
 ## Monitor
 ### [Monitor cloud service](cloud-services-how-to-monitor.md)
 ### [Use performance counters](diagnostics-performance-counters.md)
-### [Test performance](/visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services)
-#### [Test with Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
+### [Test the performance of a cloud service >](/visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services)
+### [Test performance with Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Enable diagnostics
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
-#### [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+#### [Visual Studio >](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 ### [Store and view diagnostic data in Azure Storage](../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json )
 ### [Trace Cloud Service with Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
 
 ## Troubleshoot
 ### Debug 
-#### [Options for a Cloud Service](/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview)
-#### [Local Cloud Service with Visual Studio](/visualstudio/azre/vs-azure-tools-debug-cloud-services-virtual-machines)
-#### [Published Cloud Service with Visual Studio](/visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services)
+#### [Options for a Cloud Service >](/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview)
+#### [Local Cloud Service with Visual Studio >](/visualstudio/azre/vs-azure-tools-debug-cloud-services-virtual-machines)
+#### [Published Cloud Service with Visual Studio >](/visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services)
 ### [Cloud Service allocation failure](cloud-services-allocation-failures.md)
 ### [Common causes of Cloud Service roles recycling](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 ### [Default TEMP folder size too small for role](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)
