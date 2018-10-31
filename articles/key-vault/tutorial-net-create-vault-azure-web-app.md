@@ -19,7 +19,7 @@ Customer intent: As a developer I want to use Azure Key vault to store secrets f
 
 Azure Key Vault helps you to protect secrets such as API Keys, Database Connection strings needed to access your applications, services, and IT resources.
 
-In this tutorial, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. This tutorial is based on [Azure Web Apps](../articles/app-service/app-service-web-overview.md). In the following you learn how to:
+In this tutorial, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. This tutorial is based on [Azure Web Apps](../app-service/app-service-web-overview.md). In the following you learn how to:
 
 > [!div class="checklist"]
 > * Create a key vault.
@@ -115,7 +115,7 @@ This command shows the secret information, including the URI. After you complete
 
 ## Create a .NET Core Web App
 
-Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotnet.md) to create a .NET Core Web App and **publish** it to Azure **OR** watch the video below
+Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to create a .NET Core Web App and **publish** it to Azure **OR** watch the video below
 > [!VIDEO https://www.youtube.com/embed/3AsaOO6aOw4]
 
 ## Open and edit the solution
