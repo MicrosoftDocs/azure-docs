@@ -51,6 +51,9 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
    ```bash
    pip install mysql-connector-python-rf
    ```
+> [!NOTE]
+> This quickstart uses a raw SQL query approach to connect to MySQL. If you are using a web framework, we recommend using the [mysqlclient](https://pypi.org/project/mysqlclient/) driver for Django and the [MySQL-python](https://pypi.org/project/MySQL-python/) driver for SQLAlchemy.
+> 
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
