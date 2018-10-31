@@ -332,8 +332,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
+            "source_path": "articles/cognitive-services/Computer-vision/Research.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-central/howto-create-application.md",
+            "redirect_url": "/azure/iot-central/quick-deploy-iotcentral.md",
             "redirect_document_id": false
         },
         {

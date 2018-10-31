@@ -15,15 +15,9 @@ manager: peterpr
 
 As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure IoT Central application. This quickstart shows you how to create an Azure IoT Central application that contains a sample _device template_ and simulated _devices_.
 
-## Create the application
-
-To complete this quickstart, you need to create an Azure IoT Central application from the **Sample Contoso** application template.
-
-Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page. Then enter the email address and password you use to access your Azure subscription.
+Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page. You will need to sign in with a Microsoft personal or work or school account.
 
 To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
-
-
 
 ![Azure IoT Central Create Application page](media/quick-deploy-iot-central/iotcentralcreate.png)
 
