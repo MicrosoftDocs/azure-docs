@@ -72,11 +72,23 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
 1. Open the project in Visual Studio.
-1. Edit **App.Xaml.cs** and replace the line starting with `private static string ClientId` with the **Application (client) ID** value from the application you just registered:
+1. Edit **App.Xaml.cs** and replace the values of the fields `ClientId` and `Tenant` with:
 
-```csharp
-private static string ClientId = "Enter_the_Application_Id_here";
-```
+    ```csharp
+    private static string ClientId = "Enter_the_Application_Id_here";
+    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    ```
+
+> [!div renderon="docs"]
+> Where:
+> - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
+> - `Enter_the_Tenant_Info_Here` - is one of the options below:
+>   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+>   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
+>   - If your application supports **All Microsoft account users**, replace this value with `common`
+>
+> > [!TIP]
+> > To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
 
 ## More information
 
