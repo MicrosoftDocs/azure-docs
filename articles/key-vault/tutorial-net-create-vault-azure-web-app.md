@@ -121,7 +121,8 @@ This command shows the secret information, including the URI. After you complete
 
 ## Create a .NET Core Web App
 
-Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotnet.md) to create a .NET Core Web App and **publish** it to Azure
+Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotnet.md) to create a .NET Core Web App and **publish** it to Azure **OR** watch the video below
+> [!VIDEO https://www.youtube.com/embed/3AsaOO6aOw4]
 
 ## Open and edit the solution
 
@@ -203,11 +204,12 @@ From the main menu of Visual Studio 2017, select **Debug** > **Start** with/with
 Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) makes solving this problem simpler, by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
 1. Return to the Azure CLI.
-2. Run the assign-identity command to create the identity for this application:
+2. Run the assign-identity command to create the identity for this application: 
 
    ```azurecli
-   az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
+   az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
    ```
+   Please **NOTE** - Replace <YourAppName> with the name of the published app on Azure i.e. if your published app name was MyAwesomeapp.azurewebsites.net then replace <YourAppName> with MyAwesomeapp
 
 >[!NOTE]
 >The command in this procedure is the equivalent of going to the portal and switching the **Identity / System assigned** setting to **On** in the web application properties.
