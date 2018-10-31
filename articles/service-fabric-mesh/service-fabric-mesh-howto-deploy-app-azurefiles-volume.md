@@ -17,9 +17,9 @@ ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
 
-# Store state in an Azure Service Fabric Mesh application by mounting an Azure Files based volume inside the container
+# Mount an Azure Files based volume in a Service Fabric Mesh application 
 
-This article shows how to store state in Azure Files by mounting a volume inside the container of a Service Fabric Mesh application. In this example, the Counter application has an ASP.NET Core service with a web page that shows counter value in a browser. 
+This article shows how to store state in Azure Files by mounting a volume inside the service of a Service Fabric Mesh application. In this example, the Counter application has an ASP.NET Core service with a web page that shows counter value in a browser. 
 
 The `counterService` periodically reads a counter value from a file, increments it and write it back to the file. The file is stored in a folder that is mounted on the volume backed by Azure Files share.
 
@@ -36,57 +36,172 @@ az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## Create a file share
+## Create a storage account and file share
 
 Create an Azure file share by following these [instructions](/azure/storage/files/storage-how-to-create-file-share). The storage account name, storage account key and the file share name are referenced as `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following instructions. These values are available in your Azure portal:
 * <storageAccountName> - Under **Storage Accounts**, it is the name of the storage account you used when you created the file share.
 * <storageAccountKey> - Select your storage account under **Storage Accounts** and then select **Access keys** and use the value under **key1**.
 * <fileShareName> - Select your storage account under  **Storage Accounts** and then select **Files**. The name to use is the name of the file share you just created.
 
-## Create a resource group
+## Mount the volume by updating the JSON
 
-Create a resource group to deploy the application to. The following command creates a resource group named `myResourceGroup` in a location in the eastern United States.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location eastus 
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "defaultValue": "EastUS",
+      "type": "String",
+      "metadata": {
+        "description": "Location of the resources."
+      }
+    },
+    "fileShareName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure Files file share that provides the volume for the container."
+      }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure storage account that contains the file share."
+      }
+    },
+    "storageAccountKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Access key for the Azure storage account that contains the file share."
+      }
+    },
+    "stateFolderName": {
+      "type": "string",
+      "defaultValue": "TestVolumeData",
+      "metadata": {
+        "description": "Folder in which to store the state. Provide a empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "VolumeTest",
+      "type": "Microsoft.ServiceFabricMesh/applications",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "Microsoft.ServiceFabricMesh/networks/VolumeTestNetwork",
+        "Microsoft.ServiceFabricMesh/volumes/testVolume"
+      ],
+      "properties": {
+        "services": [
+          {
+            "name": "VolumeTestService",
+            "properties": {
+              "description": "VolumeTestService description.",
+              "osType": "Windows",
+              "codePackages": [
+                {
+                  "name": "VolumeTestService",
+                  "image": "volumetestservice:dev",
+                  "volumeRefs": [
+                    {
+                      "name": "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]",
+                      "destinationPath": "C:\\app\\data"
+                    }
+                  ],
+                  "environmentVariables": [
+                    {
+                      "name": "ASPNETCORE_URLS",
+                      "value": "http://+:20003"
+                    },
+                    {
+                      "name": "STATE_FOLDER_NAME",
+                      "value": "[parameters('stateFolderName')]"
+                    }
+                  ],
+                  ...
+                }
+              ],
+              ...
+            }
+          }
+        ],
+        "description": "VolumeTest description."
+      }
+    },
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "testVolume",
+      "type": "Microsoft.ServiceFabricMesh/volumes",
+      "location": "[parameters('location')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "Azure Files storage volume for counter App.",
+        "provider": "SFAzureFile",
+        "azureFileParameters": {
+          "shareName": "[parameters('fileShareName')]",
+          "accountName": "[parameters('storageAccountName')]",
+          "accountKey": "[parameters('storageAccountKey')]"
+        }
+      }
+    }
+    ...
+  ]
+}
 ```
 
-## Deploy the template
+## Mount the volume by updating the resource YAML files
 
-Create the application and related resources using the following command, and provide the values for `storageAccountName`, `storageAccountKey` and `fileShareName` from the earlier [Create a file share](#create-a-file-share) step.
-
-The `storageAccountKey` parameter in the template is a secure string. It will not be displayed in the deployment status and `az mesh service show` commands. Ensure that it is correctly specified in the following command.
-
-The following command deploys a Linux application using the [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). To deploy a Windows application, use the [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Be aware that larger container images may take longer to deploy.
-
-```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+Add a *volume.yaml* file in the *App resources* directory.
+```yaml
+volume:
+  schemaVersion: 1.0.0-preview2
+  name: testVolume
+  properties:
+    description: Azure Files storage volume for counter App.
+    provider: SFAzureFile
+    azureFileParameters: 
+        shareName: "[parameters('azurefile-shareName')]"
+        accountName: "[parameters('azurefile-accountName')]"
+        accountKey: "[parameters('azurefile-accountKey')]"
 ```
 
-In a few minutes, the command should return with `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
-
-## Open the application
-
-The deployment command will return the public IP address of the service endpoint. Once the application successfully deploys, get the public IP address for the service endpoint and open it from a browser. It will display a web page with the counter value being updated every second.
-
-The network resource name for this application is `counterAppNetwork`. You can see info about the app such as its description, location, resource group, etc. by using the following command:
-
-```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name counterAppNetwork
-```
-
-## Verify that the application is able to use the volume
-
-The application creates a file named `counter.txt` in the file share inside `counter/counterService` folder. The content of this file is the counter value being displayed on the web page.
-
-The file may be downloaded using any tool that enables browsing an Azure Files file share, such as the [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-## Delete the resources
-
-Frequently delete the resources you are no longer using in Azure. To delete the resources related to this example, delete the resource group in which they were deployed (which deletes everything associated with the resource group) with the following command:
-
-```azurecli-interactive
-az group delete --resource-group myResourceGroup
+Update the *service.yaml* file in the *Service Resources* directory.
+```yaml
+## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: VolumeTest
+  properties:
+    services:
+      - name: VolumeTestService
+        properties:
+          description: VolumeTestService description.
+          osType: Windows
+          codePackages:
+            - name: VolumeTestService
+              image: volumetestservice:dev
+              volumeRefs:
+                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
+                  destinationPath: C:\app\data
+              endpoints:
+                - name: VolumeTestServiceListener
+                  port: 20003
+              environmentVariables:
+                - name: ASPNETCORE_URLS
+                  value: http://+:20003
+                - name: STATE_FOLDER_NAME
+                  value: "[parameters('stateFolderName')]"
+#                - name: ApplicationInsights:InstrumentationKey
+#                  value: "<Place AppInsights key here, or reference it via a secret>"
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: VolumeTestNetwork
 ```
 
 ## Next steps
