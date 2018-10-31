@@ -34,10 +34,18 @@ The following table captures the Backup management actions and corresponding min
 | Create Recovery Services vault | Contributor | Resource group containing the vault |
 | Enable backup of Azure VMs | Backup Operator | Resource group containing the vault |
 | | Virtual Machine Contributor | VM resource |
-| On-demand backup of VM | Backup Operator | VM resource |
+| On-demand backup of VM | Backup Operator | Recovery vault resource |
 | Restore VM | Backup Operator | Resource group in which VM will be deployed |
 | | Virtual Machine Contributor | Resource group in which VM will be deployed |
-| Restore disks, individual files from VM backup | Backup Operator and Virtual Machine Contributor | VM resource |
+| Restore unmanaged disks VM backup | Backup Operator | Recovery vault resource |
+| | Virtual Machine Contributor | VM resource |
+| | Storage Account Contributor | Storage account resource |
+| Restore managed disks from VM backup | Backup Operator | Recovery vault resource |
+| | Virtual Machine Contributor | VM resource |
+| | Storage Account Contributor | Storage account resource |
+| | Contributor | Resource group to which managed disk will be restored |
+| Restore individual files from VM backup | Backup Operator | Recovery vault resource |
+| | Virtual Machine Contributor | VM resource |
 | Create backup policy for Azure VM backup | Backup Contributor | Recovery vault resource |
 | Modify backup policy of Azure VM backup | Backup Contributor | Recovery vault resource |
 | Delete backup policy of Azure VM backup | Backup Contributor | Recovery vault resource |
