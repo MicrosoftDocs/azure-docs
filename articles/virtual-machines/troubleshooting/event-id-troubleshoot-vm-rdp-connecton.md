@@ -63,6 +63,10 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Description:**
 The RD Session Host Server has failed to replace the expired self signed certificate used for RD Session Host Server authentication on SSL connections. The relevant status code was Access is denied.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a239cb7b4c6f7785ce114b5c561714c572bd9578
 **Log Name:**      System <br />
 **Source:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Date:**          *time* <br />
@@ -102,8 +106,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Level:**         Error <br />
 **Keywords:**       <br />
 **User:**          SYSTEM <br />
+<<<<<<< HEAD
 **Computer:**      *computer* <br />
 **Description:** A fatal error occurred when attempting to access the SSL server credential private key. The error code returned from the cryptographic module is 0x8009030D.  <br />
+=======
+**Computer:**      <computer> <br />
+**Description:** A fatal error occurred when attempting to access the SSL server credential private key. The error code returned from the cryptographic module is 0x8009030D. 
+>>>>>>> a239cb7b4c6f7785ce114b5c561714c572bd9578
 The internal error state is 10001.
 
 ### Cause
@@ -256,12 +265,12 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 **User:**          NETWORK SERVICE <br />
 **Computer:**      *computer fqdn* <br />
 **Description:**
-The description for Event ID 2056 from source Microsoft-Windows-TerminalServices-SessionBroker cannot be found. Either the component that raises this event is not installed on your local computer or the installation is corrupted. You can install or repair the component on the local computer.
-If the event originated on another computer, the display information had to be saved with the event.
-The following information was included with the event:  <br />
+The description for Event ID 2056 from source Microsoft-Windows-TerminalServices-SessionBroker cannot be found. Either the component that raises this event is not installed on your local computer or the installation is corrupted. You can install or repair the component on the local computer. <br />
+If the event originated on another computer, the display information had to be saved with the event. <br />
+The following information was included with the event: <br />
 NULL <br />
 NULL <br />
-Logon to the database failed. <br />
+Logon to the database failed.
 
 **Log Name:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
 **Source:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
@@ -278,7 +287,7 @@ If the event originated on another computer, the display information had to be s
 The following information was included with the event:  <br />
 *text* <br />
 *text* <br />
-Remote Desktop Connection Broker is not ready for RPC communication. <br />
+Remote Desktop Connection Broker is not ready for RPC communication.
 ```
 
 ### Cause
