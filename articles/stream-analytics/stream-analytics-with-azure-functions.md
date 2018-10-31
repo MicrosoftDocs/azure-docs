@@ -195,7 +195,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
    ![Screenshot of Azure Redis Cache output](./media/stream-analytics-with-azure-functions/image5.png)
    
-## Error Handling and Retires
+## Error handling and retries
 In the event of a failure while sending events to Azure Functions, Stream Analytics retries to successfully complete the operation. However, there are some failures for which retries are not attempted and they are as follows:
 
  1. HttpRequestExceptions
