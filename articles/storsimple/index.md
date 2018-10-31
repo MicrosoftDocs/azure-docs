@@ -18,24 +18,26 @@ ms.author: carolz
 Learn how to use Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Azure cloud storage. Tutorials and other documentation show you how to set up storage management, location-independent backup, and disaster recovery.
 
 <ul class="panelContent cardsFTitle">
-     <li>
-        <a href="/azure/storsimple/storsimple-ova-overview">
+    <li>
+        <a href="/azure/storsimple/storsimple-8000-choose-storage-solution">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/storsimple.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about StorSimple Virtual Array</h3>
+                        <h3>Compare StorSimple vs AFS vs Data Box Edge</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+   </ul>
+<ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/storsimple/storsimple-overview">
         <div class="cardSize">
@@ -55,26 +57,26 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </a>
     </li>
     <li>
- </ul>
-<ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/storsimple/storsimple-ova-system-requirements">
+        <a href="/azure/storsimple/storsimple-ova-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/storsimple.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with StorSimple Virtual Array</h3>
+                        <h3>Learn about StorSimple Virtual Array</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+ </ul>
+<ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/storsimple/storsimple-system-requirements">
         <div class="cardSize">
@@ -93,10 +95,8 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </div>
         </a>
     </li>
- </ul>
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/storsimple/storsimple-virtual-array-update-11-release-notes">
+     <li>
+        <a href="/azure/storsimple/storsimple-ova-system-requirements">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -106,13 +106,15 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>StorSimple Virtual Array release notes</h3>
+                        <h3>Get started with StorSimple Virtual Array</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+ </ul>
+<ul class="panelContent cardsFTitle">
 	<li>
         <a href="/azure/storsimple/storsimple-update5-release-notes">
         <div class="cardSize">
@@ -132,15 +134,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </a>
     </li>
 	<li>
-   </ul>
-
----
-
-## Solutions for on-premises data transfer to Azure
-
-<ul class="panelContent cardsW">
-	<li>
-        
+        <a href="/azure/storsimple/storsimple-virtual-array-update-11-release-notes">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -149,11 +143,14 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
                             <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                       
-                        <p><a href="/azure/storsimple/storsimple-8000-choose-storage-solution">Choose the right storage solution for on-premises data transfer to Azure</a></p>
+                    <div class="cardText">
+                        <h3>StorSimple Virtual Array release notes</h3>
                     </div>
                 </div>
             </div>
         </div>
+        </a>
     </li>
-</ul>
+   </ul>
+
+---

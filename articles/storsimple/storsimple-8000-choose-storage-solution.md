@@ -1,16 +1,16 @@
 ---
-title: Choose Azure Storage solutions | Microsoft Docs
+title: Options for data transfer to Azure using an appliance | Microsoft Docs
 description: Learn how to choose the right Azure Storage solution for your needs
 services: storsimple
 author: alkohli
 
 ms.service: storsimple
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/31/2018
 ms.author: alkohli
 ---
 
-# Choose the right Azure storage solution for on-premises data transfer to Azure
+# Comparing StorSimple vs AFS vs Data Box Edge 
  
 This document provides an overview of options for on-premises data transfer to Azure, comparing: Data Box Edge vs Azure File Sync (AFS) vs StorSimple 8000 series.
 
