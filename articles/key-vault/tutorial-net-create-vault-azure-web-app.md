@@ -19,7 +19,7 @@ ms.custom: mvc
 
 Azure Key Vault helps you to protect secrets such as API Keys, Database Connection strings needed to access your applications, services, and IT resources.
 
-In this tutorial, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. This tutorial is based on [Azure Web Apps](../articles/app-service/app-service-web-overview.md). You learn how to:
+In this tutorial, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. This tutorial is based on [Azure Web Apps](../articles/app-service/app-service-web-overview.md). In the following you learn how to:
 
 > [!div class="checklist"]
 > * Create a key vault.
@@ -36,6 +36,7 @@ Before we go any further, please read the [basic concepts](key-vault-whatis.md#b
 > Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. To follow security best practices, this first secret needs to be rotated periodically. 
 >
 > With [managed service identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
+
 
 ## Prerequisites
 
@@ -59,8 +60,8 @@ Here’s how it works! When you enable MSI for an Azure service such as Virtual 
 
 ![MSI](media/MSI.png)
 
-Next, Your code calls a local MSI endpoint (http://localhost:PORTNO) available on the Azure resource to get an access token.
-Your code uses the access token it gets from the local MSI ENDPOINT to authenticate to an Azure Key Vault service. 
+Next, Your code calls a local metadata service available on the Azure resource to get an access token.
+Your code uses the access token it gets from the local MSI_ENDPOINT to authenticate to an Azure Key Vault service. 
 
 Now let's begin the tutorial
 
@@ -118,39 +119,81 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 
 This command shows the secret information, including the URI. After you complete these steps, you should have a URI to a secret in a key vault. Make note of this information. You'll need it in a later step.
 
-## Clone the repo
+## Create a .NET Core Web App
 
-Clone the repo to make a local copy where you can edit the source. Run the following command:
-
-```
-git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
-```
+Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotnet.md) to create a .NET Core Web App and **publish** it to Azure
 
 ## Open and edit the solution
 
-Edit the program.cs file to run the sample with your specific key vault name:
+1. Navigate to Pages > About.cshtml.cs file.
+2. Install these 2 Nuget packages
+    a. [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
+    b. [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
+3. Import the following 
+    ```
+    using Microsoft.Azure.KeyVault;
+    using Microsoft.Azure.KeyVault.Models;
+    using Microsoft.Azure.Services.AppAuthentication;
+    ```
+4. Your code in the AboutModel class should look like below
+    ```
+    public class AboutModel : PageModel
+    {
+        public string Message { get; set; }
 
-1. Browse to the folder key-vault-dotnet-core-quickstart.
-2. Open the key-vault-dotnet-core-quickstart.sln file in Visual Studio 2017 **OR** open the folder in Visual Studio Code
-3. Open the Program.cs file and update the placeholder *YourKeyVaultName* with the name of your key vault that you created earlier.
+        public async Task OnGetAsync()
+        {
+            Message = "Your application description page.";
+            int retries = 0;
+            bool retry = false;
+            try
+            {
+                AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+                KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
+                        .ConfigureAwait(false);
+                Message = secret.Value;             
 
-This solution uses [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
+                /* The below do while logic is to handle throttling errors thrown by Azure Key Vault. It shows how to do exponential backoff which is the recommended client side throttling*/
+                do
+                {
+                    long waitTime = Math.Min(getWaitTime(retries), 2000000);
+                    secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
+                        .ConfigureAwait(false);
+                    retry = false;
+                } 
+                while(retry && (retries++ < 10));
+            }
+            /// <exception cref="KeyVaultErrorException">
+            /// Thrown when the operation returned an invalid status code
+            /// </exception>
+            catch (KeyVaultErrorException keyVaultException)
+            {
+                Message = keyVaultException.Message;
+                if((int)keyVaultException.Response.StatusCode == 429)
+                    retry = true;
+            }            
+        }
+
+        private static long getWaitTime(int retryCount)
+        {
+            long waitTime = ((long)Math.Pow(2, retryCount) * 100L);
+            return waitTime;
+        }
+
+        public async Task<string> GetAccessTokenAsync()
+        {
+            var azureServiceTokenProvider = new AzureServiceTokenProvider();
+            string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
+            return accessToken;
+        }
+    }
+    ```
+
 
 ## Run the app
 
-From the main menu of Visual Studio 2017, select **Debug** > **Start** without debugging. When the browser appears, go to the **About** page. The value for **AppSecret** is displayed.
-
-## Publish the web application to Azure
-
-Publish this app to Azure to see it live as a web app, and to see that you can fetch the secret value:
-
-1. In Visual Studio, select the **key-vault-dotnet-core-quickstart** project.
-2. Select **Publish** > **Start**.
-3. Create a new **App Service**, and then select **Publish**.
-4. Change the app name to **keyvaultdotnetcorequickstart**.
-5. Select **Create**.
-
->[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
+From the main menu of Visual Studio 2017, select **Debug** > **Start** with/without debugging. When the browser appears, go to the **About** page. The value for **AppSecret** is displayed.
 
 ## Enable a managed identity for the web app
 
@@ -183,5 +226,13 @@ Then, run this command by using the name of your key vault and the value of **Pr
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 
 ```
+
+## Publish the web application to Azure
+
+Publish this app to Azure once again to see it live as a web app, and to see that you can fetch the secret value:
+
+1. In Visual Studio, select the **key-vault-dotnet-core-quickstart** project.
+2. Select **Publish** > **Start**.
+3. Select **Create**.
 
 Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault
