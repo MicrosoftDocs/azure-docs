@@ -19,16 +19,16 @@ ms.author: lagayhar
 # How to use Micrometer with Azure Application Insights Java SDK
 Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with application insight for both Spring Boot and non-Spring Boot applications.
 
-## Using SpringBoot 1.5x 
+## Using SpringBoot 1.5x
 Add the following dependencies to your pom.xml or build.gradle file: 
-* [Application Insight spring-boot-starter ](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA or above 
-* Micrometer Azure Registry 1.1.0 RC or higher 
-* [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 RC or higher (this backports the autoconfig code in Spring framework).
-* [ApplicationInsights Resource ](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
+* [Application Insight spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA or above
+* Micrometer Azure Registry 1.1.0 or above
+* [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in Spring framework).
+* [ApplicationInsights Resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
 
-### Steps 
+Steps
 
-1. Update the pom.xml file of your Spring Boot application and add the following dependencies in it: 
+1. Update the pom.xml file of your Spring Boot application and add the following dependencies in it:
 
     ```XML
     <dependency> 
@@ -40,13 +40,13 @@ Add the following dependencies to your pom.xml or build.gradle file:
     <dependency> 
         <groupId>io.micrometer</groupId> 
         <artifactId>micrometer-spring-legacy</artifactId> 
-        <version>1.1.0-m.1</version> 
+        <version>1.1.0</version> 
     </dependency> 
 
     <dependency> 
         <groupId>io.micrometer</groupId> 
         <artifactId>micrometer-registry-azure-monitor</artifactId> 
-        <version>1.1.0-m.1</version> 
+        <version>1.1.0</version> 
     </dependency>
 
     ```
@@ -56,71 +56,32 @@ Add the following dependencies to your pom.xml or build.gradle file:
 3. Build your application and run
 4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune ApplicationInsight SpringBoot starter refer to the [readme on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
 
-## Using Spring 2.x 
-Add the following dependencies to your pom.xml or build.gradle file: 
+## Using Spring 2.x
 
-* Application Insights Spring-boot-starter 2.1.2 or above 
-* Azure-spring-boot-metrics-starters 2.0.6 or above  
-* Micrometer Azure Registry 1.1.0 RC or higher 
+Add the following dependencies to your pom.xml or build.gradle file:
+
+* Application Insights Spring-boot-starter 2.1.2 or above
+* Azure-spring-boot-metrics-starters 2.0.7 or above  
 * [Application Insights Resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
 
-### Steps: 
+Steps:
 
-1. Update the pom.xml file of your Spring Boot application and add the following dependencies in it: 
+1. Update the pom.xml file of your Spring Boot application and add the following dependency in it:
 
     ```XML
     <dependency> 
-        <groupId>com.microsoft.azure</groupId> 
-        <artifactId>applicationinsights-spring-boot-starter</artifactId> 
-        <version>1.1.0-BETA</version> 
-    </dependency> 
-
-    <dependency> 
-        <groupId>io.micrometer</groupId> 
-        <artifactId>micrometer-registry-azure-monitor</artifactId> 
-        <version>1.1.0-m.1</version> 
+          <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-spring-boot-metrics-starter</artifactId>
+          <version>2.0.7</version>
     </dependency>
-
     ```
-    Create a separate bean in your configurations file to add Azure-spring-boot-metrics-starter.
-``` Java
-    @Bean 
-    Public MeterRegistry azureMeterRegistry() { 
-    return new AzureMonitorMeterRegistry(new AzureMonitorConfig() { 
-          @Override 
-          public String get(String key) { 
-            return null; 
-          } 
-          @Override 
-          public Duration step() { 
-            return Duration.ofSeconds(5);} 
-        }, Clock.SYSTEM, null); 
-    } 
-```
-2. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
+1. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
 
     a. azure.application-insights.instrumentation-key=fakekey
 3. Build your application and run
-4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune ApplicationInsight SpringBoot starter refer to the [readme on GitHub. ](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md)
+4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune ApplicationInsight SpringBoot starter refer to the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
-
-For now the user needs to create a separate bean in their code as follows: 
-
-> [!NOTE]
-> You will have to include Snapshot Spring repository to pull down the Milestone version in your application.
-
-For Maven use the following:
-
-```XML
-<repositories>
-    <repository>
-        <id>Micrometer-snapshot</id>
-        <url>https://repo.spring.io/libs-snapshot/</url>
-    </repository>
-</repositories>
- ```
-
-What metrics you will get by default:
+Default Metrics:
 
 *    Automatically configured metrics for Tomcat, JVM, Logback Metrics, Log4J metrics, Uptime Metrics, Processor Metrics, FileDescriptorMetrics.
 *    For example, if the netflix hystrix is present on class path we get those metrics as well. 
@@ -152,18 +113,19 @@ How to turn off automatic metrics collection:
     - spring.aop.enabled=false 
 
 > [!NOTE]
-> Specify properties above in application.properties or application.yml file of your SpringBoot application 
+> Specify properties above in application.properties or application.yml file of your SpringBoot application
 
-## Use Micrometer with non-Spring Boot web application:
+## Use Micrometer with non-Spring Boot web application
 
-Add the following dependencies to your pom.xml or build.gradle file: 
-* [Application Insight Core 2.2.0 ](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) or higher
-* [Application Insights Web 2.2.0 ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) or higher
+Add the following dependencies to your pom.xml or build.gradle file:
+ 
+* [Application Insight Core 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) or above
+* [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) or above
 * [Register Web Filter](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-java-get-started)
-* Micrometer Azure Registry 1.1.0 RC or higher
-* [Application Insights Resource ](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
+* Micrometer Azure Registry 1.1.0 or above
+* [Application Insights Resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
 
-### Steps:
+Steps:
 
 1. Add following dependency in your pom.xml or build.gradle file:
 
@@ -171,7 +133,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
     <dependency>
     	<groupId>io.micrometer</groupId>
     	<artifactId>micrometer-registry-azure-monitor</artifactId>
-    		<version>1.1.0-SNAPSHOT</version>
+    		<version>1.1.0</version>
     </dependency>
     
     <dependency>
@@ -232,16 +194,22 @@ Add the following dependencies to your pom.xml or build.gradle file:
       public void contextInitialized(ServletContextEvent servletContextEvent) {
 
     // Create AzureMonitorMeterRegistry
-        MeterRegistry azureMeterRegistry = new AzureMonitorMeterRegistry(new AzureMonitorConfig() {
-          @Override
-          public String get(String key) {
+      private final AzureMonitorConfig config = new AzureMonitorConfig() {
+        @Override
+        public String get(String key) {
             return null;
-          }
-          @Override
+        }
+       @Override
           public Duration step() {
-            return Duration.ofSeconds(5);}
+            return Duration.ofSeconds(60);}
 
-        }, null, Clock.SYSTEM);
+        @Override
+        public boolean enabled() {
+            return false;
+        }
+    };
+
+MeterRegistry azureMeterRegistry = AzureMonitorMeterRegistry.builder(config);
 
         //set the config to be used elsewhere
         servletContextEvent.getServletContext().setAttribute("AzureMonitorMeterRegistry", azureMeterRegistry);
@@ -255,14 +223,14 @@ Add the following dependencies to your pom.xml or build.gradle file:
     }
 ```
 
-To learn more about metrics, you can create refer to the [Micrometer documentation](https://micrometer.io/docs/concepts). 
+To learn more about metrics, refer to the [Micrometer documentation](https://micrometer.io/docs/).
 
 Other sample code on how to create different types of metrics can be found [the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 
-## How to bind additional metrics collection:
+## How to bind additional metrics collection
 
-### SpringBoot/Spring:
+### SpringBoot/Spring
 
 Create a bean of the respective metric category. For example, say we need Guava cache Metrics:
 
@@ -274,11 +242,13 @@ Create a bean of the respective metric category. For example, say we need Guava 
 ```
 There are several metrics that are not enabled by default but can be bound in the above fashion. For a complete list, refer to [the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
-### Non-Spring apps:
+### Non-Spring apps
 Add the following binding code to the configuration  file:
 ```Java 
 	New GuavaCacheMetrics().bind(registry);
 ```  
+> [!NOTE]
+> The table below is subject to constant changes and updates. Please refer to the [Micrometer docs](https://micrometer.io/docs) for the most up-to-date list of automatically collected metrics.
 
 ## Auto-collected metrics
 
