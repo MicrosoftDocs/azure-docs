@@ -1,6 +1,6 @@
 ---
 title: Tutorial on preparing Azure portal to deploy Data Box Edge | Microsoft Docs
-description: First tutorial to deploy Azure Data Box Edge involves preparing the Azure portal.
+description: The first tutorial about deploying Azure Data Box Edge involves preparing the Azure portal.
 services: databox
 author: alkohli
 
@@ -11,10 +11,10 @@ ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Prepare to deploy Azure Data Box Edge (Preview)
+# Tutorial: Prepare to deploy Azure Data Box Edge (preview)
 
 
-This is the first tutorial in the series of deployment tutorials required to completely deploy your Azure Data Box Edge. This tutorial describes how to prepare the Azure portal to deploy Data Box Edge resource. 
+This is the first tutorial in the series of deployment tutorials that are required to completely deploy your Azure Data Box Edge. This tutorial describes how to prepare the Azure portal to deploy a Data Box Edge resource. 
 
 You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
 
@@ -52,7 +52,7 @@ Here you find the configuration prerequisites for your Data Box Edge resource, y
 
 Before you begin, make sure that:
 
-* Your Microsoft Azure subscription should be enabled for Data Box Edge resource.
+* Your Microsoft Azure subscription should be enabled for a Data Box Edge resource.
 * You have your Microsoft Azure storage account with access credentials.
 
 ### For the Data Box Edge device
@@ -60,8 +60,8 @@ Before you begin, make sure that:
 Before you deploy a physical device, make sure that:
 
 - You have a 1 U slot available in a standard 19” rack in your datacenter to rackmount the device. 
-- Make sure that you have access to a flat, stable, and level work surface where the device can rest safely.
-- Verify that the site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
+- You have access to a flat, stable, and level work surface where the device can rest safely.
+- The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to a physical device.
 
 
@@ -79,11 +79,11 @@ Perform the following steps to create a new Data Box Edge resource.
 
 If you have an existing Data Box Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-Perform the following steps in the Azure portal to create a Data Box resource.
+To create a Data Box resource, take the following steps in the Azure portal .
 
 1. Use your Microsoft Azure credentials to log into Azure preview portal at this URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
 
-2. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the **Data Box Edge** option, click **Create**.
+2. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the **Data Box Edge** option, select **Create**.
 
     ![Search Data Box Edge service](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 
@@ -91,14 +91,14 @@ Perform the following steps in the Azure portal to create a Data Box resource.
     
     |Setting  |Value  |
     |---------|---------|
-    |Resource name   | A friendly name to identify the resource.<br>The resource name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
+    |Resource name   | A friendly name with which to identify the resource.<br>The resource name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
     |Subscription    |Subscription is linked to your billing account. |
-    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
+    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure resource groups](../azure-resource-manager/resource-group-overview.md).     |
     |Location     |For this release, East US, West US 2, South East Asia, and West Europe are available. <br> Choose a location closest to the geographical region where you want to deploy your device.|
     
-    ![Create Data Box Edge resource](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
+    ![Create a Data Box Edge resource](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
     
-4. Click **OK**.
+4. Select **OK**.
  
 The resource creation takes a few minutes. After the resource is successfully created, you are notified appropriately.
 
@@ -107,14 +107,14 @@ The resource creation takes a few minutes. After the resource is successfully cr
 
 After the Data Box Edge resource is up and running, you will need to get the activation key. This key is used to activate and connect your Data Box Edge device with the resource. You can get this key now while you are in the Azure portal.
 
-1. Click the resource that you created and then click **Overview**.
+1. Select the resource that you created, and then select **Overview**.
 
-2. Click **Generate key** to create an activation key. Click copy icon to copy the key and save it for later use.
+2. Select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
 
     ![Get activation key](media/data-box-edge-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - The activation key expires 3 days after it is generated. 
+> - The activation key expires three days after it is generated. 
 > - If the key has epxired, generate a new key. The older key is not valid.
 
 ## Next steps
@@ -122,8 +122,8 @@ After the Data Box Edge resource is up and running, you will need to get the act
 In this tutorial, you learned about Data Box Edge topics such as:
 
 > [!div class="checklist"]
-> * Create a new resource
-> * Get the activation key
+> * Creating a new resource
+> * Getting the activation key
 
 Advance to the next tutorial to learn how to install your Data Box Edge. 
 
