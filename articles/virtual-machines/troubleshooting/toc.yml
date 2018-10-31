@@ -28,6 +28,8 @@
     href: troubleshoot-rdp-general-error.md
   - name: Troubleshoot authentication errors
     href: troubleshoot-authentication-error-rdp-vm.md
+  - name: Troubleshoot Azure VM RDP connection issues by Event ID
+    href: event-id-troubleshoot-vm-rdp-connecton.md
 - name: SSH
   items:
   - name: SSH troubleshooting

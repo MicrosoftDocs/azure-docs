@@ -28,15 +28,15 @@ You capture a screenshot of an Azure VM that shows the Welcome screen and indica
 
 ### Error message 1
 
-`An authentication error has occurred. The Local Security Authority cannot be contacted.`
+**An authentication error has occurred. The Local Security Authority cannot be contacted.**
 
 ### Error message 2
 
-`The remote computer that you are trying to connect to requires Network Level Authentication (NLA), but your Windows domain controller cannot be contacted to perform NLA. If you are an administrator on the remote computer, you can disable NLA by using the options on the Remote tab of the System Properties dialog box.`
+**The remote computer that you are trying to connect to requires Network Level Authentication (NLA), but your Windows domain controller cannot be contacted to perform NLA. If you are an administrator on the remote computer, you can disable NLA by using the options on the Remote tab of the System Properties dialog box.**
 
 ### Error message 3 (generic connection error)
 
-`This computer can't connect to the remote computer. Try connecting again, if the problem continues, contact the owner of the remote computer or your network administrator.`
+**This computer can't connect to the remote computer. Try connecting again, if the problem continues, contact the owner of the remote computer or your network administrator.**
 
 ## Cause
 
@@ -68,7 +68,7 @@ The VM was set up to disable logging on by using domain credentials, and the Loc
 
 The VM was set up to accept only Federal Information Processing Standard (FIPS)-compliant algorithm connections. This is usually done by using Active Directory policy. This is a rare configuration, but FIPS can be enforced for Remote Desktop connections only.
 
-## Before troubleshooting
+## Before you troubleshoot
 
 ### Create a backup snapshot
 
@@ -273,8 +273,8 @@ Restart the VM so that the changes to the registry take effect.
 
 ## Next steps
 
-[SetEncryptionLevel method of the Win32_TSGeneralSetting class](https://docs.microsoft.com/en-us/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
+[SetEncryptionLevel method of the Win32_TSGeneralSetting class](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
 
-[Configure Server Authentication and Encryption Levels](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
+[Configure Server Authentication and Encryption Levels](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
 
-[Win32_TSGeneralSetting class](https://docs.microsoft.com/en-us/windows/desktop/TermServ/win32-tsgeneralsetting)
+[Win32_TSGeneralSetting class](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)

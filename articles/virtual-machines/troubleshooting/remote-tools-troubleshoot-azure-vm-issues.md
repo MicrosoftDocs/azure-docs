@@ -1,5 +1,5 @@
 ---
-title: How to use remote tools to troubleshoot Azure VM issues | Microsoft Docs
+title: Use remote tools to troubleshoot Azure VM issues | Microsoft Docs
 description: 
 services: virtual-machines-windows
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: delhan
 
 ---
 
-# How to use remote tools to troubleshoot Azure VM issues
+# Use remote tools to troubleshoot Azure VM issues
 
 When you troubleshoot issues on an Azure virtual machine (VM), you can connect to the VM by using the remote tools that are discussed in this article instead of using Remote Desktop Protocol (RDP).
 
@@ -28,7 +28,7 @@ Use [Virtual Machine Serial Console](serial-console-windows.md) to  run commands
 
 ## Remote CMD
 
-Download [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec). Connect to the VM by running the following command:
+Download [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Connect to the VM by running the following command:
 
 ```cmd
 psexec \\<computer>-u user -s cmd
@@ -244,14 +244,14 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 5. Make any necessary changes to the services.
 
-## Next Step
+## Next Steps
 
-[Enter-PSSession](https://technet.microsoft.com/en-us/library/hh849707.aspx)
+[Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx)
 
-[Custom Script Extension for Windows using the classic deployment model](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-classic)
+[Custom Script Extension for Windows using the classic deployment model](../extensions/custom-script-classic.md)
 
 PsExec is part of the [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip).
 
-For more information about the PSTools Suite, see [PSTools Suite](https://docs.microsoft.com/en-us/sysinternals/downloads/pstools).
+For more information about the PSTools Suite, see [PSTools Suite](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
 
