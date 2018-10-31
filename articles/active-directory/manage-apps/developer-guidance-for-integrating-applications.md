@@ -36,8 +36,8 @@ Registering an application allows any user to do the following:
   * Azure Active Directory as oAuth authorization server (secure an API exposed by the application)
 * Declare required permissions necessary for the application to function as expected, including:
 
-      - App permissions (global administrators only). For example: Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group, or Subscription
-      - Delegated permissions (any user). For example: Azure AD, Sign-in, and Read Profile
+     - App permissions (global administrators only). For example: Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group, or Subscription
+     - Delegated permissions (any user). For example: Azure AD, Sign-in, and Read Profile
 
 > [!NOTE]
 > By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, see [How applications are added to Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
