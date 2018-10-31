@@ -189,7 +189,7 @@
       href: custom-translator/what-are-parallel-documents.md
     - name: Dictionary
       href: custom-translator/what-is-dictionary.md
-    - name: Document formats and naming convension
+    - name: Document formats
       href: custom-translator/document-formats-naming-convention.md
     - name: Sentence alignment
       href: custom-translator/sentence-alignment.md
@@ -223,7 +223,7 @@
     items:
     - name: Glossary
       href: custom-translator/how-to-create-project.md
-    - name: Faq
+    - name: FAQ
       href: custom-translator/how-to-search-edit-delete-projects.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
