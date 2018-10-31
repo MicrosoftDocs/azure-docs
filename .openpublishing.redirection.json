@@ -29160,6 +29160,7 @@
         },
         {
             "source_path": "articles/active-directory-b2c/active-directory-b2c-language-customization-custom.md",
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-language-customization.md",
             "redirect_url": "/azure/active-directory-b2c/localization",
             "redirect_document_id": true
         },
