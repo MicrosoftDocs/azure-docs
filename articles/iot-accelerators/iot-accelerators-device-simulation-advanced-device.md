@@ -15,7 +15,7 @@ ms.author: troyhop
 
 # Create an advanced device model
 
-This how-to guide describes the JSON and JavaScript files that define a custom device model. The article includes some sample device model definition files and shows you how to upload them to you Device Simulation instance. You can create advanced device models to simulate more realistic device behaviors for your testing.
+This how-to guide describes the JSON and JavaScript files that define a custom device model. The article includes some sample device model definition files and shows you how to upload them to your Device Simulation instance. You can create advanced device models to simulate more realistic device behaviors for your testing.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -489,7 +489,7 @@ function main(context, state) {
 
 ## Deploy an advanced device model
 
-To deploy your advanced device model you upload the files your Device Simulation instance:
+To deploy your advanced device model, you upload the files your Device Simulation instance:
 
 Select **Device models** in the menu bar. The **Device models** page lists the device models available in this instance of Device Simulation:
 

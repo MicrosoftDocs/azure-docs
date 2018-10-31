@@ -77,7 +77,7 @@ Click **Start Simulation**. The simulation will run indefinitely as configured. 
 
 ![Simulation run](./media/quickstart-device-simulation-deploy/runningsimulation.png)
 
-You can only run one simulation at a time from a provisioned instance of Device Simulation.
+You can only run one simulation at a time from a Device Simulation instance.
 
 ## Clean up resources
 

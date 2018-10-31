@@ -53,7 +53,7 @@ To create a simulation click **+ New Simulation** in the top right corner.
 
 A simulation consists of one or more device models. The device model defines the behavior, telemetry, and message format of the device to be simulated.
 
-To add a device model click **+ Add a device type** and select the device model from the list. Your simulation can have more than one device model. Each device model can have a different device count and message frequency.
+To add a device model, click **+ Add a device type** and select the device model from the list. Your simulation can have more than one device model. Each device model can have a different device count and message frequency.
 
 When the new simulation form is complete, click **Start Simulation** to begin the simulation.
 
