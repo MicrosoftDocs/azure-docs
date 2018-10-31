@@ -460,11 +460,15 @@ The second form contains two input fields and a button that allows you to create
 
 2. Add your Azure Website as a git remote.
    
-        git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
+   ```bash
+   git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
+   ```
 
 3. Deploy the application by pushing it to the remote.
    
-        git push azure master
+   ```bash
+   git push azure master
+   ```
 
 4. In a few seconds, your web application is published and launched in a browser.
 
