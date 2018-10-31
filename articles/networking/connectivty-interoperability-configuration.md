@@ -183,7 +183,7 @@ VNet peering within a region allows spoke VNets to use hub VNet gateways (both V
 
 ### Branch VNet connectivity by using a site-to-site VPN
 
-If you want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet, the native Azure solution is site-to-site VPN connectivity by using a VPN. An alternative option is to use a network virtual appliance (NVA) for routing in the hub.
+You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this cofiguration is site-to-site VPN connectivity by using a VPN. An alternative option is to use a network virtual appliance (NVA) for routing in the hub.
 
 For more information, see [What is VPN Gateway?][VPN] and [Deploy a highly available NVA][Deploy-NVA].
 
@@ -193,7 +193,10 @@ Learn about the [control plane analysis][Control-Analysis] of the test setup and
 
 Learn about the [data plane analysis][Data-Analysis] of the test setup and Azure network monitoring feature views.
 
-To learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway and how many ExpressRoute gateways you can connect to an ExpressRoute circuit, see the [ExpressRoute FAQ][ExR-FAQ]. You can also learn about other scale limits of ExpressRoute in the FAQ.
+See the [ExpressRoute FAQ][ExR-FAQ] to:
+-   Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
+-   Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
+-   Learn about other scale limits of ExpressRoute.
 
 
 <!--Image References-->
@@ -220,7 +223,5 @@ To learn how many ExpressRoute circuits you can connect to an ExpressRoute gatew
 [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
 [VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
-
-
 
 

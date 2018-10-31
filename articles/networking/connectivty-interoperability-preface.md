@@ -16,7 +16,7 @@ ms.author: rambala
 
 # Interoperability in Azure back-end connectivity features - Test setup
 
-In this article, we identify a test setup that you can use to analyze how Azure networking services interoperate at the control-plane and data-plane levels. Let's look briefly at the Azure networking components:
+This article describes a test setup you can use to analyze how Azure networking services interoperate at the control plane level and data plane level. Let's look briefly at the Azure networking components:
 
 -   **ExpressRoute**: Use private peering in Azure ExpressRoute to directly connect private IP spaces in your on-premises network to your Azure Virtual Network deployments. ExpressRoute can help you achieve higher bandwidth and a private connection. Many ExpressRoute eco partners offer ExpressRoute connectivity with SLAs. To learn more about ExpressRoute and to learn how to configure ExpressRoute, see [Introduction to ExpressRoute][ExpressRoute].
 -   **Site-to-site VPN**: You can use Azure VPN Gateway as a site-to-site VPN to securely connect an on-premises network to Azure over the internet or by using ExpressRoute. To learn how to configure a site-to-site VPN to connect to Azure, see [Configure VPN Gateway][VPN]
@@ -32,7 +32,7 @@ The centerpiece of the test setup is the hub VNet in Azure Region 1. The hub VNe
 
 -   To the spoke VNet by using VNet peering. The spoke VNet has remote access to both gateways in the hub VNet.
 -   To the branch VNet by using site-to-site VPN. The connectivity uses eBGP to exchange routes.
--   To the Location1 on-premises network by using ExpressRoute private peering as the primary path and site-to-site VPN connectivity as the backup path. In the rest of this article, we refer to this ExpressRoute circuit as ExpressRoute1. By default, ExpressRoute circuits provide redundant connectivity for high availability. On ExpressRoute1, the secondary customer edge (CE) router's subinterface that faces the secondary Microsoft Enterprise Edge Router (MSEE) is disabled. This is indicated by using a red line over the double-line arrow in the preceding diagram.
+-   To the Location1 on-premises network by using ExpressRoute private peering as the primary path and site-to-site VPN connectivity as the backup path. In the rest of this article, we refer to this ExpressRoute circuit as ExpressRoute1. By default, ExpressRoute circuits provide redundant connectivity for high availability. On ExpressRoute1, the secondary customer edge (CE) router's subinterface that faces the secondary Microsoft Enterprise Edge Router (MSEE) is disabled. A red line over the double-line arrow in the preceding diagram represents the disabled CE router subinterface.
 -   To the Location2 on-premises network by using another ExpressRoute private peering. In the rest of this article, we refer to this second ExpressRoute circuit as ExpressRoute2.
 -   ExpressRoute1 also connects both the hub VNet and Location1 on-premises to a remote VNet in Azure Region 2.
 
@@ -46,7 +46,7 @@ The primary limitation of configuring a site-to-site VPN that uses Microsoft pee
 
 ### Site-to-site VPN as a secure failover path for ExpressRoute
 
-ExpressRoute is offered as a redundant circuit pair to ensure high availability. You can configure geo-redundant ExpressRoute connectivity in different Azure regions. Also, as demonstrated in our test setup, within an Azure region, you can use a site-to-site VPN to create a failover path for your ExpressRoute connectivity. When the same prefixes are advertised over both ExpressRoute and a site-to-site VPN, Azure prioritizes ExpressRoute. To avoid asymmetrical routing between ExpressRoute and the site-to-site VPN, on-premises network configuration should also reciprocate by using ExpressRoute before it uses site-to-site VPN connectivity.
+ExpressRoute serves as a redundant circuit pair for high availability. You can configure geo-redundant ExpressRoute connectivity in different Azure regions. Also, as demonstrated in our test setup, within an Azure region, you can use a site-to-site VPN to create a failover path for your ExpressRoute connectivity. When the same prefixes are advertised over both ExpressRoute and a site-to-site VPN, Azure prioritizes ExpressRoute. To avoid asymmetrical routing between ExpressRoute and the site-to-site VPN, on-premises network configuration should also reciprocate by using ExpressRoute before it uses site-to-site VPN connectivity.
 
 For more information about how to configure coexisting connections for ExpressRoute and a site-to-site VPN, see [ExpressRoute and site-to-site coexistence][ExR-S2S-CoEx].
 
@@ -60,7 +60,7 @@ VNet peering within a region allows spoke VNets to use hub VNet gateways (both V
 
 ### Branch VNet connectivity by using a site-to-site VPN
 
-If you want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet, the native Azure solution is site-to-site VPN connectivity by using a VPN. An alternative option is to use a network virtual appliance (NVA) for routing in the hub.
+You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this cofiguration is site-to-site VPN connectivity by using a VPN. An alternative option is to use a network virtual appliance (NVA) for routing in the hub.
 
 For more information, see [What is VPN Gateway?][VPN] and [Deploy a highly available NVA][Deploy-NVA].
 
@@ -72,7 +72,10 @@ Learn about the [control plane analysis][Control-Analysis] of the test setup and
 
 Learn about the [data plane analysis][Data-Analysis] of the test setup and Azure network monitoring feature views.
 
-To learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway and how many ExpressRoute gateways you can connect to an ExpressRoute circuit, see the [ExpressRoute FAQ][ExR-FAQ]. You can also learn about other scale limits of ExpressRoute in the FAQ.
+See the [ExpressRoute FAQ][ExR-FAQ] to:
+-   Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
+-   Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
+-   Learn about other scale limits of ExpressRoute.
 
 
 <!--Image References-->
@@ -90,7 +93,5 @@ To learn how many ExpressRoute circuits you can connect to an ExpressRoute gatew
 [ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
 [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-
-
 
 
