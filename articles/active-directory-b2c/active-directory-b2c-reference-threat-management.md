@@ -14,19 +14,19 @@ ms.component: B2C
 ---
 # Azure Active Directory B2C: Threat management
 
-Threat management includes planning for protection from attacks against your system and networks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources. Azure Active Directory B2C (Azure AD B2C) has built-in features that can help you protect your data against these threats in multiple ways.
+Azure Active Directory B2C (Azure AD B2C) has built-in features that can help you protect against threats to your resources and data. These threats include denial-of-service attacks and password attacks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources. 
 
 ## Denial-of-service attacks
 
-Azure AD B2C uses detection and mitigation techniques like SYN cookies, and rate and connection limits to protect underlying resources against denial-of-service attacks.
+Azure AD B2C defends against SYN flood attacks using a SYN cookie. Azure AD B2C also protects against denial-of-service attacks by using limits for rates and connections.
 
 ## Password attacks
 
 Passwords that are set by users are required to be reasonably complex. Azure AD B2C has mitigation techniques in place for password attacks. Mitigation includes brute-force password attacks and dictionary password attacks. By using various signals, Azure AD B2C analyzes the integrity of requests. Azure AD B2C is designed to intelligently differentiate intended users from hackers and botnets. 
 
-Azure AD B2C uses a sophisticated strategy to lock accounts based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it's an attack. After ten unsuccessful attempts, a one minute lockout occurs. The next unsuccessful attempt after the account is unlocked triggers another one minute lockout and continues for each unsuccessful attempt. Entering the same password repeatedly does not qualify as multiple unsuccessful attempts. 
+Azure AD B2C uses a sophisticated strategy to lock accounts based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it's an attack. After a password is tried 10 times unsuccessfully, a one-minute lockout occurs. The next time a login is unsuccessful after the account is unlocked, another one-minute lockout occurs and continues for each unsuccessful login. Entering the same password repeatedly doesn't count as multiple unsuccessful logins. 
 
-The first ten lockout periods are one minute long, the next ten lockout periods are slightly longer with the periods increasing in duration after every ten lockout periods. The lockout counter resets to zero after a successful login when the account isn’t locked. The maximum is five hours per lockout period. 
+The first 10 lockout periods are one minute long. The next 10 lockout periods are slightly longer and increase in duration after every 10 lockout periods. The lockout counter resets to zero after a successful login when the account isn’t locked. The maximum is five hours per lockout period. 
 
 Currently, you can't:
 
