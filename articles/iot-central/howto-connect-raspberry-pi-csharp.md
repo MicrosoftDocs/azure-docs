@@ -21,7 +21,7 @@ This article describes how, as a device developer, to connect a Raspberry Pi to 
 To complete the steps in this article, you need the following:
 
 * [.NET Core 2](https://www.microsoft.com/net) installed on your development machine. You should also have a suitable code editor such as [Visual Studio Code](https://code.visualstudio.com/).
-* An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
+* An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * A Raspberry Pi device running the Raspbian operating system.
 
 

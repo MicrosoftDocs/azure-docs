@@ -56,7 +56,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
     
     * Choose **Trial**. You don't need an Azure subscription to create a Trial application.
     
-       For more information about directories and subscriptions, see [Create your Azure IoT Central application](howto-create-application.md).
+       For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central.md).
     
     * Choose **Custom Application**.
     
@@ -66,7 +66,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
     ![Azure IoT Central Create Application page](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    For more information, see [How to create your Azure IoT Central application](howto-create-application.md).
+    For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
 ## Create a new custom device template
 
