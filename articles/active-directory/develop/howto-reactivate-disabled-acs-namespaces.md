@@ -62,7 +62,7 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
 1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
 1. Confirm that the namespaces are disabled by confirming that `State` is `Disabled`.
 
-    [![Confirm that the namespaces are disabled](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)]((./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox))
+    [![Confirm that the namespaces are disabled](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
     You can also use `nslookup {your-namespace}.accesscontrol.windows.net` to confirm if the domain is still active.
 
@@ -75,15 +75,15 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
 1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
 1. Select the **Read Terms** button to read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/), which will direct you to a page with the updated Terms of Use.
 
-    [![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)]((./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox))
+    [![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
 
 1. Select **Request Extension** on the banner at the top of the page. The button will only be enabled after you read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/).
 
-    [![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)]((./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox))
+    [![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
 
 1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
 
-    [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)]((./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox))
+    [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
 
 ## Help and support
 
