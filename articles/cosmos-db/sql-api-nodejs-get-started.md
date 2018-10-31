@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: dech
 
 ---
-# Tutorial: Create a Node.js console application with JavaScript SDK to manage Azure Cosmos DB SQL API data
+# Tutorial: Build a Node.js console app with JavaScript SDK to manage Azure Cosmos DB SQL API data
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
