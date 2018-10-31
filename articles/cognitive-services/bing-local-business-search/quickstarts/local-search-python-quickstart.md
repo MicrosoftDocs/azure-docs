@@ -24,7 +24,7 @@ This example application gets local response data from the API for the search qu
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. Use the access key provided by the free trial.
 
 ## Code scenario
-The following code gets localized data. It is implemented in the following steps:
+The following code gets localized results. It is implemented in the following steps:
 1. Declare variables to specify the endpoint by host and path.
 2. Specify the query parameter. 
 3. Define the Search function that creates the request and adds the Ocp-Apim-Subscription-Key header.
@@ -61,6 +61,6 @@ print (json.dumps(json.loads(result), indent=4))
 ````
 
 ## Next steps
-- [Local Search Java Quickstart](local-search-java-quickstart.md)
-- [Local Search C# Quickstart](local-quickstart.md)
-- [Local Search Node Quickstart](local-search-node-quickstart.md)
+- [Local Business Search Java Quickstart](local-search-java-quickstart.md)
+- [Local Business Search C# Quickstart](local-quickstart.md)
+- [Local Business Search Node Quickstart](local-search-node-quickstart.md)

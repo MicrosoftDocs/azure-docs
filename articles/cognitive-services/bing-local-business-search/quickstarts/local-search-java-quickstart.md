@@ -46,7 +46,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 ## Complete code
 
-The Bing Local Search API returns results from the Bing search engine.
+The Bing Local Business Search API returns results from the Bing search engine.
 1. Download or install the gson library.
 2. Create a new Java project in your favorite IDE or editor.
 3. Add the code provided below.
@@ -161,6 +161,6 @@ public class LocalSearchCls {
 ````
 
 ## Next steps
-- [Local Search quickstart](local-quickstart.md)
-- [Local Search Node quickstart](local-search-node-quickstart.md)
-- [Local Search Python quickstart](local-search-python-quickstart.md)
+- [Local Business Search quickstart](local-quickstart.md)
+- [Local Business Search Node quickstart](local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](local-search-python-quickstart.md)

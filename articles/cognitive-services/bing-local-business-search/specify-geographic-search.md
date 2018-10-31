@@ -8,7 +8,7 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-local-business
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ---
 
@@ -18,7 +18,7 @@ The Bing Local Business Search API enables you to set boundaries on the specific
 
 If a search term contains an explicit geographic location, The Bing Local Business API will automatically use it to set boundaries for the search results. For example, if the search term is `sailing in San Diego`, then `San Diego` will be used as the location and any other specified locations in the query parameters or user headers will be ignored. 
 
-If a geographic location isn't detected in the search term, and no geographic location is specified using the query parameters, The Bing Local Business Search API will attempt to determine location from the request's `X-Search-ClientIP` or `X-Search-Location` headers. If neither header is specified, The API will determine location from either the client IP of the request, or GPS for mobile devices.
+If a geographic location isn't detected in the search term, and no geographic location is specified using the query parameters, The Bing Local Business Search API will attempt to determine location from the request's `X-Search-ClientIP` or `X-Search-Location` headers. If neither header is specified, The API will determine location from either the client IP of the request, or GPS coordinates for mobile devices.
 
 ## localCircularView
 
@@ -45,7 +45,7 @@ https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localMapView
 ````
 
 ## Next steps
-- [Local Search Java Quickstart](quickstarts/local-search-java-quickstart.md)
-- [Local Search C# Quickstart](quickstarts/local-quickstart.md)
-- [Local Search Node Quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+- [Local Business Search Java Quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Business Search C# Quickstart](quickstarts/local-quickstart.md)
+- [Local Business Search Node Quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)

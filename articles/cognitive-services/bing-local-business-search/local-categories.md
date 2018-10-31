@@ -15,7 +15,8 @@ ms.author: rosh, v-gedod
 
 # Search categories for the Bing Local Business Search API
 
-The Bing Local Business Search API enables you to search for local business entities in a variety of categories. You can include these searches in searches along with the `localCircularView` and `localMapView` [parameters](specify-geographic-search.md), and works with the user's implicit RevIP location.
+The Bing Local Business Search API enables you to search for local business entities in a variety of categories, with priority given to results close a user's location. You can include these searches in searches along with the `localCircularView` and `localMapView` [parameters](specify-geographic-search.md).
+
 
 ## TopLevel Categories 
 
@@ -34,20 +35,25 @@ Subcategories are passed the same way as `localCategories`. Subcategories are mo
 ### Eat Drink 
 |  |  |  |  |
 | - | - | - | - |
-| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants | AmericanRestaurants |
-| Bagels | BarbecueRestaurants | Taverns | SportsBars | 
-| Bars | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
-| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants | ChineseRestaurants | 
-| CoffeeAndTea | Delicatessens | DeliveryService | Diners | 
-| DiscountStores | Donuts | FastFood | FrenchRestaurants | 
-| FrozenYogurt | GermanRestaurants | Supermarkets | GreekRestaurants | 
-| Grocers | HawaiianRestaurants | HungarianRestaurants | IceCreamAndFrozenDesserts | 
-| IndianRestaurants | ItalianRestaurants | JapaneseRestaurants | Juices | 
-| KoreanRestaurants | LiquorStores | MexicanRestaurants | MiddleEasternRestaurants | 
-| Pizza | PolishRestaurants | PortugueseRestaurants | Pretzels | 
-| Restaurants | RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
-| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | TakeAway | 
-| ThaiRestaurants | TurkishRestaurants | VegetarianAndVeganRestaurants | VietnameseRestaurants|
+| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants |
+| AmericanRestaurants | Bagels | BarbecueRestaurants |
+| Taverns | SportsBars | Bars |
+| BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
+| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants |
+| ChineseRestaurants | CoffeeAndTea | Delicatessens | 
+| DeliveryService | Diners | DiscountStores | 
+| Donuts | FastFood | FrenchRestaurants | 
+| FrozenYogurt | GermanRestaurants | Supermarkets | 
+| GreekRestaurants | Grocers | HawaiianRestaurants | 
+| HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
+| ItalianRestaurants | JapaneseRestaurants | Juices | 
+| KoreanRestaurants | LiquorStores | MexicanRestaurants |
+| MiddleEasternRestaurants | Pizza | PolishRestaurants | 
+| PortugueseRestaurants | Pretzels | Restaurants | 
+| RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
+| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
+| TakeAway | ThaiRestaurants | TurkishRestaurants | 
+| VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
  
 ### See Do 
 |  |  |  |

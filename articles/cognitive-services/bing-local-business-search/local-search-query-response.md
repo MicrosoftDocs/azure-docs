@@ -140,7 +140,7 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 
 
 ## Next steps
-- [Local Search quickstart](quickstarts/local-quickstart.md)
-- [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md)
-- [Local Search Node quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+- [Local Business Search quickstart](quickstarts/local-quickstart.md)
+- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Business Search Node quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)
