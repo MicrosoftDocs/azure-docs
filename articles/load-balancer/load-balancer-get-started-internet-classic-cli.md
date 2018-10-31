@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2018
+ms.date: 10/31/2018
 ms.author: genli
 ---
 
