@@ -25,7 +25,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 1. Deploy a new scale set with a basic autoscale setting. This article uses the one from the Azure QuickStart Gallery, which has a Windows scale set with a basic autoscale template. Linux scale sets work the same way.
 2. After the scale set is created, navigate to the scale set resource from Azure Resource Explorer. You see the following under Microsoft.Insights node.
 
-    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     The template execution has created a default autoscale setting with the name **'autoscalewad'**. On the right-hand side, you can view the full definition of this autoscale setting. In this case, the default autoscale setting comes with a CPU% based scale-out and scale-in rule.  
 
@@ -54,11 +54,11 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 5. Make sure you are on the **Read/Write** mode in Resource Explorer
 
-    ![Autoscalewad, default autoscale setting](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad, default autoscale setting](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. Click Edit. **Replace** the 'profiles' element in autoscale setting with the following configuration:
 
-    ![profiles](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![profiles](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

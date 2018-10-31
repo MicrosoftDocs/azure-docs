@@ -49,7 +49,7 @@ At the end of this tutorial, you have a java console device app and a java conso
 
 To complete this tutorial, you need:
 
-* The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* The latest [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 
