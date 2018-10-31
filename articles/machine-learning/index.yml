@@ -73,6 +73,10 @@ sections:
         values:
         - href: 
         - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
+      - title: Build, optimize, and manage your ML pipelines
+        values:
+        - href: /azure/machine-learning/service/concept-ml-pipelines
+        - href: 
 
 - title: Other Microsoft Machine Learning Technologies
   items:
