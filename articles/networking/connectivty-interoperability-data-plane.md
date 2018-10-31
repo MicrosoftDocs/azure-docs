@@ -353,7 +353,7 @@ Traceroute output from on-premises Location 1 to a VM in the branch VNet is show
 
 ### Path to on-premises Location 2
 
-As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirm: 
+As we discuss in the [control plane analysis][Control-Analysis], the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirm: 
 
 	C:\Users\rb>ping 10.1.31.10
 	
@@ -417,7 +417,7 @@ Traceroute output from on-premises Location 2 to a VM in the spoke VNet is shown
 
 ### Path to the branch VNet, on-premises Location 1, and the remote VNet
 
-As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to the branch VNet, to on-premises Location 1, or to the remote VNet per the network configuration. 
+As we discuss in the [control plane analysis][Control-Analysis], the on-premises Location 1 has no visibility to the branch VNet, to on-premises Location 1, or to the remote VNet per the network configuration. 
 
 ## Data path from the remote VNet
 
@@ -451,7 +451,7 @@ Traceroute output from the remote VNet to a VM in the spoke VNet is shown here:
 
 ### Path to the branch VNet and on-premises Location 2
 
-As we discuss in the control plane analysis, the remote VNet has no visibility to the branch VNet or to on-premises Location 2 per the network configuration. 
+As we discuss in the [control plane analysis][Control-Analysis], the remote VNet has no visibility to the branch VNet or to on-premises Location 2 per the network configuration. 
 
 ### Path to on-premises Location 1
 
