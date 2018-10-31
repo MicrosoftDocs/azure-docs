@@ -18,7 +18,7 @@ ms.reviewer: rogoya
 
 |     |
 | --- |
-| Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD password protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Many organizations find their users create passwords using common local words such as a school, sports team, or famous person, leaving them easy to guess. Microsoft's custom banned password list allows organizations to add strings to evaluate and block, in addition to the global banned password list, when users and administrators attempt to change or reset a password.
