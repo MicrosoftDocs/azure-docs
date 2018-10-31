@@ -316,7 +316,7 @@ For the conditional access policy in this step, you need to configure the follow
 
     As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/08.png)
+    ![Conditional access](./media/app-based-conditional-access/91.png)
 
 5. As **Access controls**, you need to have **Require approved client app (preview)** selected.
  
