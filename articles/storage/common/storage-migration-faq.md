@@ -5,7 +5,7 @@ services: storage
 author: genlin
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
 ---

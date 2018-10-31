@@ -175,9 +175,11 @@ The next Resource Manager template example creates a subscription for a blob sto
 ]
 ```
 
-## Filter by advanced operators and data fields
+## Filter by operators and data
 
 To use advanced filtering, you must install a preview extension for Azure CLI. You can use [CloudShell](/azure/cloud-shell/quickstart) or install Azure CLI locally.
+
+### Install extension
 
 In CloudShell:
 
@@ -194,9 +196,11 @@ For a local installation:
 
 You're now ready to use advanced filtering.
 
+### Subscribe with advanced filters
+
 To learn about the operators and keys that you can use for advanced filtering, see [Advanced filtering](event-filtering.md#advanced-filtering).
 
-The following example creates a custom topic. It subscribes to the custom topic and filters by a value in the data object.
+The following example creates a custom topic. It subscribes to the custom topic and filters by a value in the data object. Events that have the color property set to blue, red, or green are sent to the subscription.
 
 ```azurecli-interactive
 topicName=<your-topic-name>
@@ -211,10 +215,15 @@ az eventgrid event-subscription create \
   --source-resource-id $topicid \
   -n demoAdvancedSub \
   --advanced-filter data.color stringin blue red green \
-  --endpoint $endpointURL
+  --endpoint $endpointURL \
+  --expiration-date "2018-11-30"
 ```
 
-Events that have the color property set to blue, red, or green are sent to the subscription. To test the filter, use:
+Notice an expiration date is set for the subscription. The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time.
+
+### Test filter
+
+To test the filter, send an event with the color field set to green.
 
 ```azurecli-interactive
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
@@ -225,7 +234,9 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-The event is sent to your endpoint. To test a scenario where the event isn't sent, use:
+The event is sent to your endpoint.
+
+To test a scenario where the event isn't sent, send an event with the color field set to yellow.
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
@@ -233,7 +244,7 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-The color property is set to yellow, which isn't one of the values specified in the subscription.
+Yellow isn't one of the values specified in the subscription, so the event isn't delivered to your subscription.
 
 ## Next steps
 

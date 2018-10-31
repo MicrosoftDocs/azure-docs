@@ -7,7 +7,7 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/30/2018
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -29,6 +29,10 @@ A common scenario is to have BI and analytical workloads use the read replica as
 ### Pricing tiers
 
 Read replicas are currently only available in the General Purpose and Memory Optimized pricing tiers.
+
+### Master server restart
+
+During this preview, when you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Please take this into consideration and perform these operations during an off-peak period.
 
 ### Stopping replication
 
