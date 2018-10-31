@@ -23,6 +23,8 @@ independent. A higher match degree indicates a higher degree of similarity with
 the reference translation. Intelligibility and grammatical correctness are not
 taken into account.
 
+## How BLEU works?
+
 BLEU’s strength is that it correlates well with human judgment by averaging out
 individual sentence judgment errors over a test corpus, rather than attempting
 to devise the exact human judgment for every sentence.
@@ -35,7 +37,5 @@ available to train. If your models have been trained on a narrow domain, and
 your training data is consistent with your test data, you can expect a high
 BLEU score.
 
-[!NOTE] A comparison between BLEU scores is only
-justifiable when BLEU results are compared with the same Test set, the same
-language pair, and the same MT engine. A BLEU score from a different test set is
-bound to be different.
+>[!NOTE]
+>A comparison between BLEU scores is only justifiable when BLEU results are compared with the same Test set, the same language pair, and the same MT engine. A BLEU score from a different test set is bound to be different.

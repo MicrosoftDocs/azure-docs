@@ -50,7 +50,7 @@ translations. In practice, a sentence length of 8 to 18 words will produce the
 best results, because these sentences contain enough context to show inflection
 and provide a phrase length that is significant, without being overly complex.
 
-A good description of the type of sentences to use in the tuning set is “prose”:
+A good description of the type of sentences to use in the tuning set is prose:
 actual fluent sentences. Not table cells, not poems, not lists of things, not
 only punctuation, or numbers in a sentence - regular language.
 

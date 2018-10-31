@@ -14,7 +14,7 @@ ms.topic: article
 
 # View model training details
 
-When your training is complete, you can review the various details of the training from Custom Translator training details page. Go to specific project, then go to models tab and select appropriate model.
+When your training is complete, you can review details about the training from the details page. Select a project, locate and select the models tab, and choose a model.
 
 The model page has two tabs: Training details and Test.
 

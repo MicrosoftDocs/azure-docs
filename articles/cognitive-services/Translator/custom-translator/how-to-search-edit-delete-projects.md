@@ -48,7 +48,8 @@ Custom Translator gives ability to edit name and the description of a project. O
 3.  Click on the filter button.
 
 
-[!NOTE] You cannot modify the project label, category, or language pair. 
+>[!NOTE]
+>You cannot modify the project label, category, or language pair. 
 
 
 ## Delete a project
@@ -60,12 +61,14 @@ You can delete a project when you no longer need it. Below steps describes how t
     ![Delete project](media/how-to/how-to-delete-project.png)
 
 2. Confirm deletion. Deleting a project will delete all models that were created
-within that project. 
+within that project.
 
 
-    ![Delete confirmation dialog](media/how-to/how-to-delete-project-confirm.png).
+![Delete confirmation dialog](media/how-to/how-to-delete-project-confirm.png)
 
-[!NOTE] Deleting project will not affect your  documents.
+
+>[!NOTE]
+>Deleting project will not affect your  documents.
 
 
 
