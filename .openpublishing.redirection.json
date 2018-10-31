@@ -5190,6 +5190,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/saas-apps/cisco-webex-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-saas-ciscocloud-tutorial.md",
             "redirect_url": "/azure/active-directory/saas-apps/ciscocloud-tutorial",
             "redirect_document_id": true
@@ -11022,6 +11027,16 @@
         {
             "source_path": "articles/machine-learning/data-science-process-walkthroughs-sql-server.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-log-template.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-activity-log",
             "redirect_document_id": false
         },
         {
@@ -28551,6 +28566,11 @@
         {
             "source_path": "articles/active-directory/develop/registration-config-grant-permissions-how-to.md",
             "redirect_url": "/azure/active-directory/manage-apps/configure-user-consent",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-for-lob-applications.md",
+            "redirect_url": "/azure/active-directory/manage-apps/developer-guidance-for-integrating-applications",
             "redirect_document_id": true
         },
         {
