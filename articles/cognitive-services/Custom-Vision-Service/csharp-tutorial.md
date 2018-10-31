@@ -44,6 +44,9 @@ Open the _Program.cs_ file and inspect the code. Insert your subscription keys i
 // Add your training & prediction key from the settings page of the portal
 string trainingKey = "<your key here>";
 string predictionKey = "<your key here>";
+
+// Create the Api, passing in the training key
+TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
 ```
 
 The following lines of code execute the primary functionality of the project.
@@ -67,6 +70,7 @@ var japaneseCherryTag = trainingApi.CreateTag(project.Id, "Japanese Cherry");
 ```
 
 ### Upload and tag images
+
 The images for this project are included. They are referenced in the **LoadImagesFromDisk** method in _Program.cs_.
 
 ```csharp
@@ -105,7 +109,7 @@ while (iteration.Status == "Completed")
 }
 ```
 
-### Set a default iteration for the prediction endpoint
+### Set the current iteration as default
 
 ```csharp
 // The iteration is now trained. Make it the default project endpoint
@@ -121,9 +125,9 @@ Console.WriteLine("Done!\n");
 PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
 ```
  
-### Submit an image to the prediction endpoint
+### Submit an image to the default prediction endpoint
 
-In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction is to be displayed in the console.
+In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console.
 
 ```csharp
 // Make a prediction against the new project
@@ -155,12 +159,11 @@ Making a prediction:
 You can then verify that the test image (found in **Images/Test/**) is tagged appropriately. At this point, you can press any key to exit the application.
 
 ## Clean up resources
-If you wish to implement your own image classification project, you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
+If you wish to implement your own image classification project (or try an [object detection](csharp-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
 
 On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
 
 ![Screenshot of a panel labelled My New Project with a trash can icon](media/csharp-tutorial/delete_project.png)
-
 
 ## Next steps
 
