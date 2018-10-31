@@ -22,7 +22,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* The [Java Development Kit(JDK) 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* The [Java Development Kit(JDK) 7 or 8](https://aka.ms/azure-jdks)
 
 * The [Gson library](https://github.com/google/gson)
 

@@ -10,11 +10,10 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.custom: troubleshoot java async sdk
 ms.topic: troubleshoot
 ---
 
-# Troubleshooting issues when using Java Async ADK with Azure Cosmos DB SQL API accounts
+# Troubleshooting issues when using Java Async SDK with Azure Cosmos DB SQL API accounts
 This article covers common issues, workarounds, diagnostics steps, and tools when using [Java Async ADK](sql-api-sdk-async-java.md) with Azure Cosmos DB SQL API accounts.
 Java Async SDK provides client-side logical representation to access Azure Cosmos DB SQL API. This article describes the tools and approaches to help you if you run into any issues.
 
