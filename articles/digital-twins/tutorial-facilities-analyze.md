@@ -1,6 +1,6 @@
 ---
 title: Analyze events from Azure Digital Twins setup | Microsoft Docs
-description: Learn how to visualize and analyze events from your Azure Digital Twins spaces, with Azure Time Series Insights, using the steps in this tutorial.
+description: Learn how to visualize and analyze events from your Azure Digital Twins spaces, with Azure Time Series Insights, by using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
 
@@ -10,17 +10,19 @@ ms.date: 10/15/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights
+# Tutorial: Visualize and analyze events from your Azure Digital Twins spaces by using Time Series Insights
 
-Once you have deployed your Azure Digital Twins instance, provisioned your spaces, and implemented custom function to monitor specific conditions, you can then visualize the events and data coming from your spaces to look for trends and anomalies. 
+After you deploy your Azure Digital Twins instance, provision your spaces, and implement custom function to monitor specific conditions, you can visualize the events and data coming from your spaces to look for trends and anomalies. 
 
-In [the first tutorial](tutorial-facilities-setup.md), you configured the spatial graph of an imaginary building, with a room containing sensors for motion, carbon dioxide, and temperature. In [the second tutorial](tutorial-facilities-udf.md), you provisioned your graph and a user-defined function. The function monitors these sensor values and triggers notifications for the right conditions, that is, the room is empty, and the temperature and carbon dioxide levels are normal. This tutorial shows you how you can integrate the notifications and data coming from your Digital Twins setup with Azure Time Series Insights. You can then visualize your sensor values over time, and look for trends such as, which room is getting the most use, which is the busiest times of the day, and so on. You can also detect anomalies such as, which rooms feel stuffier and hotter, or whether an area in your building is sending consistently high temperature values indicating a faulty air conditioning.
+In [the first tutorial](tutorial-facilities-setup.md), you configured the spatial graph of an imaginary building, with a room that contains sensors for motion, carbon dioxide, and temperature. In [the second tutorial](tutorial-facilities-udf.md), you provisioned your graph and a user-defined function. The function monitors these sensor values and triggers notifications for the right conditions. That is, the room is empty, and the temperature and carbon dioxide levels are normal. 
+
+This tutorial shows you how you can integrate the notifications and data coming from your Azure Digital Twins setup with Azure Time Series Insights. You can then visualize your sensor values over time. You can look for trends such as which room is getting the most use, which is the busiest times of the day, and so on. You can also detect anomalies such as, which rooms feel stuffier and hotter, or whether an area in your building is sending consistently high temperature values, indicating a faulty air conditioning.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Stream data using Event Hubs
-> * Analyze with Time Series Insights
+> * Stream data by using Azure Event Hubs.
+> * Analyze with Time Series Insights.
 
 ## Prerequisites
 
@@ -28,11 +30,11 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 - An [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An instance of Digital Twins running.
 - The [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
-- [.NET Core SDK version 2.1.403 or above](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify if the right version is installed. 
+- [.NET Core SDK version 2.1.403 or above](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify that the right version is installed. 
 
 
-## Stream data using Event Hubs
-The [Event Hubs](../event-hubs/event-hubs-about.md) service allows you to create a pipeline to stream your data. This section shows you how to create your event hub as the connector between your Digital Twins and TSI instances.
+## Stream data by using Event Hubs
+You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to create a pipeline to stream your data. This section shows you how to create your event hub as the connector between your Digital Twins and TSI instances.
 
 ### Create an event hub
 
