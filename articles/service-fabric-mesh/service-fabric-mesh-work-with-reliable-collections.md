@@ -18,7 +18,9 @@ ms.custom: mvc, devcenter
 ---
 # Use Reliable Collections in your Service Fabric Mesh app
 
-Service Fabric Mesh offers a stateful programming model to .NET and Java developers via Reliable Collections. Reliable Collections provide reliable dictionary and reliable queue classes. When you use these classes, your state is replicated (for availability), and transacted within a partition (for ACID semantics). Let’s look at a typical usage of a reliable dictionary.
+Service Fabric Mesh offers a stateful programming model to .NET and Java developers via Reliable Collections. Reliable Collections provide reliable dictionary and reliable queue classes. When you use these classes, your state is replicated (for availability), and transacted within a partition (for ACID semantics).
+
+In this topic, we'll look at how to use the reliable dictionary in a .NET service.
 
 ## Prerequisites
 
@@ -39,23 +41,13 @@ Give your project a name and location and click **OK** to create the Service Fab
 Next you'll see the **New Service Fabric Service** dialog.
 
 Select the **Console** template.
-Select the checkbox for **Use Reliable Collections**. This will add the support that we need to use reliable collections to your project. Specifically, the Microsoft.ServiceFabric.Mesh.AspNetCore.Data NuGet package is added to your project, and UseReliableCollectionsService() is added to your Program.cs file, like so:
-
-```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseReliableCollectionsService("Web1Type")   <--- added to provide Reliable Collection support
-                .UseStartup<Startup>();
-```
-
-Click **OK** to create the project.
+Select the checkbox for **Use Reliable Collections**. This will add the support that we need to use reliable collections to your project. Then click **OK** to create the service.
 
 ## Create a Reliable Collection dictionary
 
-Will write some code that uses Reliable Collection dictionary to store data for the service.
+We will write two functions. One that uses a Reliable Collection dictionary to store data for the service, and another that read it.
 
-Open **Program.cs** and replace the contents of `Main()` with the following:
-
+Open **Program.cs** and add the following function to `class Program`:
 
 ```csharp
 
@@ -81,6 +73,13 @@ catch (TimeoutException) {
    await Task.Delay(100, cancellationToken); goto retry;
 }
 ```
+
+
+
+
+replace the contents of `Main()` with the following:
+
+
 
 All operations on reliable dictionary objects (except for ClearAsync which is not undoable), require an ITransaction object. This object has associated with it any and all changes you’re attempting to make to any reliable dictionary and/or reliable queue objects within a single partition. You acquire an ITransaction object by calling the partition’s StateManager’s CreateTransaction method.
 
