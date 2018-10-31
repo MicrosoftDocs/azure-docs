@@ -62,7 +62,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    > [!IMPORTANT]
    > The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.
    >
-   > The name of the data factory may be registered as a **DNS** name in the future and hence become publicaly visible.
+   > The name of the data factory may be registered as a **DNS** name in the future and hence become publicly visible.
    >
    >
 4. Select the **Azure subscription** where you want the data factory to be created.

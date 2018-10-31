@@ -33,7 +33,7 @@ For more information on the APIs, see Apache documentation on the [Producer API]
 
 You must have the following components installed in your development environment:
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
+* [Java JDK 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/)
 

@@ -39,11 +39,11 @@ Applications or components that were available in on-premises clusters but aren'
 
 |**Application**|**Integration**
 |---|---|
-|Airflow|IaaS or HDI Edge node
+|Airflow|IaaS or HDInsight Edge node
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|None (Only HDP)
-|Datameer|HDI Edge node
+|Datameer|HDInsight Edge node
 |Datastax (Cassandra)|IaaS (CosmosDB an alternative on Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
@@ -52,15 +52,15 @@ Applications or components that were available in on-premises clusters but aren'
 |Mapador|IaaS 
 |Mongo|IaaS (CosmosDB an alternative on Azure)
 |NiFi|IaaS 
-|Presto|IaaS or HDI Edge node
+|Presto|IaaS or HDInsight Edge node
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
 |SAS|IaaS 
 |Vertica|IaaS (SQLDW an alternative on Azure)
 |Tableau|IaaS 
-|Waterline|HDI Edge node
-|StreamSets|HDI Edge 
+|Waterline|HDInsight Edge node
+|StreamSets|HDInsight Edge 
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
@@ -208,7 +208,7 @@ HDInsight can be connected to the on-premises network by using Azure Virtual Net
 - Configure DNS name resolution between the virtual network and on-premises network.
 - Configure network security groups or user-defined routes (UDR) to control network traffic.
 
- For more information, see the article [Connect HDInsight to your on-premises network](../connect-on-premises-network.md)
+For more information, see the article [Connect HDInsight to your on-premises network](../connect-on-premises-network.md)
 
 ## Next steps
 
