@@ -30,6 +30,7 @@ This section outlines the elements of publishing a container, and is intended as
 ## Container publishing process
 
 The following diagram illustrates the high-level steps in publishing a VM offer.
+![Steps to publishing an offer](./media/containers-offer-process.png)
 <!-- git correct path from Mike
 ![VM publishing process](./cpp-virtual-machine-offer/media/publishvm_001.png) -->
 
