@@ -40,7 +40,7 @@ Manifest lists allow a single digest or tag to represent multiple forms of an im
 
 ## Next steps
 
-* See how to [push and pull](/container-registry-get-started-docker-cli.md) images with Azure Container Registry.
+* See how to [push and pull](container-registry-get-started-docker-cli.md) images with Azure Container Registry.
 
 * Use [ACR tasks](container-registry-tasks-overview.md) to build and test container images. 
 
