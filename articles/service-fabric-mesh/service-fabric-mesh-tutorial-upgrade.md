@@ -13,7 +13,7 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to make code changes to my Service Fabric Mesh app and upgrade my app on Azure
@@ -49,17 +49,25 @@ This article shows how to upgrade a microservice within an application. In this 
 
 ## Modify the config
 
-When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yml** file for each deployment target (cloud and local). In these files, you can define parameters and their values that can then be referenced from your Mesh *.yaml files. We'll define a parameter, which allows us to update the cpu resources to `1.0` in anticipation that the web front end service will be more heavily used.
+When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yaml** file for each deployment environment (cloud and local). In these files, you can define parameters and their values that can then be referenced from your Mesh *.yaml files such as service.yaml or network.yaml.
 
-There are two steps. First, define the parameters you want in the **parameters.yml** file for the deployment target you want to affect. Then use those parameters in your service's **service.yaml** file.
+We'll define a parameter, which allows us to update the cpu resources to `1.0` in anticipation that the web front end service will be more heavily used.
+
+There are two steps. First, define the parameters you want in the **parameters.yaml** file for the deployment environment you want to affect. Then use those parameters in your service's **service.yaml** file.
 
 1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `WebFrontEnd_cpu`, with a value of `1.0`. The parameter name is prefaced with the service name `WebFrontEnd_` as a best practice to distinguish it from parameters of the same name that apply to different services.
 
     ```xml
     WebFrontEnd_cpu: 1.0
     ```
+
+2.  In the **todolistapp** project, under **Environments** > **Local**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `WebFrontEnd_cpu`, with a value of `0.5`.
+
+    ```xml
+    WebFrontEnd_cpu: 0.5
+    ```
     
-2. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
+3. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
 
     In the `resources:` section, change `cpu:` from `0.5` to `"parameters('WebFrontEnd_cpu')]"`. It should now look like this:
     
@@ -145,6 +153,8 @@ Regardless of whether you're making a code upgrade, or a config upgrade (in this
 
 Next, you'll see a **Publish Service Fabric Application** dialog.
 
+Use the **Target profile** dropdown to select the profile.yaml file to use for this deployment. In this case we are upgrading the app in the cloud so we select the **cloud.yaml** in the dropdown which will use the WebFrontEnd_cpu value of 1.0 defined in that file.
+
 ![Visual studio Service Fabric Mesh publish dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
 Select your Azure account and subscription. Ensure that **Location** is set to the location that you used when you originally published the to-do app to Azure. This article used **East US**.
@@ -155,14 +165,13 @@ Ensure that **Azure Container Registry** is set to the azure container registry 
 
 In the publish dialog, press the **Publish** button to upgrade the to-do app on Azure.
 
-Monitor the progress of the upgrade by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the upgrade has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
+Monitor the progress of the upgrade by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. 
+
+After the image is built and pushed to the Azure Container Registry, a **For status** link will appear in the output that you can click to monitor the deployment in the Azure portal.
+
+Once the upgrade has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
 ```json
-Packaging Application...
-Building Images...
-Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
-Uploading the images to Azure Container Registy...
-Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
