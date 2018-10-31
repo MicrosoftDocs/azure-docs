@@ -65,6 +65,33 @@ To be able to use a Data Lake Store as default storage, you must grant the servi
 
 For more information for creating service principal and grant access, see [Configure Data Lake store access](#configure-data-lake-store-access).
 
+> [!Note]
+> If you want to setup ADLS as your default storage and your certificate is stored in Azure Key Vault, there are a few additional steps required to export the certificate and store it on the local machine so that it can be used again with ADLS.
+
+First, download the certificate from Key Vault and extract the `SecretValueText`:
+
+```powershell
+$cert = (Get-AzureKeyVaultSecret -VaultName 'MY-KEY-VAULT' -Name 'MY-SECRET-NAME')
+$certValue = [System.Convert]::FromBase64String($cert.SecretValueText)
+$certPass = (Get-AzureKeyVaultSecret -VaultName 'My-Vault' -Name 'My-PW').SecretValueText
+```
+
+Next, convert the `SecretValueText` to a certificate:
+
+```powershell
+$certObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $certValue,$null,"Exportable, PersistKeySet"
+$certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPass.SecretValueText);
+$certArm = [System.Convert]::ToBase64String($certBytes)
+```
+
+
+```powershell
+$cert = (Get-AzureKeyVaultSecret -VaultName $KeyVaulName -Name $SecretName)
+$certValue = [System.Convert]::FromBase64String($cert.SecretValueText)
+$certObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $certValue,$null,"Exportable, PersistKeySet"
+$certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPass.SecretValueText);
+$certArm = [System.Convert]::ToBase64String($certBytes)
+```
 
 ## Use Data Lake Store as additional storage
 
