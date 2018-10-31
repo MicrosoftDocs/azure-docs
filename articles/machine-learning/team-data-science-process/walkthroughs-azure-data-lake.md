@@ -4,7 +4,7 @@ description: Examples that walk through the use of U-SQL on Azure Data Lake to d
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 

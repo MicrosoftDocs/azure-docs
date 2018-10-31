@@ -104,7 +104,7 @@ But in the above listed case, at 1:15 PM - Azure alerts can't determine that the
 
 
 ## Pricing and Billing of Log Alerts
-Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/) page. In Azure bills, Log Alerts are represented as type `microsoft.insights/scheduledqueryrules` with:
+Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/) page. In Azure bills, Log Alerts are represented as type `microsoft.insights/scheduledqueryrules` with:
 - Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
 - Log Alerts on Log Analytics shown with alert name as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties
 

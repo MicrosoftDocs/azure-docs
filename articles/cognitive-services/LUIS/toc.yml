@@ -9,7 +9,7 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
-  - name: Use APIs
+  - name: Use REST APIs
     items:
     - name: Get intent
       items:
@@ -19,16 +19,10 @@
         href: luis-get-started-go-get-intent.md
       - name: Java
         href: luis-get-started-java-get-intent.md
-      - name: JavaScript
-        href: luis-get-started-js-get-intent.md
       - name: Node.js
         href: luis-get-started-node-get-intent.md
-      - name: PHP
-        href: luis-get-started-php-get-intent.md
       - name: Python
         href: luis-get-started-python-get-intent.md
-      - name: Ruby
-        href: luis-get-started-ruby-get-intent.md
     - name: Change model
       items:
       - name: C#
@@ -37,16 +31,10 @@
         href: luis-get-started-go-add-utterance.md
       - name: Java
         href: luis-get-started-java-add-utterance.md
-      - name: JavaScript
-        href: luis-get-started-javascript-add-utterance.md
       - name: Node.js
         href: luis-get-started-node-add-utterance.md
-      - name: PHP
-        href: luis-get-started-php-add-utterance.md
       - name: Python
         href: luis-get-started-python-add-utterance.md
-      - name: Ruby
-        href: luis-get-started-ruby-add-utterance.md
 - name: Tutorials
   items:
   - name: Build app
@@ -83,7 +71,7 @@
       href: luis-tutorial-pattern-any.md
   - name: Use bot
     items:
-    - name: With C#
+    - name: With C# 
       href: luis-csharp-tutorial-bf-v4.md
     - name: With Node.js
       href: luis-nodejs-tutorial-bf-v4.md
@@ -115,6 +103,8 @@
       href: luis-concept-utterance.md
     - name: Roles
       href: luis-concept-roles.md
+    - name: Prebuilt models
+      href: luis-concept-prebuilt-model.md
   - name: Improve app performance
     items:
     - name: Prediction score
@@ -157,13 +147,21 @@
     href: luis-how-to-start-new-app.md
   - name: Build Model
     items:
-    - name: Add intents
+    - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add utterances
+    - name: Add entity to utterance 
       href: luis-how-to-add-example-utterances.md
-    - name: Add entities
+    - name: Add entity without utterance
       href: luis-how-to-add-entities.md
-    - name: With APIs
+    - name: Use prebuilt models
+      items:
+      - name: Use domains
+        href: luis-prebuilt-domains.md
+      - name: Use intents
+        href: luis-prebuilt-intent.md
+      - name: Use entities
+        href: luis-prebuilt-entities.md
+    - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
         href: luis-tutorial-node-import-utterances-csv.md
@@ -171,7 +169,7 @@
         href: luis-tutorial-list-entity.md
   - name: Integrate
     items:
-    - name: With Bing Spell Check API v7
+    - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: luis-tutorial-speech-to-intent.md
@@ -207,12 +205,6 @@
       href: luis-how-to-batch-test.md
   - name: Publish
     href: luis-how-to-publish-app.md
-  - name: Use prebuilt models
-    items:
-    - name: Use entities
-      href: luis-prebuilt-entities.md
-    - name: Use domains
-      href: luis-how-to-use-prebuilt-domains.md
   - name: Manage app
     items:
     - name: Using the dashboard
@@ -233,13 +225,13 @@
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Spread endpoint quota across keys with Traffic Manager
         href: luis-traffic-manager.md
-  - name: Migrate to V2 API
+  - name: Migrate to V2 REST API
     href: luis-migration-api-v1-to-v2.md
   - name: Find region programmatically
     items:
-    - name: Using C#
+    - name: Using REST API & C#
       href: luis-find-region-csharp.md
-    - name: Using Node.js
+    - name: Using REST API & Node.js
       href: luis-find-region-nodejs.md
 - name: Reference
   items:
@@ -285,16 +277,18 @@
       href: luis-reference-prebuilt-url.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
-  - name: Authoring V2 APIs
-    href: https://aka.ms/luis-authoring-apis
-  - name: Endpoint V2 API
-    href: https://aka.ms/luis-endpoint-apis
-  - name: HTTP codes
-    href: luis-reference-response-codes.md
   - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: REST APIs
+    items:
+    - name: Authoring V2 REST APIs
+      href: https://aka.ms/luis-authoring-apis
+    - name: Endpoint V2 REST API
+      href: https://aka.ms/luis-endpoint-apis
+    - name: HTTP codes
+      href: luis-reference-response-codes.md
   - name: SDKs
     items:
     - name: C#
@@ -361,7 +355,7 @@
     href: luis-glossary.md
   - name: FAQ
     href: luis-resources-faq.md
-  - name: Pricing
+  - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS

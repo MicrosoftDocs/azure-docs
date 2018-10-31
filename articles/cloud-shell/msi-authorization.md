@@ -1,5 +1,5 @@
 ---
-title: Use MSI in Azure Cloud Shell | Microsoft Docs
+title: Use managed identities for Azure resources in Azure Cloud Shell | Microsoft Docs
 description: Authenticate code with MSI in Azure Cloud Shell
 services: azure
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 04/14/2018
 ms.author: juluk
 ---
 
-# Use MSI in Azure Cloud Shell
+# Use managed identities for Azure resources in Azure Cloud Shell
 
-Azure Cloud Shell supports authorization with Managed Service Identities (MSI). Utilize this to retrieve access tokens to securely communicate with Azure services.
+Azure Cloud Shell supports authorization with managed identities for Azure resources. Utilize this to retrieve access tokens to securely communicate with Azure services.
 
-## About Managed Service Identity (MSI)
+## About managed identities for Azure resources
 A common challenge when building cloud applications is how to securely manage the credentials that need to be in your code for authenticating to cloud services. In Cloud Shell you may need to authenticate retrieval from Key Vault for a credential that a script may need.
 
-Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
+Managed identities for Azure resources makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
 ## Acquire access token in Cloud Shell
 

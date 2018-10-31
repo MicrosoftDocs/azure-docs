@@ -64,7 +64,7 @@ This section clarifies the monikers that refer to product versions. It also list
   * A blog post about ADO.NET 4.5.1 is available [here](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux, & macOS
-https://www.microsoft.com/en-us/download/details.aspx?id=56567
+https://www.microsoft.com/download/details.aspx?id=56567
 
 * Connect to Azure SQL Database V12 via Redirection
 https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/
