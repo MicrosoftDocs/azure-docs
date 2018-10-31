@@ -116,7 +116,6 @@
         - name: Common questions
           href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
   - name: Respond to incidents
-    href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=/azure/azure-monitor/toc.json
     items:
     - name: Alerts 
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
