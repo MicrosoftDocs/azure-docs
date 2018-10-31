@@ -182,7 +182,21 @@
   - name: Quickstarts
     href: https://aka.ms/customtranslatorplaceholder
   - name: Concepts
-    href: https://aka.ms/customtranslatorplaceholder
+    items:
+    - name: Workspace and projects
+      href: custom-translator/workspace-and-project.md
+    - name: Parallel documents
+      href: custom-translator/what-are-parallel-documents.md
+    - name: Dictionary
+      href: custom-translator/what-is-dictionary.md
+    - name: Document formats and naming convension
+      href: custom-translator/document-formats-naming-convention.md
+    - name: Sentence alignment
+      href: custom-translator/sentence-alignment.md
+    - name: Training and model
+      href: custom-translator/training-and-model.md
+    - name: BLEU Score
+      href: custom-translator/what-is-bleu-score.md
   - name: How-to guides
     href: https://aka.ms/customtranslatorplaceholder
   - name: Resources
