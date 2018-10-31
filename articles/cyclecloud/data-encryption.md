@@ -8,7 +8,7 @@ ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # Data Encryption

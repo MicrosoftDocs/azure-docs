@@ -7,7 +7,7 @@ ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/23/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # CycleCloud Template File Reference

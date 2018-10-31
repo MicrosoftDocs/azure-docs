@@ -7,7 +7,7 @@ ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # Azure CycleCloud QuickStart 3: Submit and Auto Scale Jobs
