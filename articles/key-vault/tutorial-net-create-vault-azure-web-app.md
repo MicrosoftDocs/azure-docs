@@ -234,4 +234,5 @@ Publish this app to Azure once again to see it live as a web app, and to see tha
 2. Select **Publish** > **Start**.
 3. Select **Create**.
 
-Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault
+In the above command you are giving the Identity (MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault. <br />
+Now when you run the application, you should see your secret value retrieved. 
