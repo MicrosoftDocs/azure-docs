@@ -40,7 +40,7 @@ The article [Module composition](module-composition.md) explains how to compose 
 
 An IoT Edge module, differently than a normal IoT Hub device application, can receive device-to-cloud messages that are being proxied by its local IoT Edge hub, in order to process them.
 
-IoT Edge hub propagates the messages to your module based on declarative routes described in the [Module composition](module-composition.md) article. When developing an IoT Edge module, you can receive these messages by setting message handlers, as shown in the tutorial [Develop and deploy an IoT Edge module to a simulated device][lnk-tutorial2].
+IoT Edge hub propagates the messages to your module based on declarative routes described in the [Module composition](module-composition.md) article. When developing an IoT Edge module, you can receive these messages by setting message handlers.
 
 In order to simplify the creation of routes, IoT Edge adds the concept of module *input* and *output* endpoints. A module can receive all device-to-cloud messages routed to it without specifying any input, and can send device-to-cloud messages without specifying any output.
 Using explicit inputs and outputs, though, makes routing rules simpler to understand. See [Module composition](module-composition.md) for more information on routing rules and input and output endpoints for modules.
@@ -60,12 +60,6 @@ Connecting to the local IoT Edge hub from a module involves two steps: use the c
 The connecting string to use is injected by the IoT Edge runtime in the environment variable `EdgeHubConnectionString`. This makes it available to any program that wants to use it.
 
 Analogously, the certificate to use to validate the IoT Edge hub connection is injected by the IoT Edge runtime in a file whose path is available in the environment variable `EdgeModuleCACertificateFile`.
-
-The tutorial [Develop and deploy an IoT Edge module to a simulated device][lnk-tutorial2] shows how to make sure that the certificate is in the machine store in your module application. Clearly, any other method to trust connections using that certificate work.
-
-## Packaging as an image
-IoT Edge modules are packaged as Docker images.
-You can use Docker toolchain directly, or Visual Studio Code as shown in the tutorial [Develop and deploy an IoT Edge module to a simulated device][lnk-tutorial2].
 
 ## Next steps
 

@@ -19,7 +19,7 @@ There are three patterns for using an IoT Edge device as a gateway: transparent,
 * **Protocol translation** – Also known as opaque gateway pattern, devices that do not support MQTT, AMQP, or HTTP use a gateway device to send data to IoT Hub. The gateway is smart enough to understand that protocol used by the downstream devices; however it is the only device that has identity in IoT Hub. All information looks like it is coming from one device, the gateway. This implies that downstream devices must embed additional identifying information in their messages if cloud applications want to reason about the data on a per device basis. Additionally, IoT Hub primitives like twin and methods are only available for the gateway device, not downstream devices.
 * **Identity translation** - Devices that cannot connect to IoT Hub connect to a gateway device which provides IoT Hub identity and protocol translation on behalf of the downstream devices. The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Downstream devices appear in IoT Hub as first-class devices with twins and methods. A user can interact with the devices in IoT Hub and is unaware of the intermediate gateway device.
 
-![Diagrams of gateway patterns][1]
+![Diagrams of gateway patterns](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
 ## Use cases
 All gateway patterns provide the following benefits:
@@ -41,7 +41,7 @@ Here is a quick cheat sheet that compares IoT Hub primitives when using transpar
 | Identities stored in the IoT Hub identity registry | Identities of all connected devices | Only the identity of the gateway device | Identities of all connected devices |
 | Device twin | Each connected device has its own device twin | Only the gateway has a device and module twins | Each connected device has its own device twin |
 | Direct methods and cloud-to-device messages | The cloud can address each connected device individually | The cloud can only address the gateway device | The cloud can address each connected device individually |
-| [IoT Hub throttles and quotas][lnk-iothub-throttles-quotas] | Apply to each device | Apply to the gateway device | Apply to each device |
+| [IoT Hub throttles and quotas](../iot-hub/iot-hub-devguide-quotas-throttling.md) | Apply to each device | Apply to the gateway device | Apply to each device |
 
 When using an opaque gateway (protocol translation) pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
@@ -49,6 +49,3 @@ When using an opaque gateway (protocol translation) pattern, all devices connect
 Use an IoT Edge device as a [transparent gateway][lnk-iot-edge-as-transparent-gateway] 
 
 [lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
-
-[1]: ./media/iot-edge-as-gateway/edge-as-gateway.png
