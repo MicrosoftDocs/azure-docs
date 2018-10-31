@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/22/2018
+ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -44,10 +44,12 @@ Cloud resources:
 
 Development resources:
 
-* [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension for Visual Studio Code. 
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension for Visual Studio Code. 
-* [Docker CE](https://docs.docker.com/install/). 
+* [Python](https://www.python.org/downloads/)
+* [Git](https://git-scm.com/downloads)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension for Visual Studio Code
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension for Visual Studio Code
+* [Docker CE](https://docs.docker.com/install/)
 
 ## Build an image classifier with Custom Vision
 
@@ -124,6 +126,7 @@ Creating an image classifier requires a set of training images, as well as test 
 
 5. When the export is complete, select **Download** and save the .zip package locally on your computer. Extract all files from the package. You'll use these files to create an IoT Edge module that contains the image classification server. 
 
+When you reach this point, you've finished creating and training your Custom Vision project. You'll use the exported files in the next section, but you're done with the Custom Vision web page. 
 
 ## Create an IoT Edge solution
 
@@ -161,7 +164,7 @@ The Visual Studio Code window loads your IoT Edge solution workspace.
 
 ### Add your image classifier
 
-The Python module template in Visual Studio code contains some sample code that you can run to test IoT Edge. You won't use that default code in this scenario. Instead, replace it with the image classifier container that you exported previously. 
+The Python module template in Visual Studio code contains some sample code that you can run to test IoT Edge. You won't use that code in this scenario. Instead, use the steps in this section to replace the sample code with the image classifier container that you exported previously. 
 
 1. In your file explorer, browse to the Custom Vision package that you downloaded and extracted. Copy all the contents from the extracted package. It should be two folders, **app** and **azureml**, and two files, **Dockerfile** and **README**. 
 
@@ -204,11 +207,11 @@ In this section, you add a new module to the same CustomVisionSolution and provi
    | Provide a module name | Name your module **cameraCapture** |
    | Provide Docker image repository for the module | Replace **localhost:5000** with the login server value for your Azure container registry. The final string looks like **\<registryname\>.azurecr.io/cameracapture**. |
 
-   The VS Code window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: Classifier and CameraCapture. 
+   The VS Code window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: classifier and cameraCapture. 
 
 2. Open the **main.py** file in the **modules** / **cameraCapture** folder. 
 
-3. Replace the entire file with the following code. This sample code sends POST requests to the image processing service running in the classifier module. We provide this module container with a sample image to use in the requests. It then packages the response as an IoT Hub message and sends it to an output queue.  
+3. Replace the entire file with the following code. This sample code sends POST requests to the image-processing service running in the classifier module. We provide this module container with a sample image to use in the requests. It then packages the response as an IoT Hub message and sends it to an output queue.  
 
     ```python
     # Copyright (c) Microsoft. All rights reserved.
@@ -311,27 +314,27 @@ In this section, you add a new module to the same CustomVisionSolution and provi
         if ((IMAGE_PATH and IMAGE_PROCESSING_ENDPOINT) != ""):
             main(IMAGE_PATH, IMAGE_PROCESSING_ENDPOINT)
         else: 
-            print ( "Error: Image path or image processing endpoint missing" )
+            print ( "Error: Image path or image-processing endpoint missing" )
     ```
 
-4. Save **main.py**. 
+4. Save the **main.py** file. 
 
-5. Open **requrements.txt**. 
+5. Open the **requrements.txt** file. 
 
 6. Add a new line for a library to include in the container.
 
-   ```txt
+   ```Text
    requests
    ```
 
-7. Save **requirements.txt**.
+7. Save the **requirements.txt** file.
 
 
 #### Add a test image to the container
 
 Instead of using a real camera to provide an image feed for this scenario, we're going to use a single test image. A test image is included in the GitHub repo that you downloaded for the training images earlier in this tutorial. 
 
-1. Navigate to the test image, located at **Cognitive-CustomCision-Windows** / **Samples** / **Images** / **Test**. 
+1. Navigate to the test image, located at **Cognitive-CustomVision-Windows** / **Samples** / **Images** / **Test**. 
 
 2. Copy **test_image.jpg** 
 
@@ -367,7 +370,7 @@ The IoT Edge extension for Visual Studio Code provides a template in each IoT Ed
     "createOptions": "{\"Env\":[\"IMAGE_PATH=test_image.jpg\",\"IMAGE_PROCESSING_ENDPOINT=http://classifier/image\"]}"
     ```
 
-    If you named your Custom Vision module something other than *classifier*, update the image processing endpoint value to match. 
+    If you named your Custom Vision module something other than *classifier*, update the image-processing endpoint value to match. 
 
 5. At the bottom of the file, update the **routes** parameter for the $edgeHub module. You want to route the prediction results from cameraCapture to IoT Hub. 
 
@@ -379,7 +382,7 @@ The IoT Edge extension for Visual Studio Code provides a template in each IoT Ed
 
     If you named your second module something other than *cameraCapture*, update the route value to match. 
 
-7. Save **deployment.template.json**.
+7. Save the **deployment.template.json** file.
 
 ### Add your registry credentials
 
@@ -401,7 +404,7 @@ If you're using Azure Container Registry, make sure you know the username, login
 
 5. Provide the username and password for your container registry, without quotation marks around the values. 
 
-6. Save **.env**.
+6. Save the **.env** file.
 
 ## Build and deploy your IoT Edge solution
 
@@ -441,9 +444,9 @@ There are two ways to view the results of your modules, either on the device its
 
 From your device, view the logs of the cameraCapture module to see the messages being sent and the confirmation that they were received by IoT Hub. 
 
-    ```bash
-    iotedge logs cameraCapture
-    ```
+   ```bash
+   iotedge logs cameraCapture
+   ```
 
 From Visual Studio Code, right-click on the name of your IoT Edge device and select **Start monitoring D2C message**. 
 
