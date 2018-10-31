@@ -48,7 +48,7 @@ Before we go any further, please read the [basic concepts](key-vault-whatis.md#b
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## What is Managed Service Identity and how does it work?
- Azure Key Vault can store credentials securely so they aren’t in your code, but to retrieve them you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! A classic bootstrap problem. Through the magic of Azure and Azure AD, MSI provides a “bootstrap identity” that makes it much simpler to get things started.
+ Before we go any further let's understand MSI. Azure Key Vault can store credentials securely so they aren’t in your code, but to retrieve them you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! A classic bootstrap problem. Through the magic of Azure and Azure AD, MSI provides a “bootstrap identity” that makes it much simpler to get things started.
 
 Here’s how it works! When you enable MSI for an Azure service such as Virtual Machines, App Service, or Functions, Azure creates a [Service Principal](key-vault-whatis#basic-concepts) for the instance of the service in Azure Active Directory, and injects the credentials for the Service Principal into the instance of the service. 
 
@@ -125,6 +125,7 @@ Follow this [tutorial](../articles/app-service/app-service-web-get-started-dotne
     - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
     - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Import the following in About.cshtml.cs file
+
     ```
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
@@ -235,8 +236,13 @@ Publish this app to Azure once again to see it live as a web app, and to see tha
 3. Select **Create**.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 In the above command you are giving the Identity (MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault. <br />
 Now when you run the application, you should see your secret value retrieved. 
 =======
 Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault
 >>>>>>> dce462ad89eacf012b249cba06bc6d69439ca8a9
+=======
+In the above command you are giving the Identity (MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault. <br />
+Now when you run the application, you should see your secret value retrieved. 
+>>>>>>> e42d393d2810ab60c9a8a8f3e58c7be19924e62f
