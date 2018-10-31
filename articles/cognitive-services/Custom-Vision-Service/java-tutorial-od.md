@@ -21,7 +21,7 @@ Explore a basic Java application that uses the Computer Vision API to create an 
 
 To use the tutorial, you need to do the following:
 
-- Install JDK 7 or 8.
+- Install [JDK 7 or 8](https://aka.ms/azure-jdks)
 - Install Maven.
 
 ## Install the Custom Vision Service SDK
