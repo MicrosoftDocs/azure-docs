@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for VMs Frequently Asked Questions | Microsoft Docs
-description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions.
+title: Azure Monitor for VMs (Preview) Frequently Asked Questions | Microsoft Docs
+description: Azure Monitor for VMs (Preview) is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions.
 services:  azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: magoedte
 
 ---
 
-# Azure Monitor for VMs Frequently Asked Questions
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs in Microsoft Azure. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+# Azure Monitor for VMs (Preview) Frequently Asked Questions
+This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ## Can I onboard to an existing workspace?
 If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the supported regions listed [here](monitoring-vminsights-onboard.md#prerequisites).

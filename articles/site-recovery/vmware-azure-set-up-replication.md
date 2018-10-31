@@ -1,16 +1,15 @@
 ---
-title: Configure and manage replication policies for VMware replication with Azure Site Recovery| Microsoft Docs
-description: Describes how to configure replication settings for VMware replication to Azure with Azure Site Recovery.
-services: site-recovery
+title: Configure and manage replication policies for VMware disaster recovery to Azure with Azure Site Recovery| Microsoft Docs
+description: Describes how to configure replication settings for VMware disaster recovery to Azure with Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: sutalasi
 
 ---
-# Configure and manage replication policies for VMware replication
+# Configure and manage replication policies for VMware disaster recovery to Azure
 This article describes how to configure a replication policy when you're replicate VMware VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
 
 

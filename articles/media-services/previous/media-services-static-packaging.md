@@ -4,7 +4,7 @@ description: This topic shows various tasks that are accomplished with Azure Med
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 10/24/2018
 ms.author: juliako
 
 ---

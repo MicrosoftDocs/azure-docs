@@ -39,7 +39,7 @@ In your Azure IoT Central application, add a real device from the **Windows IoT 
 
 ### Prepare the Windows IoT Core device
 
-To set up a Windows IoT Core device please follow the step by step guide at [Set up a Windows IoT Core device] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+To set up a Windows IoT Core device please follow the step by step guide at [Set up a Windows IoT Core device](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### Add a real device
 

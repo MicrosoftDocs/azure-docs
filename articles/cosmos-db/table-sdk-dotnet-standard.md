@@ -38,6 +38,7 @@ Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 | Version | Release Date | Retirement Date |
+| --- | --- | --- |
 | [0.9.1-preview](#0.9.1-preview) |October 18, 2018 |--- |
 
 

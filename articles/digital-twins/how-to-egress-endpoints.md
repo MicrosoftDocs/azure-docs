@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
 ---
 
@@ -14,7 +14,7 @@ ms.author: alinast
 
 Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message/event broker in the user's Azure subscription. Events and messages can be sent to **Event Hub**, **Event Grid**, and **Service Bus Topics**.
 
-Events will be sent to the endpoints according to pre-defined routing preferences: the user can specify which endpoint should receive any of the following events:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, or `DeviceMessage`.
+Events will be sent to the endpoints according to pre-defined routing preferences: the user can specify which endpoint should receive any of the following events: **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange**, or **DeviceMessage**.
 
 For a basic understanding of events routing and event types, refer to [Routing events and messages](concepts-events-routing.md).
 
@@ -22,9 +22,9 @@ For a basic understanding of events routing and event types, refer to [Routing e
 
 Here are the event formats for each of the event types:
 
-- `TopologyOperation`
+- **TopologyOperation**
 
-  Applies to graph changes. The `subject` property specifies the type of object affected. Types of objects that could trigger this event are: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
+  Applies to graph changes. The *subject* property specifies the type of object affected. Types of objects that could trigger this event are: **Device**, **DeviceBlobMetadata**, **DeviceExtendedProperty**, **ExtendedPropertyKey**, **ExtendedType**, **KeyStore**, **Report**, **RoleDefinition**, **Sensor**, **SensorBlobMetadata**, **SensorExtendedProperty**, **Space**,  **SpaceBlobMetadata**, **SpaceExtendedProperty**, **SpaceResource**, **SpaceRoleAssignment**, **System**, **User**, **UserBlobMetadata**, **UserExtendedProperty**.
 
   Example:
 
@@ -50,11 +50,14 @@ Here are the event formats for each of the event types:
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourTopicName` | The name of your customized topic |
+    | *yourTopicName* | The name of your customized topic |
 
-- `UdfCustom`
+- **UdfCustom**
 
-  An event sent by a user-defined function (UDF). Note, this event has to be explicitly sent from the UDF itself.
+  An event sent by a user-defined function (UDF). 
+  
+  > [!IMPORTANT]
+  > This event has to be explicitly sent from the UDF itself.
 
   Example:
 
@@ -78,9 +81,9 @@ Here are the event formats for each of the event types:
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourTopicName` | The name of your customized topic |
+    | *yourTopicName* | The name of your customized topic |
 
-- `SensorChange`
+- **SensorChange**
 
   An update to a sensor's state based on telemetry changes.
 
@@ -113,9 +116,9 @@ Here are the event formats for each of the event types:
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourTopicName` | The name of your customized topic |
+    | *yourTopicName* | The name of your customized topic |
 
-- `SpaceChange`
+- **SpaceChange**
 
   An update to a space's state based on telemetry changes.
 
@@ -148,15 +151,15 @@ Here are the event formats for each of the event types:
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourTopicName` | The name of your customized topic |
+    | *yourTopicName* | The name of your customized topic |
 
-- `DeviceMessage`
+- **DeviceMessage**
 
-  Allows you to specify an `EventHub` connection to which raw telemetry events can be routed as well from Azure Digital Twins.
+  Allows you to specify an **EventHub** connection to which raw telemetry events can be routed as well from Azure Digital Twins.
 
 > [!NOTE]
-> - `DeviceMessage` is combinable only with `EventHub`; you will not be able to combine `DeviceMessage` with any of the other event types.
-> - You will be able to specify only one endpoint of the combination of type `EventHub`/`DeviceMessage`.
+> - **DeviceMessage** is combinable only with **EventHub**; you will not be able to combine **DeviceMessage** with any of the other event types.
+> - You will be able to specify only one endpoint of the combination of type **EventHub** or **DeviceMessage**.
 
 ## Configuring endpoints
 
@@ -166,7 +169,7 @@ Endpoint management is exercised through the Endpoints API. Here are some exampl
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- Route to **Service Bus** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Route to **Service Bus** event types: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -184,12 +187,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary connection string used to authenticate |
-    | `yourSecondaryKey` | The secondary connection string used to authenticate |
-    | `yourTopicName` | The name of your customized topic |
+    | *yourNamespace* | The namespace of your endpoint |
+    | *yourPrimaryKey* | The primary connection string used to authenticate |
+    | *yourSecondaryKey* | The secondary connection string used to authenticate |
+    | *yourTopicName* | The name of your customized topic |
 
-- Route to **Event Grid** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Route to **Event Grid** event types: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -207,11 +210,11 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourPrimaryKey` | The primary connection string used to authenticate|
-    | `yourSecondaryKey` | The secondary connection string used to authenticate |
-    | `yourTopicName` | The name of your customized topic |
+    | *yourPrimaryKey* | The primary connection string used to authenticate|
+    | *yourSecondaryKey* | The secondary connection string used to authenticate |
+    | *yourTopicName* | The name of your customized topic |
 
-- Route to **Event Hub** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Route to **Event Hub** event types: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -229,12 +232,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary connection string used to authenticate |
-    | `yourSecondaryKey` | The secondary connection string used to authenticate |
-    | `yourEventHubName` | The name of your Event Hub |
+    | *yourNamespace* | The namespace of your endpoint |
+    | *yourPrimaryKey* | The primary connection string used to authenticate |
+    | *yourSecondaryKey* | The secondary connection string used to authenticate |
+    | *yourEventHubName* | The name of your **Event Hub** |
 
-- Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
+- Route to **Event Hub** event type: **DeviceMessage**. The inclusion of `EntityPath` in the **connectionString** is mandatory.
 
   ```JSON
   {
@@ -250,13 +253,13 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary connection string used to authenticate |
-    | `yourSecondaryKey` | The secondary connection string used to authenticate |
-    | `yourEventHubName` | The name of your Event Hub |
+    | *yourNamespace* | The namespace of your endpoint |
+    | *yourPrimaryKey* | The primary connection string used to authenticate |
+    | *yourSecondaryKey* | The secondary connection string used to authenticate |
+    | *yourEventHubName* | The name of your **Event Hub** |
 
 > [!NOTE]
-> Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events at the endpoint.
+> Upon the creation of a new endpoint, it may take up to 5 to 10 minutes to start receiving events at the endpoint.
 
 ## Primary and secondary connection keys
 
