@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.author: rolyon
 
 ---
@@ -42,6 +42,7 @@ Azure AD Terms of use enables you to do the following:
 - Assist in meeting privacy regulations.
 - List who has or hasn't agreed to your Terms of use.
 - Display a log of Terms of use activity for compliance and audit.
+- Create and manage Terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
 
 ## Prerequisites
 To use and configure Azure AD Terms of use, you must have:

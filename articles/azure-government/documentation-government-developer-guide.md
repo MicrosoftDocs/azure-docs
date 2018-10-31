@@ -71,7 +71,7 @@ For more information on Azure Government Compliance, refer to the [compliance do
 
 ## Endpoint mapping
 
-To learn about mapping global Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
+The following table shows the mapping between some Azure services and Azure Government endpoints.
 
 > [!NOTE]
 > The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
