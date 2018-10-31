@@ -207,28 +207,28 @@ If the customer purchases using a credit card:
 
 |Description    |    Date  |
 |----------|----------|
-|Order Period   | August 15, 2018 - August 30, 2018 |
-|Term Ending (month)   | August 30, 2018 |
-|Billing Date | September 1, 2018 |
-|Customer Payment Date | September 1, 2018 |
-|Escrow Period (credit cards only, 30 days) | September 1, 2018 – September 30, 2018 |
-|Collection Period Start | September 1, 2018 |
-|Collection Period End (maximum, 30 days) | September 30, 2018 |
-|Payout Calculation Date (monthly on the 15th) | October 1, 2018 |
-|Payout Date | October 15, 2018 |
+|Order Period   | Aug 15, 2018 - Aug 30, 2018 |
+|Term Ending (month)   | Aug 30, 2018 |
+|Billing Date | Sept 1, 2018 |
+|Customer Payment Date | Sept 1, 2018 |
+|Escrow Period (credit cards only, 30 days) | Sept 1, 2018 – Sept 30, 2018 |
+|Collection Period Start | Sept 1, 2018 |
+|Collection Period End (maximum, 30 days) | Sept 30, 2018 |
+|Payout Calculation Date (monthly on the 15th) | Oc 1, 2018 |
+|Payout Date | Oct 15, 2018 |
 
 If the customer purchases using an Enterprise Agreement:  
 |Description    |    Date  |
 |----------|----------|
-|Order Period | August 15, 2018 - August 30, 2018 |
-|Term Ending (quarter) | September 30, 2018 |
-|Billing Date | October 15, 2018 |
+|Order Period | Aug 15, 2018 - Aug 30, 2018 |
+|Term Ending (quarter) | Sept 30, 2018 |
+|Billing Date | Oct 15, 2018 |
 |Escrow Period (credit cards only, 30 days) | n/a |
-|Collection Period Start | October 15, 2018 |
-|Collection Period End (maximum, 90 days) | January 15, 2018 |
-|Customer Payment Date | December 30, 2018 |
-|Payout Calculation Date (monthly on the 15th) | January 15, 2018 |
-|Payout Date | February 15, 2019 |
+|Collection Period Start | Oct 15, 2018 |
+|Collection Period End (maximum, 90 days) | Jan 15, 2018 |
+|Customer Payment Date | Dec 30, 2018 |
+|Payout Calculation Date (monthly on the 15th) | Jan 15, 2018 |
+|Payout Date | Feb 15, 2019 |
 
 >[!NOTE] 
 >All reporting and insights for the transact publishing option are available via the Insights section of the Cloud Partner Portal.
