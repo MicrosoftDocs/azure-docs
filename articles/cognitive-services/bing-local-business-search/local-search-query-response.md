@@ -1,6 +1,7 @@
 ---
 title: Bing Local Business Search query and response | Microsoft Docs
-description: How to use the Bing Local Business Search API to search the web locally.
+description: How to use the Bing Local Business Search API to search the web.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -24,10 +25,10 @@ https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restauran
 
 ````
 Complete request syntax and code scenarios are shown in the quickstarts:
-- [Local Search quickstart](quickstarts/local-quickstart.md)
-- [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md)
-- [Local Search Node quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+- [Local Business Search quickstart](quickstarts/local-quickstart.md)
+- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Business Search Node quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)
 
 The response contains a `SearchResponse` object. If Bing finds places that are relevant, the object includes the `places` field. If Bing does not find relevant entities, the response object will not include the `places` field.
 
@@ -45,10 +46,10 @@ The response contains a `SearchResponse` object. If Bing finds places that are r
 ````
 
 ## Local Business Search endpoint
-The **Local Search API**  includes one endpoint that returns results from the Web based on a query. 
+The **Local Business Search API**  includes one endpoint that returns results from the Web based on a query. 
 
 ## Endpoint
-To get local results, use the endpoint and include the `Ocp-Apim-Subscription-Key` header. There are several ways to specify the results.  See [Headers](local-search-reference.md#headers) and [Parameters](local-search-reference.md#query-parameters) for the options. This example uses the `count` parameter to limit results to one, beginning with the first result as specified by `first=0`.
+To get localized results, use the endpoint and include the `Ocp-Apim-Subscription-Key` header. There are several ways to specify the results.  See [Headers](local-search-reference.md#headers) and [Parameters](local-search-reference.md#query-parameters) for the options. This example uses the `count` parameter to limit results to one, beginning with the first result as specified by `first=0`.
 
 GET:
 ````
@@ -138,10 +139,10 @@ The JSON results include the following attributes:
 * telephone
 * url
 
-For general information about headers, parameters, market codes, response objects, errors, etc., see the [Bing Local Search API v7](local-search-reference.md) reference.
+For general information about headers, parameters, market codes, response objects, errors, etc., see the [Bing Local Business Search API v7](local-search-reference.md) reference.
 
 > [!NOTE]
-> You, or a third party on your behalf, may not use, retain, store, cache, share, or distribute any data from the Local Search API for the purpose of testing, developing, training, distributing or making available any non-Microsoft service or feature. 
+> You, or a third party on your behalf, may not use, retain, store, cache, share, or distribute any data from the Local Business Search API for the purpose of testing, developing, training, distributing or making available any non-Microsoft service or feature. 
 
 ## Throttling requests
 
@@ -149,7 +150,7 @@ For general information about headers, parameters, market codes, response object
 
 
 ## Next steps
-- [Local Search quickstart](quickstarts/local-quickstart.md)
-- [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md)
-- [Local Search Node quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+- [Local Business Search quickstart](quickstarts/local-quickstart.md)
+- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Business Search Node quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)

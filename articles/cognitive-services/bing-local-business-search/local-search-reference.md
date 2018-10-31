@@ -1,7 +1,8 @@
 
 ---
-title: Bing Local Search API v7 Reference | Microsoft Docs
-description: Describes the programming elements of the Bing Local Search API.
+title: Bing Local Business Search API v7 Reference | Microsoft Docs
+description: Describes the programming elements of the Bing Local Business Search API.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -16,7 +17,7 @@ ms.author: rosh, v-gedod
 
 The Local Business Search API sends a search query to Bing to get results that include include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries, etc.  
 
-This section provides technical details about the response objects, and the query parameters and headers that affect the search results. For examples that show how to make requests, see [Local Search C# quickstart](quickstarts/local-quickstart.md) or [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md). 
+This section provides technical details about the response objects, and the query parameters and headers that affect the search results. For examples that show how to make requests, see [Local Business Search C# quickstart](quickstarts/local-quickstart.md) or [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md). 
   
 For information about headers that requests should include, see [Headers](#headers).  
   
@@ -29,7 +30,7 @@ For information about permitted use and display of results, see [Use and display
 
   
 ## Endpoint  
-To request local search results, send a GET request to: 
+To request local business results, send a GET request to: 
 
 ``` 
 https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search
@@ -67,9 +68,11 @@ The request may include the following query parameters. See the Required column 
   
   
 |Name|Value|Type|Required|  
-|----------|-----------|----------|--------------| 
-|<a name="localCategories" />localCategories|List of options that define search by business category.  See [Local Categories search](local-categories.md)|String|No|  
-|<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see [Market Codes](#market-codes).<br /><br /> **NOTE:** The Local Search API currently only supports en-us market and language.<br /><br />|String|Yes|  
+|----------|-----------|----------|--------------|
+|<a name="count" />count|The number of resuts to return, starting with the index specified by the `offset` parameter.|String|No|   
+|<a name="localCategories" />localCategories|List of options that define search by business category.  See [Local Business Categories search](local-categories.md)|String|No|  
+|<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see [Market Codes](#market-codes).<br /><br /> **NOTE:** The Local Business Search API currently only supports en-us market and language.<br /><br />|String|Yes|
+|<a name="offset"/>offset|The index to start results specified by the `count` parameter.|Integer|No|  
 |<a name="query" />q|The user's search term.|String|No|  
 |<a name="responseformat" />responseFormat|The media type to use for the response. The following are the possible case-insensitive values.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> The default is JSON. For information about the JSON objects that the response contains, see [Response Objects](#response-objects).<br /><br />  If you specify JsonLd, the response body includes JSON-LD objects that contain the search results. For information about the JSON-LD, see [JSON-LD](http://json-ld.org/).|String|No|  
 |<a name="safesearch" />safeSearch|A filter used to filter adult content. The following are the possible case-insensitive filter values.<br /><ul><li>Off&mdash;Return webpages with adult text, images, or videos.<br /><br/></li><li>Moderate&mdash;Return webpages with adult text, but not adult images or videos.<br /><br/></li><li>Strict&mdash;Do not return webpages with adult text, images, or videos.</li></ul><br /> The default is Moderate.<br /><br /> **NOTE:** If the request comes from a market that Bing's adult policy requires that `safeSearch` is set to Strict, Bing ignores the `safeSearch` value and uses Strict.<br/><br/>**NOTE:** If you use the `site:` query operator, there is the chance that the response may contain adult content regardless of what the `safeSearch` query parameter is set to. Use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content. |String|No|  
@@ -82,7 +85,7 @@ The following are the JSON response objects that the response may include. If th
 
 |Object|Description|  
 |------------|-----------------|  
-|[Place](#place)|Defines information about a local entity such as a restaurant or hotel.|  
+|[Place](#place)|Defines information about a local business such as a restaurant or hotel.|  
 
   
 ### Error  
@@ -142,7 +145,7 @@ Note that a publisher may provide their name or their website or both.
   
 
 ### Place  
-Defines information about a local entity, such as a restaurant or hotel.  
+Defines information about a local business, such as a restaurant or hotel.  
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
@@ -260,7 +263,7 @@ The following are the possible error code and sub-error code values.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returns InsufficientAuthorization when the caller does not have permissions to access the resource. This can occur if the subscription key has been disabled or has expired. <br/><br/>If the error is InsufficientAuthorization, the HTTP status code is 403.
 
 ## Next steps
-- [Local Search quickstart](quickstarts/local-quickstart.md)
-- [Local Search Java quickstart](quickstarts/local-search-java-quickstart.md)
-- [Local Search Node quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+- [Local Business Search quickstart](quickstarts/local-quickstart.md)
+- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Local Business Search Node quickstart](quickstarts/local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)

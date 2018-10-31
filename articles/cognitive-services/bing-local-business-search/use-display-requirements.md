@@ -1,6 +1,7 @@
 ---
-title: Use and display requirements for the Bing Local Search APIs | Microsoft Docs
-description: Use data from the Bing Local Search APIs to improve results from searches on the web.
+title: Use and display requirements for the Bing Local Business Search APIs | Microsoft Docs
+description: Use data from the Bing Local Business Search API to localize results from searches on the web.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: MikeDodaro
 manager: rosh
