@@ -51,20 +51,25 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 
 ## Enable Serial Console in custom or older images
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
-To enable Serial console for Windows virtual machines created before February 2018, please use the following steps: 
+
+For older Windows Server images (created before February 2018), you may automatically enable the serial console through the Azure portal's Run Command feature. Look for the Run Command named "EnableEMS" in the Azure portal.
+
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
+
+Alternatively, to manually enable the serial console for Windows virtual machines created before February 2018, please use the following steps: 
 
 1. Connect to your Windows virtual machine via Remote Desktop
-2. From an Administrative command prompt, run the following commands 
-* `bcdedit /ems {current} on`
-* `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
-3. Reboot the system for the SAC console to be enabled
+1. From an Administrative command prompt, run the following commands 
+    * `bcdedit /ems {current} on`
+    * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+1. Reboot the system for the SAC console to be enabled
 
-![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 If needed, the SAC can be enabled offline as well:
 
 1. Attach the windows disk you want SAC configured for as a data disk to existing VM. 
-2. From an Administrative command prompt, run the following commands 
+1. From an Administrative command prompt, run the following commands 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 

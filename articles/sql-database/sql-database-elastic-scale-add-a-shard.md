@@ -3,7 +3,7 @@ title: Adding a shard using elastic database tools | Microsoft Docs
 description: How to use Elastic Scale APIs to add new shards to a shard set.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
