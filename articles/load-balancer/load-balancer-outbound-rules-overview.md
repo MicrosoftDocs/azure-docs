@@ -4,9 +4,6 @@ description: Use outbound rules to define outbound network address translations
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
-
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

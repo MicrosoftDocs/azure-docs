@@ -4,10 +4,6 @@ description: This article explains how Azure enables VMs to communicate with pub
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-editor: ''
-
-ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
