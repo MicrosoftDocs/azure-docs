@@ -64,16 +64,16 @@ As a sample simulation, it can't be edited. The simulation is configured with th
 | Setting             | Value                       |
 | ------------------- | --------------------------- |
 | Target IoT Hub      | Use pre-provisioned IoT Hub |
-| Device model        | Truck                     |
+| Device model        | Truck                       |
 | Number of devices   | 10                          |
 | Telemetry frequency | 10 seconds                  |
-| Simulation duration | 5 minutes                   |
+| Simulation duration | Run indefinitely            |
 
-[![Simulation configuration](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![Simulation configuration](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
 
 ## Run the simulation
 
-Click **Start Simulation**. The simulation will run for five minutes as configured. You can stop the simulation at any time by clicking **Stop Simulation**. The simulation shows statistics for the current run. 
+Click **Start Simulation**. The simulation will run indefinitely as configured. You can stop the simulation at any time by clicking **Stop Simulation**. The simulation shows statistics for the current run.
 
 ![Simulation run](./media/quickstart-device-simulation-deploy/runningsimulation.png)
 
