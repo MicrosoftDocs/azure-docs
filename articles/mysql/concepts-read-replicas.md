@@ -30,7 +30,7 @@ A common scenario is to have BI and analytical workloads use the read replica as
 
 Read replicas are currently only available in the General Purpose and Memory Optimized pricing tiers.
 
-### Master restart
+### Master server restart
 
 During this preview, when you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Please take this into consideration and perform these operations during an off-peak period.
 
