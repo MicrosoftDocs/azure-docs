@@ -17,33 +17,60 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM agent unable to communicate with Azure Backup
+## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM agent unable to communicate with Azure Backup
 
-Error message: "VM Agent unable to communicate with Azure Backup"<br>
-Error code: "UserErrorGuestAgentStatusUnavailable"
+**Error code**: UserErrorGuestAgentStatusUnavailable <br>
+**Error message**: VM Agent unable to communicate with Azure Backup<br>
 
-After you register and schedule a VM for the Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. When a snapshot isn't triggered, the backup might fail. Complete the following troubleshooting steps in the order listed, and then retry your operation:
-
+After you register and schedule a VM for the Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. When a snapshot isn't triggered, the backup might fail. Complete the following troubleshooting steps in the order listed, and then retry your operation:<br>
 **Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
 **Cause 2: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
 **Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 4: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
 **Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Snapshot operation fails because the virtual machine isn't connected to the network
+## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
 
-Error message: "Snapshot operation failed due to no network connectivity on the virtual machine"<br>
-Error code: "ExtensionSnapshotFailedNoNetwork"
+**Error code**: GuestAgentSnapshotTaskStatusError<br>
+**Error message**: Could not communicate with the VM agent for snapshot status <br>
+
+After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
+**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
+
+## UserErrorRpCollectionLimitReached - The Restore Point collection max limit has reached
+
+**Error code**: UserErrorRpCollectionLimitReached <br>
+**Error message**: The Restore Point collection max limit has reached. <br>
+Description:  
+* This issue could happen if there is a lock on the recovery point resource group preventing automatic cleanup of recovery point.
+* This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time. <br>
+
+Recommended Action:<br>
+To resolve this issue, remove the lock on the resource group and retry the operation to trigger clean-up.
+
+> [!NOTE]
+	> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+
+
+**Step 1: [Remove lock from the restore point resource group  group](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
+
+## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Snapshot operation failed due to no network connectivity on the virtual machine
+
+**Error code**: ExtensionSnapshotFailedNoNetwork<br>
+**Error message**: Snapshot operation failed due to no network connectivity on the virtual machine<br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:    
 **Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
 **Cause 2: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 3: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot extension operation fails
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - VMSnapshot extension operation failed
 
-Error message: "VMSnapshot extension operation failed"<br>
-Error code: "ExtentionOperationFailed"
+**Error code**: ExtentionOperationFailed <br>
+**Error message**: VMSnapshot extension operation failed<br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -51,20 +78,10 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 3: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Cause 4: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-## Backup fails because the VM agent is unresponsive
+## BackUpOperationFailed / BackUpOperationFailedV2 - Backup fails, with an internal error
 
-Error message: "Could not communicate with the VM agent for snapshot status" <br>
-Error code: "GuestAgentSnapshotTaskStatusError"
-
-After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
-**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
-
-## Backup fails, with an internal error
-
-Error message: "Backup failed with an internal error - Please retry the operation in a few minutes" <br>
-Error code: "BackUpOperationFailed"/ "BackUpOperationFailedV2"
+**Error code**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
+**Error message**: Backup failed with an internal error - Please retry the operation in a few minutes <br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
@@ -96,7 +113,7 @@ To resolve the issue, try one of the following methods:
 
 ##### Allow access to Azure storage that corresponds to the region
 
-You can use [service tags](../virtual-network/security-overview.md#service-tags) to allow connections to storage of the specific region. Ensure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access. 
+You can use [service tags](../virtual-network/security-overview.md#service-tags) to allow connections to storage of the specific region. Ensure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access.
 
 ![Network security group with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
@@ -107,7 +124,7 @@ To understand the step by step procedure to configure service tags, watch [this 
 
 If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
 
-Furthermore, if your subnet doesn't have a route for internet outbound traffic, you need to add a service endpoint with service tag "Microsoft.Storage" to your subnet. 
+Furthermore, if your subnet doesn't have a route for internet outbound traffic, you need to add a service endpoint with service tag "Microsoft.Storage" to your subnet.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 
@@ -119,7 +136,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 4. If the Windows Guest Agent appears in **Programs and Features**, uninstall the Windows Guest Agent.
 5. Download and install the [latest version of the agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 6. Verify that the Windows Guest Agent services appear in services.
-7. Run an on-demand backup: 
+7. Run an on-demand backup:
 	* In the portal, select **Backup Now**.
 
 Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. .NET 4.5 is required for the VM agent to communicate with the service.
@@ -180,28 +197,41 @@ To uninstall the extension:
 4. Select **Vmsnapshot Extension**.
 5. Select **Uninstall**.
 
-For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the backup. 
+For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the backup.
 
 Completing these steps causes the extension to be reinstalled during the next backup.
 
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>The Backup service doesn't have permission to delete the old restore points because of a resource group lock
-This issue is specific to managed VMs in which the user locks the resource group. In this case, the backup service can't delete older restore points. Because there's a limit of 18 restore points, new backups start to fail.
+### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remove lock from the recovery point resource group
+1. Sign in to the [Azure portal](http://portal.azure.com/).
+2. Go to **All Resources option**, select the restore point collection resource group in the following format AzureBackupRG_<Geo>_<number>.
+3. In the **Settings** section, select **Locks** to display the locks.
+4. To remove the lock, select the ellipsis and click **Delete**.
 
-#### Solution
+	![Delete lock ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-To resolve the issue, remove the lock from the resource group and complete the following steps to remove the restore point collection: 
- 
-1. Remove the lock in the resource group in which the VM is located. 
-2. Install ARMClient by using Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Sign in to ARMClient: <br>
-	`.\armclient.exe login`
-4. Get the restore point collection that corresponds to the VM: <br>
-   	`.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+### <a name="clean_up_restore_point_collection"></a> Clean up restore point collection
+After removing the lock, the restore points have to be cleaned up. To clean up the restore points, follow any of the methods:<br>
+* [Clean up restore point collection by running ad-hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Clean up restore point collection from portal created by backup service](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
 
-    Example: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Delete the restore point collection: <br>
-	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. The next scheduled backup automatically creates a restore point collection and new restore points.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Clean up restore point collection by running ad-hoc backup
+After removing lock, trigger an ad-hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad-hoc/manual operation to fail first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
 
-Once done, you can again put back the lock on the VM resource group. 
+> [!NOTE]
+	> Automatic cleanup will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+
+#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Clean up restore point collection from portal created by backup service<br>
+
+To manually clear the restore points collection which are not cleared due to the lock on the resource group, the following steps:
+1. Sign in to the [Azure portal](http://portal.azure.com/).
+2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
+
+	![Delete lock ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+
+3. Click Resource group, the **Overview** blade is displayed.
+4. Select **Show hidden types** option to display all the hidden resources. Select the restore point collections with the following format AzureBackupRG_`<VMName>`_`<number>`.
+
+	![Delete lock ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+
+5. Click **Delete**, to clean the restore point collection.
+6. Retry the backup operation again.

@@ -29,19 +29,29 @@ If you're looking to define your own roles for even more control, see how to [bu
 ## Mapping Backup built-in roles to backup management actions
 The following table captures the Backup management actions and corresponding minimum RBAC role required to perform that operation.
 
-| Management Operation | Minimum RBAC role required |
-| --- | --- |
-| Create Recovery Services vault | Contributor on Resource group of vault |
-| Enable backup of Azure VMs | Backup Operator defined at the scope of Resource group containing the vault, Virtual machine contributor on VMs |
-| On-demand backup of VM | Backup operator |
-| Restore VM | Backup operator, Resource group contributor in which VM is going to get deployed, Read on Vnet and Join on subnet selected |
-| Restore disks, individual files from VM backup | Backup operator, Virtual machine contributor on VMs |
-| Create backup policy for Azure VM backup | Backup contributor |
-| Modify backup policy of Azure VM backup | Backup contributor |
-| Delete backup policy of Azure VM backup | Backup contributor |
-| Stop backup (with retain data or delete data) on VM backup | Backup contributor |
-| Register on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup operator |
-| Delete registered on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup contributor |
+| Management Operation | Minimum RBAC role required | Scope Required |
+| --- | --- | --- |
+| Create Recovery Services vault | Contributor | Resource group containing the vault |
+| Enable backup of Azure VMs | Backup Operator | Resource group containing the vault |
+| | Virtual Machine Contributor | VM resource |
+| On-demand backup of VM | Backup Operator | Recovery vault resource |
+| Restore VM | Backup Operator | Resource group in which VM will be deployed |
+| | Virtual Machine Contributor | Resource group in which VM will be deployed |
+| Restore unmanaged disks VM backup | Backup Operator | Recovery vault resource |
+| | Virtual Machine Contributor | VM resource |
+| | Storage Account Contributor | Storage account resource |
+| Restore managed disks from VM backup | Backup Operator | Recovery vault resource |
+| | Virtual Machine Contributor | VM resource |
+| | Storage Account Contributor | Storage account resource |
+| | Contributor | Resource group to which managed disk will be restored |
+| Restore individual files from VM backup | Backup Operator | Recovery vault resource |
+| | Virtual Machine Contributor | VM resource |
+| Create backup policy for Azure VM backup | Backup Contributor | Recovery vault resource |
+| Modify backup policy of Azure VM backup | Backup Contributor | Recovery vault resource |
+| Delete backup policy of Azure VM backup | Backup Contributor | Recovery vault resource |
+| Stop backup (with retain data or delete data) on VM backup | Backup Contributor | Recovery vault resource |
+| Register on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup Operator | Recovery vault resource |
+| Delete registered on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup Contributor | Recovery vault resource |
 
 ## Next steps
 * [Role Based Access Control](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.
