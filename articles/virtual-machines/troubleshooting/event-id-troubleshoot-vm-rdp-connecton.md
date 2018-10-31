@@ -130,6 +130,7 @@ To troubleshoot this issue, you have to set up the correct permissions on the RD
    icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
    icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt
    Restart-Service TermService -Force
+   ```
 
 2.	Run this script to reset the permissions of the MachineKey folder and to reset the RSA files to the default values.
 
@@ -279,7 +280,6 @@ The following information was included with the event:  <br />
 *text* <br />
 *text* <br />
 Remote Desktop Connection Broker is not ready for RPC communication.
-```
 
 ### Cause
 
