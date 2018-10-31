@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ms.author: sngun
 
 ---
-# Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data
+# Tutorial: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -27,6 +27,14 @@ This Node.js tutorial shows you how to store and access data from Azure Cosmos D
 This tutorial demonstrates how to create an Azure Cosmos DB SQL API account by using the Azure portal. You then build and run a web app that is built on the Node.js SDK to create database, container, and add items to the container. This tutorial uses JavaScript SDK version 2.0.
 
 You can also get the completed sample from [GitHub][GitHub] and see the [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) file for instructions on how to run the app.
+
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Create an Azure Cosmos DB account
+> * Create a new Node.js application
+> * Connect the application to Azure Cosmos DB
+> * Run and deploy the application to Azure
 
 ## <a name="_Toc395783176"></a>Prerequisites
 

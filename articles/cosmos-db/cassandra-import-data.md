@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ms.reviewer: sngun
 ---
 
-# Migrate your data to Azure Cosmos DB Cassandra API account
+# Tutorial: Migrate your data to Azure Cosmos DB Cassandra API account
 
 This tutorial provides instructions on how to migrate Apache Cassandra data into Azure Cosmos DB Cassandra API. 
 
