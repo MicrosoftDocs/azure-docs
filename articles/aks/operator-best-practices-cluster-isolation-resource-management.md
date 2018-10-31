@@ -23,7 +23,7 @@ This best practices article focuses on how to run your cluster and workloads fro
 
 ## Logically isolate clusters
 
-Kubernetes offers logical isolation using *Namespaces*. With a namespace, you can safely isolate tenants for the following components:
+Kubernetes offers logical isolation using *Namespaces*. With a namespace, you can isolate tenants for the following components:
 
 * **Scheduler** - You can use resource quotas, discussed in the following sections, to define and enforce limits for the amount of CPU, memory, or storage that each tenant can consume within the cluster.
 * **Authentication and authorization** - You can use Kubernetes role-based access controls (RBAC) to assign permissions to users and groups. As a best practice, you should also integrate with Azure Active Directory (AD) to provide a central way to manage those users, groups, permissions, and credentials.
@@ -38,7 +38,7 @@ Logical separation of clusters usually provides a higher pod density than physic
 
 ## Physically isolate clusters
 
-A common alternative approach to cluster isolation is to use physically separate AKS clusters. In this isolation model, teams or projects are assigned their own AKS cluster. This approach often looks like the easiest way to isolate development teams, but adds additional management and financial overhead. You now have to maintain these multiple clusters, are billed for all the individual nodes, and have to individually provide access and assign permissions.
+An alternative approach to cluster isolation is to use physically separate AKS clusters. In this isolation model, teams or projects are assigned their own AKS cluster. This approach often looks like the easiest way to isolate development teams, but adds additional management and financial overhead. You now have to maintain these multiple clusters, are billed for all the individual nodes, and have to individually provide access and assign permissions.
 
 ![Physical isolation of individual Kubernetes clusters in AKS](media/best-practices-cluster-isolation-resource-management/physical-isolation.png)
 
