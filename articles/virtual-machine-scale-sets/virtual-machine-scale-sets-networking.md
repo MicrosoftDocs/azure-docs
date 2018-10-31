@@ -3,7 +3,7 @@ title: Networking for Azure virtual machine scale sets | Microsoft Docs
 description: Configuration networking properties for Azure virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: negat
+ms.author: manayar
 
 ---
 # Networking for Azure virtual machine scale sets

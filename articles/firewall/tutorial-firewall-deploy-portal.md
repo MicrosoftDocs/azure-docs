@@ -3,11 +3,9 @@ title: Deploy and configure Azure Firewall using the Azure portal
 description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
 author: vhorne
-manager: jpconnock
-
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 10/30/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall so that I can control outbound access from resources located in a subnet.
@@ -27,7 +25,7 @@ Network traffic is subjected to the configured firewall rules when you route you
 
 Application and network rules are stored in *rule collections*. A rule collection is a list of rules that share the same action and priority.  A network rule collection is a list of network rules and an application rule collection is a list of application rules.
 
-Azure Firewall has NAT rules, network rules and application rules. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
+To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 In this tutorial, you learn how to:
 
@@ -38,8 +36,6 @@ In this tutorial, you learn how to:
 > * Configure application rules
 > * Configure network rules
 > * Test the firewall
-
-
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -52,32 +48,32 @@ For this tutorial, you create a single VNet with three subnets:
 
 This tutorial uses a simplified network configuration for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets in the same region with one or more subnets.
 
-
-
 ## Set up the network environment
+
 First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
 
 ### Create a resource group
-1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
-1. On the Azure portal home page, click **Resource groups**, then click **Add**.
-2. For **Resource group name**, type **Test-FW-RG**.
-3. For **Subscription**, select your subscription.
-4. For **Resource group location**, select a location. All subsequent resources that you create must be in the same location.
-5. Click **Create**.
 
+1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+2. On the Azure portal home page, click **Resource groups**, then click **Add**.
+3. For **Resource group name**, type **Test-FW-RG**.
+4. For **Subscription**, select your subscription.
+5. For **Resource group location**, select a location. All subsequent resources that you create must be in the same location.
+6. Click **Create**.
 
 ### Create a VNet
+
 1. From the Azure portal home page, click **All services**.
 2. Under **Networking**, click **Virtual networks**.
 3. Click **Add**.
 4. For **Name**, type **Test-FW-VN**.
 5. For **Address space**, type **10.0.0.0/16**.
-7. For **Subscription**, select your subscription.
-8. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
-9. For **Location**, select the same location that you used previously.
-10. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-11. For **Address range**, type **10.0.1.0/24**.
-12. Use the other default settings, and then click **Create**.
+6. For **Subscription**, select your subscription.
+7. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
+8. For **Location**, select the same location that you used previously.
+9. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+10. For **Address range**, type **10.0.1.0/24**.
+11. Use the other default settings, and then click **Create**.
 
 > [!NOTE]
 > The minimum size of the AzureFirewallSubnet subnet is /25.
@@ -134,13 +130,11 @@ Repeat this process to create another virtual machine named **Srv-Work**.
 
 Use the information in the following table to configure the **Settings** for the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
 
-
 |Setting  |Value  |
 |---------|---------|
 |Subnet|Workload-SN|
 |Public IP address|None|
 |Select public inbound ports|No public inbound ports|
-
 
 ## Deploy the firewall
 
@@ -164,7 +158,6 @@ Use the information in the following table to configure the **Settings** for the
    This will take a few minutes to deploy.
 4. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
 6. Note the private IP address. You'll use it later when you create the default route.
-
 
 ## Create a default route
 
@@ -196,9 +189,7 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 18. For **Next hop address**, type the private IP address for the firewall that you noted previously.
 19. Click **OK**.
 
-
 ## Configure application rules
-
 
 1. Open the **Test-FW-RG**, and click the **Test-FW01** firewall.
 2. On the **Test-FW01** page, under **Settings**, click **Rules**.
@@ -240,7 +231,6 @@ For testing purposes in this tutorial, you configure the primary and secondary D
 6. Click **Save**. 
 7. Restart the **Srv-Work** virtual machine.
 
-
 ## Test the firewall
 
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
@@ -263,7 +253,6 @@ So now you have verified that the firewall rules are working:
 ## Clean up resources
 
 You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
-
 
 ## Next steps
 
