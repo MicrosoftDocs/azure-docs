@@ -103,7 +103,7 @@ The serial console can be used to send an NMI to an Azure virtual machine by usi
 
 For information on configuring Windows to create a crash dump file when it receives an NMI, see [How to generate a crash dump file by using an NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
-## Open CMD or Powershell in the serial console
+## Open CMD or Powershell in serial console
 
 1. Connect to the serial console. If you successfully connect, the prompt is **SAC>**:
 
