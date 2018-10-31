@@ -1,14 +1,14 @@
 ---
-title: Azure Site Recovery support matrix for replicating from Azure to Azure | Microsoft Docs
+title: Azure Site Recovery support matrix for disaster recovery of Azure IaaS VMs between Azure regions with Azure Site Recovery | Microsoft Docs
 description: Summarizes the supported operating systems and configurations for Azure Site Recovery replication of Azure virtual machines (VMs) from one region to another for disaster recovery (DR) needs.
 services: site-recovery
-author: sujayt
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
-ms.author: sujayt
+ms.date: 10/28/2018
+ms.author: raynew
 
 ---
 # Support matrix for replicating from one Azure region to another
