@@ -34,40 +34,42 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 
 
 ## Stream data by using Event Hubs
-You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to create a pipeline to stream your data. This section shows you how to create your event hub as the connector between your Digital Twins and TSI instances.
+You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to create a pipeline to stream your data. This section shows you how to create your event hub as the connector between your Digital Twins and Time Series Insights instances.
 
 ### Create an event hub
 
-1. Sign in to [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the left navigation panel, click **Create a resource**. 
+1. On the left pane, select **Create a resource**. 
 
-1. Search for and select **Event Hubs**. Click **Create**.
+1. Search for and select **Event Hubs**. Select **Create**.
 
-1. Enter a **Name** for your Event Hubs namespace, choose *Standard* **Pricing tier**, your **Subscription**, the **Resource group** you used for your Digital Twins instance, and the **Location**. Click **Create**. 
+1. Enter a **Name** for your Event Hubs namespace. Choose **Standard** for **Pricing tier**, your **Subscription**, the **Resource group** that you used for your Digital Twins instance, and the **Location**. Select **Create**. 
 
-1. Once deployed, navigate to the Event Hubs namespace *deployment*, and click on the namespace under **RESOURCE**.
+1. In the Event Hubs namespace deployment, select the namespace under **RESOURCE**.
 
-    ![Event Hub namespace](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
+    ![Event Hubs namespace after deployment](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
 
-1. In the Event Hubs namespace **Overview** pane, click on the **Event Hub** button at the top. 
-    ![Event Hub](./media/tutorial-facilities-analyze/create-event-hub.png)
+1. In the Event Hubs namespace **Overview** pane, select the **Event Hub** button at the top. 
+    ![Event Hub button](./media/tutorial-facilities-analyze/create-event-hub.png)
 
-1. Enter a **Name** for your event hub, and click **Create**. Once deployed, it will appear in the **Event Hubs** pane of the Event Hubs namespace with an *Active* **STATUS**. Click on this event hub to open its **Overview** pane.
+1. Enter a **Name** for your event hub, and select **Create**. 
 
-1. Click **Consumer group** button at the top, and enter a name such as *tsievents* for the consumer group. Click **Create**.
+   After the event hub is deployed, it will appear in the **Event Hubs** pane of the Event Hubs namespace with an **Active** status. Select this event hub to open its **Overview** pane.
+
+1. Select the **Consumer group** button at the top, and enter a name such as **tsievents** for the consumer group. Select **Create**.
     ![Event Hub consumer group](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-   Once created, the consumer group will appear in the list at the bottom of the event hub's **Overview** pane. 
+   After the consumer group is created, it will appear in the list at the bottom of the event hub's **Overview** pane. 
 
-1. Open the **Shared access policies** pane for your event hub, and click **Add** button. **Create** a policy named *ManageSend*, and make sure all the checkboxes are checked. 
+1. Open the **Shared access policies** pane for your event hub, and select the **Add** button. Enter **ManageSend** as the policy name, make sure all the check boxes are selected, and select **Create**. 
 
     ![Event Hub connection strings](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
 
-1. Open the *ManageSend* policy that you created, and copy the values for **Connection string--primary key** and **Connection string--secondary key** to a temporary file. You will need these values to create an endpoint for the event hub in the next section.
+1. Open the ManageSend policy that you created, and copy the values for **Connection string--primary key** and **Connection string--secondary key** to a temporary file. You'll need these values to create an endpoint for the event hub in the next section.
 
-### Create endpoint for the event hub
+### Create an endpoint for the event hub
 
 1. In the command window, make sure you are in the **_occupancy-quickstart\src** folder of the Digital Twins sample.
 
