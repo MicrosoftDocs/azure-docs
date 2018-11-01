@@ -17,7 +17,7 @@ ms.date: 10/29/2018
 ms.author: yijenj
 
 ---  
-# Azure Marketplace ‎Commercial Transaction Capabilities and Considerations
+# Azure Marketplace ‎commercial transaction capabilities and considerations
 
 Azure marketplace publishing options offer unique ways to connect cloud software and service providers with customers. We will cover the following topics related to commerce in the Azure Marketplace:
 
@@ -34,7 +34,7 @@ In Azure marketplace, publishers can leverage the list and trial publishing opti
 
 In addition to the list and trial publishing options, the transact publishing option is available to Azure Marketplace publishers.   It takes advantage of Microsoft’s globally available commerce capabilities. This option allows Microsoft to host cloud marketplace transactions on behalf of the publisher.
 
-## Transact General Overview
+## Transact general overview
 
 When using the transact publishing option, Microsoft enables the sale and deployment of third-party software to the customer’s Azure subscription. The publisher can  choose from pricing models supported in Azure Marketplace.
 
@@ -54,7 +54,7 @@ For SaaS Apps, the publisher must account for Azure infrastructure usage fees, a
 
 In addition to using offer types and billing models to monetize an offer, publishers can transact a private version of solution offer, complete with negotiated, deal-specific pricing, and custom configurations using a customized image. Private offers are supported by all 3 transact publishing options. 
 
-## Transact Billing Models 
+## Transact billing models 
 
 Depending on the transaction option used, the publisher’s software license fees can be presented as:  
 
@@ -88,7 +88,7 @@ For transact publishing scenarios, the publisher can make a software license ava
 
 For each transact publishing scenario, the publisher can optionally make available privately negotiated pricing and terms for an offer. For a virtual machine offer, the publisher can also optionally make available custom images.
 
-## Transact Requirements 
+## Transact requirements 
 
 The Transact requirements for different offer types are covered in this section.
 
@@ -114,7 +114,7 @@ Select from free, bring-your-own-license, or pay-as-you-go-pricing models and pr
 
 Must provision one or more virtual machines, and pulls through the sum of the virtual machine pricing. For managed apps, a single plan, flat-rate monthly subscription can be selected as the pricing model in lieu of the virtual machine pricing. In both cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement.
 
-**Pay-As-You-Go and Bring Your Own License Billing Options** 
+**Pay-As-You-Go and Bring Your Own License billing options** 
 
 Consider the following examples.  
 
@@ -147,7 +147,7 @@ Consider the following examples.
 |Microsoft keeps the Azure usage cost    |   $0.14 per hour     |
 |Microsoft keeps 0% of your license cost   |  $0.00 per hour       |
 
-**SaaS App Subscription (aka Sell through Azure)** 
+**SaaS App subscription (aka Sell through Azure)** 
 
 Must be configured to sell through Microsoft and can be priced via one or more flat-rate monthly Plans defined at the offer level.
 
@@ -177,11 +177,11 @@ This pricing can be the higher or lower than the publicly displayed pricing and 
 
 Publisher can use the customer’s preferred invoicing method to deliver subscription or PAYGO software license fees.
 
-**Enterprise Agreement** 
+**Enterprise agreement** 
 
 If the customer’s preferred invoicing method is the Microsoft Enterprise Agreement, your software license fees will be billed via this invoicing method as an itemized cost, separate from any Azure-specific usage costs.
 
-**Credit cards and Monthly invoice** 
+**Credit cards and monthly invoice** 
 
 Customers can also pay using a credit card and a monthly invoice. In this case, your software license fees will be billed just like the Enterprise Agreement scenario, as an itemized cost, separate from any Azure-specific usage costs.
 
@@ -239,7 +239,7 @@ For more information and legal policies, see the [Publisher Agreement](https://c
 
 To get help understanding any aspect of the transact publishing option, [create a support incident](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) and choose Virtual Machines or Web Apps (aka SaaS Apps) depending on the offer type used.
 
-## Next Steps
+## Next steps
 
 * Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
 * Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.

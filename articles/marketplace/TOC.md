@@ -27,7 +27,7 @@
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred solutions](./preferred-solutions.md) 
 #### [Marketplace content validation](./marketplace-criteria-content-validation.md)
-#### [Marketplace ‎Commercial Transaction Capabilities and Considerations](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Marketplace ‎commercial transaction capabilities and considerations](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
 
