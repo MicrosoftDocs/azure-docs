@@ -42,7 +42,7 @@ This section lists all the security alerts for directory roles, how to fix, and 
 | **Severity** | Medium |
 | **Why do I get this alert?** | Accounts that have not changed their password recently might be service or shared accounts that aren't being maintained. These accounts in privileged roles are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
-| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password.</br>Regularly review accounts with privileged roles using access reviews and remove role assignments that are no longer needed. |
+| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using access reviews and remove role assignments that are no longer needed. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 
 ### Users aren't using their privileged roles
@@ -52,7 +52,7 @@ This section lists all the security alerts for directory roles, how to fix, and 
 | **Severity** | Low |
 | **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles they do not need. |
-| **Prevention** | Only assign privileged roles to users that have a business justification.</br>Schedule regular access reviews to verify that users still need their access. |
+| **Prevention** | Only assign privileged roles to users that have a business justification. </br>Schedule regular access reviews to verify that users still need their access. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 | **Trigger** | Triggered if a user goes a certain amount of time without activating a role. |
 | **Number of days** | This setting specifies the number of days, from 0 to 100, that a user can go without activating a role.|
@@ -63,7 +63,7 @@ This section lists all the security alerts for directory roles, how to fix, and 
 | --- | --- |
 | **Severity** | Low |
 | **Why do I get this alert?** | Global Administrator is the highest privileged role. If  a Global Administrator is compromised, the attacker gains access to all of their permissions, which puts your whole system at risk. |
-| **How to fix?** | Review the users in the list and remove any that do not absolutely need the Global Administrator role.</br>Assign these users lower privileged roles. |
+| **How to fix?** | Review the users in the list and remove any that do not absolutely need the Global Administrator role. </br>Assign these users lower privileged roles. |
 | **Prevention** | Assign users the least privileged role they need. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 | **Trigger** | Triggered if two different criteria are met, and you can configure both of them. First, you need to reach a certain threshold of Global Administrators. Second, a certain percentage of your total role assignments must be Global Administrators. If you only meet one of these measurements, the alert does not appear. |
@@ -95,9 +95,9 @@ This section lists all the security alerts for directory roles, how to fix, and 
 
 ### Severity
 
-* **High**: Requires immediate action because of a policy violation. 
+* **High**: Requires immediate action because of a policy violation.
 * **Medium**: Does not require immediate action but signals a potential policy violation.
-* **Low**: Does not require immediate action but suggests a preferrable policy change.
+* **Low**: Does not require immediate action but suggests a preferable policy change.
 
 ## Configure security alert settings
 
