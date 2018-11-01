@@ -1,42 +1,39 @@
 ---
-title: "Tutorial: Create an image classification project with the Custom Vision SDK for Java"
+title: "Quickstart: Create an image classification project with the Custom Vision SDK for Java"
 titlesuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
+description: Create a project, add tags, upload images, train your project, and make a prediction using the Java SDK.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: areddish
 ---
 
-# Tutorial: Create an image classification project with the Custom Vision SDK for Java
+# Quickstart: Create an image classification project with the Custom Vision SDK for Java
 
-Learn how to create an image classification project with the Custom Vision Service using Java. After it's created, you can add tags, upload images, train the project, get the project's default prediction endpoint URL, and use it to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
+This article provides information and sample code to help you get started using the Custom Vision Java SDK to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
 
 ## Prerequisites
+- A Java IDE of your choice
+- JDK 7 or 8 installed
+- Maven installed
 
-- JDK 7 or 8 installed.
-- Maven installed.
 
-## Get the training and prediction keys
-
-To get the keys used in this example, visit the [Custom Vision web page](https://customvision.ai) and select the __gear icon__ in the upper right. In the __Accounts__ section, copy the values from the __Training Key__ and __Prediction Key__ fields.
-
-![Image of the keys UI](./media/python-tutorial/training-prediction-keys.png)
-
-## Install the Custom Vision Service SDK
+## Get the Custom Vision SDK and sample code
+To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These are included in the sample project you will download, but you can access them individually here.
 
 You can install the Custom Vision SDK from maven central repository:
 * [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 * [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-## Understand the code
+Clone or download the [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) project. Navigate to the **Vision/CustomVision/** folder.
 
-The full project, including images, is available from the [Custom Vision Azure samples for Java repository](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+TBD
+## Understand the code
 
 Use your favorite Java IDE to open the `Vision/CustomVision` project. 
 
