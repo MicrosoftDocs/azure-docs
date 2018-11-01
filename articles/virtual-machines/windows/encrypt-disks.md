@@ -22,7 +22,7 @@ ms.author: cynthn
 For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted by using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article describes how to encrypt virtual disks on a Windows VM by using Azure PowerShell. You can also [encrypt a Linux VM by using the Azure CLI](../linux/encrypt-disks.md).
 
 ## Overview of disk encryption
-Virtual disks on Windows VMs are encrypted at rest by using Bitlocker. There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in an Azure Key Vault by using software protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. Cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use. 
+Virtual disks on Windows VMs are encrypted at rest by using Bitlocker. There's no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in an Azure Key Vault by using software protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. Cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You keep control of these cryptographic keys and can audit their use. 
 
 The process for encrypting a VM is as follows:
 
@@ -46,7 +46,7 @@ Supported scenarios and requirements for disk encryption:
     > [!NOTE]
     > All resources (including the Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
 
-Disk encryption is not currently supported in the following scenarios:
+Disk encryption isn't currently supported in the following scenarios:
 
 * Basic tier VMs.
 * VMs created by using the Classic deployment model.
@@ -55,7 +55,7 @@ Disk encryption is not currently supported in the following scenarios:
 
 
 ## Create an Azure Key Vault and keys
-Before you start, make sure that the latest version of the Azure PowerShell module has been installed. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). In the following command examples, replace all example parameters with your own names, location, and key values, such as *myResourceGroup*, *myKeyVault*, *myVM*, and so forth.
+Before you start, make sure the latest version of the Azure PowerShell module has been installed. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). In the following command examples, replace all example parameters with your own names, location, and key values, such as *myResourceGroup*, *myKeyVault*, *myVM*, and so forth.
 
 The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vaults can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you'll create a Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks. 
 
@@ -69,7 +69,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzureRmResourceGroup -Location $location -Name $rgName
 ```
 
-The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must all reside in the same region. Create an Azure Key Vault with [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyVaultName* as follows:
+The Azure Key Vault holding the cryptographic keys and associated compute resources such as storage and the VM itself must all be in the same region. Create an Azure Key Vault with [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyVaultName* as follows:
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"
