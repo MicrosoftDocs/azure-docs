@@ -33,7 +33,7 @@
   items:
   - name: Data ingestion overview
     href: ingest-data-overview.md
-    name: Time series analysis
+  - name: Time series analysis
     href: time-series-analysis.md
 - name: How-to guides
   items:
