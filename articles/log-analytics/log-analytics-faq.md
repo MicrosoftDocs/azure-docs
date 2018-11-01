@@ -83,7 +83,7 @@ A: This region is at temporary capacity limit. The limit is planned to be addres
 
 ### Q. Does Log Analytics use the same agent as Azure Security Center?
 
-A: In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-platform-migration-faq.md).
+A: In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-enable-data-collection.md).
 
 ### Q. What checks are performed by the AD and SQL Assessment solutions?
 
@@ -132,7 +132,7 @@ Log Analytics uses UTC time and each day starts at midnight UTC. If the workspac
 
 ### Q. How can I be notified when data collection stops?
 
-A: Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when data collection stops.
+A: Use the steps described in [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) to be notified when data collection stops.
 
 When creating the alert for when data collection stops, set the:
 
@@ -228,4 +228,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## Next steps
-* [Get started with Log Analytics](log-analytics-get-started.md) to learn more about Log Analytics and get up and running in minutes.
+* [Get started with Log Analytics](../azure-monitor/overview.md) to learn more about Log Analytics and get up and running in minutes.
