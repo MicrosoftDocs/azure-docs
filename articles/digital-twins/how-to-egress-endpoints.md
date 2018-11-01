@@ -14,7 +14,13 @@ ms.author: alinast
 
 Azure Digital Twins supports the concept of **endpoints**, where each endpoint represents a message or event broker in the user's Azure subscription. Events and messages can be sent to Azure Event Hubs, Azure Event Grid, and Azure Service Bus topics.
 
-Events are sent to endpoints according to predefined routing preferences. The user can specify which endpoint should receive any of the following events: **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange**, or **DeviceMessage**.
+Events are sent to endpoints according to predefined routing preferences. The user can specify which endpoint should receive any of the following events: 
+
+- TopologyOperation
+- UdfCustom
+- SensorChange
+- SpaceChange
+- DeviceMessage
 
 For a basic understanding of events routing and event types, refer to [Routing events and messages](concepts-events-routing.md).
 
@@ -77,7 +83,7 @@ Example:
 
 **UdfCustom** is an event sent by a user-defined function (UDF). 
   
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > This event must be explicitly sent from the UDF itself.
 
 Example:
@@ -279,23 +285,23 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | yourSecondaryKey | The secondary connection string used to authenticate |
     | yourEventHubName | The name of your event hub |
 
-> [!NOTE]
-> Upon the creation of a new endpoint, it may take up to 5 to 10 minutes to start receiving events at the endpoint.
+> [!NOTE]  
+> Upon the creation of a new endpoint, it might take up to 5 to 10 minutes to start receiving events at the endpoint.
 
 ## Primary and secondary connection keys
 
 When a primary connection key becomes unauthorized, the system automatically tries the secondary connection key. That provides a backup and allows the possibility to gracefully authenticate and update the primary key through the Endpoints API.
 
-If both the primary and secondary connection keys are unauthorized, the system will enter an exponential back-off wait time of up to 30 minutes. Events will be dropped on each triggered back-off wait time.
+If both the primary and secondary connection keys are unauthorized, the system enters an exponential back-off wait time of up to 30 minutes. Events are dropped on each triggered back-off wait time.
 
-Whenever the system is in a back-off wait state, updating connections keys through the Endpoints API may take up to 30 minutes to take effect.
+Whenever the system is in a back-off wait state, updating connections keys through the Endpoints API might take up to 30 minutes to take effect.
 
 ## Unreachable endpoints
 
-When an endpoint becomes unreachable, the system will enter an exponential back-off wait time of up to 30 minutes. Events will be dropped on each triggered back-off wait time.
+When an endpoint becomes unreachable, the system enters an exponential back-off wait time of up to 30 minutes. Events are dropped on each triggered back-off wait time.
 
 ## Next steps
 
-To learn how to use Azure Digital Twins Swagger, read [Azure Digital Twins Swagger](how-to-use-swagger.md).
+- Learn [how to use Azure Digital Twins Swagger](how-to-use-swagger.md).
 
-To learn more about routing events and messages in Azure Digital Twins, read [Routing events and messages](concepts-events-routing.md).
+- Learn more about [routing events and messages](concepts-events-routing.md) in Azure Digital Twins.

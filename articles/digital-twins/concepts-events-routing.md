@@ -44,23 +44,23 @@ Azure Digital Twins currently supports the following **EventTypes** that will be
 * A **SensorChange** is a change in a sensor's computed value as a result of a device telemetry message.
 * A **UdfCustom** is a custom notification from a user-defined function.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Not all **EndpointTypes** support all **EventTypes**.
 > See the following table for the **EventTypes** that are allowed for each **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
-| **EventHub**|     X          |         X         |     X       |      X       |   X       |
-| **ServiceBus**|              |         X         |     X       |      X       |   X       |
-| **EventGrid**|               |         X         |     X       |      X       |   X       |
+| EventHub|     X          |         X         |     X       |      X       |   X       |
+| ServiceBus|              |         X         |     X       |      X       |   X       |
+| EventGrid|               |         X         |     X       |      X       |   X       |
 
->[!NOTE]
+>[!NOTE]  
 >For more details on how to create endpoints and examples of events' schema, see [Egress and endpoints](how-to-egress-endpoints.md).
 
 ## Next steps
 
-To learn about Azure Digital Twins preview limits, see [Public preview service limits](concepts-service-limits.md).
-To try out an Azure Digital Twins sample, see the [quickstart to find available rooms](quickstart-view-occupancy-dotnet.md).
+- To learn about Azure Digital Twins preview limits, see [Public preview service limits](concepts-service-limits.md).
+- To try out an Azure Digital Twins sample, see the [quickstart to find available rooms](quickstart-view-occupancy-dotnet.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-events-routing.png
