@@ -24,7 +24,7 @@ From [Custom Translator](https://portal.customtranslator.azure.ai) portal, click
 ![Document upload link](media/how-to/how-to-upload-1.png)
 
 
-1.  Click on the “Upload Document” button on the documents page.
+1.  Click on the Upload files button on the documents page.
 
     ![Upload document page](media/how-to/how-to-upload-2.png)
 
