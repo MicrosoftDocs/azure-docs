@@ -1,5 +1,5 @@
 ---
-title: Use reliable collections in a Azure Service Fabric Mesh app | Microsoft Docs
+title: Use reliable collections in an Azure Service Fabric Mesh app | Microsoft Docs
 description: Learn how to use a reliable collection in your Service Fabric Mesh app
 services: service-fabric-mesh
 documentationcenter: .net
