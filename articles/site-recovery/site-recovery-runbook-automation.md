@@ -208,7 +208,7 @@ In the following example, we use a new technique and create a [complex variable]
 4. Use this variable in your runbook. If the indicated VM GUID is found in the recovery plan context, apply the NSG on the VM:
 
 	```
-	$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+	$VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
 	```
 
 4. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:
@@ -218,13 +218,13 @@ In the following example, we use a new technique and create a [complex variable]
 		$vmMap = $RecoveryPlanContext.VmMap
 
 		foreach($VMID in $VMinfo) {
-			Write-output $VMDetailsObj.value.$VMID
-
-			if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+			$VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+			Write-output $VMDetails
+			if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
 				$VM = $vmMap.$VMID
 				# Access the properties of the variable
-				$NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-				$NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+				$NSGname = $VMDetails.NSGName
+				$NSGRGname = $VMDetails.NSGResourceGroupName
 
 				# Add code to apply the NSG properties to the VM
 			}
