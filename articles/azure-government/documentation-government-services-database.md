@@ -86,6 +86,6 @@ The following information identifies the Azure Government boundary for Azure Red
 | --- | --- |
 | All data stored and processed in Azure Redis Cache can contain Azure Government-regulated data. |Azure Redis Cache metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: **Cache name, Subscription name, Resource groups, Resource tags, Redis properties**. |
 
-## Next Steps
+## Next steps
 For supplemental information and updates subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
