@@ -178,9 +178,9 @@
   - name: Overview
     items:
     - name: What is the Custom Translator?
-      href: https://aka.ms/customtranslatorplaceholder
+      href: overview.md
   - name: Quickstarts
-    href: https://aka.ms/customtranslatorplaceholder
+    href: quickstart-build-deploy-custom-model.md
   - name: Concepts
     items:
     - name: Workspace and projects
