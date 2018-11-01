@@ -23,10 +23,12 @@ If you're using PowerShell, make sure that you have the [latest PowerShell modul
 You can reset Remote Desktop Services and credentials in the following ways:
 
 - [Reset by using the Azure portal](#reset-by-using-the-azure-portal)
+
 - [Reset by using the VMAccess extension and PowerShell](#reset-by-using-the-vmaccess-extension-and-powershell)
 
 ## Reset by using the Azure portal
-- Sign in to the [Azure portal](https://portal.azure.com) and then select **Virtual machines** on the left menu.
+
+First, sign in to the [Azure portal](https://portal.azure.com) and then select **Virtual machines** on the left menu. 
 
 ### **Reset the local administrator account password**
 
@@ -47,7 +49,7 @@ You can reset Remote Desktop Services and credentials in the following ways:
 
 ## Reset by using the VMAccess extension and PowerShell
 
-- Make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription by using the [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+First, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription by using the [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ### **Reset the local administrator account password**
 
@@ -84,9 +86,9 @@ You can reset Remote Desktop Services and credentials in the following ways:
 
 - If the Azure VM access extension doesn't respond and you're unable to reset the password, you can [reset the local Windows password offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This method is more advanced and requires you to connect the virtual hard disk of the problematic VM to another VM. Follow the steps documented in this article first, and attempt the offline password reset method only if those steps don't work.
 
-- [Learn about Azure VM extensions and features](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Learn about Azure VM extensions and features](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-- [Connect to an Azure virtual machine with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+- [Connect to an Azure virtual machine with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-- [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
