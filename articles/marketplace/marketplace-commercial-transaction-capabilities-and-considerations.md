@@ -17,7 +17,7 @@ ms.date: 10/29/2018
 ms.author: yijenj
 
 ---  
-# Introduction
+# Azure Marketplace ‎Commercial Transaction Capabilities and Considerations
 
 Azure marketplace publishing options offer unique ways to connect cloud software and service providers with customers. We will cover the following topics related to commerce in the Azure Marketplace:
 
