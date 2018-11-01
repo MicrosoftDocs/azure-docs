@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: jeedes
 
 ---
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com`
+	b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values.
@@ -138,23 +138,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
 
-8. Install **OpenSSL** in your system, if you have not installed in your system.
+8. Open **Command Prompt** and run the following commands:
 
-9. Open **Command Prompt** and run the following commands:
-
-	a. Enter `openssl x509 -inform DER -in FreshDesk.cer -out certificate.crt` value in the command prompt.
+	a. Enter `certutil.exe -dump FreshDesk.cer` value in the command prompt.
 
 	> [!NOTE]
 	> Here **FreshDesk.cer** is the certificate which you have downloaded from the Azure portal.
 
-	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` value in the command prompt. 
-	
-	> [!NOTE]
-	> Here **certificate.crt** is the output certificate which is generated in the previous step.
+	b. Copy the **Cert Hash(sha256)** value and paste it into the Notepad. 
 
-	c. Copy the **Thumbprint** value and paste it into the Notepad. Remove colons from Thumbprint and obtain the final Thumbprint value. 
-
-10. On the **Set up FreshDesk** section, copy the appropriate URL as per your requirement.
+9. On the **Set up FreshDesk** section, copy the appropriate URL as per your requirement.
 
 	a. Login URL
 
@@ -164,9 +157,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![FreshDesk Configuration](common/configuresection.png)
 
-11. In a different web browser window, log into your Freshdesk company site as an administrator.
+10. In a different web browser window, log into your Freshdesk company site as an administrator.
 
-12. Select the **Settings icon** and in the **Security** section, perform the following steps:
+11. Select the **Settings icon** and in the **Security** section, perform the following steps:
 
 	![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
   
@@ -178,10 +171,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     d. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from the Azure portal.
 
-    e. In the **Security Certificate Fingerprint** textbox, paste **Thumbprint** value which you have obtained earlier after removing the colons.
+    e. In the **Security Certificate Fingerprint** textbox, paste **Cert Hash(sha256)** value which you have obtained earlier.
   
 	f. Click **Save**.
-
 
 ### Creating an Azure AD test user
 
