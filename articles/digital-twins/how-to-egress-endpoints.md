@@ -12,7 +12,7 @@ ms.author: alinast
 
 # Egress and endpoints
 
-Azure Digital Twins supports the concept of **endpoints**, where each endpoint represents a message or event broker in the user's Azure subscription. Events and messages can be sent to Azure Event Hubs, Azure Event Grid, and Azure Service Bus topics.
+Azure Digital Twins supports the concept of **endpoints**. Each endpoint represents a message or event broker in the user's Azure subscription. Events and messages can be sent to Azure Event Hubs, Azure Event Grid, and Azure Service Bus topics.
 
 Events are sent to endpoints according to predefined routing preferences. The user can specify which endpoint should receive any of the following events: 
 

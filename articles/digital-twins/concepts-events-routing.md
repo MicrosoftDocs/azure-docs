@@ -12,13 +12,13 @@ ms.author: alinast
 
 # Routing events and messages
 
-IoT solutions often unite several powerful services that include storage, analytics, and more. This article describes how to connect Azure Digital Twins apps to Azure analytics, AI, and storage services to enrich them with deeper insights and functionalities.
+IoT solutions often unite several powerful services that include storage, analytics, and more. This article describes how to connect Azure Digital Twins apps to Azure analytics, AI, and storage services to give them deeper insights and functionalities.
 
 ## Route types
 
 Azure Digital Twins offers two ways to integrate IoT events into other Azure services or business applications:
 
-* **Routing Azure Digital Twins events**: Azure Digital Twins events can be triggered when an object in the spatial graph changes, when telemetry data is received, or when a user-defined function creates a notification based on predefined conditions. Users can send these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus topics](https://azure.microsoft.com/services/service-bus/), or [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) for further processing.
+* **Routing Azure Digital Twins events**:  An object in the spatial graph that changes, telemetry data that's received, or a user-defined function that creates a notification based on predefined conditions can trigger Azure Digital Twins events. Users can send these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus topics](https://azure.microsoft.com/services/service-bus/), or [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) for further processing.
 
 * **Routing device telemetry**: In addition to routing events, Azure Digital Twins can also route raw device telemetry messages to Event Hubs for further insights and analytics. These types of messages aren't processed by Azure Digital Twins. And they're only forwarded to the event hub.
 
@@ -39,10 +39,10 @@ The Azure Digital Twins service currently supports the following **EndpointTypes
 Azure Digital Twins currently supports the following **EventTypes** that will be sent to the chosen endpoint:
 
 * **DeviceMessages** are telemetry messages sent from the users' devices and forwarded by the system.
-* A **TopologyOperation** is an operation that changes the graph or metadata of the graph. An example is adding or deleting an entity, such as a space.
-* A **SpaceChange** is a change in a space's computed value as a result of a device telemetry message.
-* A **SensorChange** is a change in a sensor's computed value as a result of a device telemetry message.
-* A **UdfCustom** is a custom notification from a user-defined function.
+* **TopologyOperation** is an operation that changes the graph or metadata of the graph. An example is adding or deleting an entity, such as a space.
+* **SpaceChange** is a change in a space's computed value that results from a device telemetry message.
+* **SensorChange** is a change in a sensor's computed value that results from a device telemetry message.
+* **UdfCustom** is a custom notification from a user-defined function.
 
 > [!IMPORTANT]  
 > Not all **EndpointTypes** support all **EventTypes**.
@@ -55,7 +55,7 @@ Azure Digital Twins currently supports the following **EventTypes** that will be
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->For more details on how to create endpoints and examples of events' schema, see [Egress and endpoints](how-to-egress-endpoints.md).
+>For more information on how to create endpoints and examples of events' schema, see [Egress and endpoints](how-to-egress-endpoints.md).
 
 ## Next steps
 
