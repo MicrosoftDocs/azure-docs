@@ -10,7 +10,7 @@ ms.date: 10/26/2018
 ms.author: mjbrown
 ---
 
-# Azure Cosmos DB: Create an Table API account using the Azure CLI
+# Azure Cosmos DB: Create a Table API account using Azure CLI
 
 This sample CLI script creates an Azure Cosmos DB Table API account, database, and table.
 
