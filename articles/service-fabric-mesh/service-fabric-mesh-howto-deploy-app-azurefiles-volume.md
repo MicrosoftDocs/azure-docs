@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 
 # Mount an Azure Files based volume in a Service Fabric Mesh application 
 
-This article describes how to mount an Azure Files based volume in a service of a Service Fabric Mesh application.  The Azure Files volume driver is a Docker volume driver used to mount an Azure Files share to a container which you use to persist service state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs.  To learn more about volumes and options for storing application data, read [storing state](service-fabric-mesh-storing-state.md).
+This article describes how to mount an Azure Files based volume in a service of a Service Fabric Mesh application.  The Azure Files volume driver is a Docker volume driver used to mount an Azure Files share to a container, which you use to persist service state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs.  To learn more about volumes and options for storing application data, read [storing state](service-fabric-mesh-storing-state.md).
 
 To mount a volume in a service, create a volume resource in your Service Fabric Mesh application and then reference that volume in your service.  Declaring the volume resource and referencing it in the service resource can be done either in the [YAML-based resource files](#declare-a-volume-resource-and-update-the-service-resource-yaml) or the [JSON-based deployment template](#declare-a-volume-resource-and-update-the-service-resource-json). Before mounting the volume, first create an Azure storage account and a [file share in Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
@@ -61,7 +61,7 @@ az storage share create --name myFileShare --quota 2048 --connection-string $cur
  ```
 
 ## Get the storage account name and key and the file share name
-The storage account name, storage account key and the file share name are referenced as `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following sections. 
+The storage account name, storage account key, and the file share name are referenced as `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following sections. 
 
 List your storage accounts and get the name of the storage account with the file share you want to use:
 ```azurecli-interactive
@@ -73,7 +73,7 @@ Get the name of the file share:
 az storage share list --account-name <storageAccountName>
 ```
 
-To get the storage account key ("key1"), run the following:
+Get the storage account key ("key1"):
 ```azurecli-interactive
 az storage account keys list --account-name <storageAccountName> --query "[?keyName=='key1'].value"
 ```
@@ -81,7 +81,7 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 You can also find these values in the [Azure portal](https://portal.azure.com):
 * <storageAccountName> - Under **Storage Accounts**, the name of the storage account used to create the file share.
 * <storageAccountKey> - Select your storage account under **Storage Accounts** and then select **Access keys** and use the value under **key1**.
-* <fileShareName> - Select your storage account under  **Storage Accounts** and then select **Files**. The name to use is the name of the file share you just created.
+* <fileShareName> - Select your storage account under  **Storage Accounts** and then select **Files**. The name to use is the name of the file share you created.
 
 ## Declare a volume resource and update the service resource (YAML)
 
