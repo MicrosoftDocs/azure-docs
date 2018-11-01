@@ -61,6 +61,7 @@ This tutorial uses an HTTP triggered function that takes two parameters: the est
 
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
 

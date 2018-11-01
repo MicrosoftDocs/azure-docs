@@ -7,8 +7,8 @@ ms.subservice: scenario
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: tmullaney
-ms.author: thmullan
+author: VanMSFT
+ms.author: vanto
 ms.reviewer:
 manager: craigg
 ms.date: 04/01/2018
@@ -18,7 +18,7 @@ ms.date: 04/01/2018
 [Elastic database tools](sql-database-elastic-scale-get-started.md) and [row-level security (RLS)][rls] cooperate to enable scaling the data tier of a multi-tenant application with Azure SQL Database. Together these technologies help you build an application that has a highly scalable data tier. The data tier supports multi-tenant shards, and uses **ADO.NET SqlClient** or **Entity Framework**. For more information, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
 - **Elastic database tools** enable developers to scale out the data tier with standard sharding practices, by using .NET libraries and Azure service templates. Managing shards by using the [Elastic Database Client Library][s-d-elastic-database-client-library] helps automate and streamline many of the infrastructural tasks typically associated with sharding.
-- **Row-level security** enables developers to safely store data for multiple tenants in the same database. RLS security policies filter out rows that do not belong to the tenant executing a query. Centralizing the filter logic inside the database simplifies maintenance and reduces the risk of a security error. The alternative of relying on all client code to enfore security is risky.
+- **Row-level security** enables developers to safely store data for multiple tenants in the same database. RLS security policies filter out rows that do not belong to the tenant executing a query. Centralizing the filter logic inside the database simplifies maintenance and reduces the risk of a security error. The alternative of relying on all client code to enforce security is risky.
 
 By using these features together, an application can store data for multiple tenants in the same shard database. It costs less per tenant when the tenants share a database. Yet the same application can also offer its premium tenants the option of paying for their own dedicated single-tenant shard. One benefit of single-tenant isolation is firmer performance guarantees. In a single-tenant database, there is no other tenant competing for resources.
 
@@ -33,8 +33,8 @@ The goal is to use the elastic database client library [data-dependent routing](
 
 ### Prerequisites
 
-- Use Visual Studio (2012 or higher) 
-- Create three Azure SQL databases 
+- Use Visual Studio (2012 or higher)
+- Create three Azure SQL databases
 - Download sample project: [Elastic DB Tools for Azure SQL - Multi-Tenant Shards](http://go.microsoft.com/?linkid=9888163)
   - Fill in the information for your databases at the beginning of **Program.cs** 
 

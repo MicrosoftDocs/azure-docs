@@ -25,7 +25,7 @@ Add additional group owners to a group using Azure AD.
 ### To add a group owner
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory**, select **Groups**, and then select the group for which you want to add an owner (for this example, _MDM policy - West_).
+2. Select **Azure Active Directory**, select **Groups**, and then select the group for which you want to add an owner (for this example, *MDM policy - West*).
 
 3. On the **MDM policy - West Overview** page, select **Owners**.
 
@@ -43,7 +43,7 @@ Remove an owner from a group using Azure AD.
 ### To remove an owner
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory**, select **Groups**, and then select the group for which you want to add an owner (for this example, _MDM policy - West_).
+2. Select **Azure Active Directory**, select **Groups**, and then select the group for which you want to remove an owner (for this example, *MDM policy - West*).
 
 3. On the **MDM policy - West Overview** page, select **Owners**.
 

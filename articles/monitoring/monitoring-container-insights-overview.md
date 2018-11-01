@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Monitor for containers | Microsoft Docs
+title: Overview of Azure Monitor for containers (Preview) | Microsoft Docs
 description: This article describes Azure Monitor for containers that monitors AKS Container Insights solution and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
 services: azure-monitor
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.date: 09/14/2018
 ms.author: magoedte
 ---
 
-# Azure Monitor for containers overview
+# Azure Monitor for containers (Preview) overview
 
 Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
-Azure Monitor for containers gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux and stored in your [Log Analytics](../log-analytics/log-analytics-overview.md) workspace. 
+Azure Monitor for containers gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux and stored in your [Log Analytics](../log-analytics/log-analytics-queries.md) workspace. 
  
 ## What does Azure Monitor for containers provide?
 

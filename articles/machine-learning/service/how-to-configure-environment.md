@@ -9,7 +9,7 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 10/24/2018
 ---
 
 # Configure a development environment for Azure Machine Learning
@@ -109,18 +109,22 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
 
     It might take several minutes to create the environment if Python 3.6 and other components need to be downloaded.
 
-1. Install the Azure Machine Learning SDK with notebook extras by using the following command:
+1. Install the Azure Machine Learning SDK with notebook extras and the Data Preparation SDK by using the following command:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl]
+    pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
-    > [!NOTE]
-    > If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
-    >
-    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   You can see the Python reference docs for classes and methods in the following SDKs:
+   + [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk)
+   + [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
-    It might take several minutes to install the SDK.
+   > [!NOTE]
+   > If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
+   >
+   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+
+   It might take several minutes to install the SDK.
 
 1. Install packages for your machine learning experimentation. Use the following command and replace `<new package>` with the package you want to install:
 
@@ -171,10 +175,10 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
     source activate myenv
     ```
 
-1. Install the Azure Machine Learning SDK with the following command:
+1. Install the Azure Machine Learning SDK and Data Preparation SDK with the following command:
 
     ```shell
-    pip install --upgrade azureml-sdk[automl]
+    pip install --upgrade azureml-sdk[automl] azureml-dataprep
     ```
 
 1. Install the Visual Studio code Tools for AI extension. See [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
