@@ -32,13 +32,13 @@ For additional details please refer to our [support policy for containers](https
 
 You can use standard tools on your operating system to create an SSH RSA public and private key pair for authentication against the Linux virtual machines for your cluster. For steps, see the [OS X and Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) guidance. 
 
-If you use [Azure CLI 2.0 commands](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
+If you use [Azure CLI commands](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
 
 ### How do I create a service principal for my Kubernetes cluster?
 
 An Azure Active Directory service principal ID and password are also needed to create a Kubernetes cluster in Azure Container Service. For more information, see [About the service principal for a Kubernetes cluster](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md).
 
-If you use [Azure CLI 2.0 commands](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
+If you use [Azure CLI commands](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
 
 ### How large a cluster can I create?
 You can create a cluster with 1, 3, or 5 master nodes. You can choose up to 100 agent nodes.
@@ -105,4 +105,4 @@ There are some known DNS issues on Windows whose fixes are still actively being 
 ## Next steps
 
 * [Learn more](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) about Azure Container Service.
-* Deploy a container service cluster using the [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) or [Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Deploy a container service cluster using the [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) or the [Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

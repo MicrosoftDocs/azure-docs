@@ -2,15 +2,18 @@
 title: Azure SQL Database Managed Instance Auditing | Microsoft Docs
 description: Learn how to get started with Azure SQL Database Managed Instance Auditing using T-SQL
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/19/2018
-ms.author: giladm
-
+f1_keywords: 
+  - "mi.azure.sqlaudit.general.f1"
+author: ronitr
+ms.author: ronitr
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
 ---
 # Get started with Azure SQL Database Managed Instance Auditing
 
@@ -99,13 +102,13 @@ The following section describes the configuration of auditing on your Managed In
     If not specified, `RETENTION_DAYS` default is 0 (unlimited retention).
 
     For additional information:
-    - [Auditing differences between Managed Instance, Azure SQL DB and SQL Server](#subheading-3)
+    - [Auditing differences between Managed Instance, Azure SQL DB and SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 7. Create a Server Audit Specification or Database Audit Specification as you would for SQL Server:
-    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
+    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 8. Enable the server audit that you created in step 6:
 

@@ -1,47 +1,44 @@
 ---
-title: Computer Vision Python quickstart analyze a local image | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze a local image using Computer Vision with Python in Cognitive Services.
+title: "Quickstart: Analyze a local image - REST, Python - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you analyze a local image using the Computer Vision APi with Python.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/17/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: pafarley
 ---
-# Quickstart: Analyze a local image with Python
+# Quickstart: Analyze a local image using the REST API and Python in Computer Vision
 
-In this quickstart, you analyze a local image using Computer Vision. To analyze a remote image, see [Analyze a remote image with Python](python-analyze.md).
+In this quickstart, you analyze a locally stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
+- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze a local image
+## Create and run the sample
 
-This sample is similar to [Analyze a remote image with Python](python-analyze.md) except the image to analyze is read locally from disk. Two changes are required:
+To create and run the sample, do the following steps:
 
-- Add a `{"Content-Type": "application/octet-stream"}` header to the request.
-- Add the image data (byte array) to the body of the request.
-
-To run the sample, do the following steps:
-
-1. Copy the following code to a new Python script file.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `vision_base_url` value to the location where you obtained your subscription keys, if necessary.
-1. Change the `image_path` value to the path of a local image.
-1. Run the script.
-
-The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The types of features to recognize is passed in via the `params` dictionary. The binary image data is passed in via the `data` parameter to `requests.post`.
-
-## Analyze Image request
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace the value of `subscription_key` with your subscription key.
+    1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of `image_path` with the path and file name of a different image that you want to analyze.
+1. Save the code as a file with an `.py` extension. For example, `analyze-local-image.py`.
+1. Open a command prompt window.
+1. At the prompt, use the `python` command to run the sample. For example, `python analyze-local-image.py`.
 
 ```python
 import requests
@@ -91,9 +88,9 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-## Analyze Image response
+## Examine the response
 
-A successful response is returned in JSON, for example:
+A successful response is returned in JSON. The sample webpage parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
 {
@@ -167,9 +164,13 @@ A successful response is returned in JSON, for example:
 }
 ```
 
+## Clean up resources
+
+When no longer needed, delete the file.
+
 ## Next steps
 
-Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)

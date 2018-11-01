@@ -8,40 +8,34 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
 
 ---
-# Request units in Azure Cosmos DB
+# Throughput and request units in Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is the Microsoft globally distributed multimodel database. With Azure Cosmos DB, you don't have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by Microsoft top engineers to deliver world-class availability, performance, and data protection. You can access your data by using APIs of your choice, like the [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), and [Table](table-introduction.md) APIs, and graph via the [Gremlin API](graph-introduction.md). All APIs are all natively supported. 
+Azure Cosmos DB resources are billed based on the provisioned throughput and storage. Azure Cosmos DB throughput is expressed in terms of **Request Units per second (RU/s)**. Azure Cosmos DB supports various APIs that have different operations, ranging from simple reads and writes to complex graph queries. Each request consumes request units based on the amount of computation required to serve the request. The number of request units for an operation is deterministic. You can track the number of request units that are consumed by any operation in Azure Cosmos DB by using the response header. To provide predictable performance, you should reserve throughput in units of 100 RU/second. You can estimate your throughput needs by using the Azure Cosmos DB [request unit calculator](https://www.documentdb.com/capacityplanner).
 
-The currency of Azure Cosmos DB is the *request unit (RU)*. With request units, you don't need to reserve read/write capacities or provision CPU, memory, and IOPS. Azure Cosmos DB supports various APIs that have different operations, ranging from simple reads and writes to complex graph queries. Because not all requests are equal, requests are assigned a normalized quantity of request units based on the amount of computation required to serve the request. The number of request units for an operation is deterministic. You can track the number of request units that are consumed by any operation in Azure Cosmos DB via a response header. 
+In Azure Cosmos DB, you can provision throughput at two granularities: 
 
-To provide predictable performance, reserve throughput in units of 100 RU/second. You can [estimate your throughput needs](request-units.md#estimating-throughput-needs) by using the Azure Cosmos DB [request unit calculator](https://www.documentdb.com/capacityplanner).
+1. **Azure Cosmos DB container:** The throughput provisioned for a container is reserved for that specific container only. When assigning throughput(RU/s) at the container level, the containers can be created as **Fixed** or **Unlimited**. 
 
-![Throughput calculator][5]
+  Fixed-size containers have a maximum throughput limit of 10,000 RU/s and a storage limit of 10 GB. To create an unlimited container, you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Because your data may be split across multiple partitions, you have to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values, Azure Cosmos DB ensures that the requests to a collection, table, and graph are scaled uniformly. 
 
-After reading this article, you'll be able to answer the following questions:
+2. **Azure Cosmos DB database:** The throughput provisioned for a database is shared across all the containers within that database. When provisioning throughput at the database level, you can choose to explicitly exclude certain containers and instead provision throughput for those containers at the container level. Database level throughput requires all collections to be created with a partition key. When assigning throughput at the database level, the containers that belong to this database should be created with a partition key because every collection is an **Unlimited** container.  
 
-* What are request units and request charges in Azure Cosmos DB?
-* How do I specify request unit capacity for a container or set of containers in Azure Cosmos DB?
-* How do I estimate my application's request unit needs?
-* What happens if I exceed request unit capacity for a container or set of containers in Azure Cosmos DB?
+Based on the provisioned throughput, Azure Cosmos DB will allocate physical partitions to host your container(s) and splits data across partitions as it grows. The following image illustrates provisioning throughput at different levels:
 
-Because Azure Cosmos DB is a multimodel database, it's important to note that this article is applicable to all data models and APIs in Azure Cosmos DB. This article uses generic terms like *container* to refer generically to a collection or graph and *item* to refer generically to a table, document, node, or entity.
+  ![Provisioning request units for individual containers and set of containers](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> Provisioning throughput at the container level and database level are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ## Request units and request charges
 
 Azure Cosmos DB delivers fast, predictable performance by reserving resources to satisfy the throughput needs of your application. Application load and access patterns change over time. Azure Cosmos DB can help you easily increase or decrease the amount of reserved throughput available to your application.
 
 With Azure Cosmos DB, reserved throughput is specified in terms of request unit processing per second. You can think of request units as throughput currency. You reserve a number of guaranteed request units to be available to your application on a per-second basis. Each operation in Azure Cosmos DB, including writing a document, performing a query, and updating a document, consumes CPU, memory, and IOPS. That is, each operation incurs a request charge, which is expressed in request units. When you understand the factors that affect request unit charges and your application's throughput requirements, you can run your application as cost effectively as possible. 
-
-To help you get started, Azure Cosmos DB Program Manager Andrew Liu discusses request units in the following video (there is a minor typo in the request units example of the video. When 1KB data with 100,000 records is used, the total storage is 100MB and not 100GB): <br /><br />
-
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
 
 ## Throughput isolation in globally distributed databases
 
@@ -59,7 +53,7 @@ When you estimate the number of request units to provision, it's important to co
 * **Script usage**. As with queries, stored procedures and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation consumes request unit capacity.
 
 ## Estimating throughput needs
-A request unit is a normalized measure of request processing cost. A single request unit represents the processing capacity that's required to read (via self link or ID) a single 1-KB item that consists of 10 unique property values (excluding system properties). A request to create (insert), replace, or delete the same item consumes more processing from the service and thereby requires more request units. 
+A request unit is a normalized measure of request processing cost. A single request unit represents the processing capacity that's required to read (via self-link or ID) a single 1-KB item that consists of 10 unique property values (excluding system properties). A request to create (insert), replace, or delete the same item consumes more processing from the service and thereby requires more request units. 
 
 > [!NOTE]
 > The baseline of 1 request unit for a 1-KB item corresponds to a simple GET by self link or ID of the item.
@@ -76,7 +70,6 @@ For example, here's a table that shows how many request units to provision for i
 | 4 KB | 500 | 500 | (500 * 1.3) + (500 * 7) = 4,150 RU/s
 | 64 KB | 500 | 100 | (500 * 10) + (100 * 48) = 9,800 RU/s
 | 64 KB | 500 | 500 | (500 * 10) + (500 * 48) = 29,000 RU/s
-
 
 ### Use the request unit calculator
 To help you fine-tune your throughput estimations, you can use a web-based [request unit calculator](https://www.documentdb.com/capacityplanner). The calculator can help your estimate the request unit requirements for typical operations, including:
@@ -239,4 +232,5 @@ If you have more than one client cumulatively operating above the request rate, 
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 

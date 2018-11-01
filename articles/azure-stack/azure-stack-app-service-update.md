@@ -8,13 +8,12 @@ author: apwestgarth
 manager: stefsch
 editor: ''
 
-ms.assetid:
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/10/2018
 ms.author: anwestg
 
 ---
@@ -22,17 +21,16 @@ ms.author: anwestg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.3.
 >
 >
 
 By following the instructions in this article, you can upgrade the [App Service resource provider](azure-stack-app-service-overview.md) deployed in an Azure Stack environment that is connected to the Internet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy.md)
->
->
+
 
 ## Run the App Service resource provider installer
 

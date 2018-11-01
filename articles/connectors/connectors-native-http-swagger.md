@@ -1,24 +1,19 @@
 ---
-title: Call REST endpoints with HTTP + Swagger connector for Azure Logic Apps | Microsoft Docs
-description: Connect to REST endpoints from logic apps through Swagger with the HTTP + Swagger connector
+title: Call REST endpoints from Azure Logic Apps | Microsoft Docs
+description: Automate tasks and workflows that communicate with REST endpoints by using the HTTP + Swagger connector in Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan; LADocs
-
 ---
-# Get started with the HTTP + Swagger action
+
+# Call REST endpoints with HTTP + Swagger connector in Azure Logic Apps
 
 You can create a first-class connector to any REST endpoint through a 
 [Swagger document](https://swagger.io) when you use the HTTP + Swagger action 

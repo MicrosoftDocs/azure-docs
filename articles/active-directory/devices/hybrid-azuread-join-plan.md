@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 10/29/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -91,13 +91,13 @@ If you are relying on the System Preparation Tool (Sysprep), make sure you creat
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure you use a VM snapshot that has not been configured for hybrid Azure AD join.
 
-The registration of Windows down-level devices is not supported for devices configured for user profile roaming or credential roaming. If you are relying on roaming of profiles or settings, use Windows 10.
+Hybrid Azure AD join of Windows down-level devices:
 
-- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
- 
-- The registration of Windows down-level devices **is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
+- **Is** supported in non-federated environments through [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
 
-- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
+- **Is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
+
+- **Is not** supported when using credential roaming or user profile roaming or when using virtual desktop infrastructure (VDI).
 
 
 The registration of Windows Server running the Domain Controller (DC) role is not supported.
@@ -122,11 +122,12 @@ If your environment has managed domains, hybrid Azure AD join supports:
 
 - Pass Through Authentication (PTA) with Seamless Single Sign On (SSO) 
 
-- Password Has Sync (PHS) with Seamless Single Sign On (SSO) 
+- Password Hash Sync (PHS) with Seamless Single Sign On (SSO) 
 
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. For more information, see:
 
 - [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
+
 
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 

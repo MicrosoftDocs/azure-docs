@@ -3,14 +3,14 @@ title: Use the Azure Database Migration Service to perform an online migration o
 description: Learn to perform an online migration from MySQL on-premises to Azure Database for MySQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: craigg
 ms.reviewer: 
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 10/06/2018
 ---
 
 # Migrate MySQL to Azure Database for MySQL online using DMS
@@ -23,6 +23,9 @@ In this tutorial, you learn how to:
 > * Create a migration project by using the Azure Database Migration Service.
 > * Run the migration.
 > * Monitor the migration.
+
+> [!IMPORTANT]
+> For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
 ## Prerequisites
 To complete this tutorial, you need to:
@@ -42,13 +45,23 @@ To complete this tutorial, you need to:
 - Azure Database for MySQL supports only InnoDB tables. To convert MyISAM tables to InnoDB, see the article [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 
 
 - Enable binary logging in the my.ini (Windows) or my.cnf (Unix) file in source database by using the  following configuration:
+
+    - **server_id** = 1 or greater (relevant only for MySQL 5.6)
+    - **log-bin** =<path> (relevant only for MySQL 5.6)
+
+        For example: log-bin = E:\MySQL_logs\BinLog
+    - **binlog_format** = row
+    - **Expire_logs_days** = 5 (it is recommended to not use zero; relevant only for MySQL 5.6)
+    - **Binlog_row_image** = full (relevant only for MySQL 5.6)
+    - **log_slave_updates** = 1
+ 
 - The user must have the ReplicationAdmin role with the following privileges:
     - **REPLICATION CLIENT** - Required for Change Processing tasks only. In other words, Full Load only tasks don't require this privilege.
     - **REPLICATION REPLICA** - Required for Change Processing tasks only. In other words, Full Load only tasks don't require this privilege.
     - **SUPER** - Only required in versions earlier than MySQL 5.6.6.
 
 ## Migrate the sample schema
-To complete all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the database. To extract schema, you can use mysqldump with - - no-data parameter.
+To complete all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the database. To extract schema, you can use mysqldump with the `--no-data` parameter.
  
 Assuming you have MySQL employees sample database in the on-premise system, the command to do schema migration using mysqldump is:
 ```
@@ -85,7 +98,7 @@ SET group_concat_max_len = 8192;
 	WHERE
 	  KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
 	  AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-  AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+  AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
   GROUP BY SchemaName;
  ```
 		

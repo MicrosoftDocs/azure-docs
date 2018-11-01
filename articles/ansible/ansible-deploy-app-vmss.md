@@ -7,7 +7,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 09/11/2018
 ---
 
 # Deploy applications to virtual machine scale sets in Azure using Ansible
@@ -18,7 +18,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Virtual machine scale set** - If you don't already have a virtual machine scale set, you can [create a virtual machine scale set with Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) is used to download a Java sample used in this tutorial.
-- **Java SE Development Kit (JDK)** - The JDK is used to build the sample Java project.
+- **Java SE Development Kit (JDK)** - The [JDK](https://aka.ms/azure-jdks) is used to build the sample Java project.
 - **Apache Maven build tools** - The [Apache Maven build tools](https://maven.apache.org/download.cgi) are used to build the sample Java project.
 
 > [!Note]
@@ -26,7 +26,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 ## Get host information
 
-This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **saclesethosts** in inventory. 
+This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **scalesethosts** in inventory. 
 
 Save the following sample playbook as `get-hosts-tasks.yml`: 
 

@@ -38,7 +38,7 @@ Using Azure Active Directory (Azure AD) with an Azure AD Premium or Azure AD Bas
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+* [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md)
 * [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

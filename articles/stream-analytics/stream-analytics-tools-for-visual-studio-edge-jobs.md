@@ -88,7 +88,7 @@ To test the query locally, you should upload the sample data. You can get sample
 4. you can either run it locally or submit to Azure. To test the query > Select **Run Locally**.  
    ![Run options](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
  
-5. The command prompt window shows the status of the job. When the job runs successfully, it creates a folder that looks like “2018-02-23-11-31-42” in your project folder path “Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42”. Navigate to the folder path to view the results in the local folder:
+5. The command prompt window shows the status of the job. When the job runs successfully, it creates a folder that looks like "2018-02-23-11-31-42" in your project folder path "Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42". Navigate to the folder path to view the results in the local folder:
 
    You can also sign in to the Azure portal and verify that the job is created. 
 

@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
 
@@ -19,7 +19,7 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-portal.md)
 
-This quickstart describes how to use the Azure Data Factory UI to create and monitor a data factory. The pipeline that you create in this data factory *copies* data from one folder to another folder in Azure Blob storage. For a tutorial on how to *transform* data by using Azure Data Factory, see [Tutorial: Transform data by using Spark](tutorial-transform-data-spark-portal.md). 
+This quickstart describes how to use the Azure Data Factory UI to create and monitor a data factory. The pipeline that you create in this data factory *copies* data from one folder to another folder in Azure Blob storage. For a tutorial on how to *transform* data by using Azure Data Factory, see [Tutorial: Transform data by using Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) before doing this quickstart. 
@@ -34,7 +34,7 @@ Watching this video helps you understand the Data Factory UI:
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
+1. Select **Create a resource** on the left menu, select **Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
@@ -54,12 +54,10 @@ Watching this video helps you understand the Data Factory UI:
 1. For **Version**, select **V2**.
 1. For **Location**, select the location for the data factory.
 
-   The list shows only locations that Data Factory supports. The data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can be in other locations.
-1. Select **Pin to dashboard**.     
-1. Select **Create**.
-1. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
+   The list shows only locations that Data Factory supports, and where your Azure Data Factory meta data will be stored. Please note that the associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other regions.
 
-   !["Deploying Data Factory" tile](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+1. Select **Create**.
+
 1. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
    ![Home page for the data factory, with the "Author & Monitor" tile](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
@@ -84,7 +82,7 @@ In this procedure, you create a linked service to link your Azure storage accoun
 
    c. Select **Test connection** to confirm that the Data Factory service can connect to the storage account. 
 
-   d. Select **Save** to save the linked service. 
+   d. Select **Finish** to save the linked service. 
 
    ![Azure Storage linked service settings](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
@@ -125,7 +123,7 @@ In the linked service settings, you specified the Azure storage account that con
 
    c. In **General** table, specify **OutputDataset** for the name.
 
-   d. In **Connection** tab, select **AzureStorageLinkedService** as linked service, and enter **adftutorial/output** for the folder. If the **output** folder does not exist, the copy activity creates it at runtime.
+   d. In **Connection** tab, select **AzureStorageLinkedService** as linked service, and enter **adftutorial/output** for the folder, in the directory field. If the **output** folder does not exist, the copy activity creates it at runtime.
 
 ## Create a pipeline 
 In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
@@ -135,7 +133,7 @@ In this procedure, you create and validate a pipeline with a copy activity that 
    ![Menu for creating a new pipeline](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
 1. In the **General** tab, specify **CopyPipeline** for **Name**. 
 
-1. In the **Activities** toolbox, expand **Data Flow**. Drag the **Copy** activity from the **Activities** toolbox to the pipeline designer surface. You can also search for activities in the **Activities** toolbox. Specify **CopyFromBlobToBlob** for **Name**.
+1. In the **Activities** toolbox, expand **Move & Transform**. Drag the **Copy** activity from the **Activities** toolbox to the pipeline designer surface. You can also search for activities in the **Activities** toolbox. Specify **CopyFromBlobToBlob** for **Name**.
 
    ![Copy activity general settings](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 1. Switch to the **Source** tab in the copy activity settings, and select **InputDataset** for **Source Dataset**.
@@ -202,7 +200,7 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
    Notice the values in the **Triggered By** column. The manual trigger run was from the step (**Trigger Now**) that you did earlier. 
 
    ![List of triggered runs](./media/quickstart-create-data-factory-portal/monitor-triggered-runs.png)
-1. Select the down arrow next to **Pipeline Runs** to switch to the **Trigger Runs** view. 
+1. Switch to the **Trigger Runs** view. 
 
    ![Switch to "Trigger Runs" view](./media/quickstart-create-data-factory-portal/monitor-trigger-runs.png)    
 1. Confirm that an output file is created for every pipeline run until the specified end date and time in the **output** folder. 

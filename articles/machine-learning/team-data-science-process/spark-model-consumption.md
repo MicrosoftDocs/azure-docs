@@ -4,7 +4,7 @@ description: How to load and score learning models stored in Azure Blob Storage 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 626305a2-0abf-4642-afb0-dad0f6bd24e9

@@ -4,7 +4,7 @@ description: Learn how to install Hue on HDInsight clusters and use tunneling to
 keywords: hue hadoop
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -44,7 +44,7 @@ The script to install Hue on a Linux-based HDInsight cluster is available at htt
 This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.
 
 > [!NOTE]
-> Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> Azure PowerShell, the Azure Classic CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 >
 >
 

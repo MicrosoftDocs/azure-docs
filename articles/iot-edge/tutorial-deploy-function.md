@@ -4,7 +4,7 @@ description: In this tutorial, you deploy an Azure function as a module to an ed
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Deploy Azure functions as IoT Edge modules (preview)
 
-You can use Azure Functions to deploy code that implements your business logic directly to your Azure IoT Edge devices. This tutorial walks you through creating and deploying an Azure function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] quickstarts. In this tutorial, you learn how to:     
+You can use Azure Functions to deploy code that implements your business logic directly to your Azure IoT Edge devices. This tutorial walks you through creating and deploying an Azure function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows](quickstart.md) or [Linux](quickstart-linux.md) quickstarts. In this tutorial, you learn how to:     
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an Azure function.
@@ -41,7 +41,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 Development resources:
 
@@ -94,7 +94,7 @@ The Azure IoT Edge extension for Visual Studio Code that you installed in the pr
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **Azure Functions - C#** as the module template. 
    4. Name your module **CSharpFunction**. 
-   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
+   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. Make sure that the module name (for example, /csharpfunction) is left intact as part of the string. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
 
    ![Provide Docker image repository](./media/tutorial-deploy-function/repository.png)
 
@@ -252,6 +252,3 @@ Continue on to the next tutorials to learn other ways that Azure IoT Edge can he
 > [!div class="nextstepaction"]
 > [Find averages by using a floating window in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
-<!--Links-->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md

@@ -1,18 +1,18 @@
 ---
-title: Computer Vision API C# quickstart sdk create thumbnail | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows C# client library in Cognitive Services.
+title: "Quickstart: Generate a thumbnail - SDK, C# - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows C# client library.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 06/28/2018
-ms.author: nolachar
+ms.date: 09/14/2018
+ms.author: pafarley
 ---
-# Quickstart: Generate a thumbnail with C&#35;
+# Quickstart: Generate a thumbnail using the Computer Vision SDK and C#
 
 In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows client library.
 
@@ -23,6 +23,9 @@ In this quickstart, you generate a thumbnail from an image using the Computer Vi
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
 ## GenerateThumbnailAsync method
+
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 The `GenerateThumbnailAsync` and `GenerateThumbnailInStreamAsync` methods wrap the [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) for remote and local images, respectively.  You can use these methods to generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
 
@@ -35,7 +38,7 @@ To run the sample, do the following steps:
     1. Select **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** when it displays, then click the checkbox next to your project name, and **Install**.
 1. Replace `Program.cs` with the following code.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change `computerVision.AzureRegion = AzureRegions.Westcentralus` to the location where you obtained your subscription keys, if necessary.
+1. Change `computerVision.Endpoint` to the Azure region associated with your subscription keys, if necessary.
 1. Optionally, replace `<LocalImage>` with the path and file name of a local image (will be ignored if not set).
 1. Optionally, set `remoteImageUrl` to a different image.
 1. Optionally, set `writeThumbnailToDisk` to `true` to save the thumbnail to disk.
@@ -43,7 +46,6 @@ To run the sample, do the following steps:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 using System;
 using System.IO;
@@ -69,33 +71,33 @@ namespace ImageThumbnail
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...\n");
             var t1 = GetRemoteThumbnailAsync(computerVision, remoteImageUrl);
             var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Create a thumbnail from a remote image
         private static async Task GetRemoteThumbnailAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -119,7 +121,7 @@ namespace ImageThumbnail
 
         // Create a thumbnail from a local image
         private static async Task GetLocalThumbnailAsnc(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {

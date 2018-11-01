@@ -1,22 +1,21 @@
 ---
-title: Understand Azure Identity | Microsoft Docs
-description: Get a basic understanding of Microsoft Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
-keywords:
+title: What is Microsoft Azure Identity? | Microsoft Docs
+description: Learn about Microsoft Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
-ms.author: lizross
-ms.date: 7/17/2017
-ms.topic: overview
-ms.prod:
-ms.service: azure-directory
+
+ms.service: active-directory
 ms.component: fundamentals
-ms.technology:
-ms.assetid:
-ms.custom: it-pro
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 7/17/2017
+ms.author: lizross
+ms.reviewer: jsnow
+custom: it-pro
 ---
 
-# Understand Azure identity solutions
+# What is Microsoft Azure identity?
 Microsoft Azure Active Directory (Azure AD) is an identity and access management cloud solution that provides directory services, identity governance, and application access management. Azure AD quickly [enables single sign on (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) to 1,000’s of pre-integrated commercial and custom apps in the [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Many of these apps you probably already use such as Office 365, Salesforce.com, Box, ServiceNow, and Workday.
 
 A single Azure AD directory is automatically associated with an Azure subscription when it is created. As the identity service in Azure, Azure AD then provides all identity management and access control functions for cloud-based resources. These resources can include users, apps, and groups for an individual tenant (organization) as shown in the following diagram:
@@ -103,12 +102,12 @@ Here are some common identity and access scenarios with recommendations as to wh
 ## Where can I learn more?
 We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:
 
-* [Enabling your directory for hybrid management with Azure AD Connect](../connect/active-directory-aadconnect.md)
+* [Enabling your directory for hybrid management with Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 * [Additional security for an ever connected world](../authentication/multi-factor-authentication.md)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md)
+* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md)
 * [Manage your passwords from anywhere](../user-help/active-directory-passwords-update-your-own-password.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md)
+* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md)
 * [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md)
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-whatis-azure-portal.md)

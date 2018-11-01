@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters with secure transfer enabled
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

@@ -1,20 +1,26 @@
 ---
-title: Publish Knowledge Base, Python Quickstart - Azure Cognitive Services | Microsoft Docs
-description: How to publish a knowledge base in Python for QnA Maker.
+title: "Quickstart: Publish knowledge base - REST, Python - QnA Maker"
+titleSuffix: Azure Cognitive Services 
+description: This REST-based quickstart walks you through publishing your KB which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
+ms.date: 10/19/2018
+ms.author: diberry
 ---
 
-# Publish a knowledge base in Python
+# Quickstart: Publish a knowledge base in QnA Maker using Python
 
-The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
+This quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
+
+This quickstart calls QnA Maker APIs:
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - this API doesn't require any information in the body of the request.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 1. Create a new Python project in your favorite IDE.
 2. Add the code provided below.

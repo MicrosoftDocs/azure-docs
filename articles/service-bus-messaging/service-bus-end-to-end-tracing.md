@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
 
 ---
@@ -80,10 +80,10 @@ async Task ProcessAsync(Message message)
 In this example, `RequestTelemetry` is reported for each processed message, having a timestamp, duration, and result (success). The telemetry also has a set of correlation properties.
 Nested traces and exceptions reported during message processing are also stamped with correlation properties representing them as 'children' of the `RequestTelemetry`.
 
-In case you make calls to supported external components during message processing, they are also automagically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md) for manual tracking and correlation.
+In case you make calls to supported external components during message processing, they are also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md) for manual tracking and correlation.
 
 ### Tracking without tracing system
-In case your tracing system does not support automagical Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
+In case your tracing system does not support automatic Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
 
 Service Bus .NET Client is instrumented using .NET tracing primitives [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -225,7 +225,6 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 ## Next steps
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Application Insights Correlation](../application-insights/application-insights-correlation.md)
 * [Application Insights Monitor Dependencies](../application-insights/app-insights-asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
 * [Track custom operations with Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md)

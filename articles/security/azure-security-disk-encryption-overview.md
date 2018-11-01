@@ -1,18 +1,12 @@
 ---
 title: Azure Disk Encryption for IaaS VMs Overview| Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for IaaS VMs.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 30324adb-e24c-433a-9214-2d1465cbdf45
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na 
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
+ms.date: 09/14/2018
 
 --- 
 
@@ -80,7 +74,10 @@ The solution doesn't support the following scenarios, features, and technology:
 * IaaS VMs that are created by using the classic VM creation method
 * Enabling encryption on Linux IaaS VMs customer custom images
 * Integration with your on-premises Key Management Service
-* Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
+* Azure Files (shared file system)
+* Network File System (NFS)
+* Dynamic volumes
+* Windows VMs that are configured with software-based RAID systems
 
 ## Encryption features
 When you enable and deploy Azure Disk Encryption for Azure IaaS VMs, the following capabilities are enabled, depending on the configuration provided:

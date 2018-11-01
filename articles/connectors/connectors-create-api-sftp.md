@@ -10,7 +10,7 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
+ms.date: 10/11/2018
 ---
 
 # Monitor, create, and manage SFTP files by using Azure Logic Apps
@@ -32,9 +32,15 @@ your logic apps to perform tasks with files on your SFTP server.
 You can also have other actions use the output from SFTP actions. 
 For example, if you regularly retrieve files from your SFTP server, 
 you can send email about those files and their content by using 
-the Office 365 Outlook connector or Outlook.com connector.
+the Office 365 Outlook connector or Outlook.com connector. 
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+> [!NOTE]
+> For files larger than 50 MB and up to 1 GB, 
+> use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
+> The SFTP connector supports only files that are 50 MB or smaller 
+> unless you use [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## Prerequisites
 
@@ -62,28 +68,21 @@ for example, the **Recurrence** trigger.
 1. Sign in to the [Azure portal](https://portal.azure.com), 
 and open your logic app in Logic App Designer, if not open already.
 
-1. Choose a path: 
+1. For blank logic apps, in the search box, 
+enter "sftp" as your filter. Under the triggers list, 
+select the trigger you want. 
 
-   * For blank logic apps, in the search box, 
-   enter "salesforce" as your filter. 
-   Under the triggers list, select the trigger you want. 
+   -or-
 
-     -or-
+   For existing logic apps, under the last step where 
+   you want to add an action, choose **New step**. 
+   In the search box, enter "sftp" as your filter. 
+   Under the actions list, select the action you want.
 
-   * For existing logic apps: 
-   
-     * Under the last step where you want to add an action, 
-     choose **New step**. 
-
-       -or-
-
-     * Between the steps where you want to add an action, 
-     move your pointer over the arrow between steps. 
-     Choose the plus sign (**+**) that appears, 
-     and then select **Add an action**.
-     
-        In the search box, enter "sftp" as your filter. 
-        Under the actions list, select the action you want.
+   To add an action between steps, 
+   move your pointer over the arrow between steps. 
+   Choose the plus sign (**+**) that appears, 
+   and then select **Add an action**.
 
 1. Provide the necessary details for your connection, 
 and then choose **Create**.
@@ -125,7 +124,7 @@ review the connector's [reference page](/connectors/sftpconnector/).
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

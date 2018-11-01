@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
@@ -82,34 +82,38 @@ if($s)
   Collect all logs for all roles:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred
   ```
 
   Collect logs from VirtualMachines and BareMetal roles:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
   ```
 
   Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
     
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
   Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the time period between 8 hours ago and 2 hours ago:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 ### Parameter considerations for both ASDK and integrated systems
 
 - If the **FromDate** and **ToDate** parameters are not specified, logs are collected for the past four hours by default.
 - Use the **FilterByNode** parameter to filter logs by computer name. For example:
-```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+```
 - Use the **FilterByLogType** parameter to filter logs by type. You can choose to filter by File, Share or WindowsEvent. For example:
-```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+```
 - You can use the **TimeOutInMinutes** parameter to set the timeout for log collection. It is set to 150 (2.5 hours) by default.
 - In version 1805 and later, dump file log collection is disabled by default. To enable it, use the **IncludeDumpFile** switch parameter. 
 - Currently, you can use the **FilterByRole** parameter to filter log collection by the following roles:
@@ -141,14 +145,6 @@ if($s)
  |Cloud|IdentityProvider|OnboardRP|     |	
  |Cluster|iDns|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Collect logs using a graphical user interface
-Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub tools repository at http://aka.ms/AzureStackTools.
-
-The **ERCS_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. To ensure that you have the latest version available, you should download it directly from http://aka.ms/ERCS. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script defaults to prompting for parameters via a graphical user interface.
-
-To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script, you can watch [a short video](https://www.youtube.com/watch?v=Utt7pLsXEBc) or view the script’s [readme file](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) located in the Azure Stack tools GitHub repository. 
 
 ### Additional considerations
 

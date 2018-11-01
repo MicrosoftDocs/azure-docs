@@ -21,6 +21,12 @@
     href: dns-web-sites-custom-domain.md
   - name: Create private DNS zone and record
     href: private-dns-getstarted-powershell.md
+  - name: Alias records for Traffic Manager
+    href: tutorial-alias-tm.md
+  - name: Alias records for Public IP addresses
+    href: tutorial-alias-pip.md
+  - name: Alias records for zone records
+    href: tutorial-alias-rr.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -29,6 +35,8 @@
   items:
   - name: DNS zones and records
     href: dns-zones-records.md
+  - name: DNS alias records
+    href: dns-alias.md
   - name: DNS delegation with Azure DNS
     href: dns-domain-delegation.md
   - name: DNS FAQ

@@ -1,20 +1,23 @@
 ---
-title: Create a new knowledge base - quickstart Python - for Microsoft QnA Maker API (V4) - Azure Cognitive Services | Microsoft Docs
-description: Create a knowledge base in Python to hold your FAQs or product manuals, so you can get started with QnA Maker.
+title:  "Quickstart: Create knowledge base - REST, Python - QnA Maker"
+titlesuffix: Azure Cognitive Services 
+description: This REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
+ms.date: 10/19/2018
+ms.author: diberry
 ---
 
-# Create a new knowledge base in Python
+# Quickstart: Create a knowledge base in QnA Maker using Python
 
 This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 Two sample FAQ URLs are given below (in the **req** dictionary item 'urls'). QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
@@ -26,7 +29,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ![Azure dashboard service key](../media/sub-key.png)
 
-For more help with Visual Studio and Python: [Work with Python in Visual Studio on Windows](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio).
+For more help with Visual Studio and Python: [Work with Python in Visual Studio on Windows](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio).
 
 ## Create knowledge base
 
@@ -130,8 +133,8 @@ req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }

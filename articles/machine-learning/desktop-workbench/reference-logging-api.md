@@ -11,11 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
+
+ROBOTS: NOINDEX
 ---
+
 
 # Logging API reference
 
-Azure ML's logging library allows the program to emit metrics and files that are tracked by the history service for later analysis. Currently, a few basic types of metrics and files are supported, and the set of supported types will grow with future releases of the Python package.
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+Azure ML's logging library allows the program to emit metrics and files that are tracked by the history service for later analysis. 
 
 ## Uploading metrics
 
@@ -81,5 +86,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## Next steps
-- Walk through the [Classifying iris tutoria, part 2](tutorial-classifying-iris-part-2.md) to see logging API in action.
+- Walk through the [Classifying iris tutorial, part 2](tutorial-classifying-iris-part-2.md) to see logging API in action.
 - Review [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) to understand deeper how logging APIs can be used in Run History.

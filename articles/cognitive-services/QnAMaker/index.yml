@@ -5,15 +5,15 @@ metadata:
   title: QnA Maker Documentation - Microsoft Cognitive Services | Microsoft Docs
   description: Learn about QnA Maker and how it works.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: tulasim88
+  manager: cgronlun
   ms.service: cognitive-services
   ms.component: qna-maker
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/15/2018
-  ms.author: nolachar
+  ms.date: 09/12/2018
+  ms.author: tulasim
 abstract:
   description: <a href="https://qnamaker.ai">QnA Maker</a> enables you to power a question and answer service from your semi-structured content like FAQ documents or URLs and product manuals.
 sections:

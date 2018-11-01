@@ -38,7 +38,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | --- | --- |
 | I don't see the **Password reset** section under Azure AD in the Azure portal. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> Assign a license to the administrator account in question. You can follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article.|
 | I don't see a particular configuration option. | Many elements of the UI are hidden until they are needed. Try enabling all the options you want to see. |
-| I don't see the **On-premises integration** tab. | This option only becomes visible if you have downloaded Azure AD Connect and have configured password writeback. For more information, see [Getting started with Azure AD Connect by using the express settings](./../connect/active-directory-aadconnect-get-started-express.md). |
+| I don't see the **On-premises integration** tab. | This option only becomes visible if you have downloaded Azure AD Connect and have configured password writeback. For more information, see [Getting started with Azure AD Connect by using the express settings](../hybrid/how-to-connect-install-express.md). |
 
 ## Troubleshoot password reset reporting
 
@@ -80,7 +80,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | The password reset service does not start on-premises. Error 6800 appears in the Azure AD Connect machine’s application event log. <br> <br> After onboarding, federated, pass-through authentication, or password-hash-synchronized users can't reset their passwords. | When password writeback is enabled, the sync engine calls the writeback library to perform the configuration (onboarding) by communicating to the cloud onboarding service. Any errors encountered during onboarding or while starting the Windows Communication Foundation (WCF) endpoint for password writeback results in errors in the event log, on your Azure AD Connect machine. <br> <br> During restart of the Azure AD Sync (ADSync) service, if writeback was configured, the WCF endpoint starts up. But, if the startup of the endpoint fails, we will log event 6800 and let the sync service start up. The presence of this event means that the password writeback endpoint did not start up. Event log details for this event 6800, along with event log entries generate by the PasswordResetService component, indicate why you can't start up the endpoint. Review these event log errors and try to restart the Azure AD Connect if password writeback still isn’t working. If the problem persists, try to disable and then re-enable password writeback.
 | When a user attempts to reset a password or unlock an account with password writeback enabled, the operation fails. <br> <br> In addition, you see an event in the Azure AD Connect event log that contains: “Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long” after the unlock operation occurs. | Find the Active Directory account for Azure AD Connect and reset the password so that it contains no more than 127 characters. Then open the **Synchronization Service** from the **Start** menu. Browse to **Connectors** and find the **Active Directory Connector**. Select it and then select **Properties**. Browse to the **Credentials** page and enter the new password. Select **OK** to close the page. |
 | At the last step of the Azure AD Connect installation process, you see an error indicating that password writeback couldn't be configured. <br> <br> The Azure AD Connect application event log contains error 32009 with the text “Error getting auth token.” | This error occurs in the following two cases: <br><ul><li>You have specified an incorrect password for the global administrator account specified at the beginning of the Azure AD Connect installation process.</li><li>You have attempted to use a federated user for the global administrator account specified at the beginning of the Azure AD Connect installation process.</li></ul> To fix this problem, ensure that you're not using a federated account for the global administrator you specified at the beginning of the installation process. Also ensure that the password specified is correct. |
-| The Azure AD Connect machine event log contains error 32002 that is thrown by running PasswordResetService. <br> <br> The error reads: “Error Connecting to ServiceBus. The token provider was unable to provide a security token.” | Your on-premises environment isn't able to connect to the Azure Service Bus endpoint in the cloud. This error is normally caused by a firewall rule blocking an outbound connection to a particular port or web address. See [Connectivity prerequisites](./../connect/active-directory-aadconnect-prerequisites.md) for more info. After you have updated these rules, reboot the Azure AD Connect machine and password writeback should start working again. |
+| The Azure AD Connect machine event log contains error 32002 that is thrown by running PasswordResetService. <br> <br> The error reads: “Error Connecting to ServiceBus. The token provider was unable to provide a security token.” | Your on-premises environment isn't able to connect to the Azure Service Bus endpoint in the cloud. This error is normally caused by a firewall rule blocking an outbound connection to a particular port or web address. See [Connectivity prerequisites](../hybrid/how-to-connect-install-prerequisites.md) for more info. After you have updated these rules, reboot the Azure AD Connect machine and password writeback should start working again. |
 | After working for some time, federated, pass-through authentication, or password-hash-synchronized users can't reset their passwords. | In some rare cases, the password writeback service can fail to restart when Azure AD Connect has restarted. In these cases, first, check whether password writeback appears to be enabled on-premises. You can check by using either the Azure AD Connect wizard or PowerShell (See the previous HowTos section). If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. If this doesn’t work, try a complete uninstall and reinstall of Azure AD Connect. |
 | Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords see an error after attempting to submit their password. The error indicates that there was a service problem. <br ><br> In addition to this problem, during password reset operations, you might see an error that the management agent was denied access in your on-premises event logs. | If you see these errors in your event log, confirm that the Active Directory Management Agent (ADMA) account that was specified in the wizard at the time of configuration has the necessary permissions for password writeback. <br> <br> After this permission is given, it can take up to one hour for the permissions to trickle down via the `sdprop` background task on the domain controller (DC). <br> <br> For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset continues to fail with an access denied message. |
 | Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords, see an error after they submit their password. The error indicates that there was a service problem. <br> <br> In addition to this problem, during password reset operations, you might see an error in your event logs from the Azure AD Connect service indicating an “Object could not be found” error. | This error usually indicates that the sync engine is unable to find either the user object in the Azure AD connector space or the linked metaverse (MV) or Azure AD connector space object. <br> <br> To troubleshoot this problem, make sure that the user is indeed synchronized from on-premises to Azure AD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the Active Directory Certificate Services (AD CS) object is connected to the MV object via the “Microsoft.InfromADUserAccountEnabled.xxx” rule.|
@@ -168,18 +168,16 @@ For Azure AD Connect version 1.1.443.0 and above, you need outbound HTTPS access
 
 For more granularity, reference the updated list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) updated every Wednesday and put into effect the next Monday.
 
-For more information, review the connectivity prerequisites in the [Prerequisites for Azure AD Connect](./../connect/active-directory-aadconnect-prerequisites.md) article.
-
-
+For more information, review the connectivity prerequisites in the [Prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md) article.
 
 ### Restart the Azure AD Connect Sync service
 
 To resolve connectivity problems or other transient problems with the service, restart the Azure AD Connect Sync service:
 
    1. As an administrator, select **Start** on the server running Azure AD Connect.
-   2. Enter **services.msc** in the search field and select **Enter**.
-   3. Look for the **Microsoft Azure AD Sync** entry.
-   4. Right-click the service entry, select **Restart**, and then wait for the operation to finish.
+   1. Enter **services.msc** in the search field and select **Enter**.
+   1. Look for the **Microsoft Azure AD Sync** entry.
+   1. Right-click the service entry, select **Restart**, and then wait for the operation to finish.
 
    ![Restart the Azure AD Sync service][Service restart]
 
@@ -190,15 +188,15 @@ These steps re-establish your connection with the cloud service and resolve any 
 To resolve connectivity issues, disable and then re-enable the password writeback feature:
 
    1. As an administrator, open the Azure AD Connect Configuration wizard.
-   2. In **Connect to Azure AD**, enter your Azure AD global admin credentials.
-   3. In **Connect to AD DS**, enter your AD Domain Services admin credentials.
-   4. In **Uniquely identifying your users**, select the **Next** button.
-   5. In **Optional features**, clear the **Password writeback** check box.
-   6. Select **Next** through the remaining dialog pages without changing anything until you get to the **Ready to configure** page.
-   7. Ensure that the **Ready to configure page** shows the **Password writeback** option as **disabled** and then select the green **Configure** button to commit your changes.
-   8. In **Finished**, clear the **Synchronize now** option, and then select **Finish** to close the wizard.
-   9. Reopen the Azure AD Connect Configuration wizard.
-   10. Repeat steps 2-8, except ensure you select the **Password writeback** option on the **Optional features** page to re-enable the service.
+   1. In **Connect to Azure AD**, enter your Azure AD global admin credentials.
+   1. In **Connect to AD DS**, enter your AD Domain Services admin credentials.
+   1. In **Uniquely identifying your users**, select the **Next** button.
+   1. In **Optional features**, clear the **Password writeback** check box.
+   1. Select **Next** through the remaining dialog pages without changing anything until you get to the **Ready to configure** page.
+   1. Ensure that the **Ready to configure page** shows the **Password writeback** option as **disabled** and then select the green **Configure** button to commit your changes.
+   1. In **Finished**, clear the **Synchronize now** option, and then select **Finish** to close the wizard.
+   1. Reopen the Azure AD Connect Configuration wizard.
+   1. Repeat steps 2-8, except ensure you select the **Password writeback** option on the **Optional features** page to re-enable the service.
 
 These steps re-establish your connection with our cloud service and resolve any interruptions you might be experiencing.
 
@@ -212,10 +210,11 @@ We recommend that you perform this step only after you attempt the first two ste
 
 > [!WARNING]
 > If you have customized the out-of-the-box sync rules, *back them up before proceeding with upgrade and then manually redeploy them after you're finished.*
+>
 
-   1. Download the latest version of Azure AD Connect from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Because you have already installed Azure AD Connect, you need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
-   3. Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.
+1. Download the latest version of Azure AD Connect from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Because you have already installed Azure AD Connect, you need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
+1. Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.
 
 The previous steps should re-establish your connection with our cloud service and resolve any interruptions you might be experiencing.
 
@@ -225,34 +224,33 @@ If installing the latest version of the Azure AD Connect server does not resolve
 
 Azure AD Connect requires Active Directory **Reset password** permission to perform password writeback. To find out if Azure AD Connect has the required permission for a given on-premises Active Directory user account, you can use the Windows Effective Permission feature:
 
-   1. Sign in to the Azure AD Connect server and start the **Synchronization Service Manager** by selecting **Start** > **Synchronization Service**.
-   2. Under the **Connectors** tab, select the on-premises **Active Directory Domain Services** connector, and then select **Properties**.  
-
+1. Sign in to the Azure AD Connect server and start the **Synchronization Service Manager** by selecting **Start** > **Synchronization Service**.
+1. Under the **Connectors** tab, select the on-premises **Active Directory Domain Services** connector, and then select **Properties**.  
    ![Effective permission - step 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. In the pop-up window, select **Connect to Active Directory Forest** and make note of the **User name** property. This property is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform password writeback, the AD DS account must have reset password permission.  
+1. In the pop-up window, select **Connect to Active Directory Forest** and make note of the **User name** property. This property is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform password writeback, the AD DS account must have reset password permission.  
    
    ![Effective permission - step 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Sign in to an on-premises domain controller and start the **Active Directory Users and Computers** application.
-   5. Select **View** and make sure the **Advanced Features** option is enabled.  
+1. Sign in to an on-premises domain controller and start the **Active Directory Users and Computers** application.
+1. Select **View** and make sure the **Advanced Features** option is enabled.  
    
    ![Effective permission - step 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Look for the Active Directory user account you want to verify. Right-click the account name and select **Properties**.  
+1. Look for the Active Directory user account you want to verify. Right-click the account name and select **Properties**.  
    
    ![Effective permission - step 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. In the pop-up window, go to the **Security** tab and select **Advanced**.  
+1. In the pop-up window, go to the **Security** tab and select **Advanced**.  
    
    ![Effective permission - step 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. In the **Advanced Security Settings for Administrator** pop-up window, go to the **Effective Access** tab.
-   9. Select **Select a user**, select the AD DS account used by Azure AD Connect (see step 3), and then select **View effective access**.  
-   
+1. In the **Advanced Security Settings for Administrator** pop-up window, go to the **Effective Access** tab.
+1. Select **Select a user**, select the AD DS account used by Azure AD Connect (see step 3), and then select **View effective access**.
+
    ![Effective permission - step 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Scroll down and look for **Reset password**. If the entry has a check mark, the AD DS account has permission to reset the password of the selected Active Directory user account.  
+1. Scroll down and look for **Reset password**. If the entry has a check mark, the AD DS account has permission to reset the password of the selected Active Directory user account.  
    
    ![Effective permission - step 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -282,8 +280,6 @@ To properly assist you, we ask that you provide as much detail as possible when 
     * Is this a cloud-only user?
 * **Licensing**: Does the user have an Azure AD Premium or Azure AD Basic license assigned?
 * **Application event log**: If you're using password writeback and the error is in your on-premises infrastructure, include a zipped copy of your application event log from the Azure AD Connect server.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Restart the Azure AD Sync service"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "The support code is located at the bottom right of the window"

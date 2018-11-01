@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Optimize your SQL environment with the SQL Server Health Check solution in Log Analytics
@@ -81,7 +81,7 @@ Use the following information to set the Operations Manager Run As account for S
 >
 
 1. In Operations Manager, open the Operations console, and then click **Administration**.
-2. Under **Run As Configuration**, click **Profiles**, and open **OMS SQL Assessment Run As Profile**.
+2. Under **Run As Configuration**, click **Profiles**, and open **SQL Assessment Run As Profile**.
 3. On the **Run As Accounts** page, click **Add**.
 4. Select a Windows Run As account that contains the credentials needed for SQL Server, or click **New** to create one.
 
@@ -118,7 +118,7 @@ Open a PowerShell window and run the following script after you’ve updated it 
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
@@ -169,8 +169,6 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 ## Ignore recommendations
 If you have recommendations that you want to ignore, you can create a text file that Log Analytics will use to prevent recommendations from appearing in your assessment results.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### To identify recommendations that you will ignore
 1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.

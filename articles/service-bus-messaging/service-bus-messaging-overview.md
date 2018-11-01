@@ -3,15 +3,15 @@ title: Azure Service Bus messaging overview | Microsoft Docs
 description: Description of Service Bus messaging
 services: service-bus-messaging
 documentationcenter: ''
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
 ms.service: service-bus-messaging
 ms.topic: overview
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.custom: mvc
-ms.author: sethm
+ms.author: spelluru
 #Customer intent: As a developer, I want to be able to securely and reliably send messages between applications and services, with the ability to use publish/subscribe capabilities.
 ---
 
@@ -92,9 +92,9 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 If an error occurs that causes the client to have any doubt about the outcome of a send operation, [duplicate detection](duplicate-detection.md) takes the doubt out of these situations by enabling the sender re-send the same message, and the queue or topic discards any duplicate copies.
 
-### SAS, RBAC, and MSI
+### SAS, RBAC, and Managed identities for Azure resources
 
-Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](service-bus-role-based-access-control.md) (RBAC) and [Managed Service Identity](service-bus-managed-service-identity.md) (MSI).
+Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
 
 ### Geo-disaster recovery
 

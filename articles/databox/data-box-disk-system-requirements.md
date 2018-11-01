@@ -2,18 +2,12 @@
 title: Microsoft Azure Data Box Disk system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Data Box Disk
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 09/06/2018
 ms.author: alkohli
 ---
 # Azure Data Box Disk system requirements (Preview)
@@ -30,16 +24,29 @@ The system requirements include the supported platforms for clients connecting t
 
 Here is a list of the supported operating systems for the disk unlock and data copy operation via the clients connected to the Data Box Disk.
 
-| **Operating system/platform** | **Versions** |
+| **Operating system** | **Tested versions** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
-| Windows PowerShell |4.0 |
-| .NET Framework |4.5 |
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
-> [!NOTE] 
-> BitLocker needs to be enabled on the clients that run the disk unlock tool and are used to copy the data.
+## Other required software for Windows clients
 
+For Windows client, following should also be installed.
+
+| **Software**| **Version** |
+| --- | --- |
+| Windows PowerShell |5.0 |
+| .NET Framework |4.5.1 |
+| Windows Management Framework |5.0|
+| BitLocker| - |
+
+## Other required software for Linux clients
+
+For Linux client, the Data Box Disk toolset installs the following required software:
+
+- dislocker
+- OpenSSL
 
 ## Supported storage accounts
 

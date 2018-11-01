@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: iot-hub
+ ms.service: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Customize and extend the device management actions
 
 Your IoT solutions can expand the defined set of device management patterns or enable custom patterns by using the device twin and cloud-to-device method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
@@ -12,12 +25,8 @@ In this tutorial, you used a direct method to trigger a remote reboot on a devic
 
 To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
 
-[Tutorial: How to do a firmware update][lnk-fwupdate]
+[Tutorial: How to do a firmware update](../articles/iot-hub/tutorial-firmware-update.md)
 
-To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
+To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) tutorial.
 
-To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-iot-edge].
-
-[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
-[lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
-[lnk-iot-edge]: ../articles/iot-edge/tutorial-simulate-device-linux.md
+To continue getting started with IoT Hub, see [Getting started with IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).

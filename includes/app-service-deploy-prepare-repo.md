@@ -29,7 +29,7 @@ To get automatic builds from the App Service Kudu build server, make sure that y
 To customize your deployment, include a _.deployment_ file in the repository root. For more information, see [Customizing deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) and [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> If you develop in Visual Studio, let [Visual Studio create a repository for you](/vsts/git/tutorial/creatingrepo?view=vsts&tabs=visual-studio). The project is immediately ready to be deployed using Git.
+> If you develop in Visual Studio, let [Visual Studio create a repository for you](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio). The project is immediately ready to be deployed using Git.
 >
 >
 

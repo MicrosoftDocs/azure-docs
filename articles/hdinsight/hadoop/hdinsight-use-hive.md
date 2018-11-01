@@ -216,7 +216,7 @@ There are several services that can be used to run Hive queries as part of a sch
 
 ### Azure Data Factory
 
-Azure Data Factory allows you to use HDInsight as part of a Data Factory pipeline. For more information on using Hive from a pipeline, see the [Transform data using Hive activity in Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md) document.
+Azure Data Factory allows you to use HDInsight as part of a Data Factory pipeline. For more information on using Hive from a pipeline, see the [Transform data using Hive activity in Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md) document.
 
 ### Hive jobs and SQL Server Integration Services
 
@@ -239,8 +239,6 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Pig with HDInsight][hdinsight-use-pig]
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

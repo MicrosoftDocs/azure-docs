@@ -3,10 +3,9 @@ title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal'
 description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 ms.service: azure-databricks
-author: jasonwhowell
-ms.author: jasonh
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
@@ -56,7 +55,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 ## Create a Spark cluster in Databricks
 
 > [!NOTE] 
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/en-us/free/).  
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).  
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
 
@@ -72,7 +71,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.0** runtime. 
-    * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs. 
 
@@ -138,7 +137,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-account-manage.md#access-keys).
 
     > [!NOTE]
     > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).

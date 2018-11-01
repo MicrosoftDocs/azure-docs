@@ -1,23 +1,18 @@
 ---
 title: Create, edit, or extend JSON for logic app definitions - Azure Logic Apps | Microsoft Docs
-description: Author and customize logic app definitions in JSON
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Author and extend JSON for logic app definitions in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.author: estfan; LADocs
 ---
 
-# Create, edit, or customize JSON for logic app definitions
+# Create, edit, or extend JSON for logic app definitions in Azure Logic Apps
 
 When you create enterprise integration 
 solutions with automated workflows in 
