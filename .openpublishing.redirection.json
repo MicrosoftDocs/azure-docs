@@ -326,11 +326,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
-            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
             "redirect_document_id": true
@@ -1279,6 +1274,16 @@
         {
             "source_path": "articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-multiple-modules-vscode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway-linux.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway-windows.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
             "redirect_document_id": false
         },
         {
@@ -3308,7 +3313,7 @@
         },
         {
             "source_path": "articles/application-insights/enable-profiler-compute.md",
-            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_url": "/azure/application-insights/app-insights-profiler-overview",
             "redirect_document_id": false
         },
         {
@@ -7820,10 +7825,10 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cosmos-db/mongodb-multi-master-support.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/multi-master-oss-nosql",
-            "redirect_document_id": false
-        },
+            "source_path": "articles/cosmos-db/mongodb-multi-master-support.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/multi-master-oss-nosql",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/cosmos-db/20-days-of-tips.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
@@ -10031,42 +10036,42 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-get-started.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics",
+            "redirect_url": "/azure/log-analytics",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-azure-vm-extension.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm",
+            "redirect_url": "/azure/log-analytics/log-analytics-quick-collect-azurevm",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/application-insights/app-insights-customer-data.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt",
+            "redirect_url": "/azure/log-analytics/log-analytics-personal-data-mgmt",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-search-transition.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-overview.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-search.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-service-fabric.md",
-            "redirect_url": "https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-oms-setup",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-service-fabric-azure-resource-manager.md",
-            "redirect_url": "https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms",
             "redirect_document_id": false
         },
         {
@@ -19678,7 +19683,7 @@
         },
         {
             "source_path": "articles/application-insights/app-insights-analytics-reference.md",
-            "redirect_url": "https://docs.loganalytics.io/",
+            "redirect_url": "/azure/kusto/query/",
             "redirect_document_id": false
         },
         {

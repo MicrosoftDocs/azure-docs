@@ -237,7 +237,9 @@ Azure File Sync is available only in the following regions:
 | East Asia | Hong Kong |
 | East US | Virginia |
 | East US2 | Virginia |
+| North Central US | Illinois |
 | North Europe | Ireland |
+| South Central US | Texas |
 | South India | Chennai |
 | Southeast Asia | Singapore |
 | UK South | London |
@@ -264,6 +266,7 @@ To support the failover integration between geo-redundant storage and Azure File
 | East US             | West US            |
 | East US 2           | Central US         |
 | North Europe        | West Europe        |
+| North Central US    | South Central US   |
 | South India         | Central India      |
 | Southeast Asia      | East Asia          |
 | UK South            | UK West            |
