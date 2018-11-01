@@ -407,7 +407,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=storage
+    href: https://azure.microsoft.com/roadmap/?product=storage
   - name: Azure Storage client tools
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Forum
