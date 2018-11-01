@@ -44,7 +44,7 @@ A developer might use RBAC to:
 
 ### Role definitions
 
-A role definition is a collection of permissions and is sometimes called a role. The role definition lists the allowed operations, which include *create*, *read*, *update*, and *delete*. It also specifies to which object types these permissions apply.
+A role definition is a collection of permissions and is sometimes called a role. The role definition lists the allowed operations, which include create, read, update, and delete. It also specifies to which object types these permissions apply.
 
 The following roles are available in Azure Digital Twins:
 

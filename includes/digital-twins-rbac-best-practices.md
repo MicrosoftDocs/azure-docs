@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Role-based access control (RBAC) is an inheritance-driven security strategy for managing access, permissions, and roles. Descendent roles inherit permissions from parent roles. Permissions also can be assigned without being inherited from a parent role. They also can be assigned to customize a role as needed.
+Role-based access control is an inheritance-driven security strategy for managing access, permissions, and roles. Descendent roles inherit permissions from parent roles. Permissions also can be assigned without being inherited from a parent role. They also can be assigned to customize a role as needed.
 
 For example, a Space Administrator might need global access to run all operations for a specified space. Access includes all nodes underneath or within the space. In contrast, a Device Installer might need only *read* and *update* permissions for devices and sensors.
 

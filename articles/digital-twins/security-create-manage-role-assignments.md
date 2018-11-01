@@ -24,7 +24,7 @@ Each role assignment includes:
 
 ## Role definition identifiers
 
-The following table shows what can be obtained by querying the System/Roles API.
+The following table shows what can be obtained by querying the system/roles API.
 
 | **Role** | **Identifier** |
 | --- | --- |
@@ -36,7 +36,7 @@ The following table shows what can be obtained by querying the System/Roles API.
 | User | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | Support Specialist | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Device Installer | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
+| Gateway Device | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
 
 ## Supported ObjectIdTypes
 
