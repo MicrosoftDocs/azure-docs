@@ -118,7 +118,7 @@ The following parameters set a default value:
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-![Example result when deployment is complete](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+![Example result when deployment is complete](media/log-analytics-quick-create-workspace-cli/template-output-01.png)
 
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights.  
