@@ -65,7 +65,7 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, look in your *Documents* folder for the two files. You can open them and see they're identical.
+When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, look in your *Documents* folder for the two files. You can open them and see they're the same.
 
 You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
@@ -156,7 +156,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ### Clean up resources
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the `delete\_container` method. If the files created are no longer needed, you use the `delete\_blob` method to delete the files.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the `delete\_container` method. Use the `delete\_blob` method to delete the files if the files created are no longer needed.
 
 ```python
 # Clean up resources. This includes the container and the temp files
