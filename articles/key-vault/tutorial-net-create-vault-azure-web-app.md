@@ -207,7 +207,7 @@ Azure Key Vault provides a way to securely store credentials and other keys and 
    Please take note that you have to replace <YourAppName> with the name of the published app on Azure i.e. if your published app name was MyAwesomeapp.azurewebsites.net then replace <YourAppName> with MyAwesomeapp
 
 >[!NOTE]
->The command in this procedure is the equivalent of going to the portal and switching the **Identity / System assigned** setting to **On** in the web application properties.
+>The command in this procedure is the equivalent of going to the [portal](https://portal.azure.com) and switching the **Identity / System assigned** setting to **On** in the web application properties.
 
 ## Assign permissions to your application to read secrets from Key Vault
 
