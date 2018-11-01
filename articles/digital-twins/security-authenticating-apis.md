@@ -30,17 +30,17 @@ The Windows Azure Authentication Library offers many ways to acquire Active Dire
 
 ## Call Digital Twins from a middle-tier web API
 
-When developers architect Digital Twins solutions, they commonly choose to create a middle-tier application or API. The app or API then calls the Digital Twins API downstream. Users first authenticate to the mid-tier application. Then an on-behalf-of token flow is used to call downstream. For instructions about how to orchestrate the on-behalf-of flow, see [this page](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples on [this page](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+When developers architect Digital Twins solutions, they typically create a middle-tier application or API. The app or API then calls the Digital Twins API downstream. Users first authenticate to the mid-tier application, and then an on-behalf-of token flow is used to call downstream. For instructions about how to orchestrate the on-behalf-of flow, see [this page](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples on [this page](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 
 ## Test with the Postman client
 
-To get up and running with the Digital Twins APIs, you can use a client such as Postman as an API environment. Postman helps you create complex HTTP requests quickly. The following steps show how to obtain an Azure AD token that's needed to call Digital Twins within the Postman UI.
+To get up and running with the Digital Twins APIs, you can use a client such as Postman as an API environment. Postman helps you create complex HTTP requests quickly. The following steps show how to get an Azure AD token that's needed to call Digital Twins within the Postman UI.
 
 
 1. Go to https://www.getpostman.com/ to download the app.
 1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application. Or you can reuse an existing registration. 
-1. Under **Required permissions**, enter “Azure Digital Twins” and select **Delegated Permissions**. Select **Grant Permissions** to finalize.
+1. Under **Required permissions**, enter “Azure Digital Twins” and select **Delegated Permissions**. Then select **Grant Permissions**.
 1. Open the application manifest, and set **oauth2AllowImplicitFlow** to true.
 1. Configure a reply URL to [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).
 1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
