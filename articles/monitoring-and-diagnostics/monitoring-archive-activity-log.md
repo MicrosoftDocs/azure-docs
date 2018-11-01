@@ -29,10 +29,10 @@ To archive the Activity Log using any of the methods below, you set the **Log Pr
 ## Archive the Activity Log using the portal
 1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **All Services** link first.
    
-    ![Navigate to Activity Log blade](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. At the top of the blade, click **Export**.
+    ![Navigate to Activity Log blade](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. At the top of the blade, click **Export to Event Hub**.
    
-    ![Click the Export button](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![Click the Export button](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. In the blade that appears, check the box for **Export to a storage account** and select a storage account.
    
     ![Set a storage account](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
