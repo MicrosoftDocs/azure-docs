@@ -440,6 +440,10 @@
       href: how-to-create-tumbling-window-trigger.md
     - name: Create an event-based trigger
       href: how-to-create-event-trigger.md
+  - name: Solution templates
+    items:
+    - name: Copy files from multiple containers
+      href: solution-template-copy-files-multiple-containers.md
 - name: Reference
   items:
   - name: .NET

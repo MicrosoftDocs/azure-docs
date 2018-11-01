@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/1/2018
 ---
 # Copy files from multiple containers
 
@@ -37,16 +37,16 @@ The template defines two parameters:
 
 1. Select the **FullCopyFiles** template.
 
-![Choose the template](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
+    ![Choose the template](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
 2. In the **FullCopyFiles** windows, drop down the source storage store and Select **+ New** to create a new connection to your source storage store.  
 
-![Create a new connection to the source](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
+    ![Create a new connection to the source](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
 3. Input the connection information for your source storage store, as shown in the following example:
 
-![Enter the connection information](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    ![Enter the connection information](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
 
 ## Next steps
 
-[TO BE ADDED LATER]
+- [Introduction to Azure Data Factory](introduction.md)
