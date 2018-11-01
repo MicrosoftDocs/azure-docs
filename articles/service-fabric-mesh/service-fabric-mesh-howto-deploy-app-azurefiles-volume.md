@@ -79,13 +79,13 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 ```
 
 You can also find these values in the [Azure portal](https://portal.azure.com):
-* <storageAccountName> - Under **Storage Accounts**, the name of the storage account used to create the file share.
-* <storageAccountKey> - Select your storage account under **Storage Accounts** and then select **Access keys** and use the value under **key1**.
-* <fileShareName> - Select your storage account under  **Storage Accounts** and then select **Files**. The name to use is the name of the file share you created.
+* `<storageAccountName>` - Under **Storage Accounts**, the name of the storage account used to create the file share.
+* `<storageAccountKey>` - Select your storage account under **Storage Accounts** and then select **Access keys** and use the value under **key1**.
+* `<fileShareName>` - Select your storage account under  **Storage Accounts** and then select **Files**. The name to use is the name of the file share you created.
 
 ## Declare a volume resource and update the service resource (YAML)
 
-Add a new *volume.yaml* file in the *App resources* directory for your application.  Specify a name and the provider ("SFAzureFile" to use the Azure Files based volume). <fileShareName>, <storageAccountName>, and <storageAccountKey> are the values you found in a previous step.
+Add a new *volume.yaml* file in the *App resources* directory for your application.  Specify a name and the provider ("SFAzureFile" to use the Azure Files based volume). `<fileShareName>`, `<storageAccountName>`, and `<storageAccountKey>` are the values you found in a previous step.
 
 ```yaml
 volume:
@@ -138,9 +138,9 @@ application:
 
 ## Declare a volume resource and update the service resource (JSON)
 
-Add parameters for the <fileShareName>, <storageAccountName>, and <storageAccountKey> values you found in a previous step. 
+Add parameters for the `<fileShareName>`, `<storageAccountName>`, and `<storageAccountKey>` values you found in a previous step. 
 
-Create a Volume resource as a peer of the Application resource. Specify a name and the provider ("SFAzureFile" to use the Azure Files based volume). In `azureFileParameters`, specify the parameters for the <fileShareName>, <storageAccountName>, and <storageAccountKey> values you found in a previous step.
+Create a Volume resource as a peer of the Application resource. Specify a name and the provider ("SFAzureFile" to use the Azure Files based volume). In `azureFileParameters`, specify the parameters for the `<fileShareName>`, `<storageAccountName>`, and `<storageAccountKey>` values you found in a previous step.
 
 To mount the volume in your service, add a `volumeRefs` to the `codePackages` element of the service.  `name` is the resource ID for the volume (or a deployment template parameter for the volume resource) and the name of the volume declared in the volume.yaml resource file.  `destinationPath` is the local directory that the volume will be mounted to.
 
