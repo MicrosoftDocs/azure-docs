@@ -99,31 +99,31 @@ Instead of editing the schema in UI, you can load the schema definition from a f
 Delimited format 
 ```
 [ 
-��� {"location": "0", "name": "RequestName", "type": "string"}, 
-��� {"location": "1", "name": "timestamp", "type": "datetime"}, 
-��� {"location": "2", "name": "IPAddress", "type": "string"} 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
 ] 
 ```
 
 JSON format 
 ```
 [ 
-��� {"location": "$.name", "name": "name", "type": "string"}, 
-��� {"location": "$.alias", "name": "alias", "type": "string"}, 
-��� {"location": "$.room", "name": "room", "type": "long"} 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
 ]
 ```
  
 Each column is identified by the location, name and type.
 
-* Location � For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
-* Name � the displayed name of the column.
-* Type � the data type of that column.
-�
+* Location - For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
+* Name - the displayed name of the column.
+* Type - the data type of that column.
+
 > [!NOTE]
 > In case sample data was used and the file format is delimited, the schema definition must map all columns and add new columns at the end.
 > 
-> JSON allows partial mapping of the data, therefore the schema definition with a JSON format doesn�t have to map every key which is found in the sample data. It can also map columns which are not part of the sample data. 
+> JSON allows partial mapping of the data, therefore the schema definition with a JSON format doesn't have to map every key which is found in the sample data. It can also map columns which are not part of the sample data. 
 
 ## Import data
 
