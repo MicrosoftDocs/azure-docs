@@ -228,4 +228,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## Next steps
-* [Get started with Log Analytics](../azure/log-analytics.md) to learn more about Log Analytics and get up and running in minutes.
+* [Get started with Log Analytics](../azure-monitor/overview.md) to learn more about Log Analytics and get up and running in minutes.

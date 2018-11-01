@@ -54,7 +54,7 @@ If the *Microsoft Monitoring Agent* VM extension is not installing or reporting,
 6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-For more information, see [troubleshooting Windows extensions](../extensions/oms-windows.md).
+For more information, see [troubleshooting Windows extensions](../virtual-machines/extensions/oms-windows.md).
 
 ## Troubleshooting Linux VM extension
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 

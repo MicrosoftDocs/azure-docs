@@ -517,6 +517,6 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 * [Add an existing storage account to Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../extensions/oms-linux.md).
+* [Deploy Windows agent to Azure VMs using Resource Manager template](../virtual-machines/extensions/oms-windows.md).
+* [Deploy Linux agent to Azure VMs using Resource Manager template](../virtual-machines/extensions/oms-linux.md).
 

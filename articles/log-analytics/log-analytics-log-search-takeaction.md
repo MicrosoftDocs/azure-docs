@@ -23,7 +23,7 @@ ms.component:
 From a log search result in Azure Log Analytics, you can now select **Take action** to run an Automation runbook.  The runbook can be used to remediate the issue or take some other action such as collect troubleshooting information, send an email, or create a service request. 
 
 ## Components and features used
-* [Azure Automation account](../azure/automation.md)
+* [Azure Automation account](../automation/automation-quickstart-create-account.md)
 * [Log Analytics workspace](log-analytics-queries.md)
 
 ## To initiate runbook from log search
