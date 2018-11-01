@@ -31,7 +31,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 This quickstart shows you how to add and register an application in Azure AD using the existing **App registrations** experience in the Azure portal.
 
 > [!NOTE]
-> Registering a new app? We recommend using the new **App registrations (Preview)** experience in the Azure portal. See [Register an app (Preview)](quickstart-register-app.md) to get started.
+> Registering a new app? Try out the new **App registrations (Preview)** experience in the Azure portal. See [Register an app (Preview)](quickstart-register-app.md) to get started.
 
 ## Prerequisites
 

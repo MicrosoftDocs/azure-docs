@@ -30,7 +30,7 @@ To build an app that accepts both personal Microsoft account (MSA), and work or 
 Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about the [v2.0 limitations](active-directory-v2-limitations.md).
 
 > [!NOTE]
-> Registering a new app? We recommend using the new **App registrations (Preview)** experience in the Azure portal. See [Register an app (Preview)](quickstart-register-app.md) to get started.
+> Registering a new app? Try out the new **App registrations (Preview)** experience in the Azure portal. See [Register an app (Preview)](quickstart-register-app.md) to get started.
 
 ## Step 1: Sign in to the Microsoft application registration portal
 
