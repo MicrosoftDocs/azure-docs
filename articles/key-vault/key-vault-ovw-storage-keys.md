@@ -30,8 +30,8 @@ Prerequisites
     - **Naming guidance:**
       Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.        
       
-Step by step instructions
--------------------------
+Step by step instructions on how to use Key Vault to manage Storage Account Keys
+--------------------------------------------------------------------------------
 In the below instructions, we are assigning Key Vault as a service to have operator permissions on your storage account
 
 > [!NOTE]
