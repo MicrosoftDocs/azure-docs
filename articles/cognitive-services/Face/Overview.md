@@ -25,7 +25,7 @@ The Face API can detect human faces in an image and return the rectangle coordin
 
 ![An image of a woman and a man, with rectangles drawn around their faces and age and sex displayed](./Images/Face.detection.jpg)
 
-The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home), but if you wish to do further operations with face data, you should use the Face API (this service). For more information on face detection, see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), but if you wish to do further operations with face data, you should use the Face API (this service). For more information on face detection, see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## Face verification
 
