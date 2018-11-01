@@ -24,7 +24,7 @@ ms.reviewer: lenalepa, sureshja
 
 Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform to provide secure sign-in and authorization for their services.
 
-This quickstart shows you how to add and register an application using the **Azure Active Directory > App registrations (Preview)** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform.
+This quickstart shows you how to add and register an application using the **App registrations (Preview)** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform.
 
 The new app registrations experience is the place to manage all your Azure Active Directory (Azure AD) applications. This new experience includes all the features you’re familiar with in the existing Azure portal **App registrations** experience or in the Application Registration Portal, and improves upon these existing experiences through:
 
