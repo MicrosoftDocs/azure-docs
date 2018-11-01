@@ -110,7 +110,7 @@ Let's walk through steps to enable periodic backup for Reliable Stateful service
 
 ### Create backup policy
 
-First step is to create backup policy describing backup schedule, target storage for backup data, policy name, and maximum incremental backups to be allowed before triggering full backup. 
+First step is to create backup policy describing backup schedule, target storage for backup data, policy name, retention policy for backup storage and maximum incremental backups to be allowed before triggering full backup. 
 
 For backup storage, create file share and give ReadWrite access to this file share for all Service Fabric Node machines. This example assumes the share with name `BackupStore` is present on `StorageServer`.
 
@@ -127,11 +127,17 @@ $StorageInfo = @{
     StorageKind = 'FileShare'
 }
 
+$RetentionPolicy = @{ 
+    RetentionPolicyType = "Basic" 
+    RetentionDuration =  "P10D"    
+}
+
 $BackupPolicy = @{
     Name = 'BackupPolicy1'
     MaxIncrementalBackups = 20
     Schedule = $ScheduleInfo
     Storage = $StorageInfo
+    RetentionPolicy = $RetentionPolicy
 }
 
 $body = (ConvertTo-Json $BackupPolicy)
