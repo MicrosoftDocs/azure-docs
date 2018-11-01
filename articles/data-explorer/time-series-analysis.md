@@ -18,10 +18,10 @@ In this topic, learn how ADX is used to create and analyze **thousands of time s
 
 ## Time Series Creation
 
-In this section, we will create a large set of regular time series simply and intuitively using the `make-series` operator, and fill missing values.
+In this section, we'll create a large set of regular time series simply and intuitively using the `make-series` operator, and fill missing values.
 The first step in time series analysis is to partition and transform the original telemetry table to a set of time series. The table usually contains a timestamp column, contextual dimensions, and optional metrics. The dimensions are used to partition the data. The goal is to create thousands of time series per partition at regular time intervals.
 
-The input table *demo_make_series1* contains 600 K records of arbitrary web service traffic. Use the command below to sample 10 records:
+The input table *demo_make_series1* contains 600K records of arbitrary web service traffic. Use the command below to sample 10 records:
 
 ```kusto
 demo_make_series1 | take 10 
@@ -68,8 +68,8 @@ The actual time series data structure is a numeric array of the aggregated value
 
 ## Time Series Analysis Functions
 
-In this section, we will perform typical series processing functions.
-Once a set of time series is created, ADX supports a growing list of functions to process and analyze them. We will review a representative function from each category. The complete set of functions can be found in the [time series section](https://docs.microsoft.com/en-us/azure/kusto/query/machine-learning-and-tsa) in the documentation. We describe few representative functions for processing and analyzing time series.
+In this section, we'll perform typical series processing functions.
+Once a set of time series is created, ADX supports a growing list of functions to process and analyze them. We'll review a representative function from each category. The complete set of functions can be found in the [time series section](https://docs.microsoft.com/en-us/azure/kusto/query/machine-learning-and-tsa) in the documentation. We describe few representative functions for processing and analyzing time series.
 
 ### Filtering
 
@@ -118,7 +118,7 @@ demo_series2
 
 ### Seasonality Detection
 
-Many metrics follow seasonal (periodic) patterns. User traffic of cloud services usually contains daily and weekly patterns that are highest around the middle of the business day and lowest at night or over the weekend. IoT sensors measure in periodic intervals. Physical measurements such as temperature, pressure or humidity may also show seasonal behavior.
+Many metrics follow seasonal (periodic) patterns. User traffic of cloud services usually contains daily and weekly patterns that are highest around the middle of the business day and lowest at night or over the weekend. IoT sensors measure in periodic intervals. Physical measurements such as temperature, pressure, or humidity may also show seasonal behavior.
 
 The following example applies seasonality detection on one month traffic of a web service (2-hour bins):
 
@@ -151,7 +151,7 @@ The function detects daily and weekly seasonality. The daily scores less than th
 
 ### Element-wise functions
 
-Arithmetic and logical operations can be performed on a time series. Using [series_subtract()](https://docs.microsoft.com/en-us/azure/kusto/query/series-subtractfunction) we can calculate a residual time series, that is, the difference between original raw metric and a smoothed one, and look for anomalies in the residual signal:
+Arithmetic and logical operations can be done on a time series. Using [series_subtract()](https://docs.microsoft.com/en-us/azure/kusto/query/series-subtractfunction) we can calculate a residual time series, that is, the difference between original raw metric and a smoothed one, and look for anomalies in the residual signal:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -197,7 +197,7 @@ demo_many_series1
 |   | num | min\_t | max\_t |
 |   | 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
 
-Building a time series in 1-hour bins of the read metric (total 4 days * 24 hours = 96 points), results in normal pattern fluctuation:
+Building a time series in 1-hour bins of the read metric (total four days * 24 hours = 96 points), results in normal pattern fluctuation:
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -209,7 +209,7 @@ demo_many_series1
 
 ![Time series at scale](media/time-series-analysis/time-series-at-scale.png)
 
-The above behavior is misleading, since the single normal time series is aggregated from thousands of different instances that may have abnormal patterns. Therefore, we create a time series per instance. In our table, an instance is defined by Loc (location), anonOp (operation), and DB (specific machine).
+The above behavior is misleading, since the single normal time series is aggregated from thousands of different instances that may have abnormal patterns. Therefore, we create a time series per instance. An instance is defined by Loc (location), anonOp (operation), and DB (specific machine).
 
 How many time series can we create?
 
@@ -256,4 +256,4 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-In less than 2-seconds, ADX detected two abnormal time series (out of 23115) in which the read count suddenly dropped.
+In less than two seconds, ADX detected two abnormal time series (out of 23115) in which the read count suddenly dropped.
