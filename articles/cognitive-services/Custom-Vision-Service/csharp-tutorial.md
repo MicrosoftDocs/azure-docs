@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Build a Windows app for Custom Vision Service with C#"
+title: "Tutorial: Create an image classification project with the Custom Vision SDK for C#"
 titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
 ---
-# Tutorial: Use the Custom Vision Service from a C# application
+# Tutorial: Create an image classification project with the Custom Vision SDK for C#
 
-Learn how to use the Custom Vision Service from a C# application. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision Service API.
+Learn how to use the Custom Vision service SDK in a C# application. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision Service API.
 
 ## Prerequisites
 

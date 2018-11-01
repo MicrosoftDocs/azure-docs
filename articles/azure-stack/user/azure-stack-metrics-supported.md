@@ -21,7 +21,7 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can retrieve your metrics from Azure monitor on Azure Stack in the same as global Azure. You can your measures in the portal, get them from the REST API, or query them with PowerShell or CLI.
+You can retrieve your metrics from Azure monitor on Azure Stack in the same as global Azure. You can create your measures in the portal, get them from the REST API, or query them with PowerShell or CLI.
 
 The following tables list the metrics  available with Azure Monitor's metric pipeline on Azure Stack. To query and access these metrics, you will need to the **2018-01-01** api-version version of the API profile. For more information about API profiles and Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
 

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
 ---
 
@@ -79,7 +79,7 @@ You define resources with the following structure:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during the deployment. When `false`, the resource is skipped for this deployment. |
+| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. |
 | apiVersion |Yes |Version of the REST API to use for creating the resource. |
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). |
 | name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. |
@@ -96,7 +96,9 @@ You define resources with the following structure:
 
 ## Condition
 
-When you must decide during deployment whether or not to create a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource will be created. When the value is false, the resource will not be created. Typically, you use this value when you want to create a new resource or use an existing one. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
+When you must decide during deployment whether or not to create a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+
+Typically, you use this value when you want to create a new resource or use an existing one. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
 
 ```json
 {
@@ -152,7 +154,7 @@ When setting the name, you can either manually create a unique name or use the [
 ```
 
 ### Resource names for identification
-Some resource types you might want to name, but their names do not have to be unique. For these resource types, you can provide a name that identifies both the resource context and the resource type.
+Some resource types you might want to name, but their names don't have to be unique. For these resource types, you can provide a name that identifies both the resource context and the resource type.
 
 ```json
 "parameters": {

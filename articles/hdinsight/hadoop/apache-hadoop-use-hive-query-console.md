@@ -83,8 +83,6 @@ If you are using Tez with Hive, see the following documents for debugging inform
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
-
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

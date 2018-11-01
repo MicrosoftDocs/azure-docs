@@ -17,7 +17,7 @@ The REST APIs of the Azure Cognitive Services Speech service are similar to the 
 
 ## Speech to Text
 
-The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region. 
+The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -52,13 +52,13 @@ The following fields are sent in the HTTP request header.
 
 ### Audio format
 
-The audio is sent in the body of the HTTP `PUT` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz of the following formats/encoding.
+The audio is sent in the body of the HTTP `POST` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz of the following formats/encoding.
 
 * WAV format with PCM codec
 * Ogg format with OPUS codec
 
 >[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec. 
+>The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec.
 
 ### Chunked transfer
 
@@ -140,7 +140,7 @@ The `RecognitionStatus` field might contain the following values.
 | `Error` | The recognition service encountered an internal error and could not continue. Try again if possible. |
 
 > [!NOTE]
-> If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result. 
+> If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
 
 The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
@@ -202,7 +202,7 @@ The Speech service supports 24-KHz audio output in addition to the 16-Khz output
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
-en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
 en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
 A full list of available voices is available in [Supported languages](language-support.md#text-to-speech).
@@ -230,7 +230,7 @@ The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats. 
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
 
 ### Request body
 
@@ -249,7 +249,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -323,10 +323,10 @@ cURL is a command-line tool available in Linux (and in the Windows Subsystem for
 > The command is shown on multiple lines for readability, but enter it on a single line at a shell prompt.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -406,7 +406,7 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -481,4 +481,3 @@ public class Authentication
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)
-
