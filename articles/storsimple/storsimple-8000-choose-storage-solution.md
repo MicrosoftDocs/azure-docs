@@ -1,12 +1,12 @@
 ---
 title: Options for data transfer to Azure using an appliance | Microsoft Docs
-description: Learn how to choose the right Azure Storage solution for your needs
+description: Learn how to choose the right appliance to transfer data to Azure
 services: storsimple
 author: alkohli
 
 ms.service: storsimple
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 ---
 
@@ -18,9 +18,9 @@ This document provides an overview of options for on-premises data transfer to A
 - **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide.md)** – Azure File Sync can be used to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. General availability of AFS was announced earlier in 2018.
 - **[StorSimple](/azure/storsimple/storsimple-overview.md)** – StorSimple is a hybrid device that helps enterprises consolidate their storage infrastructure for primary storage, data protection, archiving, and disaster recovery on a single solution by tightly integrating with Azure storage. The product lifecycle for StorSimple can be found [here](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
-## Comparison of Azure Storage solutions
+## Comparison summary
 
-|                           |StorSimple 8000   |Azure File Sync   |Data Box Edge (Preview)                |
+|                           |StorSimple 8000   |Azure File Sync   |Data Box Edge (Preview)           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
 |Overview         |Tiered hybrid storage and archival|General file server storage with cloud tiering and multi-site sync.  |Storage solution to pre-process data and send it over network to Azure.        |
 |Scenarios        |File server, archival, backup target |File server, archival (multi-site)   |Data transfer, data pre-processing including ML inferencing, IoT, archival    |
