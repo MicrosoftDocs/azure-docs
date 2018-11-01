@@ -26,9 +26,9 @@ Enterprise developers and software-as-a-service (SaaS) providers can develop com
 
 This quickstart shows you how to add and register an application using the **Azure Active Directory > App registrations (Preview)** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform.
 
-The new app registrations experience will be the place to manage all your Azure Active Directory (Azure AD) applications. This new experience includes all the features you’re familiar with in the old experiences found in the existing **App registrations** experience in the Azure portal or in the Application Registration Portal, and improves upon these through:
+The new app registrations experience is the place to manage all your Azure Active Directory (Azure AD) applications. This new experience includes all the features you’re familiar with in the existing Azure portal **App registrations** experience or in the Application Registration Portal, and improves upon these existing experiences through:
 
-* Better manageability – Instead of seeing your applications across different portals, you’ll now see all your Azure AD apps in one list in the new experience. Additionally, any app can be used to acquire tokens for any resource going forward – this means all apps, new or old, are treated equally.
+* Better manageability – Instead of seeing your applications across different portals, you’ll now see all your Azure AD apps in one list in the new experience. Also, any app can be used to acquire tokens for any resource, which means all apps, new or old, are treated equally.
 * Improved usability – This new experience much easier to use. From a new navigation experience to a revamped permission selection experience, it's easier to register your application.
 * Detailed information – The new app registrations experience has more detailed descriptions, information, and links to documentation. You’ll also find more details about your app, quickstart guides, and more.
 
@@ -39,7 +39,7 @@ To get started, you need to opt-in to the Preview experience for app registratio
 ## Register a new application using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the Azure AD tenant that you want.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
 
@@ -48,7 +48,7 @@ To get started, you need to opt-in to the Preview experience for app registratio
 
         | Supported account types | Description |
         |-------------------------|-------------|
-        | **Accounts in this organizational directory only** | Select this option if you are building a line-of-business (LOB) application. This option is not available if you are not registering the application in a directory.<br><br>This option maps to Azure AD only single-tenant.<br><br>This is the default option unless you are registering the app outside of a directory. In cases where the app is registered outside of a directory, the default is Azure AD multi-tenant and personal Microsoft accounts. |
+        | **Accounts in this organizational directory only** | Select this option if you're building a line-of-business (LOB) application. This option is not available if you're not registering the application in a directory.<br><br>This option maps to Azure AD only single-tenant.<br><br>This is the default option unless you're registering the app outside of a directory. In cases where the app is registered outside of a directory, the default is Azure AD multi-tenant and personal Microsoft accounts. |
         | **Accounts in any organizational directory** | Select this option if you would like to target all business and educational customers.<br><br>This option maps to an Azure AD only multi-tenant.<br><br>If you registered the app as Azure AD only single-tenant, you can update it to be Azure AD multi-tenant and back to single-tenant through the **Authentication** blade. |
         | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>This option maps to Azure AD multi-tenant and personal Microsoft accounts.<br><br>If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you cannot change this in the UI. Instead, you must use the application manifest editor to change the supported account types. |
 
@@ -62,7 +62,7 @@ To get started, you need to opt-in to the Preview experience for app registratio
 
     [![Register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
-Azure AD assigns a unique application ID to your app, and you're taken to your application's **Overview** page. To add additional capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
+Azure AD assigns a unique application (client) ID to your app, and you're taken to your application's **Overview** page. To add additional capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
 
 [![Newly registered app's overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
