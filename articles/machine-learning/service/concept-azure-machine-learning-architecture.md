@@ -61,7 +61,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
 The following diagram is a taxonomy of the workspace:
 
-[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg#lightbox)
+[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
 
 ## Model
 
