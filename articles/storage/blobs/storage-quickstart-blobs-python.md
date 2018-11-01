@@ -65,7 +65,7 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, check your *Documents* folder for the two files. You can open them and see they are identical.
+When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, look in your *Documents* folder for the two files. You can open them and see they're identical.
 
 You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
@@ -76,13 +76,13 @@ After you've verified the files, hit any key to finish the demo and delete the t
 Next, we walk through the sample code so that you can understand how it works.
 
 ### Get references to the storage objects
-The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other, and each is used by the next one in the list.
+First, you create the references to the objects used to access and manage Blob storage. These objects build on each other, and each is used by the next one in the list.
 
 * Instantiate the **BlockBlobService** object, which points to the Blob service in your storage account. 
 
-* Instantiate the **CloudBlobContainer** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
+* Instantiate the **CloudBlobContainer** object, which represents the container you're accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
-Once you have the Cloud Blob container, you can instantiate the **CloudBlockBlob** object that points to the specific blob that you are interested in, and perform operations such as upload, download, and copy.
+Once you have the Cloud Blob container, instantiate the **CloudBlockBlob** object that points to the specific blob that you're interested in. You can then upload, download, and copy the blob as you need.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -104,7 +104,7 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart.  
 
-To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the `create\_blob\_from\_path` method. 
+To upload a file to a blob, get the full file path by joining the directory name with the file name on your local drive. You can then upload the file to the specified path using the `create\_blob\_from\_path` method. 
 
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as `file\_path\_to\_file` and the name of the blob as `local\_file\_name`. The following example uploads the file to your container called **quickstartblobs**.
 
