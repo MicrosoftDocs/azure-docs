@@ -345,7 +345,7 @@ You can enable/disable the feature by adding a "UseDefaultRepositoryCredentials"
 </ServiceManifestImport>
 ```
 
-This will tell Service Fabric to use the default repository credentials which you can specify in the ClusterManifest under the hosting section.  If UseDefaultRepositoryCredentials is set to true, Service Fabric will now read the following values in clustermanifest:
+This will tell Service Fabric to use the default repository credentials which you can specify in the ClusterManifest under the Hosting section.  If UseDefaultRepositoryCredentials is set to true, Service Fabric will now read the following values in clustermanifest:
 
 * DefaultContainerRepositoryAccountName (string)
 * DefaultContainerRepositoryPassword (string)
