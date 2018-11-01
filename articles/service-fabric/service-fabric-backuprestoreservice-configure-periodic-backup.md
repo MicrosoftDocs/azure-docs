@@ -118,6 +118,16 @@ A backup policy consists of the following configurations:
             }
             ```
 
+* **Retention Policy**: Specifies the policy to retain backups in the configured storage. Only Basic Retention Policy is supported.
+    1. **Basic Retention Policy**: This retention policy allows to keep a cap on storage utilization. `RetentionDuration` can be specified to set the time span for which backups are required to be retained in the storage. `MinimumNumberOfBackups` is an optional parameter that can be specified to make sure that the specified number of backups are always retained. Below example illustrate the configuration to retain backups for _10_ days and does not allow number of backups to go below _20_.
+            ```json
+            {
+                “RetentionPolicyType": "Basic",
+                “RetentionDuration” : "P10D",
+                “MinimumNumberOfBackups”: 20
+            }
+             ```
+
 > [!NOTE]
 > Ensure that the storage reliability meets or exceeds reliability requirements of backup data.
 >
@@ -174,6 +184,13 @@ Backup policies can be disabled when there is no need to backup data. Backup pol
 * Disabling backup policy for a _service_ stops all periodic data backups happening as a result of propagation of this backup policy to the partitions of the _service_.
 
 * Disabling backup policy for a _partition_ stops all periodic data backup happening due to the backup policy at the partition.
+
+* While disabling backup for an entity(application/service/partition), `CleanBackup` can be set to _true_ to delete all the backups in configured storage.
+            ```json
+            {
+               “CleanBackup”: true 
+            }
+            ```
 
 ## Suspend & resume backup
 Certain situation may demand temporary suspension of periodic backup of data. In such situation, depending on the requirement, suspend backup API may be used at an _Application_, _Service_, or _Partition_. Periodic backup suspension is transitive over subtree of the application's hierarchy from the point it is applied. 
