@@ -189,6 +189,6 @@ You can also stream diagnostic logs from Compute resources using the Windows Azu
 
 ## Next steps
 
-* [Stream Azure Active Directory logs with Azure Monitor](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+* [Stream Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
 * [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

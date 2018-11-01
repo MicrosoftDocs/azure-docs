@@ -14,7 +14,7 @@ ms.component: diagnostic-extension
 The Azure Diagnostics extension is an agent within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine Scale sets, and Service Fabric. Other Azure services have different diagnostics methods. See [Overview of monitoring in Azure](../azure-monitor/overview.md).
 
 ## Linux Agent
-A [Linux version of the extension](../extensions/diagnostics-linux.md) is available for Virtual Machines running Linux. The statistics collected and behavior vary from the Windows version.
+A [Linux version of the extension](../virtual-machines/extensions/diagnostics-linux.md) is available for Virtual Machines running Linux. The statistics collected and behavior vary from the Windows version.
 
 ## Data you can collect
 The Azure Diagnostics extension can collect the following types of data:
@@ -62,7 +62,7 @@ For more advanced topics, see
 
 * [Using Azure Diagnostics with Application Insights for Cloud Services](../application-insights/app-insights-cloudservices.md)
 * [Trace the flow of a Cloud Services application with Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Use PowerShell to set up diagnostics on Cloud Services](../extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use PowerShell to set up diagnostics on Cloud Services](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Virtual Machines
 * If using Visual Studio, see [Use Visual Studio to trace Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) to get started. Otherwise, see
@@ -70,8 +70,8 @@ For more advanced topics, see
 
 For more advanced topics, see
 
-* [Use PowerShell to set up diagnostics on Azure Virtual Machines](../extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use PowerShell to set up diagnostics on Azure Virtual Machines](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Service Fabric
 Get started at [Monitor a Service Fabric application](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Many other Service Fabric diagnostics articles are available in the navigation tree on the left once you get to this article.
