@@ -3,17 +3,17 @@ title: Manage security alerts in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center capabilities to manage and respond to security alerts.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 10/3/2018
 ms.author: yurid
 
 ---
@@ -53,6 +53,7 @@ In the bottom part of this page are the details for each alert. To sort, click t
 * **Date**: The date that the event occurred.
 * **State**: The current state for that alert. There are two types of states:
   * **Active**: The security alert has been detected.
+  * **Dismissed**: The security alert has been dismissed by the user. This status is typically used for alerts that were investigated and either mitigated or found not to be an actual attack.
 * **Severity**: The severity level, which can be high, medium or low.
 
 > [!NOTE]
@@ -77,7 +78,7 @@ In this case, the alerts that were triggered refer to suspicious Remote Desktop 
 
 In the **Description** field you find more details about this event. These additional details offer insight into what triggered the security alert, the target resource, when applicable the source IP address, and recommendations about how to remediate.  In some instances, the source IP address is empty (not available) because not all Windows security events logs include the IP address.
 
-The remediation suggested by Security Center vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using a [network ACL](../virtual-network/virtual-networks-acl.md) or a [network security group](../virtual-network/virtual-networks-nsg.md) rule. For more information on the different types of alerts, read [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md).
+The remediation suggested by Security Center vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using a [network ACL](../virtual-network/virtual-networks-acl.md) or a [network security group](../virtual-network/security-overview.md#security-rules) rule. For more information on the different types of alerts, read [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md).
 
 > [!NOTE]
 > Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 

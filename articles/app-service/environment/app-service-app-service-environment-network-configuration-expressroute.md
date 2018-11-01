@@ -124,7 +124,7 @@ To get started with App Service Environments, see [Introduction to App Service E
 [UDROverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[AzureDownloads]: http://azure.microsoft.com/en-us/downloads/ 
+[AzureDownloads]: http://azure.microsoft.com/downloads/ 
 [DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653  
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md

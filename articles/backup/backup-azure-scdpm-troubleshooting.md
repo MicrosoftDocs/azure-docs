@@ -1,29 +1,20 @@
 ---
-
-title: Troubleshoot System Center Data Protection Manager with Azure Backup | Microsoft Docs
+title: Troubleshoot System Center Data Protection Manager with Azure Backup
 description: Troubleshoot issues in System Center Data Protection Manager.
 services: backup
-documentationcenter: ''
 author: adigan
 manager: shreeshd
-editor: ''
-
-ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/24/2017
-ms.author: pullabhk;markgal;adigan
-
+ms.author: adigan
 ---
 
 # Troubleshoot System Center Data Protection Manager
 
 This article describes solutions for issues that you might encounter while using Data Protection Manager.
 
-For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). You can learn more about support for Data Protection Manager in [this matrix](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). You can learn more about support for Data Protection Manager in [this matrix](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
 
 ## Error: Replica is inconsistent

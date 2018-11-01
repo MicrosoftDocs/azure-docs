@@ -1,21 +1,14 @@
 ---
-title: Process events from Event Hubs with Storm - Azure HDInsight | Microsoft Docs
+title: Process events from Event Hubs with Storm - Azure HDInsight 
 description: Learn how to process data from Azure Event Hubs with a C# Storm topology created in Visual Studio, by using the HDInsight tools for Visual Studio.
 services: hdinsight,notification hubs
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
 ---
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -121,7 +114,7 @@ You can download a complete version of the project created in this tutorial from
 
 * The [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](https://aka.ms/azure-jdks).
 
   * The **JAVA_HOME** environment variable must point to the directory that contains Java.
   * The **%JAVA_HOME%/bin** directory must be in the path.

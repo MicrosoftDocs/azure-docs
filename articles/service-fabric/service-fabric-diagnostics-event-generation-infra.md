@@ -10,10 +10,10 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.author: dekapur
 
 ---
@@ -22,9 +22,13 @@ ms.author: dekapur
 
 It is important to monitor at the platform level to determine whether or not your hardware and cluster are behaving as expected. Though Service Fabric can keep applications running during a hardware failure, but you still need to diagnose whether an error is occurring in an application or in the underlying infrastructure. You also should monitor your clusters to better plan for capacity, helping in decisions about adding or removing hardware.
 
-Service Fabric provides the following log channels out-of-the-box:
+Service Fabric exposes several structured platform events, as "[Service Fabric events](service-fabric-diagnostics-events.md)," through the EventStore and various log channels out-of-the-box. 
 
-* **Operational**  
+The EventStore gives you access to your cluster's events on a per entity basis (entities including cluster, nodes, applications, services, partitions, replicas, and containers) and exposes them via REST APIs and the Service Fabric client library. Use the EventStore to monitor your dev/test clusters, and for getting a point-in-time understanding of the state of your production clusters. Read more about this at [EventStore Overview](service-fabric-diagnostics-eventstore.md).
+
+Service Fabric also provides the following log channels out-of-the-box for setting up a pipeline to monitor your production clusters:
+
+* [**Operational**](service-fabric-diagnostics-event-generation-operational.md)  
 High-level operations performed by Service Fabric and the cluster, including events for a node coming up, a new application being deployed, or an upgrade rollback, etc.
 
 * **Operational - detailed**  
@@ -87,7 +91,7 @@ For a list of performance counters to collect when using Service Fabric, see [Pe
 Here are two common ways in which you can set up collecting performance data for your cluster:
 
 * **Using an agent**  
-This is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change them. Read about [how to configure the OMS for Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) and [Setting up the OMS Windows Agent](../log-analytics/log-analytics-windows-agent.md) articles to learn more about the OMS agent, which is one such monitoring agent that is able to pick up performance data for cluster VMs and deployed containers.
+This is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change. Read about [how to configure Log Analytics agent for Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) and [Setting up the Log Analytics agent](../log-analytics/log-analytics-windows-agent.md) articles to learn more about the Log Analytics agent, which is one such monitoring agent that is able to pick up performance data for cluster VMs and deployed containers.
 
 * **Configuring diagnostics to write performance counters to a table**  
 For clusters on Azure, this means changing the Azure Diagnostics configuration to pick up the appropriate performance counters from the VMs in your cluster, and enabling it to pick up docker stats if you will be deploying any containers. Read about configuring [Performance Counters in WAD](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric to set up performance counter collection.

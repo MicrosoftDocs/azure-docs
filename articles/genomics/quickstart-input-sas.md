@@ -1,20 +1,18 @@
 ---
-title: 'Submit a workflow using a SAS instead of a storage account key | Microsoft Docs'
+title: 'Submit a workflow using a SAS, not a storage account key - Microsoft Genomics'
 titleSuffix: Azure
 description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
 
 ---
 
-# Submit a workflow using a SAS instead of a storage account key
+# Submit a workflow to Microsoft Genomics using a SAS instead of a storage account key 
 
 This quickstart demonstrates how to submit a workflow to the Microsoft Genomics service using a config.txt file that contains [shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) instead of storage account keys. This feature could be useful if there are security concerns about having the storage account key visible in the config.txt file. This article assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this quickstart. 
 
@@ -47,7 +45,7 @@ There are two ways to create a SAS token, either using Azure Storage Explorer or
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a tool to manage resources that you have stored in Azure Storage.  You can learn more about how to use Azure Storage Explorer [here](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-The SAS for the input files should be scoped to the specific input file (blob). To create a SAS token, follow [these instructions](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Once you have created the SAS, the full URL with the query string as well as the query string by itself are provided and can be copied from the screen.
+The SAS for the input files should be scoped to the specific input file (blob). To create a SAS token, follow [these instructions](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Once you have created the SAS, the full URL with the query string as well as the query string by itself are provided and can be copied from the screen.
 
  ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 

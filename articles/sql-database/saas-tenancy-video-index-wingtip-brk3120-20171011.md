@@ -1,17 +1,20 @@
 ---
 title: "Video indexed, Azure SaaS SQL app | Microsoft Docs"
 description: "This article indexes various time points in our 81 minutes video about SaaS DB tenancy app design, from the Ignite conference held October 11, 2017. You can skip ahead to the part that interests you. At least 3 patterns are described. Azure features that simplify development and management are described."
-services: "sql-database"
-ms.date: "12/06/2017"
-ms.service: "sql-database"
-ms.reviewer: "billgib"
-ms.topic: "article"
-author: "MightyPen"
-ms.author: "genemi"
-manager: "craigg"
-
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib
+manager: craigg
+ms.date: 05/14/2018
+ms.topic: conceptual
 ---
-# Video indexed and annotated for mulit-tenant SaaS app using Azure SQL Database
+# Video indexed and annotated for multi-tenant SaaS app using Azure SQL Database
 
 This article is an annotated index into the time locations of an 81 minute video about SaaS tenancy models or patterns. This article enables you to skip backward or forward in the video to which portion interests you. The video explains the major design options for a multi-tenant database application on Azure SQL Database. The video includes demos, walkthroughs of management code, and at times more detail informed by experience than might be in our written documentation.
 

@@ -2,18 +2,13 @@
 title: Azure Cosmos DB Gremlin support | Microsoft Docs
 description: Learn about the Gremlin language from Apache TinkerPop. Learn which features and steps are available in Azure Cosmos DB 
 services: cosmos-db
-documentationcenter: ''
 author: LuisBosquez
-manager: jhubbard
-editor: ''
-tags: ''
+manager: kfile
 
-ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
+ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
 experimental: true
@@ -21,11 +16,11 @@ experiment_id: "662dc5fd-886f-4a"
 ---
 
 # Azure Cosmos DB Gremlin graph support
-Azure Cosmos DB supports [Apache Tinkerpop's](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), which is a Graph API for creating graph entities, and performing graph query operations. You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
+Azure Cosmos DB supports [Apache Tinkerpop's](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), which is a Gremlin API for creating graph entities, and performing graph query operations. You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
 
 Azure Cosmos DB brings enterprise-ready features to graph databases. This includes global distribution, independent scaling of storage and throughput, predictable single-digit millisecond latencies, automatic indexing, SLAs, read availability for database accounts spanning two or more Azure regions. Because Azure Cosmos DB supports TinkerPop/Gremlin, you can easily migrate applications written using another graph database without having to make code changes. Additionally, by virtue of Gremlin support, Azure Cosmos DB seamlessly integrates with TinkerPop-enabled analytics frameworks like [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-In this article, we provide a quick walkthrough of Gremlin, and enumerate the Gremlin features and steps that are supported by the Graph API.
+In this article, we provide a quick walkthrough of Gremlin, and enumerate the Gremlin features and steps that are supported by the Gremlin API.
 
 ## Gremlin by example
 Let's use a sample graph to understand how queries can be expressed in Gremlin. The following figure shows a business application that manages data about users, interests, and devices in the form of a graph.  
@@ -154,12 +149,6 @@ Each property can store multiple values within an array.
 | Property | Description |
 | --- | --- |
 | value | The value of the property
-
-## Gremlin partitioning
-
-In Azure Cosmos DB, graphs are stored within containers that can scale independently in terms of storage and throughput (expressed in normalized requests per second). Each container must define an optional, but recommended partition key property that determines a logical partition boundary for related data. Every vertex/edge must have an `id` property that is unique for entities within that partition key value. The details are covered in [Partitioning in Azure Cosmos DB](partition-data.md).
-
-Gremlin operations work seamlessly across graph data that span multiple partitions in Azure Cosmos DB. However, it is recommended to choose a partition key for your graphs that is commonly used as a filter in queries, has many distinct values, and similar frequency of access these values. 
 
 ## Gremlin steps
 Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete reference on Gremlin, see [TinkerPop reference](http://tinkerpop.apache.org/docs/current/reference).

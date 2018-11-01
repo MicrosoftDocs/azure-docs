@@ -1,4 +1,4 @@
-﻿---
+---
 title: Explore .NET trace logs in Application Insights
 description: Search logs generated with Trace, NLog, or Log4Net.
 services: application-insights
@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
 
@@ -61,7 +61,7 @@ Use this method if your project type isn't supported by the Application Insights
 
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
    * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
-   * Microsoft.ApplicationInsights.EtwListener (to capture ETW events)
+   * Microsoft.ApplicationInsights.EtwCollector (to capture ETW events)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 

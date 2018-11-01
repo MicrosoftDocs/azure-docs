@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 2.0 Samples - Install apps | Microsoft Docs
-description: Azure CLI 2.0 Samples
+title: Azure CLI Samples - Install apps | Microsoft Docs
+description: Azure CLI Samples
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: mvc
 
 ---
 
-# Install applications into a virtual machine scale set with the Azure CLI 2.0
+# Install applications into a virtual machine scale set with the Azure CLI
 This script creates a virtual machine scale set running Ubuntu and uses the Custom Script Extension to install a basic web application. After running the script, you can access the web app through a web browser.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -28,7 +28,7 @@ This script creates a virtual machine scale set running Ubuntu and uses the Cust
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/install-apps/install-apps.sh "Install apps into a scale set"")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/install-apps/install-apps.sh "Install apps into a scale set")]
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.
@@ -50,6 +50,6 @@ This script uses the following commands to create a resource group, virtual mach
 | [az group delete](/cli/azure/ad/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-For more information on the Azure CLI 2.0, see [Azure CLI 2.0 documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine scale set Azure CLI 2.0 script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).
+Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).

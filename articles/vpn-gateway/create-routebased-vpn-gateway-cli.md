@@ -2,19 +2,11 @@
 title: 'Create a route-based Azure VPN gateway: CLI | Microsoft Docs'
 description: Quickly learn how to create a VPN Gateway using CLI
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 10/04/2018
 ms.author: cherylmc
 ---
 
@@ -26,7 +18,7 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.4 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.4 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -69,7 +61,7 @@ A VPN gateway must have a dynamically allocated public IP address. The public IP
 
 ```azurecli-interactive
 az network public-ip create \
-  -n VNet1GWPIP \
+  -n VNet1GWIP \
   -g TestRG1 \
   --allocation-method Dynamic 
 ```
@@ -84,7 +76,7 @@ If you run this command by using the `--no-wait` parameter, you don't see any fe
 az network vnet-gateway create \
   -n VNet1GW \
   -l eastus \
-  --public-ip-address VNet1GWPIP \
+  --public-ip-address VNet1GWIP \
   -g TestRG1 \
   --vnet VNet1 \
   --gateway-type Vpn \
@@ -122,7 +114,7 @@ The response looks similar to this:
       "privateIpAllocationMethod": "Dynamic",
       "provisioningState": "Updating",
       "publicIpAddress": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP",
+        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
         "resourceGroup": "TestRG1"
       },
       "resourceGroup": "TestRG1",
@@ -155,7 +147,7 @@ To view the public IP address assigned to your gateway, use the following exampl
 
 ```azurecli-interactive
 az network public-ip show \
-  --name VNet1GWPIP \
+  --name VNet1GWIP \
   --resource-group TestRG11
 ```
 
@@ -167,7 +159,7 @@ Example response:
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "13.90.195.184",
   "ipConfiguration": {

@@ -9,7 +9,7 @@ editor: ''
 ms.service: service-fabric
 
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 
 ms.workload: NA
@@ -80,7 +80,7 @@ In this example, you set the port number for your asp.net core web API using a p
 
     ```xml
       <Parameters>
-        <Parameter Name="MyWebAPI_PortNumber" DefaultValue="80" />
+        <Parameter Name="MyWebAPI_PortNumber" Value="80" />
       </Parameters>
     ```
 

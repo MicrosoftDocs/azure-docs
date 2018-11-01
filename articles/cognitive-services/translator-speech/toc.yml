@@ -29,9 +29,10 @@
   - name: Sign-up for Translator Speech API
     href: translator-speech-how-to-signup.md
 - name: Reference
-  items: 
-  - name: Translator Speech API reference
-    href: https://aka.ms/translator-speech-api
+  href: reference.md
+  items:
+  - name: Languages
+    href: languages-reference.md
 - name: Resources
   items:
   - name: FAQ

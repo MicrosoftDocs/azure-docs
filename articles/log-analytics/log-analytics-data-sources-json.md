@@ -1,6 +1,6 @@
 ---
-title: Collecting custom JSON data in OMS Log Analytics | Microsoft Docs
-description: Custom JSON data sources can be collected into Log Analytics using the OMS Agent for Linux.  These custom data sources can be simple scripts returning JSON such as curl or one of FluentD's 300+ plugins. This article describes the configuration required for this data collection.
+title: Collecting custom JSON data in Log Analytics | Microsoft Docs
+description: Custom JSON data sources can be collected into Log Analytics using the Log Analytics Agent for Linux.  These custom data sources can be simple scripts returning JSON such as curl or one of FluentD's 300+ plugins. This article describes the configuration required for this data collection.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -10,18 +10,20 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-
+ms.component: 
 ---
-# Collecting custom JSON data sources with the OMS Agent for Linux in Log Analytics
-Custom JSON data sources can be collected into Log Analytics using the OMS Agent for Linux.  These custom data sources can be simple scripts returning JSON such as [curl](https://curl.haxx.se/) or one of [FluentD's 300+ plugins](http://www.fluentd.org/plugins/all). This article describes the configuration required for this data collection.
+
+# Collecting custom JSON data sources with the Log Analytics agent for Linux in Log Analytics
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Custom JSON data sources can be collected into Log Analytics using the Log Analytics agent for Linux.  These custom data sources can be simple scripts returning JSON such as [curl](https://curl.haxx.se/) or one of [FluentD's 300+ plugins](http://www.fluentd.org/plugins/all). This article describes the configuration required for this data collection.
 
 > [!NOTE]
-> OMS Agent for Linux v1.1.0-217+ is required for Custom JSON Data
+> Log Analytics agent for Linux v1.1.0-217+ is required for Custom JSON Data
 
 ## Configuration
 
@@ -75,8 +77,8 @@ Add the following output plugin configuration to the main configuration in `/etc
 </match>
 ```
 
-### Restart OMS Agent for Linux
-Restart the OMS Agent for Linux service with the following command.
+### Restart Log Analytics agent for Linux
+Restart the Log Analytics agent for Linux service with the following command.
 
 	sudo /opt/microsoft/omsagent/bin/service_control restart 
 

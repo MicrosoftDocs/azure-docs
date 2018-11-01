@@ -2,14 +2,16 @@
 title: Query performance insights for Azure SQL Database  | Microsoft Docs
 description: Query performance monitoring identifies the most CPU-consuming queries for an Azure SQL Database.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
-ms.topic: article
-ms.date: 07/05/2017
-ms.author: sstein
-
+ms.subservice: performance
+ms.custom:
+ms.devlang: 
+ms.topic: conceptual
+author: danimir
+ms.author: v-daljep
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Azure SQL Database Query Performance Insight
 Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight allows you to spend less time troubleshooting database performance by providing the following:
@@ -25,7 +27,7 @@ Managing and tuning the performance of relational databases is a challenging tas
 * Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. If Query Store is not running, the portal prompts you to turn it on.
 
 ## Permissions
-The following [role-based access control](../active-directory/role-based-access-control-what-is.md) permissions are required to use Query Performance Insight: 
+The following [role-based access control](../role-based-access-control/overview.md) permissions are required to use Query Performance Insight: 
 
 * **Reader**, **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
 * **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view query text.

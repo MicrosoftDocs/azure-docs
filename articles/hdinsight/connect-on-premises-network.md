@@ -1,23 +1,18 @@
 ---
-title: Connect HDInsight to your on-premises network - Azure HDInsight | Microsoft Docs 
+title: Connect HDInsight to your on-premises network - Azure HDInsight  
 description: Learn how to create an HDInsight cluster in an Azure Virtual Network, and then connect it to your on-premises network. Learn how to configure name resolution between HDInsight and your on-premises network by using a custom DNS server.
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 
-# Connect HDInsight to your on-premise network
+# Connect HDInsight to your on-premises network
 
 Learn how to connect HDInsight to your on-premises network by using Azure Virtual Networks and a VPN gateway. This document provides planning information on:
 
@@ -336,6 +331,6 @@ To directly connect to HDInsight through the virtual network, use the following 
 
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-* For more information on network security groups, see [Network security groups](../virtual-network/virtual-networks-nsg.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
 
-* For more information on user-defined routes, see [USer-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
+* For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).

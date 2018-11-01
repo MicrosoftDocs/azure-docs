@@ -3,7 +3,7 @@ title: Azure API managment policy sample - Filter response content | Microsoft D
 description: Azure API managment policy sample - Demonstrates how to filter data elements from the response payload based on the product associated with the request.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -24,7 +24,7 @@ This article shows an Azure API management policy sample that demonstrates how t
 
 Paste the code into the **outbound** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Filter response content based on product name.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Filter response content based on product name.policy.xml)]
 
 ## Next steps
 

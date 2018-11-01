@@ -4,11 +4,6 @@ description: Learn how to create a public Load Balancer Standard with zone-redun
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -42,9 +37,6 @@ Log in to the Azure portal at https://portal.azure.com.
     >[!NOTE] 
     > The public IP created in this step is of Standard SKU and is zone-redundant by default. 
 8. Under **Location**, select **East US2**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
-
-    ![create zone-redundant Load Balancer Standard with the Azure portal](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
-
 
 ## Next steps
 - Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).

@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,7 +21,7 @@ ms.date: 12/18/2017
 # Microsoft Cortana Intelligence Competitions FAQ
 **What is Cortana Intelligence Competitions?**
 
-The Microsoft Cortana Intelligence Competitions unites a global community of data enthusiasts by collectively solving some of the world’s most complex data science problems. Cortana Intelligence Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. These hosted competitions are based on unique data sets that have been made available publically for the first time. Participants can win rewards or get recognition via the top 10 public leaderboard. You can access the Competitions home page at [aka.ms/CIComp](http://aka.ms/CIComp).
+The Microsoft Cortana Intelligence Competitions unites a global community of data enthusiasts by collectively solving some of the world’s most complex data science problems. Cortana Intelligence Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. These hosted competitions are based on unique data sets that have been made available publicly for the first time. Participants can win rewards or get recognition via the top 10 public leaderboard. You can access the Competitions home page at [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **How often will Microsoft release new competitions?**
 
@@ -55,7 +56,7 @@ No. In fact, we encourage data enthusiasts, anyone curious about data science, a
 
 * **Data Developers**, **Data Scientists**, **BI** and **Analytics Professionals**: those who are responsible for producing data and analytics content for others to consume
 * **Data Stewards**: those who have the knowledge about the data, what it means, and how it's intended to be used and for which purpose
-* **Students** & **Researchers:** those who are learning and gaining data-related skills via academic programs in universities, or participants in Massive Open Online Courses (MOOCs)
+* **Students** and **Researchers:** those who are learning and gaining data-related skills via academic programs in universities, or participants in Massive Open Online Courses (MOOCs)
 
 **Can I enter with my colleagues as a team?**
 

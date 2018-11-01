@@ -1,9 +1,9 @@
 ---
-title: Azure Monitoring and updating and Windows Virtual Machines | Microsoft Docs
-description: Tutorial - Monitor and update a Windows Virtual Machine with Azure PowerShell 
+title: Tutorial - Monitor and update Windows virtual machines in Azure | Microsoft Docs
+description: In this tutorial, you learn how to monitor boot diagnostics and performance metrics, and manage package updates on a Windows virtual machine
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -11,14 +11,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about monitoring and update management so that I can review the health status, perform troubleshooting, and install updates on Windows virtual machines.
 ---
-# Monitor and update a Windows Virtual Machine with Azure PowerShell
+
+# Tutorial: Monitor and update a Windows virtual machine in Azure
 
 Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and the Azure CLI. Update management allows you to manage updates and patches for your Azure Windows VMs.
 
@@ -35,9 +38,27 @@ In this tutorial, you learn how to:
 > * Monitor changes and inventory
 > * Set up advanced monitoring
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group, VM name, and location where needed.
+## Create virtual machine
+
+To configure Azure monitoring and update management in this tutorial, you need a Windows VM in Azure. First, set an administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
+
+Now create the VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* in the *EastUS* location. If they do not already exist, the resource group *myResourceGroupMonitorMonitor* and supporting network resources are created:
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupMonitor" `
+    -Name "myVM" `
+    -Location "East US" `
+    -Credential $cred
+```
+
+It takes a few minutes for the resources and VM to be created.
 
 ## View boot diagnostics
 
@@ -46,14 +67,14 @@ As Windows virtual machines boot up, the boot diagnostic agent captures screen o
 You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## View host metrics
 
 A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host and can be viewed in the Azure portal.
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
 2. Click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** to see how the Host VM is performing.
 
     ![View host metrics](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
@@ -62,7 +83,7 @@ A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics ar
 
 The basic host metrics are available, but to see more granular and VM-specific metrics, you to need to install the Azure diagnostics extension on the VM. The Azure diagnostics extension allows additional monitoring and diagnostics data to be retrieved from the VM. You can view these performance metrics and create alerts based on how the VM performs. The diagnostic extension is installed through the Azure portal as follows:
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
 2. Click **Diagnosis settings**. The list shows that *Boot diagnostics* are already enabled from the previous section. Click the check box for *Basic metrics*.
 3. Click the **Enable guest-level monitoring** button.
 
@@ -72,7 +93,7 @@ The basic host metrics are available, but to see more granular and VM-specific m
 
 You can view the VM metrics in the same way that you viewed the host VM metrics:
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
 2. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics**.
 
     ![View VM metrics](./media/tutorial-monitoring/monitor-vm-metrics.png)
@@ -83,7 +104,7 @@ You can create alerts based on specific performance metrics. Alerts can be used 
 
 The following example creates an alert for average CPU usage.
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
 2. Click **Alert rules** on the VM blade, then click **Add metric alert** across the top of the alerts blade.
 3. Provide a **Name** for your alert, such as *myAlertRule*
 4. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
@@ -234,7 +255,7 @@ The chart shows changes that have occurred over time. After you have added an Ac
 
 ## Advanced monitoring
 
-You can do more advanced monitoring of your VM by using the solutions like Update Management and Change and Inventory provided by Azure Automation. [Operations Management Suite](../../automation/automation-intro.md).
+You can do more advanced monitoring of your VM by using the solutions like Update Management and Change and Inventory provided by [Azure Automation](../../automation/automation-intro.md).
 
 When you have access to the Log Analytics workspace, you can find the workspace key and workspace identifier on by selecting **Advanced settings** under **SETTINGS**. Use the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) command to add the Microsoft Monitoring agent extension to the VM. Update the variable values in the below sample to reflect you Log Analytics workspace key and workspace Id.
 
@@ -242,20 +263,20 @@ When you have access to the Log Analytics workspace, you can find the workspace 
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
-  -VMName myVM `
+  -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
   -Settings @{"workspaceId" = $workspaceId} `
   -ProtectedSettings @{"workspaceKey" = $key} `
-  -Location eastus
+  -Location "East US"
 ```
 
-After a few minutes, you should see the new VM in the Log Anaytics workspace.
+After a few minutes, you should see the new VM in the Log Analytics workspace.
 
-![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## Next steps
 

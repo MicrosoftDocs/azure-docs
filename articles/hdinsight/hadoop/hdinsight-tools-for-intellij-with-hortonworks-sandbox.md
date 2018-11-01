@@ -1,23 +1,16 @@
 ---
-title: Use Azure Toolkit for IntelliJ with Hortonworks Sandbox | Microsoft Docs
+title: Use Azure Toolkit for IntelliJ with Hortonworks Sandbox 
 description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ with Hortonworks Sandbox.
 keywords: hadoop tools,hive query,intellij,hortonworks sandbox,azure toolkit for intellij
-services: HDInsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
+services: hdinsight
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/20/2017
-ms.author: jgao
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: jasonh
 
 ---
 # Use HDInsight Tools for IntelliJ with Hortonworks Sandbox
@@ -34,7 +27,7 @@ Before you begin this tutorial, you must have the following items:
     > [!NOTE]
     > HDInsight Tools for IntelliJ has been tested only with HDP 2.4. To get HDP 2.4, expand **Hortonworks Sandbox Archive** on the [Hortonworks Sandbox downloads site](http://hortonworks.com/downloads/#sandbox).
 
-- [Java Developer Kit (JDK) version 1.8 or later](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Azure Toolkit for IntelliJ requires JDK.
+- [Java Developer Kit (JDK) version 1.8 or later](https://aka.ms/azure-jdks). Azure Toolkit for IntelliJ requires JDK.
 
 - [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) plug-in and the [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij) plug-in. HDInsight Tools for IntelliJ is available as part of Azure Toolkit for IntelliJ. 
 

@@ -1,19 +1,18 @@
 ---
-title: Python Quickstart for Azure Cognitive Services, Bing Entity Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing Entity Search API, Python"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: entity-search
-ms.topic: article
+ms.component: bing-entity-search
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-
 ---
-# Quickstart for Microsoft Bing Entity Search API with Python 
-<a name="HOLTop"></a>
+# Quickstart for Bing Entity Search API with Python
 
 This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Python.
 
@@ -79,9 +78,9 @@ A successful response is returned in JSON, as shown in the following example:
     "value": [
       {
         "_type": "LocalBusiness",
-        "webSearchUrl": "https://www.bing.com/search?q=Park+Place&filters=local_ypid:%22YN873x5786319842120194005%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Park Place",
-        "url": "https://www.restaurantparkplace.com/",
+        "webSearchUrl": "https://www.bing.com/search?q=sinful+bakery&filters=local...",
+        "name": "Liberty's Delightful Sinful Bakery & Cafe",
+        "url": "https://www.contoso.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -96,53 +95,14 @@ A successful response is returned in JSON, as shown in the following example:
           "addressCountry": "US",
           "neighborhood": "Madison Park"
         },
-        "telephone": "(206) 453-5867"
+        "telephone": "(800) 555-1212"
       },
-      {
-        "_type": "LocalBusiness",
-        "webSearchUrl": "https://www.bing.com/search?q=Pasta+and+Company&filters=local_ypid:%22YN873x2257558900374394159%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Pasta and Company",
-        "url": "http://www.pastaco.com/",
-        "entityPresentationInfo": {
-          "entityScenario": "ListItem",
-          "entityTypeHints": [
-            "Place",
-            "LocalBusiness"
-          ]
-        },
-        "address": {
-          "addressLocality": "Seattle",
-          "addressRegion": "WA",
-          "postalCode": "98121",
-          "addressCountry": "US",
-          "neighborhood": ""
-        },
-        "telephone": "(206) 322-1644"
-      },
-      {
-        "_type": "LocalBusiness",
-        "webSearchUrl": "https://www.bing.com/search?q=Calozzi%27s+Cheesesteaks-Italian&filters=local_ypid:%22YN925x222744375%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Calozzi's Cheesesteaks-Italian",
-        "entityPresentationInfo": {
-          "entityScenario": "ListItem",
-          "entityTypeHints": [
-            "Place",
-            "LocalBusiness"
-          ]
-        },
-        "address": {
-          "addressLocality": "Bellevue",
-          "addressRegion": "WA",
-          "postalCode": "98008",
-          "addressCountry": "US",
-          "neighborhood": "Crossroads"
-        },
-        "telephone": "(425) 221-5116"
-      },
+
+      . . .
       {
         "_type": "Restaurant",
-        "webSearchUrl": "https://www.bing.com/search?q=Princi&filters=local_ypid:%22YN873x3764731790710239496%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Princi",
+        "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
+        "name": "Munson's Pickles and Preserves Farm",
         "url": "http://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
@@ -159,29 +119,10 @@ A successful response is returned in JSON, as shown in the following example:
           "addressCountry": "US",
           "neighborhood": "Capitol Hill"
         },
-        "telephone": "(206) 624-0173"
+        "telephone": "(800) 555-1212"
       },
-      {
-        "_type": "Restaurant",
-        "webSearchUrl": "https://www.bing.com/search?q=Swedish+Ballard+Cafeteria&filters=local_ypid:%22YN873x9787543113095303180%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Swedish Ballard Cafeteria",
-        "url": "http://www.swedish.com/",
-        "entityPresentationInfo": {
-          "entityScenario": "ListItem",
-          "entityTypeHints": [
-            "Place",
-            "LocalBusiness",
-            "Restaurant"
-          ]
-        },
-        "address": {
-          "addressLocality": "Seattle",
-          "addressRegion": "WA",
-          "postalCode": "98107",
-          "addressCountry": "US",
-          "neighborhood": "Ballard"
-        }
-      }
+      
+      . . .
     ]
   }
 }
@@ -193,8 +134,5 @@ A successful response is returned in JSON, as shown in the following example:
 
 > [!div class="nextstepaction"]
 > [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
-
-## See also 
-
-[Bing Entity Search overview](../search-the-web.md )
-[API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Bing Entity Search overview](../search-the-web.md )
+> [API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

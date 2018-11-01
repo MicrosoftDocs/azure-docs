@@ -1,21 +1,15 @@
 ---
-title: 'Quickstart: Run a Spark job on Azure Databricks using Resource Manager template | Microsoft Docs'
+title: 'Quickstart: Run a Spark job on Azure Databricks using Resource Manager template '
 description: The quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace, then create an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/23/2018
-ms.author: nitinme
+ms.author: mamccrea
 ms.custom: mvc
-
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure Resource Manager template
@@ -70,7 +64,7 @@ In this section, you create an Azure Databricks workspace using the Azure Resour
 
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.0** runtime. 
-    * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs. 
 
@@ -80,7 +74,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 Before you begin with this section, you must complete the following prerequisites:
 
-* [Create an Azure Blob storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* [Create an Azure Blob storage account](../storage/common/storage-quickstart-create-account.md). 
 * Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
 * Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
 
@@ -116,7 +110,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-account-manage.md#access-keys).
 
     > [!NOTE]
     > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).

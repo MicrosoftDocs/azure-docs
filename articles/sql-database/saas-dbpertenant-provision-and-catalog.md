@@ -1,16 +1,17 @@
 ---
 title: Provision new tenants in a multitenant app that uses Azure SQL Database | Microsoft Docs
 description: Learn how to provision and catalog new tenants in an Azure SQL Database multitenant SaaS app
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
-ms.date: 08/11/2017
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Learn how to provision new tenants and register them in the catalog
 
@@ -59,7 +60,7 @@ Database provisioning needs to be part of your schema management strategy. You m
 
 The Wingtip Tickets database-per-tenant app provisions new tenants by copying a template database named _basetenantdb_, which is deployed on the catalog server. Provisioning can be integrated into the application as part of a sign-up experience. It also can be supported offline by using scripts. This tutorial explores provisioning by using PowerShell. 
 
-Provisioning scripts copy the _basetenantdb_ database to create a new tenant database in an elastic pool. The scripts then initialize the database with tenant-specific information and register it in the catalog shard map. Tenant databases are given names based on the tenant name. This naming scheme isn't a critical part of the pattern. The catalog maps the tenant key to the database name, so any naming convention can be used. 
+Provisioning scripts copy the _basetenantdb_ database to create a new tenant database in an elastic pool. The tenant database is created in the tenant server mapped to the _newtenant_ DNS alias. This alias maintains a reference to the server used to provision new tenants and is updated to point to a recovery tenant server in the disaster recovery tutorials ([DR using georestore](saas-dbpertenant-dr-geo-restore.md), [DR using georeplication](saas-dbpertenant-dr-geo-replication.md)). The scripts then initialize the database with tenant-specific information and register it in the catalog shard map. Tenant databases are given names based on the tenant name. This naming scheme isn't a critical part of the pattern. The catalog maps the tenant key to the database name, so any naming convention can be used. 
 
 
 ## Get the Wingtip Tickets SaaS database-per-tenant application scripts

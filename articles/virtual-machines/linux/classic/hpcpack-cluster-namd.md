@@ -4,7 +4,7 @@ description: Deploy a Microsoft HPC Pack cluster on Azure and run a NAMD simulat
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 

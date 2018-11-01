@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
 
 ---
@@ -294,7 +294,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
    
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. If building the image from **VMWare, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
+10. If building the image from **VMware, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
    
    Edit `/etc/dracut.conf`, add content:
    
@@ -302,7 +302,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
    
    Rebuild the initramfs:
    
-        # sudo dracut –f -v
+        # sudo dracut -f -v
 
 11. Install the Azure Linux Agent and dependencies:
 

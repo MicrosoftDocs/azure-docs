@@ -1,27 +1,30 @@
 ---
-title: Experimentation reference for Azure Custom Decision Service | Microsoft Docs
-description: This article is a guide for Azure Custom Decision Service experimentation.
+title: Experimentation - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: This article is a guide for experimentation with Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 01/18/2018
+ms.component: custom-decision-service
+ms.topic: conceptual
+ms.date: 05/10/2018
 ms.author: marossi
 ---
 
-# Experimentation reference for Custom Decision Service
+# Experimentation
 
-Following the theory of contextual bandits (cb), Custom Decision Service repeatedly observes a context, takes an action, and observes a reward for the chosen action. An example is content personalization: the context describes a user, actions are candidate stories, and the reward measures how much the user liked the recommended story.
+Following the theory of [contextual bandits (CB)](https://www.microsoft.com/en-us/research/blog/contextual-bandit-breakthrough-enables-deeper-personalization/), Custom Decision Service repeatedly observes a context, takes an action, and observes a reward for the chosen action. An example is content personalization: the context describes a user, actions are candidate stories, and the reward measures how much the user liked the recommended story.
 
-Custom Decision Service produces a policy, which means that it maps from contexts to actions. When you have a specific target policy, it's reasonable to want to know its expected reward. One way to estimate the reward is to deploy a policy online and let it choose actions (for example, recommend stories to users). Such online evaluation can be costly for two reasons: 
+Custom Decision Service produces a policy, as it maps from contexts to actions. With a specific target policy, you want to know its expected reward. One way to estimate the reward is to use a policy online and let it choose actions (for example, recommend stories to users). However, such online evaluation can be costly for two reasons:
+
 * It exposes users to an untested, experimental policy.
 * It doesn't scale to evaluating multiple target policies.
 
-Off-policy evaluation is an alternative paradigm for the same question. If you have logs from an existing online system that follows a certain logging policy, off-policy evaluation can estimate the expected rewards of new target policies.
+Off-policy evaluation is an alternative paradigm. If you have logs from an existing online system that follow a logging policy, off-policy evaluation can estimate the expected rewards of new target policies.
 
-By using the log file, Experimentation seeks to find the policy with the highest estimated expected reward. Target policies are parameterized by [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) arguments. In the default mode, the script tests a variety of Vowpal Wabbit arguments by appending to the `--base_command`. The script performs the following actions:
+By using the log file, Experimentation seeks to find the policy with the highest estimated, expected reward. Target policies are parameterized by [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) arguments. In the default mode, the script tests a variety of Vowpal Wabbit arguments by appending to the `--base_command`. The script performs the following actions:
 
 * Auto-detects features namespaces from the first `--auto_lines` lines of the input file.
 * Performs a first sweep over hyper-parameters (`learning rate`, `L1 regularization`, and `power_t`).
@@ -32,8 +35,8 @@ By using the log file, Experimentation seeks to find the policy with the highest
    * **greedy phase**: Adds the best pair until there is no improvement for `--q_greedy_stop` rounds.
 * Performs a second sweep over hyper-parameters (`learning rate`, `L1 regularization`, and `power_t`).
 
-The parameters that control the preceding steps include the following Vowpal Wabbit arguments:
-- Example Manipulation options
+The parameters that control these steps include some Vowpal Wabbit arguments:
+- Example Manipulation options:
   - shared namespaces
   - action namespaces
   - marginal namespaces
@@ -43,7 +46,7 @@ The parameters that control the preceding steps include the following Vowpal Wab
   - L1 regularization
   - t power value
 
-For an in-depth explanation of the preceding arguments, see [Vowpal Wabbit command-line arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
+For an in-depth explanation of the above arguments, see [Vowpal Wabbit command-line arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
 
 ## Prerequisites
 - Vowpal Wabbit: Installed and on your path.

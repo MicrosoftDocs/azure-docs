@@ -22,7 +22,7 @@
     public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
 
     private void authenticate() {
-        // Login using the Google provider.
+        // Sign in using the Google provider.
         mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
     }
 
@@ -34,11 +34,11 @@
             if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
                 MobileServiceActivityResult result = mClient.onActivityResult(data);
                 if (result.isLoggedIn()) {
-                    // login succeeded
-                    createAndShowDialog(String.format("You are now logged in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
+                    // sign-in succeeded
+                    createAndShowDialog(String.format("You are now signed in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
                     createTable();
                 } else {
-                    // login failed, check the error message
+                    // sign-in failed, check the error message
                     String errorMessage = result.getErrorMessage();
                     createAndShowDialog(errorMessage, "Error");
                 }

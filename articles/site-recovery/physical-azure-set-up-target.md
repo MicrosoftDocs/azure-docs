@@ -1,12 +1,11 @@
 ---
-title: 'Prepare target (Physical to Azure) | Microsoft Docs'
-description: This article describes how to prepare your Azure environment to start replicating physical servers running Windows or Linux to Azure.
-services: site-recovery
+title: Set up the target environment for disaster recovery of on-premises physical servers to Azure | Microsoft Docs'
+description: This article describes how to set up the target Azure environment for disaster recovery of physical servers using Azure Site Recovery.
 author: bsiva
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 07/06/2018
 ms.author: bsiva
 ---
 

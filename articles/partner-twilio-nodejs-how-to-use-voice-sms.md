@@ -248,7 +248,7 @@ We hope you love hacking node.js and Twilio on Azure!
 [npm]: http://npmjs.org
 [express]: http://expressjs.com
 [voipnode]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
-[docs]: http://twilio.github.io/twilio-node/
+[docs]: https://www.twilio.com/docs/libraries/reference/twilio-node/
 [votr]: http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png

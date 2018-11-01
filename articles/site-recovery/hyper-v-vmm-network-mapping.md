@@ -1,17 +1,17 @@
 ---
-title: About network mapping for Hyper-V VM (with VMM) replication to Azure with Site Recovery | Microsoft Docs
-description: Describes how to set up network mapping for replication of Hyper-V VMs managed in VMM clouds, with Azure Site Recovery.
+title: About network mapping for Hyper-V VM (with VMM) disaster recovery to Azure with Site Recovery | Microsoft Docs
+description: Describes how to set up network mapping for disaster recovery of Hyper-V VMs (managed in VMM clouds) to Azure, with Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ---
 
 
-# Prepare network mapping for Hyper-V VM replication to Azure
+# Prepare network mapping for Hyper-V VM disaster recovery to Azure
 
 
 This article helps you to understand and prepare for network mapping when you replicate Hyper-V VMs in System Center Virtual Machine Manager (VMM) clouds to Azure, or to a secondary site, using the [Azure Site Recovery](site-recovery-overview.md) service.
@@ -55,7 +55,7 @@ Here’s an example to illustrate this mechanism. Let’s take an organization w
 New York | VMM-NewYork| VMNetwork1-NewYork | Mapped to VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Not mapped
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapped to VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Not mapped
+ | | VMNetwork2-Chicago | Not mapped
 
 In this example:
 

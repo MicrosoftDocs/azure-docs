@@ -2,7 +2,7 @@
 title: "Azure Cloud Services Definition Schema (.csdef File) | Microsoft Docs"
 ms.custom: ""
 ms.date: "04/14/2015"
-ms.prod: "azure"
+services: cloud-services
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""
@@ -10,8 +10,8 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
 caps.latest.revision: 42
-author: "thraka"
-ms.author: "adegeo"
+author: "jpconnock"
+ms.author: "jeconnoc"
 manager: "timlt"
 ---
 # Azure Cloud Services Definition Schema (.csdef File)

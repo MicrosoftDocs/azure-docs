@@ -4,15 +4,17 @@ description: Learn how to create a language model with the Custom Speech Service
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
-ms.date: 23/11/2017
+ms.date: 11/23/2017
 ms.author: panosper
 ---
 
 # Enable custom pronunciation
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Custom pronunciation enables users to define the phonetic form and display of a word or term. It is useful for handling customized terms, such as product names or acronyms. All you need is a pronunciation file (a simple .txt file).
 
 Here's how it works. In a single .txt file, you can enter several custom pronunciation entries. The structure is as follows:

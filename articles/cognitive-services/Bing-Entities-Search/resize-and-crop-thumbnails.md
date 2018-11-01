@@ -1,14 +1,14 @@
 ---
-title: Resize and crop Bing thumbnails | Microsoft Docs
-description: Shows how to resize and crop thumbnails that a Bing response returns.
+title: Resize and crop thumbnails - Bing Entity Search
+titlesuffix: Azure Cognitive Services
+description: Shows how to resize and crop thumbnails that a Bing Entity Search response returns.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 
-ms.assetid: B61F24B6-58AA-45E6-8E7B-0E9C9CA0925A
 ms.service: cognitive-services
-ms.technology: bing-entities-search
-ms.topic: article
+ms.component: bing-entity-search
+ms.topic: conceptual
 ms.date: 07/06/2017
 ms.author: scottwhi
 ---

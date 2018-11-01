@@ -1,22 +1,16 @@
 ---
 title: Get started with Azure IoT Hub device management (Python) | Microsoft Docs
 description: How to use IoT Hub device management to initiate a remote device reboot. You use the Azure IoT SDK for Python to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
-services: iot-hub
-documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.date: 01/02/2018
-ms.author: v-masebo
-
+ms.author: kgremban
 ---
+
 # Get started with device management (Python)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
@@ -151,7 +145,7 @@ In this section, you will:
 1. Save and close the **dmpatterns_getstarted_device.py** file.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 
 ## Trigger a remote reboot on the device using a direct method
@@ -270,4 +264,3 @@ You are now ready to run the apps.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

@@ -1,59 +1,71 @@
 ---
-title: Call a Language Understanding Intelligent Services (LUIS) app using Node.js | Microsoft Docs 
-description: Learn to call a LUIS app using Node.js. 
+title: Node.js Quickstart - predict intent - LUIS
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using Node.js, send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain.  
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
-
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
-ms.date: 12/13/2017
-ms.author: v-geberr;
+ms.component: language-understanding
+ms.topic: quickstart
+ms.date: 09/10/2018
+ms.author: diberry
+#Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using Node.js so that I can see the JSON prediction response.
 ---
 
-# Call a LUIS app using Node.js
-Pass utterances to a LUIS endpoint and get intent and entities back.
+# Quickstart: Get intent using Node.js
 
-## Before you begin
-You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
-To get an API key follow these steps: 
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-  1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  2. Log in to the Azure portal at https://portal.azure.com. 
-  3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
-  4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
+<a name="create-luis-subscription-key"></a>
 
-## Understand what LUIS returns
+## Prerequisites
 
-To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app you'll use is an IoT app that detects whether the user wants to turn on or turn off lights.
-
-1. The endpoint of the sample app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copy the URL and substitute your subscription key for the value of the `subscription-key` field.
-2. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent and the `HomeAutomation.Room` entity with the value `bedroom`.
-
-    ![JSON result detects the intent TurnOn](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
-3. Change the value of the `q=` parameter in the URL to `turn off the living room light`, and press Enter. The result now indicates that the LUIS detected the `HomeAutomation.TurnOff` intent and the `HomeAutomation.Room` entity with value `living room`. 
-
-    ![JSON result detects the intent TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
+* [Node.js](https://nodejs.org/) programming language 
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## Consume a LUIS result using the Endpoint API with Node.js
+> [!NOTE] 
+> The complete Node.js solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+
+## Get LUIS key
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## Get intent with browser
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## Get intent programmatically
 
 You can use Node.js to access the same results you saw in the browser window in the previous step.
 
 1. Copy the following code snippet:
 
-   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js)]
+   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/quickstarts/analyze-text/node/call-endpoint.js)]
 
-2. Set the `LUIS_APP_ID` environment variable as described in the code comments. 
+2. Create `.env` file with the following text or set these variables in the system environment:
 
-3. Set the `LUIS_SUBSCRIPTION_KEY` environment variable to your Cognitive Services subscription key.
+    ```CMD
+    LUIS_APP_ID=df67dcdb-c37d-46af-88e1-8b97951ca1c2
+    LUIS_ENDPOINT_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    ```
 
-4. Run the code. It displays the same values that you saw earlier in the browser window.
-<!-- 
-![Console window displays JSON result from LUIS](./media/luis-get-started-Node.js-get-intent/console-turn-on.png)
--->
+3. Set the `LUIS_ENDPOINT_KEY` environment variable to your key.
+
+4. Install dependencies by running the following command at the command-line: `npm install`.
+
+5. Run the code with `npm start`. It displays the same values that you saw earlier in the browser window.
+
+## LUIS keys
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+
+## Clean up resources
+
+Delete the Node.js file.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Add utterances](luis-quickstart-node-add-utterance.md)
+> [Add utterances](luis-get-started-node-add-utterance.md)

@@ -1,25 +1,29 @@
 ---
-title: Video Search SDK Python quickstart | Microsoft Docs
+title: "Quickstart: Video Search SDK, Python"
+titleSuffix: Azure Cognitive Services
 description: Setup for Video Search SDK console application.
-titleSuffix: Azure Video Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.service: cognitive-services
-ms.technology: bing-video-search
-ms.topic: article
-ms.date: 02/15/2018
-ms.author: v-gedod
----
-# Video Search SDK Python quickstart
+manager: cgronlun
 
-The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results. 
+ms.service: cognitive-services
+ms.component: bing-video-search
+ms.topic: quickstart
+ms.date: 02/15/2018
+ms.author: rosh
+---
+# Quickstart: Bing Video Search SDK with Python
+
+The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results.
+
+The [source code for Python Bing Video Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) is available on Git Hub.
+
 
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 
 The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). 
-Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install virtualenv for Python 2.7.
+Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7.
 ```
 python -m venv mytestenv
 ```
@@ -59,7 +63,7 @@ except Exception as err:
     print("Encountered exception. {}".format(err))
 
 ```
-Search videos for (Bellevue Trailer) that is free, short and 1080p resolution. Verify number of results, and print out `ID`, `name` and `URL` of first video result.
+Search videos for (Bellevue Trailer) that is free, short, and 1080p resolution. Verify number of results, and print out `ID`, `name` and `URL` of first video result.
 ```
 def video_search_with_filtering(subscription_key):
 
@@ -132,7 +136,7 @@ def video_trending(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Search videos for (Bellevue Trailer), and then search for detail information of the first video.
+Search videos for (Bellevue Trailer), and then search for detailed information of the first video.
 ```
 def video_detail(subscription_key):
 

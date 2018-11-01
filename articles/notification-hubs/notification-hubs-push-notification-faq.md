@@ -3,10 +3,10 @@ title: 'Azure Notification Hubs: Frequently Asked Questions (FAQs) | Microsoft D
 description: FAQs on designing/implementing solutions on Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
-author: ysxu
-manager: erikre
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
-editor: ''
 
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
@@ -14,8 +14,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/19/2017
-ms.author: yuaxu
+ms.date: 10/14/2018
+ms.author: dimazaid
 
 ---
 # Push notifications with Azure Notification Hubs: Frequently asked questions
@@ -79,7 +79,7 @@ If you have an existing mobile app back end and you want to add only the capabil
 ### How many devices can I support if I send push notifications via Notification Hubs?
 Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
 
-If you need support for more than 10 million registered devices, [contact us](https://azure.microsoft.com/overview/contact-us/) directly and we will help you scale your solution.
+If you need support for more than 10 million registered devices, [contact us](https://azure.microsoft.com/overview/contact-us/) directly and we help you scale your solution.
 
 ### How many push notifications can I send out?
 Depending on the selected tier, Azure Notification Hubs automatically scales up based on the number of notifications flowing through the system.
@@ -209,7 +209,7 @@ We also provide the capability to export the telemetry data programmatically (in
 [Notification Hubs security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Notification Hubs Secure Push tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs troubleshooting]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Notification Hubs Metrics]: https://msdn.microsoft.com/library/dn458822.aspx
+[Notification Hubs Metrics]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Notification Hubs Metrics sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure portal]: https://portal.azure.com

@@ -32,6 +32,16 @@
     href: use-deep-learning-dsvm.md
   - name: Use a Geo AI Data Science VM
     href: use-geo-ai-dsvm.md
+- name: Enterprise guidance
+  items:
+  - name: Overview
+    href: dsvm-enterprise-overview.md
+  - name: Scaling
+    href: dsvm-pools.md
+  - name: Active Directory Integration
+    href: dsvm-common-identity.md
+  - name: Secure resource access credentials
+    href: dsvm-secure-access-keys.md        
 - name: Reference
   expanded: true
   items:
@@ -55,6 +65,8 @@
     href: dsvm-samples-and-walkthroughs.md
 - name: Resources
   items:
+  - name: R developer's guide 
+    href: ../r-developers-guide.md
   - name: Blog
     href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
   - name: MSDN forum

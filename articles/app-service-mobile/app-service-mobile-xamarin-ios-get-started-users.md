@@ -51,7 +51,7 @@ Secure authentication requires that you define a new URL scheme for your app. Th
 Next, you will update the client app to request resources from the Mobile App backend with an authenticated user.
 
 ## Add authentication to the app
-In this section, you will modify the app to display a login screen before displaying data. When the app starts, it will not not connect to your App Service and will not display any data. After the first time that the user performs the refresh gesture, the login screen will appear; after successful login the list of todo items will be displayed.
+In this section, you will modify the app to display a login screen before displaying data. When the app starts, it will not connect to your App Service and will not display any data. After the first time that the user performs the refresh gesture, the login screen will appear; after successful login the list of todo items will be displayed.
 
 1. In the client project, open the file **QSTodoService.cs** and add the following using statement and `MobileServiceUser` with accessor to the QSTodoService class:
  
@@ -113,7 +113,7 @@ In this section, you will modify the app to display a login screen before displa
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. Open **Info.plist** file, navigate to **URL Types** in the **Advanced** section. Now configure the **Identifier** and the **URL Schemes** of your URL Type and click **Add URL Type**. **URL Schemes** should be the same as your {url_scheme_of_your_app}.
-7. In Visual Studio or Xamarin Studio connected to your Xamarin Build Host on your Mac, run the client project targeting a device or emulator. Verify that the app displays no data.
+7. In Visual Studio, connected to your Mac Host or Visual Studio for Mac, run the client project targeting a device or emulator. Verify that the app displays no data.
    
     Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items, and you can make updates to the data.
 

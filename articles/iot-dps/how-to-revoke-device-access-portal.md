@@ -1,26 +1,20 @@
 ---
-title: Manage device access for Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: How to revoke device access to your DPS service in the Azure Portal
-services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
-ms.topic: article
+title: How to disenroll a device from Azure IoT Hub Device Provisioning Service 
+description: How to disenroll a device to prevent provisioning through Azure IoT Hub Device Provisioning Service
+author: wesmc7777
+ms.author: wesmc
+ms.date: 04/05/2018
+ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
 ---
 
-# Revoke device access to your provisioning service in the Azure portal
+# How to disenroll a device from Azure IoT Hub Device Provisioning Service
 
-Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. This article describes how to revoke device access at the provisioning step.
+Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. 
 
-To learn about revoking device access to an IoT hub after the device has been provisioned, see [Disable devices](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Enrollment in the Device Provisioning Service enables a device to be [auto-provisioned](concepts-auto-provisioning.md). A provisioned device is one that has been registered with IoT Hub, allowing it to receive its initial [device twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state and begin reporting telemetry data. This article describes how to disenroll a device from your provisioning service instance, preventing it from being provisioned again in the future.
 
 > [!NOTE] 
 > Be aware of the retry policy of devices that you revoke access for. For example, a device that has an infinite retry policy might continuously try to register with the provisioning service. That situation consumes service resources and possibly affects performance.
@@ -35,10 +29,13 @@ To temporarily blacklist the device by disabling its enrollment entry:
 2. In the list of resources, select the provisioning service that you want to blacklist your device from.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
 4. Select the enrollment entry for the device that you want to blacklist. 
-5. Select **Disable** on the **Enable entry** switch, and then select **Save**.  
+
+    ![Select your individual enrollment](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. On your enrollment page, scroll to the bottom, and select **Disable** for the **Enable entry** switch, and then select **Save**.  
 
    ![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+
 To permanently blacklist the device by deleting its enrollment entry:
 
 1. Sign in to the Azure portal and select **All resources** from the left menu.
@@ -48,7 +45,8 @@ To permanently blacklist the device by deleting its enrollment entry:
 5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment. 
 
    ![Delete individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 After you finish the procedure, you should see your entry removed from the list of individual enrollments.  
 
 ## Blacklist an X.509 intermediate or root CA certificate by using an enrollment group
@@ -62,9 +60,8 @@ To temporarily blacklist the certificate by disabling its enrollment group:
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. In the list of resources, select the provisioning service that you want to blacklist the signing certificate from.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Enrollment Groups** tab.
-4. Select the enrollment group for the certificate that you want to blacklist.
-5. In the enrollment group entry, select **Edit group**.
-6. Select **Disable** on the **Enable entry** switch, and then select **Save**.  
+4. Select the enrollment group using the certificate that you want to blacklist.
+5. Select **Disable** on the **Enable entry** switch, and then select **Save**.  
 
    ![Disable enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -93,13 +90,20 @@ To blacklist an individual device in an enrollment group, follow these steps:
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. From the list of resources, select the provisioning service that contains the enrollment group for the device that you want to blacklist.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
-4. Select the **Add** button at the top. 
-5. Select **X.509** as the security mechanism for the device, and upload the device certificate. This is the signed end-entity certificate installed on the device. The device uses it to generate certificates for authentication.
-6. For **IoT Hub device ID**, enter the ID for the device. 
-7. Select **Disable** on the **Enable entry** switch, and then select **Save**. 
+4. Select the **Add individual enrollment** button at the top. 
+5. On the **Add Enrollment** page, select **X.509** as the attestation **Mechanism** for the device.
 
-   ![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    Upload the device certificate, and enter the device ID of the device to be blacklisted. For the certificate, use the signed end-entity certificate installed on the device. The device uses the signed end-entity certificate for authentication.
 
-When you successfully create your enrollment, you should see your device appear on the **Individual Enrollments** tab.
+    ![Set device properties for the blacklisted device](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
 
+6. Scroll to the bottom of the **Add Enrollment** page and select **Disable** on the **Enable entry** switch, and then select **Save**. 
+
+    [![Use disabled individual enrollment entry to disable device from group enrollment, in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+
+When you successfully create your enrollment, you should see your disabled device enrollment listed on the **Individual Enrollments** tab. 
+
+## Next steps
+
+Disenrollment is also part of the larger deprovisioning process. Deprovisioning a device includes both disenrollment from the provisioning service, and deregistering from IoT hub. To learn about the full process, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 

@@ -2,17 +2,13 @@
 title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 services: functions
-author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+author: kashimiz
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -24,7 +20,7 @@ There are several options for diagnosing issues with [Durable Functions](durable
 
 [Application Insights](../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](functions-monitoring.md).
 
-The Azure Functions Durable Extension also emits *tracking events* which allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
+The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
 
 ### Tracking data
 
@@ -62,14 +58,24 @@ The verbosity of tracking data emitted to Application Insights can be configured
 }
 ```
 
-By default, all tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations.
+By default, all non-replay tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations.
 
-> [!WARNING]
+To enable emitting the verbose orchestration replay events, the `LogReplayEvents` can be set to `true` in the `host.json` file under `durableTask` as shown:
+
+```json
+{
+    "durableTask": {
+        "logReplayEvents": true
+    }
+}
+```
+
+> [!NOTE]
 > By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](functions-monitoring.md#configure-sampling) explains how to configure this behavior.
 
 ### Single instance query
 
-The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown. Events can be ordered by sorting by `timestamp` and `sequenceNumber` as shown in the query below: 
+The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). It filters out replay execution so that only the *logical* execution path is shown. Events can be ordered by sorting by `timestamp` and `sequenceNumber` as shown in the query below: 
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -82,7 +88,7 @@ traces
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
-| where isReplay == false
+| where isReplay != true
 | where instanceId == targetInstanceId
 | sort by timestamp asc, sequenceNumber asc
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
@@ -107,7 +113,7 @@ traces
 | extend state = tostring(customDimensions["prop__state"])
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend output = tostring(customDimensions["prop__output"])
-| where isReplay == false
+| where isReplay != true
 | summarize arg_max(timestamp, *) by instanceId
 | project timestamp, instanceId, functionName, state, output, appName = cloud_RoleName
 | order by timestamp asc
@@ -120,19 +126,37 @@ The result is a list of instance IDs and their current runtime status.
 
 It's important to keep the orchestrator replay behavior in mind when writing logs directly from an orchestrator function. For example, consider the following orchestrator function:
 
+#### C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("Calling F1.");
+    log.LogInformation("Calling F1.");
     await ctx.CallActivityAsync("F1");
-    log.Info("Calling F2.");
+    log.LogInformation("Calling F2.");
     await ctx.CallActivityAsync("F2");
-    log.Info("Calling F3");
+    log.LogInformation("Calling F3");
     await ctx.CallActivityAsync("F3");
-    log.Info("Done!");
+    log.LogInformation("Done!");
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
 ```
 
 The resulting log data is going to look something like the following:
@@ -155,20 +179,39 @@ Done!
 
 If you want to only log on non-replay execution, you can write a conditional expression to log only if `IsReplaying` is `false`. Consider the example above, but this time with replay checks.
 
+#### C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
-    TraceWriter log)
+    ILogger log)
 {
-    if (!ctx.IsReplaying) log.Info("Calling F1.");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F1.");
     await ctx.CallActivityAsync("F1");
-    if (!ctx.IsReplaying) log.Info("Calling F2.");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F2.");
     await ctx.CallActivityAsync("F2");
-    if (!ctx.IsReplaying) log.Info("Calling F3");
+    if (!ctx.IsReplaying) log.LogInformation("Calling F3");
     await ctx.CallActivityAsync("F3");
-    log.Info("Done!");
+    log.LogInformation("Done!");
 }
 ```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
 With this change, the log output is as follows:
 
 ```txt
@@ -177,6 +220,49 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+## Custom Status
+
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP status query API or the `DurableOrchestrationClient.GetStatusAsync` API. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can include `DurableOrchestrationContext.SetCustomStatus` calls to update the progress for a long-running operation. A client, such as a web page or other external system, could then periodically query the HTTP status query APIs for richer progress information. A sample using `DurableOrchestrationContext.SetCustomStatus` is provided below:
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+> [!NOTE]
+> Custom orchestration statuses for JavaScript will be available in an upcoming release.
+
+While the orchestration is running, external clients can fetch this custom status:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+Clients will get the following response: 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. You can use external storage if you need larger payload.
 
 ## Debugging
 

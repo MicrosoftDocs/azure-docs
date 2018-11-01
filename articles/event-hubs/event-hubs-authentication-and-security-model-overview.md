@@ -3,7 +3,7 @@ title: Overview of Azure Event Hubs authentication and security model | Microsof
 description: Event Hubs authentication and security model overview.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
-ms.author: sethm;clemensv
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 # Event Hubs authentication and security model overview

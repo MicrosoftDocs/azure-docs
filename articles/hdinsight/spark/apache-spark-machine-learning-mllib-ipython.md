@@ -1,23 +1,16 @@
 ---
-title: Machine learning example with Spark MLlib on HDInsight - Azure | Microsoft Docs
+title: Machine learning example with Spark MLlib on HDInsight - Azure 
 description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 keywords: spark machine learning, spark machine learning example
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: c0fd4baa-946d-4e03-ad2c-a03491bd90c8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2018
-ms.author: jgao
+ms.topic: conceptual
+ms.date: 05/18/2018
+ms.author: jasonh
 
 ---
 # Use Spark MLlib to build a machine learning application and analyze a dataset
@@ -124,7 +117,7 @@ Because the raw data is in a CSV format, you can use the Spark context to pull t
     StructField("results", StringType(), False),
     StructField("violations", StringType(), True)])
     
-    df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
+    df = spark.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
     df.registerTempTable('CountResults')
     ```
 
@@ -280,7 +273,7 @@ You can use the model you created earlier to *predict* what the results of new i
     testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
-    testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
+    testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
     predictionsDf = model.transform(testDf)
     predictionsDf.registerTempTable('Predictions')
     predictionsDf.columns
@@ -344,13 +337,19 @@ You can now construct a final visualization to help you reason about the results
     ```PySpark
     %%sql -q -o true_positive
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
+    ```
 
+    ```PySpark
     %%sql -q -o false_positive
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
+    ```
 
+    ```PySpark
     %%sql -q -o true_negative
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
+    ```
 
+    ```PySpark
     %%sql -q -o false_negative
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
     ```

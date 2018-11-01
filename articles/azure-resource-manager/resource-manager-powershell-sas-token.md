@@ -10,7 +10,7 @@ editor: tysonn
 ms.assetid: 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
@@ -65,5 +65,3 @@ For an example of using a SAS token with linked templates, see [Using linked tem
 * For an introduction to deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
 * For a complete sample script that deploys a template, see [Deploy Resource Manager template script](resource-manager-samples-powershell-deploy.md)
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
-

@@ -1,15 +1,17 @@
----
+﻿---
 title: XEvent Event File code for SQL Database | Microsoft Docs
 description: Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
-ms.topic: article
-ms.date: 10/05/2017
+ms.subservice: operations
+ms.custom: 
+ms.devlang: PowerShell
+ms.topic: conceptual
+author: MightyPen
 ms.author: genemi
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Event File target code for extended events in SQL Database
 
@@ -70,8 +72,8 @@ cls;
 #--------------- 1 -----------------------
 
 'Script assumes you have already logged your PowerShell session into Azure.
-But if not, run  Add-AzureRmAccount (or  Login-AzureRmAccount), just one time.';
-#Add-AzureRmAccount;   # Same as  Login-AzureRmAccount.
+But if not, run  Connect-AzureRmAccount (or  Connect-AzureRmAccount), just one time.';
+#Connect-AzureRmAccount;   # Same as  Connect-AzureRmAccount.
 
 #-------------- 2 ------------------------
 

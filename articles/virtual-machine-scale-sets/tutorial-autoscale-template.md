@@ -3,7 +3,7 @@ title: Tutorial - Autoscale a scale set with Azure templates | Microsoft Docs
 description: Learn how to use Azure Resource Manager templates to automatically scale a virtual machine scale set as CPU demands increases and decreases
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: mvc
 
 ---
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## Define an autoscale profile
@@ -42,7 +42,7 @@ You define an autoscale profile in an Azure template with the *Microsoft.insight
 {
 "type": "Microsoft.insights/autoscalesettings",
 "name": "Autoscale",
-"apiVersion": "2014-04-01",
+"apiVersion": "2015-04-01",
 "location": "[variables('location')]",
 "scale": null,
 "properties": {
@@ -250,7 +250,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-Once **stress** stops on the initial VM instances, the average CPU load returns to normal. After another 5 minutes, the autoscale rules then scale in the number of VM instances. Scale in actions remove VM instances with the highest IDs first. The following example output shows one VM instance deleted as the scale set autoscales in:
+Once **stress** stops on the initial VM instances, the average CPU load returns to normal. After another 5 minutes, the autoscale rules then scale in the number of VM instances. Scale in actions remove VM instances with the highest IDs first. When a scale set uses Availability Sets or Availability Zones, scale in actions are evenly distributed across those VM instances. The following example output shows one VM instance deleted as the scale set autoscales in:
 
 ```bash
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
@@ -268,7 +268,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 ## Next steps
-In this tutorial, you learned how to automatically scale in or out a scale set with the Azure CLI 2.0:
+In this tutorial, you learned how to automatically scale in or out a scale set with the Azure CLI:
 
 > [!div class="checklist"]
 > * Use autoscale with a scale set
@@ -276,7 +276,7 @@ In this tutorial, you learned how to automatically scale in or out a scale set w
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-For more examples of virtual machine scale sets in action, see the following sample Azure CLI 2.0 sample scripts:
+For more examples of virtual machine scale sets in action, see the following sample Azure CLI sample scripts:
 
 > [!div class="nextstepaction"]
-> [Scale set script samples for Azure CLI 2.0](cli-samples.md)
+> [Scale set script samples for Azure CLI](cli-samples.md)

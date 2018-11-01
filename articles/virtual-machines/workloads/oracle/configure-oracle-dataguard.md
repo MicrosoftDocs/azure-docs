@@ -3,8 +3,8 @@ title: Implement Oracle Data Guard on an Azure Linux virtual machine | Microsoft
 description: Quickly get Oracle Data Guard up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
-manager: timlt
+author: romitgirdhar
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/10/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 ---
 
 # Implement Oracle Data Guard on an Azure Linux virtual machine 

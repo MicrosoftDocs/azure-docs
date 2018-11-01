@@ -3,7 +3,7 @@ title: How to set or edit Azure API Management policies | Microsoft Docs
 description: This topic shows how to set or edit Azure API Management policies.
 services: api-management
 documentationcenter: ''
-author: Juliako
+author: vladvino
 manager: cflower
 editor: ''
 

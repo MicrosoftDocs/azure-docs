@@ -4,7 +4,7 @@ description: Run a PowerShell script to deploy a Linux HPC Pack 2012 R2 cluster 
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,hpc-pack
 

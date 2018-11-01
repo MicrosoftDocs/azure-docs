@@ -3,15 +3,11 @@ title: Singletons for Durable Functions - Azure
 description: How to use singletons in the Durable Functons extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
@@ -31,7 +27,7 @@ public static async Task<HttpResponseMessage> RunSingle(
     [OrchestrationClient] DurableOrchestrationClient starter,
     string functionName,
     string instanceId,
-    TraceWriter log)
+    ILogger log)
 {
     // Check if an instance with the specified ID already exists.
     var existingInstance = await starter.GetStatusAsync(instanceId);
@@ -40,7 +36,7 @@ public static async Task<HttpResponseMessage> RunSingle(
         // An instance with the specified ID doesn't exist, create one.
         dynamic eventData = await req.Content.ReadAsAsync<object>();
         await starter.StartNewAsync(functionName, instanceId, eventData);
-        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
         return starter.CreateCheckStatusResponse(req, instanceId);
     }
     else
@@ -54,6 +50,9 @@ public static async Task<HttpResponseMessage> RunSingle(
 ```
 
 By default, instance IDs are randomly generated GUIDs. But in this case, the instance ID is passed in route data from the URL. The code calls [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) to check if an instance having the specified ID is already running. If not, an instance is created with that ID.
+
+> [!NOTE]
+> There is a potential race condition in this sample. If two instances of **HttpStartSingle** execute concurrently, the result could be two different created instances of the singleton, one which overwrites the other. Depending on your requirements, this may have undesirable side effects. For this reason, it is important to ensure that no two requests can execute this trigger function concurrently.
 
 The implementation details of the orchestrator function do not actually matter. It could be a regular orchestrator function that starts and completes, or it could be one that runs forever (that is, an [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). The important point is that there is only ever one instance running at a time.
 

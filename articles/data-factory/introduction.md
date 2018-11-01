@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
 
 ---
 # Introduction to Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-introduction.md)
-> * [Version 2 - Preview](introduction.md)
+> * [Version 1](v1/data-factory-introduction.md)
+> * [Current version](introduction.md)
 
 In the world of big data, raw, unorganized data is often stored in relational, non-relational, and other storage systems. However, on its own, raw data doesn't have the proper context or meaning to provide meaningful insights to analysts, data scientists, or business decision makers. 
 
@@ -36,9 +36,6 @@ Azure Data Factory is the platform that solves such data scenarios. It is a *clo
 Additionally, you can publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. Ultimately, through Azure Data Factory, raw data can be organized into meaningful data stores and data lakes for better business decisions.
 
 ![Top-level view of Data Factory](media/introduction/big-picture.png)
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Introduction to Data Factory version 1](v1/data-factory-introduction.md).
 
 ## How does it work?
 The pipelines (data-driven workflows) in Azure Data Factory typically perform the following four steps:
@@ -88,7 +85,7 @@ Linked services are used for two purposes in Data Factory:
 - To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, see the [transform data](transform-data.md) article.
 
 ### Triggers
-Triggers represent the unit of processing that determines when a pipeline execution needs to be kicked off. There are different types of triggers for different types of events. For preview, Data Factory supports the wall-clock scheduler trigger. 
+Triggers represent the unit of processing that determines when a pipeline execution needs to be kicked off. There are different types of triggers for different types of events.
 
 ### Pipeline runs
 A pipeline run is an instance of the pipeline execution. Pipeline runs are typically instantiated by passing the arguments to the parameters that are defined in pipelines. The arguments can be passed manually or within the trigger definition.
@@ -112,16 +109,20 @@ For more information about Data Factory concepts, see the following articles:
 
 ## Supported regions
 
-Currently, you can create data factories in the East US, East US 2, West Europe regions. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services.
+For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services.
 
 Azure Data Factory itself does not store any data. It lets you create data-driven workflows to orchestrate the movement of data between supported data stores and the processing of data using compute services in other regions or in an on-premises environment. It also allows you to monitor and manage workflows by using both programmatic and UI mechanisms.
 
-Although Data Factory is available only in the East US, East US 2, and West Europe regions, the service that powers the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Self-hosted Integration Runtime that's installed in your on-premises environment moves the data instead.
+Although Data Factory is available only in certain regions, the service that powers the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Self-hosted Integration Runtime that's installed in your on-premises environment moves the data instead.
 
 For an example, let's assume that your compute environments such as Azure HDInsight cluster and Azure Machine Learning are running out of the West Europe region. You can create and use an Azure Data Factory instance in East US or East US 2 and use it to schedule jobs on your compute environments in West Europe. It takes a few milliseconds for Data Factory to trigger the job on your compute environment, but the time for running the job on your computing environment does not change.
 
-## Compare with version 2
-For a list of differences between version 1 and version 2 of the Data Factory service, see [Compare with version 1](compare-versions.md). 
+## Accessibility
+
+The Data Factory user experience in the Azure portal is accessible.
+
+## Compare with version 1
+For a list of differences between version 1 and the current version of the Data Factory service, see [Compare with version 1](compare-versions.md). 
 
 ## Next steps
 Get started with creating a Data Factory pipeline by using one of the following tools/SDKs: 
