@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/29/2018
 ms.author: jingwang
 
 ---
@@ -45,7 +45,7 @@ The following properties are supported for QuickBooks linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **QuickBooks** | Yes |
 | endpoint | The endpoint of the QuickBooks Online server. (that is, quickbooks.api.intuit.com)  | Yes |
-| companyId | The company ID of the QuickBooks company to authorize.  | Yes |
+| companyId | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see [How do I find my Company ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
 | consumerKey | The consumer key for OAuth 1.0 authentication. | Yes |
 | consumerSecret | The consumer secret for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | accessToken | The access token for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |

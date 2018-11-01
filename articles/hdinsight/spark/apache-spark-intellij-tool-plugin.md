@@ -27,7 +27,7 @@ To create your project, view the [Create Spark Applications with the Azure Toolk
 ## Prerequisites
 
 - An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-- Oracle Java Development Kit. You can install it from the [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+- Oracle Java Development Kit. You can install it from the [Oracle website](https://aka.ms/azure-jdks).
 - IntelliJ IDEA. This article uses version 2017.1. You can install it from the [JetBrains website](https://www.jetbrains.com/idea/download/).
 
 ## Install Azure Toolkit for IntelliJ

@@ -2,10 +2,9 @@
 title: 'Tutorial: Perform ETL operations using Azure Databricks'
 description: Learn how to extract data from Data Lake Store into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
 services: azure-databricks
-author: nitinme
-ms.author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
