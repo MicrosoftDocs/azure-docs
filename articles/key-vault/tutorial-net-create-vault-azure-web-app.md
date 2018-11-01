@@ -1,6 +1,6 @@
 ---
 title: Tutorial - How to use Azure Key Vault with Azure Web App in .NET | Microsoft Docs
-description: Tutorial Configure an ASP.Net core application to read a secret from Key vault
+description: Tutorial Configure an ASP.NET core application to read a secret from Key vault
 services: key-vault
 documentationcenter: 
 author: prashanthyv
@@ -57,7 +57,7 @@ Here’s how it works! When you enable MSI for an Azure service such as Virtual 
 Next, Your code calls a local metadata service available on the Azure resource to get an access token.
 Your code uses the access token it gets from the local MSI_ENDPOINT to authenticate to an Azure Key Vault service. 
 
-Now let's begin the tutorial
+Now let's begin the tutorial.
 
 ## Log in to Azure
 
