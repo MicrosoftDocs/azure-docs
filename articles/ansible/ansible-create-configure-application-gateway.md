@@ -49,7 +49,7 @@ The following example creates a resource group named **myResourceGroup** in the 
         location: "{{ location }}"
 ```
 
-Save above playbook as *rg.yml*. To run the playbook, use the **ansible-playbook** command as follows:
+Save this playbook as *rg.yml*. To run the playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook rg.yml
@@ -59,7 +59,7 @@ ansible-playbook rg.yml
 
 First create a virtual network to enable the application gateway to communicate with other resources.
 
-The following example creates a virtual network named **myVNet**, a subnet named **myAGSubnet**, and a public IP address named **myAGPublicIPAddress** with domain named **mydomain**.
+The following example creates a virtual network named **myVNet**, a subnet named **myAGSubnet**, and a public IP address named **myAGPublicIPAddress** with a domain named **mydomain**.
 
 ```yml
 - hosts: localhost
@@ -159,7 +159,7 @@ ansible-playbook aci_create.yml
 The following example creates an application gateway named **myAppGateway** with configurations for back end, front end, and HTTP.  
 
 * **appGatewayIP** is defined in the **gateway_ip_configurations** block. A subnet reference is required for IP configuration of the gateway.
-* **appGatewayBackendPool** is defined in the **backend_address_pools** block. An application gateway must have at least one backend address pool.
+* **appGatewayBackendPool** is defined in the **backend_address_pools** block. An application gateway must have at least one back-end address pool.
 * **appGatewayBackendHttpSettings** is defined in the **backend_http_settings_collection** block. It specifies that port 80 and an HTTP protocol is used for communication.
 * **appGatewayHttpListener** is defined in the **backend_http_settings_collection** block. It's the default listener associated with appGatewayBackendPool.
 * **appGatewayFrontendIP** is defined in the **frontend_ip_configurations** block. It assigns myAGPublicIPAddress to appGatewayHttpListener.
