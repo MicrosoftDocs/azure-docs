@@ -28,7 +28,7 @@ In this topic, we'll look at how to use the reliable dictionary in a .NET servic
 
 * Make sure that you've [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md), including installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
-## Create a project with Reliable Collection support in Visual Studio
+## Create a project with reliable collection support in Visual Studio
 
 Run Visual Studio and select **File** > **New** > **Project...**
 
@@ -41,9 +41,9 @@ Give your project a name and location and click **OK** to create the Service Fab
 Select the **Console** template.
 Select the **Use Reliable Collections** checkbox. This adds a nuget package and other support to your project so that you can use reliable collections in your project. Then click **OK** to create the service.
 
-## Create a Reliable Collection dictionary
+## Create a reliable collection dictionary
 
-We'll write code that reads and writes data to a Reliable Collection dictionary so that you can see how to use reliable collections in your own project.
+We'll write code that reads and writes data to a reliable collection dictionary so that you can see how to use reliable collections in your own project.
 
 Open **Program.cs** and replace the contents of `class Program` with the following:
 
