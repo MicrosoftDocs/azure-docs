@@ -70,6 +70,8 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+### Relavant Azure CLI cmdlets
+- [Azure CLI Storage Cmdlets](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### Relevant Powershell cmdlets
 
