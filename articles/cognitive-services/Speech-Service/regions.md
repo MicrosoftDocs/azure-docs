@@ -50,9 +50,11 @@ For each publishing region listed, use the provided **API region name**. For exa
 
 ## REST APIs
 
-The Speech service also exposes a REST endpoint for
+The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
 
 ### Speech-to-text
+
+For speech-to-text reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
 
 | Region | Endpoint |
 |--------|----------|
@@ -66,6 +68,8 @@ The Speech service also exposes a REST endpoint for
 | West Europe | https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
 
 ### Text-to-speech
+
+For text-to-speech reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
 
 | Region | Endpoint |
 |--------|----------|
