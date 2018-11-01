@@ -1,5 +1,5 @@
 ---
-title: Publish Azure Container image offer | Microsoft Docs
+title: Publish Azure Containers image offer | Microsoft Docs
 description: How to publish an Azure container offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
 ---
 

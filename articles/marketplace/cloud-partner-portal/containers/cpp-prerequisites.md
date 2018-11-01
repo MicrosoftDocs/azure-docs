@@ -1,5 +1,5 @@
 ---
-title: Azure Container offer prerequisites | Microsoft Docs
+title: Azure Containers offer prerequisites | Microsoft Docs
 description: Prerequisites for publishing an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Container image offer | Microsoft Docs
+title: Azure Containers image offer | Microsoft Docs
 description: Overview of the process for publishing a container offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
 ---
 
@@ -31,8 +31,6 @@ This section outlines the elements of publishing a container, and is intended as
 
 The following diagram illustrates the high-level steps in publishing a VM offer.
 ![Steps to publishing an offer](./media/containers-offer-process.png)
-<!-- git correct path from Mike
-![VM publishing process](./cpp-virtual-machine-offer/media/publishvm_001.png) -->
 
 The high-level steps for publishing a container offer are:
 

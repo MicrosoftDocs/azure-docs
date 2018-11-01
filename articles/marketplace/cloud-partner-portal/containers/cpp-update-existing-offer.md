@@ -1,5 +1,5 @@
 ---
-title: Update an existing Azure Container offer | Microsoft Docs
+title: Update an existing Azure Containers offer | Microsoft Docs
 description: How to update an existing container offer on Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
 ---
 
