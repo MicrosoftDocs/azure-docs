@@ -17,7 +17,7 @@ Use a datastore to access and interact with your data in Azure Machine Learning 
 In Azure Machine Learning services, the datastore is an abstraction over [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction). The datastore can reference either an [Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) container or [Azure file share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) as the underlying storage. 
 
 ## Create a datastore
-To use datastores, you first need a [workspace](concept-azure-machine-learning-architecture.md#workspace). Start by either [creating a new workspace](quickstart-get-started-with-python.md) or retrieving an existing one:
+To use datastores, you first need a [workspace](concept-azure-machine-learning-architecture.md#workspace). Start by either [creating a new workspace](quickstart-create-workspace-with-python.md) or retrieving an existing one:
 
 ```Python
 import azureml.core
