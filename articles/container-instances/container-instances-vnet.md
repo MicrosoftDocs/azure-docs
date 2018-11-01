@@ -97,9 +97,9 @@ To deploy a container group to an existing virtual network:
 
 1. Create a subnet within your existing virtual network, or empty an existing subnet of *all* other resources
 1. Deploy a container group with [az container create][az-container-create] and specify one of the following:
-   * Virtual network name and subnet name</br>
-    or
-   * Network profile name or ID
+   * Virtual network name and subnet name
+   * Virtual network resource ID and subnet resource ID, which allows using a virtual network from a different resource group
+   * Network profile name or ID, if a container group was previously deployed to the network
 
 Once you deploy your first container group to an existing subnet, Azure delegates that subnet to Azure Container Instances. You can no longer deploy resources other than container groups to that subnet.
 
@@ -109,7 +109,7 @@ The following sections describe how to deploy container groups to a virtual netw
 
 First, deploy a container group and specify the parameters for a new virtual network and subnet. When you specify these parameters, Azure creates the virtual network and subnet, delegates the subnet to Azure Container instances, and also creates a network profile. Once these resources are created, your container group is deployed to the subnet.
 
-Run the following [az container create][az-container-create] command that specifies settings for a new virtual network and subnet. This command deploys the [microsoft/aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
+Run the following [az container create][az-container-create] command that specifies settings for a new virtual network and subnet. You need to supply the name of a resource group that was created in a region that [supports](#preview-limitations) container groups in a virtual network. This command deploys the [microsoft/aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
 
 ```azurecli
 az container create \
