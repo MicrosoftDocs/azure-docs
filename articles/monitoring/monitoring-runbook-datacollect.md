@@ -26,8 +26,8 @@ This tutorial walks through the process for creating and scheduling a runbook in
 ## Prerequisites
 This scenario requires the following resources configured in your Azure subscription.  Both can be a free account.
 
-- [Log Analytics workspace](../azure/log-analytics.md).
-- [Azure automation account](../azure/automation.md).
+- [Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+- [Azure automation account](..//automation/automation-quickstart-create-account.md).
 
 ## Overview of scenario
 For this tutorial, you'll write a runbook that collects information about Automation jobs.  Runbooks in Azure Automation are implemented with PowerShell, so you'll start by writing and testing a script in the Azure Automation editor.  Once you verify that you're collecting the required information, you'll write that data to Log Analytics and verify the custom data type.  Finally, you'll create a schedule to start the runbook at regular intervals.
