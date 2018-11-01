@@ -17,7 +17,7 @@ ms.date: 11/01/2018
 ms.author: spelluru
 
 ---
-# Get started with Relay Hybrid Connections Websockets in Node.js
+# Get started with Relay Hybrid Connections WebSockets in Node.js
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
