@@ -52,7 +52,7 @@ For SaaS Apps, the publisher must account for Azure infrastructure usage fees, a
 
 **Private Offers** 
 
-In addition to using offer types and billing models to monetize an offer, publishers can transact a private version of solution offer, complete with negotiated, deal-specific pricing, and custom configurations using a customized image. Private offers are supported by all 3 transact publishing options. 
+In addition to using offer types and billing models to monetize an offer, publishers can transact a private version of solution offer, complete with negotiated, deal-specific pricing, and custom configurations using a customized image. [Private offers](./private-offers.md) are supported by all 3 transact publishing options.
 
 ## Transact billing models 
 
@@ -86,7 +86,7 @@ For transact publishing scenarios, the publisher can make a software license ava
 
 **Private offers and discounting** 
 
-For each transact publishing scenario, the publisher can optionally make available privately negotiated pricing and terms for an offer. For a virtual machine offer, the publisher can also optionally make available custom images.
+For each transact publishing scenario, the publisher can optionally make available privately negotiated pricing and terms for an offer. For a virtual machine offer, the publisher can also optionally make available custom images. For more information, see the [Private offers](./private-offers.md) documentation.
 
 ## Transact requirements 
 
@@ -100,7 +100,7 @@ The Transact requirements for different offer types are covered in this section.
 * The Dev Center account holds all relevant financial details required for Microsoft to collect fees from the customer on the publisher’s behalf and pay out the publisher.
 * Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Publisher Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
 
-*For more information on setting up these accounts, see [Becoming a publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).* 
+*For more information on setting up these accounts, see [Becoming a publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 
 **For specific offer types** 
 
@@ -112,7 +112,7 @@ Select from free, bring-your-own-license, or pay-as-you-go-pricing models and pr
 
 **Azure Applications: Solution Template or Managed App** 
 
-Must provision one or more virtual machines, and pulls through the sum of the virtual machine pricing. For managed apps, a single plan, flat-rate monthly subscription can be selected as the pricing model in lieu of the virtual machine pricing. In both cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement.
+Must provision one or more virtual machines, and pulls through the sum of the virtual machine pricing. For managed apps on a single plan, flat-rate monthly subscription can be selected as the pricing model in lieu of the virtual machine pricing. In both cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement.
 
 **Pay-As-You-Go and Bring Your Own License billing options** 
 
@@ -169,7 +169,7 @@ Consider the following examples.
 
 ### Private Offers
 
-This pricing can be the higher or lower than the publicly displayed pricing and can be used to discount or add a premium for an offer. Private offers can be made available to one or more customers by white-listing their Azure subscription at the offer level.
+This pricing can be the higher or lower than the publicly displayed pricing, and used to discount, or add a premium for an offer. Private offers can be made available to one or more customers by white-listing their Azure subscription at the offer level. See more information about configuring a private offer [here](./private-offers.md).
 
 #### Customer invoicing, payment, billing, and collections
 
