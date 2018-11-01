@@ -41,7 +41,7 @@ The following table describes the connected sources that are supported by this s
 | --- | --- | --- |
 | [Windows agents](log-analytics-windows-agent.md) | Yes | The solution collects DNS information from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect DNS information from direct Linux agents. |
-| [System Center Operations Manager management group](log-analytics-om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to the Operations Management Suite is not required. Data is forwarded from the management group to the Operations Management Suite repository. |
+| [System Center Operations Manager management group](log-analytics-om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the Log Analytics workspace. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Azure storage isn't used by the solution. |
 
 ### Data collection details
@@ -53,7 +53,7 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 Use the following information to configure the solution:
 
 - You must have a [Windows](log-analytics-windows-agent.md) or [Operations Manager](log-analytics-om-agents.md) agent on each DNS server that you want to monitor.
-- You can add the DNS Analytics solution to your Operations Management Suite workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+- You can add the DNS Analytics solution to your Log Analytics workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 The solution starts collecting data without the need of further configuration. However, you can use the following configuration to customize data collection.
 
@@ -71,11 +71,11 @@ On the solution dashboard, click **Configuration** to open the DNS Analytics Con
 
 ## Management packs
 
-If you are using the Microsoft Monitoring Agent to connect to your Operations Management Suite workspace, the following management pack is installed:
+If you are using the Microsoft Monitoring Agent to connect to your Log Analytics workspace, the following management pack is installed:
 
 - Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
 
-If your Operations Manager management group is connected to your Operations Management Suite workspace, the following management packs are installed in Operations Manager when you add this solution. There is no required configuration or maintenance of these management packs:
+If your Operations Manager management group is connected to your Log Analytics workspace, the following management packs are installed in Operations Manager when you add this solution. There is no required configuration or maintenance of these management packs:
 
 - Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)
@@ -86,7 +86,7 @@ For more information on how solution management packs are updated, see [Connect 
 
 This section explains all the dashboard functions and how to use them.
 
-After you've added the solution to your workspace, the solution tile on the Operations Management Suite Overview page provides a quick summary of your DNS infrastructure. It includes the number of DNS servers where the data is being collected. It also includes the number of requests made by clients to resolve malicious domains in the past 24 hours. When you click the tile, the solution dashboard opens.
+After you've added the solution to your workspace, Log Analytics Overview page in Azure portal includes a **View Solutions** link to a quick summary of your DNS infrastructure. It includes the number of DNS servers where the data is being collected. It also includes the number of requests made by clients to resolve malicious domains in the past 24 hours. When you click the tile, the solution dashboard opens.
 
 ![DNS Analytics tile](./media/log-analytics-dns/dns-tile.png)
 
@@ -180,7 +180,7 @@ On the Log Search page, you can create a query. You can filter your search resul
 
 There are two ways you can give feedback:
 
-- **UserVoice**. Post ideas for DNS Analytics features to work on. Visit the [Operations Management Suite UserVoice page](https://aka.ms/dnsanalyticsuservoice).
+- **UserVoice**. Post ideas for DNS Analytics features to work on. Visit the [Log Analytics UserVoice page](https://aka.ms/dnsanalyticsuservoice).
 - **Join our cohort**. We're always interested in having new customers join our cohorts to get early access to new features and help us improve DNS Analytics. If you are interested in joining our cohorts, fill out [this quick survey](https://aka.ms/dnsanalyticssurvey).
 
 ## Next steps

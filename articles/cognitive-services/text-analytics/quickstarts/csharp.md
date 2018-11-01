@@ -64,12 +64,13 @@ namespace ConsoleApp1
     {
         /// <summary>
         /// Container for subscription credentials. Make sure to enter your valid key.
+        string subscriptionKey = ""; //Insert your Text Anaytics subscription key
         /// </summary>
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", "4d4705adaf4a4656b1118b68d671d5b6");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }

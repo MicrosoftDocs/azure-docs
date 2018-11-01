@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/31/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -218,6 +218,17 @@ The purpose of monitoring changes to registry keys is to pinpoint extensibility 
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of known or commonly used system DLLs; this system prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of packages able to receive event notifications from Winlogon, the interactive logon support model for the Windows operating system.|
+
+## Network requirements
+
+The following addresses are required specifically for Change Tracking. Communication to these addresses is done over port 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## Use Change Tracking
 

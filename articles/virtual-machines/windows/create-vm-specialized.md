@@ -147,7 +147,7 @@ New-AzureRmResourceGroup -Location $location `
 Create the new OS disk from the uploaded VHD. 
 
 ```powershell
-$sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
+$sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType Standard_LRS  `

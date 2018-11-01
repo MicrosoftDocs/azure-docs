@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -396,7 +396,7 @@ The following template links to the preceding template. It creates three public 
 
 After the deployment, you can retrieve the output values with the following PowerShell script:
 
-```powershell
+```azurepowershell-interactive
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
@@ -406,9 +406,11 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Or, Azure CLI script:
+Or, Azure CLI script in a Bash shell:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 for i in 0 1 2;
 do
     name="linkedTemplate$i";
@@ -454,16 +456,18 @@ The following example shows how to pass a SAS token when linking to a template:
 
 In PowerShell, you get a token for the container and deploy the templates with the following commands. Notice that the **containerSasToken** parameter is defined in the template. It isn't a parameter in the **New-AzureRmResourceGroupDeployment** command.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-In Azure CLI, you get a token for the container and deploy the templates with the following code:
+For Azure CLI in a Bash shell, you get a token for the container and deploy the templates with the following code:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \

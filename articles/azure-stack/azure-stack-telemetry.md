@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
 ---
@@ -158,6 +158,4 @@ if($psSession)
 
 ## Next steps
 
-- [Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
-
-- [Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
+[Register Azure Stack with Azure](azure-stack-registration.md)

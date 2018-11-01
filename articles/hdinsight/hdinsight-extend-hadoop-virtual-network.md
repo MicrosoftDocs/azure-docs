@@ -167,7 +167,7 @@ For more information, see the [Name Resolution for VMs and Role Instances](../vi
 
 ## Directly connect to Hadoop services
 
-Most documentation on HDInsight assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses the public gateway, which is not available if you have used NSGs or UDRs to restrict access from the internet.
+You can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses a public IP, which may not be accessible if you have used NSGs or UDRs to restrict incoming traffic from the internet. Additionally, when you deploy the cluster in a VNet you can access it using the private endpoint https://CLUSTERNAME-int.azurehdinsight.net. This endpoint resolves to a private IP inside the VNet for cluster access.
 
 To connect to Ambari and other web pages through the virtual network, use the following steps:
 

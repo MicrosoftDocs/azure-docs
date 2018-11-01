@@ -17,27 +17,26 @@ ms.date: 09/12/2018
 ms.author: qianw211
 
 ---
-# Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory
+# Enable an AppSource and Marketplace listing by using Azure Active Directory
 
-Microsoft Azure Active Directory (Azure AD) is a cloud identity service that enables authentication with a Microsoft account by using industry-standard frameworks.  For more information about Azure AD, see [Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ Azure Active Directory (Azure AD) is a cloud identity service that enables authentication with a Microsoft account. Azure AD uses industry-standard frameworks. [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
-## Benefits of using Azure Active Directory
+## Azure AD benefits
 
-Microsoft AppSource and Azure Marketplace customers use in-product experiences to search the listing catalogs, which will require them to sign-in to the product.  By integrating your application with Azure AD, you can expedite engagement and optimize the customer experience. Azure AD:
+Microsoft AppSource and Azure Marketplace customers use in-product experiences to search the listing catalogs. These actions require customers to sign in to the product. Azure AD integration provides the following benefits:
 
-- Enables single sign-on (SSO) for millions of enterprise users.
-- Enables consistent user sign-on experience across applications published by different partners.
-- Provides scalable, cross-platform authentication for your mobile and cloud apps.
+- Faster engagement and an optimized customer experience
+- Single sign-on (SSO) for millions of enterprise users
+- Consistent, sign-in experience across applications published by different partners
+- Scalable, cross-platform authentication for mobile and cloud apps
 
-As detailed in the section below, certain offers are required to implement Azure AD to publish to Marketplace.
+## Offers that require Azure AD
 
-## Azure Active Directory requirements
+The various [listing options and offer types](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) for AppSource and Azure Marketplace have different requirements for Azure AD implementation. See the following table for details:
 
-There are different [listing options and offer types](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) for Microsoft AppSource and Azure Marketplace.  Azure AD requirements for these listing options and offer types are shown below:
-
-| **Offer Type**    | **AAD SSO Required?**  |  |   |  |
+| **Offer type**    | **Azure AD SSO required?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Contact Me | Trial	| Test Drive | Transact |
+|  | Contact Me | Trial | Test Drive | Transact |
 | Virtual Machine | N/A | No | No | No |
 | Azure Apps (solution template)  | N/A | N/A | N/A | N/A |
 | Managed Apps  | N/A | N/A | N/A | No |
@@ -47,52 +46,49 @@ There are different [listing options and offer types](https://docs.microsoft.com
 
 For more information about SaaS technical requirements, see [SaaS applications Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-## Integration with Azure Active Directory
+## Azure AD integration
 
-For information on how to integrate with Azure AD to enable SSO, visit https://aka.ms/aaddev.
+- For information on how to enable single sign-on by integrating Azure AD into your listing, see [Azure Active Directory for developers]( https://aka.ms/aaddev).
+- To get details about Azure AD single sign-on, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-For more information about Azure AD SSO, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)?
+## Enable a trial listing
 
-## Enable a trial listing by using Azure Active Directory
+Automated customer setup can increase the likelihood of conversion. When your customer selects your trial listing and is redirected to your trial environment, you can set up the customer directly without requiring additional sign-in steps.
 
-After a customer selects your trial listing in the Marketplace, your customer is redirected to your trial environment. In your trial environment, you can set up your customer directly without requiring additional sign-in steps. Your app or offer receives a token from Azure AD during authentication. The token includes valuable user information that's used to create a user account in your app or offer. You can automate customer setup and increase the likelihood of conversion.
+During authentication, Azure AD sends a token to your app or offer. The user information provided by the token enables the creation of a user account in your app or offer. To learn more, see [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
 
-For more information about the token that's sent from Azure AD during authentication, see [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+When you use Azure AD to enable one-click authentication in your app or trial listing, you:
 
-Use Azure AD to enable one-click authentication in your app or trial. Azure AD gives you the following benefits: 
-*   Streamline the customer experience from the Marketplace to trial.
-*   Maintain the feel of an in-product experience, even when the user is redirected from the Marketplace to your domain or trial environment.
-*   Reduce the likelihood of abandonment upon redirect, because there are no additional sign-in steps.
-*   Reduce deployment barriers for the large population of Azure AD users.
+- Streamline the customer experience from the Marketplace to your trial listing.
+- Maintain the feel of an in-product experience even when the user is redirected from the Marketplace to your domain or trial environment.
+- Reduce the likelihood of abandonment when users are redirected because there are no additional sign-in steps.
+- Reduce deployment barriers for the large population of Azure AD users.
 
-### Verify your Azure AD integration in the Marketplace: Multitenant apps
-Use Azure AD to support the following options for your solution:
-*   Register your app in storefronts in the Marketplace.
-*   Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
+## Verify Azure AD integration
 
-For more information about app registration, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+### Multitenant solutions
 
-If you are new to using Azure AD federated single sign-on (SSO), complete these steps:
-1.  Register your app in the Marketplace. 
-2.  Develop SSO with Azure AD by using OAuth 2.0 or OpenID Connect.
-    *   For more information about OAuth 2.0, see [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-    *   For more information about Open ID Connect, see [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
-3.  Enable the multitenancy support feature in Azure AD to provide a one-click trial experience.
-    
-    For more information about AppSource certification, see [AppSource certification](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified). 
+Use Azure AD to support the following actions:
 
-### Verify your Azure AD integration in the Marketplace: Single-tenant apps
-Use Azure AD to support one of the following options for your single-tenant solution: 
-*   Add users to your directory as guest users by using Azure Active Directory B2B (Azure AD B2B). For more information about Azure AD B2B, see [What is Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-*   Manually set up trials for customers by using the Contact Me publishing option.
-*   Develop a per-customer test drive.
-*   Build a multi-tenant sample demo app that uses SSO.
+- Register your app in one of the Marketplace storefronts. View [App registration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) or [AppSource certification](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified) for more information.
+- Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
+
+If you're new to using Azure AD federated single sign-on, take these steps:
+
+1. Register your app in the Marketplace.
+1. Develop SSO with Azure AD by using [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) or [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Enable the multitenancy support feature in Azure AD to provide a one-click trial experience.
+
+### Single-tenant solutions
+
+Use Azure AD to support one of the following actions:
+
+- Add guest users to your directory by using [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Manually set up trials for customers by using the **Contact Me** publishing option.
+- Develop a per-customer test drive.
+- Build a multi-tenant sample demo app that uses SSO.
 
 ## Next steps
 
-If you haven't already done so, 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
-
-If you're registered and are creating a new offer or working on an existing one,
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com/) to create or complete your offer.
-
+- Make sure you've [registered in the Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- Sign in to [Cloud Partner Portal](https://cloudpartner.azure.com/) to create or complete your offer.

@@ -230,6 +230,14 @@ The following are post-installation known issues for this build version.
 
 
 ### Health and monitoring
+
+<!-- TBD - IS -->
+- You might see the following alerts repeatedly appear and then disappear on your Azure Stack system:
+   - *Infrastructure role instance unavailable*
+   - *Scale unit node is offline*
+   
+  Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
+
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
 

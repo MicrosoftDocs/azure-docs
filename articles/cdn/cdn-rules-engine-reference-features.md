@@ -1257,7 +1257,7 @@ This URL redirection may be achieved through the following configuration:
 		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf  
 	- Sample scenario #2: 
 		- Sample request (Edge CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
-		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf  Sample scenario
+		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf
 	- Sample scenario #3: 
 		- Sample request (Edge CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
 		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

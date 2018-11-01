@@ -35,7 +35,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -202,6 +202,16 @@ NAME             REVISION	 UPDATED                 	 STATUS  	 CHART          	N
 wishful-mastiff  1       	 Thu Jul 12 15:53:56 2018	 DEPLOYED	 wordpress-2.1.3  default
 ```
 
+## Clean up resources
+
+When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, use the `helm delete` command and specify your release name, as found in the previous `helm list` command. The following example deletes the release named *wishful mastiff*:
+
+```console
+$ helm delete wishful-mastiff
+
+release "wishful-mastiff" deleted
+```
+
 ## Next steps
 
 For more information about managing Kubernetes application deployments with Helm, see the Helm documentation.
@@ -213,7 +223,7 @@ For more information about managing Kubernetes application deployments with Helm
 [helm]: https://github.com/kubernetes/helm/
 [helm-documentation]: https://docs.helm.sh/
 [helm-init]: https://docs.helm.sh/helm/#helm-init
-[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control

@@ -32,7 +32,7 @@
     href: storage-quickstart-blobs-ruby.md
   - name: Work with blobs - Node.js (Storage SDK v10)
     href: storage-quickstart-blobs-nodejs-v10.md
-  - name: Work with blobs - Node.js
+  - name: Work with blobs - Node.js (Storage SDK v2)
     href: storage-quickstart-blobs-nodejs.md
   - name: Work with blobs - JS/HTML
     href: storage-quickstart-blobs-javascript-client-libraries.md
@@ -57,7 +57,7 @@
         href: storage-create-geo-redundant-storage.md
       - name: 2 - Simulate a failure with RA-GRS storage
         href: storage-simulate-failure-ragrs-account-app.md
-  - name: Migrate on-premises data to cloud with AzCopy
+  - name: Migrate data to cloud with AzCopy
     href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json    
   - name: Search unstructured data in cloud storage
     href: storage-unstructured-search.md
@@ -350,10 +350,14 @@
     href: storage-blob-static-website.md
   - name: Transfer data
     items:
-    - name: AzCopy on Windows
+    - name: AzCopy (v10)
+      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: AzCopy on Windows (v8)
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: AzCopy on Linux
+    - name: AzCopy on Linux (v8)
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Using Azure Data Factory
+      href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json      
     - name: Mount Blob storage as a file system on Linux
       href: storage-how-to-mount-container-linux.md
     - name: Storage migration FAQ
@@ -377,7 +381,7 @@
     - name: Blobs, Queues, Tables, and Files (v7)
       href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
     - name: Blob SDK (v10)
-      href: https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client?view=azure-java-preview
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby

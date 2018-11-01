@@ -1,23 +1,22 @@
 ---
-title: 'Common questions - VMware to Azure replication with Azure Site Recovery | Microsoft Docs'
-description: This article summarizes common questions when you replicate on-premises VMware VMs to Azure using Azure Site Recovery
-services: site-recovery
+title: 'Common questions - VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+description: This article summarizes common questions when you set up disaster recovery of on-premises VMware VMs to Azure using Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/19/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
 
 ---
 # Common questions - VMware to Azure replication
 
-This article provides answers to common questions we see when replicating on-premises VMware VMs to Azure. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+This article provides answers to common questions we see when deploying disaster recovery of on-premises VMware VMs to Azure. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## General
 ### How is Site Recovery priced?
-Review [Azure Site Recovery pricing](https://azure.microsoft.com/en-in/pricing/details/site-recovery/) details.
+Review [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
 
 ### How do I pay for Azure VMs?
 During replication, data is replicated to Azure storage, and you don't pay any VM changes. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines. After that you're billed for the compute resources that you consume in Azure.

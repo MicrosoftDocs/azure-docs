@@ -93,7 +93,7 @@ We have introduced continuous profiling of performance data(which is in preview)
 
 The data collected by the collector appliance is stored in the Azure location that you specify while creating the migration project. The data is securely stored in a Microsoft subscription and is deleted when the user deletes the Azure Migrate project.
 
-For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in an OMS workspace created in user’s subscription. This data is deleted when you delete the OMS workspace in your subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in an Log Analytics workspace created in user’s subscription. This data is deleted when you delete the Log Analytics workspace in your subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### Is the data encrypted at rest and while in transit?
 

@@ -11,9 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 09/13/2018 
-ms.author: jeffgilb 
-ms.reviewer: jeffgo
+ms.date: 10/16/2018
+ms.author: jeffgilb
+ms.reviewer: quying
 ---
 
 # Deploy the MySQL resource provider on Azure Stack
@@ -85,7 +85,7 @@ You can specify these parameters from the command line. If you don't, or if any 
 | **VMLocalCredential** | The credentials for the local administrator account of the MySQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
 | **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure AD, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | For integrated systems only, your certificate .pfx file must be placed in this directory. For disconnected enviroments, download [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) to this directory. You can optionally copy one Windows Update MSU package here. | _Optional_ (_mandatory_ for integrated systems or disconnected environments) |
+| **DependencyFilesLocalPath** | For integrated systems only, your certificate .pfx file must be placed in this directory. For disconnected environments, download [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) to this directory. You can optionally copy one Windows Update MSU package here. | _Optional_ (_mandatory_ for integrated systems or disconnected environments) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
 | **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 |
 | **RetryDuration** | The timeout interval between retries, in seconds. | 120 |

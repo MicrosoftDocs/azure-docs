@@ -70,7 +70,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A valid Azure AD Premium P1 subscription with global administrator access
 * A Workday implementation tenant for testing and integration purposes
 * Administrator permissions in Workday to create a system integration user, and make changes to test employee data for testing purposes
-* For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
+* For user provisioning to Active Directory, a domain-joined server running Windows Server 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) for synchronizing between Active Directory and Azure AD
 
 ### Solution architecture

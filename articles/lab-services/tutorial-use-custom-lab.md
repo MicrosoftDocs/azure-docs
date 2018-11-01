@@ -55,6 +55,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Connect to virtual machine](./media/tutorial-use-custom-lab/connect-button.png)
 2. Save the downloaded **RDP** file your hard disk and use it to connect to the virtual machine. Specify the user name and password you mentioned when the VM was created in the previous section. 
 
+    > [!NOTE] 
+    > To connect to a Linux VM, SSH and/or RDP access must be enabled for the VM. For steps to connect to a Linux VM via RDP, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+
 ## Unclaim the VM
 After you are done with using the VM, unclaim the VM by following these steps: 
 

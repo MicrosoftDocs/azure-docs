@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Build an object detection project in C# - Custom Vision Service"
+title: "Tutorial: Create an object detection project with the Custom Vision SDK for C# - Custom Vision Service"
 titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 ms.author: areddish
 ---
 
-# Tutorial: Use Custom Vision API to build an object detection project in C#
+# Tutorial: Create an object detection project with the Custom Vision SDK for C#
 
 Learn how to use a basic Windows application that uses the Computer Vision API to create an object detection project. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision API.
 

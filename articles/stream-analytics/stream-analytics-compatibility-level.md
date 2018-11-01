@@ -7,7 +7,7 @@ ms.author: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 10/15/2018
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -63,5 +63,5 @@ The following major changes are introduced in compatibility level 1.1:
   * **current version:** There is no more automatically upcast of string values with date/time/zone information to DateTime type. As a result, timezone information is kept. 
 
 ## Next steps
-* [Troubleshooting guide for Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+* [Troubleshoot Azure Stream Analytics inputs](stream-analytics-troubleshoot-input.md)
 * [Stream Analytics Resource health blade](stream-analytics-resource-health.md)

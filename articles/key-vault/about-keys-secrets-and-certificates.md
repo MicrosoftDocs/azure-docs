@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/12/2018
 ms.author: bryanla
 ---
 
@@ -22,7 +22,7 @@ ms.author: bryanla
 Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data:
 
 - Cryptographic keys: Supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys. 
-- Secrets: Allows users to securely store secrets, such as passwords. Secrets are limited size octet objects with no specific semantics. 
+- Secrets: Provides secure storage of secrets, such as passwords and database connection strings.
 - Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature.
 - Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. 
 
@@ -90,28 +90,35 @@ Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. T
 
      For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-Key Vault supports RSA and Elliptic Curve keys only. Future releases may support other key types, such as symmetric.
+Key Vault supports RSA and Elliptic Curve keys only. 
 
 -   **EC**: "Soft" Elliptic Curve key.
 -   **EC-HSM**: "Hard" Elliptic Curve key.
 -   **RSA**: "Soft" RSA key.
 -   **RSA-HSM**: "Hard" RSA key.
 
-Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Elliptic Curve key types P-256, P-384, P-521, and P-256K.
+Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Elliptic Curve key types P-256, P-384, P-521, and P-256K (SECP256K1).
 
 ### Cryptographic protection
 
-The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. If you **create** or **import** keys as HSM-protected, they're guaranteed to be processed inside an HSM validated to FIPS 140-2 Level 2 or higher. If you **create** or **import** keys as software-protected, they're processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](#keys-and-key-types).
+The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2 or higher. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](#keys-and-key-types).
 
 ###  EC algorithms
  The following algorithm identifiers are supported with EC and EC-HSM keys in Key Vault. 
 
+#### Curve Types
+
+-   **P-256** - The NIST curve P-256, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-256K** - The SEC curve SECP256K1, defined at [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf).
+-   **P-384** - The NIST curve P-384, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-521** - The NIST curve P-521, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+
 #### SIGN/VERIFY
 
--   **ES256** - ECDSA for SHA-256 digests and keys created with curve P-256. This algorithm is described at [RFC7518].
+-   **ES256** - ECDSA for SHA-256 digests and keys created with curve P-256. This algorithm is described at [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** - ECDSA for SHA-256 digests and keys created with curve P-256K. This algorithm is pending standardization.
--   **ES384** - ECDSA for SHA-384 digests and keys created with curve P-384. This algorithm is described at [RFC7518].
--   **ES512** - ECDSA for SHA-512 digests and keys created with curve P-521. This algorithm is described at [RFC7518].
+-   **ES384** - ECDSA for SHA-384 digests and keys created with curve P-384. This algorithm is described at [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES512** - ECDSA for SHA-512 digests and keys created with curve P-521. This algorithm is described at [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  RSA algorithms  
  The following algorithm identifiers are supported with RSA and RSA-HSM keys in Key Vault.  
@@ -132,13 +139,13 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 
 Key Vault supports the following operations on key objects:  
 
--   **Create**: Allows a client to create a key in Key Vault. The value of the key is generated by Key Vault and stored, and isn't released to the client. Asymmetric (and in the future, Elliptic Curve and Symmetric) keys may be created in Key Vault.  
--   **Import**: Allows a client to import an existing key to Key Vault. Asymmetric keys may be imported to Key Vault using a number of different packaging methods within a JWK construct. In the future, Elliptic Curve and Symmetric will also be packaged the same.
+-   **Create**: Allows a client to create a key in Key Vault. The value of the key is generated by Key Vault and stored, and isn't released to the client. Asymmetric keys may be created in Key Vault.  
+-   **Import**: Allows a client to import an existing key to Key Vault. Asymmetric keys may be imported to Key Vault using a number of different packaging methods within a JWK construct. 
 -   **Update**: Allows a client with sufficient permissions to modify the metadata (key attributes) associated with a key previously stored within Key Vault.  
 -   **Delete**: Allows a client with sufficient permissions to delete a key from Key Vault.  
 -   **List**: Allows a client to list all keys in a given Key Vault.  
 -   **List versions**: Allows a client to list all versions of a given key in a given Key Vault.  
--   **Get**: Allows a client to retrieve the public parts of a given key in an Key Vault.  
+-   **Get**: Allows a client to retrieve the public parts of a given key in a Key Vault.  
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
 
@@ -223,7 +230,7 @@ For more information on working with keys, see [Key operations in the Key Vault 
 
 ### Working with secrets
 
-Secrets in Key Vault are octet sequences with a maximum size of 25k bytes each. The Key Vault service doesn't provide semantics for secrets. It merely accepts the data, encrypts it, stores it, and returns a secret identifier ("id"). The identifier can be used to retrieve the secret at a later time.  
+From a developer's perspective, Key Vault APIs accept and return secret values as strings. Internally, Key Vault stores and manages secrets as sequences of octets (8-bit bytes), with a maximum size of 25k bytes each. The Key Vault service doesn't provide semantics for secrets. It merely accepts the data, encrypts it, stores it, and returns a secret identifier ("id"). The identifier can be used to retrieve the secret at a later time.  
 
 For highly sensitive data, clients should consider additional layers of protection for data. Encrypting data using a separate protection key prior to storage in Key Vault is one example.  
 
@@ -235,7 +242,7 @@ In addition to the secret data, the following attributes may be specified:
 
 - *exp*: IntDate, optional, default is **forever**. The *exp* (expiration time) attribute identifies the expiration time on or after which the secret data SHOULD NOT be retrieved, except in [particular situations](#date-time-controlled-operations). This field is for **informational** purposes only as it informs users of key vault service that a particular secret may not be used. Its value MUST be a number containing an IntDate value.   
 - *nbf*: IntDate, optional, default is **now**. The *nbf* (not before) attribute identifies the time before which the secret data SHOULD NOT be retrieved, except in [particular situations](#date-time-controlled-operations). This field is for **informational** purposes only. Its value MUST be a number containing an IntDate value. 
-- *enabled*: boolean, optional, default is **true**. This attribute specifies whether the secret data can be retrieved. The enabled attribute is used in conjunction with and *exp* when an operation occurs between and exp, it will only be permitted if enabled is set to **true**. Operations outside the *nbf* and *exp* window are automatically disallowed, except in [particular situations](#date-time-controlled-operations).  
+- *enabled*: boolean, optional, default is **true**. This attribute specifies whether the secret data can be retrieved. The enabled attribute is used in conjunction with *nbf* and *exp* when an operation occurs between *nbf* and *exp*, it will only be permitted if enabled is set to **true**. Operations outside the *nbf* and *exp* window are automatically disallowed, except in [particular situations](#date-time-controlled-operations).  
 
 There are additional read-only attributes that are included in any response that includes secret attributes:  
 
@@ -244,7 +251,7 @@ There are additional read-only attributes that are included in any response that
 
 #### Date-time controlled operations
 
-A secret's **get** operation will work for not-yet-valid and expired secrets, outside the *nbf* / *exp* window. Calling a secret's **get** operation, for a not-yet-valid secret, can be used for test purposes. Retrieving (**get**ing) an expired secret, can be used for recovery operations.
+A secret's **get** operation will work for not-yet-valid and expired secrets, outside the *nbf* / *exp* window. Calling a secret's **get** operation, for a not-yet-valid secret, can be used for test purposes. Retrieving (**get**ting) an expired secret, can be used for recovery operations.
 
 For more information on data types, see [Data types](#data-types).  
 
@@ -260,7 +267,7 @@ The following permissions can be used, on a per-principal basis, in the secrets 
   - *set*: Create a secret  
   - *delete*: Delete a secret  
   - *recover*: Recover a deleted secret
-  - *backup*: Backup a secret in a key vault
+  - *backup*: Back up a secret in a key vault
   - *restore*: Restore a backed up secret to a key vault
 
 - Permissions for privileged operations
@@ -278,7 +285,7 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 Key Vault certificates support provides for management of your x509 certificates and the following behaviors:  
 
--   Allows a certificate owner to create a certificate through a Key Vault creation process or through the import of an existing certificate. This includes both self-signed and Certificate Authority generated certificates.
+-   Allows a certificate owner to create a certificate through a Key Vault creation process or through the import of an existing certificate. Includes both self-signed and Certificate Authority generated certificates.
 -   Allows a Key Vault certificate owner to implement secure storage and management of X509 certificates without interaction with private key material.  
 -   Allows a certificate owner to create a policy that directs Key Vault to manage the life-cycle of a certificate.  
 -   Allows certificate owners to provide contact information for notification about life-cycle events of expiration and renewal of certificate.  
@@ -403,7 +410,7 @@ If a certificate's policy is set to auto renewal, then a notification is sent on
 -   Before certificate renewal
 -   After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
 
- If a certificate's policy is set to be manually renewed (email only), then a notification is sent when it’s time to renew the certificate.  
+ When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
 
 ### Certificate Access Control
 

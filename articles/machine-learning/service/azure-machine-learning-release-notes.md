@@ -8,11 +8,29 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 03/28/2018
+ms.date: 10/24/2018
 ---
 # Azure Machine Learning service release notes
 
 In this article, learn about the Azure Machine Learning service releases. 
+
+## 2018-10-12
+
+### Azure Machine Learning SDK for Python v0.1.68
+
++ **New features**
+  * Multiple tenant support when creating new workspace.
+
++ **Breaking changes**
+  * **Upcoming in next release** *Workspace.compute_targets, datastores, experiments, images, models* and *webservices* will become properties instead of methods. For example, replace *Workspace.compute_targets()* with *Workspace.compute_targets*.
+
++ **Bugs fixed**
+  * The pynacl library version no longer needs to be pinned when deploying web servcie.
+
+### Azure Machine Learning Data Prep SDK v0.3.0
+
++ **New features**
+  * Added method transform_partition_with_file(script_path), which allows users to pass in the path of a Python file to execute
 
 ## 2018-10-01
 
@@ -21,56 +39,55 @@ In this article, learn about the Azure Machine Learning service releases.
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-#### Breaking changes
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list. See [azureml.core.Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API documentation.
++ **Breaking changes**
+  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list. See [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API documentation.
 
- * Automated Machine Learning removed normalized mean square error from the primary metrics.
+  * Automated Machine Learning removed normalized mean square error from the primary metrics.
 
++ **HyperDrive**
+  * Various HyperDrive bug fixes for Bayesian, Performance improvements for get Metrics calls. 
+  * Tensorflow 1.10 upgrade from 1.9 
+  * Docker image optimization for cold start. 
+  * Job’s now report correct status even if they exit with error code other than 0. 
+  * RunConfig attribute validation in SDK. 
+  * HyperDrive run object supports cancel similar to a regular run: no need to pass any parameters. 
+  * Widget improvements for maintaining state of drop-down values for distributed runs and HyperDrive runs. 
+  * TensorBoard and other log files support fixed for Parameter server. 
+  * Intel(R) MPI support on service side. 
+  * Bugfix to parameter tuning for distributed run fix during validation in BatchAI. 
+  * Context Manager now identifies the primary instance. 
 
-#### HyperDrive
- * Various HyperDrive bug fixes for Bayesian, Performance improvements for get Metrics calls. 
- * Tensorflow 1.10 upgrade from 1.9 
- * Docker image optimization for cold start. 
- * Job’s now report correct status even if they exit with error code other than 0. 
- * RunConfig attribute validation in SDK. 
- * HyperDrive run object supports cancel similar to a regular run: no need to pass any parameters. 
- * Widget improvements for maintaining state of drop-down values for distributed runs and HyperDrive runs. 
- * TensorBoard and other log files support fixed for Parameter server. 
- * Intel(R) MPI support on service side. 
- * Bugfix to parameter tuning for distributed run fix during validation in BatchAI. 
- * Context Manager now identifies the primary instance. 
++ **Azure portal experience**
+  * log_table() and log_row() are supported in Run details. 
+  * Automatically create graphs for tables and rows with 1,2 or 3 numerical columns and an optional categorical column.
 
-#### Azure portal experience
- * log_table() and log_row() are supported in Run details. 
- * Automatically create graphs for tables and rows with 1,2 or 3 numerical columns and an optional categorical column.
++ **Automated Machine Learning**
+  * Improved error handling and documentation 
+  * Fixed run property retrieval performance issues. 
+  * Fixed continue run issue. 
+  * Fixed ensembling iteration issues.
+  * Fixed training hanging bug on MAC OS.
+  * Downsampling macro average PR/ROC curve in custom validation scenario.
+  * Removed extra index logic.
+  * Removed filter from get_output API.
 
-#### Automated Machine Learning
- * Improved error handling and documentation 
- * Fixed run property retrieval performance issues. 
- * Fixed continue run issue. 
- * Fixed ensembling iteration issues.
- * Fixed training hanging bug on MAC OS.
- * Downsampling macro average PR/ROC curve in custom validation scenario.
- * Removed extra index logic.
- * Removed filter from get_output API.
++ **Pipelines**
+  * Added a method Pipeline.publish() to publish a pipeline directly, without requiring an execution run first.   
+  * Added a method PipelineRun.get_pipeline_runs() to fetch the pipeline runs which were generated from a published pipeline.
 
-#### Pipelines
- * Added a method Pipeline.publish() to publish a pipeline directly, without requiring an execution run first.   
- * Added a method PipelineRun.get_pipeline_runs() to fetch the pipeline runs which were generated from a published pipeline.
-
-#### Project Brainwave
- * Updated support for new AI models available on FPGAs.
++ **Project Brainwave**
+  * Updated support for new AI models available on FPGAs.
 
 ### Azure Machine Learning Data Prep SDK v0.2.0
 [Version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) includes following features and bugfixes:
 
-**New features:** 
- * Support for one-hot encoding
- * Support for quantile transform
++ **New features**
+  * Support for one-hot encoding
+  * Support for quantile transform
    
-**Bug fixed:**
- * Works with any Tornado version, no need to downgrade your Tornado version
- * Value counts for all values, not just the top three
++ **Bug fixed:**
+  * Works with any Tornado version, no need to downgrade your Tornado version
+  * Value counts for all values, not just the top three
 
 ## 2018-09 (Public preview refresh)
 
