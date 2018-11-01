@@ -92,9 +92,8 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
       - If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command:
 
-          
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-         
+             
+                  reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 
 2. Check the current configuration of the terminal server.
 
