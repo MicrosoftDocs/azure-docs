@@ -261,7 +261,11 @@
     - name: Twilio
       href: functions-bindings-twilio.md    
   - name: host.json reference
-    href: functions-host-json.md  
+    items:
+    - name: Functions 2.x
+      href: functions-host-json.md  
+    - name: Functions 1.x
+      href: functions-host-json-v1.md  
   - name: App settings reference
     href: functions-app-settings.md     
   - name: OpenAPI reference

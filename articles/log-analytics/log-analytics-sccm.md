@@ -44,7 +44,7 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 > You must specify permissions in Log Analytics for Configuration Manager. Otherwise, you receive an error message when you use the configuration wizard in Configuration Manager.
 >
 
-1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. In your list of Log Analytics workspaces, select the workspace to modify.
 3. From the left pane, select **Access Control (IAM)**.
 4. In the Access Control page, click **Add** and the **Add permissions** pane appears.
@@ -96,7 +96,7 @@ After you have completed initial configuration to import device collections from
 
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select the workspace Configuration Manager is registered with.  
-3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-sccm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Select **Computer Groups** and then select **SCCM**.  
 5. Select **Import Configuration Manager collection memberships** and then click **Save**.  
    ![Computer Groups - SCCM tab](./media/log-analytics-sccm/sccm-computer-groups01.png)
