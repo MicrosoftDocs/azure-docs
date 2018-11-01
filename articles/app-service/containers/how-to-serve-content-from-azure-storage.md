@@ -7,9 +7,8 @@ manager: jeconnoc
 ms.service: app-service
 ms.workload: web
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/01/2018
 ms.author: msangapu
-
 ---
 # Serve content from Azure Storage in App Service on Linux
 
@@ -22,24 +21,26 @@ This guide shows how to serve static content in App Service on Linux by using [A
 
 ## Create Azure Storage
 
-Create an Azure [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli) by fol
+> [!NOTE]
+> This is non-default storage and it's a separate cost than the web app.
+>
+
+Create an Azure [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
 
 ```azurecli
 #Create Storage Account
 az storage account create --name <storage_account_name> --resource-group myResourceGroup
 
 #Create Storage Container
-az storage container create --name wp-uploads --account-name wp-uploads-account
+az storage container create --name <storage_container_name> --account-name <storage_account_name>
 ```
-
-
 
 ## Upload files
 
 To upload a local directory to the storage account, you use the [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) command like the following example:
 
 ```azurecli
-az storage blob upload-batch -d <full_path_to_local_directory> --account-name <account_name> --account-key "<access_key>" -s <source_location_name>
+az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
 ```
 
 ## Link storage
@@ -48,17 +49,13 @@ az storage blob upload-batch -d <full_path_to_local_directory> --account-name <a
 > Linking an existing directory in a web app to a storage account will delete the directory contents. If you are migrating files for an existing app, make a backup of your app and its content before you begin.
 >
 
-To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command.
+To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. You use AzureBlob for this container.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
 ```
 
 You should do this for any other directories you want to be linked to a storage account.
-
-> [!NOTE]
-> Storage Type can be either AzureBlob or AzureFiles.
->
 
 ## Verify
 
