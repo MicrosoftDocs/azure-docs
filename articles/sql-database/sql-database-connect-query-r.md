@@ -1,5 +1,5 @@
 ---
-title: Use R script in Azure SQL Database | Microsoft Docs
+title: Quickstart for using R script in Azure SQL Database | Microsoft Docs
 description: This topic shows you how to use R script in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -14,20 +14,19 @@ manager: cgronlun
 ms.date: 10/31/2018
 ---
 
-# Use R script in Azure SQL database
+# Quickstart: Use R script in Azure SQL database
 
-Introductory paragraph.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language,
-what the customer will learn, or do, or accomplish. Answer the fundamental
-"why would I want to do this?" question.
---->
-
-In this quickstart, you will use an R script in Azure SQL database.
+This article explains how you can run R scripts in Azure SQL database. It walks you through the basics of moving data between SQL Server and Python: requirements, data structures, inputs, and outputs. It also explains how to wrap well-formed Python code in a stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in SQL Server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
+
+This quickstart uses as its starting point the resources created in one of these quickstarts:
+
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+You also need to be able to connect to the Azure SQL database using for example [SQL Server Management Studio] or 
 
 - First prerequisite
 - Second prerequisite
