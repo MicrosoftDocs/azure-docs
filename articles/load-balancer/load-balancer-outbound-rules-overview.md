@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/19/2018
 ms.author: kumud
 ---
 
@@ -80,7 +80,7 @@ Use the following parameter to allocate 10,000 SNAT ports per VM (NIC IP configu
 
           "allocatedOutboundPorts": 10000
 
-Each public IP address from all frontends of an outbound rule contributes up to 64,000 ephemeral ports for us as SNAT ports.  Load Balancer allocates SNAT ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected.  If you attempt to allocate more SNAT ports than are available based on the number of public IP addresses, the configuration operation is rejected.  For example, if you allocate 10,000 ports per VM and 7 VMs in a backend pool would share a single public IP address, the configuration is rejected (7 x 10,0000 SNAT ports > 64,000 SNAT ports).  You can add more public IP addresses to the frontend of the outbound rule to enable the scenario.
+Each public IP address from all frontends of an outbound rule contributes up to 64,000 ephemeral ports for use as SNAT ports.  Load Balancer allocates SNAT ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected.  If you attempt to allocate more SNAT ports than are available based on the number of public IP addresses, the configuration operation is rejected.  For example, if you allocate 10,000 ports per VM and 7 VMs in a backend pool would share a single public IP address, the configuration is rejected (7 x 10,0000 SNAT ports > 64,000 SNAT ports).  You can add more public IP addresses to the frontend of the outbound rule to enable the scenario.
 
 You can revert back to [automatic SNAT port allocation based on backend pool size](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for number of ports.
 
@@ -176,10 +176,10 @@ Define a public Standard Load Balancer, place the VMs into the backend pool, and
 
 #### Outbound NAT for internal Standard Load Balancer scenarios
 
-When using an internal Standard Load Balancer, outbound NAT is not available until a public Standard Load Balancer has also been configured. You can change this by using and outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer.
+When using an internal Standard Load Balancer, outbound NAT is not available until outbound connectivity has been explicitly declared. You can define outbound connectivity using an outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer with these steps:
 
 1. Create a public Standard Load Balancer.
-2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer.
+2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer in addition to the internal Load Balancer.
 3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.
 
 #### Enable both TCP & UDP protocols for outbound NAT with a public Standard Load Balancer

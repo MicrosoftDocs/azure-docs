@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell script sample - Create Azure Firewall test environment
-description: Azure PowerShell script sample - Create Azure Firewall test enviroment.
+description: Azure PowerShell script sample - Create Azure Firewall test environment.
 services: virtual-network
 author: vhorne
 ms.service: firewall
@@ -28,7 +28,7 @@ You can use `PowerShellGet` if you need to upgrade, which is built into Windows 
 >Other Windows version require you to install `PowerShellGet` before you can use it. 
 >You can run `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` to determine if it is installed on your system. If the output is blank, you need to install the latest [Windows Management framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
-For more information, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
+For more information, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
 
 Any existing Azure PowerShell installation done with the Web Platform installer will conflict with the PowerShellGet installation and needs to be removed.
 

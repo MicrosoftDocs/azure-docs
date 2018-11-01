@@ -84,7 +84,7 @@ In the following example, when the Identity Experience Framework interacts with 
 </ClaimType>
 ```
 
-As a result, the JWT token issued by Azure AD B2C, omits the `family_name` instead of ClaimType name **surname**.
+As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
  
 ```JSON
 {
@@ -109,7 +109,7 @@ The follwing example configures a **PhoneNumber** claim with the `Simple` mask:
 
 ```XML
 <ClaimType Id="PhoneNumber">
-  <DisplayName>Phone</DisplayName>
+  <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
   <Mask Type="Simple">XXX-XXX-</Mask>  
   <UserHelpText>Your telephone number.</UserHelpText>

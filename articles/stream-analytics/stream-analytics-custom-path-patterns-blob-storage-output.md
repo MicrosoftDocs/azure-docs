@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 Azure Stream Analytics supports custom date and time format specifiers in the file path for blob storage outputs. Custom DateTime path patterns allow you to specify an output format that aligns with Hive Streaming conventions, giving Azure Stream Analytics the ability to send data to Azure HDInsight and Azure Databricks for downstream processing. Custom DateTime path patterns are easily implemented using the `datetime` keyword in the Path Prefix field of your blob output, along with the format specifier. For example, `{datetime:yyyy}`.
 
-Use this link for [Azure Portal](https://ms.portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) to toggle the feature flag that enables the custom DateTime path patterns for blob storage output preview. This feature will be soon enabled in the main portal.
+Use this link for [Azure Portal](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) to toggle the feature flag that enables the custom DateTime path patterns for blob storage output preview. This feature will be soon enabled in the main portal.
 
 ## Supported tokens
 

@@ -8,12 +8,30 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018 
+ms.date: 10/01/2018 
 ---
 # Known issues and troubleshooting Azure Machine Learning service
  
 This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service. 
 
+## SDK installation issues
+
+**Error message: Cannot uninstall 'PyYAML'** 
+
+PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it in the event of a partial uninstall. To continue installing the SDK while ignoring this error, use:
+```Python 
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
+
+## Image building failure
+
+Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.  
+
+## Pipelines
+An error occurs when calling PythonScriptStep multiple times in a row without changing the script or parameters. Workaround is to rebuild the PipelineData object.
+
+## FPGAs
+You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
 
 ## Databricks
 
@@ -30,8 +48,9 @@ Databricks and Azure Machine Learning issues.
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
    ```
 
-## Gather diagnostics information
-Sometimes it can be helpful if you can provide diagnostic information when asking for help. Here is where the log files live:
+## Diagnostic logs
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. 
+Here is where the log files live:
 
 ## Resource quotas
 

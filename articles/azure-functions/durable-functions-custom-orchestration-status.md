@@ -2,19 +2,22 @@
 title: Custom orchestration status in Durable Functions - Azure
 description: Learn how to configure and use custom orchestration status for Durable Functions.
 services: functions
-author: kadimitr
+author: kashimiz
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/24/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
 # Custom orchestration status in Durable Functions (Azure Functions)
 
 Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API.
+
+> [!NOTE]
+> Custom orchestration statuses for JavaScript will be available in an upcoming release.
 
 ## Sample use cases 
 

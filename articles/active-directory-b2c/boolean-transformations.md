@@ -121,7 +121,7 @@ Performs a Not operation of the boolean inputClaim and sets the outputClaim with
 Use this claim transformation to perform logical negation on a claim.
 
 ```XML
-<ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
+<ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
   <OutputClaims>

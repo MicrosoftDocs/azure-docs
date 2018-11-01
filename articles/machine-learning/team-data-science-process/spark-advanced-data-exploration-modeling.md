@@ -4,7 +4,7 @@ description: Use HDInsight Spark to do data exploration and train binary classif
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60

@@ -1,12 +1,12 @@
 ---
-title: Run a disaster recovery drill for Azure VMs to a secondary Azure region with Azure Site Recovery
-description: Learn how to run a disaster recovery drill for Azure VMs to a secondary Azure region using the Azure Site Recovery service.
+title: Run a disaster recovery drill for Azure VMs to a secondary Azure region with the Azure Site Recovery service
+description: Learn how to run a disaster recovery drill for Azure VMs to a secondary Azure region for Azure IaaS VMs using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -21,12 +21,13 @@ This tutorial shows you how to run a disaster recovery drill for an Azure VM, fr
 > * Check the prerequisites
 > * Run a test failover for a single VM
 
-
+> [!NOTE]
+> This tutorial is intended to guide the user through the steps to perform a DR drill with minimal steps; in case you want to learn more about the various aspects associated with performing a DR drill, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
 
 ## Prerequisites
 
 - Before you run a test failover, we recommend that you verify the VM properties to make sure everything's as expected.  Access the VM properties in **Replicated items**. The **Essentials** blade shows information about machines settings and status.
-- We recommend you use a separate Azure VM network for the test failover, and not the default network that was set up when you enabled replication.
+- **We recommend you use a separate Azure VM network for the test failover**, and not the default network that was set up when you enabled replication.
 
 
 ## Run a test failover

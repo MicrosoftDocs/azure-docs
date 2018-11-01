@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 # Import Azure Log Analytics data into Power BI
 
@@ -76,5 +76,5 @@ The dataset created in Power BI will have the same data that you previously saw 
 
 
 ## Next steps
-* Learn about [log searches](log-analytics-log-searches.md) to build queries that can be exported to Power BI.
+* Learn about [log searches](log-analytics-log-search.md) to build queries that can be exported to Power BI.
 * Learn more about [Power BI](http://powerbi.microsoft.com) to build visualizations based on Log Analytics exports.

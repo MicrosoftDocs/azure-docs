@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ms.reviewer: sngun
 ---
 
-# Migrate your data to Azure Cosmos DB Cassandra API account
+# Tutorial: Migrate your data to Azure Cosmos DB Cassandra API account
 
 This tutorial provides instructions on how to migrate Apache Cassandra data into Azure Cosmos DB Cassandra API. 
 
@@ -58,7 +58,7 @@ After you identify the requirements of your existing workload, you should create
 
 ## Prerequisites for migration
 
-* **Create tables in Azure Cosmos DB Cassandra API account:** Before you start the migrating data, pre-create all your tables from the Azure portal or from cqlsh.
+* **Create tables in Azure Cosmos DB Cassandra API account:** Before you start the migrating data, pre-create all your tables from the Azure portal or from cqlsh. If you are migrating to an Azure Cosmos DB account that has database level throughput, make sure to provide a partition key when creating the Azure Cosmos DB containers.
 
 * **Increase throughput:** The duration of your data migration depends on the amount of throughput you provisioned for the tables in Azure Cosmos DB. Increase the throughput for the duration of migration. With the higher throughput, you can avoid rate limiting and migrate in less time. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput, see [set throughput](set-throughput.md) for Azure Cosmos DB containers. It’s also recommended to have Azure Cosmos DB account in the same region as your source database. 
 
@@ -97,7 +97,7 @@ Use the following steps to migrate data to Azure Cosmos DB Cassandra API with Sp
 
 - Move data to destination Cassandra API endpoint by using [table copy operation](cassandra-spark-table-copy-ops.md) 
 
-Migrating data by using spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. This requires spark to be set up as intermediary for one time or regular ingestion. You can accelerate this migration by using express route connectivity between on-premise and Azure. 
+Migrating data by using spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. This option requires spark to be set up as intermediary for one time or regular ingestion. You can accelerate this migration by using express route connectivity between on-premise and Azure. 
 
 ## Next steps
 

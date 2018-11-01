@@ -102,7 +102,7 @@
     items:
     - name: Managed Disks
       href: managed-disks-overview.md
-    - name: Premium storage
+    - name: Premium SSDs
       href: premium-storage.md
     - name: Standard SSDs
       href: disks-standard-ssd.md
@@ -357,10 +357,12 @@
         href: openshift-get-started.md
       - name: OpenShift prerequisites
         href: openshift-prerequisites.md
-      - name: OpenShift Origin
-        href: openshift-origin.md
       - name: OpenShift Container Platform
         href: openshift-container-platform.md
+      - name: OKD
+        href: openshift-okd.md
+      - name: Azure Stack
+        href: openshift-azure-stack.md
       - name: OpenShift post-deployment tasks
         href: openshift-post-deployment.md
       - name: Troubleshooting deployments

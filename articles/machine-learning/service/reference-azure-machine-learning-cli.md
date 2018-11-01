@@ -30,7 +30,7 @@ This machine learning CLI is an extension of [Azure CLI](https://docs.microsoft.
 
 You can install the CLI using this command from our preview PyPi index:
 ```AzureCLI
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.50-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 You can remove the CLI using this command:
@@ -61,7 +61,7 @@ Here is a sample of common commands:
 
 ### Workspace creation & compute setup
 
-+ Create an Azure Machine Learning Workspace, the top level resource for machine learning.
++ Create an Azure Machine Learning service workspace, the top level resource for machine learning.
    ```AzureCLI
    az ml workspace create -n myworkspace -g myresourcegroup
    ```

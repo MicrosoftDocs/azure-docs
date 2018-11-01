@@ -1,6 +1,6 @@
 ---
-title: Manage and deploy models in Azure Machine Learning
-description: Learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources.  
+title: Manage and deploy models in Azure Machine Learning Service
+description: Learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning Service, on your local machine, or from other sources.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,15 +11,15 @@ ms.author: hjerez
 ms.date: 09/24/2018
 ---
 
-# Manage, deploy, and monitor models with Azure Machine Learning
+# Manage, deploy, and monitor models with Azure Machine Learning Service
 
-In this article, you can learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
+In this article, you can learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
 The following diagram illustrates the complete deployment workflow:
 [ ![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 The deployment workflow includes the following steps:
-1. **Register the model** in a registry hosted in your Azure Machine Learning workspace
+1. **Register the model** in a registry hosted in your Azure Machine Learning Service workspace
 1. **Register an image** that pairs a model with a scoring script and dependencies in a portable container 
 1. **Deploy** the image as a web service in the cloud or to edge devices
 1. **Monitor and collect data**
@@ -31,7 +31,7 @@ Each step can be performed independently or as part of a single deployment comma
 
 ## Step 1: Register model
 
-The model registry keeps track of all the models in your Azure Machine Learning workspace.
+The model registry keeps track of all the models in your Azure Machine Learning Service workspace.
 Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models.
 
 You can't delete models that are being used by an image.
@@ -67,7 +67,7 @@ You can deploy your images to the following [deployment targets](how-to-deploy-a
 * Azure FPGA machines
 * Azure IoT Edge devices
 
-As your service is deployed, the inferencing request is automatically load-balanced and the cluster is scaled to satisfy any spikes on demand. [Telemetry about your service](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) can be captured into the Azure Application Insights service associated with your Workspace.
+As your service is deployed, the inferencing request is automatically load-balanced and the cluster is scaled to satisfy any spikes on demand. [Telemetry about your service can be captured](how-to-enable-app-insights.md) into the Azure Application Insights service associated with your Workspace.
 
 ## Step 4: Monitor models and collect data
 

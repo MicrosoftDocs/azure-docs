@@ -68,7 +68,7 @@ In this section, you will enable and disable a system-assigned managed identity 
 3. (Optional) Add the VM managed identities for Azure resources extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
-   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements. The VM extension is planned for deprecation in January 2019.
+   > The following examples assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements. The VM extension is planned for deprecation in January 2019.
    >
 
    ```JSON
@@ -109,7 +109,7 @@ In this section, you will enable and disable a system-assigned managed identity 
             },
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -184,7 +184,7 @@ If you have a VM that no longer needs a system-assigned managed identity:
 
    If your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `userAssignedIdentities` dictionary values.
 
-   **Microsoft.Compute/virtualMachines API version 2018-06-01 and earlier**
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
    
    If your `apiVersion` is `2017-12-01` and your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities.  
    
@@ -231,7 +231,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
    }
    ```
    
-   **Microsoft.Compute/virtualMachines API version 2017-12-01 and earlier**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
     
    If your `apiVersion` is `2017-12-01`, your user-assigned managed identities are stored in the `identityIds` array and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
     
@@ -294,7 +294,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -312,7 +312,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines API version 2017-12-01 and earlier**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
    
    ```JSON
    "resources": [
@@ -331,7 +331,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -371,7 +371,7 @@ If you have a VM that no longer needs a user-assigned managed identity:
     }
    ```
    
-   **Microsoft.Compute/virtualMachines API version 2018-06-01 and earlier**
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
     
    To remove a single user-assigned managed identity from a VM, remove it from the `useraAssignedIdentities` dictionary.
 

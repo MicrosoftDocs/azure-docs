@@ -96,6 +96,7 @@ Functions provides a great way to offload processing tasks in a logic apps workf
     using System;
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
     

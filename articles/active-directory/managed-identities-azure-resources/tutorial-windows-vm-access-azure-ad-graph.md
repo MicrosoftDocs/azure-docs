@@ -132,7 +132,7 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
    Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId
    ```
  
-## Get an access token using the VM's identity and use it to call Azure AD Graph 
+## Get an access token using the VM's identity to call Azure AD Graph 
 
 To use the VM's system assigned managed identity for authentication to Azure AD Graph, you need to make requests from the VM.
 

@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/31/2018
 ms.author: raynew
 ---
 
@@ -13,6 +13,16 @@ ms.author: raynew
 ## Troubleshoot common errors
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
+
+### I am using the continuous discovery OVA, but VMs that are deleted in my on-premises environment are still being shown in the portal.
+
+The appliance for continuous discovery appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+
+- Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
+
+   ![Stop discovery](./media/troubleshooting-general/stop-discovery.png)
+
+- Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
 
 ### Migration project creation failed with error *Requests must contain user identity headers*
 
@@ -38,9 +48,16 @@ You can go to the **Essentials** section in the **Overview** page of the project
 
 ## Collector errors
 
-### Deployment of collector OVA failed
+### Deployment of Azure Migrate Collector failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
 
-This could happen if the OVA is partially downloaded or due to the browser if you are using vSphere web client to deploy the OVA. Ensure that the download is complete and try deploying the OVA with a different browser.
+1. Verify if Azure Migrate Collector OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
+2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
+3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5, try to deploy the OVA directly on ESXi host by following the below steps:
+  - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
+  - Go to Home > Inventory
+  - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
+4. If the deployment still fails, contact Azure Migrate support.
+
 
 ### Collector is not able to connect to the internet
 
@@ -87,9 +104,11 @@ Azure Migrate collector downloads PowerCLI and installs it on the appliance. Fai
 
 ### Error UnhandledException Internal error occured: System.IO.FileNotFoundException
 
-This is an issue seen on Collector versions less than 1.0.9.5. If you are on a Collector version 1.0.9.2 or pre-GA versions like 1.0.8.59, you will face this issue. Follow the [link given here to the forums for a detailed answer](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
 
-[Upgrade your Collector to fix the issue](https://aka.ms/migrate/col/checkforupdates).
+1. If you are not on the latest version of the collector appliance, [upgrade your Collector to the latest version](https://aka.ms/migrate/col/checkforupdates) and check if the issue is resolved.
+2. If you already have the latest collector version, manually install [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) and check if the issue is resolved.
+3. If the above does not resolve the issue, navigate to the C:\Program Files\ProfilerService folder and remove the VMware.dll and VimService65.dll files present in the folder and then restart the 'Azure Migrate Collector' service in Windows Services Manage (Open 'Run' and type 'services.msc' to open Windows Service Manager).
 
 ### Error UnableToConnectToServer
 
@@ -197,9 +216,8 @@ To collect Event Tracing for Windows, do the following:
 
 ## Collector error codes and recommended actions
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Error Code | Error name                      | Message                                                                       | Possible causes                                                                                        | Recommended action                                                                                                                          |
+| Error Code | Error name   | Message   | Possible causes | Recommended action  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | Collector has expired.                                                        | Collector Expired.                                                                                    | Please download a new version of collector and retry.                                                                                      |
 | 751       | UnableToConnectToServer        | Unable to connect to vCenter Server '%Name;' due to error: %ErrorMessage;     | Check the error message for more details.                                                             | Resolve the issue and try again.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | The server '%Name;' is not a vCenter Server.                                  | Provide vCenter Server details.                                                                       | Retry the operation with correct vCenter Server details.                                                                                   |

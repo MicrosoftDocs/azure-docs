@@ -14,7 +14,7 @@ ms.component: hybrid
 ms.author: billmath
 ---
 
-#Azure AD Connect and Azure AD Connect Health installation roadmap
+# Azure AD Connect and Azure AD Connect Health installation roadmap
 
 ## Install Azure AD Connect
 
@@ -164,7 +164,6 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 
 ## Next Steps
 
-
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
@@ -173,6 +172,3 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
 - [Install Azure AD Connect Health agents](how-to-connect-health-agent-install.md) 
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-
-
-

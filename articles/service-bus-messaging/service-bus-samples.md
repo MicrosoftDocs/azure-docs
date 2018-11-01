@@ -39,5 +39,4 @@ See the following topics for conceptual overviews of Service Bus.
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Service Bus architecture](service-bus-architecture.md)
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 

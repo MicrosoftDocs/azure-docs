@@ -6,8 +6,8 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
 ---

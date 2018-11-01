@@ -42,7 +42,7 @@ No, multiple connectors for the same AD domain are not supported.
 **Q: Can I move the Azure AD Connect database from the local database to a remote SQL Server instance?**   
 Yes, the following steps provide general guidance on how to do this. We are currently working on a more detailed document.
 1. Back up the LocalDB ADSync database.
-The simplest way to do this is to use SQL Server Management Studio installed on the same machine as Azure AD Connect. Connect to *(localdb)\.\ADSync*, and then back up the ADSync database.
+The simplest way to do this is to use SQL Server Management Studio installed on the same machine as Azure AD Connect. Connect to *(LocalDb).\ADSync*, and then back up the ADSync database.
 
 2. Restore the ADSync database to your remote SQL Server instance.
 

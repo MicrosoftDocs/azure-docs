@@ -50,15 +50,15 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 ## Document limits 
 
-In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3 HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
+As of October 2018, there are no longer any document limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
 
 To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
 
   ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-### Regions and services having document limits
+### Regions previously having document limits
 
-Services having limits were either created before late 2017, or are running on data centers using lower-capacity clusters for hosting Azure Search services. Affected data centers are in the following regions:
+If the portal indicates a document limit, your service was either created before late 2017, or it was created on a data center using lower-capacity clusters for hosting Azure Search services:
 
 + Australia East
 + East Asia
@@ -71,6 +71,8 @@ For services subject to document limits, the following maximum limits apply:
 |  Free | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
+
+If your service has limits that are blocking you, create a new service and then republish all content to that service. There is no mechanism for seamlessly reprovisioning your service onto new hardware behind the scenes.
 
 > [!Note] 
 > For S3 High Density services created after late 2017, the 200 million document per partition has been removed but the 1 million document per index limit remains.

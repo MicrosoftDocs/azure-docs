@@ -91,10 +91,10 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
-  - name: Bing Image Search endpoints      
+  - name: Bing Image Search endpoints
     href: image-search-endpoint.md
-  - name: Supported countries and markets
-    href: supported-countries-markets.md
+  - name: Language and region support
+    href: language-support.md
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
   - name: Analytics for Bing Image Search API

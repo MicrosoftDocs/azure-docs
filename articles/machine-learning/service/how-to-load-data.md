@@ -12,13 +12,11 @@ ms.reviewer: jmartens
 ms.date: 09/24/2018
 ---
 
-#Load and read data with Azure Machine Learning
+# Load and read data with Azure Machine Learning
 
 Use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) to load different types of input data. 
 
-To load your data, you have two approaches:
-+ Specify the data file type and its parameters
-+ Use the SDK smart reading functionality to automatically detect the type of a file
+In order to load your data, specify the data file type and its parameters
 
 ## Use text line data 
 One of the simplest ways to load data is to read it as text lines.
@@ -347,7 +345,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
 |4|1010691|10th Steet Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php... |10th Street and Poplar|Lamar|Barton|
-
-## Use "smart reading"
-
-Use the SDK smart reading functionality to automatically detect the type of a file.

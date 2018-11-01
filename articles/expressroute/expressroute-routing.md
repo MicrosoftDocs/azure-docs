@@ -207,7 +207,11 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | SharePoint Online | 12076:5020 |
 | Skype For Business Online | 12076:5030 |
 | Dynamics 365 | 12076:5040 |
+| Azure Global Services* | 12076:5050 |
 | Other Office 365 Online services | 12076:5100 |
+
+***Azure Global Services includes Azure DevOps**
+
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
