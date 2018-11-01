@@ -10,7 +10,7 @@ ms.service: storsimple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 10/26/2018
+ms.date: 11/01/2018
 ms.author: carolz
 ---
 # StorSimple Documentation
@@ -38,7 +38,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
     </li>
    </ul>
 <ul class="panelContent cardsFTitle">
-     <li>
+    <li>
         <a href="/azure/storsimple/storsimple-overview">
         <div class="cardSize">
             <div class="cardPadding">
@@ -57,7 +57,6 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </a>
     </li>
     <li>
-     <li>
         <a href="/azure/storsimple/storsimple-ova-overview">
         <div class="cardSize">
             <div class="cardPadding">
@@ -95,7 +94,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="/azure/storsimple/storsimple-ova-system-requirements">
         <div class="cardSize">
             <div class="cardPadding">
