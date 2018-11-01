@@ -248,7 +248,7 @@ A: The user is blocked from getting access to the application. The user would ha
 **Q: Is it possible to unaccept Terms of use that were previously accepted?**</br>
 A: You can [review previously accepted Terms of use](#how-users-can-review-their-terms-of-use), but currently there isn't a way to unaccept.
 
-**Q: What happens if I also have configured Intune terms and conditions?**</br>
+**Q: What happens if I'm also using Intune terms and conditions?**</br>
 A: If you have both Azure AD Terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create) configured, the user will be required to accept both. For more information, see [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## Next steps
