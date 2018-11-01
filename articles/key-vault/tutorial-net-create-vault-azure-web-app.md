@@ -229,7 +229,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ## Publish the web application to Azure
 
-Publish this app to Azure once again to see it live as a web app, and to see that you can fetch the secret value:
+Publish this app to Azure once again to see it live as a web app, and to see that you can fetch the secret value.
 
 1. In Visual Studio, select the **key-vault-dotnet-core-quickstart** project.
 2. Select **Publish** > **Start**.
@@ -237,3 +237,5 @@ Publish this app to Azure once again to see it live as a web app, and to see tha
 
 In the above command you are giving the Identity (MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault. <br />
 Now when you run the application, you should see your secret value retrieved. 
+
+And that's it folks. You've now successfully created a Web App in .NET that stores and fetches it's secrets from Key Vault.
