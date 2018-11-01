@@ -24,12 +24,13 @@ ms.author: spelluru
 In this quickstart, you create .NET sender and receiver applications that send and receive messages by using Hybrid Connections WebSockets in Azure Relay. 
 To learn about Azure Relay in general, see [Azure Relay](relay-what-is-it.md). 
 
-In this quickstart, you complete these steps to create two console applications:
+In this quickstart, you take the following steps:
 
 1. Create a Relay namespace by using the Azure portal.
 2. Create a hybrid connection in that namespace by using the Azure portal.
 3. Write a server (listener) console application to receive messages.
 4. Write a client (sender) console application to send messages.
+5. Run applications. 
 
 ## Prerequisites
 
@@ -64,7 +65,7 @@ In Visual Studio, write a C# console application to send messages to the relay.
 Congratulations, you have created an end-to-end Hybrid Connections application!
 
 ## Next steps
-In this quickstart, the client and server applications used .NET WebSockets to send and receive messages. The Hybrid Connections feature of Azure Relay also supports using HTTP to send and receive messages. To learn how to use HTTP with Azure Relay Hybrid Connections, see the [HTTP quickstart](relay-hybrid-connections-http-requests-dotnet-get-started.md).
+In this quickstart, you created .NET client and server applications that used WebSockets to send and receive messages. The Hybrid Connections feature of Azure Relay also supports using HTTP to send and receive messages. To learn how to use HTTP with Azure Relay Hybrid Connections, see the [HTTP quickstart](relay-hybrid-connections-http-requests-dotnet-get-started.md).
 
-In this quickstart, you used .NET Framework to create client and server applications. To learn how to write client and server applications in Node.js, see the [Node.js WebSockets quickstart](relay-hybrid-connections-node-get-started.md) or the [Node.js HTTP quickstart]().
+In this quickstart, you used .NET Framework to create client and server applications. To learn how to write client and server applications using Node.js, see the [Node.js WebSockets quickstart](relay-hybrid-connections-node-get-started.md) or the [Node.js HTTP quickstart](relay-hybrid-connections-http-requests-dotnet-get-started.md).
 
