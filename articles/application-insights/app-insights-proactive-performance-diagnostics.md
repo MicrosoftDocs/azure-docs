@@ -181,8 +181,8 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Profiler](app-insights-profiler.md) 
 * [Snapshot debugger](app-insights-snapshot-debugger.md)
-* [Analytics](app-insights-analytics-tour.md)
-* [Analytics smart diagnostics](app-insights-analytics-diagnostics.md)
+* [Analytics](../query-language/get-started-analytics-portal.md)
+* [Analytics smart diagnostics](app-insights-analytics.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
