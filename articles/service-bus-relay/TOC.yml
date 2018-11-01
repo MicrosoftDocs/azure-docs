@@ -4,8 +4,10 @@
   items:
   - name: What is Relay?
     href: relay-what-is-it.md
-- name: Quickstarts
+- name: Tutorials
   items:
+  - name: Hybrid Connections
+    items:
     - name: Send and receive messages - .NET Websockets
       href: relay-hybrid-connections-dotnet-get-started.md
     - name: Send and receive messages - .NET HTTP
@@ -13,15 +15,15 @@
     - name: Send and receive messages - Node Websockets
       href: relay-hybrid-connections-node-get-started.md
     - name: Send and receive messages - Node HTTP
-      href: relay-hybrid-connections-http-requests-node-get-started.md
-- name: Tutorials
-  items:
-  - name: Expose an on-premsies WCF service to a web application in the cloud
-    href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
-  - name: Expose an on-premises WCF service to a WCF client outside your network
-    href: service-bus-relay-tutorial.md
-  - name: Expose an on-premises WCF REST service to a client outside your network
-    href: service-bus-relay-rest-tutorial.md
+      href: relay-hybrid-connections-http-requests-node-get-started.md    
+  - name: Windows Communication Foundation (WCF)
+    items:
+    - name: Expose an on-premsies WCF service to a web application in the cloud
+      href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - name: Expose an on-premises WCF service to a WCF client outside your network
+      href: service-bus-relay-tutorial.md
+    - name: Expose an on-premises WCF REST service to a client outside your network
+      href: service-bus-relay-rest-tutorial.md
 - name: Samples
   items:
   - name: Hybrid Connections

@@ -45,7 +45,7 @@ To complete this tutorial, you need the following prerequisites:
 - Azure SDK for .NET. Install it from the [SDK downloads page](https://azure.microsoft.com/downloads/).
 
 ## How Azure Relay helps with hybrid solutions
-Business solutions are typiically composed of a combination of custom code written to tackle new and unique business requirements and existing functionality provided by solutions and systems that are already in place.
+Business solutions are typically composed of a combination of custom code written to tackle new and unique business requirements and existing functionality provided by solutions and systems that are already in place.
 
 Solution architects are starting to use the cloud for easier handling of scale requirements and lower operational costs. In doing so, they find that existing service assets they'd like to leverage as building blocks for their solutions are inside the corporate firewall and out of easy reach for access by the cloud solution. Many internal services are not built or hosted in a way that they can be easily exposed at the corporate network edge.
 
@@ -53,7 +53,7 @@ Solution architects are starting to use the cloud for easier handling of scale r
 Windows Communication Foundation (WCF) web services and making those services securely accessible to solutions that reside outside the corporate perimeter without requiring intrusive changes to the corporate network infrastructure. Such relay services are still hosted inside their existing environment, but they delegate listening for incoming sessions and requests to the cloud-hosted relay service. Azure Relay also protects those services from unauthorized access by using [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) authentication.
 
 ## Review the scenario
-In this tutorial, you will create an ASP.NET website that enables you to see a list of products on the product inventory page.
+In this tutorial, you create an ASP.NET website that enables you to see a list of products on the product inventory page.
 
 ![Scenario][0]
 
@@ -75,14 +75,14 @@ First, you build a simulated on-premises product catalog system.  This project i
 
    ![New Project dialog box][11]
 4. Click **OK** to create the **ProductsServer** project.
-5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then re-start Visual Studio.
+5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then restart Visual Studio.
 6. In Solution Explorer, right-click the **ProductsServer** project, then click **Manage NuGet Packages**.
 7. Click the **Browse** tab, then search for **WindowsAzure.ServiceBus**. Select the **WindowsAzure.ServiceBus** package.
 8. Click **Install**, and accept the terms of use.
 
    ![Select NuGet package][13]
 
-   Note that the required client assemblies are now referenced.
+   The required client assemblies are now referenced.
 8. Add a new class for your product contract. In Solution Explorer, right-click the **ProductsServer** project and click **Add**, and then click **Class**.
 9. In the **Name** box, type the name **ProductsContract.cs**. Then click **Add**.
 10. In **ProductsContract.cs**, replace the namespace definition with the following code, which defines the contract for the service.
@@ -175,7 +175,7 @@ First, you build a simulated on-premises product catalog system.  This project i
         }
     }
     ```
-12. In Solution Explorer, double-click the **App.config** file to open it in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element (but still within `<system.ServiceModel>`), add the following XML code. Be sure to replace *yourServiceNamespace* with the name of your namespace, and *yourKey* with the SAS key you retrieved earlier from the portal:
+12. In Solution Explorer, double-click the **App.config** file to open it in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element (but still within `<system.ServiceModel>`), add the following XML code: Be sure to replace *yourServiceNamespace* with the name of your namespace, and *yourKey* with the SAS key you retrieved earlier from the portal:
 
     ```xml
     <system.serviceModel>
@@ -213,7 +213,7 @@ First, you build a simulated on-premises product catalog system.  This project i
 
 ## Create an ASP.NET application
 
-In this section you will build a simple ASP.NET application that displays data retrieved from your product service.
+In this section, you build a simple ASP.NET application that displays data retrieved from your product service.
 
 ### Create the project
 
@@ -241,7 +241,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
 ### Modify the web application
 
-1. In the Product.cs file in Visual Studio, replace the existing namespace definition with the following code.
+1. In the Product.cs file in Visual Studio, replace the existing namespace definition with the following code:
 
    ```csharp
 	// Declare properties for the products inventory.
@@ -256,7 +256,7 @@ In this section you will build a simple ASP.NET application that displays data r
 	}
 	```
 2. In Solution Explorer, expand the **Controllers** folder, then double-click the **HomeController.cs** file to open it in Visual Studio.
-3. In **HomeController.cs**, replace the existing namespace definition with the following code.
+3. In **HomeController.cs**, replace the existing namespace definition with the following code:
 
     ```csharp
     namespace ProductsWeb.Controllers
@@ -283,7 +283,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
     ![Delete the generated list items][41]
 
-7. In Solution Explorer, expand the Views\Home folder, then double-click **Index.cshtml** to open it in the Visual Studio editor. Replace the entire contents of the file with the following code.
+7. In Solution Explorer, expand the Views\Home folder, then double-click **Index.cshtml** to open it in the Visual Studio editor. Replace the entire contents of the file with the following code:
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -334,7 +334,7 @@ Run the application to verify that it works.
 
 The next step is to hook up the on-premises products server with the ASP.NET application.
 
-1. If it is not already open, in Visual Studio re-open the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
+1. If it is not already open, in Visual Studio reopen the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
 2. Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project references. In Solution Explorer, right-click the **ProductsPortal** project, then click **Manage NuGet Packages**.
 3. Search for **WindowsAzure.ServiceBus** and select the **WindowsAzure.ServiceBus** item. Then complete the installation and close this dialog box.
 4. In Solution Explorer, right-click the **ProductsPortal** project, then click **Add**, then **Existing Item**.
@@ -342,7 +342,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
    ![Add as a link][24]
 
-6. Now open the **HomeController.cs** file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
+6. Now open the **HomeController.cs** file in the Visual Studio editor and replace the namespace definition with the following code: Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This enables the client to call the on-premises service, returning the result of the call.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -400,11 +400,11 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 ## Run the project locally
 
-To test the application locally, in Visual Studio press **F5**. The on-premises server (**ProductsServer**) should start first, then the **ProductsPortal** application should start in a browser window. This time, you will see that the product inventory lists data retrieved from the product service on-premises system.
+To test the application locally, in Visual Studio press **F5**. The on-premises server (**ProductsServer**) should start first, then the **ProductsPortal** application should start in a browser window. This time, you see that the product inventory lists data retrieved from the product service on-premises system.
 
 ![Web application][10]
 
-Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the server app display a message when `GetProducts()` from **ProductsServer** is called.
+Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
 Close both applications before proceeding to the next step.
 
@@ -440,7 +440,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
 ## Run the application
 
-1. Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. Notice again that the product inventory lists data retrieved from the product service on-premises system, and displays that data in the web app. Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app.
+1. Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screenshot: Notice again that the product inventory lists data retrieved from the product service on-premises system, and displays that data in the web app. Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app.
 
    ![Run the web app on Azure][1]
 
@@ -450,7 +450,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
    >
 
    ![Output from server][37]
-2. Back in the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the server app display a message when `GetProducts()` from **ProductsServer** is called.
+2. Back in the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
     ![Updated output][38]
 
