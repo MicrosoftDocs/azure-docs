@@ -11,7 +11,7 @@ articles/ @apex-docs-pr-reviewers
 
 # Cognitive Services
 articles/cognitive-services/ @nitinme @tchristiani @cjgronlund
-articles/cognitive-services/luis/ @cjgronlund @nitinme @diberry
+articles/cognitive-services/LUIS/ @cjgronlund @nitinme @diberry
 articles/cognitive-services/speaker-recognition/ @cjgronlund @nitinme @erhopf
 articles/cognitive-services/speech-service/ @cjgronlund @nitinme @erhopf
 articles/cognitive-services/[Tt]ranslator/ @cjgronlund @nitinme @erhopf
