@@ -193,9 +193,7 @@ You also can find missing information by browsing to the controller VM informati
 
 To find this information from the Resource Manager template output, follow this procedure:
 
-1. From the notification icon on the top bar of the Azure portal, click **Go to resource group**. This shows the new resource group that contains your controller and vnet.
-
-   ![Notifications section of portal with "Deployment succeeded" message and "Go to resource group" and "Pin to dashboard" buttons](media/avere-vfxt-browse-to-rg.png)
+1. Go to the resource group for your cluster controller.
 
 1. On left side, click **Deployments**, and then **Microsoft.Template**.
 
