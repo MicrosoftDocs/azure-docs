@@ -27,7 +27,7 @@ Before you begin this tutorial, you must have the following items:
     > [!NOTE]
     > HDInsight Tools for IntelliJ has been tested only with HDP 2.4. To get HDP 2.4, expand **Hortonworks Sandbox Archive** on the [Hortonworks Sandbox downloads site](http://hortonworks.com/downloads/#sandbox).
 
-- [Java Developer Kit (JDK) version 1.8 or later](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Azure Toolkit for IntelliJ requires JDK.
+- [Java Developer Kit (JDK) version 1.8 or later](https://aka.ms/azure-jdks). Azure Toolkit for IntelliJ requires JDK.
 
 - [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) plug-in and the [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij) plug-in. HDInsight Tools for IntelliJ is available as part of Azure Toolkit for IntelliJ. 
 

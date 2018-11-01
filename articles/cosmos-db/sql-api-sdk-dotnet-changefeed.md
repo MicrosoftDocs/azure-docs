@@ -39,6 +39,9 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.2.2"/>2.2.2
+* Fixed an issue that may occur during processing split when lease collection is partitioned. The issue may lead to leases for gone partitions not being deleted from lease collection. The issue is fixed with this release.
+
 ### <a name="2.2.1"/>2.2.1
 * Fixed Estimator calculation for Multi Master accounts and new Session Token format.
 

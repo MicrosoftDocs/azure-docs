@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an event hub
 
-In this quickstart, you generate sample data and send it to an event hub. The first step is to create an event hub. You do this by using an Azure Resource Manager (ARM) template in the Azure portal.
+In this quickstart, you generate sample data and send it to an event hub. The first step is to create an event hub. You do this by using an Azure Resource Manager template in the Azure portal.
 
 1. Use the following button to start the deployment. We recommend opening the link in another tab or window, so you can follow the rest of the steps in this article.
 
