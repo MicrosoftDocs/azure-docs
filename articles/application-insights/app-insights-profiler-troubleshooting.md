@@ -59,7 +59,7 @@ This situation might occur when two or more threads are associated with a reques
 
 When you see parallel threads in your traces, determine which threads are waiting so you can ascertain the critical path for the request. In most cases, the thread that quickly goes into a wait state is simply waiting on the other threads. Concentrate on the other threads, and ignore the time in the waiting threads.
 
-### Error report in the profiling viewer
+### Error report in the profile viewer
 Submit a support ticket in the portal. Be sure to include the correlation ID from the error message.
 
 ## Troubleshooting Profiler on App Services
