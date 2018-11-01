@@ -190,6 +190,9 @@ When you're finished configuring the schedule, select **Create**.
 
 You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule you created.
 
+> [!NOTE]
+> Update Management supports deploying first party updates and pre-downloading patches. This requires changes on the systems being patched, see [first party and pre-download support](automation-update-management.md#firstparty-predownload) to learn how to configure these settings on your systems.
+
 ## View results of an update deployment
 
 After the scheduled deployment starts, you can see the status for that deployment on the **Update deployments** tab under **Update management**. The status is **In progress** when the deployment is currently running. When the deployment finishes, if it's successful, the status changes to **Succeeded**. When there are failures with one or more updates in the deployment, the status is **Partially failed**.

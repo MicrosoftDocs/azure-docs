@@ -92,6 +92,8 @@ This section shows you how to update device settings and properties in IoT Centr
 
 1. You can update the device name. To update any of the device's properties and settings, you must select the device template of the device you want to update in the **Device Template** dropdown. The action tile expands to show all the properties and settings you can update.
 
+    ![Flow update device workflow](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
+
 1. Select each of the properties and settings you want to update. From the dynamic content pane, choose the corresponding input from the trigger. In this example, the Location value is propagated down to update the device's Location property.
 
 1. Finally, save your workflow.

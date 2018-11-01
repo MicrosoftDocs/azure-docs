@@ -4,19 +4,15 @@ description: Learn how to Extend Windows file servers with Azure File Sync, from
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
+#Customer intent: As a IT Administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending storage capacity of my Windows Servers.
 ---
 
-<!---Customer intent: As a IT Administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending storage capacity of my Windows Servers.
---->
-
 # Tutorial: Extend Windows file servers with Azure File Sync
-You use Azure File Sync to centralize your organization's file shares and to extend the storage capacity of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share.
-
-In this tutorial, we'll show the basic steps for extending the storage capacity of a Windows Server using Azure File Sync. We're using a Windows Server Azure VM for this tutorial, but you would typically do the process for your on-premises servers. If you're ready to deploy Azure File Sync in your own environment, use the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) article instead.
+In this tutorial, we'll show the basic steps for extending the storage capacity of a Windows Server using Azure File Sync. Though we're using a Windows Server Azure VM for this tutorial, you would typically do this process for your on-premises servers. If you're ready to deploy Azure File Sync in your own environment, use the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) article instead.
 
 > [!div class="checklist"]
 > * Deploy the Storage Sync Service
@@ -31,8 +27,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Sign in to Azure
 Sign in to the Azure portal at https://portal.azure.com.
 
-## Prepare your environment for the tutorial
-There are a few things you need to put in place for this tutorial before you deploy Azure File Sync. Along with creating an Azure Storage account and file share, you'll create a Windows Server 2016 Datacenter VM and prepare that server for Azure File Sync.
+## Prepare your environment
+There are a few things you need to set up for this tutorial before you deploy Azure File Sync. Along with creating an Azure Storage account and file share, you'll create a Windows Server 2016 Datacenter VM and prepare that server for Azure File Sync.
 
 ### Create a folder and .txt file
 
@@ -87,7 +83,7 @@ At this point, you've created an Azure Storage account and a file share with one
 
    ![Add data disks](./media/storage-sync-files-extend-servers/vm-add-data-disk.png)
 
-1. In the **Disks** tab, under **Disk options**, leave the defaults. 
+1. In the **Disks** tab, under **Disk options**, leave the defaults.
 1. Under **DATA DISKS**, click **Create and attach a new disk**.
 
 1. Leave the defaults, except change the **Size (GiB)** to **1 GB** for this tutorial.
@@ -136,7 +132,7 @@ In the **Windows Server 2016 Datacenter** VM, **Server Manager** will open autom
 
     ![The "IE Enhanced Security Configuration" pane in the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png)
 
-1. In the **Internet Explorer Enhanced Security Configuration** dialog box, select **Off** for **Administrators** and **Users**:  
+1. In the **Internet Explorer Enhanced Security Configuration** dialog box, select **Off** for **Administrators** and **Users**.
 
     ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-3.png)
 
@@ -194,7 +190,7 @@ The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets. Instal
 
 At this point, you've finished setting up your environment for the tutorial and you're ready to begin deploying the **Storage Sync Service**.
 
-## Deploy the Storage Sync Service 
+## Deploy the service 
 Deploying Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group for your selected subscription. The Storage Sync Service inherits access permissions from the subscription and resource group you deploy it into.
 
 1. In the Azure portal, click **Create a resource** and then search for **Azure File Sync**.
@@ -215,10 +211,10 @@ Deploying Azure File Sync starts with placing a **Storage Sync Service** resourc
 1. When you're finished, select **Create** to deploy the **Storage Sync Service**.
 1. Click the **Notifications** tab > **Go to resource**.
 
-## Install the Azure File Sync agent
+## Install the agent
 The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share.
 
-1. Switch back to the **Windows Server 2016 Datacenter** VM and open **Internet Explorer**
+1. Switch back to the **Windows Server 2016 Datacenter** VM and open **Internet Explorer**.
 1. Go to the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Scroll down to the **Azure File Sync Agent** section and click **Download**.
 
    ![Sync agent download](media/storage-sync-files-extend-servers/sync-agent-download.png)
@@ -235,7 +231,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 
 You've deployed the Azure Sync Service and installed the agent on the **Windows Server 2016 Datacenter** VM. Now you need to register the VM with the **Storage Sync Service**.
 
-## Register Windows Server with Storage Sync Service
+## Register Windows Server
 Registering your Windows Server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service. A server can only be registered to one Storage Sync Service and can sync with other servers and Azure file shares associated with the same Storage Sync Service.
 
 The Server Registration UI should open automatically after installing the **Azure File Sync agent**. If it doesn't, you can open it manually from its file location: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
@@ -256,9 +252,9 @@ The Server Registration UI should open automatically after installing the **Azur
 
 1. Click **Register** to complete the server registration.
 1. As part of the registration process, you are prompted for an additional sign-in. Sign in and click **Next**.
-1. Click **OK**
+1. Click **OK**.
 
-## Create a sync group and a cloud endpoint
+## Create a sync group
 A sync group defines the sync topology for a set of files. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on a registered server.
 
 1. To create a sync group, in the [Azure portal](https://portal.azure.com/), select **+ Sync group** from the Storage Sync Service you created for this tutorial. We used *afssyncservice02* as the example in this tutorial.
@@ -290,14 +286,14 @@ A server endpoint represents a specific location on a registered server, such as
    | | |
    | ----- | ----- |
    | Value | Description |
-   | **Registered server** | The name of the server you created for this tutorial. We used *afsvm101918* in this tutorial ||
+   | **Registered server** | The name of the server you created for this tutorial. We used *afsvm101918* in this tutorial |
    | **Path** | The Windows Server path to the drive you created for this tutorial. In our example, it is *f:\filestosync*. |
    | **Cloud Tiering** | Leave disabled for this tutorial. |
    | **Volume Free Space** | Leave blank for this tutorial. |
 
 1. Click **Create**.
 
-Your files are now kept in sync across your Azure file share and Windows Server.
+Your files are now in sync across your Azure file share and Windows Server.
 
 ![Azure Storage successfully synced](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
