@@ -88,9 +88,7 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
       - If the domain policy exists, the setup on the local policy is overwritten.
       - If the domain policy states that RDP is disabled (1), then update the AD policy from domain controller.
       - If the domain policy states that RDP is enabled (0), then no update is needed.
-      - If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command: 
-      
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+      - If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command: `reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f`
                   
 
 2. Check the current configuration of the terminal server.
