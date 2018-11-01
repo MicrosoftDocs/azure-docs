@@ -14,17 +14,21 @@ ms.topic: article
 
 # View system test results
 
-When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model. Go to specific project, go to models tab of that project, then go to appropriate model and select test tab.
+When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model. 
+
+## System test results page
+
+Go to specific project, go to models tab of that project, then go to appropriate model and select test tab.
 
 The test tab shows you:
 
 1.  System Test Results: The result of the test process in the trainings. The test process produces the BLEU score.
 
-    -  Sentence Count: How many parallel sentences were used in the test set
+    -  **Sentence Count:** How many parallel sentences were used in the test set.
 
-    -  BLEU Score: BLEU score generated for a model after training completion
+    -  **BLEU Score:** BLEU score generated for a model after training completion.
 
-    -  Status: If the test process is complete or in progress
+    -  **Status:** Indicates if the test process is complete or in progress.
 
         ![System test results](media/how-to/how-to-system-test-results.png)
 
@@ -35,12 +39,11 @@ The test tab shows you:
     to be translated. The column for the target language contains two sentences
     in each row.
 
-    -  Ref: This sentence is the reference translation of the source sentence as given in the test dataset.
+    -  **Ref:** This sentence is the reference translation of the source sentence as given in the test dataset.
 
-    -  MT: This sentence is the automatic translation of the source sentence done by the model built after the training was conducted.
+    -  **MT:** This sentence is the automatic translation of the source sentence done by the model built after the training was conducted.
 
         ![System test results compare](media/how-to/how-to-system-test-results-2.png)
-
 
 ## Download test
 
@@ -61,12 +64,11 @@ This downloaded zip archive contains three files.
 
     ![Downloaded system test results](media/how-to/how-to-download-system-test.png)
 
-
 ## Deploy a model
 
 To request a deployment:
 
-1.  Click on the project name
+1.  Click on the project name.
 
 2.  In the project page, go to Models tab.
 
@@ -76,4 +78,9 @@ To request a deployment:
 
 3.  Click on Deploy. You can view the status of your deployrequest in the “Status” column.
 
-[!Note] If a model is deployed already, you'll see “Undeploy” button for that model. To undeploy a model click "Undeploy" button. 
+>[!Note]
+>If a model is deployed already, you'll see “Undeploy” button for that model. To undeploy a model click "Undeploy" button.
+
+## Next steps
+
+- Start using your deployed custom translation model with [Translator API V3.0](https://aka.ms/customtranslatorplaceholder).

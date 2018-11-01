@@ -58,17 +58,17 @@ To train a model:
 
 You can edit a model using the Edit link on the Model Details page.
 
-1.  Click on the Pencil icon
+1.  Click on the Pencil icon.
 
     ![Edit model](media/how-to/how-to-edit-model.png)
 
 2.  In the dialog change,
 
-    1.  Model Name (required): Give your project a meaningful name.
+    1.  Model Name (required): Give your model a meaningful name.
 
         ![Edit more dialog](media/how-to/how-to-edit-model-dialog.png)
 
-3.  Click Save
+3.  Click Save.
 
 
 ## Next steps

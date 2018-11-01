@@ -37,8 +37,8 @@ Click on an individual document to view the document details page. The document 
 
     ![Delete confirm](media/how-to/how-to-delete-document-confirm.png)
 
->[!NOTE] 
-User must be a workspace owner to delete document to delete a document. A document can't be in use by a model, that is in any part of the training process or any part of the deployment process.
+>[!NOTE]
+>User must be a workspace owner to delete document to delete a document. A document can't be in use by a model, that is in any part of the training process or any part of the deployment process.
 
 ## Next steps
 

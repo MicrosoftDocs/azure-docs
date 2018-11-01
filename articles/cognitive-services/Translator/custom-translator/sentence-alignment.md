@@ -18,12 +18,16 @@ During the training, sentences present in parallel documents are
 paired or aligned. Custom Translator reports the number of sentences it was
 able to pair as the Aligned Sentences in each of the data sets.
 
+## Pairing and alignment process
+
 Custom Translator learns translations of sentences one sentence at a time. It readings a
 sentence from source, and then the translation of this sentence from target. Then it aligns words and phrases
 in these two sentences to each other. This process enables it to create a map of the
 words and phrases in one sentence to the equivalent words and phrases in the
 translation of this sentence. Alignment tries to ensure that the system trains
 on sentences that are translations of each other.
+
+## Pre-aligned documents
 
 If you know you have parallel documents, you may override the
 sentence alignment by supplying pre-aligned text files. You can extract all
@@ -50,3 +54,7 @@ successfully.
 | Tuning     | 2,000                                      | 500                                      | 2,500                          |
 | Testing    | 2,000                                      | 500                                      | 2,500                          |
 | Dictionary | 0                                          | 0                                        | No upper limit                 |
+
+## Next steps
+
+- Learn how to use a [dictionary](what-is-dictionary.md) in Custom Translator.

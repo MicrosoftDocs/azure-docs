@@ -14,7 +14,7 @@ ms.topic: article
 
 # View model details
 
-The Models tab under project shows all models in that project. Any model trained for that project are listed in this tab.
+The Models tab under project shows all models in that project. Any model trained for that project is listed in this tab.
 
 For each model in the project, following model details are displayed.
 
@@ -34,7 +34,7 @@ For each model in the project, following model details are displayed.
 
     -  Running: Specifies that the training is running in MT system for that model.
 
-    -  Succeeded: Specifies that the training succeeded in MT system and a model is available. In this status a BLEU score is displayed for that model.
+    -  Succeeded: Specifies that the training succeeded in MT system and a model is available. In this status, a BLEU score is displayed for that model.
 
     -  Deployed: Specifies that the successful trained model is submitted to MT system for deployment.
 
@@ -53,7 +53,7 @@ For each model in the project, following model details are displayed.
 4.  BLEU Score: shows BLEU (Bilingual Evaluation Understudy) score of the model,
     indicating the quality of your translation system. This score tells you how
     closely the translations done by the translation system resulting from this
-    training match the reference sentences in the test data set. The BLEU score appears if training is successfully complete. If training isn't complete/ failed, you wont see any BLEU score.
+    training match the reference sentences in the test data set. The BLEU score appears if training is successfully complete. If training isn't complete/ failed, you won't see any BLEU score.
 
 5.  Training Sentence count: Shows total number of sentences used as training
     set.
@@ -70,14 +70,37 @@ For each model in the project, following model details are displayed.
     button is shown.
 
 10. Delete: You can use this button if you want to delete the model. Deleting a
-    model wont delete any of the documents used to create that model.
+    model won't delete any of the documents used to create that model.
 
     ![View model details](media/how-to/how-to-view-model-details.png)
 
+>[!Note]
+>To compare consecutive trainings for the same systems, it is important to keep the tuning set and testing set constant.
 
-[!Note] To compare consecutive trainings for the same systems, it is important to keep the tuning set and testing set constant.
+## View model training details
 
+When your training is complete, you can review details about the training from the details page. Select a project, locate and select the models tab, and choose a model.
+
+The model page has two tabs: Training details and Test.
+
+1.  **Training Details:** This tab shows the list of document(s) used in the training:
+
+    -  Documents Name: This field shows the name of the document
+
+    -  Document Type: This field shows if this document is parallel/ mono.
+
+    -  Sentence count in source language: This field shows number of sentences are there as part of source language.
+
+    -  Sentence count in target language: This field shows number of sentences are there as part of target language.
+
+    -  Aligned Sentences: This field shows number of sentences has been aligned by Custom Translator during align process.
+
+    -  Used Sentences: This field shows number of sentences has been used by Custom Translator during this training.
+
+    ![Model training details](media/how-to/how-to-model-training-details.png)
+
+2.  **Test:** This tab shows the test details for a successful training.
 
 ## Next steps
 
-- Review [model training details](how-to-view-model-details.md) and start analyzing your trained translation model.
+- Review [test results](how-to-view-system-test-results.md) and analyze training results.

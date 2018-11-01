@@ -29,7 +29,7 @@ Use any of these formats to build your translation system:
 | Adobe Acrobat     | .PDF         | Adobe Acrobat portable document                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | HTML document                                                                                                                                                                                                                                                                  |
 | Text file         | .TXT         | UTF-16 or UTF-8 encoded text files                                                                                                                                                                                                                                             |
-| Aligned text file | .ALIGN       | The extension “.ALIGN” is a special extension that you can use if you know that the sentences in the document pair are perfectly aligned. If you provide a ".ALIGN" file, Custom Translator will not align the sentences for you. |
+| Aligned text file | .ALIGN       | The extension `.ALIGN` is a special extension that you can use if you know that the sentences in the document pair are perfectly aligned. If you provide a `.ALIGN` file, Custom Translator will not align the sentences for you. |
 | Excel file        | .XLSX        | Excel file (2013 or later)                                                                                                                                                                                                                                                     |
 
 Documents can be grouped into a single zip file and uploaded. The Custom Translator supports zip file formats (ZIP, GZ, and TGZ).
@@ -41,7 +41,6 @@ where {document name} is the name of your document, {language code} is the ISO L
 
 For example, to upload two parallel documents within a zip for an English to
 Spanish system, the files should be named “data_en” and “data_es”.
-
 
 ## Next steps
 

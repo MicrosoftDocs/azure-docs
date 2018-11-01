@@ -79,8 +79,8 @@ After selecting a project, you'll see the following on the project page:
 
     ![View project details](media/how-to/how-to-view-project.png)
 
->[!NOTE] 
-Model tab: This tab shows all model in this project.
+>[!NOTE]
+>Model tab: This tab shows all model in this project.
 
 ## Next steps
 

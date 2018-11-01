@@ -21,6 +21,8 @@ It doesn’t matter which language is marked as “source” and which language 
 marked as “target” – a parallel document can be used to train a translation
 system in either direction.
 
+## Use of parallel documents
+
 Parallel documents are used by the system:
 
 1.  To learn how words, phrases and sentences are commonly mapped between the
@@ -32,6 +34,15 @@ Parallel documents are used by the system:
 
 As a best practice, make sure that there is a 1:1 sentence correspondence between
 the source and target language versions of the documents.
+
+Documents uploaded are private to each workspace and can be used in as many
+projects or trainings as you like. Sentences extracted from your documents are
+stored separately in your repository as plain Unicode text files and are
+available for you delete. Do not use the Custom Translator as a document
+repository, you will not be able to download the documents you uploaded in the
+format you uploaded them.
+
+## Recommendations
 
 If your project is domain (category) specific, your documents should be
 consistent in terminology within that category. The quality of the resulting
@@ -51,14 +62,6 @@ Use](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Uploading a document using the portal does not alter the ownership of the
 intellectual property in the document itself.
 
-Documents uploaded are private to each workspace and can be used in as many
-projects or trainings as you like. Sentences extracted from your documents are
-stored separately in your repository as plain Unicode text files and are
-available for you delete. Do not use the Custom Translator as a document
-repository, you will not be able to download the documents you uploaded in the
-format you uploaded them.
-
-
 ## Next steps
 
-- Learn how to create a [dictionary](what-is-dictionary.md) in Custom Translator.
+- Learn how to use a [dictionary](what-is-dictionary.md) in Custom Translator.
