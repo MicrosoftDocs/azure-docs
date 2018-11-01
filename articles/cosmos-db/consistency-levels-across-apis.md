@@ -19,7 +19,7 @@ The five consistency models are natively supported by the SQL API, which is the 
 
 The following table shows the mapping between the data-consistency requested by an OSS client driver for Apache Cassandra 4.x and MongoDB 3.4 when using Cassandra API and MongoDB API, respectively, and the corresponding Cosmos DB consistency levels.
 
-## <a id="cassandra-mapping"></a>Mapping Apache Cassandra and Cosmos DB consistency levels
+## <a id="cassandra-mapping"></a>Mapping between Apache Cassandra and Cosmos DB consistency levels
 
 The table below shows the mapping for read consistency between Apache Cassandra 4.x client and Cosmos DB "Default" consistency level for both a multi-region and single-region deployment.
 
