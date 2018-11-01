@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
@@ -24,7 +24,13 @@ ms.reviewer: lenalepa, sureshja
 
 Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform to provide secure sign-in and authorization for their services.
 
-This quickstart shows you how to add and register an application in the Azure portal so that it can be integrated with the Microsoft identity platform.
+This quickstart shows you how to add and register an application using the **Azure Active Directory > App registrations (Preview)** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform.
+
+The new app registrations experience will be the place to manage all your Azure Active Directory (Azure AD) applications. This new experience includes all the features you’re familiar with in the old experiences found in the existing **App registrations** experience in the Azure portal or in the Application Registration Portal, and improves upon these through:
+
+* Better manageability – Instead of seeing your applications across different portals, you’ll now see all your Azure AD apps in one list in the new experience. Additionally, any app can be used to acquire tokens for any resource going forward – this means all apps, new or old, are treated equally.
+* Improved usability – This new experience much easier to use. From a new navigation experience to a revamped permission selection experience, it's easier to register your application.
+* Detailed information – The new app registrations experience has more detailed descriptions, information, and links to documentation. You’ll also find more details about your app, quickstart guides, and more.
 
 ## Prerequisite
 
