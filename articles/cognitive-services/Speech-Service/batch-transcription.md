@@ -25,7 +25,7 @@ The Batch transcription API offers asynchronous speech to text transcription, al
 
 2. Query Status 
 
-3. Downloading trnascriptions
+3. Downloading transcriptions
 
 > [!NOTE]
 > The Batch transcription API is ideal for call centers, which typically accumulate thousands of hours of audio. The API is guided by a "fire and forget" philosophy, which makes it easy to transcribe large volume of audio recordings.
