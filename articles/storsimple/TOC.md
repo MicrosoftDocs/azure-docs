@@ -61,7 +61,7 @@
 
 ## Overview
 ### [What is the solution?](storsimple-overview.md)
-### [StorSimple vs AFS vs Data Box Edge](storsimple-8000-choose-storage-solution.md)
+### [Compare data transfer options](storsimple-8000-choose-storage-solution.md)
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
 ### [Region availability](storsimple-regions.md)

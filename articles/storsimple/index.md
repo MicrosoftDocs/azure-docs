@@ -29,7 +29,7 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Compare StorSimple vs AFS vs Data Box Edge</h3>
+                        <h3>Compare StorSimple with Azure File Sync and Data Box Edge</h3>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ ms.date: 11/01/2018
 ms.author: alkohli
 ---
 
-# Comparing StorSimple vs AFS vs Data Box Edge 
+# Compare StorSimple with Azure File Sync and Data Box Edge data transfer options 
  
 This document provides an overview of options for on-premises data transfer to Azure, comparing: Data Box Edge vs Azure File Sync (AFS) vs StorSimple 8000 series.
 
