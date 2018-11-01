@@ -28,7 +28,7 @@ In this topic, we'll look at how to use the reliable dictionary in a .NET servic
 
 * Make sure that you've [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md), including installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
-## Create a Service Fabric Mesh project with Reliable Collection support in Visual Studio
+## Create a project with Reliable Collection support in Visual Studio
 
 Run Visual Studio and select **File** > **New** > **Project...**
 
@@ -116,7 +116,7 @@ Operations on reliable collection objects (except for [ClearAsync](https://docs.
 
 Next you get the reliable collection dictionary, by name, via  [IReliableStateManager.GetOrAddAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.getoraddasync?view=azure-dotnet). If the dictionary exists, it's returned; otherwise,  it's created.
 
-In the code above, the **ITransaction** object is passed to the reliable dictionary’s [TryGetValueAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.trygetvalueasync?view=azure-dotnet#Microsoft_ServiceFabric_Data_Collections_IReliableDictionary_2_TryGetValueAsync_Microsoft_ServiceFabric_Data_ITransaction__0_) method. If a value is found for the specified key, the code increments its value. In this way, the function stores a count of how many times  `AddToCollection` is called for the same key.  If a value isn't found, it's added to the dictionary with a count of 1.
+In the code above, the **ITransaction** object is passed to the reliable dictionary’s [TryGetValueAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.trygetvalueasync?view=azure-dotnet#Microsoft_ServiceFabric_Data_Collections_IReliableDictionary_2_TryGetValueAsync_Microsoft_ServiceFabric_Data_ITransaction__0_) method. If a value is found for the specified key, the code increments its value. In this way, the function stores a count of how many times  `AddToCollection` is called for the same key.  If a value isn't found, it's added to the dictionary with a count of 1.
 
 Internally, dictionary methods that accept a key take a reader/writer lock associated with the key. If the method modifies the key’s value, the method takes a write lock on the key. If the method only reads from the key’s value, then a read lock is taken on the key. Since [TryUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.tryupdateasync?view=azure-dotnet) and [AddAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.addasync?view=azure-dotnet) modify the key’s value to the new, passed-in value, the key’s write lock is taken. If two or more threads try to add values with the same key at the same time, one thread will acquire the write lock and the other threads will block. By default, methods block for up to 4 seconds to acquire the lock. After 4 seconds, the methods throw a [TimeoutException](https://docs.microsoft.com/dotnet/api/system.timeoutexception?view=netframework-4.7.2). Method overloads exist that allow you to specify an explicit timeout value if you’d prefer.
 
@@ -209,7 +209,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ```
 
-## Define immutable data types to prevent programmer error
+## Prevent programmer error
 
 To avoid potential bugs, we highly recommend that you define the types you use with reliable collections as immutable types. Specifically, this means that you stick to core value types such as Int32, UInt64, String, DateTime, Guid, TimeSpan, and the like. It's best to avoid collection properties because serializing and deserializing them can hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). This library can be downloaded from http://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
 
