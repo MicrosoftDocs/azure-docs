@@ -67,7 +67,7 @@ This section lists all the security alerts for directory roles, how to fix, and 
 | **Prevention** | Assign users the least privileged role they need. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 | **Trigger** | Triggered if two different criteria are met, and you can configure both of them. First, you need to reach a certain threshold of Global Administrators. Second, a certain percentage of your total role assignments must be Global Administrators. If you only meet one of these measurements, the alert does not appear. |
-| **Minimum number of Global Administrators** | This setting specifies the number of Global administrators, from 2 to 100, that you consider an unsafe amount. |
+| **Minimum number of Global Administrators** | This setting specifies the number of Global Administrators, from 2 to 100, that you consider an unsafe amount. |
 | **Percentage of Global Administrators** | This setting specifies the minimum percentage of administrators who are Global Administrators, from 0% to 100%, that is unsafe in your environment. |
 
 ### Roles are being activated too frequently
