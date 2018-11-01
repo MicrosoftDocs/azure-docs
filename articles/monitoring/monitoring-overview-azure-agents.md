@@ -33,7 +33,7 @@ You can choose to collect:
 * Collect log events from syslog  
 * Crash dumps 
 
-Data can be alternatively forwarded to [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-overview.md), or to non-Azure services using [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). 
+Data can be alternatively forwarded to [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-overview.md), or to non-Azure services using [Event Hub](../event-hubs/event-hubs-about.md). 
 
 For advanced monitoring where you need more than collecting metrics and a subset of logs, the Log Analytics agent for Windows and Linux is required.  With this agent, you are able to utilize Azure services such as Automation and Log Analytics, including the full set of features they offer, to deliver comprehensive management of your Azure VMs through their lifecycle. This includes:
 
