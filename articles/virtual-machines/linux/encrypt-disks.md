@@ -22,7 +22,11 @@ ms.author: cynthn
 
 For enhanced virtual machine (VM) security and compliance, virtual disks and the VM itself can be encrypted. VMs are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## Launch Azure Cloud Shell
+
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -66,13 +70,13 @@ Enable the Azure Key Vault provider within your Azure subscription with [az prov
 ```azurecli-interactive
 az provider register -n Microsoft.KeyVault
 resourcegroup="myResourceGroup"
-az group create --name $resourceGroup --location eastus
+az group create --name $resourcegroup --location eastus
 ```
 
 The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyvault_name* as follows:
 
 ```azurecli-interactive
-keyvault_name=myvaultname
+keyvault_name=myvaultname$RANDOM
 az keyvault create \
     --name $keyvault_name \
     --resource-group $resourcegroup \
@@ -90,8 +94,6 @@ az keyvault key create \
     --name myKey \
     --protection software
 ```
-
-
 
 
 ## Create a virtual machine
@@ -127,53 +129,33 @@ az vm encryption enable \
 It takes some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show):
 
 ```azurecli-interactive
-az vm encryption show --resource-group $resourcegroup --name myVM
+az vm encryption show --resource-group $resourcegroup --name myVM --query 'status'
 ```
 
-The output is similar to the following truncated example:
+When complete, the output will look similar to the following example:
 
 ```json
 [
-  "dataDisk": "EncryptionInProgress",
-  "osDisk": "EncryptionInProgress"
+  {
+    "code": "ProvisioningState/succeeded",
+    "displayStatus": "Provisioning succeeded",
+    "level": "Info",
+    "message": "Encryption succeeded for all volumes",
+    "time": null
+  }
 ]
 ```
 
-Wait until the status for the OS disk reports **VMRestartPending**, then restart your VM with [az vm restart](/cli/azure/vm#az-vm-restart):
-
-```azurecli-interactive
-az vm restart --resource-group myResourceGroup --name myVM
-```
-
-The disk encryption process is finalized during the boot process, so wait a few minutes before checking the status of encryption again with [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show):
-
-```azurecli-interactive
-az vm encryption show --resource-group myResourceGroup --name myVM
-```
-
-The status should now report both the OS disk and data disk as **Encrypted**.
-
 
 ## Add additional data disks
-Once you have encrypted your data disks, you can later add additional virtual disks to your VM and also encrypt them. For example, lets add a second virtual disk to your VM as follows:
+Once you have encrypted your data disks, you can add additional virtual disks to your VM and encrypt them. 
 
-```azurecli-interactive
-az vm disk attach \
-    --resource-group myResourceGroup \
-    --vm-name myVM \
-    --disk myDataDisk \
-    --new \
-    --size-gb 5
-```
-
-Rerun the command to encrypt the virtual disks as follows:
+Once the data disk has been added to the VM, rerun the command to encrypt the virtual disks as follows:
 
 ```azurecli-interactive
 az vm encryption enable \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --name myVM \
-    --aad-client-id $sp_id \
-    --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
     --volume-type all
