@@ -1,5 +1,5 @@
 ---
-title: Create an Azure container offer | Microsoft Docs
+title: Create an Azure Container offer | Microsoft Docs
 description: How to publish a new container offer for the Marketplace..
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:

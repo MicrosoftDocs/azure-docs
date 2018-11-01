@@ -1,5 +1,5 @@
 ---
-title: Support settings for an Azure container | Microsoft Docs
+title: Support settings for an Azure Container image | Microsoft Docs
 description: Configure support settings for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:

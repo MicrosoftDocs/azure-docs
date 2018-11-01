@@ -1,5 +1,5 @@
 ---
-title: Marketplace settings for an Azure container | Microsoft Docs
+title: Marketplace settings for an Azure Container image | Microsoft Docs
 description: Configure marketplace settings for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:

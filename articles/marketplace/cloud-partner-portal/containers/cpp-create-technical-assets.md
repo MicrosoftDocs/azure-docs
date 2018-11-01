@@ -1,5 +1,5 @@
 ---
-title: Create Azure container technical assets | Microsoft Docs
+title: Create Azure Container image technical assets | Microsoft Docs
 description: Create the technical assets for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -24,7 +24,7 @@ This article describes steps and requirements for configuring a container offer 
 
 ## Before you begin
 
-Review the [Azure Containers](https://docs.microsoft.com/azure/container-instances) documentation, which provides Quickstarts, Tutorials, and Samples.
+Review the [Azure Container Instances](https://docs.microsoft.com/azure/container-instances) documentation, which provides Quickstarts, Tutorials, and Samples.
 
 ![Azure Containers documentation](./media/containers-documentation.png)
 

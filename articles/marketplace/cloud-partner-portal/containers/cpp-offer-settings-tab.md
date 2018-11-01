@@ -1,5 +1,5 @@
 ---
-title: Offer settings for an Azure container | Microsoft Docs
+title: Offer settings for an Azure Container image | Microsoft Docs
 description: Configure offer settings for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:

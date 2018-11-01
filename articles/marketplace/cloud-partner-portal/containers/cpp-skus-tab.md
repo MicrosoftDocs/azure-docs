@@ -1,5 +1,5 @@
 ---
-title: SKUs for an Azure container | Microsoft Docs
+title: SKUs for an Azure Container image | Microsoft Docs
 description: Configure SKUs for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:

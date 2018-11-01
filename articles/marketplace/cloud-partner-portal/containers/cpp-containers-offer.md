@@ -1,5 +1,5 @@
 ---
-title: Azure containers offer | Microsoft Docs
+title: Azure Container image offer | Microsoft Docs
 description: Overview of the process for publishing a container offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
