@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the Visual Studio project
 
-1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **TextModeration**. 
+1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **ImageModeration**. 
 1. If there are other projects in your solution, select this one as the single startup project.
 1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**; then find and install the following packages:
     - Microsoft.Azure.CognitiveServices.ContentModerator
