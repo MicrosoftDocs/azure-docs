@@ -218,8 +218,8 @@ demo_many_series1
 
 |   |   |
 | --- | --- |
-|   |: Count |
-|   |: 23115 |
+|   | Count |
+|   | 23115 |
 
 Now, we're going to create a set of 23115 time series of the read count metric. We add the `by` clause to the make-series statement, apply linear regression, and select the top two time series that had the most significant decreasing trend:
 
