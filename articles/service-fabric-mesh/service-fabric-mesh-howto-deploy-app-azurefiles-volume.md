@@ -19,9 +19,9 @@ ms.custom: mvc, devcenter
 
 # Mount an Azure Files based volume in a Service Fabric Mesh application 
 
-This article shows how to store state in Azure Files by mounting a volume inside the service of a Service Fabric Mesh application. In this example, the Counter application has an ASP.NET Core service with a web page that shows counter value in a browser. 
+This article describes how to mount an Azure Files based volume in a service of a Service Fabric Mesh application.  The Azure Files volume driver is a Docker volume driver used to mount an Azure Files share to a container which you use to persist service state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs.  To learn more about volumes and options for storing application data, read [storing state](service-fabric-mesh-storing-state.md).
 
-The `counterService` periodically reads a counter value from a file, increments it and write it back to the file. The file is stored in a folder that is mounted on the volume backed by Azure Files share.
+To mount a volume in a service, create a volume resource in your Service Fabric Mesh application and then reference that volume in your service.  Declaring the volume resource and referencing it in the service resource can be done either in the [YAML-based resource files]() or the [JSON-based deployment template](). Before mounting the volume, first create an Azure storage account and a [file share in Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
 ## Prerequisites
 
@@ -31,20 +31,104 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to co
 
 Sign in to Azure and set your subscription.
 
-```azurecli-interactive
+```azurecli
 az login
 az account set --subscription "<subscriptionID>"
 ```
 
+## Create a storage account (optional)
+You can use an existing Azure storage account, or create a new storage account.
+
+```azurecli
+az group create \
+    --name storage-quickstart-resource-group \
+    --location westus
+
+az storage account create \
+--name storagequickstart \
+--resource-group storage-quickstart-resource-group \
+--location westus \
+--sku Standard_LRS \
+--kind StorageV2
+```
+
 ## Create a storage account and file share
 
-Create an Azure file share by following these [instructions](/azure/storage/files/storage-how-to-create-file-share). The storage account name, storage account key and the file share name are referenced as `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following instructions. These values are available in your Azure portal:
+Create an Azure file share by following these [instructions](/azure/storage/files/storage-how-to-create-file-share). 
+
+```azurecli
+current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+
+ if [[ $current_env_conn_string == "" ]]; then  
+     echo "Couldn't retrieve the connection string."
+ fi
+
+ az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
+ ```
+
+The storage account name, storage account key and the file share name are referenced as `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following instructions. These values are available in the [Azure portal](https://portal.azure.com):
 * <storageAccountName> - Under **Storage Accounts**, it is the name of the storage account you used when you created the file share.
 * <storageAccountKey> - Select your storage account under **Storage Accounts** and then select **Access keys** and use the value under **key1**.
 * <fileShareName> - Select your storage account under  **Storage Accounts** and then select **Files**. The name to use is the name of the file share you just created.
 
-## Mount the volume by updating the JSON
 
+
+## Declare a volume resource and update the service resource (YAML)
+
+Add a *volume.yaml* file in the *App resources* directory.
+```yaml
+volume:
+  schemaVersion: 1.0.0-preview2
+  name: testVolume
+  properties:
+    description: Azure Files storage volume for counter App.
+    provider: SFAzureFile
+    azureFileParameters: 
+        shareName: <fileShareName>
+        accountName: <storageAccountName>
+        accountKey: <storageAccountKey>
+```
+
+Update the *service.yaml* file in the *Service Resources* directory.
+```yaml
+## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: VolumeTest
+  properties:
+    services:
+      - name: VolumeTestService
+        properties:
+          description: VolumeTestService description.
+          osType: Windows
+          codePackages:
+            - name: VolumeTestService
+              image: volumetestservice:dev
+              volumeRefs:
+                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
+                  destinationPath: C:\app\data
+              endpoints:
+                - name: VolumeTestServiceListener
+                  port: 20003
+              environmentVariables:
+                - name: ASPNETCORE_URLS
+                  value: http://+:20003
+                - name: STATE_FOLDER_NAME
+                  value: "[parameters('stateFolderName')]"
+#                - name: ApplicationInsights:InstrumentationKey
+#                  value: "<Place AppInsights key here, or reference it via a secret>"
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: VolumeTestNetwork
+```
+
+## Declare a volume resource and update the service resource (JSON)
+
+First create a volume resource
 ```json
 {
   "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
@@ -137,7 +221,7 @@ Create an Azure file share by following these [instructions](/azure/storage/file
       "location": "[parameters('location')]",
       "dependsOn": [],
       "properties": {
-        "description": "Azure Files storage volume for counter App.",
+        "description": "Azure Files storage volume for the test application.",
         "provider": "SFAzureFile",
         "azureFileParameters": {
           "shareName": "[parameters('fileShareName')]",
@@ -149,59 +233,6 @@ Create an Azure file share by following these [instructions](/azure/storage/file
     ...
   ]
 }
-```
-
-## Mount the volume by updating the resource YAML files
-
-Add a *volume.yaml* file in the *App resources* directory.
-```yaml
-volume:
-  schemaVersion: 1.0.0-preview2
-  name: testVolume
-  properties:
-    description: Azure Files storage volume for counter App.
-    provider: SFAzureFile
-    azureFileParameters: 
-        shareName: "[parameters('azurefile-shareName')]"
-        accountName: "[parameters('azurefile-accountName')]"
-        accountKey: "[parameters('azurefile-accountKey')]"
-```
-
-Update the *service.yaml* file in the *Service Resources* directory.
-```yaml
-## Service definition ##
-application:
-  schemaVersion: 1.0.0-preview2
-  name: VolumeTest
-  properties:
-    services:
-      - name: VolumeTestService
-        properties:
-          description: VolumeTestService description.
-          osType: Windows
-          codePackages:
-            - name: VolumeTestService
-              image: volumetestservice:dev
-              volumeRefs:
-                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
-                  destinationPath: C:\app\data
-              endpoints:
-                - name: VolumeTestServiceListener
-                  port: 20003
-              environmentVariables:
-                - name: ASPNETCORE_URLS
-                  value: http://+:20003
-                - name: STATE_FOLDER_NAME
-                  value: "[parameters('stateFolderName')]"
-#                - name: ApplicationInsights:InstrumentationKey
-#                  value: "<Place AppInsights key here, or reference it via a secret>"
-              resources:
-                requests:
-                  cpu: 0.5
-                  memoryInGB: 1
-          replicaCount: 1
-          networkRefs:
-            - name: VolumeTestNetwork
 ```
 
 ## Next steps
