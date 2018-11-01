@@ -15,29 +15,23 @@ ms.author: mahilleb
 
 # Regions of the Speech Service
 
-The Speech Service is available in different regions.
-When you create a subscription, you can select an available region based on your needs.
+The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
-When you use your subscription, you have to account for the region you selected.
-
-## REST API
-
-Use the REST API to select the correct region-specific endpoints.
-See [REST APIs](rest-apis.md) for details.
+Make sure that you use the endpoint that matches the region for your subscription.
 
 ## Speech SDK
 
 In the [Speech Service SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
-### Regions for speech recognition and translation
+### Speech recognition and translation
 
-The following table lists the available regions for **speech recognition** and **translation**.
+This table lists available regions for **speech recognition** and **translation** using the Speech SDK.
 
   Region | Speech SDK Parameter | Speech Customization Portal
  ------|-------|--------
  West US | `westus` | https://westus.cris.ai
- West US2 | `westus2` | https://westus2.cris.ai 
+ West US2 | `westus2` | https://westus2.cris.ai
  East US | `eastus` | https://eastus.cris.ai
  East US2 | `eastus2` | https://eastus2.cris.ai
  East Asia | `eastasia` | https://eastasia.cris.ai
@@ -46,8 +40,40 @@ The following table lists the available regions for **speech recognition** and *
  West Europe | `westeurope` | https://westeurope.cris.ai
 
 
-### Regions for intent recognition
+### Intent recognition
+
+**Intent recognition** for the Speech SDK shares regions support with LUIS. For a complete list of available regions, see [Publishing regions and endpoints - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)
 
 Available regions for **intent recognition** via the Speech SDK are listed on the [Language Understanding service region page](/azure/cognitive-services/luis/luis-reference-regions).
-For each publishing region listed, the corresponding Speech SDK region parameter is determined as the first part of the domain name of the endpoint.
-For example, use `westus` to specify the West US publishing region.
+
+For each publishing region listed, use the provided **API region name**. For example, use `westus` for West US.
+
+## REST APIs
+
+The Speech service also exposes a REST endpoint for
+
+### Speech-to-text
+
+| Region | Endpoint |
+|--------|----------|
+| West US | https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+| West US2 | https://westus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+| East US | https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+| East US2 | https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+| East Asia | https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+| South East Asia | https://southeastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+| North Europe | https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+| West Europe | https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+
+### Text-to-speech
+
+| Region | Endpoint |
+|--------|----------|
+| West US | https://westus.tts.speech.microsoft.com/cognitiveservices/v1 |
+| West US2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/v1 |
+| East US | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
+| East US2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 |
+| East Asia | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
+| South East Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
+| North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v |
+| West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |  
