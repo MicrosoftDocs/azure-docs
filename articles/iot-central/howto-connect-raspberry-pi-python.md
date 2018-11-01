@@ -18,7 +18,7 @@ This article describes how, as a device developer, to connect a Raspberry Pi to 
 
 ## Before you begin
 
-To complete the steps in this article, you need the following components:
+To complete the steps in this article, you need the following:
 
 * An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * A Raspberry Pi device running the Raspbian operating system. You need a monitor, keyboard, and mouse connected to your Raspberry Pi to access the GUI environment. The Raspberry Pi must be able to [connect to the internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
@@ -28,28 +28,17 @@ To complete the steps in this article, you need the following components:
 
 An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics: 
 
-- Telemetry, which includes the following measurements the device will collect:
-    - Humidity
-    - Temperature
-    - Pressure
-    - Magnetometer (X, Y, Z)
-    - Accelerometer (X, Y, Z)
-    - Gyroscope (X, Y, Z)
-- Settings
-    - Voltage
-    - Current
-    - Fan Speed
-    - IR toggle.
-- Properties
-    - Die number device property
-    - Location cloud property
+- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelorometer** (measured along X, Y, Z axis), and **Gyroscope** (measured along X, Y, Z axis).
+- Settings showing **Voltage**, **Current**,**Fan Speed** and an **IR** toggle.
+- Properties containing device property **die number** and **location** cloud property.
 
-For the full details of the configuration of the device template, refer to [Raspberry PI Device template details](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
+
+For full details on the configuration of the device template refer to [Raspberry PI Device template details](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
     
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and keep track of the device connection details (**Scope ID, Device ID, Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
+In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and make a note of the device connection details(**Scope ID, Device ID, Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
 
 
 ### Configure the Raspberry Pi
@@ -59,11 +48,11 @@ The following steps describe how to download and configure the sample Python app
 * Sends telemetry and property values to Azure IoT Central.
 * Responds to setting changes made in Azure IoT Central.
 
-To configure the device, [follow the step-by-step instructions on GitHub.](http://aka.ms/iotcentral-docs-Raspi-releases)
+To configure the device [follow the step-by-step instructions on GitHub.](http://aka.ms/iotcentral-docs-Raspi-releases)
 
 
 > [!NOTE]
-> For more information about the Raspberry Pi Python sample, see the [README](http://aka.ms/iotcentral-docs-Raspi-releases) file on GitHub.
+> For more information about the Raspberry Pi Python sample, see the [Readme](http://aka.ms/iotcentral-docs-Raspi-releases) file on GitHub.
 
 
 1. Once the device is configured, your device should start sending data to Azure IoT Central momentarily.
