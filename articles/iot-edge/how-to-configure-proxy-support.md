@@ -23,15 +23,15 @@ Configuring an IoT Edge device to work with a proxy server follows these basic s
 
 ## Know your proxy URL
 
-To configure both the Docker daemon and IoT Edge on your device, you need to know your proxy URL. IoT Edge can communicate through proxies that don't require authentication as well as those that do. 
+To configure both the Docker daemon and IoT Edge on your device, you need to know your proxy URL. 
 
 Proxy URLs take the following format: **protocol**://**proxy_host**:**proxy_port**. 
 
-The **protocol** is either HTTP or HTTPS. The Docker daemon can be configured with either protocol, depending on your container registry settings, but the IoT Edge daemon and runtime containers should always use HTTPS.
+* The **protocol** is either HTTP or HTTPS. The Docker daemon can be configured with either protocol, depending on your container registry settings, but the IoT Edge daemon and runtime containers should always use HTTPS.
 
-The **proxy_host** is an address for the proxy server. If your proxy server requires authentication, you can provide your credentials as part of the proxy_host in the format of **user**:**password**@**proxy_host**. 
+* The **proxy_host** is an address for the proxy server. If your proxy server requires authentication, you can provide your credentials as part of the proxy_host in the format of **user**:**password**@**proxy_host**. 
 
-The **proxy_port** is the network port at which the proxy responds to network traffic. 
+* The **proxy_port** is the network port at which the proxy responds to network traffic. 
 
 ## Install the runtime
 
@@ -54,7 +54,7 @@ The Docker and IoT Edge daemons running on your IoT Edge device need to be confi
 
 ### Docker daemon
 
-Refer to the Docker documentation to configure the Docker daemon with environment variables. Most container registries (including DockerHub and Azure Container Registries) support HTTPS requests, so the variable that you should set is **HTTPS_PROXY**. If you're pulling images from a registry that doesn't support transport layer security (TLS) then you should set the **HTTP_PROXY**. 
+Refer to the Docker documentation to configure the Docker daemon with environment variables. Most container registries (including DockerHub and Azure Container Registries) support HTTPS requests, so the parameter that you should set is **HTTPS_PROXY**. If you're pulling images from a registry that doesn't support transport layer security (TLS), then you should set the **HTTP_PROXY** parameter. 
 
 Choose the article that applies to your Docker version: 
 
@@ -120,7 +120,9 @@ Open the config.yaml file on your IoT Edge device. On Linux systems, this file i
 
 In the config.yaml file, find the **Edge Agent module spec** section. The Edge agent definition includes an **env** parameter where you can add environment variables. 
 
+<!--
 ![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Remove the curly brackets that are placeholders for the env parameter, and add the new variable on a new line. Remember that indents in YAML are two spaces. 
 
@@ -208,7 +210,7 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"
