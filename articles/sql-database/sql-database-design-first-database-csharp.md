@@ -11,9 +11,9 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 06/07/2018
+ms.date: 11/01/2018
 ---
-# Design an Azure SQL database and connect with C&#x23; and ADO.NET
+# Tutorial: Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
 Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to:
 
