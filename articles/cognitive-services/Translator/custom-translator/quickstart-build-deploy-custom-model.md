@@ -27,7 +27,7 @@ This article provides step-by-step instruction to build a translation system wit
     [Custom Translator](https://portal.customtranslator.azure.ai) portal. Once
     on the Custom Translator portal,
     navigate to the Settings page where you can associate your Microsoft
-    Translator Text API subscription Key with your workspace.
+    Translator Text API subscription Key with your workspace. 
 
 ## Create a project
 
