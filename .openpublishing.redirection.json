@@ -338,7 +338,7 @@
         },
         {
             "source_path": "articles/iot-central/howto-create-application.md",
-            "redirect_url": "/azure/iot-central/quick-deploy-iotcentral.md",
+            "redirect_url": "/azure/iot-central/quick-deploy-iotcentral.md", 
             "redirect_document_id": false
         },
         {
