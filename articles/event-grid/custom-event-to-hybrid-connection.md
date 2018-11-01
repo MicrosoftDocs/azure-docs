@@ -67,10 +67,10 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --endpoint-type hybridconnection \
   --endpoint $hybridid \
-  --expiration-date "2018-11-30"
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-Notice an expiration date is set for the subscription. The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time.
+Notice that an [expiration date](concepts.md#event-subscription-expiration) is set for the subscription.
 
 ## Create application to process events
 
