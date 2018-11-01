@@ -203,5 +203,5 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learning. You can continue on to any of the other tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Filter sensor data using C# code](tutorial-csharp-module.md)
+> [Classify images with Custom Vision service](tutorial-deploy-custom-vision.md)
 
