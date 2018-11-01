@@ -1,5 +1,5 @@
 ---
-title: Manage alerts from other monitoring services
+title: Manage alerts from other monitoring services in Azure Monitor
 description: Managing Nagios, Zabbix and SCOM alerts in Azure Monitor
 author: anantr
 services: monitoring
