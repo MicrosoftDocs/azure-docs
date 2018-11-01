@@ -21,11 +21,14 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 1. Next, enter a name for your storage account. The name you choose must be unique across Azure, must be between 3 and 24 characters in length, and may contain numbers and lowercase letters only.
 1. Select a location for your storage account, or use the default location.
 1. Leave these fields set to their default values:
-    - The **Deployment model** field is set to **Resource manager** by default.
-    - The **Performance** field is set to **Standard** by default.
-    - The **Account kind** field is set to **StorageV2 (general-purpose v2)** by default.
-    - The **Replication** field is set to **Locally-redundant storage (LRS)** by default.
-    - The **Access tier** is set to **Hot** by default.
+
+   |Field  |Value  |
+   |---------|---------|
+   |Deployment model     |Resource manager         |
+   |Performance     |Standard         |
+   |Account kind     |StorageV2 (general-purpose v2)         |
+   |Replication     |Locally-redundant storage (LRS)         |
+   |Access tier     |Hot         |
 
 1. Click **Review + Create** to review your storage account settings and create the account.
 1. Click **Create**.
