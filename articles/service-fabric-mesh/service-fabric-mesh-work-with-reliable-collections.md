@@ -1,5 +1,5 @@
 ---
-title: Use reliable collections in your Azure Service Fabric Mesh app | Microsoft Docs
+title: Use reliable collections in a Azure Service Fabric Mesh app | Microsoft Docs
 description: Learn how to use a reliable collection in your Service Fabric Mesh app
 services: service-fabric-mesh
 documentationcenter: .net
@@ -16,7 +16,7 @@ ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to add reliable collection support to my Service Fabric Mesh app so that I can save state for my service and have it replicated (for availability), and transacted within a partition (for ACID semantics).
 ---
-# Use Reliable Collections in your Service Fabric Mesh app
+# Use Reliable Collections in a Service Fabric Mesh app
 
 Service Fabric Mesh Reliable Collections provides reliable dictionary and reliable queue classes for .NET and Java developers. When you store data in these classes, it is replicated across instances of your service for availability.
 
@@ -99,9 +99,9 @@ class Program
 ```
 
 Let's walk through this code.
-First, you need to first register your app to use the reliable collection service. This is done above, in `MainAsync`,  with a call to `ReliableCollectionsExtensions.UseReliableCollectionsService()`. Then you need to get an [IReliableStateManager](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager?view=azure-dotnet). Because this service is written as a console app, we need to get one on our own by calling `ReliableCollectionsExtensions.GetReliableStateManager(0)`.  The `0` is the partition key. This example doesn't use multiple partitions.
+First, you need to first register your app to use the reliable collection service. This is done in `MainAsync` with a call to `ReliableCollectionsExtensions.UseReliableCollectionsService()`. Then you need to get an [IReliableStateManager](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager?view=azure-dotnet). Because this service is written as a console app, we get one by calling `ReliableCollectionsExtensions.GetReliableStateManager(0)`.  The `0` is the partition key. This example doesn't use multiple partitions.
 
-By the way, if you're writing an ASP.NET Core service, you can get an instance of the **IReliableStateManager** by providing a constructor for your controller that takes an **IReliableStateManager**. An instance is provided via dependency injection.
+By the way, if you're writing an ASP.NET Core service, you can get an instance of the **IReliableStateManager** by providing a constructor for your controller that takes an **IReliableStateManager**. An instance is provided by ASP.NET via dependency injection.
 
 ```csharp
 private readonly IReliableStateManager _stateManager;
