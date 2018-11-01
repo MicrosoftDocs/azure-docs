@@ -326,11 +326,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
-            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
             "redirect_document_id": true
@@ -1279,6 +1274,16 @@
         {
             "source_path": "articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-multiple-modules-vscode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway-linux.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway-windows.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
             "redirect_document_id": false
         },
         {
