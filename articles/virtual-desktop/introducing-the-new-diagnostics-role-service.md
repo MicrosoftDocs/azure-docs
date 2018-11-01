@@ -11,66 +11,100 @@ ms.author: helohr
 ---
 # Introducing the new diagnostics role service
 
-We are introducing the first capabilities of the diagnostics role service in your tenant environment. This role service is designed to help you identify issues faster. Use the documented PowerShell cmdlets to review connection activities triggered by users connecting to your resources. The diagnostics role service will cover the following scenarios:
+## What is the Windows Virtual Desktop Diagnostics role service?
 
-* Connection activities: A connection activity is triggered from the end user using one of our apps that support Windows Virtual Desktop (see client guidance for more information). If the connection is interrupted, the user UPN will identify which component interrupted the connection.
-* Management activities: A management activity is triggered by the infrastructure administrator configuring the system. If there are any issues, use the UPN to identify the cause.
+The diagnostics role service is a new Remote Desktop role that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity any time a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end user and administrative actions, and can be categorized into three main buckets:
 
-The following scenarios are on the roadmap to be covered before full release:
+* Feed subscription activities: the end user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications. 
+* Connection activities: the end user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
+* Management activities: the administrator triggers these activities whenever they perform management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
+  
+Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end user is experiencing network connectivity issues.
 
-* Feed subscription activities: These are triggered by the end user who is subscribing to published apps or desktop made available by the tenant admin. If an activity deosn't complete, the user UPN will identify why the resource download was disrupted.
+## Diagnosing issues with PowerShell
 
-## Diagnostics validation and issue reporting guidance
+Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains many optional parameters to help narrow down and isolate issues. The following sections list the cmdlets you can run to diagnose issues. Most filters can be applied together. Values listed in brackets, such as “<tenantName>,” should be replaced with the values that apply to your situation.
 
-Prerequisites:
+### Retrieve diagnostic activities in your tenant
 
-```PowerShell
-Import-module .\Microsoft.RdInfra.RdPowershell.dll
-```
-
-```PowerShell
-Set-RdsContext -DeploymentUrl <Windows Virtual Desktop Broker URL>  # you will be prompted for credentials
-```
-
-Validate the following scenarios after your users confirm that they attempted to connect to your tenant environment.
-
-* Use **Get-RdsDiagnosticsActivities** to identify activities on your deployment.
-* Use **Get-RdsDiagnosticsActivities** parameters to query failed management or connection activities reported by users who own these roles.
-* Use the details parameter to get additional information on the selected activity.
-
-You should report any failed connection and management activities you encounter.
-
->[!IMPORTANT]
->When reporting an issue, retrieve the Correlation ID for management and connection failures with the documented diagnostics cmdlets. Retrieving the Correlation ID will allow you to automatically send review logs from your test deployment to Azure and the diagnostics team. The automatic log-upload is enabled by default in TP1. The following is an example of the diagnostics output.
-> ```PowerShell
-> CorrelationId: 45536553-ea09-452d-a1b3-97de463ec119
-> ScenarioType: ManagementScenario
-> StartTime: 10/20/2017 5:00:12 PM
-> EndTime: 10/20/2017 5:00:14 PM
-> UserIdentity: adam@contoso.com
-> RoleInstances: RD00155D4B5BAA;
-> ScenariosOutcomeMajorClass: Failure
-> ScenarioOutcomeMinorClass: Unknown
-> ```
-
-Connections that didn't reach the infrastructure won't show up in the diagnostics results, as no diagnostic information from the remote desktop appas is shared in this release.
-
-## PowerShell cmdlet
-
-You can query all activities for a specific user by running the following PowerShell cmdlet. This cmdlet comes with additional filtering options to narrow down the search and identify issues. Here is the cmdlet's syntax:
+You can retrieve diagnostic activites by entering the **Get-RdsDiagnosticsActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
 
 ```PowerShell
-Get-RdsDiagnosticsActivities [-StartTime <datetime>] [-EndTime <datetime>] [-ScenarioType {Connection | Management | Feed}] [-ByUser <string>] [-Outcome {Ongoing | Success | Failure}] [-ActivityId <string>] [-Details]
+Get-RdsDiagnosticsActivities -TenantName <tenantName>
 ```
 
-The following table defines each property of the cmdlet's syntax and explains what they do.
+Like other Windows Virtual Desktop PowerShell cmdlets, you must use the *-TenantName* parameter to specify the name of the tenant you want to use for your query. The tenant name is applicable for almost all diagnostic activity queries.
 
-|Property|Description|
-|---|---|
-|StartTime|Defines the start time of the activity querying period. If you don't set an EndTime, all activities until the most recent one will be printed. Setting both StartTime and EndTime will set up a defined interval for the query. Example of valid formats: "01/08/2017 14:50:50.42," "01/08/2017."|
-|EndTime|If no StartTime is set, setting an EndTime queries all activities from up to one hour before the specified time. Setting both a StartTime and an EndTime will set up a specific timeframe for the query. Examples for valid formats: "01/08/2017 14:50:50.42," "01/08/2017."|
-|ScenarioType|Query activities for a specific scenario only.|
-|ByUser|Query activities by a specified user UPN.|
-|Outcome|Query actiivities by outcome.|
-|ActivitiyId|Query results for a specified Activity ID. To retrieve the ActivityId you want to filter the results with, you must first run Get-RdsDiagnosticsActivities.|
-|Details|Outputs a detailed activity view with more information about user operation, including more detailed parameters for the management cmdlet.|
+### Retrieve detailed diagnostic activities
+
+The *-Detailed* parameter provides additional details for each diagnostic activity returned. The format for each activity varies depending on its activity type. The *-Detailed parameter* can be added to any **Get-RdsDiagnosticsActivities** query, as shown in the following example.
+
+```PowerShell
+Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+```
+
+### Retrieve a specific diagnostic activity by activity ID
+
+The *-ActivityId* parameter returns a specific diagnostic activity if it exists, as shown int he following example cmdlet.
+
+```PowerShell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
+```
+
+### Filter diagnostic activities by user
+
+The *-UserName* parameter returns a list of diagnostic activities initiated by the specified user, as shown in the following example cmdlet.
+
+```PowerShell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
+```
+
+The *-UserName* parameter can also be combined with other optional filtering parameters.
+
+### Filter diagnostic activities by time
+
+You can filter the returned diagnostic activity list with the *-StartTime* and *-EndTime* parameters. The *-StartTime* parameter will return a diagnostic activity list starting from a specific date, as shown in the following example.
+
+```PowerShell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime “08/01/2018”
+```
+
+The *-EndTime* parameter can be added to a cmdlet with the *-StartTime* parameter to specify a specific period of time you want to receive results for. The following example cmdlet will return a list of diagnostic activities from between August 1st and August 10th.
+
+```PowerShell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime “08/01/2018” -EndTime “08/10/2018”
+```
+
+The *-StartTime* and *-EndTime* parameters can also be combined with other optional filtering parameters.
+
+### Filter diagnostic activities by activity type
+
+You can also filter diagnostic activities by activity type with the *-ActivityType* parameter. The following cmdlet will return a list of end user connections:
+
+```PowerShell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Connection
+```
+
+The following cmdlet will return a list of administrator management tasks:
+
+```PowerShell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
+```
+
+The **Get-RdsDiagnosticActivities** cmdlet doesn’t currently support specifying Feed as the ActivityType.
+
+### Filter diagnostic activities by outcome
+
+You can filter the returned diagnostic activity list by outcome with the *-Outcome* parameter. The following example cmdlet will return a list of successful diagnostic activities.
+
+```PowerShell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Success
+```
+
+The following example cmdlet will return a list of failed diagnostic activities.
+
+```PowerShell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
+```
+
+The *-Outcome* parameter can also be combined with other optional filtering parameters.

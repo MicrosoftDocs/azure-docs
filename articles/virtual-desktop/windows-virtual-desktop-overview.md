@@ -20,7 +20,7 @@ As a Remote Desktop service, Windows Virtual Desktop makes it easy for users to 
 * Easy to access
     * Once a user has access credentials, all they have to do to access Windows Virtual Desktop is sign in at the Windows Virtual Desktop service or the Remote Desktop web client
 * App groups allow for flexible remoting solutions based on your needs
-    * Use a desktop app group to publish the full desktop and give users access to all apps in the sesion host, or use a RemoteApp app group to give users access to specific apps
+    * Use a desktop app group to publish the full desktop and give users access to all apps in the sesion host, or use a RemoteApp app group to let users access specific apps
 * Reduce resource requirements and save costs by building a Windows Virtual Desktop environment that requires fewer virtual machines to run
     * Only pay for the resources you actually use; everything else is provided by the Azure service
 * Customizable settings and scaling tools let you adjust load balancing across host pools

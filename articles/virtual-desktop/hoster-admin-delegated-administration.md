@@ -341,11 +341,9 @@ A single user account may have two or more roles on a given RD object; such as 0
 
 #### New-RdsRoleAssignment (TP2)
 
->Previous: none.
-
 Modeled after [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-4.3.1) with the SignInName and ServicePrincipalName parameter sets. Scope is replaced with the RD parameters common to other Windows Virtual Desktop PowerShell cmdlets, such as *TenantName*, *HostPoolName*, and *AppGroupName*. Three additional scopes added: Infrasturucture, Diagnostics/infra and Diagnostics/tenant. Simplified the parameter sets by dropping ObjectId as a subject of the assignment to support groups. (This will also be addressed in RS5 when we address groups for AppGroup user assignments.) Also simplified parameter sets by eliminating leaf objects from the scope.
 
-SignInName parameter sets:
+The following examples show SignInName parameter sets.
 
 ```PowerShell
 New-RdsRoleAssignment [-RoleDefinition] <string> -AppGroupName <string> -HostPoolName <string> -SignInName <string> -TenantName <string>
@@ -375,7 +373,7 @@ New-RdsRoleAssignment [-RoleDefinition] <string> -Diagnostics -SignInName <strin
 New-RdsRoleAssignment [-RoleDefinition] <string> -SignInName <string> -TenantName <string>
 ```
 
-ServicePrincipalNme parameter sets:
+The following examples show ServicePrincipalNme parameter sets.
 
 ```PowerShell
 New-RdsRoleAssignment [-RoleDefinition] <string> -AppGroupName <string> -HostPoolName <string> -ServicePrincipalName <string> -TenantName <string> [-AadTenantId <string>]
@@ -452,8 +450,6 @@ The following table lists an error condition example.
 
 #### Get-RdsRoleAssignment (TP2)
 
->Previous: none.
-
 Modeled after **Get-AzureRmRoleAssignment** with only the scope parameter set.
 
 ```PowerShell
@@ -488,7 +484,7 @@ Use the **Get-RdsRoleAssignment** cmdlet to list role assignments that are effec
 
 The RD object scope may be specified. Without any parameters, this command defaults to the RD Deployment specified using the Set-RdsContext cmdlet and returns all the role assignments made under the RD Deployment. The scope can further limited with the following parameters: *TenantName*, *HostPoolName*, and *AppGroupName*. If RD objects are specified for the scope, then the cmdlet returns all of the inherited role assignments by traversing up the tree of container objects and below by traversing the tree of contained objects. Note that it doesn’t traverse sideways.
 
-Parameters: same as **New-RdsRoleAssignment**
+Parameters: same as **New-RdsRoleAssignment**.
 
 Return: list of role assignment objects as defined in **New-RdsRolesAssignment**.
 
@@ -583,13 +579,9 @@ The following table lists an example error condition.
 
 #### Remove-RdsRoleAssignment (TP2)
 
->Previous: none.
-
 Modeled after [Remove-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-4.2.0) with the *SignInName* and *ServicePrincipalName* parameter sets.
 
-Syntax
-
-SignInName parameter sets
+The following examples show SignInName parameter sets.
 
 ```PowerShell
 Remove-RdsRoleAssignment [-RoleDefinitionName] <string> -SignInName <string>
@@ -619,7 +611,7 @@ Remove-RdsRoleAssignment [-RoleDefinitionName] <string> -SignInName <string> -Te
 Remove-RdsRoleAssignment [-RoleDefinitionName] <string> -Diagnostics -SignInName <string> -TenantName <string>
 ```
 
-ServicePrincipalName parameter sets
+The following examples show ServicePrincipalName parameter sets.
 
 ```PowerShell
 Remove-RdsRoleAssignment [-RoleDefinitionName] <string> -AppGroupName <string> -HostPoolName <string> -ServicePrincipalName <string> -TenantName <string> [-AadTenantId <string>]
