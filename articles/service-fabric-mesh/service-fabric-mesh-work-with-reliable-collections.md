@@ -209,7 +209,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ```
 
-## Prevent programmer error
+## Use immutable types
 
 To avoid potential bugs, we highly recommend that you define the types you use with reliable collections as immutable types. Specifically, this means that you stick to core value types such as Int32, UInt64, String, DateTime, Guid, TimeSpan, and the like. It's best to avoid collection properties because serializing and deserializing them can hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). This library can be downloaded from http://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
 
@@ -264,7 +264,7 @@ public struct ItemId {
 }
 ```
 
-## Schema versioning (upgrades)
+## Versioning
 
 Internally, Reliable Collections serialize your objects using .NET’s [DataContractSerializer](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?redirectedfrom=MSDN&view=netframework-4.7.2). The serialized objects are persisted to the primary replica’s local disk and are also transmitted to the secondary replicas. As your service matures, it’s likely you’ll want to change the kind of data (schema) your service requires. Versioning your data requires great care. First, you must always support deserializing old data. This means your deserialization code must be backward compatible. Version 333 of your service code must support data written to a reliable collection by version 1 of your service code 5 years ago.
 
@@ -275,7 +275,7 @@ Also, service code is upgraded one upgrade domain at a time. During an upgrade, 
 
 Alternatively, you can perform what is typically referred to as a two-phase upgrade. With a two-phase upgrade, you upgrade your service from version 1 to version 2. Version 2 contains the code that knows how to deal with the new schema change but this code doesn’t run. When  version 2 code reads version 1 data, it operates on it and writes version 1 data. After the upgrade is complete across all upgrade domains, you can signal to the running version 2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a two-phase upgrade.) Now, the version 2 instances can read version 1 data, convert it to version 2 data, operate on it, and write it out as version 2 data. When other instances read version 2 data, they don't need to convert it, they just operate on it, and write out version 2 data.
 
-## Next Steps
+## Next steps
 
 To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx).
 
