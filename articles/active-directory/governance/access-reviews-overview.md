@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
