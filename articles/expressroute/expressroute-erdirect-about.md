@@ -18,7 +18,7 @@ ExpressRoute Direct provides customers with the ability to connect directly into
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
 * Massive Data Ingestion into services like Storage and Cosmos DB
-* Physical isolation for industries that are regulated and required dedicated and isolated connectivity like: Banking, Government, and Retail
+* Physical isolation for industries that are regulated and require dedicated and isolated connectivity like: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 
 > [!IMPORTANT]
@@ -28,7 +28,7 @@ Key features that ExpressRoute Direct provides include, but aren't limited to:
 
 ## Enroll in the Preview
 
-Before using ExpressRoute Direct, you must first enroll your subscription in the preview. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID. ExpressRoute Direct is an enterprise-grade feature. Provide additional details:
+Before using ExpressRoute Direct, you must first enroll your subscription in the preview. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
 
 * Scenarios you're looking to accomplish with **ExpressRoute Direct**
 * Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
@@ -39,7 +39,7 @@ Before using ExpressRoute Direct, you must first enroll your subscription in the
 
 | **ExpressRoute using a service provider** | **ExpressRoute Direct** | 
 | --- | --- |
-| Utilizes service provider to enable fast onboarding and connectivity into existing infrastructure | Requires 100-Gbps infrastructure and full management of all layers
+| Utilizes service providers to enable fast onboarding and connectivity into existing infrastructure | Requires 100-Gbps infrastructure and full management of all layers
 | Integrates with hundreds of providers including Ethernet and MPLS | Direct/Dedicated capacity for regulated industries and massive data ingestion |
 | Circuits SKUs from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - limited to a total of 200 Gbps
 | Optimized for single tenant | Optimized for single tenant/Cloud Service providers/multiple business units
