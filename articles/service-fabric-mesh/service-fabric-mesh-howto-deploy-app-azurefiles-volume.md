@@ -21,61 +21,72 @@ ms.custom: mvc, devcenter
 
 This article describes how to mount an Azure Files based volume in a service of a Service Fabric Mesh application.  The Azure Files volume driver is a Docker volume driver used to mount an Azure Files share to a container which you use to persist service state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs.  To learn more about volumes and options for storing application data, read [storing state](service-fabric-mesh-storing-state.md).
 
-To mount a volume in a service, create a volume resource in your Service Fabric Mesh application and then reference that volume in your service.  Declaring the volume resource and referencing it in the service resource can be done either in the [YAML-based resource files]() or the [JSON-based deployment template](). Before mounting the volume, first create an Azure storage account and a [file share in Azure Files](/azure/storage/files/storage-how-to-create-file-share).
+To mount a volume in a service, create a volume resource in your Service Fabric Mesh application and then reference that volume in your service.  Declaring the volume resource and referencing it in the service resource can be done either in the [YAML-based resource files](#declare-a-volume-resource-and-update-the-service-resource-yaml) or the [JSON-based deployment template](#declare-a-volume-resource-and-update-the-service-resource-json). Before mounting the volume, first create an Azure storage account and a [file share in Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
 ## Prerequisites
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. To use the Azure CLI with this article, ensure that `az --version` returns at least `azure-cli (2.0.43)`.  Install (or update) the Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this article. 
 
-## Sign in to Azure
+To use the Azure CLI locally with this article, ensure that `az --version` returns at least `azure-cli (2.0.43)`.  Install (or update) the Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
-Sign in to Azure and set your subscription.
+To sign in to Azure and set your subscription:
 
 ```azurecli
 az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## Create a storage account (optional)
-You can use an existing Azure storage account, or create a new storage account.
+## Create a storage account and file share (optional)
+Mounting an Azure Files volume requires a storage account and file share.  You can use an existing Azure storage account and file share, or create resources:
 
-```azurecli
+```azurecli-interactive
 az group create \
-    --name storage-quickstart-resource-group \
-    --location westus
+    --name myStorageGroup \
+    --location eastus
 
 az storage account create \
---name storagequickstart \
---resource-group storage-quickstart-resource-group \
---location westus \
+--name myStorageAccount \
+--resource-group myStorageGroup \
+--location eastus \
 --sku Standard_LRS \
 --kind StorageV2
-```
 
-## Create a storage account and file share
+current_env_conn_string=$(az storage account show-connection-string -n myStorageAccount -g myStorageGroup --query 'connectionString' -o tsv)
 
-Create an Azure file share by following these [instructions](/azure/storage/files/storage-how-to-create-file-share). 
+if [[ $current_env_conn_string == "" ]]; then  
+    echo "Couldn't retrieve the connection string."
+fi
 
-```azurecli
-current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
-
- if [[ $current_env_conn_string == "" ]]; then  
-     echo "Couldn't retrieve the connection string."
- fi
-
- az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
+az storage share create --name myFileShare --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
  ```
 
-The storage account name, storage account key and the file share name are referenced as `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following instructions. These values are available in the [Azure portal](https://portal.azure.com):
-* <storageAccountName> - Under **Storage Accounts**, it is the name of the storage account you used when you created the file share.
+## Get the storage account name and key and the file share name
+The storage account name, storage account key and the file share name are referenced as `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following sections. 
+
+List your storage accounts and get the name of the storage account with the file share you want to use:
+```azurecli-interactive
+az storage account list
+```
+
+Get the name of the file share:
+```azurecli-interactive
+az storage share list --account-name <storageAccountName>
+```
+
+To get the storage account key ("key1"), run the following:
+```azurecli-interactive
+az storage account keys list --account-name <storageAccountName> --query "[?keyName=='key1'].value"
+```
+
+You can also find these values in the [Azure portal](https://portal.azure.com):
+* <storageAccountName> - Under **Storage Accounts**, the name of the storage account used to create the file share.
 * <storageAccountKey> - Select your storage account under **Storage Accounts** and then select **Access keys** and use the value under **key1**.
 * <fileShareName> - Select your storage account under  **Storage Accounts** and then select **Files**. The name to use is the name of the file share you just created.
 
-
-
 ## Declare a volume resource and update the service resource (YAML)
 
-Add a *volume.yaml* file in the *App resources* directory.
+Add a new *volume.yaml* file in the *App resources* directory for your application.  Specify a name and the provider ("SFAzureFile" to use the Azure Files based volume). <fileShareName>, <storageAccountName>, and <storageAccountKey> are the values you found in a previous step.
+
 ```yaml
 volume:
   schemaVersion: 1.0.0-preview2
@@ -89,7 +100,8 @@ volume:
         accountKey: <storageAccountKey>
 ```
 
-Update the *service.yaml* file in the *Service Resources* directory.
+Update the *service.yaml* file in the *Service Resources* directory to mount the volume in your service.  Add the `volumeRefs` element to the `codePackages` element.  `name` is the resource ID for the volume (or a deployment template parameter for the volume resource) and the name of the volume declared in the volume.yaml resource file.  `destinationPath` is the local directory that the volume will be mounted to.
+
 ```yaml
 ## Service definition ##
 application:
@@ -114,9 +126,7 @@ application:
                 - name: ASPNETCORE_URLS
                   value: http://+:20003
                 - name: STATE_FOLDER_NAME
-                  value: "[parameters('stateFolderName')]"
-#                - name: ApplicationInsights:InstrumentationKey
-#                  value: "<Place AppInsights key here, or reference it via a secret>"
+                  value: TestVolumeData
               resources:
                 requests:
                   cpu: 0.5
@@ -128,7 +138,12 @@ application:
 
 ## Declare a volume resource and update the service resource (JSON)
 
-First create a volume resource
+Add parameters for the <fileShareName>, <storageAccountName>, and <storageAccountKey> values you found in a previous step. 
+
+Create a Volume resource as a peer of the Application resource. Specify a name and the provider ("SFAzureFile" to use the Azure Files based volume). In `azureFileParameters`, specify the parameters for the <fileShareName>, <storageAccountName>, and <storageAccountKey> values you found in a previous step.
+
+To mount the volume in your service, add a `volumeRefs` to the `codePackages` element of the service.  `name` is the resource ID for the volume (or a deployment template parameter for the volume resource) and the name of the volume declared in the volume.yaml resource file.  `destinationPath` is the local directory that the volume will be mounted to.
+
 ```json
 {
   "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
