@@ -25,6 +25,7 @@ This article describes steps and requirements for configuring a container offer 
 ## Before you begin
 
 Review the [Azure Containers](https://docs.microsoft.com/azure/container-instances) documentation, which provides Quickstarts, Tutorials, and Samples.
+
 ![Azure Containers documentation](./media/containers-documentation.png)
 
 ## Fundamental technical knowledge
