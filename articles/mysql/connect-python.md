@@ -51,8 +51,9 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
    ```bash
    pip install mysql-connector-python-rf
    ```
+
 > [!NOTE]
-> This quickstart uses a raw SQL query approach to connect to MySQL. If you are using a web framework, we recommend using the [mysqlclient](https://pypi.org/project/mysqlclient/) driver for Django and the [MySQL-python](https://pypi.org/project/MySQL-python/) driver for SQLAlchemy.
+> This quickstart uses a raw SQL query approach to connect to MySQL to run queries. If you are using a web framework, use the recommended connector for those frameworks. For example, [mysqlclient](https://pypi.org/project/mysqlclient/) is suggested for use with Django.
 > 
 
 ## Get connection information
@@ -63,7 +64,6 @@ Get the connection information needed to connect to the Azure Database for MySQL
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  ![Azure Database for MySQL server name](./media/connect-python/1_server-overview-name-login.png)
-   
 
 ## Run Python code
 - Paste the code into a text file, and then save the file into a project folder with file extension .py (such as C:\pythonmysql\createtable.py or /home/username/pythonmysql/createtable.py).
