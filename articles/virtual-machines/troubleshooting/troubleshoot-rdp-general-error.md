@@ -72,6 +72,7 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
    ```
    ch -si 1
    ```
+
 #### Step 2: Check the values of some registry keys:
 
 1. Make sure that the RDP component is enabled.
@@ -86,8 +87,8 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
       If the domain policy exists, the setup on the local policy is overwritten.
 
-         - If the domain policy states that RDP is disabled (1), then update the AD policy from domain controller.
-         - If the domain policy states that RDP is enabled (0), then no update is needed.
+      - If the domain policy states that RDP is disabled (1), then update the AD policy from domain controller.
+       - If the domain policy states that RDP is enabled (0), then no update is needed.
 
       If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command:
 
@@ -158,9 +159,9 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
 8. Exit from the CMD instance by typing `exit`, and then press **Enter** two times.
 
-9. Restart the VM by typing `restart`.
+9. Restart the VM by typing `restart`, and then connect to the VM.
 
-10 the problem still happens, move to the step 2.
+If the problem still happens, move to the step 2.
 
 #### Step 2: Enable remote desktop services
 
@@ -227,7 +228,6 @@ For more information, see [Remote Desktop disconnects frequently in Azure VM](tr
 
       Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
   
-
 7. Detach the disk from the rescue VM.
 8. [Create a new VM from the disk](../windows/create-vm-specialized.md).
 
