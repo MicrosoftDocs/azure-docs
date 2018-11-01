@@ -17,7 +17,7 @@ Deploying an Azure Machine Learning model as a web service creates a REST API. Y
 
 ## Get the REST API information
 
-The REST API information can be retrieved using the Azure Machine Learning SDK. The [`Webservice`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information neccessary to create a client for the REST API exposed by the web service. The following is a list of `Webservice` properties that are useful when creating a client application:
+The REST API information can be retrieved using the Azure Machine Learning SDK. The [`Webservice`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information necessary to create a client for the REST API exposed by the web service. The following `Webservice` properties that are useful when creating a client application:
 
 * `auth_enabled` - If authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
@@ -78,9 +78,9 @@ The REST API expects the body of the request to be a JSON document with the foll
 }
 ```
 
-The structure of the individual rows in the data array need to be consumable by the scoring script for the service. The script might modify the data before passing it to the model, or it might pass it directly to the model. 
+The structure of the data needs to match what the scoring script for the service expects. The script might modify the data before passing it to the model, or it might pass it directly to the model. 
 
-For example, the `scoring.py` file in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example creates a Numpy array from the data and passes this to the model. In this case, the model expects an array of ten values. The following is an example JSON document for this model:
+For example, the `scoring.py` file in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example creates a Numpy array from the data and passes it to the model. In this case, the model expects an array of 10 values. The following JSON document is an example of the data this model expects:
 
 ```json
 {
