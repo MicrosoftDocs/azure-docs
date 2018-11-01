@@ -12,7 +12,7 @@ ms.author: raynew
 ---
 # Prepare to back up Azure VMs
 
-This article provides the steps for preparing your environment to back up an Azure Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal. When you back up a virtual machine, the backup data or recovery points, are stored in a Recovery Services Backup vault. 
+This article provides the steps for preparing your environment to back up an Azure Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal. When you back up a virtual machine, the backup data or recovery points, are stored in a Recovery Services Backup vault.
 
 
 
@@ -39,7 +39,7 @@ If these conditions already exist in your environment, proceed to the [Back up y
 ## Limitations when backing up and restoring a VM
 Before you prepare your environment, be sure to understand these limitations:
 
-* Backing up virtual machines with more than 32 data disks is not supported.
+* Backing up virtual machines with more than 16 data disks is not supported.
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
 * We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency.
 * Backup data doesn't include network mounted drives attached to a VM.
@@ -188,7 +188,7 @@ The Backup service installs the backup extension whether or not the VM is runnin
 ## Establish network connectivity
 To manage the VM snapshots, the backup extension needs connectivity to the Azure public IP addresses. Without the right internet connectivity, the virtual machine's HTTP requests time out and the backup operation fails. If your deployment has access restrictions in place--through a network security group (NSG), for example--choose one of these options to provide a clear path for backup traffic:
 
-* [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+* [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/download/details.aspx?id=41653).
 * Deploy an HTTP proxy server for routing traffic.
 
 When you're deciding which option to use, the trade-offs are between manageability, granular control, and cost.
@@ -199,7 +199,7 @@ When you're deciding which option to use, the trade-offs are between manageabili
 | Use an HTTP proxy |Granular control in the proxy over the storage URLs is allowed.<br><br>Single point of internet access to VMs.<br><br>Not subject to Azure IP address changes. |Additional costs for running a VM with the proxy software. |
 
 ### Whitelist the Azure datacenter IP ranges
-To whitelist the Azure datacenter IP ranges, see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges and instructions.
+To whitelist the Azure datacenter IP ranges, see the [Azure website](http://www.microsoft.com/download/details.aspx?id=41653) for details on the IP ranges and instructions.
 
 You can allow connections to storage of the specific region by using [service tags](../virtual-network/security-overview.md#service-tags). Make sure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access.
 
