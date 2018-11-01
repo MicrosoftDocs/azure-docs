@@ -73,9 +73,9 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
    ch -si 1
    ```
 
-#### Step 2: Check the values of some registry keys:
+#### Step 2: Check the values of RDP registry keys:
 
-1. Make sure that the RDP component is enabled.
+1. Check if the RDP is disabled by polices.
 
       ```
       REM Get the local policy 
@@ -85,16 +85,16 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-      If the domain policy exists, the setup on the local policy is overwritten.
+      - If the domain policy exists, the setup on the local policy is overwritten.
 
       - If the domain policy states that RDP is disabled (1), then update the AD policy from domain controller.
-       - If the domain policy states that RDP is enabled (0), then no update is needed.
+      - If the domain policy states that RDP is enabled (0), then no update is needed.
 
-      If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command:
+      - If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command:
 
-            ```
+          
             reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-            ```
+         
 
 2. Check the current configuration of the terminal server.
 
