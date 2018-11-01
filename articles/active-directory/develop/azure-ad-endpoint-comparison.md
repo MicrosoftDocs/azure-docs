@@ -111,7 +111,7 @@ Historically, the most basic OpenID Connect sign-in flow with Azure AD would pro
 
 The information that the `openid` scope affords your app access to is now restricted. The `openid` scope will only allow your app to sign in the user and receive an app-specific identifier for the user. If you want to obtain personal data about the user in your app, your app will need to request additional permissions from the user. Two new scopes – the `email` and `profile` scopes – will allow you to request additional permissions.
 
-The `email` scope allows your app access to the user’s primary email address through the `email` claim in the id_token. The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
+The `email` scope allows your app access to the user’s primary email address through the `email` claim in the id_token, assuming the user has an addressable email address. The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
 
 This allows you to code your app in a minimal-disclosure fashion – you can only ask the user for the set of information that your app requires to do its job. For more information on these scopes, see [the v2.0 scope reference](v2-permissions-and-consent.md).
 
@@ -127,21 +127,11 @@ When you build applications that integrate with the Microsoft identity platform,
 
 Here's a simplified recommendation for developers at this point in time:
 
-* If you must support personal Microsoft accounts in your application, use v2.0. But before you do, be sure that you understand the limitations discussed in this article.
+* If you must want to support personal Microsoft accounts in your application or are writing a new application, use v2.0. But before you do, be sure that you understand the limitations discussed in this article.
 
-* If your application only needs to support Microsoft work and school accounts, don't use v2.0. Instead, refer to the [v1.0 guide](v1-overview.md).
+* If you're migrating or updating an application that relies on SAML, you can't use v2.0. Instead, refer to the [v1.0 guide](v1-overview.md).
 
 The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that you will only ever need to use the v2.0 endpoint. In the meantime, use this article to determine whether the v2.0 endpoint is right for you. We will continue to update this article to reflect the current state of the v2.0 endpoint. Check back to reevaluate your requirements against v2.0 capabilities.
-
-### Restrictions on app types
-
-Currently, the following types of apps are not supported by the v2.0 endpoint. For a description of supported app types, see [App types in v2.0](v2-app-types.md).
-
-#### Standalone Web APIs
-
-You can use the v2.0 endpoint to [build a Web API that is secured with OAuth 2.0](v2-app-types.md#web-apis). However, that Web API can receive tokens only from an application that has the same Application ID. You cannot access a Web API from a client that has a different Application ID. The client won't be able to request or obtain permissions to your Web API.
-
-To see how to build a Web API that accepts tokens from a client that has the same Application ID, see the v2.0 endpoint Web API samples in the [v2.0 getting started](v2-overview.md#getting-started) section.
 
 ### Restrictions on app registrations
 
@@ -202,24 +192,22 @@ Currently, library support for the v2.0 endpoint is limited. If you want to use 
 
 * For platforms not covered by Microsoft libraries, you can integrate with the v2.0 endpoint by directly sending and receiving protocol messages in your application code. The v2.0 OpenID Connect and OAuth protocols [are explicitly documented](active-directory-v2-protocols.md) to help you perform such an integration.
 
-* Finally, you can use open-source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint. The v2.0 protocol should be compatible with many open-source protocol libraries without major changes. The availability of these kinds of libraries varies by language and platform. The [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Azure Active Directory v2.0 and authentication libraries](reference-v2-libraries.md), and the list of open-source client libraries and samples that have been tested with the v2.0 endpoint.
+* Finally, you can use open-source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint. The v2.0 protocol should be compatible with many open-source protocol libraries without changes. The availability of these kinds of libraries varies by language and platform. The [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Azure Active Directory v2.0 and authentication libraries](reference-v2-libraries.md), and the list of open-source client libraries and samples that have been tested with the v2.0 endpoint.
 
 * For reference, the `.well-known` endpoint for the v2.0 common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Replace `common` with your tenant ID to get data specific to your tenant.  
 
-### Restrictions on protocols
+### Protocol changes
 
-The v2.0 endpoint does not support SAML or WS-Federation; it only supports Open ID Connect and OAuth 2.0. Not all features and capabilities of OAuth protocols have been incorporated into the v2.0 endpoint.
+The v2.0 endpoint does not support SAML or WS-Federation; it only supports Open ID Connect and OAuth 2.0.  The notable changes to the OAuth 2.0 protocols from the v1.0 endpoint are: 
 
-The following protocol features and capabilities currently are *not available* or *not supported* in the v2.0 endpoint:
+* The `email` claim is returned  if an optional claim is configured **or** scope=email was specified in the request. 
 
-* The `email` claim is returned only if an optional claim is configured and scope is scope=email was specified in the request. However, expect this behavior to change as the v2.0 endpoint is updated to further comply with the Open ID Connect and OAuth2.0 standards.
+* The `scope` parameter is now supported in place of the `resource` parameter.  
 
-* The v2.0 endpoint does not support issuing role or group claims in ID tokens.
-
-* The v2.0 endpoint does not support [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3).
+* Many responses have been modified to make them more compliant with the OAuth 2.0 specification, for example correctly returning `expires_in` as an int instead of a string.  
 
 To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
 
 #### SAML restrictions
 
-If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. Currently, the SAML assertion grant is not supported on the v2.0 endpoint.
+If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. The SAML assertion grant is not supported on the v2.0 endpoint.
