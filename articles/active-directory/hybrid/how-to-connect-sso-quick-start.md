@@ -45,7 +45,7 @@ Ensure that the following prerequisites are in place:
     * You synchronize to Azure AD through Azure AD Connect.
     * Contains users you want to enable for Seamless SSO.
     
-* **Enable modern authentication**: You need to enable [modern authentication](https://aka.ms/modernauthga) on your tenant for this feature to work.
+* **Enable modern authentication**: You need to enable [modern authentication](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant for this feature to work.
 
 * **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
 
