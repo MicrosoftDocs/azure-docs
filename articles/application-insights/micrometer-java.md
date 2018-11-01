@@ -17,14 +17,14 @@ ms.author: lagayhar
 
 ---
 # How to use Micrometer with Azure Application Insights Java SDK
-Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with application insight for both Spring Boot and non-Spring Boot applications.
+Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
 
-## Using SpringBoot 1.5x
+## Using Spring Boot 1.5x
 Add the following dependencies to your pom.xml or build.gradle file: 
-* [Application Insight spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA or above
+* [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA or above
 * Micrometer Azure Registry 1.1.0 or above
-* [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in Spring framework).
-* [ApplicationInsights Resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
+* [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
+* [ApplicationInsights Resource](app-insights-create-new-resource.md)
 
 Steps
 
@@ -51,9 +51,9 @@ Steps
 
     ```
 2. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
-    a. azure.application-insights.instrumentation-key=fakekey
+    a. `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 3. Build your application and run
-4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune ApplicationInsight SpringBoot starter refer to the [readme on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+4. The above should get you up and running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
 
 ## Using Spring 2.x
 
@@ -61,7 +61,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Spring-boot-starter 2.1.2 or above
 * Azure-spring-boot-metrics-starters 2.0.7 or above  
-* [Application Insights Resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
+* [Application Insights Resource](app-insights-create-new-resource.md)
 
 Steps:
 
@@ -76,9 +76,9 @@ Steps:
     ```
 1. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
 
-    a. azure.application-insights.instrumentation-key=fakekey
+    a. `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 3. Build your application and run
-4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune ApplicationInsight SpringBoot starter refer to the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
+4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
 Default Metrics:
 
@@ -112,9 +112,9 @@ How to turn off automatic metrics collection:
     - spring.aop.enabled=false 
 
 > [!NOTE]
-> Specify properties above in application.properties or application.yml file of your SpringBoot application
+> Specify the properties above in the application.properties or application.yml file of your Spring Boot application
 
-## Use Micrometer with non-Spring Boot web application
+## Use Micrometer with non-Spring Boot web applications
 
 Add the following dependencies to your pom.xml or build.gradle file:
  
@@ -122,11 +122,11 @@ Add the following dependencies to your pom.xml or build.gradle file:
 * [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) or above
 * [Register Web Filter](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-java-get-started)
 * Micrometer Azure Registry 1.1.0 or above
-* [Application Insights Resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource)
+* [Application Insights Resource](app-insights-create-new-resource.md)
 
 Steps:
 
-1. Add following dependency in your pom.xml or build.gradle file:
+1. Add the following dependencies in your pom.xml or build.gradle file:
 
 ```XML
     <dependency>
@@ -225,7 +225,7 @@ MeterRegistry azureMeterRegistry = AzureMonitorMeterRegistry.builder(config);
 
 To learn more about metrics, refer to the [Micrometer documentation](https://micrometer.io/docs/).
 
-Other sample code on how to create different types of metrics can be found [the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Other sample code on how to create different types of metrics can be found in[the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 
 ## How to bind additional metrics collection
