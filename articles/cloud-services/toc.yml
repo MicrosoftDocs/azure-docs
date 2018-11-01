@@ -111,7 +111,7 @@
     - name: Use performance counters
       href: diagnostics-performance-counters.md
     - name: Test performance
-      href: /visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services?context=/azure/cloud-services/default
+      href: /visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services?context=/azure/cloud-services/context/cloud-services
       items:
       - name: Test with Visual Studio Profiler
         href: cloud-services-performance-testing-visual-studio-profiler.md
