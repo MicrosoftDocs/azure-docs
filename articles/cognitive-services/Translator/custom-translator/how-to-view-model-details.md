@@ -14,7 +14,7 @@ ms.topic: article
 
 # View model details
 
-The Models tab under project shows all models in that project. Any model trained for that project is listed in this tab.
+The Models tab under project shows all models in that project. All models trained for that project is listed in this tab.
 
 For each model in the project, following model details are displayed.
 
