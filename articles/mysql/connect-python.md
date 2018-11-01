@@ -21,7 +21,11 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install Python and the MySQL connector
-Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. Depending on your platform, follow the steps in the appropriate section:
+Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. Depending on your platform, follow the steps in the appropriate section below. 
+
+> [!NOTE]
+> This quickstart uses a raw SQL query approach to connect to MySQL to run queries. If you are using a web framework, use the recommended connector for those frameworks. For example, [mysqlclient](https://pypi.org/project/mysqlclient/) is suggested for use with Django.
+>
 
 ### Windows
 1. Download and Install Python 2.7 from [python.org](https://www.python.org/downloads/windows/). 
@@ -50,11 +54,7 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
 
    ```bash
    pip install mysql-connector-python-rf
-   ```
-
-> [!NOTE]
-> This quickstart uses a raw SQL query approach to connect to MySQL to run queries. If you are using a web framework, use the recommended connector for those frameworks. For example, [mysqlclient](https://pypi.org/project/mysqlclient/) is suggested for use with Django.
-> 
+   ``` 
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
