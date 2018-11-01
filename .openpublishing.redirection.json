@@ -10076,7 +10076,7 @@
         },
         {
             "source_path": "articles/log-analytics/query-language/kusto.md",
-            "redirect_url": "azure/log-analytics/query-language/query-language",
+            "redirect_url": "/azure/log-analytics/query-language/query-language",
             "redirect_document_id": false
         },
         {
@@ -30294,6 +30294,11 @@
         {
             "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/iot-central/howto-create-application.md",
+            "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
             "redirect_document_id" : false
         }
     ]
