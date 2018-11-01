@@ -227,7 +227,7 @@ When using the **like** and **notLike** conditions, you can provide a wildcard `
 The value should not contain more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a
-letter, and any other character to represent that actual character. For examples, see [Allow
+letter, `.` to match all characters, and any other character to represent that actual character. For examples, see [Allow
 multiple name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
@@ -257,8 +257,8 @@ The following fields are supported:
 
 Policy supports the following types of effect:
 
-- **Deny**: generates an event in the audit log and fails the request
-- **Audit**: generates a warning event in audit log but does not fail the request
+- **Deny**: generates an event in the activity log and fails the request
+- **Audit**: generates a warning event in activity log but does not fail the request
 - **Append**: adds the defined set of fields to the request
 - **AuditIfNotExists**: enables auditing if a resource does not exist
 - **DeployIfNotExists**: deploys a resource if it does not already exist.

@@ -1,17 +1,15 @@
 ---
-title: 'Troubleshoot Azure Site Recovery Agent failure: Guest Agent Status Unavailable | Microsoft Docs'
-description: 'Symptoms, causes, and resolutions of Azure Site Recovery failures related to agent and extension'
-services: site-recovery
+title: Troubleshoot issues with Azure Site Recovery agents | Microsoft Docs'
+description: Provides information about symptoms, causes, and resolutions of Azure Site Recovery agent failures.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 10/29/2018
 ms.author: asgang
 ---
 
-# Troubleshoot Azure Site Recovery extension failures: Issues with the agent or extension
+# Troubleshoot issues with the Azure Site Recovery agent
 
 This article provides troubleshooting steps that can help you resolve Azure Site Recovery  errors related to VM agent and extension.
 

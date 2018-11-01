@@ -30,9 +30,13 @@ To resolve this issue:
 1. Select **Shared Drives** and share the system drive along with the drive where the project resides.
 
 > [!NOTE]
-> If files appear shared, you may still need to click the "Reset credentials..." link at the bottom of the dialog in order to re-enable volume sharing.
+> If files appear shared, you may still need to click the "Reset credentials..." link at the bottom of the dialog in order to re-enable volume sharing. To continue after you reset credentials, you might have to restart Visual Studio.
 
 ![shared drives](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
+
+## Mounts denied
+
+When using Docker for macOS, you might encounter an error referencing the folder /usr/local/share/dotnet/sdk/NuGetFallbackFolder. Add the folder to the File Sharing tab in Docker.
 
 ## Unable to start debugging
 

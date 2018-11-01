@@ -159,7 +159,7 @@ It's crucial to not only know who is using your applications, but also to preven
 
 	>**When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
 
-    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/azure-ad-developers-guide.md).
+    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
 
 -   **App Service Authentication**: When you choose App Service to host your app, you also get built-in    authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
 
@@ -291,7 +291,7 @@ given task.
 
 -   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
 
-	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory application and service principal](../../resource-group-create-service-principal-portal.md).
+	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory application and service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### Tags
 

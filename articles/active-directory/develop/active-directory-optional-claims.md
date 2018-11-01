@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ---
 
@@ -212,7 +212,7 @@ In the example below, you will modify an application’s manifest to add claims 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top right corner of the page.
-1. Select **Azure AD extension** from the left navigation panel and click on **App Registrations**.
+1. Select **App Registrations** from the left hand side.
 1. Find the application you want to configure optional claims for in the list and click on it.
 1. From the application page, click **Manifest** to open the inline manifest editor. 
 1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.

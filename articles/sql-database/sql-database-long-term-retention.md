@@ -11,19 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/16/2018
+ms.date: 10/24/2018
 ---
 # Store Azure SQL Database backups for up to 10 years
 
 Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term retention (LTR) feature, you can store specified SQL database full backups in [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob storage for up to 10 years. You can then restore any backup as a new database.
 
 > [!NOTE]
-> LTR can be enabled on the databases hosted in Azure SQL Database Logical Servers. It is still not available in Managed Instances.
+> LTR can be enabled on the databases hosted in Azure SQL Database Logical Servers. It is not yet available for databases hosted in Managed Instances.
 > 
 
 ## How SQL Database long-term retention works
 
-Long-term backup retention leverages the [automatic SQL Database backups](sql-database-automated-backups.md) created takes for point-time restore (PITR). You can configure a long term retention policy for each SQL database and specify how frequently you need to copy the backups to the long-term storage. To enable that flexibility you can define the policy using a combination of four parameters: weekly backup retention (W), monthly backup retention (M), yearly backup retention (Y) and week of year (WeekOfYear). If you specify W, one backup every week will be copied to the long-term storage. If you specify M, one backup during the first week of each month will be copied to the long-term storage. If you specify Y, one backup during the week specified by WeekOfYear will be copied to the long-term storage. Each backup will be kept in the long-term storage for the period specified by these parameters. 
+Long-term backup retention (LTR) leverages the full database backups that are [automatically created](sql-database-automated-backups.md) to enable point-time restore (PITR). These backups are copied to different storage blobs if LTR policy is configured.
+You can configure a LTR policy for each SQL database and specify how frequently you need to copy the backups to the long-term storage blobs. To enable that flexibility you can define the policy using a combination of four parameters: weekly backup retention (W), monthly backup retention (M), yearly backup retention (Y) and week of year (WeekOfYear). If you specify W, one backup every week will be copied to the long-term storage. If you specify M, one backup during the first week of each month will be copied to the long-term storage. If you specify Y, one backup during the week specified by WeekOfYear will be copied to the long-term storage. Each backup will be kept in the long-term storage for the period specified by these parameters. 
 
 Examples:
 

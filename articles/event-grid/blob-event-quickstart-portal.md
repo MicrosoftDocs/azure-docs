@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/13/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---

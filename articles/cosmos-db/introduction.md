@@ -51,7 +51,7 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
 * **Ensure "always on" availability**
     * 99.99% availability SLA for all single region database accounts, and all 99.999% read availability on all multi-region database accounts.
     * Deploy to any number of [Azure regions](https://azure.microsoft.com/regions) for higher availability and better performance.
-    * Dynamically set priorities to regions and [simulate a failure](regional-failover.md) of one or more regions with zero-data loss guarantees to test the end-to-end availability for the entire app (beyond just the database). 
+    * Dynamically set priorities to regions and [simulate a failure](high-availability.md) of one or more regions with zero-data loss guarantees to test the end-to-end availability for the entire app (beyond just the database). 
 
 * **Write globally distributed applications, the right way**
     * Five well-defined, practical, and intuitive [consistency models](consistency-levels.md) provide a spectrum of strong SQL-like consistency all the way to the relaxed NoSQL-like eventual consistency, and everything in-between. 

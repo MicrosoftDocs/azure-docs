@@ -7,8 +7,8 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 # Entities in LUIS
@@ -55,6 +55,10 @@ In the utterance "Book me a ticket to Paris", "Paris" is an entity of type locat
 ## Assign entities in None intent
 All intents, including the **None** intent, should have entities labeled. This helps LUIS learn more about where the entities are in the utterances and what words are around the entities. 
 
+## Entity status for predictions
+
+See [Entity Status predictions](luis-how-to-add-example-utterances.md#entity-status-predictions) for more information. 
+
 ## Types of entities
 LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
 
@@ -86,8 +90,9 @@ LUIS offers many types of entities; prebuilt entities, custom machine learned en
 ## Entity limits
 Review [limits](luis-boundaries.md#model-boundaries) to understand how many of each type of entity you can add to a model.
 
-## Entity roles
-Entity [roles](luis-concept-roles.md) are used in patterns only. 
+## Roles versus hierarchical entities
+
+For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Composite vs hierarchical entities
 Composite entities and hierarchical entities both have parent-child relationships and are machine learned. The machine-learning allows LUIS to understand the entities based on different contexts (arrangement of words). Composite entities are more flexible because they allow different entity types as children. A hierarchical entity's children are only simple entities. 

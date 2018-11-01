@@ -54,7 +54,7 @@ WHERE
 	RTRIM(value) <> '';
 ```
 
-###COMPRESS/DECOMPRESS Functions
+### COMPRESS/DECOMPRESS Functions
 The [COMPRESS](https://docs.microsoft.com/sql/t-sql/functions/compress-transact-sql) / [DECOMPRESS](https://docs.microsoft.com/sql/t-sql/functions/decompress-transact-sql) functions allow you to compress or decompress a string input using the GZIP algorithm.
 
 #### Example

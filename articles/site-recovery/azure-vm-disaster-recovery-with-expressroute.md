@@ -1,13 +1,13 @@
 ---
-title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using Azure Site Recovery  | Microsoft Docs
+title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using the Azure Site Recovery service | Microsoft Docs
 description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/02/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
 # Integrate Azure ExpressRoute with disaster recovery for Azure VMs
@@ -15,7 +15,7 @@ ms.author: manayar
 
 This article describes how to integrate Azure ExpressRoute with [Azure Site Recovery](site-recovery-overview.md), when you set up disaster recovery for Azure VMs to a secondary Azure region.
 
-Site Recovery enables disaster recovery of Azure VMs by replicating Azure VM data to Azure. 
+Site Recovery enables disaster recovery of Azure VMs by replicating Azure VM data to Azure.
 
 - If Azure VMs use [Azure managed disks](../virtual-machines/windows/managed-disks-overview.md), VM data is replicated to an replicated managed disk in the secondary region.
 - If Azure VMs don't use managed disks, VM data is replicated to an Azure storage account.
@@ -71,7 +71,7 @@ If you want to set up replication for Azure VMs in a primary site, and you're co
     - Azure's default system route for Azure VM replication is 0.0.0.0/0.
     - Typically, NVA deployments also define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the NVA. The default route is used when no other specific route configuration can be found.
     - If this is the case, the NVA might be overloaded if all replication traffic passes through the NVA.
-    - The same limitation also applies when using default routes for routing all Azure VM traffic to on-premises deployments. 
+    - The same limitation also applies when using default routes for routing all Azure VM traffic to on-premises deployments.
     - In this scenario, we recommend that you [create a network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for the Microsoft.Storage service, so that the replication traffic doesn't leave Azure boundary.
 
 ## Replication example
@@ -82,8 +82,8 @@ Typically enterprise deployments have workloads split across multiple Azure VNet
 
 - **Region**. Apps are deployed in the Azure East Asia region.
 - **Spoke vNets**. Apps are deployed in two spoke vNets:
-    - **Source vNet1**: 10.1.0.0/24. 
-    - **Source vNet2**: 10.2.0.0/24. 
+    - **Source vNet1**: 10.1.0.0/24.
+    - **Source vNet2**: 10.2.0.0/24.
     - Each spoke virtual network is connected to **Hub vNet**.
 - **Hub vNet**. There's a hub vNet **Source Hub vNet**: 10.10.10.0/24.
     - This hub vNet acts as the gatekeeper.
@@ -119,14 +119,14 @@ Hub to spoke | Use remove gateways | Disabled
 
  ![Hub to spoke peering configuration](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
-### Example steps 
+### Example steps
 
 In our example, the following should happen when enabling replication for Azure VMs in the source network:
 
 1. You [enable replication](azure-to-azure-tutorial-enable-replication.md) for a VM.
 2. Site Recovery will create replica vNets, subnets, and gateway subnets in the target region.
 3. Site Recovery creates mappings between the source networks and the replica target networks it creates.
-4. You manually create virtual network gateways, virtual network gateway connections, virtual network peering, or any other networking resources or connections. 
+4. You manually create virtual network gateways, virtual network gateway connections, virtual network peering, or any other networking resources or connections.
 
 
 ## Fail over Azure VMs when using ExpressRoute
@@ -143,7 +143,7 @@ After you fail Azure VMs over to the target Azure region using Site Recovery, yo
 
 This configuration helps protects ExpressRoute circuits against regional disaster. If your primary peering loation goes down, connections can continue from the other location.
 
-- The circuit connected to the production environment is usually the primary. The secondary circuit typically has lower bandwidth, which can be increased if a disaster occurs. 
+- The circuit connected to the production environment is usually the primary. The secondary circuit typically has lower bandwidth, which can be increased if a disaster occurs.
 - After failover, you can establish connections from the secondary ExpressRoute circuit to the target vNet. Alternatively, you can have connections set up and ready in case of disaster, to reduce overall recovery time.
 - With simultaneous connections to both primary and target vNets, make sure that your on-premises routing only uses the secondary circuit and connection after failover.
 - The source and target vNets can receive new IP addresses, or keep the same ones, after failover. In both cases, the secondary connections can be established prior to failover.
@@ -151,7 +151,7 @@ This configuration helps protects ExpressRoute circuits against regional disaste
 
 #### Two circuits with single peering location
 
-This configuration helps protect against failure of the primary ExpressRoute circuit, but not if the single ExpressRoute peering location goes down, impacting both circuits. 
+This configuration helps protect against failure of the primary ExpressRoute circuit, but not if the single ExpressRoute peering location goes down, impacting both circuits.
 
 - You can have simultaneous connections from the on-premises datacenter to source vNEt with the primary circuit, and to the target vNet with the secondary circuit.
 - With simultaneous connections to primary and target, make sure that  on-premises routing only uses the secondary circuit and connection after failover.

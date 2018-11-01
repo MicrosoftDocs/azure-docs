@@ -122,7 +122,7 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
     a. Select the forest.
 
-    b. Select the authentication service. You must select AD FS server unless your organization has exclusively Windows 10 clients.
+    b. Select the authentication service. You must select AD FS server unless your organization has exclusively Windows 10 clients and you have configured computer/device sync or your organization is using SeamlessSSO.
 
     c. Click **Add** to enter the enterprise administrator credentials.
 
@@ -192,7 +192,7 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 - An object with the **device id** that matches the ID on the Windows client must exist.
 - The value for **DeviceTrustType** must be **Domain Joined**. This is equivalent to the **Hybrid Azure AD joined** state on the Devices page in the Azure AD portal.
-- The value for **Enabled** must be **True** for devices that are used in conditional access. 
+- The value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed** for devices that are used in conditional access. 
 
 
 **To check the service details:**
