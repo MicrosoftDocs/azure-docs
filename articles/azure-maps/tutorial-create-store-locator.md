@@ -44,7 +44,6 @@ To maximize the usefulness of this store locator, we will also include a respons
 
 In the wireframes above you can see that it is a fairly straight forward application, which has a search box, a list of nearby stores, a map with some markers (symbols) and a popup with additional information when you click on a marker. Going into a bit more detail here are the features we will build into this store locator: 
     
-> [!div class="checklist"]
 * The location information for all stores will be managed using an Excel spreadsheet and exported into a tab delimited flat file which we can easily import into our application. All locations will be loaded on the map and the user will be able to either pan and zoom the map into the area they are interested in, perform a search, or press the GPS button.
 * The page layout will adjust depending on the width of the screen.  
 * There will be a header which contains the logo for the store.  
@@ -65,7 +64,6 @@ Before we start developing an application, we first need to create a data set of
 
 You can download the spreadsheet [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Looking at this screenshot we can make the following observations:
     
-> [!div class="checklist"]
 * Location information is stored using the AddressLine, City, Municipality (county), AdminDivision (state/province), PostCode (zip code), and Country columns.  
 * There is a Latitude and Longitude column that contains the coordinates of each coffee shop. If you do not have this information you can use the Search services in Azure Maps to determine this.
 * There are some additional columns that contain some metadata related to the coffee shops; a phone number, boolean columns for Wi-Fi hotspot and wheel chair accessibility, opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
@@ -74,14 +72,12 @@ There are many ways in which we can expose the data set to the application. One 
 
 To convert the spreadsheet into a flat text file, we will save it as a tab-delimited file.  It will spec each column out with a tab character, which will make it easy to parse in our code. You can use CSV (comma-separated value) but that would require more parsing logic as any field that has a comma around it would be wrapped with quotes. To export this data as a Tab-delimited file in Excel press the **Save As** button and in the **Save as type** drop-down select **Text (Tab delimited)(*.txt)**. We will call this file **ContosoCoffee.txt**. 
 
-<div style="text-align:center" markdown="1">
+
 ![Save-As](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
 If you open the text file in notepad, it will look something like below;
 
 ![Tab-File](./media/tutorial-create-store-locator/StoreDataTabFile.png)
-
-<a id="code-explanation"></a>
 
 ## Set up the project
 
