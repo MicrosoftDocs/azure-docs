@@ -26,7 +26,7 @@ To create a new VM that will act as a file share:
 5. On the Create virtual machine flow under the Basic blade, enter the required information.
     1. **Name**: the VM name.
     2. **Admin username**: choose an admin name you will remember.
-    3. ** Admin password**: choose a password that meets Azure VM password complexity standards.
+    3. **Admin password**: choose a password that meets Azure VM password complexity standards.
     4. **Resource group**: use the resource group you created in step 1.
 6. Complete the VM setup by following the rest of the instructions in the workflow. Once you're done, you'll have to wait a little bit for the VM to deploy.
 

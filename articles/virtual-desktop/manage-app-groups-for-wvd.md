@@ -29,10 +29,12 @@ The default app group that's created automatically for a new host pool publishes
  Get-RdsHostPoolAvailableApp <tenantname> <hostpoolname>
  ```
 4. Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
+   
  ```PowerShell
  New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
  ```
 5. (Optional) Run the following cmdlet to install the application based on appalias.
+
  ```PowerShell
  New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
  ```

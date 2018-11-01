@@ -1,6 +1,6 @@
 ---
-title: Connect to Microsoft Remote Services
-description: Describes how to set up and validate Remote Desktop modern infrastructure end-users in old Windows clients.
+title: Connect to Windows Virtual Desktop
+description: Describes how users can access Windows Virtual Desktop through a downloaded client or the Remote Desktop web client.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Connect to Microsoft Remote Services
+# Connect to Windows Virtual Desktop
 
 You can connect to a Windows Virtual Desktop deployment using old Windows clients.
 
@@ -46,18 +46,3 @@ From the local PC, get the list of resources available to you by subscribing to 
 
 >[!TIP]
 >Ask your admin which resources you should be seeing.
-
-## Testing your deployment
-
-After setting everything up, it's a good idea to make sure that everything works.
-
-Before you start testing your deployment, make sure you have the following things handy:
-
-* A feed URL from your admin to connect to the published resources. For example:
-  1. <https://rdweb-contoso.azurewebsites.net>.
-  1. <https://rdweb-contoso.azurewebsites.net/api/feeddiscovery/webfeeddiscovery.aspx>.
-* A USB drive with text files and folders.
-* A network printer configured on the local PC.
-* A USB printer connected to the local PC (optional).
-
-Use the remote desktop as you would for a typical session and make sure that you can print with both wireless and USB, that your apps work, that you can stream and play videos on the web, and that your mouse and keyboard are working.

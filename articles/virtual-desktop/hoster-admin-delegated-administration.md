@@ -13,139 +13,11 @@ ms.author: helohr
 
 ## The why: problems, outcomes, and measures
 
->Guidance: Summarize relevant material from the scenario spec(s). Specify the customer, their problem or goal, and then specific outcomes the customer will achieve or how success would be measured. Avoid implementation details that may restrict solution choices or bias the measures!
-
 Customers of current Remote Desktop Services have complained about the lack of ability to delegate administrative capabilities on an Remote Desktop Services deployment. All administrators must be domain admins and therefore have full control over the Remote Desktop Services 2016 deployment, making it impossible to delegate access to specific resources within the Remote Desktop Services deployment. Windows Virtual Desktop will address this issue by providing a delegated administrative capability, similar to [Azure’s Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
-
-## This feature supports the following scenario(s)
-
-The following scenarios are based on the [MultiTenantRDScenarioSpec](https://microsoft.sharepoint.com/teams/RD20/_layouts/15/guestaccess.aspx?guestaccesstoken=nSg2m%2bEIi2BZOAB5zfilRlXyhRZnJpvtSEAdae%2fzhTg%3d&docid=2_141c399e4dd314465b24bba4ad06a562c&rev=1), the [RD infra deployment functional spec](https://microsoft.sharepoint.com/teams/RD20/_layouts/15/guestaccess.aspx?guestaccesstoken=PFC3Bj7H7vuRvAk8kgbJfdtesGqxUxOWKyM%2bnfsP680%3d&docid=2_17077495986444c1cb3b6befdaf7fbf63&rev=1), and the [Tenant environment functional spec](https://microsoft.sharepoint.com/teams/RD20/_layouts/15/guestaccess.aspx?guestaccesstoken=CaNCB%2bThVhngdHHlXnMNAj%2b5Hca3xk3z%2fo9iHneVcjc%3d&docid=2_10084ffd2b4fb40169409b68d584c35b8&rev=1). Seven personas are used in these scenarios. (There is an equivalent set of personas for Enterprise customers, but the situation is simpler since all Enterprise users are typically in the same company. Consequently, this article will focus on hosting scenarios where user accounts are in multiple companies.) The personas are as follows:
-
-* Hosting Services Provider’s (HSP’s) infra admin. Technical skill level: high.
-* HSP’s operations engineer. Technical skill level: medium.
-* Independent Software Vendor’s (ISV’s) admin for customers. Technical skill level: high.
-* ISV’s admin for customer environments. Technical skill level: high.
-* ISV’s operations engineer. Technical skill level: medium.
-* End customer’s admin. Technical skill level: low.
-* HSP service reseller. Technical skill level: low.
-
-This functional specification assumes that the HSP’s primary infra admin has already deployed Windows Virtual Desktop. The scenarios in this section begin with the infra admin delegating access control to additional infra admins and one or more ISV admins who want to deploy an RD tenant environment for a new customer. ISV admins then delegate privileges to other ISV admins which can then delegate privileges to end customer admins.
-
-The first section contains the primary “happy path” scenarios, where everything goes as expected for the primary target users and the admins. The later sections will cover failure scenarios.
-
-## Happy path scenarios
-
-This section focuses on scenarios involving an HSP providing a Windows Virtual Desktop deployment for an ISV that hosts applications for customers, because these scenarios represent the most general cases in which the various admin roles come from three different companies. There are single-tenant varations of these scenarios where all admin roles are within the same organization, but these scenarios won't be listed here because they're considered special cases.
-
-### Scenario: HSP infra admin authorizes new HSP admin with same permissions (TP2)
-
-An IT admin (in this example, Admin1@hsp1.net) within a hosting company has just deployed a new instance of Windows Virtual Desktop and is therefore automatically assigned full control over the Windows Virtual Desktop deployment. Now she wants to give another person (in this example, admin2@hsp1.net) within the company the same permissions as she has so that when she is unavailable, the other admin can perform the same tasks. She runs the PowerShell cmdlet to assign the other admin the same permissions for the Windows Virtual Desktop infrastructure. She then sends the other admin the URL of the Windows Virtual Desktop management site and other instructions for the use of Windows Virtual Desktop PowerShell to manage the Windows Virtual Desktop deployment and delegate admin privileges to other admins.
-
-### Scenario: HSP primary infra admin authorizes new operations engineer from HSP company (TP2)
-
-An admin (in this example, Admin2@hsp1.net) from an HSP is the infra admin for a Windows Virtual Desktop deployment. Now he wants to give an operations (ops) engineer (Ops1@hsp1.net) within the HSP company the ability to access the diagnostics information to track and trouble shoot problems in the infrastructure or any of the RD tenants. He runs the PowerShell cmdlet to assign the operations engineer permissions to access diagnostics for the Windows Virtual Desktop infrastructure. He then sends the ops engineer the URL of the Windows Virtual Desktop management site and other instructions for the use of the Windows Virtual Desktop PowerShell to read the diagnostics associated with Windows Virtual Desktop deployment and all RD tenants within the deployment.
-
-### Scenario: HSP infra admin authorizes a new ISV admin from the ISV company (TP2)
-
-An admin (in this example, Admin2@hsp1.net) from an HSP is the infra admin for a Windows Virtual Desktop deployment used by various ISVs to host Windows apps for users at other companies. A new ISV has signed up as a customer of the HSP’s Windows Virtual Desktop deployment and the ISV’s admin (in this example, AdminA@isv1.com) requests the ability to create new RD tenants for users at the ISV’s customers. Admin2@hsp1.net runs the PowerShell cmdlet to authorize AdminA@isv1.com access to the Windows Virtual Desktop with appropriate permissions to create and manage new RD tenants but with no privileges to read or modify the RD tenants managed by other ISVs. Admin2@hsp1.net then sends information to AdminA@isv1.com including instructions to consent to allow the HSP’s Windows Virtual Desktop app to read the ISV’s directory, the URL of the Windows Virtual Desktop management site, and ability to run Windows Virtual Desktop PowerShell cmdlets.
-
-### Scenario: ISV admin authorizes a fellow ISV admin control over existing RD tenants (TP2)
-
-An IT admin (in this example, AdminA@isv1.com) within a ISV company has just created a new RD tenant within a Windows Virtual Desktop deployment and is therefore automatically assigned full control over the RD tenant. Now AdminA@isv1.com wants to give another admin (in this example, AdminB@isv1.com) within the ISV company the same permissions that she has so that the other admin can perform the same tasks whenever she is unavailable. AdminA@isv1.com runs the PowerShell cmdlet that assigns AdminB@isv1.com the same permissions for the RD tenant. She then sends the AdminB@isv1.com Windows Virtual Desktop management site URL and instructions for how to run Windows Virtual Desktop PowerShell cmdlets to manage the RD tenant and delegate admin privileges to other admins.
-
-### Scenario: ISVs admin authorizes an operations engineer from the sames company (TP2)
-
-An IT admin (in this example, AdminB@isv1.com) at an ISV has created an RD tenant within an HSP’s Windows Virtual Desktop deployment for one of the ISV’s customers. AdminB@isv1.com now wants to delegate to an ops engineer (in this example, OpsA@isv1.com) within the ISV’s company, the ability to monitor and trouble shoot problems that may occur for this RD tenant’s users, but not other RD tenants. AdminB@isv1.com runs the PowerShell cmdlet to authorize OpsA@isv1.com with appropriate permissions to access diagnostics information for this RD tenant. AdminB@isv1.com then sends OpsA@isv1.com the Windows Virtual Desktop management site URL and instructions for how to run Windows Virtual Desktop PowerShell cmdlets to read the diagnostics associated with this RD tenant.
-
-### Scenario: ISV admin authorizes another ISV admin to create session host environments for end customer (TP2)
-
-An IT admin (in this example, AdminB@isv1.com) at an ISV has created an RD tenant within an HSP’s Windows Virtual Desktop deployment for one of the ISV’s customers. The ISV admin now wants to delegate to another admin (in this example, AdminC@isv1.com) within the ISV’s company, the ability to create a host pool for that customer. AdminB@isv1.com runs the PowerShell cmdlet to authorize AdminC@isv1.com with appropriate permissions to create a new host pool for the customer but not be able to modify or delete other information about this RD tenant.
-
-### Scenario: ISV customer environment admin gives an end customer company admin the ability to publish apps and assign app access to users from the customer’s company (TP2)
-
-An ISV’s admin (in this example, AdminC@isv1.com) has created a host pool for a customer using an image that has the ISV’s apps and related apps installed on it. An admin (in this example, AdminX@customer1.org) at the customer has asked to have control over which apps are published to which end users. AdminC@isv1.com runs PowerShell to create and AppGroup for the customer and then runs PS to authorize AdminX@customer1.org to have the ability to publish or unpublish apps and control which users have access to the apps. AdminC@isv1.com sends AdminX@customer1.org information including instructions to consent to allow the HSP’s Windows Virtual Desktop app to read the customer’s directory, the URL for the Windows Virtual Desktop management site, and instructions for running the Windows Virtual Desktop PowerShell cmdlets to create and manage app groups.
-
-### Scenario: HSP infra admin gives an admin from a new reseller company the ability to publish apps and assign app access to users from a customer’s company (TP2)
-
-An IT admin (in this example, Admin2@hsp1.net) from an HSP is responsible for managing a Windows Virtual Desktop deployment and for creating the RD tenant environments for resellers to use to host Windows desktops and apps for each reseller’s customers. A new reseller admin (in this example, Admin99@reseller1.com) signs up with the HSP, requests the creation of a new RD tenant for customer2.edu using one of the HSP’s OS images targeted at the education industry segment. Admin99@reseller1.com also requests the ability to create new RD app groups and assign access to users. Admin2@hsp1.net runs the PowerShell cmdlets to create an RD tenant and host pool, and AppGroups for publishing RemoteApps. Admin2@hsp1.net creates the tenant environment, including session hosts based on the requested OS image. Admin2@hsp1.net then runs a PowerShell cmdlet that authorizes Admin99@reseller1.com's access to the deployment with appropriate permissions to publish RemoteApps and assign users access to the AppGroup, but with no privileges to modify the tenant environment. Admin2@hsp1.net then sends information to Admin99@reseller1.com including the URL of the Windows Virtual Desktop management site, and instructions for how to run Windows Virtual Desktop PowerShell cmdlets to create app groups and modify user assignments.
-
-### Scenario: ISV admin authorizes an application to read RD tenant information to automatically scale the session hosts in the tenant environment (TP2)
-
-An IT admin (in this example, AdminB@isv1.com) at an ISV has created an RD tenant within an HSP’s Windows Virtual Desktop deployment for one of the ISV’s customers. AdminB@isv1.com now wants to enable one of its scaling applications to read information about the current state of the RD tenant and host pools so that it can make decisions about scaling out or in the session hosts in the tenant’s pools. AdminB@isv1.com runs the PowerShell cmdlet to authorize the auto-scaling application (previously registered with Azure AD) to read information about the RD tenant, host pools, and session hosts in the RD tenant environment.
-
-### Scenario: ISV admin attempts to get list of other ISVs and their customers that are hosted by the same HSP (TP2)
-
-An IT admin (in this example, AdminB@isv1.com) at an ISV guesses that other ISVs are hosting within the same HSP’s Windows Virtual Desktop deployment and decides to see if a list can be generated of the other ISVs and their customers.
-
-AdminB@isv1.com runs Windows Virtual Desktop PowerShell cmdlets to list all RD tenants within the Windows Virtual Desktop deployment. However, the list only includes the RD tenants that AdminB@isv1.com has created or has been assigned read acess and does not list any RD tenants for other ISVs.
-
-He suspects that another ISV is hosting an app for a customer. To check, AdminB@isv1.com runs Windows Virtual Desktop PowerShell cmdlets to get information about a specific customer. Although the customer actually does exist in the infra, the error message that is returned is that the tenant does not exist. (If it returned that the tenant exists, that would reveal the information.)
-
-After that, AdminB@isv1.com runs Windows Virtual Desktop PowerShell cmldets to discover who is authorized to make changes to the Windows Virtual Desktop infra to gather intelligence on other ISVs hosting on the same HSP infra. However, the PowerShell cmdlet returns an error that says AdminB@isv1.com doesn’t have appropriate permissions to view or change the assignments on the RD infra deployment.
-
->[!NOTE]
->On-prem with ADFS auth scenarios will be identical.
-
-### Failure scenarios
-
-#### Scenario F1: add failure scenario here (TP2)
-
-Add text here.
 
 ## Detailed feature description
 
-### Terminology
-
-The following table defines some of the terminology used in this article. See Section 2.1 of [TenantEnvFunctionalSpec](https://microsoft.sharepoint.com/teams/RD20/_layouts/15/guestaccess.aspx?guestaccesstoken=CaNCB%2bThVhngdHHlXnMNAj%2b5Hca3xk3z%2fo9iHneVcjc%3d&docid=2_10084ffd2b4fb40169409b68d584c35b8&rev=1) for a definition of Deployment, Tenant, session host, host pool, app group, and so on.
-
-|Term (short form)|Definition|
-|---|---|
-|HSP infra admin|A persona for an admin at an Hosted Service Provider (HSP) company that has full control over a Windows Virtual Desktop deployment. Full permissions include the ability to create, delete, modify, and read objects, as well as the ability to assign other users administrative access.|
-|HSP primary infra admin|A persona for an admin at an HSP who initially creates a Windows Virtual Desktop infrastructure deployment and is automatically given full control over the deployment.|
-|ISV admin|A persona for an admin at an Independent Software Vendor (ISV) who has the ability to create RD tenants within a Windows Virtual Desktop deployment. Once an RD tenant is created, the ISV admin has full control over the RD tenant. However, the tenant admin cannot see RD tenant created by other ISVs.|
-|ISV admin for customer environments|A persona for an admin at an ISV who is responsible for creating host pools for end customers.|
-|End customer admin|A persona at an end customer company who is responsible for publishing apps and assigning user access for their fellow employees.|
-|Reseller admin|A persona at a reseller company who is responsible for publishing apps and assigning user access for an end customer.|
-
-### User interface overview
-
-UI will be defined in a different admin UI spec for v2.
-
-### Goals and requirements
-
-The following table lists relevant requirements for your convenience. See section 3.1 of the [MultiTenantRDScenarioSpec](https://microsoft.sharepoint.com/:w:/t/RD20/EXHpvIroy-pMsH4NbmazeYsBW4c7jwBtuAxZ_tw0vJrdYQ) for the complete requirement list.
-
-|Number|Requirement|Pri|
-|---|---|---|
-|1|Hoster’s MT Infra runs in isolated RD MT Infra environment and manages connections to RDSH servers in multiple isolated customer environments. Environments may be in Azure or in partner hosted cloud. In Azure, partner’s Azure subscription parented to the partner’s AAD.|1|
-|2|For Azure deployments, hosters use CSP to configure each customer environment in a subscription that is managed and billed to hosting partner but is parented to the customer’s AAD for authentication, including AAD DS.|1|
-|5|Mechanism for partners to develop PowerShell scripts to poll state of session host VM pool and start/stop VMs to reduce their costs. (post v2 provide event driven mechanism and default scaling modules for Azure, Azure Stack, and Hyper-V fabric.)|1|
-|9|MT Infra supports PowerShell interface for hoster admin to create, delete, configure, and manage tenant’s session host VM pools, collections, apps, users, connections, troubleshooting, telemetry. Reseller admin and tenant admin have subset of hoster admin PowerShell with limited scope.|1|
-|40|IT admin at enterprise or SMB can utilize RD MT Infra for a single tenant deployment on-prem as single tenant deployment.|2|
-
-* See section 2.3 in [TenantEnvFunctionalSpec](https://microsoft.sharepoint.com/teams/RD20/_layouts/15/guestaccess.aspx?guestaccesstoken=CaNCB%2bThVhngdHHlXnMNAj%2b5Hca3xk3z%2fo9iHneVcjc%3d&docid=2_10084ffd2b4fb40169409b68d584c35b8&rev=1) for a more complete list. Relevant requirements are copied here for your convenience.
-  * Release v1 into market quickly to get feedback and start iterating.
-  * Focus on solving a few major cost issues such as multi-tenancy and multiple app groups and desktops from a single pool.
-  * Provide a secure, built-in delegated administration capability that supports the multi-tiered administration model typical in the Remote Desktop Services hosting channel. For example:
-     * HSP: infra admin (deploys and has full control over the Remote Desktop Services infra, including assigning permissions to other admins)
-     * HSP: ops engineer (reads diagnostics for the Remote Desktop Services infra and customers to troubleshoot problems)
-     * ISV: Admin for customers (creates and has full control over ISV’s customers, but cannot access customers of other ISVs)
-     * ISV: Admin for customer environments (creates and has full control over session host environments for the ISV’s customers)
-     * ISV: ops engineer (accesses diagnostics to troubleshoot problems within the ISV’s customers)
-     * Customer: customer admin (publishes applications and assigns access to users who are fellow employees)
-     * Reseller:  admin for customer (publishes applications and assigns access to users who are employees of the reseller’s customers)
-  * Use a delegated administration model that is already documented and that administrators are already be familiar with, e,g. the Azure Role-Based Access Control (RBAC).
-  * Provide delegated admin capability at the level of explicitly created object instances that are not leaf nodes
-    >[!NOTE]
-    >Leaf nodes are excluded only as a simplification.)
-  * Provide delegated admin at a method level in a few restricted cases (for example, specific operations that can be performed on specific objects)
-
-### Non-goals (v1)
-
-* Support of delegated admin at property level.
-* Blocking of inheritance.
-
-### Remote Desktop modern infrastructure roles
+### Windows Virtual Desktop roles
 
 The Windows Virtual Desktop delegated administration model is based on Azure’s RBAC and uses the following three Azure RBAC built-in roles and definitions:
 
@@ -159,7 +31,6 @@ In addition, two Windows Virtual Desktop-specific built-in roles have been added
 * Remote Desktop Services User: can access feed and the published apps and desktops within an AppGroup
 
 As with the Azure RBAC model, these built-in roles have a set of capabilities that is defined by Microsoft and cannot be changed by the customer. In Windows Virtual Desktop vFuture, we may extend to allow additional custom roles to be created, depending on feedback from customers and partners.
-PowerShell definitions to implement the scenarios covered in the specs are defined here.
 
 >[!NOTE]
 >Cmdlet Designer will be used to define the PowerShell cmdlets, parameters, and parameter sets. See the project named RemoteDesktop 2.0.
@@ -862,67 +733,6 @@ The following table is a review checklist.
 |Telemetry, Supportability and flighting| ☐ |Telemetry (leverage Data team and think broader in terms of what we can do with telemetry (such as more end to end scenario delight)? <br>Logging? <br>Debugging Extensions? <br>Feedback Pool—SUIF, and so on?|
 |Componentization| ☐ |Packaging Decisions? <br>Binaries and binary dependencies? <br>Layering and other build concerns? <br>Product Differentiation and SKU? <br>Product-specific/OneCore concerns? <br>Processor-specific concerns? <br>Build and KIT concerns? <br>Update OS and Manufacturing OS? <br>Source code layout and depots?
 
-## Open issues
-
->Guidance: mark open issues in the body of this document using the Open Issue style.
-
-## Cut behavior
-
-1. Support for groups using the ObjectId parameter.
-2. Support for non-AAD users using the AdfsDomain parameter. (How do we handle Groups and service principles?)
-3. Support for custom roles (future release if demand is high).
-
-  The following parameter sets are for filtering the output of the Get-RdsRoleAssignment cmdlet by SignInName or ServicePrincipalName. This can be conisdered for future versions. Note that this can be achieved in v1 by piping the output into the Where-Object cmdlet. For example:
-
-  ```PowerShell
-  Get-RdsRoleAssignment -TenantName “mytenant” | Where-Object Where-Object {$_.SignInName -eq "clarkn@microsoft.com"
-  ```
-
-  **SignInName parameter sets (vFuture)**
-
-  ```PowerShell
-  Get-RdsRoleAssignment -SignInName <string> [-AadTenantId <string>]
-  ```
-
-  ```PowerShell
-  Get-RdsRoleAssignment -SignInName <string> [-AadTenantId <string>] -TenantName <string>
-  ```
-
-  ```PowerShell
-  Get-RdsRoleAssignment -SignInName <string> [-AadTenantId <string>] -TenantName <string> -HostPoolName <string>
-  ```
-
-  ```PowerShell
-  Get-RdsRoleAssignment -SignInName <string> [-AadTenantId <string>] -TenantName <string> -HostPoolName <string> -AppGroupName <string>
-  ```
-
-  **ServicePrincipalName parameter sets (vFuture)**
-
-  ```PowerShell
-  Get-RdsRoleAssignment -ServicePrincipalName <String> [-AadTenantId <string>]
-  ```
-
-  ```PowerShell
-  Get-RdsRoleAssignment -ServicePrincipalName <String> [-AadTenantId <string>] -TenantName <string>
-  ```
-
-  ```PowerShell
-  Get-RdsRoleAssignment -ServicePrincipalName <String> [-AadTenantId <string>] -TenantName <string> -HostPoolName <string>
-  ```
-
-  ```PowerShell
-  Get-RdsRoleAssignment -ServicePrincipalName <String> [-AadTenantId <string>] -TenantName <string> -HostPoolName <string> -AppGroupName <string>
-  ```
-
-  VFuture: The subject of the assignment may be specified to filter the output. To specify a user, use SignInName or Azure AD ObjectId parameters. To specify a security group, use Azure AD ObjectId parameter. And to specify an Azure AD application, use ServicePrincipalName or ObjectId parameters.
-
-4. Remote Desktop Services Creator (simplified to just Remote Desktop Services Tenant Creator).
-5. Remote Desktop Services AppGroup Creator (Can be done by pre-creating an AppGroup, assigning user Owner of the AppGroup and then assigning user as Reader of HostPool).
-6. Removed AadTenantId from these cmdlets to simplify. This means we only support UPNs and ServicePrincipalNames from home AAD tenants. If we decide in future to add AadTenantId back in to support non-home AAD tenants, then we’ll also need to add AadTenantId to the Set-RdsContext cmdlet.
-  
-  >[!NOTE]
-  >Non-home UPNs means that admin1@hsp1.net.com UPN could be added to say the isv1.com AAD tenant is a guest.
-
 # Appendix
 
 ## References
@@ -950,9 +760,3 @@ Get-RdsAzureRmResourceGroup -Name "c16xrg1"
 # Result: error msg that the RG doesn't exist
 # Not that he doesn't have permissions to access it. (That would reveal that the RG exists.)
 ```
-
-## Feature Q&A/decisions
-
->Guidance: Think of this as what people would ask in a spec review.
-
-(Text)
