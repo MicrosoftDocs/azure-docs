@@ -115,12 +115,16 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
     pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
-    > [!NOTE]
-    > If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
-    >
-    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   You can see the Python reference docs for classes and methods in the following SDKs:
+   + [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk)
+   + [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
-    It might take several minutes to install the SDK.
+   > [!NOTE]
+   > If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
+   >
+   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+
+   It might take several minutes to install the SDK.
 
 1. Install packages for your machine learning experimentation. Use the following command and replace `<new package>` with the package you want to install:
 
