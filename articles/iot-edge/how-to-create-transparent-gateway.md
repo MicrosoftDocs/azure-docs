@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/26/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -35,7 +35,7 @@ The following steps walk you through the process of creating the certificates an
 ## Prerequisites
 
 An Azure IoT Edge device to configure as a gateway. You can use your development machine or a virtual machine as an IoT Edge device with the steps for the following operating systems:
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md).
+* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
@@ -137,9 +137,9 @@ In this section, you create three certificates and then connect them in a chain.
    ```
 
    The script creates the following certificates and key:
-   * \<WRKDIR>\certs\new-edge-device.*
-   * \<WRKDIR>\private\new-edge-device.key.pem
-   * \<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem
+   * `<WRKDIR>\certs\new-edge-device.*`
+   * `<WRKDIR>\private\new-edge-device.key.pem`
+   * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## Generate certificates with Linux
 
@@ -178,13 +178,11 @@ In this section, you create three certificates and then connect them in a chain.
    ./certGen.sh create_root_and_intermediate
    ```
 
-   The outputs of the script execution are the following certificates and keys:
-   * Certificates
-      * \<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem
-      * \<WRKDIR>/certs/azure-iot-test-only.intermediate.cert.pem
-   * Keys
-      * \<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem
-      * \<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem
+   The script creates the following certificates and keys:
+   * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`
+   * `<WRKDIR>/certs/azure-iot-test-only.intermediate.cert.pem`
+   * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
+   * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
 2.	Create the Edge device CA certificate and private key with the following command. Provide a name for the gateway device, which will be used to name the files and during certificate generation. 
 
@@ -193,8 +191,8 @@ In this section, you create three certificates and then connect them in a chain.
    ```
 
    The script creates the following certificates and key:
-   * \<WRKDIR>/certs/new-edge-device.*
-   * \<WRKDIR>/private/new-edge-device.key.pem
+   * `<WRKDIR>/certs/new-edge-device.*`
+   * `<WRKDIR>/private/new-edge-device.key.pem`
 
 3. Create a certificate chain called **new-edge-device-full-chain.cert.pem** from the owner CA certificate, intermediate certificate, and Edge device CA certificate.
 
@@ -210,16 +208,16 @@ Now that you've made a certificate chain, you need to install it on the IoT Edge
 
    If you generated the certificates on the Edge device itself, you can skip this step and use the path to the working directory.
 
-   * Device CA certificate -  \<WRKDIR>\certs\new-edge-device-full-chain.cert.pem
-   * Device CA private key - \<WRKDIR>\private\new-edge-device.key.pem
-   * Owner CA - \<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem
+   * Device CA certificate -  `<WRKDIR>\certs\new-edge-device-full-chain.cert.pem`
+   * Device CA private key - `<WRKDIR>\private\new-edge-device.key.pem`
+   * Owner CA - `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2. Open the Security Daemon config file. 
+2. Open the IoT Edge security daemon config file. 
 
-   * Windows: C:\ProgramData\iotedge\config.yaml
-   * Linux: /etc/iotedge/config.yaml
+   * Windows: `C:\ProgramData\iotedge\config.yaml`
+   * Linux: `/etc/iotedge/config.yaml`
 
-3. Set the **certificate** properties in the Security Daemon config yaml file to the path where you placed the certificate and key files on the IoT Edge device.
+3. Set the **certificate** properties in the config.yaml file to the path where you placed the certificate and key files on the IoT Edge device.
 
 ```yaml
 certificates:
@@ -235,10 +233,15 @@ When you first install IoT Edge on a device, only one system module starts autom
 You can check which modules are running on a device with the command `iotedge list`.
 
 1. In the Azure portal, navigate to your IoT hub.
+
 2. Go to **IoT Edge** and select your IoT Edge device that you want to use as a gateway.
+
 3. Select **Set Modules**.
+
 4. Select **Next**.
-5. In the **Specify routes** step, you should have a default route that sends all messages from all modules to IoT Hub. If not, add the following code then select **Next**.
+
+5. In the **Specify routes** page, you should have a default route that sends all messages from all modules to IoT Hub. If not, add the following code then select **Next**.
+
    ```JSON
    {
        "routes": {
@@ -246,14 +249,20 @@ You can check which modules are running on a device with the command `iotedge li
        }
    }
    ```
-6. In the Review template step, select **Submit**.
 
-## Routing messages from downstream devices
+6. In the **Review template** page, select **Submit**.
+
+## Route messages from downstream devices
 The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to perform analytics in a module running on the gateway before sending any data to the cloud. The below route would be used to send messages from a downstream device named `sensor` to a module name `ai_insights`.
 
-   ```json
-   { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
-   ```
+```json
+{
+    "routes":{
+        "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", 
+        "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" 
+    } 
+}
+```
 
 For more information about message routing, see [module composition](./module-composition.md).
 
