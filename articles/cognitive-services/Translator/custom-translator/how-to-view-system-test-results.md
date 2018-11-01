@@ -24,13 +24,13 @@ The test tab shows you:
 
 1.  System Test Results: The result of the test process in the trainings. The test process produces the BLEU score.
 
-    -  **Sentence Count:** How many parallel sentences were used in the test set.
+    **Sentence Count:** How many parallel sentences were used in the test set.
 
-    -  **BLEU Score:** BLEU score generated for a model after training completion.
+     **BLEU Score:** BLEU score generated for a model after training completion.
 
-    -  **Status:** Indicates if the test process is complete or in progress.
+    **Status:** Indicates if the test process is complete or in progress.
 
-        ![System test results](media/how-to/how-to-system-test-results.png)
+    ![System test results](media/how-to/how-to-system-test-results.png)
 
 2.  Click on the System test results, and that will take you to test result details page. This page shows the machine translation of sentences that were part of the test dataset.
 
@@ -39,11 +39,11 @@ The test tab shows you:
     to be translated. The column for the target language contains two sentences
     in each row.
 
-    -  **Ref:** This sentence is the reference translation of the source sentence as given in the test dataset.
+    **Ref:** This sentence is the reference translation of the source sentence as given in the test dataset.
 
-    -  **MT:** This sentence is the automatic translation of the source sentence done by the model built after the training was conducted.
+    **MT:** This sentence is the automatic translation of the source sentence done by the model built after the training was conducted.
 
-        ![System test results compare](media/how-to/how-to-system-test-results-2.png)
+    ![System test results compare](media/how-to/how-to-system-test-results-2.png)
 
 ## Download test
 
@@ -60,7 +60,7 @@ This downloaded zip archive contains three files.
 2.  ref.txt: This file contains user provided translations of source language sentences in
     the target language.
 
-3.  Src_Dataset_source.txt: This file contains sentences in the source language.
+3.  source.txt: This file contains sentences in the source language.
 
     ![Downloaded system test results](media/how-to/how-to-download-system-test.png)
 
@@ -68,13 +68,11 @@ This downloaded zip archive contains three files.
 
 To request a deployment:
 
-1.  Click on the project name.
+1.  Select a project, go to Models tab.
 
-2.  In the project page, go to Models tab.
+2. For a successfully trained model, it shows “Deploy” button, if not deployed.
 
-    -  For a successfully trained model, it shows “Deploy” button, if not deployed.
-
-        ![Deploy model](media/how-to/how-to-deploy-model.png)
+    ![Deploy model](media/how-to/how-to-deploy-model.png)
 
 3.  Click on Deploy. You can view the status of your deployrequest in the “Status” column.
 
