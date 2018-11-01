@@ -4,11 +4,6 @@ description: Learn how to create public Load Balancer Standard with a zonal Publ
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

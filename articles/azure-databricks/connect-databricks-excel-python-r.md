@@ -1,20 +1,14 @@
 ---
-title: 'Connect to Azure Databricks from Excel, Python, or R | Microsoft Docs'
+title: 'Connect to Azure Databricks from Excel, Python, or R '
 description: Learn how to use the Simba driver to connect Azure Databricks to Excel, Python, or R.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-
+ms.author: mamccrea
 ---
 
 # Connect to Azure Databricks from Excel, Python, or R

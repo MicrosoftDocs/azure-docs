@@ -5,8 +5,7 @@ services: azure-databricks
 ms.service: azure-databricks
 author: jasonwhowell
 ms.author: jasonh
-manager: cgronlun
-editor: cgronlun
+ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
