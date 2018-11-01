@@ -9,7 +9,7 @@ ms.date: 10/26/2018
 ms.author: mjbrown
 ---
 
-# Azure Cosmos DB: Create a firewall using the Azure CLI
+# Azure Cosmos DB: Create a firewall using Azure CLI
 
 This sample CLI script creates a firewall policy for any kind of Azure Cosmos DB account.
 
