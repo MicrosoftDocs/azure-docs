@@ -1,13 +1,14 @@
 ---
 title: Create a custom wake word
-description: Learn how to create a custom wake word for the Speech Devices SDK.
 titleSuffix: Azure Cognitive Services
+description: Learn how to create a custom wake word for the Speech Devices SDK.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
 ---
@@ -47,10 +48,6 @@ Before you can use a custom wake word with your device, you must create the wake
 1. Create a new account with the email address at which you received the invitation for Azure Active Directory. 
 
     ![Create a new account](media/speech-devices-sdk/wake-word-1.png)
- 
-1.	After you sign in, fill out the form, and then select **Start my journey**.
-
-    ![Successfully signed in](media/speech-devices-sdk/wake-word-3.png)
  
 1. The **Custom Wake Word** page is not available to the public, so there is no direct link that takes you there. The Custom Speech feature requires an Azure subscriptions, but the Custom Wake Word feature doesn't. If you got the **No Subscriptions found.** error page, just replace the **"Subscriptions?errorMessage=No%20Subscriptions%20found"** with "**customkws**" in the URL, and hit ENTER. The URL should be one of these: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws or https://northeurope.cris.ai/customkws, depending on where your region is.
 

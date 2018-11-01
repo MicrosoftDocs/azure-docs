@@ -98,7 +98,7 @@ Set up hybrid continuous integration and continuous deployment (CI/CD) to deploy
 
 ### Add Code to Visual Studio Team Services Project
 
-1. Sign in to Visual Studio Team Services (VSTS) with an account that has project creation rights on VSTS~~.~~
+1. Sign in to Visual Studio Team Services (VSTS) with an account that has project creation rights on VSTS.
 
     Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
 

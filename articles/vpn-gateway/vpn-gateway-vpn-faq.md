@@ -2,13 +2,12 @@
 title: Azure VPN Gateway FAQ | Microsoft Docs
 description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways.
 services: vpn-gateway
-author: cherylmc
+author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
-ms.author: cherylmc
-
+ms.author: yushwang
 ---
 # VPN Gateway FAQ
 

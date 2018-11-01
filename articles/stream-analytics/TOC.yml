@@ -146,9 +146,9 @@
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Troubleshoot
     items:
-    - name: Input connections
+    - name: Input
       href: stream-analytics-troubleshoot-input.md
-    - name: Ouput connections
+    - name: Ouput
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
@@ -181,9 +181,9 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: http://blogs.msdn.com/b/streamanalytics/
+    href: https://blogs.msdn.com/b/streamanalytics/
   - name: Feedback forum
-    href: http://feedback.azure.com/forums/270577-azure-stream-analytics
+    href: https://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics
   - name: Pricing

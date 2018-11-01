@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/22/2018
 ms.author: douglasl
 ---
 # Parameterize linked services in Azure Data Factory
@@ -21,6 +21,10 @@ You can use the Data Factory UI in the Azure Portal or a programming interface t
 
 > [!TIP]
 > We recommend not to parameterize passwords or secrets. Store all connection strings in Azure Key Vault instead, and parameterize the *Secret Name*.
+
+For a seven-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
 ## Supported data stores
 

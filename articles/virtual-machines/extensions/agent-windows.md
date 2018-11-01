@@ -97,7 +97,8 @@ foreach ($vm in $vms) {
 ```
 
 ### Manual Detection
-When logged in to a Windows Azure VM, Task Manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager, click the *Details* tab, and look for a process name **WindowsAzureGuestAgent.exe**. The presence of this process indicates that the VM agent is installed.
+
+When logged in to a Windows VM, Task Manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager, click the *Details* tab, and look for a process name **WindowsAzureGuestAgent.exe**. The presence of this process indicates that the VM agent is installed.
 
 
 ## Upgrade the VM Agent

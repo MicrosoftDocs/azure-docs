@@ -37,7 +37,7 @@ The default mode is `Proof`. The `Proof` spelling mode provides the most compreh
 <br /><br/>**NOTE:**   If the length of query text exceeds 4096, it will be truncated to 4096 characters, then get processed. 
 ### Spell -  for web searches/queries scenario
 `Spell` is more aggressive in order to return better search results. The `Spell` mode finds most spelling mistakes but doesn't find some of the grammar errors that `Proof` catches, for example, capitalization and repeated words.
-<br /></br>**NOTE:** The max query length supported is as below. If query exceed the bound, the result appears that the query is not altered.
+<br /></br>**NOTE:** The max query length supported is as below. If the query exceeds the max length, the query and its results are not altered.
 <ul><li>130 characters for language code of en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. </li>
 <li>65 characters for others</li></ul>
 
