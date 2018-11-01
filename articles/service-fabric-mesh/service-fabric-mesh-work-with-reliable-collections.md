@@ -16,9 +16,9 @@ ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to add reliable collection support to my Service Fabric Mesh app so that I can save state for my service and have it replicated (for availability), and transacted within a partition (for ACID semantics).
 ---
-# Use Reliable Collections in a Service Fabric Mesh app
+# Use reliable collections in a Service Fabric Mesh app
 
-Service Fabric Mesh Reliable Collections provides reliable dictionary and reliable queue classes for .NET and Java developers. When you store data in these classes, it is replicated across instances of your service for availability.
+Service Fabric Mesh reliable collections provides reliable dictionary and reliable queue classes for .NET and Java developers. When you store data in these classes, it is replicated across instances of your service for availability.
 
 In this topic, we'll look at how to use the reliable dictionary in a .NET service.
 
@@ -43,7 +43,7 @@ Select the **Use Reliable Collections** checkbox. This adds a nuget package and 
 
 ## Create a Reliable Collection dictionary
 
-We'll write code that reads and writes data to a Reliable Collection dictionary so that you can see how to use Reliable Collections in your own project.
+We'll write code that reads and writes data to a Reliable Collection dictionary so that you can see how to use reliable collections in your own project.
 
 Open **Program.cs** and replace the contents of `class Program` with the following:
 
@@ -266,7 +266,7 @@ public struct ItemId {
 
 ## Versioning
 
-Internally, Reliable Collections serialize your objects using .NET’s [DataContractSerializer](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?redirectedfrom=MSDN&view=netframework-4.7.2). The serialized objects are persisted to the primary replica’s local disk and are also transmitted to the secondary replicas. As your service matures, it’s likely you’ll want to change the kind of data (schema) your service requires. Versioning your data requires great care. First, you must always support deserializing old data. This means your deserialization code must be backward compatible. Version 333 of your service code must support data written to a reliable collection by version 1 of your service code 5 years ago.
+Internally, reliable collections serialize your objects using .NET’s [DataContractSerializer](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?redirectedfrom=MSDN&view=netframework-4.7.2). The serialized objects are persisted to the primary replica’s local disk and are also transmitted to the secondary replicas. As your service matures, it’s likely you’ll want to change the kind of data (schema) your service requires. Versioning your data requires great care. First, you must always support deserializing old data. This means your deserialization code must be backward compatible. Version 333 of your service code must support data written to a reliable collection by version 1 of your service code 5 years ago.
 
 Also, service code is upgraded one upgrade domain at a time. During an upgrade, you may have two different versions of your service code running simultaneously. You must avoid having the new version of your service code use the new schema as old versions of your service code might not be able to handle the new schema. When possible, you should design each version of your service to be forward compatible by one version. Specifically, this means that V1 of your service code should ignore any schema elements it does not explicitly handle. However, it must be able to save any data it doesn’t explicitly know about and write it back out when updating a dictionary key or value.
 
