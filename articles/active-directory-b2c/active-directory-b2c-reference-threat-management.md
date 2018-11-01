@@ -1,5 +1,5 @@
 ---
-title: Threat management in Azure Active Directory B2C | Microsoft Docs
+title: Manage threats to accounts in Azure Active Directory B2C | Microsoft Docs
 description: Learn about detection and mitigation techniques for denial-of-service attacks and password attacks in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -8,13 +8,13 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
 ---
-# Azure Active Directory B2C: Threat management
+# Manage threats to accounts in Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) has built-in features that can help you protect against threats to your resources and data. These threats include denial-of-service attacks and password attacks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources. 
+Azure Active Directory (Azure AD) B2C has built-in features that can help you protect against threats to your resources and data. These threats include denial-of-service attacks and password attacks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources. 
 
 ## Denial-of-service attacks
 
