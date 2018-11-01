@@ -26,12 +26,6 @@ Enterprise developers and software-as-a-service (SaaS) providers can develop com
 
 This quickstart shows you how to add and register an application using the **App registrations (Preview)** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform.
 
-The new app registrations experience is the place to manage all your Azure Active Directory (Azure AD) applications. This new experience includes all the features you’re familiar with in the existing Azure portal **App registrations** experience or in the Application Registration Portal, and improves upon these existing experiences through:
-
-* Better manageability – Instead of seeing your applications across different portals, you’ll now see all your Azure AD apps in one list in the new experience. Also, any app can be used to acquire tokens for any resource, which means all apps, new or old, are treated equally.
-* Improved usability – This new experience much easier to use. From a new navigation experience to a revamped permission selection experience, it's easier to register your application.
-* Detailed information – The new app registrations experience has more detailed descriptions, information, and links to documentation. You’ll also find more details about your app, quickstart guides, and more.
-
 ## Prerequisite
 
 To get started, you need to opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience.
