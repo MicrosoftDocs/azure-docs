@@ -7,7 +7,7 @@ ms.component: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 09/12/2018
+ms.date: 11/1/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm

@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/17/2018
+ms.date: 11/1/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -21,25 +21,19 @@ Log in to Azure at https://portal.azure.com
 
 Alerts allow you to define a condition to monitor for and an action to take when that condition is met.
 
-In the Azure portal, navigate to **All services** and select **Monitor**. On the Monitor page, select **Alerts** and click **+ New Alert Rule**.
-
-### Define the alert condition
-
-1. Under **1. Define alert condition**, click **+  Select target**. Choose your subscription, and under **Filter by resource type**, select **Automation Accounts**. Choose your Automation Account and click **Done**.
-
-   ![Select a resource for the alert](./media/automation-alert-activity-log/select-resource.png)
+In the Azure portal, navigate to your Automation Account. Under **Monitoring**, select **Alerts** and click **+ New Alert Rule**. The scope for the target is already defined to your Automation Account.
 
 ### Configure alert criteria
 
 1. Click **+ Add criteria**. Select **Metrics** for the **Signal type**, and choose **Total Jobs** from the table.
 
-1. The **Configure signal logic** page is where you define the logic that triggers the alert. Under the historical graph you are presented with two dimensions, **Runbook Name** and **Status**. Dimensions are different properties for a metric that can be used to filter results. For **Runbook Name**, select the runbook you want to alert on or leave blank to alert on all runbooks. For **Status**, select a status from the drop-down you want to monitor for. The runbook name and status values that appear in the dropdown are only for jobs that have ran in the past week.
+2. The **Configure signal logic** page is where you define the logic that triggers the alert. Under the historical graph you are presented with two dimensions, **Runbook Name** and **Status**. Dimensions are different properties for a metric that can be used to filter results. For **Runbook Name**, select the runbook you want to alert on or leave blank to alert on all runbooks. For **Status**, select a status from the drop-down you want to monitor for. The runbook name and status values that appear in the dropdown are only for jobs that have ran in the past week.
 
    If you want to alert on a status or runbook that is not shown in the dropdown, click the **\+** next to the dimension. This opens a dialog that allows you to enter in a custom value, which has not emitted for that dimension recently. If you enter a value that doesn't exist for a property your alert will not be triggered.
 
-1. Under **Alert logic**, define the condition and threshold for your alert. A preview of your condition defined is shown underneath.
+3. Under **Alert logic**, define the condition and threshold for your alert. A preview of your condition defined is shown underneath.
 
-1. Under **Evaluated based on** select the timespan for the query and how often you want that query ran. For example, if you choose **Over the last 5 minutes** for **Period** and **Every 1 Minute** for **Frequency**, the alert looks for the number of runbooks that met your criteria over the past 5 minutes. This query is ran every minute, and once the alert criteria you defined is no longer found in a 5-minute window, the alert resolves itself. When finished, click **Done**.
+4. Under **Evaluated based on** select the timespan for the query and how often you want that query ran. For example, if you choose **Over the last 5 minutes** for **Period** and **Every 1 Minute** for **Frequency**, the alert looks for the number of runbooks that met your criteria over the past 5 minutes. This query is ran every minute, and once the alert criteria you defined is no longer found in a 5-minute window, the alert resolves itself. When finished, click **Done**.
 
    ![Select a resource for the alert](./media/automation-alert-activity-log/configure-signal-logic.png)
 
