@@ -39,6 +39,9 @@ In the portal, the feature is turned on during entity creation with the **Enable
 
 ![][1]
 
+> [!IMPORTANT]
+> You can't enable/disable duplicate detection after the queue is created. You can only do so at the time of creating the queue. 
+
 Programmatically, you set the flag with the [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) property on the full framework .NET API. With the Azure Resource Manager API, the value is set with the [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property.
 
 The duplicate detection time history defaults to 30 seconds for queues and topics, with a maximum value of seven days. You can change this setting in the queue and topic properties window in the Azure portal.

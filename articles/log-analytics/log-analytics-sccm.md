@@ -27,7 +27,7 @@ Log Analytics supports System Center Configuration Manager current branch, versi
 ## Configuration overview
 The following steps summarize the steps to configure Configuration Manager integration with Log Analytics.  
 
-1. In the Azure portal, register Configuration Manager as a Web Application and/or Web API app, and ensure that you have the client ID and client secret key from the registration from Azure Active Directory. See [Use portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) for detailed information about how to accomplish this step.
+1. In the Azure portal, register Configuration Manager as a Web Application and/or Web API app, and ensure that you have the client ID and client secret key from the registration from Azure Active Directory. See [Use portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) for detailed information about how to accomplish this step.
 2. In the Azure portal, [grant Configuration Manager (the registered web app) with permission to access Log Analytics](#grant-configuration-manager-with-permissions-to-log-analytics).
 3. In Configuration Manager, [add a connection using the Add OMS Connection Wizard](#add-an-oms-connection-to-configuration-manager).
 4. In Configuration Manager, [update the connection properties](#update-oms-connection-properties) if the password or client secret key ever expires or is lost.
@@ -44,7 +44,7 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 > You must specify permissions in Log Analytics for Configuration Manager. Otherwise, you receive an error message when you use the configuration wizard in Configuration Manager.
 >
 
-1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. In your list of Log Analytics workspaces, select the workspace to modify.
 3. From the left pane, select **Access Control (IAM)**.
 4. In the Access Control page, click **Add** and the **Add permissions** pane appears.
@@ -96,7 +96,7 @@ After you have completed initial configuration to import device collections from
 
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select the workspace Configuration Manager is registered with.  
-3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-sccm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Select **Computer Groups** and then select **SCCM**.  
 5. Select **Import Configuration Manager collection memberships** and then click **Save**.  
    ![Computer Groups - SCCM tab](./media/log-analytics-sccm/sccm-computer-groups01.png)

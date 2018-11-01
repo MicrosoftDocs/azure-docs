@@ -26,6 +26,10 @@ In this tutorial, you learn how to:
 > * Monitor the migration.
 > * Download a migration report.
 
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+This article describes an offline migration from SQL Server to Azure SQL Database. For an online migration, see [Migrate SQL Server to Azure SQL Database online using DMS](tutorial-sql-server-azure-sql-online.md).
+
 ## Prerequisites
 To complete this tutorial, you need to:
 
