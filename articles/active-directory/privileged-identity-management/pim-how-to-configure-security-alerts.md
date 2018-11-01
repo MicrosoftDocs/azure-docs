@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -23,7 +23,11 @@ Azure AD Privileged Identity Management (PIM) generates alerts when there is sus
 
 ## Security alerts
 
-This section lists all the security alerts for directory roles, how to fix, and how to prevent.
+This section lists all the security alerts for directory roles, along with how to fix and how to prevent. Severity has the following meaning:
+
+* **High**: Requires immediate action because of a policy violation.
+* **Medium**: Does not require immediate action but signals a potential policy violation.
+* **Low**: Does not require immediate action but suggests a preferable policy change.
 
 ### Roles are being assigned outside of PIM
 
@@ -92,12 +96,6 @@ This section lists all the security alerts for directory roles, how to fix, and 
 | **How to fix?** | Review the list of roles and [require MFA](pim-how-to-change-default-settings.md) for every role. |
 | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
 | **In-portal mitigation action** | Makes MFA required for activation of the privileged role. |
-
-### Severity
-
-* **High**: Requires immediate action because of a policy violation.
-* **Medium**: Does not require immediate action but signals a potential policy violation.
-* **Low**: Does not require immediate action but suggests a preferable policy change.
 
 ## Configure security alert settings
 
