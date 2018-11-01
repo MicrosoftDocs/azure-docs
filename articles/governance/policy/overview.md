@@ -4,7 +4,7 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/01/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -57,6 +57,9 @@ information and **Reader** that can read details regarding policy assignments an
 cannot make changes or view compliance information. While **Owner** has full rights,
 **Contributor** does not have any Azure Policy permissions. To grant permission to view Policy
 compliance details, create a [custom role](../../role-based-access-control/custom-roles.md).
+
+For an example of the permissions that are typically used by Policy, look at the **Resource Policy
+Contributor (Preview)** role.
 
 ## Policy definition
 

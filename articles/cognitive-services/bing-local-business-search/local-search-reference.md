@@ -33,7 +33,7 @@ For information about permitted use and display of results, see [Use and display
 To request local business results, send a GET request to: 
 
 ``` 
-https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search
+https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 
 ```
   
