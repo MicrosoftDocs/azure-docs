@@ -3143,7 +3143,7 @@
         },
         {
             "source_path": "articles/application-insights/enable-profiler-compute.md",
-            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_url": "/azure/application-insights/app-insights-profiler-overview",
             "redirect_document_id": false
         },
         {
