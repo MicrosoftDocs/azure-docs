@@ -41,7 +41,7 @@ Acquire a valid certificate per the following guidelines, before you enable secu
 
 1. **Trusted issuer** - The certificate must be issued by an authority trusted by computers connecting to the managed domain using secure LDAP. This authority may be a public certification authority (CA) or an Enterprise CA trusted by these computers.
 2. **Lifetime** - The certificate must be valid for at least the next 3-6 months. Secure LDAP access to your managed domain is disrupted when the certificate expires.
-3. **Subject name** - The subject name on the certificate must be a wildcard for your managed domain. For instance, if your domain is named 'contoso100.com', the certificate's subject name must be '*.contoso100.com'. Set the DNS name (subject alternate name) to this wildcard name.
+3. **Subject name** - The subject name on the certificate must be your managed domain name. For instance, if your domain is named 'contoso100.com', the certificate's subject name must be 'contoso100.com'. 
 4. **Key usage** - The certificate must be configured for the following uses - Digital signatures and key encipherment.
 5. **Certificate purpose** - The certificate must be valid for SSL server authentication.
 

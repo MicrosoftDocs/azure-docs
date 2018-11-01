@@ -457,7 +457,7 @@ There are two ways to submit a training run:
 * Submitting a `Pipeline` object.
 
 > [!IMPORTANT]
-> The Azure Databricks, Azure Datalake Analytics, and Azure HDInsight compute targets can only be used in a pipeline.
+> The Azure Databricks and Azure Datalake Analytics compute targets can only be used in a pipeline.
 > The local compute target cannot be used in a Pipeline.
 
 ### Submit using `ScriptRunConfig`
