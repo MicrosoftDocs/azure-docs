@@ -131,7 +131,7 @@ Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to 
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
     ```
-4. Your code in the AboutModel class should look like below
+4. Your code in the AboutModel class should look like below (Replace <YourKeyVaultName> with your Vault Name)
     ```
     public class AboutModel : PageModel
     {
