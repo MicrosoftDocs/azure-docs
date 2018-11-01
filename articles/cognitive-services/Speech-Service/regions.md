@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: mahilleb
 ---
 
-# Regions of the Speech Service
+# Speech Service supported regions
 
 The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
