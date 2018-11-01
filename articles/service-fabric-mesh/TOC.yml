@@ -60,6 +60,8 @@
     href: service-fabric-mesh-howto-setup-cli.md
   - name: Store state with Azure Files volume
     href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md  
+  - name: Use Reliable Collections in your Service Fabric Mesh app
+    href: service-fabric-mesh-work-with-reliable-collections.md
   - name: Manage Service Fabric Mesh Application Secrets
     href: service-fabric-mesh-howto-manage-secrets.md
   - name: Auto scale services
