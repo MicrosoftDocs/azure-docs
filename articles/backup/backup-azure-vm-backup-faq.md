@@ -49,7 +49,7 @@ If the user locks the Resource Group, Backup service is not able to delete the o
 No. Be aware that date and time on your local computer is displayed in your local time and with your current daylight saving time bias. So the configured time for scheduled backups can be different from your local time due to DST.
 
 ### Maximum of how many data disks can I attach to a VM to be backed up by Azure Backup?
-Azure Backup now supports backup of virtual machines with up to 32 disks. To get 32 disk support, [upgrade to Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md). All the VMs enabling protection starting 24th Sept, 2018 will get supported.
+Azure Backup now supports backup of virtual machines with up to 16 disks. To get 16 disk support, [upgrade to Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md). All the VMs enabling protection starting 24th Sept, 2018 will get supported.
 
 ### Does Azure backup support Standard SSD managed disk?
 Azure Backup supports [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), a new type of durable storage for Microsoft Azure Virtual machines. It is supported for managed disks on [Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md).
