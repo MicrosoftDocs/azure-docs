@@ -102,16 +102,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Atlassian Cloud's account. Examples of these values are:
 
-	*   In the **Tenant URL** field, fill the specific tenant endpoint you receive from the Atlassian, as described in Step 6. 
-  		For Example: **https://api.atlassian.com/scim/directory/{directoryId}**
+	*   In the **Tenant URL** field, fill the specific tenant endpoint you receive from the Atlassian, as described in Step 6. For Example: **https://api.atlassian.com/scim/directory/{directoryId}**
 
 	*   In the **Secret Token** field, populate the secret token as described in Step 6.
 
-6. Navigate to [Atlassian Organization Manager](https://admin.atlassian.com), and click on User Provisioning and generate a new API Key to retrieve the **Tenant URL** and **Secret Token**. 
+6. Navigate to [Atlassian Organization Manager](https://admin.atlassian.com) **> User Provisioning** and click on **Create a Token**. Copy the **Directory base URL** and **Bearer Token** to the **Tenant URL** and **Secret Token** fields respectively.
 
 	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/SecretToken1.png)
 	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/SecretToken2.png)
-	Copy the **Directory base URL** , **Bearer Token** from Atlassian Cloud to **Tenant URL** , **Secret Token** respectively.
+	
 	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/SecretToken3.png)
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Atlassian Cloud. If the connection fails, ensure your Atlassian Cloud account has Admin permissions and try again.
@@ -160,7 +159,7 @@ This operation starts the initial synchronization of all users and/or groups def
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Connector Limitations
-* Atlassian Cloud allows provisioning of users only from [verified domains](https://confluence.atlassian.com/cloud/organization-administration-938859734.html)
+* Atlassian Cloud allows provisioning of users only from [verified domains](https://confluence.atlassian.com/cloud/organization-administration-938859734.html).
 
 ## Additional resources
 
