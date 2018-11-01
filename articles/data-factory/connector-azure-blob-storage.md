@@ -19,6 +19,8 @@ ms.author: jingwang
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Blob storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
+To learn about Azure Data Factory, read the [introductory article](introduction.md).
+
 ## Supported capabilities
 
 You can copy data from any supported source data store to Blob storage. You also can copy data from Blob storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
