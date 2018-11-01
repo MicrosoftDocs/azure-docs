@@ -17,21 +17,20 @@ ms.component: B2C
 
 This feature gives you fine-grained control, on a [per-policy basis](active-directory-b2c-reference-policies.md), of:
 
-1. Lifetimes of security tokens emitted by Azure Active Directory (Azure AD) B2C.
-2. Lifetimes of web application sessions managed by Azure AD B2C.
-3. Formats of important claims in the security tokens emitted by Azure AD B2C.
-4. Single sign-on (SSO) behavior across multiple apps and policies in your B2C tenant.
+- Lifetimes of security tokens emitted by Azure Active Directory (Azure AD) B2C.
+- Lifetimes of web application sessions managed by Azure AD B2C.
+- Formats of important claims in the security tokens emitted by Azure AD B2C.
+- Single sign-on (SSO) behavior across multiple apps and policies in your B2C tenant.
 
 For built-in policies, you can use this feature in your Azure AD B2C directory as follows:
 
-1. Follow these steps to [navigate to the B2C features menu](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
-2. Click **Sign-up or sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-up or sign-in policies***.
-3. Open a policy by clicking it. For example, click on **B2C_1_SiUpIn**.
-4. Click **Edit** at the top of the menu.
-5. Click **Token, session & single sign-on config**.
-6. Make your desired changes. Learn about available properties in subsequent sections.
-7. Click **OK**.
-8. Click **Save** on the top of the menu.
+1. Click **Sign-up or sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-up or sign-in policies***.
+2. Open a policy by clicking it. For example, click on **B2C_1_SiUpIn**.
+3. Click **Edit** at the top of the menu.
+4. Click **Token, session & single sign-on config**.
+5. Make your desired changes. Learn about available properties in subsequent sections.
+6. Click **OK**.
+7. Click **Save** on the top of the menu.
 
 ## Token lifetimes configuration
 

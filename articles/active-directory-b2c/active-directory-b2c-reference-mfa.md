@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -27,22 +27,21 @@ This feature helps applications handle scenarios such as the following:
 * You don't require Multi-Factor Authentication to access an application in general, but you do require it to access the sensitive portions within it. For example, the consumer can sign in to a banking application with a social or local account and check account balance, but must verify the phone number before attempting a wire transfer.
 
 ## Modify your sign-up policy to enable Multi-Factor Authentication
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Click **Sign-up policies**.
-3. Click your sign-up policy (for example, "B2C_1_SiUp") to open it.
-4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
-5. Click **Save** at the top of the blade.
+1. Click **Sign-up policies**.
+2. Click your sign-up policy (for example, "B2C_1_SiUp") to open it.
+3. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
+4. Click **Save** at the top of the blade.
 
 You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 
 A consumer account gets created in your directory before the Multi-Factor Authentication step occurs. During the step, the consumer is asked to provide his or her phone number and verify it. If verification is successful, the phone number is attached to the consumer account for later use. Even if the consumer cancels or drops out, he or she can be asked to verify a phone number again during the next sign-in (with Multi-Factor Authentication enabled).
 
 ## Modify your sign-in policy to enable Multi-Factor Authentication
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Click **Sign-in policies**.
-3. Click your sign-in policy (for example, "B2C_1_SiIn") to open it. Click **Edit** at the top of the blade.
-4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
-5. Click **Save** at the top of the blade.
+
+1. Click **Sign-in policies**.
+2. Click your sign-in policy (for example, "B2C_1_SiIn") to open it. Click **Edit** at the top of the blade.
+3. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
+4. Click **Save** at the top of the blade.
 
 You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 

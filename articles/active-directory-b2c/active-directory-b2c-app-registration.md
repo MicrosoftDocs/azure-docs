@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Register your application in Azure Active Directory B2C
+# Register an application in Azure Active Directory B2C
 
 To build an [application](active-directory-b2c-apps.md) that accepts consumer sign-up and sign-in, you first need to register the application with an Azure AD B2C tenant. This article helps you register an application in an Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure AD B2C tenant.
 
