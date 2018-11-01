@@ -55,7 +55,7 @@ For more information on Azure Instance Metadata Service, see [IMDS documentation
 
 All Linux distributions supported by Azure IaaS can be used with managed identities for Azure resources via the IMDS endpoint. 
 
-Note: The managed identities for Azure resources VM Extension (planned for deprecation in January 2019) only supports the following Linux distributions:
+The managed identities for Azure resources VM Extension (planned for deprecation in January 2019) only supports the following Linux distributions:
 - CoreOS Stable
 - CentOS 7.1
 - Red Hat 7.2
@@ -121,8 +121,10 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 ### VM extension provisioning fails
 
-Provisioning of the VM extension might fail due to DNS lookup failures. Restart the VM, and try again. 
-Note: The VM extension is planned for deprecation by January 2019. We recommend you move to using the IMDS endpoint. 
+Provisioning of the VM extension might fail due to DNS lookup failures. Restart the VM, and try again.
+ 
+> [!NOTE]
+> The VM extension is planned for deprecation by January 2019. We recommend you move to using the IMDS endpoint.
 
 ### Transferring a subscription between Azure AD directories
 
