@@ -152,7 +152,8 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Post-update steps
 
-*There are no post-update steps for update 1809.*
+> [!Important]  
+> Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - [Link to KB]()  
