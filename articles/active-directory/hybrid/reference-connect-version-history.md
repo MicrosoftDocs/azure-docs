@@ -223,7 +223,9 @@ Status: Released to select customers
 
 #### New features and improvements
 
-* Adding Privacy Settings for the General Data Protection Regulation.  For more information see the article [here](reference-connect-user-privacy.md).
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For more information see the article [here](reference-connect-user-privacy.md).
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]  
 
 * application telemetry - admin can switch this class of data on/off at will
 
