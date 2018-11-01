@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You'll use this value to configure a sample application in the following section.
+1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You'll use this value to configure a sample application in the next section.
 
     ![Azure Active Directory directory ID](./media/digital-twins-permissions/aad-app-reg-tenant.png)
 
@@ -22,7 +22,7 @@
 
     ![Create pane](./media/digital-twins-permissions/aad-app-reg-create.png)
 
-1. Open the registered app, and copy the value of the **Application ID** field to a temporary file. This value identifies your Azure Active Directory app. You will use the application ID to configure your sample application in the following sections.
+1. Open the registered app, and copy the value of the **Application ID** field to a temporary file. This value identifies your Azure Active Directory app. You'll use the application ID to configure your sample application in the following sections.
 
     ![Azure Active Directory application ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 

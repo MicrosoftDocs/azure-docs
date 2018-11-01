@@ -56,7 +56,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. Enter a **Name** for your event hub, and select **Create**. 
 
-   After the event hub is deployed, it will appear in the **Event Hubs** pane of the Event Hubs namespace with an **Active** status. Select this event hub to open its **Overview** pane.
+   After the event hub is deployed, it appears in the **Event Hubs** pane of the Event Hubs namespace with an **Active** status. Select this event hub to open its **Overview** pane.
 
 1. Select the **Consumer group** button at the top, and enter a name such as **tsievents** for the consumer group. Select **Create**.
     ![Event Hub consumer group](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
@@ -161,7 +161,7 @@ If you want to stop exploring Azure Digital Twins beyond this point, feel free t
 
 ## Next steps
 
-Proceed to the next article to learn more about spatial intelligence graphs and object models in Azure Digital Twins. 
+Go to the next article to learn more about spatial intelligence graphs and object models in Azure Digital Twins. 
 > [!div class="nextstepaction"]
 > [Understanding Digital Twins object models and spatial intelligence graph](concepts-objectmodel-spatialgraph.md)
 

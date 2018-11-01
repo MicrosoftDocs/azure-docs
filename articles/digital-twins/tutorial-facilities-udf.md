@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Provision your building and monitor working conditions with Azure Digital Twins
 
-This tutorial demonstrates how to use Azure Digital Twins to monitor your spaces for desired temperature conditions and comfort level. After you have [configured your sample building](tutorial-facilities-setup.md), you can provision your building and run custom functions on your sensor data by using the steps in this tutorial.
+This tutorial demonstrates how to use Azure Digital Twins to monitor your spaces for desired temperature conditions and comfort level. After you [configure your sample building](tutorial-facilities-setup.md), you can provision your building and run custom functions on your sensor data by using the steps in this tutorial.
 
 In this tutorial, you learn how to:
 
@@ -43,7 +43,7 @@ Add the following matcher below the existing matchers. Make sure the keys are al
         dataTypeValue: Temperature
 ```
 
-This matcher will track the SAMPLE_SENSOR_TEMPERATURE sensor that you added in [the first tutorial](tutorial-facilities-setup.md). Note that these lines are also present in the *provisionSample.yaml* file as commented-out lines. You can uncomment them by removing the `#` character in front of each line. 
+This matcher will track the SAMPLE_SENSOR_TEMPERATURE sensor that you added in [the first tutorial](tutorial-facilities-setup.md). These lines are also present in the *provisionSample.yaml* file as commented-out lines. You can uncomment them by removing the `#` character in front of each line. 
 
 <a id="udf" />
 
@@ -60,9 +60,9 @@ Also note the section named **roleassignments**. It assigns the Space Administra
             - Matcher Temperature
     ```
 
-1. Open the file **src\actions\userDefinedFunctions\availability.js** in your editor. This is the file referenced in the **script** element of provisionSample.yaml. The user-defined function in this file looks for conditions when no motion is detected in the room, as well as carbon dioxide levels below 1,000 ppm. 
+1. Open the file **src\actions\userDefinedFunctions\availability.js** in your editor. This is the file referenced in the **script** element of provisionSample.yaml. The user-defined function in this file looks for conditions when no motion is detected in the room and carbon dioxide levels are below 1,000 ppm. 
 
-   Modify the JavaScript file to monitor temperature and other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels below 1,000 ppm, and temperature below 78 degrees Fahrenheit.
+   Modify the JavaScript file to monitor temperature and other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1,000 ppm, and temperature is below 78 degrees Fahrenheit.
 
    > [!NOTE]
    > This section modifies the file *src\actions\userDefinedFunctions\availability.js* so you can learn in detail one way to write a user-defined function. However, you can choose to directly use the file [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) in your setup. This file has all the changes required for this tutorial. If you use this file instead, make sure to use the correct file name for the **script** key in [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
@@ -90,35 +90,35 @@ Also note the section named **roleassignments**. It assigns the Space Administra
     
     d. Remove the following lines of code from below the comment `// Modify this line to monitor your sensor value`: 
 
-        ```JavaScript
-            if(carbonDioxideValue === null || motionValue === null) {
-                sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide or motion are null, returning");
-                return;
-            }
-        ```
+       ```JavaScript
+           if(carbonDioxideValue === null || motionValue === null) {
+               sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide or motion are null, returning");
+               return;
+           }
+       ```
        
-       Replace them with the following lines:
+    Replace them with the following lines:
 
-        ```JavaScript
-            if(carbonDioxideValue === null || motionValue === null || temperatureValue === null){
-                sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide, motion, or temperature are null, returning");
-                return;
-            }
-        ```
+       ```JavaScript
+           if(carbonDioxideValue === null || motionValue === null || temperatureValue === null){
+               sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide, motion, or temperature are null, returning");
+               return;
+           }
+       ```
     
     e. Remove the following lines of code from below the comment `// Modify these lines as per your sensor`:
 
-        ```JavaScript
-            var availableFresh = "Room is available and air is fresh";
-            var noAvailableOrFresh = "Room is not available or air quality is poor";
-        ```
+       ```JavaScript
+           var availableFresh = "Room is available and air is fresh";
+           var noAvailableOrFresh = "Room is not available or air quality is poor";
+       ```
 
-       Replace them with the following lines:
+    Replace them with the following lines:
 
-        ```JavaScript
-            var alert = "Room with fresh air and comfortable temperature is available.";
-            var noAlert = "Either room is occupied, or working conditions are not right.";
-        ```
+       ```JavaScript
+           var alert = "Room with fresh air and comfortable temperature is available.";
+           var noAlert = "Either room is occupied, or working conditions are not right.";
+       ```
     
     f. Remove the following *if-else* code block after the comment `// Modify this code block for your sensor`:
 
@@ -140,7 +140,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
             }
         ```
       
-       And replace it with the following *if-else* block:
+    And replace it with the following *if-else* block:
 
         ```JavaScript
             // If sensor values are within range and the room is available
@@ -161,7 +161,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
             }
         ```
         
-        The modified UDF will look for a condition where a room becomes available and has the carbon dioxide and temperature within tolerable limits. It will generate a notification with the statement `parentSpace.Notify(JSON.stringify(alert));` when this condition is met. It will set the value of the monitored space regardless of whether the condition is met, with the corresponding message.
+    The modified UDF will look for a condition where a room becomes available and has the carbon dioxide and temperature within tolerable limits. It will generate a notification with the statement `parentSpace.Notify(JSON.stringify(alert));` when this condition is met. It will set the value of the monitored space regardless of whether the condition is met, with the corresponding message.
     
     g. Save the file. 
     
@@ -189,7 +189,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
 ## Simulate sensor data
 In this section, you'll use the project named *device-connectivity* in the sample. You'll simulate sensor data for detecting motion, temperature, and carbon dioxide. This project generates random values for the sensors, and sends them to the IoT hub by using the device connection string.
 
-1. In a separate command window, go to the Azure Digital Twins sample, and then to the **device-connectivity** folder.
+1. In a separate command window, go to the Azure Digital Twins sample and then to the **device-connectivity** folder.
 
 1. Run this command to make sure the dependencies for the project are correct:
 
@@ -254,7 +254,7 @@ If you want to stop exploring Azure Digital Twins at this point, feel free to de
 
 ## Next steps
 
-Now that you have provisioned your spaces and created a framework to trigger custom notifications, you can proceed to either of the following tutorials: 
+Now that you have provisioned your spaces and created a framework to trigger custom notifications, you can go to either of the following tutorials: 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Receive notifications from your Azure Digital Twins spaces using Logic Apps](tutorial-facilities-events.md)

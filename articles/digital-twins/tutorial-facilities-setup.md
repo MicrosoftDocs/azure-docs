@@ -19,7 +19,7 @@ These tutorials will walk you through a .NET console application to build a scen
 
 You'll learn how to replicate the physical areas and entities in the building as digital objects by using the Azure Digital Twins service. You'll simulate device events by using another console application. Then, you'll learn how to monitor the events that come from these physical areas and entities in near real time. 
 
-An office administrator can use this information to help an employee working in this building to book meeting rooms with optimal conditions. An office facilities manager can use your setup to find out usage trends of the rooms, as well as monitor working conditions for maintenance purposes.
+An office administrator can use this information to help an employee working in this building to book meeting rooms with optimal conditions. An office facilities manager can use your setup to get usage trends of the rooms, and to monitor working conditions for maintenance purposes.
 
 In the first tutorial of this series, you learn how to:
 
@@ -37,7 +37,7 @@ These tutorials use and modify the same samples that the [quickstart to find ava
 
 - An Azure subscription. If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The right SDK. The Azure Digital Twins samples used in these tutorials are written in C#. Make sure to install [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Check if the right version is installed on your machine by running `dotnet --version` in a command window.
+- The right SDK. The Azure Digital Twins samples used in these tutorials are written in C#. Make sure to install [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Check that the right version is installed on your machine by running `dotnet --version` in a command window.
 
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
@@ -76,13 +76,13 @@ In the extracted sample folder, open the file **digital-twins-samples-csharp\dig
 
 * You can use the provisioning sample **occupancy-quickstart** to configure and provision a [spatial intelligence graph](concepts-objectmodel-spatialgraph.md#graph). This graph is the digitized image of your physical spaces and the resources in them. It uses an [object model](concepts-objectmodel-spatialgraph.md#model), which defines objects for a smart building. For a complete list of Digital Twins objects and REST APIs, visit [this REST API documentation](https://docs.westcentralus.azuresmartspaces.net/management/swagger) or the Management API URL that was created for [your instance](#deploy).
 
-   To explore the sample to see how it communicates with your Digital Twins instance, you can start with the **src\actions** folder. The files in this folder implement the commands that you will use in these tutorials:
+   To explore the sample to see how it communicates with your Digital Twins instance, you can start with the **src\actions** folder. The files in this folder implement the commands that you'll use in these tutorials:
     - The **provisionSample.cs** file shows how to provision your spatial graph.
     - The **getSpaces.cs** file gets information about the provisioned spaces.
     - The **getAvailableAndFreshSpaces.cs** file gets the results of a custom function called a user-defined function.
     - The **createEndpoints.cs** file creates endpoints to interact with other services.
 
-* The simulation sample **device-connectivity** simulates sensor data and sends it to the IoT hub that's provisioned for your Digital Twins instance. You'll use this sample in [the next tutorial after you have provisioned your spatial graph](tutorial-facilities-udf.md#simulate). The sensor and device identifiers that you use to configure this sample should be the same as what you'll use to provision your graph.
+* The simulation sample **device-connectivity** simulates sensor data and sends it to the IoT hub that's provisioned for your Digital Twins instance. You'll use this sample in [the next tutorial after you provision your spatial graph](tutorial-facilities-udf.md#simulate). The sensor and device identifiers that you use to configure this sample should be the same as what you'll use to provision your graph.
 
 ### Configure the provisioning sample
 1. Open a command window and go to the downloaded sample. Run the following command:
@@ -100,7 +100,7 @@ In the extracted sample folder, open the file **digital-twins-samples-csharp\dig
 1. In Visual Studio Code, open the **appSettings.json** file in the **occupancy-quickstart** project. Update the following values:
    * **ClientId**: Enter the application ID of your Azure AD app registration. You noted this ID in the section where you [set app permissions](#permissions).
    * **Tenant**: Enter the directory ID of your [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). You also noted this ID in the section where you [set app permissions](#permissions).
-   * **BaseUrl**: Enter the URL of your Digital Twins instance. To get this URL, replace the placeholders in this URL with values for your instance: **_https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_**. You can also get this URL by modifying the Management API URL from [the deployment section](#deploy). Replace **swagger/** with **api/v1.0/**.
+   * **BaseUrl**: Enter the URL of your Digital Twins instance. To get this URL, replace the placeholders in this URL with values for your instance: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. You can also get this URL by modifying the Management API URL from [the deployment section](#deploy). Replace **swagger/** with **api/v1.0/**.
 
 1. See a list of Digital Twins features that you can explore by using the sample. Run the following command:
 
@@ -150,14 +150,14 @@ The **provisionSample.yaml** file contains the following nodes:
 
 - **devices**: Spaces can contain `devices`, which are physical or virtual entities that manage a number of sensors. For example, a device might be a user’s phone, a Raspberry Pi sensor pod, or a gateway. In the imaginary building in your sample, note how the room named **Focus Room** contains a **Raspberry Pi 3 A1** device. Each device node is identified by a unique `hardwareId`, which is hardcoded in the sample. To configure this sample for an actual production, replace these with values from your setup.  
 
-- **sensors**: A device can contain multiple `sensors`. They can detect and record physical changes like temperature, motion, and battery level. Each sensor node is uniquely identified by a `hardwareId`, hardcoded here. For an actual application, replace these by using the unique identifiers of the sensors in your setup. The provisionSample.yaml file has two sensors to record *Motion* and *CarbonDioxide*. Add another sensor to record *Temperature*, by adding the following lines, below the lines for the CarbonDioxide sensor. Note that these are provided in provisionSample.yaml as commented-out lines. You can simply uncomment them by removing the `#` character in the front of each line. 
+- **sensors**: A device can contain multiple `sensors`. They can detect and record physical changes like temperature, motion, and battery level. Each sensor node is uniquely identified by a `hardwareId`, hardcoded here. For an actual application, replace these by using the unique identifiers of the sensors in your setup. The provisionSample.yaml file has two sensors to record *Motion* and *CarbonDioxide*. Add another sensor to record *Temperature*, by adding the following lines, below the lines for the CarbonDioxide sensor. Note that these are provided in provisionSample.yaml as commented-out lines. You can uncomment them by removing the `#` character in the front of each line. 
 
     ```yaml
             - dataType: Temperature
               hardwareId: SAMPLE_SENSOR_TEMPERATURE
     ```
     > [!NOTE]
-    > Make sure the alignment of the `dataType` and `hardwareId` keys align with the statements above this snippet. Also make sure that your editor does not replace spaces with tabs. 
+    > Make sure the `dataType` and `hardwareId` keys align with the statements above this snippet. Also make sure that your editor does not replace spaces with tabs. 
 
 Save and close the provisionSample.yaml file. In the next tutorial, you'll add more information to this file, and then provision your Azure Digital Twins sample building.
 
@@ -172,7 +172,7 @@ If you want to stop exploring Azure Digital Twins at this point, feel free to de
 
 ## Next steps
 
-To learn how to implement a custom logic to monitor conditions in your sample building, proceed to the next tutorial in the series: 
+To learn how to implement a custom logic to monitor conditions in your sample building, go to the next tutorial in the series: 
 > [!div class="nextstepaction"]
 > [Tutorial: Provision your building and monitor working conditions](tutorial-facilities-udf.md)
 
