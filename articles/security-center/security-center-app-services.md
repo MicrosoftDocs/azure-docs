@@ -17,7 +17,7 @@ ms.date: 10/28/2018
 ms.author: rkarlin
 
 ---
-# Protecting App Service with Azure Security Center
+# Protect App Service with Azure Security Center
 This article helps you use Azure Security Center to monitor and protect your applications running on top of App Service.
 
 App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure. App Service offers auto-scaling and high availability, support both Windows and Linux, as well as automated deployments from GitHub, Visual Studio Team Services or any Git repository. 
