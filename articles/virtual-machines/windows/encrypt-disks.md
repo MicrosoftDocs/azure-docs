@@ -108,14 +108,7 @@ New-AzureRmVm `
 
 
 ## Encrypt a virtual machine
-To encrypt the virtual disks, you bring together all the previous components:
-
-1. Specify the Azure Active Directory service principal and password.
-2. Specify the Key Vault to store the metadata for your encrypted disks.
-3. Specify the cryptographic keys to use for the actual encryption and decryption.
-4. Specify whether you want to encrypt the OS disk, the data disks, or all.
-
-Encrypt your VM with [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) using the Azure Key Vault key and Azure Active Directory service principal credentials. The following example retrieves all the key information then encrypts the VM named *myVM*:
+Encrypt your VM with [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) using the Azure Key Vault key. The following example retrieves all the key information then encrypts the VM named *myVM*:
 
 ```azurepowershell-interactive
 $keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
