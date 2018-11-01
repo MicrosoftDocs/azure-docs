@@ -34,6 +34,9 @@ Step by step instructions
 -------------------------
 In the below instructions, we are assigning Key Vault as a service to have operator permissions on your storage account
 
+> [!NOTE]
+> Please note that once you've set up Azure Key Vault managed storage account keys they should **NO** longer be changed except via Key Vault. Managed Storage account keys means that Key Vault would manage rotating the storage account key
+
 1. After creating a storage account run the following command to get the resource ID of the storage account, you want to manage
 
     ```
