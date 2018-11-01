@@ -288,7 +288,7 @@ Ensure the following prerequisites are met:
 
 
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - User role:  Administrator.
 
