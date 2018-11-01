@@ -47,7 +47,7 @@ Monitor IoT resources to watch for outliers, threats, or resource parameters tha
 
 ## Azure Active Directory best practices
 
-Azure Digital Twins uses Azure AD to authenticate users and protect applications. Azure AD supports authentication for a variety of modern architectures. All of them are based on industry-standard protocols such as OAuth 2.0 or OpenID Connect. A few key practices to secure your IoT space for Azure AD include:
+Azure Digital Twins uses Azure AD to authenticate users and protect applications. Azure AD supports authentication for a variety of modern architectures. They're all based on industry-standard protocols such as OAuth 2.0 or OpenID Connect. A few key practices to secure your IoT space for Azure AD include:
 
 > [!div class="checklist"]
 > * Store Azure AD app secrets and keys in a secure location, such as [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
@@ -65,6 +65,6 @@ Azure Digital Twins uses Azure AD to authenticate users and protect applications
 
 To learn more about Azure IoT best practices, read [IoT security best practices](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/).
 
-To learn about role-based access control, read [Role-Based Access Control](./security-role-based-access-control.md).
+To learn about role-based access control, read [Role-based access control](./security-role-based-access-control.md).
 
 To learn about authentication, read [Authenticate with APIs](./security-authenticating-apis.md).
