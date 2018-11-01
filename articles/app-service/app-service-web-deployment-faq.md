@@ -75,7 +75,7 @@ To resolve FTP issues:
 
 ## How do I publish my code to App Service?
 
-The Azure Quickstart is designed to help you deploy your app by using the deployment stack and method of your choice. To use the Quickstart, in the Azure portal, go to your app service, under **Deployment**, select **Quichstart**.
+The Azure Quickstart is designed to help you deploy your app by using the deployment stack and method of your choice. To use the Quickstart, in the Azure portal, go to your app service, under **Deployment**, select **Quickstart**.
 
 ## Why does my app sometimes restart after deployment to App Service?
 
