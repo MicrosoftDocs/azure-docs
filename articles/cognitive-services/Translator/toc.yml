@@ -178,9 +178,9 @@
   - name: Overview
     items:
     - name: What is the Custom Translator?
-      href: overview.md
+      href: custom-translator/overview.md
   - name: Quickstarts
-    href: quickstart-build-deploy-custom-model.md
+    href: custom-translator/quickstart-build-deploy-custom-model.md
   - name: Concepts
     items:
     - name: Workspace and projects
